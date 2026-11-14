@@ -1,0 +1,870 @@
+Delivered-To: estampel@gmail.com
+Received: by 2002:a05:622a:1a21:b0:479:5c49:a6e8 with SMTP id f33csp629100qtb;
+        Fri, 11 Apr 2025 12:45:32 -0700 (PDT)
+X-Received: by 2002:a17:906:c14b:b0:ac1:ecb5:7207 with SMTP id a640c23a62f3a-acad34ca0c1mr303341466b.29.1744400732580;
+        Fri, 11 Apr 2025 12:45:32 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1744400732; cv=none;
+        d=google.com; s=arc-20240605;
+        b=W6o+Ch8N9EPlMwzmoV1q/xXGsDJmSsLMH40a2nwFeecJrDScbv/4RFVxjXx3rIAkNC
+         boogfB95mGHcrXSt+m7HT1n29WZpcWNO1UPiKhoApN4SenplCdGzWMVsO+3EHVYbMscv
+         sJBGVqM6XE9QADZnmOhoD6Y1KmZi5ffJE5vMPWiJkJPhshI1w0C2Sm9+bHhInx/ECCK9
+         eimAxVqxDv6qOepQt9P1u/1xFtBuGKh+4w6Zpss1NTmL5OU9chmd9GklVZtS3zQzYXSD
+         S8BEpfc5MEuCgulVu5CLnBsB6ho2FQKCczLRi7Lz+obbjAgaD4zpo4I41tGSZklqZj7g
+         +slg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=yJA02Qpi/KgAu398wznQ7vlS8CgmC3BQ1LJeoOt6jUY=;
+        fh=wF/Yrd2E0xeKwPH74kML7cQSth+Fl4bwhVNrybJ4uh4=;
+        b=P0AXsL/O8ZnnuRi5pNlVgw9DGiE1u5uocpZl1lXhfYMGDC9XbihzEg3ePan5CuYSfz
+         yCB+iuGgxsc3J4vi/DL0G9rlqE0EwQU+J3/mx7ROLoq5e+xRGfi7GJwAYGufBeUUAioK
+         7lIsZx1GG8Gib3xy8Q0wpYIpLTIVb/hnc6eAJWB3dSNdJymwsTH/4NUyAHiLYKd+Ii/L
+         OTWeVvB8VKXoDJYqGI/Fv0vJHWDXHgbaQfUIjj8m0cQhitJ0lkjx0ACqv6Fm8M97Zh3G
+         wHDK0xMjE+Aen620tF+R7QuHFTiir5qEXM61XfrxLsdItt469z/sah4Gglf6TIdDT0Ng
+         LWDw==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=Pw7RPZu5;
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <banyus53@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id a640c23a62f3a-acac1945353sor308228566b.15.2025.04.11.12.45.32
+        for <estampel@gmail.com>
+        (Google Transport Security);
+        Fri, 11 Apr 2025 12:45:32 -0700 (PDT)
+Received-SPF: pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=Pw7RPZu5;
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1744400732; x=1745005532; dara=google.com;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=yJA02Qpi/KgAu398wznQ7vlS8CgmC3BQ1LJeoOt6jUY=;
+        b=Pw7RPZu5uMp5XBisGpPmmllwu+YbT7zbUN9yBKSGpKzvpzMbcCDDJKp4Prnkk0HRgE
+         sQeQZo8zYbtlvGtYKxqH34+ukMkCgIaA5YJJLNRTtakBzA9qy/bJvviaaorDHl0LIdz1
+         1MsKNfL0tHUqBkccm8b0OSOwKY3CzhRztWTnI5CQvEKZorGRxY1RukSzVN7XWSsFeQC3
+         goD6BgIrl2ZgZ0VaYB5MHWfqayK1lPR0F1q90pyuLHjGxCw+eDYq/cPRjz/jGc5yjVWv
+         zvHWBnPtQ3/1JtjnQ4BoL+/AM96vha9UYYdtZyOmbtEb0cO2e46hkZIvt/PbSaZddyYR
+         YU3w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744400732; x=1745005532;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=yJA02Qpi/KgAu398wznQ7vlS8CgmC3BQ1LJeoOt6jUY=;
+        b=jdCLOOS09746P9RDN7JtCNTOTuDICDuY/hWPaw6DDJHfHHkyMTT147IFWAe6RMj1hx
+         WpmFTpO3J2IRKnbUFqwkKKL9MKuMaZ4/02OviNTQbQS0Ki2eRudj6vgATue2yDN/lk3r
+         TkYXpXJwuu1cRlg7HuEimES+f3n65jmwFjuWVAgxEyBXlMBEe31b6lluzmJ7EqrXT0zg
+         j7oeTn7Y4eXStdef5xbADyPyZ0ZADPeGgJfNxPUH4N36uaeKPi9fZ/norEzMSVybfTr5
+         ebI9gJzFuHmjPi0NHscoeDFVtzme0i+vuW7q0Whu3XFN/CN1R2qhS+5rYHKMBuu6zxN5
+         yZtg==
+X-Gm-Message-State: AOJu0YzhiQs+yY85Z4VYH4TFqZ9lPCMYbAHxZDZa7VRWwHEfmm0ud7JR
+	xsHv/uTf1OHwGgD6ZZYAIf/pVxGBcn/wVQRBS4ElPYg4ujuM9UCu8RU8OCbRuWOUwKeaPC08m9p
+	qFn6VpvSDYWOAEo00SIiFPpU1wcDq4Q==
+X-Gm-Gg: ASbGnctppo7uoKP81p+CGwfMxBxiwVQDBbCYmUeS7woR9IZaktsaw1BnG3ULPpO/m3p
+	tU2ovFGUo4YG7FvqdqgOepS7Yzq6mBdcEMa3vpuHxucZWfdV099DPEBFET8X59FXyG/y8Z0OA4e
+	WADqf/Ui2EV6tn5S3VApbRHw==
+X-Google-Smtp-Source: AGHT+IGsulVFshFY6NtdWjjV+rBJwHAK+VO9mRabEybPaGlmDJt1isSy/lHdZa/+379EfGM78EzEHp36W4gbbP/yS18=
+X-Received: by 2002:a17:906:f5a5:b0:ac3:3cff:268 with SMTP id
+ a640c23a62f3a-acad34d5a30mr339880266b.30.1744400731219; Fri, 11 Apr 2025
+ 12:45:31 -0700 (PDT)
+MIME-Version: 1.0
+References: <100094.6852386255.202504111800155884290.0009003680@semanal.idealista.com>
+In-Reply-To: <100094.6852386255.202504111800155884290.0009003680@semanal.idealista.com>
+From: =?UTF-8?B?w4FnbmVzIEJ1Z8Ohcg==?= <banyus53@gmail.com>
+Date: Fri, 11 Apr 2025 21:45:19 +0200
+X-Gm-Features: ATxdqUEo65_IjeUvrSFu59ASleQQlgD_N-L44hBtEh7acufXNq-p51b9XkmW6oU
+Message-ID: <CA+39czWyzQVk-ib50UtegV6esrHMGFwGP6BRDi=GiyVV31hLsg@mail.gmail.com>
+Subject: Fwd: British buyers lead foreign purchases in Spain as prices reach
+ new record levels
+To: Emese Stampel <estampel@gmail.com>
+Content-Type: multipart/alternative; boundary="000000000000ee341c063285f117"
+
+--000000000000ee341c063285f117
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+---------- Forwarded message ---------
+Felad=C3=B3: idealista/news <news@semanal.idealista.com>
+Date: 2025. =C3=A1pr. 11., P 20:00
+Subject: British buyers lead foreign purchases in Spain as prices reach new
+record levels
+To: banyus53@gmail.com <banyus53@gmail.com>
+
+
+Spain remains a top destination for international buyers. =CD=8F=E2=80=8C =
+=E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=
+=C2=AD
+=CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=
+=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=
+=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=
+=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=
+=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =
+=E2=80=87=C2=AD
+=CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=
+=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=
+=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=
+=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=
+=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =
+=E2=80=87=C2=AD
+=CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=
+=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=
+=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=
+=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=
+=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =
+=E2=80=87=C2=AD
+=CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=
+=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=
+=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=
+=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=
+=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =
+=E2=80=87=C2=AD
+=CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=
+=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=
+=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=
+=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=
+=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =
+=E2=80=87=C2=AD
+=CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=
+=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=
+=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=
+=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=
+=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =
+=E2=80=87=C2=AD
+=CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=
+=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=
+=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=
+=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=
+=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =
+=E2=80=87=C2=AD
+=CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=
+=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=
+=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD This week, we dive into the ri=
+sing
+trend of British buyers dominating the foreign property market in Spain.
+With property prices hitting new record highs, British investors are
+capitalising on the surge in demand. Also featured is a luxury Lake Como
+villa and a unique retreat in the Azores.
+11/04/2025 =C2=B7 2.176.521 subscribers =C2=B7 View in browser
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1893521&tp=3Di-1NGB-Q2Q-T=
+XB-7Tjugx-1s-7q4tl-1c-7TjrY3-lBi2gDUPUw-1fvAkj&pi=3D21OEK495jHqsDIz-DRvJKrC=
+j7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D21bd08feb36c2cc07d48d5bfda8d7bbe304=
+1c761e9539d37431d61e612c38522>
+This email is sent by idealista/news
+[image: idealista/news]
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1893522&tp=3Di-1NGB-Q2Q-T=
+XB-7Tjugx-1s-7q4tl-1c-7TjrY3-lBi2gDUPUw-1fvAkj&pi=3D21OEK495jHqsDIz-DRvJKrC=
+j7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D8d4f4e4d10446e90e80111adf601411a061=
+27f47a42cd53b5dfa34c2d1fac65e>
+
+British buyers lead foreign purchases in Spain as prices reach new record
+levels
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1893523&tp=3Di-1NGB-Q2Q-T=
+XB-7Tjugx-1s-7q4tl-1c-7TjrY3-lBi2gDUPUw-1fvAkj&pi=3D21OEK495jHqsDIz-DRvJKrC=
+j7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D4d62e4f253b142e33e2b7571229479276fb=
+98b6ef4cd11c1f3b8de2501cb2f9d>
+[image: Villa for sale in Spain]
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1893524&tp=3Di-1NGB-Q2Q-T=
+XB-7Tjugx-1s-7q4tl-1c-7TjrY3-lBi2gDUPUw-1fvAkj&pi=3D21OEK495jHqsDIz-DRvJKrC=
+j7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D52ecba9d78b13e7f0279a2402e16a4f8cfe=
+368ddfa088ba6e6e6a58220a8a94e>
+
+British buyers continue to dominate foreign property purchases in Spain, as
+the market sees record-breaking price levels. Despite rising costs, Spain
+remains a top destination for international buyers, with the British
+leading the way in acquiring both coastal and inland properties.
+Keep reading
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1893525&tp=3Di-1NGB-Q2Q-T=
+XB-7Tjugx-1s-7q4tl-1c-7TjrY3-lBi2gDUPUw-1fvAkj&pi=3D21OEK495jHqsDIz-DRvJKrC=
+j7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3Dc56878daf518e13b1a808cd3ec5b452a54c=
+8abaa2cdb00437fb1f391b340f51d>
+Over 20,000 homes with squatters listed for sale on idealista
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1893526&tp=3Di-1NGB-Q2Q-T=
+XB-7Tjugx-1s-7q4tl-1c-7TjrY3-lBi2gDUPUw-1fvAkj&pi=3D21OEK495jHqsDIz-DRvJKrC=
+j7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3Da191f4bb5b5507b9fa28529c836e4c4f4bb=
+2f79723df5e80810f66f1c9663bff>
+
+The sale of homes affected by squatting now represents 2.6% of Spain=E2=80=
+=99s
+property market, with 20,464 properties identified as squats in Q4 2024.
+idealista highlights the trend as a significant challenge to housing
+recovery, increasing owner vulnerability and reducing rental supply.
+Keep reading
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1893527&tp=3Di-1NGB-Q2Q-T=
+XB-7Tjugx-1s-7q4tl-1c-7TjrY3-lBi2gDUPUw-1fvAkj&pi=3D21OEK495jHqsDIz-DRvJKrC=
+j7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3Daa880877928c808d338f4a4d37afdcfb295=
+c8d19ad7658c2b127434eaafc4e94>
+M=C3=A1laga halts new tourist housing licenses for three years
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1893528&tp=3Di-1NGB-Q2Q-T=
+XB-7Tjugx-1s-7q4tl-1c-7TjrY3-lBi2gDUPUw-1fvAkj&pi=3D21OEK495jHqsDIz-DRvJKrC=
+j7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D260e62e6be9a21c37c5cd63f28cf7e205c7=
+364a3b74c076a77e2f71f39f1a9e0>
+[image: Malaga tourist rentals]
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1893529&tp=3Di-1NGB-Q2Q-T=
+XB-7Tjugx-1s-7q4tl-1c-7TjrY3-lBi2gDUPUw-1fvAkj&pi=3D21OEK495jHqsDIz-DRvJKrC=
+j7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D905a65a94ab2a7170a504f3382b209d06b5=
+2d38aa867fc5d76f48800aaf51e3e>
+
+M=C3=A1laga=E2=80=99s Mayor, Francisco de la Torre, has announced a three-y=
+ear
+moratorium halting new tourist accommodation registrations city-wide. This
+follows a previous ban in 43 neighbourhoods with over 8% of properties as
+holiday rentals, further curbing the growth of such accommodations across
+the city.
+Keep reading
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1893530&tp=3Di-1NGB-Q2Q-T=
+XB-7Tjugx-1s-7q4tl-1c-7TjrY3-lBi2gDUPUw-1fvAkj&pi=3D21OEK495jHqsDIz-DRvJKrC=
+j7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3Dd083feb8edb8e3d3c6ab029437d8a9dffdd=
+192d5490ce54fb7f82e11857a4eb9>
+Discover the prefabricated, modular cabin that you can build anywhere
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1893531&tp=3Di-1NGB-Q2Q-T=
+XB-7Tjugx-1s-7q4tl-1c-7TjrY3-lBi2gDUPUw-1fvAkj&pi=3D21OEK495jHqsDIz-DRvJKrC=
+j7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3Dbbcecd282ebfcb2e1fb8b77fd7cb5eb182c=
+6a1da1b5263c8dbdc24f64c83b045>
+
+Space of Mind is a modular, prefabricated cabin designed by Finnish studio
+Studio Puisto and Made By Choice. Created in response to the pandemic, it
+offers a sanctuary for reflection and relaxation, providing a peaceful
+space to disconnect and reconnect with nature in hectic urban environments.
+Keep reading
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1893532&tp=3Di-1NGB-Q2Q-T=
+XB-7Tjugx-1s-7q4tl-1c-7TjrY3-lBi2gDUPUw-1fvAkj&pi=3D21OEK495jHqsDIz-DRvJKrC=
+j7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D733a30074dd9e48612278de916d10b128cf=
+faf82e6c49a955662379faf3a28dd>
+Living in Ayamonte: authentic Andalusia with Portugal next door
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1893533&tp=3Di-1NGB-Q2Q-T=
+XB-7Tjugx-1s-7q4tl-1c-7TjrY3-lBi2gDUPUw-1fvAkj&pi=3D21OEK495jHqsDIz-DRvJKrC=
+j7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D2061a66e830a6fb0591d4d820aff9f06a83=
+0135d0c0c4c3e7603f64534b3cfa8>
+[image: Ayamonte]
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1893534&tp=3Di-1NGB-Q2Q-T=
+XB-7Tjugx-1s-7q4tl-1c-7TjrY3-lBi2gDUPUw-1fvAkj&pi=3D21OEK495jHqsDIz-DRvJKrC=
+j7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D8e839a981cb64425725cf5c540101bea09f=
+727b0ecd8b32c48922fe651e7f045>
+
+Ayamonte, in Huelva province, is a charming Spanish town with whitewashed
+houses and cobbled streets. Located near wetlands and just 7 km from the
+beach, it offers a mix of modern and traditional living, with Portugal just
+across the Guadiana estuary.
+Keep reading
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1893535&tp=3Di-1NGB-Q2Q-T=
+XB-7Tjugx-1s-7q4tl-1c-7TjrY3-lBi2gDUPUw-1fvAkj&pi=3D21OEK495jHqsDIz-DRvJKrC=
+j7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3Deeb65ce80957fbb83049b800c6af0b72894=
+759857ffb18500364266b76c9b7a0>
+Explore Playa de las Catedrales: a stunning natural wonder in Galicia
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1893536&tp=3Di-1NGB-Q2Q-T=
+XB-7Tjugx-1s-7q4tl-1c-7TjrY3-lBi2gDUPUw-1fvAkj&pi=3D21OEK495jHqsDIz-DRvJKrC=
+j7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D2b6e6e2f7b163f1bfc347dc5f732d4a9919=
+65d556bbe04e9d23288271bb9aa8b>
+
+Playa de las Catedrales, or Praia de Augas Santas, in Galicia=E2=80=99s Lug=
+o
+region, is a stunning beach known for its towering rock cliffs, natural
+arches, and caves. It offers a unique landscape, perfect for exploration
+during low tide, making it a must-visit destination.
+Keep reading
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1893537&tp=3Di-1NGB-Q2Q-T=
+XB-7Tjugx-1s-7q4tl-1c-7TjrY3-lBi2gDUPUw-1fvAkj&pi=3D21OEK495jHqsDIz-DRvJKrC=
+j7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3Daa5969c6cc5092ed20baf2a1b0e946fdbf2=
+d345867bca17e93e2f0396bd98eb8>
+Luxury Lake Como villa for sale =E2=80=93 modern design, infinity pool & st=
+unning
+views
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1893538&tp=3Di-1NGB-Q2Q-T=
+XB-7Tjugx-1s-7q4tl-1c-7TjrY3-lBi2gDUPUw-1fvAkj&pi=3D21OEK495jHqsDIz-DRvJKrC=
+j7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D90c0710fee09a46ff35bc22d50499c8613f=
+e887d4df9a79560fa70dadd299949>
+Italy
+[image: Lake Como villa for sale]
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1893539&tp=3Di-1NGB-Q2Q-T=
+XB-7Tjugx-1s-7q4tl-1c-7TjrY3-lBi2gDUPUw-1fvAkj&pi=3D21OEK495jHqsDIz-DRvJKrC=
+j7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D7b5cd0596d03d500ba6f61ba48d4c2a5e6e=
+227ed544a2e7ceffb4729f8b0d56c>
+
+Located in Tremezzina, this modern villa combines contemporary design with
+the natural beauty of Lake Como. Just 1km from the lake=E2=80=99s shores, i=
+t offers
+a unique living experience in one of Italy=E2=80=99s most desirable locatio=
+ns,
+making it a rare and exceptional property.
+Keep reading
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1893540&tp=3Di-1NGB-Q2Q-T=
+XB-7Tjugx-1s-7q4tl-1c-7TjrY3-lBi2gDUPUw-1fvAkj&pi=3D21OEK495jHqsDIz-DRvJKrC=
+j7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3De4c915a43923543964ab47c46d2120b55a7=
+fb7e26f3444e132378b9d913afe13>
+Discover the 10 most 'disappointing' tourist attractions in the world =E2=
+=80=93
+including two in Italy
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1893541&tp=3Di-1NGB-Q2Q-T=
+XB-7Tjugx-1s-7q4tl-1c-7TjrY3-lBi2gDUPUw-1fvAkj&pi=3D21OEK495jHqsDIz-DRvJKrC=
+j7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D35ab25a4c2e747648dc1a206ecaf29e7649=
+c141a8efeba193442b983afe98f5f>
+Italy
+
+Some globally famous destinations, beloved by tourists, may not meet
+expectations, leading to disappointment despite their beauty. A recent
+study analysed the most disappointing tourist attractions worldwide,
+highlighting how reality sometimes fails to align with the hype surrounding
+these popular spots.
+Keep reading
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1893542&tp=3Di-1NGB-Q2Q-T=
+XB-7Tjugx-1s-7q4tl-1c-7TjrY3-lBi2gDUPUw-1fvAkj&pi=3D21OEK495jHqsDIz-DRvJKrC=
+j7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3Da5904508340932d630caeed8f333a425bb0=
+aacbe706b7972e33627b649d64c89>
+Villa Dh=C3=A4lm: a luxury, sustainable retreat with iconic pineapple jacuz=
+zi in
+the Azores
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1893543&tp=3Di-1NGB-Q2Q-T=
+XB-7Tjugx-1s-7q4tl-1c-7TjrY3-lBi2gDUPUw-1fvAkj&pi=3D21OEK495jHqsDIz-DRvJKrC=
+j7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D871f378e1de6f1d4dda8503cdcabfd5bd8e=
+6562bc4ea3d9e7f734f54b4ed127f>
+Portugal
+[image: Villa Dh=C3=A4lm]
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1893544&tp=3Di-1NGB-Q2Q-T=
+XB-7Tjugx-1s-7q4tl-1c-7TjrY3-lBi2gDUPUw-1fvAkj&pi=3D21OEK495jHqsDIz-DRvJKrC=
+j7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D785db3ba3fa26316af80d614db7afe38728=
+6c90184707090a02a6e3651da0331>
+
+Villa Dh=C3=A4lm, an innovative luxury retreat on S=C3=A3o Miguel Island in=
+ the
+Azores, will blend sophistication, well-being, and sustainability.
+Featuring Portugal's largest pineapple sculpture with a jacuzzi inside, it
+will attract global visitors and become a memorable, Instagram-worthy spot
+celebrating the island's iconic fruit.
+Keep reading
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1893545&tp=3Di-1NGB-Q2Q-T=
+XB-7Tjugx-1s-7q4tl-1c-7TjrY3-lBi2gDUPUw-1fvAkj&pi=3D21OEK495jHqsDIz-DRvJKrC=
+j7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3Dc34dcd5e11e7f613ba9225ddae66ecf6829=
+5e619a1e03f9082cc4f36baf6779e>
+Top 10 cheapest municipalities for renting a house in Portugal in 2025
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1893546&tp=3Di-1NGB-Q2Q-T=
+XB-7Tjugx-1s-7q4tl-1c-7TjrY3-lBi2gDUPUw-1fvAkj&pi=3D21OEK495jHqsDIz-DRvJKrC=
+j7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D21c2f6f3d21b78def60c720f9cd1d76fcf0=
+dee2bcfb73abdea3880565fb83110>
+Portugal
+
+Amid rising rental costs in Portugal, some areas offer surprisingly
+affordable options. While urban centres see prices soar, there are
+municipalities where rents start as low as 300 euros per month. Want to
+know where? Discover the 10 most affordable places to rent in Portugal.
+Keep reading
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1893547&tp=3Di-1NGB-Q2Q-T=
+XB-7Tjugx-1s-7q4tl-1c-7TjrY3-lBi2gDUPUw-1fvAkj&pi=3D21OEK495jHqsDIz-DRvJKrC=
+j7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D8553ca4090bffd874026e95e60cf3127cfc=
+1bc7cdbee7d8e2cc273068dd10f1c>
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1893548&tp=3Di-1NGB-Q2Q-T=
+XB-7Tjugx-1s-7q4tl-1c-7TjrY3-lBi2gDUPUw-1fvAkj&pi=3D21OEK495jHqsDIz-DRvJKrC=
+j7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3Ddd54172a5e9b4d704d13e2f3b1880e639eb=
+e1295b4f4bdffb54dd74822942863>
+=C2=A9
+2000-2025 idealista
+To unsubscribe from this newsletter you can unsubscribe
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1893549&tp=3Di-1NGB-Q2Q-T=
+XB-7Tjugx-1s-7q4tl-1c-7TjrY3-lBi2gDUPUw-1fvAkj&pi=3D21OEK495jHqsDIz-DRvJKrC=
+j7z5twwBbaLfJgK0sMDs&x=3Dbanyus53@gmail.com%7c331a1be0273ca359f6921c0e9b24f=
+8ac%7c92159885&hp2=3D7336953bb90bdf600180e8017297edef3db63fcce7bb6d842cb6f8=
+ee8092bb80>
+<https://l.semanal.idealista.com/rts/un.aspx?tp=3Di-1NGB-Q2Q-TXB-7Tjugx-1s-=
+7q4tl-1c-7TjrY3-lBi2gDUPUw-1fvAkj>
+
+--000000000000ee341c063285f117
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"auto"></div><br><div class=3D"gmail_quote gmail_quote_container=
+"><div dir=3D"ltr" class=3D"gmail_attr">---------- Forwarded message ------=
+---<br>Felad=C3=B3: <strong class=3D"gmail_sendername" dir=3D"auto">idealis=
+ta/news</strong> <span dir=3D"auto">&lt;<a href=3D"mailto:news@semanal.idea=
+lista.com">news@semanal.idealista.com</a>&gt;</span><br>Date: 2025. =C3=A1p=
+r. 11., P 20:00<br>Subject: British buyers lead foreign purchases in Spain =
+as prices reach new record levels<br>To: <a href=3D"mailto:banyus53@gmail.c=
+om">banyus53@gmail.com</a> &lt;<a href=3D"mailto:banyus53@gmail.com">banyus=
+53@gmail.com</a>&gt;<br></div><br><br><u></u><div style=3D"background-color=
+:rgb(244,245,242)" marginwidth=3D"0" marginheight=3D"0"><span style=3D"font=
+-size:1px;color:rgb(255,255,255);line-height:1px;max-height:0px;max-width:0=
+px;opacity:0;overflow:hidden;display:none">Spain remains a top destination =
+for international buyers. =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=
+=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=
+=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=
+=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=
+=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=
+=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=
+=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=
+=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=
+=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=
+=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=
+=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=
+=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=
+=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=
+=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=
+=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=
+=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=
+=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=
+=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=
+=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=
+=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=
+=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=
+=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=
+=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=
+=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=
+=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=
+=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=
+=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=
+=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=
+=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=
+=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=
+=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=
+=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=
+=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=
+=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=
+=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=
+=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=
+=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=
+=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=
+=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=
+=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=
+=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=
+=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=
+=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=
+=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=
+=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=
+=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=
+=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD This week, we=
+ dive into the rising trend of British buyers dominating the foreign proper=
+ty market in Spain. With property prices hitting new record highs, British =
+investors are capitalising on the surge in demand. Also featured is a luxur=
+y Lake Como villa and a unique retreat in the Azores.</span><img height=3D"=
+1" width=3D"1" style=3D"display: none;"><div><div id=3D"m_-2571725976460958=
+127block-idealista-news-content"><center> <table id=3D"m_-25717259764609581=
+27newsletterBodyTable" align=3D"center" style=3D"border-spacing:0px;border-=
+collapse:collapse;text-align:left;width:100%;max-width:600px;background:rgb=
+(255,255,255);margin:0px;padding:0px;height:100%"><tbody><tr><td align=3D"c=
+enter" valign=3D"top" style=3D"margin:0px;padding:0px;border-collapse:colla=
+pse;text-align:left;font:400 16px Arial"><table style=3D"border-spacing:0px=
+;border-collapse:collapse;text-align:left;width:100%;max-width:100%"><tbody=
+><tr><td style=3D"margin:0px;padding:0px;border-collapse:collapse;text-alig=
+n:left;font:400 16px Arial"><table border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" style=3D"border-spacing:0px;border-collapse:collapse;text-align:le=
+ft;width:100%;background:rgb(229,230,225);max-width:100%"><tbody><tr><td st=
+yle=3D"margin:0px;padding:0px;border-collapse:collapse;text-align:left;font=
+:400 16px Arial"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" st=
+yle=3D"border-spacing:0px;border-collapse:collapse;text-align:left;width:10=
+0%;background-color:rgb(229,230,225);max-width:100%"><tbody><tr><td style=
+=3D"margin:0px;border-collapse:collapse;text-align:left;font:400 14px Arial=
+;padding:20px 30px;color:rgb(146,146,146)"> 11/04/2025 =C2=B7 2.176.521 sub=
+scribers =C2=B7 <a href=3D"https://l.semanal.idealista.com/rts/go2.aspx?h=
+=3D1893521&amp;tp=3Di-1NGB-Q2Q-TXB-7Tjugx-1s-7q4tl-1c-7TjrY3-lBi2gDUPUw-1fv=
+Akj&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=3D92159885&a=
+mp;hp2=3D21bd08feb36c2cc07d48d5bfda8d7bbe3041c761e9539d37431d61e612c38522" =
+style=3D"color:rgb(31,127,197);text-decoration:none;font:400 14px Arial" ta=
+rget=3D"_blank" rel=3D"noreferrer">View in browser</a></td></tr><tr><td sty=
+le=3D"margin:0px;border-collapse:collapse;text-align:left;font:400 14px Ari=
+al;color:rgb(146,146,146);padding:0px 30px 20px"> This email is sent by ide=
+alista/news</td></tr></tbody></table></td></tr></tbody></table><table style=
+=3D"border-spacing:0px;border-collapse:collapse;text-align:left;width:100%;=
+min-width:100%;float:none;clear:both;background:rgb(225,245,110);max-width:=
+100%"><tbody><tr><td style=3D"margin:0px;border-collapse:collapse;text-alig=
+n:left;font:400 16px Arial;padding:20px 30px"> <a href=3D"https://l.semanal=
+.idealista.com/rts/go2.aspx?h=3D1893522&amp;tp=3Di-1NGB-Q2Q-TXB-7Tjugx-1s-7=
+q4tl-1c-7TjrY3-lBi2gDUPUw-1fvAkj&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBba=
+LfJgK0sMDs&amp;x=3D92159885&amp;hp2=3D8d4f4e4d10446e90e80111adf601411a06127=
+f47a42cd53b5dfa34c2d1fac65e" rel=3D"home noreferrer" title=3D"Go to idealis=
+ta/news" style=3D"color:rgb(31,127,197);text-decoration:none;font:400 16px =
+Arial" target=3D"_blank"> <img width=3D"195" height=3D"24" alt=3D"idealista=
+/news" style=3D"display: block; height: auto; line-height: 100%; outline: 0=
+px; text-decoration: none; border: 0px none;"> </a></td><td style=3D"margin=
+:0px;padding:0px;border-collapse:collapse;text-align:left;font:400 16px Ari=
+al"></td></tr></tbody></table><table border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" id=3D"m_-2571725976460958127mainContent" style=3D"border-spacing=
+:0px;border-collapse:collapse;text-align:left;width:100%;max-width:100%"><t=
+body><tr><td style=3D"margin:0px;border-collapse:collapse;text-align:left;f=
+ont:400 16px Arial;padding:0px 30px;width:100%"><div style=3D"margin:0px;pa=
+dding:0px"><center> <span content=3D"British buyers lead foreign purchases =
+in Spain as prices reach new record levels" style=3D"display:block"></span>=
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-spa=
+cing:0px;border-collapse:collapse;width:100%;text-align:left;margin:0px aut=
+o;max-width:100%"><tbody><tr><td style=3D"margin:0px;border-collapse:collap=
+se;text-align:left;font:400 16px Arial;padding:24px 0px;border-bottom:2px s=
+olid rgb(235,235,233)"><table border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0" style=3D"border-spacing:0px;border-collapse:collapse;text-align:left;wi=
+dth:100%;max-width:100%"><tbody><tr><td style=3D"margin:0px;border-collapse=
+:collapse;text-align:left;font:400 16px Arial;width:100%;padding:6px 0px"><=
+h1 style=3D"margin:0px;padding:0px;font:700 20px/24px Arial,sans-serif;disp=
+lay:block"> <a href=3D"https://l.semanal.idealista.com/rts/go2.aspx?h=3D189=
+3523&amp;tp=3Di-1NGB-Q2Q-TXB-7Tjugx-1s-7q4tl-1c-7TjrY3-lBi2gDUPUw-1fvAkj&am=
+p;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=3D92159885&amp;hp2=
+=3D4d62e4f253b142e33e2b7571229479276fb98b6ef4cd11c1f3b8de2501cb2f9d" style=
+=3D"color:rgb(31,127,197);text-decoration:none;display:block;font:700 20px/=
+24px Arial,sans-serif" target=3D"_blank" rel=3D"noreferrer"> British buyers=
+ lead foreign purchases in Spain as prices reach new record levels </a></h1=
+></td></tr><tr><td style=3D"padding:6px 0px;margin:0px;border-collapse:coll=
+apse;text-align:left;font:400 16px Arial;width:100%"> <a href=3D"https://l.=
+semanal.idealista.com/rts/go2.aspx?h=3D1893524&amp;tp=3Di-1NGB-Q2Q-TXB-7Tju=
+gx-1s-7q4tl-1c-7TjrY3-lBi2gDUPUw-1fvAkj&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z=
+5twwBbaLfJgK0sMDs&amp;x=3D92159885&amp;hp2=3D52ecba9d78b13e7f0279a2402e16a4=
+f8cfe368ddfa088ba6e6e6a58220a8a94e" style=3D"color:rgb(31,127,197);text-dec=
+oration:none;font:400 16px Arial" target=3D"_blank" rel=3D"noreferrer"> <im=
+g width=3D"530" alt=3D"Villa for sale in Spain" title=3D"" style=3D"border:=
+ 0px none; display: block; height: auto; line-height: 100%; outline: 0px; t=
+ext-decoration: none; width: 100%;"> </a></td></tr><tr><td style=3D"padding=
+:6px 0px;margin:0px;border-collapse:collapse;text-align:left;font:400 16px/=
+24px Arial,sans-serif;width:100%;color:rgb(20,20,20)"><p style=3D"padding:0=
+px;margin:0px">British buyers continue to dominate foreign property purchas=
+es in Spain, as the market sees record-breaking price levels. Despite risin=
+g costs, Spain remains a top destination for international buyers, with the=
+ British leading the way in acquiring both coastal and inland properties.</=
+p></td></tr><tr><td style=3D"margin:0px;padding:16px 0px 0px;border-collaps=
+e:collapse;text-align:left;font:400 16px Arial"> <a href=3D"https://l.seman=
+al.idealista.com/rts/go2.aspx?h=3D1893525&amp;tp=3Di-1NGB-Q2Q-TXB-7Tjugx-1s=
+-7q4tl-1c-7TjrY3-lBi2gDUPUw-1fvAkj&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwB=
+baLfJgK0sMDs&amp;x=3D92159885&amp;hp2=3Dc56878daf518e13b1a808cd3ec5b452a54c=
+8abaa2cdb00437fb1f391b340f51d" style=3D"color:rgb(31,127,197);text-decorati=
+on:none;font:400 16px Arial" target=3D"_blank" rel=3D"noreferrer">Keep read=
+ing</a></td></tr></tbody></table></td></tr><tr><td style=3D"margin:0px;bord=
+er-collapse:collapse;text-align:left;font:400 16px Arial;padding:24px 0px;b=
+order-bottom:2px solid rgb(235,235,233)"><table border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"0" style=3D"border-spacing:0px;border-collapse:collapse;=
+text-align:left;width:100%;max-width:100%"><tbody><tr><td style=3D"margin:0=
+px;border-collapse:collapse;text-align:left;font:400 16px Arial;width:100%;=
+padding:6px 0px"><h1 style=3D"margin:0px;padding:0px;font:700 20px/24px Ari=
+al,sans-serif;display:block"> <a href=3D"https://l.semanal.idealista.com/rt=
+s/go2.aspx?h=3D1893526&amp;tp=3Di-1NGB-Q2Q-TXB-7Tjugx-1s-7q4tl-1c-7TjrY3-lB=
+i2gDUPUw-1fvAkj&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=
+=3D92159885&amp;hp2=3Da191f4bb5b5507b9fa28529c836e4c4f4bb2f79723df5e80810f6=
+6f1c9663bff" style=3D"color:rgb(31,127,197);text-decoration:none;display:bl=
+ock;font:700 20px/24px Arial,sans-serif" target=3D"_blank" rel=3D"noreferre=
+r"> Over 20,000 homes with squatters listed for sale on idealista </a></h1>=
+</td></tr><tr><td style=3D"padding:6px 0px;margin:0px;border-collapse:colla=
+pse;text-align:left;font:400 16px/24px Arial,sans-serif;width:100%;color:rg=
+b(20,20,20)"><p style=3D"padding:0px;margin:0px">The sale of homes affected=
+ by squatting now represents 2.6% of Spain=E2=80=99s property market, with =
+20,464 properties identified as squats in Q4 2024. idealista highlights the=
+ trend as a significant challenge to housing recovery, increasing owner vul=
+nerability and reducing rental supply.</p></td></tr><tr><td style=3D"margin=
+:0px;padding:16px 0px 0px;border-collapse:collapse;text-align:left;font:400=
+ 16px Arial"> <a href=3D"https://l.semanal.idealista.com/rts/go2.aspx?h=3D1=
+893527&amp;tp=3Di-1NGB-Q2Q-TXB-7Tjugx-1s-7q4tl-1c-7TjrY3-lBi2gDUPUw-1fvAkj&=
+amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=3D92159885&amp;h=
+p2=3Daa880877928c808d338f4a4d37afdcfb295c8d19ad7658c2b127434eaafc4e94" styl=
+e=3D"color:rgb(31,127,197);text-decoration:none;font:400 16px Arial" target=
+=3D"_blank" rel=3D"noreferrer">Keep reading</a></td></tr></tbody></table></=
+td></tr><tr></tr><tr><td style=3D"margin:0px;border-collapse:collapse;text-=
+align:left;font:400 16px Arial;padding:24px 0px;border-bottom:2px solid rgb=
+(235,235,233)"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" styl=
+e=3D"border-spacing:0px;border-collapse:collapse;text-align:left;width:100%=
+;max-width:100%"><tbody><tr><td style=3D"margin:0px;border-collapse:collaps=
+e;text-align:left;font:400 16px Arial;width:100%;padding:6px 0px"><h1 style=
+=3D"margin:0px;padding:0px;font:700 20px/24px Arial,sans-serif;display:bloc=
+k"> <a href=3D"https://l.semanal.idealista.com/rts/go2.aspx?h=3D1893528&amp=
+;tp=3Di-1NGB-Q2Q-TXB-7Tjugx-1s-7q4tl-1c-7TjrY3-lBi2gDUPUw-1fvAkj&amp;pi=3D2=
+1OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=3D92159885&amp;hp2=3D260e6=
+2e6be9a21c37c5cd63f28cf7e205c7364a3b74c076a77e2f71f39f1a9e0" style=3D"color=
+:rgb(31,127,197);text-decoration:none;display:block;font:700 20px/24px Aria=
+l,sans-serif" target=3D"_blank" rel=3D"noreferrer"> M=C3=A1laga halts new t=
+ourist housing licenses for three years </a></h1></td></tr><tr><td style=3D=
+"padding:6px 0px;margin:0px;border-collapse:collapse;text-align:left;font:4=
+00 16px Arial;width:100%"> <a href=3D"https://l.semanal.idealista.com/rts/g=
+o2.aspx?h=3D1893529&amp;tp=3Di-1NGB-Q2Q-TXB-7Tjugx-1s-7q4tl-1c-7TjrY3-lBi2g=
+DUPUw-1fvAkj&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=3D9=
+2159885&amp;hp2=3D905a65a94ab2a7170a504f3382b209d06b52d38aa867fc5d76f48800a=
+af51e3e" style=3D"color:rgb(31,127,197);text-decoration:none;font:400 16px =
+Arial" target=3D"_blank" rel=3D"noreferrer"> <img width=3D"530" alt=3D"Mala=
+ga tourist rentals" title=3D"" style=3D"border: 0px none; display: block; h=
+eight: auto; line-height: 100%; outline: 0px; text-decoration: none; width:=
+ 100%;"> </a></td></tr><tr><td style=3D"padding:6px 0px;margin:0px;border-c=
+ollapse:collapse;text-align:left;font:400 16px/24px Arial,sans-serif;width:=
+100%;color:rgb(20,20,20)"><p style=3D"padding:0px;margin:0px">M=C3=A1laga=
+=E2=80=99s Mayor, Francisco de la Torre, has announced a three-year morator=
+ium halting new tourist accommodation registrations city-wide. This follows=
+ a previous ban in 43 neighbourhoods with over 8% of properties as holiday =
+rentals, further curbing the growth of such accommodations across the city.=
+</p></td></tr><tr><td style=3D"margin:0px;padding:16px 0px 0px;border-colla=
+pse:collapse;text-align:left;font:400 16px Arial"> <a href=3D"https://l.sem=
+anal.idealista.com/rts/go2.aspx?h=3D1893530&amp;tp=3Di-1NGB-Q2Q-TXB-7Tjugx-=
+1s-7q4tl-1c-7TjrY3-lBi2gDUPUw-1fvAkj&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5tw=
+wBbaLfJgK0sMDs&amp;x=3D92159885&amp;hp2=3Dd083feb8edb8e3d3c6ab029437d8a9dff=
+dd192d5490ce54fb7f82e11857a4eb9" style=3D"color:rgb(31,127,197);text-decora=
+tion:none;font:400 16px Arial" target=3D"_blank" rel=3D"noreferrer">Keep re=
+ading</a></td></tr></tbody></table></td></tr><tr><td style=3D"margin:0px;bo=
+rder-collapse:collapse;text-align:left;font:400 16px Arial;padding:24px 0px=
+;border-bottom:2px solid rgb(235,235,233)"><table border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" style=3D"border-spacing:0px;border-collapse:collap=
+se;text-align:left;width:100%;max-width:100%"><tbody><tr><td style=3D"margi=
+n:0px;border-collapse:collapse;text-align:left;font:400 16px Arial;width:10=
+0%;padding:6px 0px"><h1 style=3D"margin:0px;padding:0px;font:700 20px/24px =
+Arial,sans-serif;display:block"> <a href=3D"https://l.semanal.idealista.com=
+/rts/go2.aspx?h=3D1893531&amp;tp=3Di-1NGB-Q2Q-TXB-7Tjugx-1s-7q4tl-1c-7TjrY3=
+-lBi2gDUPUw-1fvAkj&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp=
+;x=3D92159885&amp;hp2=3Dbbcecd282ebfcb2e1fb8b77fd7cb5eb182c6a1da1b5263c8dbd=
+c24f64c83b045" style=3D"color:rgb(31,127,197);text-decoration:none;display:=
+block;font:700 20px/24px Arial,sans-serif" target=3D"_blank" rel=3D"norefer=
+rer"> Discover the prefabricated, modular cabin that you can build anywhere=
+ </a></h1></td></tr><tr><td style=3D"padding:6px 0px;margin:0px;border-coll=
+apse:collapse;text-align:left;font:400 16px/24px Arial,sans-serif;width:100=
+%;color:rgb(20,20,20)"><p style=3D"padding:0px;margin:0px">Space of Mind is=
+ a modular, prefabricated cabin designed by Finnish studio Studio Puisto an=
+d Made By Choice. Created in response to the pandemic, it offers a sanctuar=
+y for reflection and relaxation, providing a peaceful space to disconnect a=
+nd reconnect with nature in hectic urban environments.</p></td></tr><tr><td=
+ style=3D"margin:0px;padding:16px 0px 0px;border-collapse:collapse;text-ali=
+gn:left;font:400 16px Arial"> <a href=3D"https://l.semanal.idealista.com/rt=
+s/go2.aspx?h=3D1893532&amp;tp=3Di-1NGB-Q2Q-TXB-7Tjugx-1s-7q4tl-1c-7TjrY3-lB=
+i2gDUPUw-1fvAkj&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=
+=3D92159885&amp;hp2=3D733a30074dd9e48612278de916d10b128cffaf82e6c49a9556623=
+79faf3a28dd" style=3D"color:rgb(31,127,197);text-decoration:none;font:400 1=
+6px Arial" target=3D"_blank" rel=3D"noreferrer">Keep reading</a></td></tr><=
+/tbody></table></td></tr><tr><td style=3D"margin:0px;border-collapse:collap=
+se;text-align:left;font:400 16px Arial;padding:24px 0px;border-bottom:2px s=
+olid rgb(235,235,233)"><table border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0" style=3D"border-spacing:0px;border-collapse:collapse;text-align:left;wi=
+dth:100%;max-width:100%"><tbody><tr><td style=3D"margin:0px;border-collapse=
+:collapse;text-align:left;font:400 16px Arial;width:100%;padding:6px 0px"><=
+h1 style=3D"margin:0px;padding:0px;font:700 20px/24px Arial,sans-serif;disp=
+lay:block"> <a href=3D"https://l.semanal.idealista.com/rts/go2.aspx?h=3D189=
+3533&amp;tp=3Di-1NGB-Q2Q-TXB-7Tjugx-1s-7q4tl-1c-7TjrY3-lBi2gDUPUw-1fvAkj&am=
+p;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=3D92159885&amp;hp2=
+=3D2061a66e830a6fb0591d4d820aff9f06a830135d0c0c4c3e7603f64534b3cfa8" style=
+=3D"color:rgb(31,127,197);text-decoration:none;display:block;font:700 20px/=
+24px Arial,sans-serif" target=3D"_blank" rel=3D"noreferrer"> Living in Ayam=
+onte: authentic Andalusia with Portugal next door </a></h1></td></tr><tr><t=
+d style=3D"padding:6px 0px;margin:0px;border-collapse:collapse;text-align:l=
+eft;font:400 16px Arial;width:100%"> <a href=3D"https://l.semanal.idealista=
+.com/rts/go2.aspx?h=3D1893534&amp;tp=3Di-1NGB-Q2Q-TXB-7Tjugx-1s-7q4tl-1c-7T=
+jrY3-lBi2gDUPUw-1fvAkj&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs=
+&amp;x=3D92159885&amp;hp2=3D8e839a981cb64425725cf5c540101bea09f727b0ecd8b32=
+c48922fe651e7f045" style=3D"color:rgb(31,127,197);text-decoration:none;font=
+:400 16px Arial" target=3D"_blank" rel=3D"noreferrer"> <img width=3D"530" a=
+lt=3D"Ayamonte" title=3D"" style=3D"border: 0px none; display: block; heigh=
+t: auto; line-height: 100%; outline: 0px; text-decoration: none; width: 100=
+%;"> </a></td></tr><tr><td style=3D"padding:6px 0px;margin:0px;border-colla=
+pse:collapse;text-align:left;font:400 16px/24px Arial,sans-serif;width:100%=
+;color:rgb(20,20,20)"><p style=3D"padding:0px;margin:0px">Ayamonte, in Huel=
+va province, is a charming Spanish town with whitewashed houses and cobbled=
+ streets. Located near wetlands and just 7 km from the beach, it offers a m=
+ix of modern and traditional living, with Portugal just across the Guadiana=
+ estuary.</p></td></tr><tr><td style=3D"margin:0px;padding:16px 0px 0px;bor=
+der-collapse:collapse;text-align:left;font:400 16px Arial"> <a href=3D"http=
+s://l.semanal.idealista.com/rts/go2.aspx?h=3D1893535&amp;tp=3Di-1NGB-Q2Q-TX=
+B-7Tjugx-1s-7q4tl-1c-7TjrY3-lBi2gDUPUw-1fvAkj&amp;pi=3D21OEK495jHqsDIz-DRvJ=
+KrCj7z5twwBbaLfJgK0sMDs&amp;x=3D92159885&amp;hp2=3Deeb65ce80957fbb83049b800=
+c6af0b72894759857ffb18500364266b76c9b7a0" style=3D"color:rgb(31,127,197);te=
+xt-decoration:none;font:400 16px Arial" target=3D"_blank" rel=3D"noreferrer=
+">Keep reading</a></td></tr></tbody></table></td></tr><tr><td style=3D"marg=
+in:0px;border-collapse:collapse;text-align:left;font:400 16px Arial;padding=
+:24px 0px;border-bottom:2px solid rgb(235,235,233)"><table border=3D"0" cel=
+lpadding=3D"0" cellspacing=3D"0" style=3D"border-spacing:0px;border-collaps=
+e:collapse;text-align:left;width:100%;max-width:100%"><tbody><tr><td style=
+=3D"margin:0px;border-collapse:collapse;text-align:left;font:400 16px Arial=
+;width:100%;padding:6px 0px"><h1 style=3D"margin:0px;padding:0px;font:700 2=
+0px/24px Arial,sans-serif;display:block"> <a href=3D"https://l.semanal.idea=
+lista.com/rts/go2.aspx?h=3D1893536&amp;tp=3Di-1NGB-Q2Q-TXB-7Tjugx-1s-7q4tl-=
+1c-7TjrY3-lBi2gDUPUw-1fvAkj&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK=
+0sMDs&amp;x=3D92159885&amp;hp2=3D2b6e6e2f7b163f1bfc347dc5f732d4a991965d556b=
+be04e9d23288271bb9aa8b" style=3D"color:rgb(31,127,197);text-decoration:none=
+;display:block;font:700 20px/24px Arial,sans-serif" target=3D"_blank" rel=
+=3D"noreferrer"> Explore Playa de las Catedrales: a stunning natural wonder=
+ in Galicia </a></h1></td></tr><tr><td style=3D"padding:6px 0px;margin:0px;=
+border-collapse:collapse;text-align:left;font:400 16px/24px Arial,sans-seri=
+f;width:100%;color:rgb(20,20,20)"><p style=3D"padding:0px;margin:0px">Playa=
+ de las Catedrales, or Praia de Augas Santas, in Galicia=E2=80=99s Lugo reg=
+ion, is a stunning beach known for its towering rock cliffs, natural arches=
+, and caves. It offers a unique landscape, perfect for exploration during l=
+ow tide, making it a must-visit destination.</p></td></tr><tr><td style=3D"=
+margin:0px;padding:16px 0px 0px;border-collapse:collapse;text-align:left;fo=
+nt:400 16px Arial"> <a href=3D"https://l.semanal.idealista.com/rts/go2.aspx=
+?h=3D1893537&amp;tp=3Di-1NGB-Q2Q-TXB-7Tjugx-1s-7q4tl-1c-7TjrY3-lBi2gDUPUw-1=
+fvAkj&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=3D92159885=
+&amp;hp2=3Daa5969c6cc5092ed20baf2a1b0e946fdbf2d345867bca17e93e2f0396bd98eb8=
+" style=3D"color:rgb(31,127,197);text-decoration:none;font:400 16px Arial" =
+target=3D"_blank" rel=3D"noreferrer">Keep reading</a></td></tr></tbody></ta=
+ble></td></tr><tr><td style=3D"margin:0px;border-collapse:collapse;text-ali=
+gn:left;font:400 16px Arial;padding:24px 0px;border-bottom:2px solid rgb(23=
+5,235,233)"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=
+=3D"border-spacing:0px;border-collapse:collapse;text-align:left;width:100%;=
+max-width:100%"><tbody><tr><td style=3D"margin:0px;border-collapse:collapse=
+;text-align:left;font:400 16px Arial;width:100%;padding:6px 0px"><h1 style=
+=3D"margin:0px;padding:0px;font:700 20px/24px Arial,sans-serif;display:bloc=
+k"> <a href=3D"https://l.semanal.idealista.com/rts/go2.aspx?h=3D1893538&amp=
+;tp=3Di-1NGB-Q2Q-TXB-7Tjugx-1s-7q4tl-1c-7TjrY3-lBi2gDUPUw-1fvAkj&amp;pi=3D2=
+1OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=3D92159885&amp;hp2=3D90c07=
+10fee09a46ff35bc22d50499c8613fe887d4df9a79560fa70dadd299949" style=3D"color=
+:rgb(31,127,197);text-decoration:none;display:block;font:700 20px/24px Aria=
+l,sans-serif" target=3D"_blank" rel=3D"noreferrer"> Luxury Lake Como villa =
+for sale =E2=80=93 modern design, infinity pool &amp; stunning views </a></=
+h1></td></tr><tr><td style=3D"margin:0px;border-collapse:collapse;text-alig=
+n:left;font:400 16px Arial;padding:12px 0px"> <span style=3D"color:rgb(146,=
+146,146);background:rgb(235,235,233);border-style:solid;border-color:rgb(23=
+5,235,233);border-width:4px 10px;font:400 14px Arial,sans-serif"> Italy </s=
+pan></td></tr><tr><td style=3D"padding:6px 0px;margin:0px;border-collapse:c=
+ollapse;text-align:left;font:400 16px Arial;width:100%"> <a href=3D"https:/=
+/l.semanal.idealista.com/rts/go2.aspx?h=3D1893539&amp;tp=3Di-1NGB-Q2Q-TXB-7=
+Tjugx-1s-7q4tl-1c-7TjrY3-lBi2gDUPUw-1fvAkj&amp;pi=3D21OEK495jHqsDIz-DRvJKrC=
+j7z5twwBbaLfJgK0sMDs&amp;x=3D92159885&amp;hp2=3D7b5cd0596d03d500ba6f61ba48d=
+4c2a5e6e227ed544a2e7ceffb4729f8b0d56c" style=3D"color:rgb(31,127,197);text-=
+decoration:none;font:400 16px Arial" target=3D"_blank" rel=3D"noreferrer"> =
+<img width=3D"530" alt=3D"Lake Como villa for sale" title=3D"" style=3D"bor=
+der: 0px none; display: block; height: auto; line-height: 100%; outline: 0p=
+x; text-decoration: none; width: 100%;"> </a></td></tr><tr><td style=3D"pad=
+ding:6px 0px;margin:0px;border-collapse:collapse;text-align:left;font:400 1=
+6px/24px Arial,sans-serif;width:100%;color:rgb(20,20,20)"><p style=3D"paddi=
+ng:0px;margin:0px">Located in Tremezzina, this modern villa combines contem=
+porary design with the natural beauty of Lake Como. Just 1km from the lake=
+=E2=80=99s shores, it offers a unique living experience in one of Italy=E2=
+=80=99s most desirable locations, making it a rare and exceptional property=
+.</p></td></tr><tr><td style=3D"margin:0px;padding:16px 0px 0px;border-coll=
+apse:collapse;text-align:left;font:400 16px Arial"> <a href=3D"https://l.se=
+manal.idealista.com/rts/go2.aspx?h=3D1893540&amp;tp=3Di-1NGB-Q2Q-TXB-7Tjugx=
+-1s-7q4tl-1c-7TjrY3-lBi2gDUPUw-1fvAkj&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5t=
+wwBbaLfJgK0sMDs&amp;x=3D92159885&amp;hp2=3De4c915a43923543964ab47c46d2120b5=
+5a7fb7e26f3444e132378b9d913afe13" style=3D"color:rgb(31,127,197);text-decor=
+ation:none;font:400 16px Arial" target=3D"_blank" rel=3D"noreferrer">Keep r=
+eading</a></td></tr></tbody></table></td></tr><tr><td style=3D"margin:0px;b=
+order-collapse:collapse;text-align:left;font:400 16px Arial;padding:24px 0p=
+x;border-bottom:2px solid rgb(235,235,233)"><table border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" style=3D"border-spacing:0px;border-collapse:collap=
+se;text-align:left;width:100%;max-width:100%"><tbody><tr><td style=3D"margi=
+n:0px;border-collapse:collapse;text-align:left;font:400 16px Arial;width:10=
+0%;padding:6px 0px"><h1 style=3D"margin:0px;padding:0px;font:700 20px/24px =
+Arial,sans-serif;display:block"> <a href=3D"https://l.semanal.idealista.com=
+/rts/go2.aspx?h=3D1893541&amp;tp=3Di-1NGB-Q2Q-TXB-7Tjugx-1s-7q4tl-1c-7TjrY3=
+-lBi2gDUPUw-1fvAkj&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp=
+;x=3D92159885&amp;hp2=3D35ab25a4c2e747648dc1a206ecaf29e7649c141a8efeba19344=
+2b983afe98f5f" style=3D"color:rgb(31,127,197);text-decoration:none;display:=
+block;font:700 20px/24px Arial,sans-serif" target=3D"_blank" rel=3D"norefer=
+rer"> Discover the 10 most &#39;disappointing&#39; tourist attractions in t=
+he world =E2=80=93 including two in Italy </a></h1></td></tr><tr><td style=
+=3D"margin:0px;border-collapse:collapse;text-align:left;font:400 16px Arial=
+;padding:12px 0px"> <span style=3D"color:rgb(146,146,146);background:rgb(23=
+5,235,233);border-style:solid;border-color:rgb(235,235,233);border-width:4p=
+x 10px;font:400 14px Arial,sans-serif"> Italy </span></td></tr><tr><td styl=
+e=3D"padding:6px 0px;margin:0px;border-collapse:collapse;text-align:left;fo=
+nt:400 16px/24px Arial,sans-serif;width:100%;color:rgb(20,20,20)"><p style=
+=3D"padding:0px;margin:0px"><span lang=3D"EN-GB">Some globally famous desti=
+nations, beloved by tourists, may not meet expectations, leading to disappo=
+intment despite their beauty. A recent study analysed the most disappointin=
+g tourist attractions worldwide, highlighting how reality sometimes fails t=
+o align with the hype surrounding these popular spots.</span></p></td></tr>=
+<tr><td style=3D"margin:0px;padding:16px 0px 0px;border-collapse:collapse;t=
+ext-align:left;font:400 16px Arial"> <a href=3D"https://l.semanal.idealista=
+.com/rts/go2.aspx?h=3D1893542&amp;tp=3Di-1NGB-Q2Q-TXB-7Tjugx-1s-7q4tl-1c-7T=
+jrY3-lBi2gDUPUw-1fvAkj&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs=
+&amp;x=3D92159885&amp;hp2=3Da5904508340932d630caeed8f333a425bb0aacbe706b797=
+2e33627b649d64c89" style=3D"color:rgb(31,127,197);text-decoration:none;font=
+:400 16px Arial" target=3D"_blank" rel=3D"noreferrer">Keep reading</a></td>=
+</tr></tbody></table></td></tr><tr></tr><tr><td style=3D"margin:0px;border-=
+collapse:collapse;text-align:left;font:400 16px Arial;padding:24px 0px;bord=
+er-bottom:2px solid rgb(235,235,233)"><table border=3D"0" cellpadding=3D"0"=
+ cellspacing=3D"0" style=3D"border-spacing:0px;border-collapse:collapse;tex=
+t-align:left;width:100%;max-width:100%"><tbody><tr><td style=3D"margin:0px;=
+border-collapse:collapse;text-align:left;font:400 16px Arial;width:100%;pad=
+ding:6px 0px"><h1 style=3D"margin:0px;padding:0px;font:700 20px/24px Arial,=
+sans-serif;display:block"> <a href=3D"https://l.semanal.idealista.com/rts/g=
+o2.aspx?h=3D1893543&amp;tp=3Di-1NGB-Q2Q-TXB-7Tjugx-1s-7q4tl-1c-7TjrY3-lBi2g=
+DUPUw-1fvAkj&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=3D9=
+2159885&amp;hp2=3D871f378e1de6f1d4dda8503cdcabfd5bd8e6562bc4ea3d9e7f734f54b=
+4ed127f" style=3D"color:rgb(31,127,197);text-decoration:none;display:block;=
+font:700 20px/24px Arial,sans-serif" target=3D"_blank" rel=3D"noreferrer"> =
+Villa Dh=C3=A4lm: a luxury, sustainable retreat with iconic pineapple jacuz=
+zi in the Azores </a></h1></td></tr><tr><td style=3D"margin:0px;border-coll=
+apse:collapse;text-align:left;font:400 16px Arial;padding:12px 0px"> <span =
+style=3D"color:rgb(146,146,146);background:rgb(235,235,233);border-style:so=
+lid;border-color:rgb(235,235,233);border-width:4px 10px;font:400 14px Arial=
+,sans-serif"> Portugal </span></td></tr><tr><td style=3D"padding:6px 0px;ma=
+rgin:0px;border-collapse:collapse;text-align:left;font:400 16px Arial;width=
+:100%"> <a href=3D"https://l.semanal.idealista.com/rts/go2.aspx?h=3D1893544=
+&amp;tp=3Di-1NGB-Q2Q-TXB-7Tjugx-1s-7q4tl-1c-7TjrY3-lBi2gDUPUw-1fvAkj&amp;pi=
+=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=3D92159885&amp;hp2=3D7=
+85db3ba3fa26316af80d614db7afe387286c90184707090a02a6e3651da0331" style=3D"c=
+olor:rgb(31,127,197);text-decoration:none;font:400 16px Arial" target=3D"_b=
+lank" rel=3D"noreferrer"> <img width=3D"530" alt=3D"Villa Dh=C3=A4lm" title=
+=3D"" style=3D"border: 0px none; display: block; height: auto; line-height:=
+ 100%; outline: 0px; text-decoration: none; width: 100%;"> </a></td></tr><t=
+r><td style=3D"padding:6px 0px;margin:0px;border-collapse:collapse;text-ali=
+gn:left;font:400 16px/24px Arial,sans-serif;width:100%;color:rgb(20,20,20)"=
+><p style=3D"padding:0px;margin:0px">Villa Dh=C3=A4lm, an innovative luxury=
+ retreat on S=C3=A3o Miguel Island in the Azores, will blend sophistication=
+, well-being, and sustainability. Featuring Portugal&#39;s largest pineappl=
+e sculpture with a jacuzzi inside, it will attract global visitors and beco=
+me a memorable, Instagram-worthy spot celebrating the island&#39;s iconic f=
+ruit.</p></td></tr><tr><td style=3D"margin:0px;padding:16px 0px 0px;border-=
+collapse:collapse;text-align:left;font:400 16px Arial"> <a href=3D"https://=
+l.semanal.idealista.com/rts/go2.aspx?h=3D1893545&amp;tp=3Di-1NGB-Q2Q-TXB-7T=
+jugx-1s-7q4tl-1c-7TjrY3-lBi2gDUPUw-1fvAkj&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&amp;x=3D92159885&amp;hp2=3Dc34dcd5e11e7f613ba9225ddae66=
+ecf68295e619a1e03f9082cc4f36baf6779e" style=3D"color:rgb(31,127,197);text-d=
+ecoration:none;font:400 16px Arial" target=3D"_blank" rel=3D"noreferrer">Ke=
+ep reading</a></td></tr></tbody></table></td></tr><tr><td style=3D"margin:0=
+px;border-collapse:collapse;text-align:left;font:400 16px Arial;padding:24p=
+x 0px;border-bottom:2px solid rgb(235,235,233)"><table border=3D"0" cellpad=
+ding=3D"0" cellspacing=3D"0" style=3D"border-spacing:0px;border-collapse:co=
+llapse;text-align:left;width:100%;max-width:100%"><tbody><tr><td style=3D"m=
+argin:0px;border-collapse:collapse;text-align:left;font:400 16px Arial;widt=
+h:100%;padding:6px 0px"><h1 style=3D"margin:0px;padding:0px;font:700 20px/2=
+4px Arial,sans-serif;display:block"> <a href=3D"https://l.semanal.idealista=
+.com/rts/go2.aspx?h=3D1893546&amp;tp=3Di-1NGB-Q2Q-TXB-7Tjugx-1s-7q4tl-1c-7T=
+jrY3-lBi2gDUPUw-1fvAkj&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs=
+&amp;x=3D92159885&amp;hp2=3D21c2f6f3d21b78def60c720f9cd1d76fcf0dee2bcfb73ab=
+dea3880565fb83110" style=3D"color:rgb(31,127,197);text-decoration:none;disp=
+lay:block;font:700 20px/24px Arial,sans-serif" target=3D"_blank" rel=3D"nor=
+eferrer"> Top 10 cheapest municipalities for renting a house in Portugal in=
+ 2025 </a></h1></td></tr><tr><td style=3D"margin:0px;border-collapse:collap=
+se;text-align:left;font:400 16px Arial;padding:12px 0px"> <span style=3D"co=
+lor:rgb(146,146,146);background:rgb(235,235,233);border-style:solid;border-=
+color:rgb(235,235,233);border-width:4px 10px;font:400 14px Arial,sans-serif=
+"> Portugal </span></td></tr><tr><td style=3D"padding:6px 0px;margin:0px;bo=
+rder-collapse:collapse;text-align:left;font:400 16px/24px Arial,sans-serif;=
+width:100%;color:rgb(20,20,20)"><p style=3D"padding:0px;margin:0px"><span l=
+ang=3D"EN-GB">Amid rising rental costs in Portugal, some areas offer surpri=
+singly affordable options. While urban centres see prices soar, there are m=
+unicipalities where rents start as low as 300 euros per month. Want to know=
+ where? Discover the 10 most affordable places to rent in Portugal.</span><=
+/p></td></tr><tr><td style=3D"margin:0px;padding:16px 0px 0px;border-collap=
+se:collapse;text-align:left;font:400 16px Arial"> <a href=3D"https://l.sema=
+nal.idealista.com/rts/go2.aspx?h=3D1893547&amp;tp=3Di-1NGB-Q2Q-TXB-7Tjugx-1=
+s-7q4tl-1c-7TjrY3-lBi2gDUPUw-1fvAkj&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5tww=
+BbaLfJgK0sMDs&amp;x=3D92159885&amp;hp2=3D8553ca4090bffd874026e95e60cf3127cf=
+c1bc7cdbee7d8e2cc273068dd10f1c" style=3D"color:rgb(31,127,197);text-decorat=
+ion:none;font:400 16px Arial" target=3D"_blank" rel=3D"noreferrer">Keep rea=
+ding</a></td></tr></tbody></table></td></tr><tr></tr></tbody></table></cent=
+er></div></td></tr></tbody></table><table border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0" id=3D"m_-2571725976460958127footer" style=3D"border-spacing=
+:0px;border-collapse:collapse;text-align:left;width:100%;background:rgb(235=
+,235,233);color:rgb(142,143,140);border-top:36px solid rgb(255,255,255);max=
+-width:100%"><tbody><tr><td style=3D"margin:0px;border-collapse:collapse;te=
+xt-align:left;font:400 16px Arial;color:rgb(142,143,140);padding:0px 0px 30=
+px"><div style=3D"margin:0px;padding:0px"><center><table border=3D"0" cellp=
+adding=3D"0" cellspacing=3D"0" style=3D"border-spacing:0px;border-collapse:=
+collapse;width:100%;text-align:left;margin:0px auto;max-width:100%"><tbody>=
+<tr><td style=3D"margin:0px;border-collapse:collapse;text-align:left;font:4=
+00 16px Arial;color:rgb(142,143,140);padding:20px 30px 15px"> <a href=3D"ht=
+tps://l.semanal.idealista.com/rts/go2.aspx?h=3D1893548&amp;tp=3Di-1NGB-Q2Q-=
+TXB-7Tjugx-1s-7q4tl-1c-7TjrY3-lBi2gDUPUw-1fvAkj&amp;pi=3D21OEK495jHqsDIz-DR=
+vJKrCj7z5twwBbaLfJgK0sMDs&amp;x=3D92159885&amp;hp2=3Ddd54172a5e9b4d704d13e2=
+f3b1880e639ebe1295b4f4bdffb54dd74822942863" title=3D"" style=3D"color:rgb(3=
+1,127,197);text-decoration:none;font:400 16px Arial" target=3D"_blank" rel=
+=3D"noreferrer"> <img alt=3D"" rel=3D"home" style=3D"display: block; height=
+: auto; line-height: 100%; outline: 0px; text-decoration: none; border: 0px=
+ none;"> </a></td><td style=3D"margin:0px;border-collapse:collapse;text-ali=
+gn:left;font:400 14px Arial;color:rgb(142,143,140);padding:15px 30px 5px;wi=
+dth:100%"> =C2=A9 2000-2025 idealista</td></tr><tr><td colspan=3D"2" style=
+=3D"margin:0px;border-collapse:collapse;text-align:left;font:400 14px Arial=
+;color:rgb(142,143,140);width:100%;padding:0px 30px 15px"> To unsubscribe f=
+rom this newsletter <a href=3D"https://l.semanal.idealista.com/rts/go2.aspx=
+?h=3D1893549&amp;tp=3Di-1NGB-Q2Q-TXB-7Tjugx-1s-7q4tl-1c-7TjrY3-lBi2gDUPUw-1=
+fvAkj&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=3Dbanyus53=
+@gmail.com%7c331a1be0273ca359f6921c0e9b24f8ac%7c92159885&amp;hp2=3D7336953b=
+b90bdf600180e8017297edef3db63fcce7bb6d842cb6f8ee8092bb80" style=3D"color:rg=
+b(31,127,197);text-decoration:none;font:400 14px Arial;padding-bottom:15px"=
+ target=3D"_blank" rel=3D"noreferrer">you can unsubscribe</a> </td></tr></t=
+body></table></center></div></td></tr></tbody></table></td></tr></tbody></t=
+able></td></tr></tbody></table> </center></div></div><img width=3D"1" heigh=
+t=3D"1" alt=3D""><div style=3D"display:none"><a href=3D"https://l.semanal.i=
+dealista.com/rts/un.aspx?tp=3Di-1NGB-Q2Q-TXB-7Tjugx-1s-7q4tl-1c-7TjrY3-lBi2=
+gDUPUw-1fvAkj" style=3D"display:none" target=3D"_blank" rel=3D"noreferrer">=
+</a></div></div></div>
+
+--000000000000ee341c063285f117--

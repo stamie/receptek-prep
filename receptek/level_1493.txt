@@ -1,0 +1,333 @@
+Delivered-To: estampel@gmail.com
+Received: by 2002:ac8:630f:0:b0:471:90a6:4296 with SMTP id lv15csp1262786qtb;
+        Sun, 23 Mar 2025 03:36:28 -0700 (PDT)
+X-Forwarded-Encrypted: i=2; AJvYcCWyDG8TXp4yUoX4rIUlc+R96uRODLY0Du4gkBelFoyHXHIaZ1+xNZBc7bkTmBD7yReYbY/4WzSX8g==@gmail.com
+X-Received: by 2002:a05:690c:640e:b0:6fe:b88e:4d86 with SMTP id 00721157ae682-700bac45ba5mr107963147b3.9.1742726188021;
+        Sun, 23 Mar 2025 03:36:28 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1742726188; cv=none;
+        d=google.com; s=arc-20240605;
+        b=duU8WnivaDuqy/IezydmQ28eSRi/bw2nh28Pub4FTAUQJWsD82DOe4lZngUGOemA8Y
+         m6ETr4fzPe5KiiqF5Nx7BSpdYras+OnNLfunWYT1QqWfDvz+jMFyPJulm4I2O9JK55OY
+         QfvtlkeIL1M3ZHke/kSrK34SYFgjxxQd4q/f6RmW27TFdWin0ZFij0NiXbo1FnGM+pkJ
+         j8zQ75NJCvhB66vJZETa0fEOGh5WtsEkfSwDeQT6GI+TLrUdpsd1zh6nNhbHKABJ68x1
+         ZzeTw+17vpv2Dpb0zYfhQVNxs/hiF/L4V4vV4+Hr4z5zkB4nzNF+oiTMLyNtQfhYo9by
+         q7Tg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=dcwtmbBsXRvuvX7IveXLA+gahR2pqEfV0hACbPvlT6g=;
+        fh=zbkZYZE7/rGgEUiQ3Sr0Rcwg7gpv2EiTglIcRcmnh2M=;
+        b=Pny9JcKXCAZHuEJzo3Vse/3HkTlAxrNKqTQk21inECaZi12+NB68aFB+Xs0pRv5Tip
+         P1Xfl5uTr1xjbylX4lbZ1h/a1EQETvD7bYEpKMTUxVCExaEMj2fOX9x4p4MdqZf7yT61
+         izBrLSgptu65AL2tlhoPj03FzdkK1IhQU73LtawK6iaKcS2JxOzqi9Lwaei4jBywLpnT
+         iSjK2NncmBVGf1pvfOC76DPAs7Olbt5s5ahnd8QZ89oyYFCm8u1mPxG9z71givUEG7Z1
+         41kX8IL0bWAIZHWStGA2fOsRhOpmAnwoE2/7HIwEhPRkfp5OHMcJSF2pnlZgL0Njig8U
+         HYzQ==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@balatonboglar-org.20230601.gappssmtp.com header.s=20230601 header.b=Ot8FV22a;
+       spf=pass (google.com: domain of wigand.orsi@balatonboglar.org designates 209.85.220.41 as permitted sender) smtp.mailfrom=wigand.orsi@balatonboglar.org;
+       dara=pass header.i=@gmail.com
+Return-Path: <wigand.orsi@balatonboglar.org>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id 00721157ae682-700ba572d5dsor31010657b3.0.2025.03.23.03.36.27
+        for <estampel@gmail.com>
+        (Google Transport Security);
+        Sun, 23 Mar 2025 03:36:28 -0700 (PDT)
+Received-SPF: pass (google.com: domain of wigand.orsi@balatonboglar.org designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@balatonboglar-org.20230601.gappssmtp.com header.s=20230601 header.b=Ot8FV22a;
+       spf=pass (google.com: domain of wigand.orsi@balatonboglar.org designates 209.85.220.41 as permitted sender) smtp.mailfrom=wigand.orsi@balatonboglar.org;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=balatonboglar-org.20230601.gappssmtp.com; s=20230601; t=1742726187; x=1743330987; dara=google.com;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=dcwtmbBsXRvuvX7IveXLA+gahR2pqEfV0hACbPvlT6g=;
+        b=Ot8FV22aGpu8i9bHBJO7/9RJ22esrytUNyCK6eI3O/gcesvi3fCalGVdgfzvpYzWPx
+         gufQEzK1D0rV/Dy1j8g89y7zZxXaaXh7lm4MvrT7jE9FS8qglWKnpNd5EaM/KRrrbcSx
+         Tw5wjkex1MVS6MpAFhvFmpUhOgtqDYYeKPlfovXlP93hVbgnvK+fMlBCM9nbiDZC8J4m
+         awiRca9I0aPbqwwPv3oPAcX1Er4flcyiYyN11fWYn73dY6xtYzr1ZgPWRdjyivy14lgo
+         MoirM3ncp7znfm5DoS2J3kx1nPZFVdCIdnA19L8ZSfYlUV3YACDOJ6R8F5T85u/kapYS
+         1OCQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742726187; x=1743330987;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=dcwtmbBsXRvuvX7IveXLA+gahR2pqEfV0hACbPvlT6g=;
+        b=gwMdSvToLNr2yBlq5rPQJIeFk8QdSTPStTsNlCON3YyWpW/yLCWliJX+wx3f+rksNX
+         LS2ah6QkT0NNm70WxfFgUpJvWbI/44AOQSyymSQ9WB1+JAs4CjYYA9XjbI2SsPDTPQUy
+         03gU9aUyDx/xddlDmVqzWCwZglSwLu1jyAPgEm+i/0IMqDF0umyubPmxhfkO+5eUXWd4
+         C0KDXvVIxUhwssR0A7Jd9XYfYoE76ytvi7L2WeGsAxItO7A5wwt2AYz2JEMlcKk7hiVB
+         WD3ugmsYWDr6jY77bIDovIwWPO2N6VneAScyyPqwu3GryCTx8qelGY6O1CkbMYFQpoBL
+         RJtQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVYOasZc8z4lx9JJwHwuHtMtXqQjNtYXqvRyR73NKCfqZgRvQwtWhuOA41PngbyiiVmwYdSs1KRqg==@gmail.com
+X-Gm-Message-State: AOJu0Yy6Lhesx2PUKHlB581D1fvkaMDfGGxElagW0Poj1GYgUMrO6Pg2
+	jRnAhaajWIF54ajw2mNFNtZQfPyevQGdtEKa2wWPimGz4us1Nq+pEAKrFNpFLJyxn4hN9D6s0Ra
+	cNNE8CIBB+bz+FlOKQk43w3KPl36Bq4YTZhx+mg==
+X-Gm-Gg: ASbGncvUYuvsDdio4LF5WkFdJsNkRVZY2jQ1efKtr9rRBuZQcUWVhQnJPpI1CzxeexJ
+	ZSO4gZh5t77GjLfjfwxaR6v4lfi9U9iHe5Yfkxyh8AirPEPQtJLdSk5m1QsDuLX1wQbMdsGcBk4
+	evwDhd5RbVJGc/DxKOkcgeICwmg+Af
+X-Google-Smtp-Source: AGHT+IFKAN74P1xeVXboZagDROTcGqueQWmUDli+GFzGYekZxqJYYn15BbIqQ4+M6eJaupfQwvMnfoQb/KhzVXc7DvA=
+X-Received: by 2002:a05:690c:d95:b0:6fb:4c11:61cf with SMTP id
+ 00721157ae682-700bac71219mr130694517b3.19.1742726187585; Sun, 23 Mar 2025
+ 03:36:27 -0700 (PDT)
+MIME-Version: 1.0
+References: <CALBfPcx3J8uEGy0yB+PCVWTZG1g+R2eDsjz7YzEhrDYck6UyaA@mail.gmail.com>
+ <CAGYFg2HhWoVSP0LAfHPnZZ_1+YCR6Hgx=AU5HbObXTeYLBep=w@mail.gmail.com>
+ <CALi7w6ugJx3zw_3b9YqaxX1UytkGHW9eOLNOf-Ok=sBSvcvA8g@mail.gmail.com>
+ <CALi7w6tgRNLPi6dx3adZn-R9cxMpieCCfcMWFedkM2qgidQdwA@mail.gmail.com>
+ <CAH=Fn8Rin=7rYzGZAD8agOchtkM2Cjd+nyo5u_q0QtssG2BuCA@mail.gmail.com> <CALi7w6u72s_=MUAk2nuh+702u9RWvRgL6LA8vLUz6n519BXacQ@mail.gmail.com>
+In-Reply-To: <CALi7w6u72s_=MUAk2nuh+702u9RWvRgL6LA8vLUz6n519BXacQ@mail.gmail.com>
+From: Orsi Wigand <wigand.orsi@balatonboglar.org>
+Date: Sun, 23 Mar 2025 11:36:17 +0100
+X-Gm-Features: AQ5f1JpOgditoACBJ_TCS917GdXorEXPeY-A7NCqXbUa-Wc5CBbsJf28O8YLeRo
+Message-ID: <CAH=Fn8SyG8mDQ978ywLpxoTLHmaXPeHDsR-GuYELdSSevDiP7A@mail.gmail.com>
+Subject: =?UTF-8?B?UmU6IE5FTVpFVCBIQU5HSkEgdMOhasOpa296dGF0w7M=?=
+To: =?UTF-8?B?TMOhc3psw7MgTW9sbsOhcg==?= <laszlo.junior@gmail.com>
+Cc: istvansolti53@gmail.com, Soltine Marta <soltine.marta@gmail.com>, orsitiszabb@gmail.com, 
+	pegazus650@gmail.com, =?UTF-8?B?w4FnbmVzIEJ1Z8Ohcg==?= <banyus53@gmail.com>, 
+	estampel@gmail.com, tiszabalatonboglar@gmail.com, 
+	=?UTF-8?Q?Plat=C3=A1n_Balatonbogl=C3=A1r?= <platanbalatonboglar@gmail.com>, 
+	Laszlo Steiner <steiner@slp.hu>, "emma.nyers@gmail.com" <emma.nyers@gmail.com>, 
+	"maria.faddine@gmail.com" <maria.faddine@gmail.com>, 
+	"melinda.fenyvesi@gmail.com" <melinda.fenyvesi@gmail.com>
+Content-Type: multipart/alternative; boundary="0000000000005a34cc0631000f1d"
+
+--0000000000005a34cc0631000f1d
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Lehet csak a b=C3=B6ng=C3=A8sz=C5=91mmel van gond
+
+L=C3=A1szl=C3=B3 Moln=C3=A1r <laszlo.junior@gmail.com> (id=C5=91pont: 2025.=
+ m=C3=A1rc. 23., V,
+11:33) ezt =C3=ADrta:
+
+> Az klassz, frank=C3=B3 szervez=C3=A9s...
+> Nem tudom a b=C3=B6ng=C3=A9dz=C5=91t, de megn=C3=A9zem
+>
+> Orsi Wigand <wigand.orsi@balatonboglar.org> ezt =C3=ADrta (id=C5=91pont: =
+2025.
+> m=C3=A1rc. 23., V 11:31):
+>
+>> Gyerekek, kipr=C3=B3b=C3=A1ltatok a qrk=C3=B3dokat!
+>> Ma d=C3=A8lig lehet, nekem nem ny=C3=ADlik se az admins se a szavaz=C3=
+=B3 fel=C3=BClet?
+>> Laci, tudod melyik b=C3=B6ng=C3=A8sz=C5=91t preferalja?
+>> Orsi
+>>
+>> L=C3=A1szl=C3=B3 Moln=C3=A1r <laszlo.junior@gmail.com> (id=C5=91pont: 20=
+25. m=C3=A1rc. 23., V,
+>> 9:47) ezt =C3=ADrta:
+>>
+>>> Sziasztok,
+>>>
+>>> Itt =C3=ADrok a messenger chat-et h=C3=A9tv=C3=A9g=C3=A9n ritk=C3=A1n n=
+=C3=A9zem.
+>>>
+>>> K=C3=A9rd=C3=A9sem, hogy holnap mikor =C3=A9s hol lesztek v=C3=A1rhat=
+=C3=B3an? Mit tegyek be a
+>>> csopiba?
+>>> 14-17-ig van meg nekem nagyj=C3=A1b=C3=B3l, de a V=C3=B6r=C3=B6smarty t=
+=C3=A9r, vagy az ECO
+>>> family el=C5=91tt lesztek?
+>>>
+>>> =C3=9Cdv.
+>>> Laci
+>>>
+>>> L=C3=A1szl=C3=B3 Moln=C3=A1r <laszlo.junior@gmail.com> ezt =C3=ADrta (i=
+d=C5=91pont: 2025. m=C3=A1rc.
+>>> 22., Szo, 17:34):
+>>>
+>>>> FYI
+>>>>
+>>>> ---------- Forwarded message ---------
+>>>> Felad=C3=B3: Aur=C3=A9l Polnik <polnik.aurel66@gmail.com>
+>>>> Date: 2025. m=C3=A1rc. 22., Szo, 17:10
+>>>> Subject: Fwd: NEMZET HANGJA t=C3=A1j=C3=A9koztat=C3=B3
+>>>> To: L=C3=A1szl=C3=B3 Moln=C3=A1r <laszlo.junior@gmail.com>
+>>>>
+>>>>
+>>>>
+>>>> ---------- Forwarded message ---------
+>>>> Felad=C3=B3: Balatonlelle Kik=C3=B6t=C5=91 <kikotobalatonlelle@gmail.c=
+om>
+>>>> Date: 2025. m=C3=A1rc. 22., Szo 16:10
+>>>> Subject: NEMZET HANGJA t=C3=A1j=C3=A9koztat=C3=B3
+>>>> To: <lincsilinda@gmail.com>, L=C3=A1szl=C3=B3 =C3=81rok <fuzessziget@g=
+mail.com>, <
+>>>> polnik.aurel66@gmail.com>, <boszen.mate@gmail.com>, <
+>>>> labodi.eva0704@gmail.com>, <farbas.timea@zoldado.hu>, <
+>>>> tiszaszigetgombaihatmarcali@gmail.com>, <futoalbert@gmail.com>, <
+>>>> gyenis.roland@gyenisagro.com>
+>>>>
+>>>>
+>>>> Sziasztok!
+>>>>
+>>>>
+>>>>     Szeretn=C3=A9m K=C3=B6sz=C3=B6nteni Somogyorsz=C3=A1g_Bodrogi Tisz=
+a Sziget -et a SOMOGY
+>>>> 3 Szigetei k=C3=B6zt, Fut=C3=B3 G=C3=A1bor Albert kapcsolattart=C3=B3t=
+.
+>>>>
+>>>> A h=C3=A9tv=C3=A9g=C3=A9n tudj=C3=A1tok tesztelni a szavaz=C3=B3fel=C3=
+=BCletet =C3=A9s az adminfel=C3=BCletet.
+>>>>  A https://refrndtest.magyarorszagmegmondja.online/admin/login
+>>>> <https://m.magyartisza.hu/r/782244a17ceee04ab22dee49c?ct=3DYTo1OntzOjY=
+6InNvdXJjZSI7YToyOntpOjA7czo1OiJlbWFpbCI7aToxO2k6NzA2O31zOjU6ImVtYWlsIjtpOj=
+cwNjtzOjQ6InN0YXQiO3M6MjI6IjY3ZGU2ZDhmY2NmOGEwMjIzNDAxMjQiO3M6NDoibGVhZCI7c=
+zo2OiI2NjU4OTciO3M6NzoiY2hhbm5lbCI7YToxOntzOjU6ImVtYWlsIjtpOjcwNjt9fQ%3D%3D=
+&>
+>>>>  linken tudtok bel=C3=A9pni, saj=C3=A1t e-mail c=C3=ADmetek megad=C3=
+=A1sa ut=C3=A1n kaptok
+>>>> lev=C3=A9lben egy hatjegy=C5=B1 k=C3=B3dot, azt be=C3=ADrva be is tudt=
+ok l=C3=A9pni a fel=C3=BCletre. A
+>>>> v=C3=A9gleges rendszer vas=C3=A1rnapt=C3=B3l lesz el=C3=A9rhet=C5=91 a
+>>>> nemzethangja.hu/admin/login
+>>>> <https://m.magyartisza.hu/r/527ea25acd7a1b664584548c0?ct=3DYTo1OntzOjY=
+6InNvdXJjZSI7YToyOntpOjA7czo1OiJlbWFpbCI7aToxO2k6NzA2O31zOjU6ImVtYWlsIjtpOj=
+cwNjtzOjQ6InN0YXQiO3M6MjI6IjY3ZGU2ZDhmY2NmOGEwMjIzNDAxMjQiO3M6NDoibGVhZCI7c=
+zo2OiI2NjU4OTciO3M6NzoiY2hhbm5lbCI7YToxOntzOjU6ImVtYWlsIjtpOjcwNjt9fQ%3D%3D=
+&>
+>>>>  fel=C3=BCleten.
+>>>> K=C3=A9rlek, hogy olvass=C3=A1tok el a mell=C3=A9klet t=C3=A1j=C3=A9ko=
+ztat=C3=B3, seg=C3=A9danyagot.
+>>>>
+>>>> Holnap este 19 kor tudjuk =C3=A1tbesz=C3=A9lni, ha tov=C3=A1bbi k=C3=
+=A9rd=C3=A9setek lesz.
+>>>>
+>>>> =C3=9Cdv:
+>>>> M=C3=A9sz=C3=A1ros R=C3=B3bert
+>>>> Koordin=C3=A1tor
+>>>>
+>>>>
+>>>>
+
+--0000000000005a34cc0631000f1d
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"auto">Lehet csak a b=C3=B6ng=C3=A8sz=C5=91mmel van gond</div><d=
+iv><br><div class=3D"gmail_quote gmail_quote_container"><div dir=3D"ltr" cl=
+ass=3D"gmail_attr">L=C3=A1szl=C3=B3 Moln=C3=A1r &lt;<a href=3D"mailto:laszl=
+o.junior@gmail.com">laszlo.junior@gmail.com</a>&gt; (id=C5=91pont: 2025. m=
+=C3=A1rc. 23., V, 11:33) ezt =C3=ADrta:<br></div><blockquote class=3D"gmail=
+_quote" style=3D"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:=
+1ex"><div dir=3D"auto">Az klassz, frank=C3=B3 szervez=C3=A9s...<div dir=3D"=
+auto">Nem tudom a b=C3=B6ng=C3=A9dz=C5=91t, de megn=C3=A9zem</div></div><br=
+><div class=3D"gmail_quote"><div dir=3D"ltr" class=3D"gmail_attr">Orsi Wiga=
+nd &lt;<a href=3D"mailto:wigand.orsi@balatonboglar.org" target=3D"_blank">w=
+igand.orsi@balatonboglar.org</a>&gt; ezt =C3=ADrta (id=C5=91pont: 2025. m=
+=C3=A1rc. 23., V 11:31):<br></div><blockquote class=3D"gmail_quote" style=
+=3D"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex"><div dir=
+=3D"auto">Gyerekek, kipr=C3=B3b=C3=A1ltatok a qrk=C3=B3dokat!</div><div dir=
+=3D"auto">Ma d=C3=A8lig lehet, nekem nem ny=C3=ADlik se az admins se a szav=
+az=C3=B3 fel=C3=BClet?</div><div dir=3D"auto">Laci, tudod melyik b=C3=B6ng=
+=C3=A8sz=C5=91t preferalja?</div><div dir=3D"auto">Orsi</div><div><br><div =
+class=3D"gmail_quote"><div dir=3D"ltr" class=3D"gmail_attr">L=C3=A1szl=C3=
+=B3 Moln=C3=A1r &lt;<a href=3D"mailto:laszlo.junior@gmail.com" rel=3D"noref=
+errer" target=3D"_blank">laszlo.junior@gmail.com</a>&gt; (id=C5=91pont: 202=
+5. m=C3=A1rc. 23., V, 9:47) ezt =C3=ADrta:<br></div><blockquote class=3D"gm=
+ail_quote" style=3D"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-le=
+ft:1ex"><div dir=3D"ltr">Sziasztok,<div><br></div><div>Itt =C3=ADrok a mess=
+enger chat-et h=C3=A9tv=C3=A9g=C3=A9n ritk=C3=A1n n=C3=A9zem.</div><div><br=
+></div><div>K=C3=A9rd=C3=A9sem, hogy holnap mikor =C3=A9s hol lesztek v=C3=
+=A1rhat=C3=B3an? Mit tegyek be a csopiba?</div><div>14-17-ig van meg nekem =
+nagyj=C3=A1b=C3=B3l, de a V=C3=B6r=C3=B6smarty t=C3=A9r, vagy az ECO family=
+ el=C5=91tt lesztek?</div><div><br></div><div>=C3=9Cdv.</div><div>Laci</div=
+></div><br><div class=3D"gmail_quote"><div dir=3D"ltr" class=3D"gmail_attr"=
+>L=C3=A1szl=C3=B3 Moln=C3=A1r &lt;<a href=3D"mailto:laszlo.junior@gmail.com=
+" rel=3D"noreferrer" target=3D"_blank">laszlo.junior@gmail.com</a>&gt; ezt =
+=C3=ADrta (id=C5=91pont: 2025. m=C3=A1rc. 22., Szo, 17:34):<br></div><block=
+quote class=3D"gmail_quote" style=3D"margin:0px 0px 0px 0.8ex;border-left:1=
+px solid rgb(204,204,204);padding-left:1ex"><div dir=3D"ltr">FYI<br><br><di=
+v class=3D"gmail_quote"><div dir=3D"ltr" class=3D"gmail_attr">---------- Fo=
+rwarded message ---------<br>Felad=C3=B3: <strong class=3D"gmail_sendername=
+" dir=3D"auto">Aur=C3=A9l Polnik</strong> <span dir=3D"auto">&lt;<a href=3D=
+"mailto:polnik.aurel66@gmail.com" rel=3D"noreferrer" target=3D"_blank">poln=
+ik.aurel66@gmail.com</a>&gt;</span><br>Date: 2025. m=C3=A1rc. 22., Szo, 17:=
+10<br>Subject: Fwd: NEMZET HANGJA t=C3=A1j=C3=A9koztat=C3=B3<br>To: L=C3=A1=
+szl=C3=B3 Moln=C3=A1r &lt;<a href=3D"mailto:laszlo.junior@gmail.com" rel=3D=
+"noreferrer" target=3D"_blank">laszlo.junior@gmail.com</a>&gt;<br></div><br=
+><br><div dir=3D"auto"></div><br><div class=3D"gmail_quote"><div dir=3D"ltr=
+" class=3D"gmail_attr">---------- Forwarded message ---------<br>Felad=C3=
+=B3: <strong class=3D"gmail_sendername" dir=3D"auto">Balatonlelle Kik=C3=B6=
+t=C5=91</strong> <span dir=3D"auto">&lt;<a href=3D"mailto:kikotobalatonlell=
+e@gmail.com" rel=3D"noreferrer" target=3D"_blank">kikotobalatonlelle@gmail.=
+com</a>&gt;</span><br>Date: 2025. m=C3=A1rc. 22., Szo 16:10<br>Subject: NEM=
+ZET HANGJA t=C3=A1j=C3=A9koztat=C3=B3<br>To:  &lt;<a href=3D"mailto:lincsil=
+inda@gmail.com" rel=3D"noreferrer" target=3D"_blank">lincsilinda@gmail.com<=
+/a>&gt;, L=C3=A1szl=C3=B3 =C3=81rok &lt;<a href=3D"mailto:fuzessziget@gmail=
+.com" rel=3D"noreferrer" target=3D"_blank">fuzessziget@gmail.com</a>&gt;,  =
+&lt;<a href=3D"mailto:polnik.aurel66@gmail.com" rel=3D"noreferrer" target=
+=3D"_blank">polnik.aurel66@gmail.com</a>&gt;,  &lt;<a href=3D"mailto:boszen=
+.mate@gmail.com" rel=3D"noreferrer" target=3D"_blank">boszen.mate@gmail.com=
+</a>&gt;,  &lt;<a href=3D"mailto:labodi.eva0704@gmail.com" rel=3D"noreferre=
+r" target=3D"_blank">labodi.eva0704@gmail.com</a>&gt;,  &lt;<a href=3D"mail=
+to:farbas.timea@zoldado.hu" rel=3D"noreferrer" target=3D"_blank">farbas.tim=
+ea@zoldado.hu</a>&gt;,  &lt;<a href=3D"mailto:tiszaszigetgombaihatmarcali@g=
+mail.com" rel=3D"noreferrer" target=3D"_blank">tiszaszigetgombaihatmarcali@=
+gmail.com</a>&gt;,  &lt;<a href=3D"mailto:futoalbert@gmail.com" rel=3D"nore=
+ferrer" target=3D"_blank">futoalbert@gmail.com</a>&gt;,  &lt;<a href=3D"mai=
+lto:gyenis.roland@gyenisagro.com" rel=3D"noreferrer" target=3D"_blank">gyen=
+is.roland@gyenisagro.com</a>&gt;<br></div><br><br><div dir=3D"ltr">Sziaszto=
+k!<div><br></div><div><br><table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" width=3D"261" style=3D"color:rgb(0,0,0);border-collapse:collapse;wid=
+th:196pt"><colgroup><col width=3D"261" style=3D"width:196pt"></colgroup><tb=
+ody><tr height=3D"20" style=3D"height:15.75pt"><td height=3D"20" width=3D"2=
+61" style=3D"padding-top:1px;padding-right:1px;padding-left:1px;font-size:1=
+0pt;font-family:Arial,sans-serif;vertical-align:bottom;border:medium;white-=
+space:nowrap;height:15.75pt;width:196pt">=C2=A0 =C2=A0 Szeretn=C3=A9m K=C3=
+=B6sz=C3=B6nteni Somogyorsz=C3=A1g_Bodrogi Tisza Sziget -et a SOMOGY 3 Szig=
+etei=C2=A0k=C3=B6zt, Fut=C3=B3 G=C3=A1bor=C2=A0Albert kapcsolattart=C3=B3t.=
+ =C2=A0</td></tr></tbody></table><div><br></div><div><span style=3D"font-fa=
+mily:Helvetica,sans-serif;color:rgb(0,0,0)">A h=C3=A9tv=C3=A9g=C3=A9n tudj=
+=C3=A1tok tesztelni a szavaz=C3=B3fel=C3=BCletet =C3=A9s az adminfel=C3=BCl=
+etet. =C2=A0A<span>=C2=A0</span></span><a href=3D"https://m.magyartisza.hu/=
+r/782244a17ceee04ab22dee49c?ct=3DYTo1OntzOjY6InNvdXJjZSI7YToyOntpOjA7czo1Oi=
+JlbWFpbCI7aToxO2k6NzA2O31zOjU6ImVtYWlsIjtpOjcwNjtzOjQ6InN0YXQiO3M6MjI6IjY3Z=
+GU2ZDhmY2NmOGEwMjIzNDAxMjQiO3M6NDoibGVhZCI7czo2OiI2NjU4OTciO3M6NzoiY2hhbm5l=
+bCI7YToxOntzOjU6ImVtYWlsIjtpOjcwNjt9fQ%3D%3D&amp;" style=3D"color:rgb(0,0,0=
+);font-family:Helvetica,sans-serif;font-weight:600;text-decoration:none" re=
+l=3D"noreferrer noreferrer" target=3D"_blank"><span style=3D"color:rgb(17,8=
+5,204)">https://refrndtest.magyarorszagmegmondja.online/admin/login</span><=
+/a><span style=3D"font-family:Helvetica,sans-serif;color:rgb(0,0,0)"><span>=
+=C2=A0</span>linken tudtok bel=C3=A9pni, saj=C3=A1t e-mail c=C3=ADmetek meg=
+ad=C3=A1sa ut=C3=A1n kaptok lev=C3=A9lben egy hatjegy=C5=B1 k=C3=B3dot, azt=
+ be=C3=ADrva be is tudtok l=C3=A9pni a fel=C3=BCletre. A v=C3=A9gleges rend=
+szer vas=C3=A1rnapt=C3=B3l lesz el=C3=A9rhet=C5=91 a<span>=C2=A0</span></sp=
+an><a href=3D"https://m.magyartisza.hu/r/527ea25acd7a1b664584548c0?ct=3DYTo=
+1OntzOjY6InNvdXJjZSI7YToyOntpOjA7czo1OiJlbWFpbCI7aToxO2k6NzA2O31zOjU6ImVtYW=
+lsIjtpOjcwNjtzOjQ6InN0YXQiO3M6MjI6IjY3ZGU2ZDhmY2NmOGEwMjIzNDAxMjQiO3M6NDoib=
+GVhZCI7czo2OiI2NjU4OTciO3M6NzoiY2hhbm5lbCI7YToxOntzOjU6ImVtYWlsIjtpOjcwNjt9=
+fQ%3D%3D&amp;" style=3D"color:rgb(0,0,0);font-family:Helvetica,sans-serif;f=
+ont-weight:600;text-decoration:none" rel=3D"noreferrer noreferrer" target=
+=3D"_blank"><span style=3D"color:rgb(17,85,204)">nemzethangja.hu/admin/logi=
+n</span></a><span style=3D"font-family:Helvetica,sans-serif;color:rgb(0,0,0=
+)"><span>=C2=A0</span>fel=C3=BCleten.<span>=C2=A0</span></span><br></div><d=
+iv><span style=3D"font-family:Helvetica,sans-serif;color:rgb(0,0,0)"><span>=
+K=C3=A9rlek, hogy olvass=C3=A1tok=C2=A0el a mell=C3=A9klet t=C3=A1j=C3=A9ko=
+ztat=C3=B3, seg=C3=A9danyagot.</span></span></div><div><span style=3D"font-=
+family:Helvetica,sans-serif;color:rgb(0,0,0)"><span><br></span></span></div=
+><div><span style=3D"font-family:Helvetica,sans-serif;color:rgb(0,0,0)"><sp=
+an>Holnap este 19 kor tudjuk =C3=A1tbesz=C3=A9lni, ha tov=C3=A1bbi k=C3=A9r=
+d=C3=A9setek lesz.</span></span></div></div><div><span style=3D"font-family=
+:Helvetica,sans-serif;color:rgb(0,0,0)"><span><br></span></span></div><div>=
+<span style=3D"font-family:Helvetica,sans-serif;color:rgb(0,0,0)"><span>=C3=
+=9Cdv:=C2=A0</span></span></div><div><span style=3D"font-family:Helvetica,s=
+ans-serif;color:rgb(0,0,0)"><span>M=C3=A9sz=C3=A1ros R=C3=B3bert</span></sp=
+an></div><div><span style=3D"font-family:Helvetica,sans-serif;color:rgb(0,0=
+,0)"><span>Koordin=C3=A1tor</span></span></div><div><span style=3D"font-fam=
+ily:Helvetica,sans-serif;color:rgb(0,0,0)"><span><br></span></span></div><d=
+iv><span style=3D"font-family:Helvetica,sans-serif;color:rgb(0,0,0)"><span>=
+<br></span></span></div></div>
+</div>
+</div></div>
+</blockquote></div>
+</blockquote></div></div>
+</blockquote></div>
+</blockquote></div></div>
+
+--0000000000005a34cc0631000f1d--

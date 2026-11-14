@@ -1,0 +1,886 @@
+Delivered-To: estampel@gmail.com
+Received: by 2002:a05:622a:4513:b0:479:5c49:a6e8 with SMTP id lr19csp1032401qtb;
+        Thu, 17 Apr 2025 12:48:24 -0700 (PDT)
+X-Received: by 2002:a17:907:7dac:b0:aca:d27b:b20a with SMTP id a640c23a62f3a-acb74aab7femr10221966b.7.1744919304626;
+        Thu, 17 Apr 2025 12:48:24 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1744919304; cv=none;
+        d=google.com; s=arc-20240605;
+        b=FBu0k+VeWc8J89yIqg4tL9wWGrrxAs5PUu43/SDZWhBVaeJHjKskW6+OqLb3z/h39w
+         ZnpWGb7GLp83ATOOI3AKtybKWTmfvf8xpj9O+PiXL+KdvdbOvJSrAV99BC7bZ5vlCbBj
+         GT3I+3L3LLC1pCY3C6W4+AKY2KWVkiNZNFrffyXQ9E+J3QztSvPS+UDb+Ubot12M6eSc
+         EpM9yhQaBqCk1xm9o9/iIml4lqBOQq2TPIfTJh6DHLkFYRiZOozFIwL1XgI5Eu+HwNgp
+         tlBSmL5S0o4H4s1q8YviJXR2oid3UHRc1ggaNYK4D3t5/qLvcVFUAaEWugyBO4AIuW5M
+         y46w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=PUjYU6v6TNqV/KdVUVF0M56m6k4SK1ejAX11C1ycefE=;
+        fh=wF/Yrd2E0xeKwPH74kML7cQSth+Fl4bwhVNrybJ4uh4=;
+        b=V7jQN7CRy6h6wmJa1ITbHAnr7guLaZCucF9OS9UEhaCvW/CKOZY+BiA2/0+04QrZNK
+         SEMxl4I3TMKPP/GFBKOxvrbvfCzqBXwoFu31A2QxXDiqfIqbsVLKuZuT4A8PgTAV3ibI
+         Mw/tY/gbA60QchWwnpiF5RtDrtA1IqN6wj9l9UU6rk4o3yAWSwikj0pJXOSWVxaJa0qN
+         rghfIXmACiXqxgnU7u2gb/2IV5MIX0Mv4VZ9FROZhxjZ7oEf3vGelk7F51BzRwRt9rje
+         mmwtk7MyrhTm8gjp78+hMuDY7kUyantFtau3CQ3OVjKC5VgBc+O0suVs96PRNephztl5
+         jnvQ==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b="aC7LMis/";
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <banyus53@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id a640c23a62f3a-acb6ee2cd72sor28272866b.11.2025.04.17.12.48.24
+        for <estampel@gmail.com>
+        (Google Transport Security);
+        Thu, 17 Apr 2025 12:48:24 -0700 (PDT)
+Received-SPF: pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b="aC7LMis/";
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1744919303; x=1745524103; dara=google.com;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=PUjYU6v6TNqV/KdVUVF0M56m6k4SK1ejAX11C1ycefE=;
+        b=aC7LMis/ZXm9CYzDfPF83R0mJiWhM5Ru4QJBJqLbrCDGjXFi822CFN1hWaiuCZgZ+l
+         ewhESgBmfpbY70scH6xh5dxmrI/dsWxy1WR7O56cQ6+gJXeqpHOnK2qXb3uaaeuur9o2
+         YjO3yDw7Ota5fUfK5vHRCiUA9kveMOEchN7LZtTTHjE6LyWH16W4qKxSAtUv0jzZ9/IM
+         5TzGuOGwvTM1L5EL6fhMTbapL+nQmtbC/2fNMenVD6kO6rCPbNmn3yEryLqXjp8tnc2R
+         hUNedgDanXR06WJXxKoInhGiKDG1CyfdZLFSmSUfiDfWlPAvC2bsZv0E6gNfbS07EJN/
+         gH2w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744919303; x=1745524103;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=PUjYU6v6TNqV/KdVUVF0M56m6k4SK1ejAX11C1ycefE=;
+        b=WhFqgQN4XuQnofDF3wlv5jrfgIU0RznyOz7JIJRI5HQNITKIxPCkaNoo26GM02JSpR
+         qoA80NtmxTqG7O0Tn3a30/z7k5olsTjP1UrskjFL0+Sw/kIU+96qZiu/zKbCOLCgdXPV
+         Upsq8fBLu/booDnrz3HYLeTe5wcsVtEdwV6AO57Fd7fomBifxVpwtvSGITMFOe6QYh5c
+         wfMyNNhadpMt7s0v3P1zDjC1x6XAXdW3gZ4CJ2VnlF1F0FHNbZtFsjF0JNaWht26Ysqz
+         IbkVME5s+fEFReSnssZbG/Lnh07r/gVUTWA1YEhNn4BC//SFQWCJixrSyZASOoB6Z6FT
+         tI9w==
+X-Gm-Message-State: AOJu0Yx/ZVPqOe13eCEowWTYE5Y3MB+WnIXx7KBjjF5rP+FUoh2IxuzC
+	aHtJ+8fdp7W4FRpchBX/ahm67B4f5el82LgBT1LLHOU7Pap4o/Azn/nGl1cWST/oN3/D/vhZUtj
+	v5z/+Z7vWkVgHcqaOWkb5ZCH7ibvtyA==
+X-Gm-Gg: ASbGnculzMr42fyMvSAPFbvUnMuf7UeGiKlO6cZV9iEwXAhM7+QyEyFVzaZpFJBq9Tk
+	6+uPr5RbxRIxHqdDN3Qw/Btl6VqD8NnN3bh7A9yzy/KDiGjoh7rc/ssjO0YAFfRS5mZjrnUXV0F
+	yLvGbTdRbsQzLs0VLZ9c2F
+X-Google-Smtp-Source: AGHT+IEWB6sUTk8K9OQlzzIIlYitbe9DQr1r2BDBShgEz74ST+PSoGzGmWSpgHkttrBXOE2Xy/2pTJmWhWYWiDgONZE=
+X-Received: by 2002:a17:907:868b:b0:acb:6843:d32c with SMTP id
+ a640c23a62f3a-acb74d85782mr12239366b.38.1744919303142; Thu, 17 Apr 2025
+ 12:48:23 -0700 (PDT)
+MIME-Version: 1.0
+References: <100094.6874903661.202504171901174242196.0010083326@semanal.idealista.com>
+In-Reply-To: <100094.6874903661.202504171901174242196.0010083326@semanal.idealista.com>
+From: =?UTF-8?B?w4FnbmVzIEJ1Z8Ohcg==?= <banyus53@gmail.com>
+Date: Thu, 17 Apr 2025 21:48:10 +0200
+X-Gm-Features: ATxdqUFGMNV4KGIvJ7sRe77Mp6O3YNXGyar8uApk2dV_rfQDqI_ixiDQwOfoKkI
+Message-ID: <CA+39czXrEpsHc9usiQLt6DBakQ5fjXMqkmAgHeMg83kZBPekZQ@mail.gmail.com>
+Subject: =?UTF-8?Q?Fwd=3A_=E2=80=98Tourists=2C_go_home=E2=80=99=3A_Is_Spain_really_turnin?=
+	=?UTF-8?Q?g_against_visitors=3F?=
+To: Emese Stampel <estampel@gmail.com>
+Content-Type: multipart/alternative; boundary="00000000000039c7de0632feaf67"
+
+--00000000000039c7de0632feaf67
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+---------- Forwarded message ---------
+Felad=C3=B3: idealista/news <news@semanal.idealista.com>
+Date: 2025. =C3=A1pr. 17., Cs 21:12
+Subject: =E2=80=98Tourists, go home=E2=80=99: Is Spain really turning again=
+st visitors?
+To: banyus53@gmail.com <banyus53@gmail.com>
+
+
+Spain=E2=80=99s love-hate relationship with tourism in the spotlight. =CD=
+=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD
+=CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=
+=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=
+=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=
+=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=
+=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =
+=E2=80=87=C2=AD
+=CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=
+=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=
+=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=
+=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=
+=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =
+=E2=80=87=C2=AD
+=CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=
+=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=
+=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=
+=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=
+=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =
+=E2=80=87=C2=AD
+=CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=
+=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=
+=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=
+=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=
+=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =
+=E2=80=87=C2=AD
+=CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=
+=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=
+=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=
+=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=
+=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =
+=E2=80=87=C2=AD
+=CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=
+=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=
+=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=
+=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=
+=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =
+=E2=80=87=C2=AD
+=CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=
+=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=
+=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=
+=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=
+=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =
+=E2=80=87=C2=AD
+=CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=
+=80=8C =E2=80=87=C2=AD This week's email delves into the ongoing debate
+surrounding tourism in Spain, sparked by a growing sentiment that some
+locals are becoming increasingly frustrated with the influx of tourists.
+The article addresses the complexities of this issue, exploring the reasons
+behind the backlash, including overcrowding, environmental impact, and the
+strain on local infrastructure. It also examines the economic dependence of
+Spain on tourism and the challenges of balancing local needs with
+international visitors. Plus, properties for urgent sale in Italy and a
+dream home in Arr=C3=A1bida, Portugal.
+17/04/2025 =C2=B7 2.176.521 subscribers =C2=B7 View in browser
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1896871&tp=3Di-1NGB-Q2Q-T=
+aE-7VGOUv-1s-7q4tl-1c-7VGB3z-lBjWakt0Ue-1aWnT2&pi=3D21OEK495jHqsDIz-DRvJKrC=
+j7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D74c107d422986d0198af627b29d6131ad5d=
+718a37103385725b57790b20e2e84>
+This email is sent by idealista/news
+[image: idealista/news]
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1896872&tp=3Di-1NGB-Q2Q-T=
+aE-7VGOUv-1s-7q4tl-1c-7VGB3z-lBjWakt0Ue-1aWnT2&pi=3D21OEK495jHqsDIz-DRvJKrC=
+j7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D1116e76b14684c1e088f8e83e8969da5bc9=
+fe34a421910fe15074b004802a4c2>
+
+=E2=80=98Tourists, go home=E2=80=99: Is Spain really turning against visito=
+rs?
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1896873&tp=3Di-1NGB-Q2Q-T=
+aE-7VGOUv-1s-7q4tl-1c-7VGB3z-lBjWakt0Ue-1aWnT2&pi=3D21OEK495jHqsDIz-DRvJKrC=
+j7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D7bb5b3779a2297fc302931d89b852a6d0e2=
+bfb94b439c1d624e2d553b84746af>
+[image: Tourism in Spain]
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1896874&tp=3Di-1NGB-Q2Q-T=
+aE-7VGOUv-1s-7q4tl-1c-7VGB3z-lBjWakt0Ue-1aWnT2&pi=3D21OEK495jHqsDIz-DRvJKrC=
+j7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D6c7f097dbbae031b249888a45e5a5a5dc2a=
+a10444d34a0dfa055f20309cf555f>
+
+Spain, a top holiday destination, relies heavily on tourism. However,
+increasing protests and graffiti urging tourists to "go home" have sparked
+debate about whether the country is growing hostile toward visitors,
+despite tourism being a vital economic driver.
+
+
+Keep reading
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1896875&tp=3Di-1NGB-Q2Q-T=
+aE-7VGOUv-1s-7q4tl-1c-7VGB3z-lBjWakt0Ue-1aWnT2&pi=3D21OEK495jHqsDIz-DRvJKrC=
+j7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D8fe06815c6e25709bc6720b11e30d81c9cc=
+d60b6a0b5a1d4004d71112f4a8b9c>
+Inheriting a house in Spain: key considerations and essential steps
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1896876&tp=3Di-1NGB-Q2Q-T=
+aE-7VGOUv-1s-7q4tl-1c-7VGB3z-lBjWakt0Ue-1aWnT2&pi=3D21OEK495jHqsDIz-DRvJKrC=
+j7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D4f1fee9faf1221e1e12c13472a6ffe9c890=
+044cffa0e690cbcc7a74e88d23635>
+
+Inheriting a home in Spain involves crucial legal, financial, and
+administrative steps. From deciding whether to accept or decline the
+inheritance to managing tax obligations, each stage affects the property's
+cost and future. This article outlines the key factors for a smooth
+inheritance process.
+Keep reading
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1896877&tp=3Di-1NGB-Q2Q-T=
+aE-7VGOUv-1s-7q4tl-1c-7VGB3z-lBjWakt0Ue-1aWnT2&pi=3D21OEK495jHqsDIz-DRvJKrC=
+j7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D659d7834fb4d056218e729b9d004a8b6b60=
+f3e13a13bdabfa1719e8bbcdcfb98>
+Property prices in Catalonia set to rise by 10% this year
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1896878&tp=3Di-1NGB-Q2Q-T=
+aE-7VGOUv-1s-7q4tl-1c-7VGB3z-lBjWakt0Ue-1aWnT2&pi=3D21OEK495jHqsDIz-DRvJKrC=
+j7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3Defc9d5705e325efc2c1efdc0d1da2b34b95=
+dde9acfb2df64f17c1b28fd1a56b2>
+[image: Costa Brava]
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1896879&tp=3Di-1NGB-Q2Q-T=
+aE-7VGOUv-1s-7q4tl-1c-7VGB3z-lBjWakt0Ue-1aWnT2&pi=3D21OEK495jHqsDIz-DRvJKrC=
+j7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D16bc5096c50e77d187a8d8f4405e51c6fbb=
+6cfdb8c36261959a7fc70ab712cb1>
+
+Property prices in Catalonia, including Barcelona, are set to rise by 10%
+this year, according to the 22nd edition of the Real Estate Barometer.
+While nationwide property prices are expected to increase, growth will vary
+significantly across regions, with Murcia and the Valencian Community
+seeing the highest rises.
+Keep reading
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1896880&tp=3Di-1NGB-Q2Q-T=
+aE-7VGOUv-1s-7q4tl-1c-7VGB3z-lBjWakt0Ue-1aWnT2&pi=3D21OEK495jHqsDIz-DRvJKrC=
+j7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3Dcec101a5f03720aabd5fee6376962c1e033=
+beca8cccd36bb4a91b1f0eff78e6e>
+How to sell a property in Valencia at the best price
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1896881&tp=3Di-1NGB-Q2Q-T=
+aE-7VGOUv-1s-7q4tl-1c-7VGB3z-lBjWakt0Ue-1aWnT2&pi=3D21OEK495jHqsDIz-DRvJKrC=
+j7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D98113582d5553f7e718428259ccd47298cd=
+214ca48cdcb9c3fcdd1855bf5df72>
+
+Valencia, Spain=E2=80=99s third-largest city, offers a high quality of life=
+,
+excellent services, and a Mediterranean climate, making it a popular
+relocation destination. For those selling property in Valencia,
+understanding the competitive market and following key steps is essential
+for a successful transaction.
+Keep reading
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1896882&tp=3Di-1NGB-Q2Q-T=
+aE-7VGOUv-1s-7q4tl-1c-7VGB3z-lBjWakt0Ue-1aWnT2&pi=3D21OEK495jHqsDIz-DRvJKrC=
+j7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D0ce5188271ea91bc63ac7b2802cf2a49674=
+353f944668e47e890accbff5d280f>
+How to get residency in Spain for EU citizens
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1896883&tp=3Di-1NGB-Q2Q-T=
+aE-7VGOUv-1s-7q4tl-1c-7VGB3z-lBjWakt0Ue-1aWnT2&pi=3D21OEK495jHqsDIz-DRvJKrC=
+j7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3Da3d2113358719c21e0537eab76337d09ee8=
+9a784163a3ed856f533a7fd57bc14>
+[image: Residency in Spain]
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1896884&tp=3Di-1NGB-Q2Q-T=
+aE-7VGOUv-1s-7q4tl-1c-7VGB3z-lBjWakt0Ue-1aWnT2&pi=3D21OEK495jHqsDIz-DRvJKrC=
+j7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D4c1d20aae55ecb24b8dc6a5983d2d4d0024=
+e4a6174cd28fb86df0ef154aa19d6>
+
+EU citizens enjoy significant freedom to choose their residence, with a
+simpler process for obtaining Spanish residency than non-EU nationals. This
+guide covers the required paperwork, benefits, and the steps to transition
+from temporary to permanent residency in Spain.
+Keep reading
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1896885&tp=3Di-1NGB-Q2Q-T=
+aE-7VGOUv-1s-7q4tl-1c-7VGB3z-lBjWakt0Ue-1aWnT2&pi=3D21OEK495jHqsDIz-DRvJKrC=
+j7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3Dfd93dfeeb38e0bb97d7a17ed64bd7d48669=
+86bef26bf9566dfcf39571d4e59de>
+Nest Seekers brings luxury real estate from Netflix to Spain
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1896886&tp=3Di-1NGB-Q2Q-T=
+aE-7VGOUv-1s-7q4tl-1c-7VGB3z-lBjWakt0Ue-1aWnT2&pi=3D21OEK495jHqsDIz-DRvJKrC=
+j7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D5fa6b1c06a08573efb33698034b7484a609=
+c5e1230bf34198caec3be7a5bc87c>
+
+Nest Seekers, the agency behind Netflix=E2=80=99s *Million Dollar Beach Hou=
+se*, has
+entered the Spanish market, launching in Barcelona and Madrid. With a focus
+on high-end properties, personalised service, and impactful marketing, the
+firm aims to become a leading force in Spain=E2=80=99s luxury real estate m=
+arket.
+Keep reading
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1896887&tp=3Di-1NGB-Q2Q-T=
+aE-7VGOUv-1s-7q4tl-1c-7VGB3z-lBjWakt0Ue-1aWnT2&pi=3D21OEK495jHqsDIz-DRvJKrC=
+j7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D6d2995f9d08b86b6a86b8ca318cfa13a822=
+77ec8b741724399ca0f2422b07cdd>
+Italy's happiest city ranked 25th globally
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1896888&tp=3Di-1NGB-Q2Q-T=
+aE-7VGOUv-1s-7q4tl-1c-7VGB3z-lBjWakt0Ue-1aWnT2&pi=3D21OEK495jHqsDIz-DRvJKrC=
+j7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D085d6a57e040cb55ddcdc3a036cfe654e4a=
+42ff9aca4281a7fa0c6f2da178f09>
+Italy
+[image: Milan]
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1896889&tp=3Di-1NGB-Q2Q-T=
+aE-7VGOUv-1s-7q4tl-1c-7VGB3z-lBjWakt0Ue-1aWnT2&pi=3D21OEK495jHqsDIz-DRvJKrC=
+j7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D86d9b06e94745f77ed622f8bc3b73400906=
+4e5d9e420f5f7f15458c6a359d571>
+
+Happiness is subjective, but certain factors influence satisfaction with a
+city. A recent global study reveals that Milan ranks as the happiest city
+in Italy, standing out for its quality of life and overall positive living
+conditions compared to other Italian cities.
+Keep reading
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1896890&tp=3Di-1NGB-Q2Q-T=
+aE-7VGOUv-1s-7q4tl-1c-7VGB3z-lBjWakt0Ue-1aWnT2&pi=3D21OEK495jHqsDIz-DRvJKrC=
+j7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D229db12620fc2842fe864c68c02eb73630b=
+6bdf368c89ab1f455151b7bcb98e5>
+Urgent property sales in Italy
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1896891&tp=3Di-1NGB-Q2Q-T=
+aE-7VGOUv-1s-7q4tl-1c-7VGB3z-lBjWakt0Ue-1aWnT2&pi=3D21OEK495jHqsDIz-DRvJKrC=
+j7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D677cd27abc82b0caa806051e6fb97cf0a93=
+3cccdd871493aa86e6021910603aa>
+Italy
+
+Buying a home in Italy as an international buyer can take time, but
+focusing on urgent sales can help secure a great deal. Sellers often need
+quick transactions, allowing buyers to find homes below market value. Act
+fast with idealista=E2=80=99s handpicked selection and get a great deal bef=
+ore
+summer.
+Keep reading
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1896892&tp=3Di-1NGB-Q2Q-T=
+aE-7VGOUv-1s-7q4tl-1c-7VGB3z-lBjWakt0Ue-1aWnT2&pi=3D21OEK495jHqsDIz-DRvJKrC=
+j7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D97cd37d39b3d4466583d28591e154efc47e=
+67fde276b69d52c3f6a3b2a232180>
+Dream home in Arr=C3=A1bida, Portugal: a unique exterior and an unexpected
+interior
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1896893&tp=3Di-1NGB-Q2Q-T=
+aE-7VGOUv-1s-7q4tl-1c-7VGB3z-lBjWakt0Ue-1aWnT2&pi=3D21OEK495jHqsDIz-DRvJKrC=
+j7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3Dcc023fc8a3ad214be9ffdc1e6ad8d15a31c=
+c40375fb6762ec86dcf35742939e8>
+Portugal
+[image: Portugal dream home]
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1896894&tp=3Di-1NGB-Q2Q-T=
+aE-7VGOUv-1s-7q4tl-1c-7VGB3z-lBjWakt0Ue-1aWnT2&pi=3D21OEK495jHqsDIz-DRvJKrC=
+j7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D13afef354a0f10330b435ab7570b481ae57=
+18cee503cbfd4a07213647eb4febe>
+
+Each week, we explore a dream home in Portugal. This time, we visit a
+property in Arr=C3=A1bida Natural Park, Serra do Louro. Built atop a ruined
+structure, it blends modern design with tradition, offering a stunning
+exterior that leads to a surprising interior.
+Keep reading
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1896895&tp=3Di-1NGB-Q2Q-T=
+aE-7VGOUv-1s-7q4tl-1c-7VGB3z-lBjWakt0Ue-1aWnT2&pi=3D21OEK495jHqsDIz-DRvJKrC=
+j7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3Dfeceff6f0c95cc929195e5e30c139a75459=
+f7b70518dfcd63eba78f958cbbe05>
+Discover Portugal=E2=80=99s new thermal spa where waters reach 76=C2=BAC
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1896896&tp=3Di-1NGB-Q2Q-T=
+aE-7VGOUv-1s-7q4tl-1c-7VGB3z-lBjWakt0Ue-1aWnT2&pi=3D21OEK495jHqsDIz-DRvJKrC=
+j7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D2912f9e8c761296f9be86979c6a24c3a4b1=
+87ca47ce55940e512e3ba438c91ac>
+Portugal
+
+On World Water Day, Chaves, a historic city in northern Portugal, unveiled
+the Aquae Salutem Thermal Complex, featuring the country=E2=80=99s first ou=
+tdoor
+thermal pools. Located in Tr=C3=A1s-os-Montes, this new hydrothermal circui=
+t is
+a significant investment in the city=E2=80=99s tourism infrastructure.
+Keep reading
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1896897&tp=3Di-1NGB-Q2Q-T=
+aE-7VGOUv-1s-7q4tl-1c-7VGB3z-lBjWakt0Ue-1aWnT2&pi=3D21OEK495jHqsDIz-DRvJKrC=
+j7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D424f79d5f44b5698d7770cf771969cce86a=
+ef589a04ca4717689080b5de1159b>
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1896898&tp=3Di-1NGB-Q2Q-T=
+aE-7VGOUv-1s-7q4tl-1c-7VGB3z-lBjWakt0Ue-1aWnT2&pi=3D21OEK495jHqsDIz-DRvJKrC=
+j7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D38bc74216e6740236b3cf41947aadd44a81=
+a0c17637a12b8a48b068244d8156a>
+=C2=A9
+2000-2025 idealista
+To unsubscribe from this newsletter you can unsubscribe
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1896899&tp=3Di-1NGB-Q2Q-T=
+aE-7VGOUv-1s-7q4tl-1c-7VGB3z-lBjWakt0Ue-1aWnT2&pi=3D21OEK495jHqsDIz-DRvJKrC=
+j7z5twwBbaLfJgK0sMDs&x=3Dbanyus53@gmail.com%7c331a1be0273ca359f6921c0e9b24f=
+8ac%7c92159885&hp2=3Ddae7ea318c3dec847e09d12b42d677de1b7da65203bb3fd93fa0e6=
+0d60cebf90>
+<https://l.semanal.idealista.com/rts/un.aspx?tp=3Di-1NGB-Q2Q-TaE-7VGOUv-1s-=
+7q4tl-1c-7VGB3z-lBjWakt0Ue-1aWnT2>
+
+--00000000000039c7de0632feaf67
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"auto"></div><br><div class=3D"gmail_quote gmail_quote_container=
+"><div dir=3D"ltr" class=3D"gmail_attr">---------- Forwarded message ------=
+---<br>Felad=C3=B3: <strong class=3D"gmail_sendername" dir=3D"auto">idealis=
+ta/news</strong> <span dir=3D"auto">&lt;<a href=3D"mailto:news@semanal.idea=
+lista.com">news@semanal.idealista.com</a>&gt;</span><br>Date: 2025. =C3=A1p=
+r. 17., Cs 21:12<br>Subject: =E2=80=98Tourists, go home=E2=80=99: Is Spain =
+really turning against visitors?<br>To: <a href=3D"mailto:banyus53@gmail.co=
+m">banyus53@gmail.com</a> &lt;<a href=3D"mailto:banyus53@gmail.com">banyus5=
+3@gmail.com</a>&gt;<br></div><br><br><u></u><div style=3D"background-color:=
+#f4f5f2" marginwidth=3D"0" marginheight=3D"0"><span style=3D"display:none!i=
+mportant;font-size:1px;color:#ffffff;line-height:1px;max-height:0px;max-wid=
+th:0px;opacity:0;overflow:hidden">Spain=E2=80=99s love-hate relationship wi=
+th tourism in the spotlight. =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=
+=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=
+=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=
+=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=
+=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=
+=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=
+=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=
+=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=
+=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=
+=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=
+=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=
+=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=
+=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=
+=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=
+=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=
+=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=
+=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=
+=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=
+=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=
+=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=
+=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=
+=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=
+=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=
+=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=
+=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=
+=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=
+=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=
+=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=
+=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=
+=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=
+=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=
+=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=
+=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=
+=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=
+=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=
+=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=
+=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=
+=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=
+=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=
+=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=
+=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=
+=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=
+=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=
+=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=
+=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD This week&=
+#39;s email delves into the ongoing debate surrounding tourism in Spain, sp=
+arked by a growing sentiment that some locals are becoming increasingly fru=
+strated with the influx of tourists. The article addresses the complexities=
+ of this issue, exploring the reasons behind the backlash, including overcr=
+owding, environmental impact, and the strain on local infrastructure. It al=
+so examines the economic dependence of Spain on tourism and the challenges =
+of balancing local needs with international visitors. Plus, properties for =
+urgent sale in Italy and a dream home in Arr=C3=A1bida, Portugal.</span><im=
+g src=3D"https://l.semanal.idealista.com/rts/open.aspx?tp=3Di-1NGB-Q2Q-TaE-=
+7VGOUv-1s-7q4tl-1c-7VGB3z-lBjWakt0Ue-1aWnT2&amp;pi=3D21OEK495jHqsDIz-DRvJKr=
+Cj7z5twwBbaLfJgK0sMDs" height=3D"1" width=3D"1" style=3D"display:none"><div=
+><div id=3D"m_-7030649847042547534block-idealista-news-content"><center> <t=
+able id=3D"m_-7030649847042547534newsletterBodyTable" align=3D"center" styl=
+e=3D"border-spacing:0;border-collapse:collapse;text-align:left;width:100%;m=
+ax-width:600px;background:#fff;margin:0;padding:0;height:100%"><tbody><tr><=
+td align=3D"center" valign=3D"top" style=3D"margin:0;padding:0;border-colla=
+pse:collapse;text-align:left;font:400 16px Arial"><table style=3D"border-sp=
+acing:0;border-collapse:collapse;text-align:left;width:100%;max-width:100%"=
+><tbody><tr><td style=3D"margin:0;padding:0;border-collapse:collapse;text-a=
+lign:left;font:400 16px Arial"><table border=3D"0" cellpadding=3D"0" cellsp=
+acing=3D"0" style=3D"border-spacing:0;border-collapse:collapse;text-align:l=
+eft;width:100%;background:#e5e6e1;max-width:100%"><tbody><tr><td style=3D"m=
+argin:0;padding:0;border-collapse:collapse;text-align:left;font:400 16px Ar=
+ial"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"borde=
+r-spacing:0;border-collapse:collapse;text-align:left;width:100%;background-=
+color:#e5e6e1;max-width:100%"><tbody><tr><td style=3D"margin:0;border-colla=
+pse:collapse;text-align:left;font:400 16px Arial;padding:20px 30px;color:#9=
+29292;font-size:14px"> 17/04/2025 =C2=B7 2.176.521 subscribers =C2=B7 <a hr=
+ef=3D"https://l.semanal.idealista.com/rts/go2.aspx?h=3D1896871&amp;tp=3Di-1=
+NGB-Q2Q-TaE-7VGOUv-1s-7q4tl-1c-7VGB3z-lBjWakt0Ue-1aWnT2&amp;pi=3D21OEK495jH=
+qsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=3D92159885&amp;hp2=3D74c107d422986d=
+0198af627b29d6131ad5d718a37103385725b57790b20e2e84" style=3D"color:#1f7fc5;=
+text-decoration:none;font:400 16px Arial;font-size:14px" target=3D"_blank" =
+rel=3D"noreferrer">View in browser</a></td></tr><tr><td style=3D"margin:0;b=
+order-collapse:collapse;text-align:left;font:400 16px Arial;color:#929292;f=
+ont-size:14px;padding:0 30px 20px"> This email is sent by idealista/news</t=
+d></tr></tbody></table></td></tr></tbody></table><table style=3D"border-spa=
+cing:0;border-collapse:collapse;text-align:left;width:100%;min-width:100%;f=
+loat:none;clear:both;background:#e1f56e;max-width:100%"><tbody><tr><td styl=
+e=3D"margin:0;border-collapse:collapse;text-align:left;font:400 16px Arial;=
+padding:20px 30px"> <a href=3D"https://l.semanal.idealista.com/rts/go2.aspx=
+?h=3D1896872&amp;tp=3Di-1NGB-Q2Q-TaE-7VGOUv-1s-7q4tl-1c-7VGB3z-lBjWakt0Ue-1=
+aWnT2&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=3D92159885=
+&amp;hp2=3D1116e76b14684c1e088f8e83e8969da5bc9fe34a421910fe15074b004802a4c2=
+" rel=3D"home noreferrer" title=3D"Go to idealista/news" style=3D"color:#1f=
+7fc5;text-decoration:none;font:400 16px Arial" target=3D"_blank"> <img widt=
+h=3D"195" height=3D"24" alt=3D"idealista/news" src=3D"https://st1.idealista=
+.com/news/news9/themes/custom/idealista_news/images/logo_news_boletines.png=
+" style=3D"display:block;height:auto;line-height:100%;outline:0;text-decora=
+tion:none;border:0 none"> </a></td><td style=3D"margin:0;padding:0;border-c=
+ollapse:collapse;text-align:left;font:400 16px Arial"></td></tr></tbody></t=
+able><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" id=3D"m_-70306=
+49847042547534mainContent" style=3D"border-spacing:0;border-collapse:collap=
+se;text-align:left;width:100%;max-width:100%"><tbody><tr><td style=3D"margi=
+n:0;border-collapse:collapse;text-align:left;font:400 16px Arial;padding:0 =
+30px;width:100%"><div style=3D"margin:0;padding:0"><center> <span content=
+=3D"=E2=80=98Tourists, go home=E2=80=99: Is Spain really turning against vi=
+sitors?" style=3D"display:block"></span><table border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0" style=3D"border-spacing:0;border-collapse:collapse;wid=
+th:100%;text-align:left;margin:0 auto;max-width:100%"><tbody><tr><td style=
+=3D"margin:0;border-collapse:collapse;text-align:left;font:400 16px Arial;p=
+adding:24px 0;border-bottom:2px solid #ebebe9"><table border=3D"0" cellpadd=
+ing=3D"0" cellspacing=3D"0" style=3D"border-spacing:0;border-collapse:colla=
+pse;text-align:left;width:100%;max-width:100%"><tbody><tr><td style=3D"marg=
+in:0;border-collapse:collapse;text-align:left;font:400 16px Arial;width:100=
+%;padding:6px 0"><h1 style=3D"margin:0;padding:0;font-size:100%;font-weight=
+:400;font:700 20px Arial,sans-serif;display:block;line-height:24px"> <a hre=
+f=3D"https://l.semanal.idealista.com/rts/go2.aspx?h=3D1896873&amp;tp=3Di-1N=
+GB-Q2Q-TaE-7VGOUv-1s-7q4tl-1c-7VGB3z-lBjWakt0Ue-1aWnT2&amp;pi=3D21OEK495jHq=
+sDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=3D92159885&amp;hp2=3D7bb5b3779a2297f=
+c302931d89b852a6d0e2bfb94b439c1d624e2d553b84746af" style=3D"color:#1f7fc5;t=
+ext-decoration:none;display:block;font:700 20px Arial,sans-serif;line-heigh=
+t:24px" target=3D"_blank" rel=3D"noreferrer"> =E2=80=98Tourists, go home=E2=
+=80=99: Is Spain really turning against visitors? </a></h1></td></tr><tr><t=
+d style=3D"padding:6px 0;margin:0;border-collapse:collapse;text-align:left;=
+font:400 16px Arial;width:100%"> <a href=3D"https://l.semanal.idealista.com=
+/rts/go2.aspx?h=3D1896874&amp;tp=3Di-1NGB-Q2Q-TaE-7VGOUv-1s-7q4tl-1c-7VGB3z=
+-lBjWakt0Ue-1aWnT2&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp=
+;x=3D92159885&amp;hp2=3D6c7f097dbbae031b249888a45e5a5a5dc2aa10444d34a0dfa05=
+5f20309cf555f" style=3D"color:#1f7fc5;text-decoration:none;font:400 16px Ar=
+ial" target=3D"_blank" rel=3D"noreferrer"> <img src=3D"https://st3.idealist=
+a.com/news/archivos/2025-04/images/yoon-lee-wdr-caxkux0-unsplash_1.jpg?Vers=
+ionId=3DXe_x5BZiZZDGGAjVjwUghEQJ7m3.AnlO" width=3D"530" alt=3D"Tourism in S=
+pain" title=3D"" style=3D"border:0 none;display:block;height:auto;line-heig=
+ht:100%;outline:0;text-decoration:none;width:100%"> </a></td></tr><tr><td s=
+tyle=3D"padding:6px 0;margin:0;border-collapse:collapse;text-align:left;fon=
+t:400 16px Arial,sans-serif;width:100%;line-height:24px;color:#141414"><p s=
+tyle=3D"padding:0;margin:0">Spain, a top holiday destination, relies heavil=
+y on tourism. However, increasing protests and graffiti urging tourists to =
+&quot;go home&quot; have sparked debate about whether the country is growin=
+g hostile toward visitors, despite tourism being a vital economic driver.=
+=C2=A0</p><p style=3D"padding:0;margin:0">=C2=A0</p></td></tr><tr><td style=
+=3D"margin:0;padding:0;border-collapse:collapse;text-align:left;font:400 16=
+px Arial;padding-top:16px"> <a href=3D"https://l.semanal.idealista.com/rts/=
+go2.aspx?h=3D1896875&amp;tp=3Di-1NGB-Q2Q-TaE-7VGOUv-1s-7q4tl-1c-7VGB3z-lBjW=
+akt0Ue-1aWnT2&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=3D=
+92159885&amp;hp2=3D8fe06815c6e25709bc6720b11e30d81c9ccd60b6a0b5a1d4004d7111=
+2f4a8b9c" style=3D"color:#1f7fc5;text-decoration:none;font:400 16px Arial" =
+target=3D"_blank" rel=3D"noreferrer">Keep reading</a></td></tr></tbody></ta=
+ble></td></tr><tr><td style=3D"margin:0;border-collapse:collapse;text-align=
+:left;font:400 16px Arial;padding:24px 0;border-bottom:2px solid #ebebe9"><=
+table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-spac=
+ing:0;border-collapse:collapse;text-align:left;width:100%;max-width:100%"><=
+tbody><tr><td style=3D"margin:0;border-collapse:collapse;text-align:left;fo=
+nt:400 16px Arial;width:100%;padding:6px 0"><h1 style=3D"margin:0;padding:0=
+;font-size:100%;font-weight:400;font:700 20px Arial,sans-serif;display:bloc=
+k;line-height:24px"> <a href=3D"https://l.semanal.idealista.com/rts/go2.asp=
+x?h=3D1896876&amp;tp=3Di-1NGB-Q2Q-TaE-7VGOUv-1s-7q4tl-1c-7VGB3z-lBjWakt0Ue-=
+1aWnT2&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=3D9215988=
+5&amp;hp2=3D4f1fee9faf1221e1e12c13472a6ffe9c890044cffa0e690cbcc7a74e88d2363=
+5" style=3D"color:#1f7fc5;text-decoration:none;display:block;font:700 20px =
+Arial,sans-serif;line-height:24px" target=3D"_blank" rel=3D"noreferrer"> In=
+heriting a house in Spain: key considerations and essential steps </a></h1>=
+</td></tr><tr><td style=3D"padding:6px 0;margin:0;border-collapse:collapse;=
+text-align:left;font:400 16px Arial,sans-serif;width:100%;line-height:24px;=
+color:#141414"><p style=3D"padding:0;margin:0">Inheriting a home in Spain i=
+nvolves crucial legal, financial, and administrative steps. From deciding w=
+hether to accept or decline the inheritance to managing tax obligations, ea=
+ch stage affects the property&#39;s cost and future. This article outlines =
+the key factors for a smooth inheritance process.</p></td></tr><tr><td styl=
+e=3D"margin:0;padding:0;border-collapse:collapse;text-align:left;font:400 1=
+6px Arial;padding-top:16px"> <a href=3D"https://l.semanal.idealista.com/rts=
+/go2.aspx?h=3D1896877&amp;tp=3Di-1NGB-Q2Q-TaE-7VGOUv-1s-7q4tl-1c-7VGB3z-lBj=
+Wakt0Ue-1aWnT2&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=
+=3D92159885&amp;hp2=3D659d7834fb4d056218e729b9d004a8b6b60f3e13a13bdabfa1719=
+e8bbcdcfb98" style=3D"color:#1f7fc5;text-decoration:none;font:400 16px Aria=
+l" target=3D"_blank" rel=3D"noreferrer">Keep reading</a></td></tr></tbody><=
+/table></td></tr><tr></tr><tr><td style=3D"margin:0;border-collapse:collaps=
+e;text-align:left;font:400 16px Arial;padding:24px 0;border-bottom:2px soli=
+d #ebebe9"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D=
+"border-spacing:0;border-collapse:collapse;text-align:left;width:100%;max-w=
+idth:100%"><tbody><tr><td style=3D"margin:0;border-collapse:collapse;text-a=
+lign:left;font:400 16px Arial;width:100%;padding:6px 0"><h1 style=3D"margin=
+:0;padding:0;font-size:100%;font-weight:400;font:700 20px Arial,sans-serif;=
+display:block;line-height:24px"> <a href=3D"https://l.semanal.idealista.com=
+/rts/go2.aspx?h=3D1896878&amp;tp=3Di-1NGB-Q2Q-TaE-7VGOUv-1s-7q4tl-1c-7VGB3z=
+-lBjWakt0Ue-1aWnT2&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp=
+;x=3D92159885&amp;hp2=3Defc9d5705e325efc2c1efdc0d1da2b34b95dde9acfb2df64f17=
+c1b28fd1a56b2" style=3D"color:#1f7fc5;text-decoration:none;display:block;fo=
+nt:700 20px Arial,sans-serif;line-height:24px" target=3D"_blank" rel=3D"nor=
+eferrer"> Property prices in Catalonia set to rise by 10% this year </a></h=
+1></td></tr><tr><td style=3D"padding:6px 0;margin:0;border-collapse:collaps=
+e;text-align:left;font:400 16px Arial;width:100%"> <a href=3D"https://l.sem=
+anal.idealista.com/rts/go2.aspx?h=3D1896879&amp;tp=3Di-1NGB-Q2Q-TaE-7VGOUv-=
+1s-7q4tl-1c-7VGB3z-lBjWakt0Ue-1aWnT2&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5tw=
+wBbaLfJgK0sMDs&amp;x=3D92159885&amp;hp2=3D16bc5096c50e77d187a8d8f4405e51c6f=
+bb6cfdb8c36261959a7fc70ab712cb1" style=3D"color:#1f7fc5;text-decoration:non=
+e;font:400 16px Arial" target=3D"_blank" rel=3D"noreferrer"> <img src=3D"ht=
+tps://st3.idealista.com/news/archivos/2025-04/images/costa_brava_pixabay.jp=
+g?VersionId=3DPLZwzCi60a5OXbK4ECuzQuvU6qoFv2vM" width=3D"530" alt=3D"Costa =
+Brava" title=3D"" style=3D"border:0 none;display:block;height:auto;line-hei=
+ght:100%;outline:0;text-decoration:none;width:100%"> </a></td></tr><tr><td =
+style=3D"padding:6px 0;margin:0;border-collapse:collapse;text-align:left;fo=
+nt:400 16px Arial,sans-serif;width:100%;line-height:24px;color:#141414"><p =
+style=3D"padding:0;margin:0">Property prices in Catalonia, including Barcel=
+ona, are set to rise by 10% this year, according to the 22nd edition of the=
+ Real Estate Barometer. While nationwide property prices are expected to in=
+crease, growth will vary significantly across regions, with Murcia and the =
+Valencian Community seeing the highest rises.</p></td></tr><tr><td style=3D=
+"margin:0;padding:0;border-collapse:collapse;text-align:left;font:400 16px =
+Arial;padding-top:16px"> <a href=3D"https://l.semanal.idealista.com/rts/go2=
+.aspx?h=3D1896880&amp;tp=3Di-1NGB-Q2Q-TaE-7VGOUv-1s-7q4tl-1c-7VGB3z-lBjWakt=
+0Ue-1aWnT2&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=3D921=
+59885&amp;hp2=3Dcec101a5f03720aabd5fee6376962c1e033beca8cccd36bb4a91b1f0eff=
+78e6e" style=3D"color:#1f7fc5;text-decoration:none;font:400 16px Arial" tar=
+get=3D"_blank" rel=3D"noreferrer">Keep reading</a></td></tr></tbody></table=
+></td></tr><tr><td style=3D"margin:0;border-collapse:collapse;text-align:le=
+ft;font:400 16px Arial;padding:24px 0;border-bottom:2px solid #ebebe9"><tab=
+le border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-spacing=
+:0;border-collapse:collapse;text-align:left;width:100%;max-width:100%"><tbo=
+dy><tr><td style=3D"margin:0;border-collapse:collapse;text-align:left;font:=
+400 16px Arial;width:100%;padding:6px 0"><h1 style=3D"margin:0;padding:0;fo=
+nt-size:100%;font-weight:400;font:700 20px Arial,sans-serif;display:block;l=
+ine-height:24px"> <a href=3D"https://l.semanal.idealista.com/rts/go2.aspx?h=
+=3D1896881&amp;tp=3Di-1NGB-Q2Q-TaE-7VGOUv-1s-7q4tl-1c-7VGB3z-lBjWakt0Ue-1aW=
+nT2&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=3D92159885&a=
+mp;hp2=3D98113582d5553f7e718428259ccd47298cd214ca48cdcb9c3fcdd1855bf5df72" =
+style=3D"color:#1f7fc5;text-decoration:none;display:block;font:700 20px Ari=
+al,sans-serif;line-height:24px" target=3D"_blank" rel=3D"noreferrer"> How t=
+o sell a property in Valencia at the best price </a></h1></td></tr><tr><td =
+style=3D"padding:6px 0;margin:0;border-collapse:collapse;text-align:left;fo=
+nt:400 16px Arial,sans-serif;width:100%;line-height:24px;color:#141414"><p =
+style=3D"padding:0;margin:0">Valencia, Spain=E2=80=99s third-largest city, =
+offers a high quality of life, excellent services, and a Mediterranean clim=
+ate, making it a popular relocation destination. For those selling property=
+ in Valencia, understanding the competitive market and following key steps =
+is essential for a successful transaction.</p></td></tr><tr><td style=3D"ma=
+rgin:0;padding:0;border-collapse:collapse;text-align:left;font:400 16px Ari=
+al;padding-top:16px"> <a href=3D"https://l.semanal.idealista.com/rts/go2.as=
+px?h=3D1896882&amp;tp=3Di-1NGB-Q2Q-TaE-7VGOUv-1s-7q4tl-1c-7VGB3z-lBjWakt0Ue=
+-1aWnT2&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=3D921598=
+85&amp;hp2=3D0ce5188271ea91bc63ac7b2802cf2a49674353f944668e47e890accbff5d28=
+0f" style=3D"color:#1f7fc5;text-decoration:none;font:400 16px Arial" target=
+=3D"_blank" rel=3D"noreferrer">Keep reading</a></td></tr></tbody></table></=
+td></tr><tr><td style=3D"margin:0;border-collapse:collapse;text-align:left;=
+font:400 16px Arial;padding:24px 0;border-bottom:2px solid #ebebe9"><table =
+border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-spacing:0;=
+border-collapse:collapse;text-align:left;width:100%;max-width:100%"><tbody>=
+<tr><td style=3D"margin:0;border-collapse:collapse;text-align:left;font:400=
+ 16px Arial;width:100%;padding:6px 0"><h1 style=3D"margin:0;padding:0;font-=
+size:100%;font-weight:400;font:700 20px Arial,sans-serif;display:block;line=
+-height:24px"> <a href=3D"https://l.semanal.idealista.com/rts/go2.aspx?h=3D=
+1896883&amp;tp=3Di-1NGB-Q2Q-TaE-7VGOUv-1s-7q4tl-1c-7VGB3z-lBjWakt0Ue-1aWnT2=
+&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=3D92159885&amp;=
+hp2=3Da3d2113358719c21e0537eab76337d09ee89a784163a3ed856f533a7fd57bc14" sty=
+le=3D"color:#1f7fc5;text-decoration:none;display:block;font:700 20px Arial,=
+sans-serif;line-height:24px" target=3D"_blank" rel=3D"noreferrer"> How to g=
+et residency in Spain for EU citizens </a></h1></td></tr><tr><td style=3D"p=
+adding:6px 0;margin:0;border-collapse:collapse;text-align:left;font:400 16p=
+x Arial;width:100%"> <a href=3D"https://l.semanal.idealista.com/rts/go2.asp=
+x?h=3D1896884&amp;tp=3Di-1NGB-Q2Q-TaE-7VGOUv-1s-7q4tl-1c-7VGB3z-lBjWakt0Ue-=
+1aWnT2&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=3D9215988=
+5&amp;hp2=3D4c1d20aae55ecb24b8dc6a5983d2d4d0024e4a6174cd28fb86df0ef154aa19d=
+6" style=3D"color:#1f7fc5;text-decoration:none;font:400 16px Arial" target=
+=3D"_blank" rel=3D"noreferrer"> <img src=3D"https://st3.idealista.com/news/=
+archivos/2025-04/images/lucas-mayer-q6rgo6tidri-unsplash_1.jpg?VersionId=3D=
+cTmImDG526nv1PhGXZsiLD8mSjcO3Nc3" width=3D"530" alt=3D"Residency in Spain "=
+ title=3D"" style=3D"border:0 none;display:block;height:auto;line-height:10=
+0%;outline:0;text-decoration:none;width:100%"> </a></td></tr><tr><td style=
+=3D"padding:6px 0;margin:0;border-collapse:collapse;text-align:left;font:40=
+0 16px Arial,sans-serif;width:100%;line-height:24px;color:#141414"><p style=
+=3D"padding:0;margin:0">EU citizens enjoy significant freedom to choose the=
+ir residence, with a simpler process for obtaining Spanish residency than n=
+on-EU nationals. This guide covers the required paperwork, benefits, and th=
+e steps to transition from temporary to permanent residency in Spain.</p></=
+td></tr><tr><td style=3D"margin:0;padding:0;border-collapse:collapse;text-a=
+lign:left;font:400 16px Arial;padding-top:16px"> <a href=3D"https://l.seman=
+al.idealista.com/rts/go2.aspx?h=3D1896885&amp;tp=3Di-1NGB-Q2Q-TaE-7VGOUv-1s=
+-7q4tl-1c-7VGB3z-lBjWakt0Ue-1aWnT2&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwB=
+baLfJgK0sMDs&amp;x=3D92159885&amp;hp2=3Dfd93dfeeb38e0bb97d7a17ed64bd7d48669=
+86bef26bf9566dfcf39571d4e59de" style=3D"color:#1f7fc5;text-decoration:none;=
+font:400 16px Arial" target=3D"_blank" rel=3D"noreferrer">Keep reading</a><=
+/td></tr></tbody></table></td></tr><tr><td style=3D"margin:0;border-collaps=
+e:collapse;text-align:left;font:400 16px Arial;padding:24px 0;border-bottom=
+:2px solid #ebebe9"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+ style=3D"border-spacing:0;border-collapse:collapse;text-align:left;width:1=
+00%;max-width:100%"><tbody><tr><td style=3D"margin:0;border-collapse:collap=
+se;text-align:left;font:400 16px Arial;width:100%;padding:6px 0"><h1 style=
+=3D"margin:0;padding:0;font-size:100%;font-weight:400;font:700 20px Arial,s=
+ans-serif;display:block;line-height:24px"> <a href=3D"https://l.semanal.ide=
+alista.com/rts/go2.aspx?h=3D1896886&amp;tp=3Di-1NGB-Q2Q-TaE-7VGOUv-1s-7q4tl=
+-1c-7VGB3z-lBjWakt0Ue-1aWnT2&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJg=
+K0sMDs&amp;x=3D92159885&amp;hp2=3D5fa6b1c06a08573efb33698034b7484a609c5e123=
+0bf34198caec3be7a5bc87c" style=3D"color:#1f7fc5;text-decoration:none;displa=
+y:block;font:700 20px Arial,sans-serif;line-height:24px" target=3D"_blank" =
+rel=3D"noreferrer"> Nest Seekers brings luxury real estate from Netflix to =
+Spain </a></h1></td></tr><tr><td style=3D"padding:6px 0;margin:0;border-col=
+lapse:collapse;text-align:left;font:400 16px Arial,sans-serif;width:100%;li=
+ne-height:24px;color:#141414"><p style=3D"padding:0;margin:0">Nest Seekers,=
+ the agency behind Netflix=E2=80=99s <em style=3D"font-style:normal;font-we=
+ight:400;font:400 14px Arial">Million Dollar Beach House</em>, has entered =
+the Spanish market, launching in Barcelona and Madrid. With a focus on high=
+-end properties, personalised service, and impactful marketing, the firm ai=
+ms to become a leading force in Spain=E2=80=99s luxury real estate market.<=
+/p></td></tr><tr><td style=3D"margin:0;padding:0;border-collapse:collapse;t=
+ext-align:left;font:400 16px Arial;padding-top:16px"> <a href=3D"https://l.=
+semanal.idealista.com/rts/go2.aspx?h=3D1896887&amp;tp=3Di-1NGB-Q2Q-TaE-7VGO=
+Uv-1s-7q4tl-1c-7VGB3z-lBjWakt0Ue-1aWnT2&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z=
+5twwBbaLfJgK0sMDs&amp;x=3D92159885&amp;hp2=3D6d2995f9d08b86b6a86b8ca318cfa1=
+3a82277ec8b741724399ca0f2422b07cdd" style=3D"color:#1f7fc5;text-decoration:=
+none;font:400 16px Arial" target=3D"_blank" rel=3D"noreferrer">Keep reading=
+</a></td></tr></tbody></table></td></tr><tr><td style=3D"margin:0;border-co=
+llapse:collapse;text-align:left;font:400 16px Arial;padding:24px 0;border-b=
+ottom:2px solid #ebebe9"><table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" style=3D"border-spacing:0;border-collapse:collapse;text-align:left;w=
+idth:100%;max-width:100%"><tbody><tr><td style=3D"margin:0;border-collapse:=
+collapse;text-align:left;font:400 16px Arial;width:100%;padding:6px 0"><h1 =
+style=3D"margin:0;padding:0;font-size:100%;font-weight:400;font:700 20px Ar=
+ial,sans-serif;display:block;line-height:24px"> <a href=3D"https://l.semana=
+l.idealista.com/rts/go2.aspx?h=3D1896888&amp;tp=3Di-1NGB-Q2Q-TaE-7VGOUv-1s-=
+7q4tl-1c-7VGB3z-lBjWakt0Ue-1aWnT2&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBb=
+aLfJgK0sMDs&amp;x=3D92159885&amp;hp2=3D085d6a57e040cb55ddcdc3a036cfe654e4a4=
+2ff9aca4281a7fa0c6f2da178f09" style=3D"color:#1f7fc5;text-decoration:none;d=
+isplay:block;font:700 20px Arial,sans-serif;line-height:24px" target=3D"_bl=
+ank" rel=3D"noreferrer"> Italy&#39;s happiest city ranked 25th globally </a=
+></h1></td></tr><tr><td style=3D"margin:0;border-collapse:collapse;text-ali=
+gn:left;font:400 16px Arial;padding:12px 0"> <span style=3D"color:#929292;b=
+ackground:#ebebe9;border:10px solid #ebebe9;border-width:4px 10px;font:400 =
+14px Arial,sans-serif"> Italy </span></td></tr><tr><td style=3D"padding:6px=
+ 0;margin:0;border-collapse:collapse;text-align:left;font:400 16px Arial;wi=
+dth:100%"> <a href=3D"https://l.semanal.idealista.com/rts/go2.aspx?h=3D1896=
+889&amp;tp=3Di-1NGB-Q2Q-TaE-7VGOUv-1s-7q4tl-1c-7VGB3z-lBjWakt0Ue-1aWnT2&amp=
+;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=3D92159885&amp;hp2=
+=3D86d9b06e94745f77ed622f8bc3b734009064e5d9e420f5f7f15458c6a359d571" style=
+=3D"color:#1f7fc5;text-decoration:none;font:400 16px Arial" target=3D"_blan=
+k" rel=3D"noreferrer"> <img src=3D"https://st3.idealista.com/news/archivos/=
+2025-04/images/pexels-omar-ramadan-1739260-27362357.jpg?VersionId=3DifNUsIl=
+_pPsmuy9wQEJqZbnj9z1GGj34" width=3D"530" alt=3D"Milan" title=3D"" style=3D"=
+border:0 none;display:block;height:auto;line-height:100%;outline:0;text-dec=
+oration:none;width:100%"> </a></td></tr><tr><td style=3D"padding:6px 0;marg=
+in:0;border-collapse:collapse;text-align:left;font:400 16px Arial,sans-seri=
+f;width:100%;line-height:24px;color:#141414"><p style=3D"padding:0;margin:0=
+">Happiness is subjective, but certain factors influence satisfaction with =
+a city. A recent global study reveals that Milan ranks as the happiest city=
+ in Italy, standing out for its quality of life and overall positive living=
+ conditions compared to other Italian cities.</p></td></tr><tr><td style=3D=
+"margin:0;padding:0;border-collapse:collapse;text-align:left;font:400 16px =
+Arial;padding-top:16px"> <a href=3D"https://l.semanal.idealista.com/rts/go2=
+.aspx?h=3D1896890&amp;tp=3Di-1NGB-Q2Q-TaE-7VGOUv-1s-7q4tl-1c-7VGB3z-lBjWakt=
+0Ue-1aWnT2&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=3D921=
+59885&amp;hp2=3D229db12620fc2842fe864c68c02eb73630b6bdf368c89ab1f455151b7bc=
+b98e5" style=3D"color:#1f7fc5;text-decoration:none;font:400 16px Arial" tar=
+get=3D"_blank" rel=3D"noreferrer">Keep reading</a></td></tr></tbody></table=
+></td></tr><tr><td style=3D"margin:0;border-collapse:collapse;text-align:le=
+ft;font:400 16px Arial;padding:24px 0;border-bottom:2px solid #ebebe9"><tab=
+le border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-spacing=
+:0;border-collapse:collapse;text-align:left;width:100%;max-width:100%"><tbo=
+dy><tr><td style=3D"margin:0;border-collapse:collapse;text-align:left;font:=
+400 16px Arial;width:100%;padding:6px 0"><h1 style=3D"margin:0;padding:0;fo=
+nt-size:100%;font-weight:400;font:700 20px Arial,sans-serif;display:block;l=
+ine-height:24px"> <a href=3D"https://l.semanal.idealista.com/rts/go2.aspx?h=
+=3D1896891&amp;tp=3Di-1NGB-Q2Q-TaE-7VGOUv-1s-7q4tl-1c-7VGB3z-lBjWakt0Ue-1aW=
+nT2&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=3D92159885&a=
+mp;hp2=3D677cd27abc82b0caa806051e6fb97cf0a933cccdd871493aa86e6021910603aa" =
+style=3D"color:#1f7fc5;text-decoration:none;display:block;font:700 20px Ari=
+al,sans-serif;line-height:24px" target=3D"_blank" rel=3D"noreferrer"> Urgen=
+t property sales in Italy </a></h1></td></tr><tr><td style=3D"margin:0;bord=
+er-collapse:collapse;text-align:left;font:400 16px Arial;padding:12px 0"> <=
+span style=3D"color:#929292;background:#ebebe9;border:10px solid #ebebe9;bo=
+rder-width:4px 10px;font:400 14px Arial,sans-serif"> Italy </span></td></tr=
+><tr><td style=3D"padding:6px 0;margin:0;border-collapse:collapse;text-alig=
+n:left;font:400 16px Arial,sans-serif;width:100%;line-height:24px;color:#14=
+1414"><p style=3D"padding:0;margin:0"><span lang=3D"EN-GB">Buying a home in=
+ Italy as an international buyer can take time, but focusing on urgent sale=
+s can help secure a great deal. Sellers often need quick transactions, allo=
+wing buyers to find homes below market value. Act fast with idealista=E2=80=
+=99s handpicked selection and get a great deal before summer.</span></p></t=
+d></tr><tr><td style=3D"margin:0;padding:0;border-collapse:collapse;text-al=
+ign:left;font:400 16px Arial;padding-top:16px"> <a href=3D"https://l.semana=
+l.idealista.com/rts/go2.aspx?h=3D1896892&amp;tp=3Di-1NGB-Q2Q-TaE-7VGOUv-1s-=
+7q4tl-1c-7VGB3z-lBjWakt0Ue-1aWnT2&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBb=
+aLfJgK0sMDs&amp;x=3D92159885&amp;hp2=3D97cd37d39b3d4466583d28591e154efc47e6=
+7fde276b69d52c3f6a3b2a232180" style=3D"color:#1f7fc5;text-decoration:none;f=
+ont:400 16px Arial" target=3D"_blank" rel=3D"noreferrer">Keep reading</a></=
+td></tr></tbody></table></td></tr><tr></tr><tr><td style=3D"margin:0;border=
+-collapse:collapse;text-align:left;font:400 16px Arial;padding:24px 0;borde=
+r-bottom:2px solid #ebebe9"><table border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" style=3D"border-spacing:0;border-collapse:collapse;text-align:left=
+;width:100%;max-width:100%"><tbody><tr><td style=3D"margin:0;border-collaps=
+e:collapse;text-align:left;font:400 16px Arial;width:100%;padding:6px 0"><h=
+1 style=3D"margin:0;padding:0;font-size:100%;font-weight:400;font:700 20px =
+Arial,sans-serif;display:block;line-height:24px"> <a href=3D"https://l.sema=
+nal.idealista.com/rts/go2.aspx?h=3D1896893&amp;tp=3Di-1NGB-Q2Q-TaE-7VGOUv-1=
+s-7q4tl-1c-7VGB3z-lBjWakt0Ue-1aWnT2&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5tww=
+BbaLfJgK0sMDs&amp;x=3D92159885&amp;hp2=3Dcc023fc8a3ad214be9ffdc1e6ad8d15a31=
+cc40375fb6762ec86dcf35742939e8" style=3D"color:#1f7fc5;text-decoration:none=
+;display:block;font:700 20px Arial,sans-serif;line-height:24px" target=3D"_=
+blank" rel=3D"noreferrer"> Dream home in Arr=C3=A1bida, Portugal: a unique =
+exterior and an unexpected interior </a></h1></td></tr><tr><td style=3D"mar=
+gin:0;border-collapse:collapse;text-align:left;font:400 16px Arial;padding:=
+12px 0"> <span style=3D"color:#929292;background:#ebebe9;border:10px solid =
+#ebebe9;border-width:4px 10px;font:400 14px Arial,sans-serif"> Portugal </s=
+pan></td></tr><tr><td style=3D"padding:6px 0;margin:0;border-collapse:colla=
+pse;text-align:left;font:400 16px Arial;width:100%"> <a href=3D"https://l.s=
+emanal.idealista.com/rts/go2.aspx?h=3D1896894&amp;tp=3Di-1NGB-Q2Q-TaE-7VGOU=
+v-1s-7q4tl-1c-7VGB3z-lBjWakt0Ue-1aWnT2&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5=
+twwBbaLfJgK0sMDs&amp;x=3D92159885&amp;hp2=3D13afef354a0f10330b435ab7570b481=
+ae5718cee503cbfd4a07213647eb4febe" style=3D"color:#1f7fc5;text-decoration:n=
+one;font:400 16px Arial" target=3D"_blank" rel=3D"noreferrer"> <img src=3D"=
+https://st3.idealista.com/news/archivos/2025-04/images/30_copiar.jpg?Versio=
+nId=3DFiSKcUPac0NpRYOS4I.gVbIXbNx0UjF3" width=3D"530" alt=3D"Portugal dream=
+ home" title=3D"" style=3D"border:0 none;display:block;height:auto;line-hei=
+ght:100%;outline:0;text-decoration:none;width:100%"> </a></td></tr><tr><td =
+style=3D"padding:6px 0;margin:0;border-collapse:collapse;text-align:left;fo=
+nt:400 16px Arial,sans-serif;width:100%;line-height:24px;color:#141414"><p =
+style=3D"padding:0;margin:0">Each week, we explore a dream home in Portugal=
+. This time, we visit a property in Arr=C3=A1bida Natural Park, Serra do Lo=
+uro. Built atop a ruined structure, it blends modern design with tradition,=
+ offering a stunning exterior that leads to a surprising interior.</p></td>=
+</tr><tr><td style=3D"margin:0;padding:0;border-collapse:collapse;text-alig=
+n:left;font:400 16px Arial;padding-top:16px"> <a href=3D"https://l.semanal.=
+idealista.com/rts/go2.aspx?h=3D1896895&amp;tp=3Di-1NGB-Q2Q-TaE-7VGOUv-1s-7q=
+4tl-1c-7VGB3z-lBjWakt0Ue-1aWnT2&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaL=
+fJgK0sMDs&amp;x=3D92159885&amp;hp2=3Dfeceff6f0c95cc929195e5e30c139a75459f7b=
+70518dfcd63eba78f958cbbe05" style=3D"color:#1f7fc5;text-decoration:none;fon=
+t:400 16px Arial" target=3D"_blank" rel=3D"noreferrer">Keep reading</a></td=
+></tr></tbody></table></td></tr><tr><td style=3D"margin:0;border-collapse:c=
+ollapse;text-align:left;font:400 16px Arial;padding:24px 0;border-bottom:2p=
+x solid #ebebe9"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" st=
+yle=3D"border-spacing:0;border-collapse:collapse;text-align:left;width:100%=
+;max-width:100%"><tbody><tr><td style=3D"margin:0;border-collapse:collapse;=
+text-align:left;font:400 16px Arial;width:100%;padding:6px 0"><h1 style=3D"=
+margin:0;padding:0;font-size:100%;font-weight:400;font:700 20px Arial,sans-=
+serif;display:block;line-height:24px"> <a href=3D"https://l.semanal.idealis=
+ta.com/rts/go2.aspx?h=3D1896896&amp;tp=3Di-1NGB-Q2Q-TaE-7VGOUv-1s-7q4tl-1c-=
+7VGB3z-lBjWakt0Ue-1aWnT2&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sM=
+Ds&amp;x=3D92159885&amp;hp2=3D2912f9e8c761296f9be86979c6a24c3a4b187ca47ce55=
+940e512e3ba438c91ac" style=3D"color:#1f7fc5;text-decoration:none;display:bl=
+ock;font:700 20px Arial,sans-serif;line-height:24px" target=3D"_blank" rel=
+=3D"noreferrer"> Discover Portugal=E2=80=99s new thermal spa where waters r=
+each 76=C2=BAC </a></h1></td></tr><tr><td style=3D"margin:0;border-collapse=
+:collapse;text-align:left;font:400 16px Arial;padding:12px 0"> <span style=
+=3D"color:#929292;background:#ebebe9;border:10px solid #ebebe9;border-width=
+:4px 10px;font:400 14px Arial,sans-serif"> Portugal </span></td></tr><tr><t=
+d style=3D"padding:6px 0;margin:0;border-collapse:collapse;text-align:left;=
+font:400 16px Arial,sans-serif;width:100%;line-height:24px;color:#141414"><=
+p style=3D"padding:0;margin:0">On World Water Day, Chaves, a historic city =
+in northern Portugal, unveiled the Aquae Salutem Thermal Complex, featuring=
+ the country=E2=80=99s first outdoor thermal pools. Located in Tr=C3=A1s-os=
+-Montes, this new hydrothermal circuit is a significant investment in the c=
+ity=E2=80=99s tourism infrastructure.</p></td></tr><tr><td style=3D"margin:=
+0;padding:0;border-collapse:collapse;text-align:left;font:400 16px Arial;pa=
+dding-top:16px"> <a href=3D"https://l.semanal.idealista.com/rts/go2.aspx?h=
+=3D1896897&amp;tp=3Di-1NGB-Q2Q-TaE-7VGOUv-1s-7q4tl-1c-7VGB3z-lBjWakt0Ue-1aW=
+nT2&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=3D92159885&a=
+mp;hp2=3D424f79d5f44b5698d7770cf771969cce86aef589a04ca4717689080b5de1159b" =
+style=3D"color:#1f7fc5;text-decoration:none;font:400 16px Arial" target=3D"=
+_blank" rel=3D"noreferrer">Keep reading</a></td></tr></tbody></table></td><=
+/tr><tr></tr></tbody></table></center></div></td></tr></tbody></table><tabl=
+e border=3D"0" cellpadding=3D"0" cellspacing=3D"0" id=3D"m_-703064984704254=
+7534footer" style=3D"border-spacing:0;border-collapse:collapse;text-align:l=
+eft;width:100%;background:#ebebe9;color:#8e8f8c;border-top:36px solid #fff;=
+max-width:100%"><tbody><tr><td style=3D"margin:0;border-collapse:collapse;t=
+ext-align:left;font:400 16px Arial;color:#8e8f8c;padding:0 0 30px"><div sty=
+le=3D"margin:0;padding:0"><center><table border=3D"0" cellpadding=3D"0" cel=
+lspacing=3D"0" style=3D"border-spacing:0;border-collapse:collapse;width:100=
+%;text-align:left;margin:0 auto;max-width:100%"><tbody><tr><td style=3D"mar=
+gin:0;border-collapse:collapse;text-align:left;font:400 16px Arial;color:#8=
+e8f8c;padding:20px 30px 15px"> <a href=3D"https://l.semanal.idealista.com/r=
+ts/go2.aspx?h=3D1896898&amp;tp=3Di-1NGB-Q2Q-TaE-7VGOUv-1s-7q4tl-1c-7VGB3z-l=
+BjWakt0Ue-1aWnT2&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=
+=3D92159885&amp;hp2=3D38bc74216e6740236b3cf41947aadd44a81a0c17637a12b8a48b0=
+68244d8156a" title=3D"" style=3D"color:#1f7fc5;text-decoration:none;font:40=
+0 16px Arial" target=3D"_blank" rel=3D"noreferrer"> <img alt=3D"" src=3D"ht=
+tps://st1.idealista.com/news/news9/themes/custom/idealista_news/images/logo=
+_news_small.png" rel=3D"home" style=3D"display:block;height:auto;line-heigh=
+t:100%;outline:0;text-decoration:none;border:0 none"> </a></td><td style=3D=
+"margin:0;border-collapse:collapse;text-align:left;font:400 16px Arial;colo=
+r:#8e8f8c;padding:15px 30px 5px 30px;width:100%;font-size:14px"> =C2=A9 200=
+0-2025 idealista</td></tr><tr><td colspan=3D"2" style=3D"margin:0;border-co=
+llapse:collapse;text-align:left;font:400 16px Arial;color:#8e8f8c;width:100=
+%;font-size:14px;padding:0 30px 15px"> To unsubscribe from this newsletter =
+<a href=3D"https://l.semanal.idealista.com/rts/go2.aspx?h=3D1896899&amp;tp=
+=3Di-1NGB-Q2Q-TaE-7VGOUv-1s-7q4tl-1c-7VGB3z-lBjWakt0Ue-1aWnT2&amp;pi=3D21OE=
+K495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=3Dbanyus53@gmail.com%7c331a1b=
+e0273ca359f6921c0e9b24f8ac%7c92159885&amp;hp2=3Ddae7ea318c3dec847e09d12b42d=
+677de1b7da65203bb3fd93fa0e60d60cebf90" style=3D"color:#1f7fc5;text-decorati=
+on:none;font:400 16px Arial;padding-bottom:15px;font-size:14px" target=3D"_=
+blank" rel=3D"noreferrer">you can unsubscribe</a> </td></tr></tbody></table=
+></center></div></td></tr></tbody></table></td></tr></tbody></table></td></=
+tr></tbody></table> </center></div></div><img width=3D"1" height=3D"1" alt=
+=3D"" src=3D"https://col.idealista.com/toto?s=3D582065&amp;events=3D%5B%7B%=
+22name%22%3A%22email.display.offsite%22%2C%22data%22%3A%7B%22src_medium%22%=
+3A%22email%22%2C%22src_campaign%22%3A%22news_weekly%22%2C%22src_campaigntyp=
+e%22%3A%22retention%22%2C%22src_date_send%22%3A%222025-04-1707%3A00%3A00%22=
+%2C%22src_project%22%3A%22visitGeneration%22%2C%22src_recipient_id%22%3A%22=
+72492159885%22%2C%22src_recipient_list%22%3A%221%22%2C%22src_source%22%3A%2=
+2newsletters%22%7D%7D%5D"><div style=3D"display:none!important"><a href=3D"=
+https://l.semanal.idealista.com/rts/un.aspx?tp=3Di-1NGB-Q2Q-TaE-7VGOUv-1s-7=
+q4tl-1c-7VGB3z-lBjWakt0Ue-1aWnT2" style=3D"display:none!important" target=
+=3D"_blank" rel=3D"noreferrer"></a></div></div></div>
+
+--00000000000039c7de0632feaf67--

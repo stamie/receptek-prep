@@ -1,0 +1,390 @@
+Delivered-To: estampel@gmail.com
+Received: by 2002:a05:622a:838b:b0:479:5c49:a6e8 with SMTP id lg11csp843179qtb;
+        Wed, 9 Apr 2025 09:32:49 -0700 (PDT)
+X-Received: by 2002:a17:907:7245:b0:ac3:d19b:e07f with SMTP id a640c23a62f3a-aca9b71a165mr446906966b.41.1744216369595;
+        Wed, 09 Apr 2025 09:32:49 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1744216369; cv=none;
+        d=google.com; s=arc-20240605;
+        b=gAAS/8HN0KWQGFVbrY+IeiGXLyISngX/yiF1hAVN0/Ntr8OWH2RUkOv4mhvfZ5aX1i
+         +tX8nkOWZELi8VOES1MiTJpeumqUHDzO1FWFrF840zmwjOD02XPcTlwnfRI8dirITj8U
+         eOg5mz4a/C6fskmxz6rjpmsjjKdpJMjP/G1dUG6PnwnQ3sDFHgZJlYoC5sqYvOgss46B
+         Ve6Tbq8jYziSn7nhgy85nb8NoHdmvMLSIVlwR4vezBEHpr1KOqmkgzKZCP7BQkMvzZ0W
+         oWRsjqpOFX/rXIvDsNdEsecmcnZ0QtY/AXc4jWTpGC2m4QRQaN27moD8dAO7gnPWVH8k
+         SA9g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=V9bzMXthzpU3FbGTJUa7Qst8wDlm1svzmcZ76n3sVQ8=;
+        fh=wF/Yrd2E0xeKwPH74kML7cQSth+Fl4bwhVNrybJ4uh4=;
+        b=arOOt9mrN0LDqpDkft3N5xGqsJNMSCxeMXqwY/vVuqVLJXnyeEK5apuw914CAyK8os
+         iYD8gSwj8iv/eFm0Yi0zKIyEeGIC5DG+w2LW7hxvDW5jeg11+4hDQECBaKQJo/XURubd
+         1Fd2jqiobgoDe7wqUWwOCSpbe8GkUl7ep/BNk5rQ2YwWOGoyuzRAX7fnw7dgxsOGnoQf
+         DAUqe9NKE0Yd/XkopGaPJujtQ19qdu31XgDbyv7d/MczwWIYsftWH7ws4uUJK0nJSttF
+         Kv1Dx2pzeVPwInIuFENZ6ZS/V4AlETx3X0oQLSCjmxLKEuBg19P3L89og0zbnxCtVrya
+         lbxw==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=OLH1cxYA;
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <banyus53@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id a640c23a62f3a-acaa1cdc70dsor84197466b.15.2025.04.09.09.32.49
+        for <estampel@gmail.com>
+        (Google Transport Security);
+        Wed, 09 Apr 2025 09:32:49 -0700 (PDT)
+Received-SPF: pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=OLH1cxYA;
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1744216369; x=1744821169; dara=google.com;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=V9bzMXthzpU3FbGTJUa7Qst8wDlm1svzmcZ76n3sVQ8=;
+        b=OLH1cxYA1zr5hZ6ZcPBkUL8bAyhr3EMofr0LYofqCyPj5b6V9qh0GW1X2Y8bzoGEp7
+         Nw0ycah22Ib4ToPM04Ra9ZSPyB2kgELJZ4NFj9gJnDz+MJnHxh4bLPbbm11zEORdNniu
+         cKtcclqGCFlqMRhB6ps+2ScKe+064deYbanxWeH+A1nssgK2/uECrwLVhTnyc0HKzj57
+         996Nf7KfmZC9lYC3xiE0a6Q337ucrAMp1SeOQdLXyk+R7dxe+fdeCrTMYmq+lsUnrh3Q
+         37HfBvowCpGI8Hj8Zk6iwpsnUEMb++56gduk0t2iS8yKuRArrtC9fYGuN38TebKAh05B
+         sDhQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744216369; x=1744821169;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=V9bzMXthzpU3FbGTJUa7Qst8wDlm1svzmcZ76n3sVQ8=;
+        b=xJsS6Yc5WyhS12XBm1y0oqzZHPxI/eG5bJy7iX7zFX/H65GdXQWeiJllac7PkYpsUi
+         z4/WN5dmPQNiI3YF+MjPCK+u7/SV8c/PIZ7ftJ2CqaC9hX1UpIG0pZ58o03g7xPFNYWy
+         ujAKXy9TTyhbXY2y35n1dS+uo863UlJnBW84yf9lY4Fy78pvEg3ga6jB/kNdfnJ2f0hV
+         DVcgV47lvUqMrpKax7NGYlUIAmiaXgstozx2kXheFQVhuMj/OGcaNeByk21j3FLvOK/x
+         qXg9jFJEeflwSyJ8PYHX6P0X2tIgTipBQQTh7cUUx3Ge3sOv3gC5uy3NpM7pwJ8Lkw5n
+         x3QQ==
+X-Gm-Message-State: AOJu0YyJUHi5wV0IBtE5wO7/7Txfo5bbPdMcfb+3PdTQYvz9XCCShMVR
+	h7jstuSWeVBHIj6mmzLoS6VeigwQrYyXd3FimQtOMeRF1vWxT9tcfMgwN34QysGzHX+PJsjPhrC
+	bIqNLj2QDEuUFKuiKOOb7DBD3zQvl2g==
+X-Gm-Gg: ASbGncvbxxBlqtjsdnncWfcUfhkLD7drULn1Y61hJjZgc8nG+7++wmOSXhWs4WD3DeX
+	cVdUr/AJls+ks7wz0VMPh1QmzgzxyaLybhqSpMNGkf9eq6ugsT6rqhfSD4bUqt6ZwrGyfbM+Odv
+	3PBNtnCSPY7mxIics1lgwgRAuw8ssq55YABd63N8gOaM5V5xO4RwBIZkc/
+X-Google-Smtp-Source: AGHT+IGIzwVCl/DfRHX0MViXMHSwy8f6z11eXeKpVYhSlicLM3BmmEozJAXmi6khzs5M3lPK8N4eCi7z6ZH+N8h63I8=
+X-Received: by 2002:a17:907:7b88:b0:ac7:684c:25ca with SMTP id
+ a640c23a62f3a-aca9b745c3amr349502366b.51.1744216368612; Wed, 09 Apr 2025
+ 09:32:48 -0700 (PDT)
+MIME-Version: 1.0
+References: <62f197166057cbb9bcd8b84b8f6cf33cb84964fe-20252897-111288288@google.com>
+In-Reply-To: <62f197166057cbb9bcd8b84b8f6cf33cb84964fe-20252897-111288288@google.com>
+From: =?UTF-8?B?w4FnbmVzIEJ1Z8Ohcg==?= <banyus53@gmail.com>
+Date: Wed, 9 Apr 2025 18:32:37 +0200
+X-Gm-Features: ATxdqUErfFSzO1AmOabyy8MLqVK8U0YVK-D5ANKZlUvcAgCveOIuik_zdwPxxII
+Message-ID: <CA+39czW4erR_fjUvLAK4_fL6kbpU+3sLsXrxHT4ObMa43gTS7A@mail.gmail.com>
+Subject: =?UTF-8?Q?Fwd=3A_T=C3=A1j=C3=A9koztat=C3=A1s_a_Google=2Dnak_tett_bejelent=C3=A9s=C3=A9?=
+	=?UTF-8?Q?vel_kapcsolatban_=288434474379362596576=29?=
+To: Emese Stampel <estampel@gmail.com>
+Content-Type: multipart/alternative; boundary="000000000000100efc06325b05ec"
+
+--000000000000100efc06325b05ec
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+---------- Forwarded message ---------
+Felad=C3=B3: Google Trust & Safety Team <ads-support-noreply@google.com>
+Date: 2025. =C3=A1pr. 9., Sze 18:30
+Subject: T=C3=A1j=C3=A9koztat=C3=A1s a Google-nak tett bejelent=C3=A9s=C3=
+=A9vel kapcsolatban
+(8434474379362596576)
+To: <banyus53@gmail.com>
+
+
+------------------------------
+
+Kedves =C3=81gnes!
+
+T=C3=A1j=C3=A9koztatni szeretn=C3=A9nk, hogy fel=C3=BClvizsg=C3=A1ltuk a be=
+jelent=C3=A9s=C3=A9t
+(azonos=C3=ADt=C3=B3sz=C3=A1m: 8434474379362596576).
+
+A k=C3=B6vetkez=C5=91t tal=C3=A1ltuk:
+
+=C3=9Agy d=C3=B6nt=C3=B6tt=C3=BCnk, hogy int=C3=A9zked=C3=BCnk a hirdet=C3=
+=A9s miatt. Ennek teljes
+hat=C3=A1lybal=C3=A9p=C3=A9se ak=C3=A1r 24 =C3=B3r=C3=A1t is ig=C3=A9nybe v=
+ehet. *Meg=C3=A1llap=C3=ADtottuk, hogy a
+hirdet=C3=A9s s=C3=A9rti a Google azon ir=C3=A1nyelveit*, amelyek tiltanak =
+bizonyos, a
+felhaszn=C3=A1l=C3=B3kra =C3=A9s az =C3=A1ltal=C3=A1nos online =C3=B6koszis=
+zt=C3=A9m=C3=A1ra n=C3=A9zve =C3=A1ltalunk
+k=C3=A1rosnak tartott tartalmakat =C3=A9s m=C3=B3dszereket.
+Tudnival=C3=B3k a fel=C3=BClvizsg=C3=A1lati folyamatr=C3=B3l
+
+Bejelent=C3=A9s=C3=A9t fel=C3=BClvizsg=C3=A1lta a Google Megb=C3=ADzhat=C3=
+=B3s=C3=A1gi =C3=A9s biztons=C3=A1gi csapata,
+hogy meg=C3=A1llap=C3=ADtsuk, s=C3=A9rti-e b=C3=A1rmelyik ir=C3=A1nyelv=C3=
+=BCnket. Amikor olyan hirdet=C3=A9st
+tal=C3=A1lunk, amely s=C3=A9rti a szab=C3=A1lyzatainkat vagy a t=C3=B6rv=C3=
+=A9nyt, elt=C3=A1vol=C3=ADtjuk. A
+kir=C3=ADv=C3=B3 vagy ism=C3=A9tl=C5=91d=C5=91 szab=C3=A1lys=C3=A9rt=C3=A9s=
+ek a hirdet=C5=91 fi=C3=B3kj=C3=A1nak felf=C3=BCggeszt=C3=A9s=C3=A9t
+vonhatj=C3=A1k maguk ut=C3=A1n, ami azt jelenti, hogy az =C3=A9rintett a to=
+v=C3=A1bbiakban nem
+jelen=C3=ADthet meg hirdet=C3=A9seket a Google platformjain.
+
+A k=C3=B6vetkez=C5=91ket teheti
+
+Lehet=C5=91s=C3=A9ge van annak szab=C3=A1lyoz=C3=A1s=C3=A1ra, hogy milyen h=
+irdet=C3=A9sek jelenjenek meg
+=C3=96nnek. L=C3=A1togasson el a Hirdet=C3=A9sk=C3=B6zpontba
+<https://notifications.google.com/g/p/ANiao5pHsfmwsNRQ_-lXfUZhcAl3o0NBXJerx=
+x1ZzxYqAZc1W0Pa2IGHa2guNLP4TJfG6Z8KTJbmH6oJpUxOIjg-shdls8EaI1ki67Hi2fmhKY-6=
+PZVjVFQv8iKRMNw>,
+=C3=A9s jelezze ott, hogy milyen hirdet=C3=A9seket szeretne korl=C3=A1tozni=
+, illetve
+melyek hasznosak az =C3=96n sz=C3=A1m=C3=A1ra.
+
+A hirdet=C3=A9si ir=C3=A1nyelveinkkel kapcsolatos tov=C3=A1bbi inform=C3=A1=
+ci=C3=B3=C3=A9rt l=C3=A1togasson el
+a S=C3=BAg=C3=B3ba
+<https://notifications.google.com/g/p/ANiao5rwRuBOGRYsNkJQqeZ8lAEKVEYEj62ZG=
+iLcpwKkzrvtFyQKvVSND-0XY_9HTZUC-Q59n1RQBpFGkvjVI8B9eQOOIaGXRP3LR2JhETNeY96G=
+ZClyJ6KF_Yz1-mU3JwEXLQChu9KKc-0nfUcWu7Js5fA>
+.
+
+K=C3=B6sz=C3=B6nj=C3=BCk seg=C3=ADts=C3=A9g=C3=A9t annak biztos=C3=ADt=C3=
+=A1s=C3=A1ban, hogy a hirdet=C3=A9sek biztons=C3=A1gosak
+=C3=A9s hasznosak legyenek.
+
+=C3=9Cdv=C3=B6zlettel:
+
+A Google Megb=C3=ADzhat=C3=B3s=C3=A1gi =C3=A9s biztons=C3=A1gi csapata
+
+=C2=A9 2024 Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043,=
+ USA
+<https://www.google.com/maps/search/1600+Amphitheatre+Parkway,+Mountain+Vie=
+w,+CA+94043,+USA?entry=3Dgmail&source=3Dg>
+
+Ez egy automatikus =C3=BCzenet, k=C3=A9rj=C3=BCk, ne v=C3=A1laszoljon r=C3=
+=A1. Lehets=C3=A9ges, hogy ez
+az e-mail bizalmas, illetve csak a c=C3=ADmzettnek sz=C3=B3l=C3=B3 inform=
+=C3=A1ci=C3=B3kat
+tartalmaz. Ha t=C3=A9ved=C3=A9sb=C5=91l kapta ezt az =C3=BCzenetet, ne tov=
+=C3=A1bb=C3=ADtsa senki m=C3=A1snak,
+=C3=A9s t=C3=B6r=C3=B6lje az =C3=B6sszes p=C3=A9ld=C3=A1ny=C3=A1t =C3=A9s c=
+satolm=C3=A1ny=C3=A1t. A fenti felt=C3=A9telek egy
+lehets=C3=A9ges =C3=BCzleti meg=C3=A1llapod=C3=A1sra vonatkoznak, =C3=A9s c=
+=C3=A9ljuk kiz=C3=A1r=C3=B3lag az, hogy
+tov=C3=A1bbi t=C3=A1rgyal=C3=A1sok alapj=C3=A1ul szolg=C3=A1ljanak. Nem k=
+=C3=A9pezik jogilag k=C3=B6telez=C5=91
+=C3=A9rv=C3=A9ny=C5=B1 k=C3=B6telezetts=C3=A9gv=C3=A1llal=C3=A1s alapj=C3=
+=A1t, =C3=A9s nem tekinthet=C5=91k ilyen
+k=C3=B6telezetts=C3=A9gv=C3=A1llal=C3=A1sra vonatkoz=C3=B3 sz=C3=A1nd=C3=A9=
+knyilatkozatnak. A fentiek nem
+hoznak l=C3=A9tre, nem foglalnak magukban =C3=A9s nem vonnak maguk ut=C3=A1=
+n jogi
+k=C3=B6telezetts=C3=A9get, am=C3=ADg l=C3=A9tre nem j=C3=B6n egy mindegyik =
+f=C3=A9l =C3=A1ltal =C3=ADr=C3=A1sban
+elfogadott v=C3=A9gleges meg=C3=A1llapod=C3=A1s.
+
+--000000000000100efc06325b05ec
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"auto"></div><br><div class=3D"gmail_quote gmail_quote_container=
+"><div dir=3D"ltr" class=3D"gmail_attr">---------- Forwarded message ------=
+---<br>Felad=C3=B3: <strong class=3D"gmail_sendername" dir=3D"auto">Google =
+Trust &amp; Safety Team</strong> <span dir=3D"auto">&lt;<a href=3D"mailto:a=
+ds-support-noreply@google.com">ads-support-noreply@google.com</a>&gt;</span=
+><br>Date: 2025. =C3=A1pr. 9., Sze 18:30<br>Subject: T=C3=A1j=C3=A9koztat=
+=C3=A1s a Google-nak tett bejelent=C3=A9s=C3=A9vel kapcsolatban (8434474379=
+362596576)<br>To:  &lt;<a href=3D"mailto:banyus53@gmail.com">banyus53@gmail=
+.com</a>&gt;<br></div><br><br><u></u>
+
+  =20
+     =20
+     =20
+     =20
+     =20
+     =20
+     =20
+     =20
+     =20
+ =20
+  <div>
+
+<table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspacing=3D"=
+0" width=3D"100%">
+  <tbody>
+    <tr>
+      <td align=3D"center">
+     =20
+      <table role=3D"presentation" align=3D"center" border=3D"0" cellpaddin=
+g=3D"0" cellspacing=3D"0" style=3D"max-width:600px" width=3D"100%">
+        <tbody>
+          <tr>
+            <td>
+            <table role=3D"presentation" align=3D"center" style=3D"box-sizi=
+ng:border-box;border:1px solid rgb(218,220,224);border-radius:8px;width:94%=
+">
+              <tbody>
+                <tr>
+                  <td style=3D"text-align:center"><img alt=3D"" style=3D"pa=
+dding-top: 1%;">
+                  <hr style=3D"border:1px solid rgb(218,220,224)"></td>
+                </tr>
+                <tr>
+                  <td style=3D"padding:0% 3%">
+                  <div>
+<p style=3D"font-family:&quot;Google Sans&quot;;font-style:normal;font-weig=
+ht:400;font-size:16px;line-height:24px;color:rgb(31,31,31)">Kedves =C3=81gn=
+es!</p></div>
+
+                  <p style=3D"font-family:&quot;Google Sans&quot;;font-styl=
+e:normal;font-weight:400;font-size:14px;line-height:21px;color:rgb(68,71,70=
+)">T=C3=A1j=C3=A9koztatni szeretn=C3=A9nk, hogy fel=C3=BClvizsg=C3=A1ltuk a=
+ bejelent=C3=A9s=C3=A9t (azonos=C3=ADt=C3=B3sz=C3=A1m: 8434474379362596576)=
+.</p>
+
+                  <p style=3D"font-family:&quot;Google Sans&quot;;font-styl=
+e:normal;font-weight:500;font-size:16px;line-height:24px;color:rgb(68,71,70=
+)">A k=C3=B6vetkez=C5=91t tal=C3=A1ltuk:</p>
+
+                  <p style=3D"font-family:&quot;Google Sans&quot;;font-styl=
+e:normal;font-weight:400;font-size:14px;line-height:21px;color:rgb(68,71,70=
+)">=C3=9Agy d=C3=B6nt=C3=B6tt=C3=BCnk, hogy int=C3=A9zked=C3=BCnk a hirdet=
+=C3=A9s miatt. Ennek teljes hat=C3=A1lybal=C3=A9p=C3=A9se ak=C3=A1r 24 =C3=
+=B3r=C3=A1t is ig=C3=A9nybe vehet. <b>Meg=C3=A1llap=C3=ADtottuk, hogy a hir=
+det=C3=A9s s=C3=A9rti a Google azon ir=C3=A1nyelveit</b>, amelyek tiltanak =
+bizonyos, a felhaszn=C3=A1l=C3=B3kra =C3=A9s az =C3=A1ltal=C3=A1nos online =
+=C3=B6kosziszt=C3=A9m=C3=A1ra n=C3=A9zve =C3=A1ltalunk k=C3=A1rosnak tartot=
+t tartalmakat =C3=A9s m=C3=B3dszereket.</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td align=3D"center">
+                  <table role=3D"presentation" style=3D"background:rgb(236,=
+243,254);border-radius:8px;width:94%">
+                    <tbody>
+                      <tr>
+                        <td style=3D"padding:2%">
+                        <div>
+<div><img alt=3D"" style=3D"padding-right: 1%; vertical-align: top;"> <span=
+ style=3D"font-family:&quot;Google Sans&quot;;font-style:normal;font-weight=
+:500;font-size:16px;line-height:27px;color:rgb(60,64,67)">Tudnival=C3=B3k a=
+ fel=C3=BClvizsg=C3=A1lati folyamatr=C3=B3l</span></div>
+
+<p style=3D"font-family:&quot;Google Sans&quot;;font-style:normal;font-weig=
+ht:400;font-size:14px;line-height:21px;color:rgb(60,64,67)">Bejelent=C3=A9s=
+=C3=A9t fel=C3=BClvizsg=C3=A1lta a Google Megb=C3=ADzhat=C3=B3s=C3=A1gi =C3=
+=A9s biztons=C3=A1gi csapata, hogy meg=C3=A1llap=C3=ADtsuk, s=C3=A9rti-e b=
+=C3=A1rmelyik ir=C3=A1nyelv=C3=BCnket. Amikor olyan hirdet=C3=A9st tal=C3=
+=A1lunk, amely s=C3=A9rti a szab=C3=A1lyzatainkat vagy a t=C3=B6rv=C3=A9nyt=
+, elt=C3=A1vol=C3=ADtjuk. A kir=C3=ADv=C3=B3 vagy ism=C3=A9tl=C5=91d=C5=91 =
+szab=C3=A1lys=C3=A9rt=C3=A9sek a hirdet=C5=91 fi=C3=B3kj=C3=A1nak felf=C3=
+=BCggeszt=C3=A9s=C3=A9t vonhatj=C3=A1k maguk ut=C3=A1n, ami azt jelenti, ho=
+gy az =C3=A9rintett a tov=C3=A1bbiakban nem jelen=C3=ADthet meg hirdet=C3=
+=A9seket a Google platformjain.</p>
+</div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td align=3D"center" style=3D"padding:2% 0% 0%">
+                  <table role=3D"presentation" style=3D"background:rgb(231,=
+248,237);border-radius:8px;width:94%">
+                    <tbody>
+                      <tr>
+                        <td style=3D"padding:0px 2% 2%">
+                        <div>
+<p style=3D"font-family:&quot;Google Sans&quot;;font-style:normal;font-weig=
+ht:500;font-size:16px;line-height:27px;color:rgb(60,64,67)">A k=C3=B6vetkez=
+=C5=91ket teheti</p>
+
+<p style=3D"font-family:&quot;Google Sans&quot;;font-style:normal;font-weig=
+ht:400;font-size:14px;line-height:21px;color:rgb(60,64,67)">Lehet=C5=91s=C3=
+=A9ge van annak szab=C3=A1lyoz=C3=A1s=C3=A1ra, hogy milyen hirdet=C3=A9sek =
+jelenjenek meg =C3=96nnek. <a href=3D"https://notifications.google.com/g/p/=
+ANiao5pHsfmwsNRQ_-lXfUZhcAl3o0NBXJerxx1ZzxYqAZc1W0Pa2IGHa2guNLP4TJfG6Z8KTJb=
+mH6oJpUxOIjg-shdls8EaI1ki67Hi2fmhKY-6PZVjVFQv8iKRMNw" target=3D"_blank" rel=
+=3D"noreferrer">L=C3=A1togasson el a Hirdet=C3=A9sk=C3=B6zpontba</a>, =C3=
+=A9s jelezze ott, hogy milyen hirdet=C3=A9seket szeretne korl=C3=A1tozni, i=
+lletve melyek hasznosak az =C3=96n sz=C3=A1m=C3=A1ra.</p>
+
+<p style=3D"font-family:&quot;Google Sans&quot;;font-style:normal;font-weig=
+ht:400;font-size:14px;line-height:21px;color:rgb(60,64,67)">A hirdet=C3=A9s=
+i ir=C3=A1nyelveinkkel kapcsolatos tov=C3=A1bbi inform=C3=A1ci=C3=B3=C3=A9r=
+t l=C3=A1togasson el a <a href=3D"https://notifications.google.com/g/p/ANia=
+o5rwRuBOGRYsNkJQqeZ8lAEKVEYEj62ZGiLcpwKkzrvtFyQKvVSND-0XY_9HTZUC-Q59n1RQBpF=
+GkvjVI8B9eQOOIaGXRP3LR2JhETNeY96GZClyJ6KF_Yz1-mU3JwEXLQChu9KKc-0nfUcWu7Js5f=
+A" target=3D"_blank" rel=3D"noreferrer">S=C3=BAg=C3=B3ba</a>.</p>
+</div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td style=3D"padding:0% 3%">
+                  <p style=3D"font-family:&quot;Google Sans&quot;;font-styl=
+e:normal;font-weight:400;font-size:14px;line-height:21px;color:rgb(68,71,70=
+)">K=C3=B6sz=C3=B6nj=C3=BCk seg=C3=ADts=C3=A9g=C3=A9t annak biztos=C3=ADt=
+=C3=A1s=C3=A1ban, hogy a hirdet=C3=A9sek biztons=C3=A1gosak =C3=A9s hasznos=
+ak legyenek.</p>
+
+                  <p style=3D"font-family:&quot;Google Sans&quot;;font-styl=
+e:normal;font-weight:400;font-size:16px;line-height:24px;color:rgb(31,31,31=
+)">=C3=9Cdv=C3=B6zlettel:</p>
+
+                  <p style=3D"font-family:&quot;Google Sans&quot;;font-styl=
+e:normal;font-weight:400;font-size:16px;line-height:24px;color:rgb(31,31,31=
+)">A Google Megb=C3=ADzhat=C3=B3s=C3=A1gi =C3=A9s biztons=C3=A1gi csapata</=
+p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+          <tr>
+            <td style=3D"padding:3%">
+            <div><p style=3D"font-family:&quot;Google Sans&quot;;font-style=
+:normal;font-weight:400;font-size:14px;line-height:21px;color:rgb(68,71,70)=
+">=C2=A9 2024 Google LLC, <a href=3D"https://www.google.com/maps/search/160=
+0+Amphitheatre+Parkway,+Mountain+View,+CA+94043,+USA?entry=3Dgmail&amp;sour=
+ce=3Dg">1600 Amphitheatre Parkway, Mountain View, CA 94043, USA</a></p>
+
+<p style=3D"font-family:&quot;Google Sans&quot;;font-style:normal;font-weig=
+ht:400;font-size:14px;line-height:21px;color:rgb(68,71,70)">Ez egy automati=
+kus =C3=BCzenet, k=C3=A9rj=C3=BCk, ne v=C3=A1laszoljon r=C3=A1. Lehets=C3=
+=A9ges, hogy ez az e-mail bizalmas, illetve csak a c=C3=ADmzettnek sz=C3=B3=
+l=C3=B3 inform=C3=A1ci=C3=B3kat tartalmaz. Ha t=C3=A9ved=C3=A9sb=C5=91l kap=
+ta ezt az =C3=BCzenetet, ne tov=C3=A1bb=C3=ADtsa senki m=C3=A1snak, =C3=A9s=
+ t=C3=B6r=C3=B6lje az =C3=B6sszes p=C3=A9ld=C3=A1ny=C3=A1t =C3=A9s csatolm=
+=C3=A1ny=C3=A1t. A fenti felt=C3=A9telek egy lehets=C3=A9ges =C3=BCzleti me=
+g=C3=A1llapod=C3=A1sra vonatkoznak, =C3=A9s c=C3=A9ljuk kiz=C3=A1r=C3=B3lag=
+ az, hogy tov=C3=A1bbi t=C3=A1rgyal=C3=A1sok alapj=C3=A1ul szolg=C3=A1ljana=
+k. Nem k=C3=A9pezik jogilag k=C3=B6telez=C5=91 =C3=A9rv=C3=A9ny=C5=B1 k=C3=
+=B6telezetts=C3=A9gv=C3=A1llal=C3=A1s alapj=C3=A1t, =C3=A9s nem tekinthet=
+=C5=91k ilyen k=C3=B6telezetts=C3=A9gv=C3=A1llal=C3=A1sra vonatkoz=C3=B3 sz=
+=C3=A1nd=C3=A9knyilatkozatnak. A fentiek nem hoznak l=C3=A9tre, nem foglaln=
+ak magukban =C3=A9s nem vonnak maguk ut=C3=A1n jogi k=C3=B6telezetts=C3=A9g=
+et, am=C3=ADg l=C3=A9tre nem j=C3=B6n egy mindegyik f=C3=A9l =C3=A1ltal =C3=
+=ADr=C3=A1sban elfogadott v=C3=A9gleges meg=C3=A1llapod=C3=A1s.</p>
+</div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+     =20
+      </td>
+    </tr>
+  </tbody>
+</table>
+  </div>
+
+</div>
+
+--000000000000100efc06325b05ec--

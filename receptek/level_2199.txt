@@ -1,0 +1,513 @@
+Delivered-To: estampel@gmail.com
+Received: by 2002:a05:622a:2a96:b0:4af:1c51:55e1 with SMTP id kf22csp159410qtb;
+        Tue, 2 Sep 2025 11:21:47 -0700 (PDT)
+X-Received: by 2002:a17:907:849:b0:afe:86d3:1296 with SMTP id a640c23a62f3a-b01d8c74b6emr1503733466b.11.1756837307064;
+        Tue, 02 Sep 2025 11:21:47 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1756837307; cv=none;
+        d=google.com; s=arc-20240605;
+        b=cQ/nJKLCbLnbDvP9czAVctHBjpQAqQRl2Xzpwd78JfZNZ185qqxBtLVJ1Q2T9Jo7nD
+         0wyCENrxdkBvL6w91qDAjiTvH8srkmKHs+CXGDMNlJThoamO5ieo+GReAhBdWM7XvtMG
+         kGvuTyiPfBzbO1w4F+i/5PqFjuVg+y+Ww2wjxdMgG9Z+/w8aa7krzdq3mbuvGYznTq4W
+         rnwsqwNF8aDbSk89RG98di8AeTTmvNUdtnLXc4oAT9RLTc0/w0vemAv4ZV5m5z6T+3HR
+         d/tUQ17sRW06JtUBQKB1T7UDPIH26VL24d4wjoaa/h2d4i1dW9AC2njrSt14k0MH9FiH
+         4VQw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=TFuALziRw8Za2idspGKNr+c3qyuOgBj8SanbbsOtVTY=;
+        fh=wF/Yrd2E0xeKwPH74kML7cQSth+Fl4bwhVNrybJ4uh4=;
+        b=E/C02BW5lZEzU+N0sxGI4NDfZC5GH+9lBNDqfDoEVyPugr5+8ibK8tpIpfRc9kVnqx
+         GUQkZpzLKaWn3PCsMlB1gyaYdwS6AvdyCc++Vr5x6FfQ74unJqrqKqwFyZPg4zEK5w/n
+         BES7twj01zrCB1Q2hfIukquaYv5eYZXv2dbzMFoalXD6ijpSZ71oVDPiEn7X/XHII1Uk
+         0Ym5VJJ6rEuB9lPJ5WO2EDcDemoEMraB0izwXZVuVzhN+4K8YEDJcIAJOyOCiDlTwVDb
+         Yj+jClReNFDuUl05xraQDhi6qz4dKitmdnv07uejYvkmISdTZnslEzZPQw5Y+HEMVe9q
+         x5VA==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=UBqw4Cn5;
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <banyus53@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id a640c23a62f3a-b0419d679e7sor244038366b.6.2025.09.02.11.21.46
+        for <estampel@gmail.com>
+        (Google Transport Security);
+        Tue, 02 Sep 2025 11:21:47 -0700 (PDT)
+Received-SPF: pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=UBqw4Cn5;
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1756837306; x=1757442106; dara=google.com;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=TFuALziRw8Za2idspGKNr+c3qyuOgBj8SanbbsOtVTY=;
+        b=UBqw4Cn5StWH+kPFhubbN3nxaveWtWiLZ4eVSquDY/Zj9i4vrS2n018vmAzIbt/id4
+         N6GfUVYEZKpJXRnEYau02niKja2dXMrD9Jqvkb4Cpo+ZySZwJH80D8hCfSY6klkv0Hkg
+         d3harR4fxlmVUfUYcqt56nFGgu4K8i64b7oq3s/k51LHoSfWtaqyCmyeB2DjQDQzHpm5
+         Oz6prA0N0dBlybmlhLdBORyHE2J+un39F28QR1xksiEs4QMj+cNHtdiISHlc2vaeRcSq
+         Wn16qZjqn5xuxjbhNpIkyARTOV5er5QQokSqvzpisbt+jsKEZ896sixNR5Vr+8XAomgd
+         mIwg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1756837306; x=1757442106;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=TFuALziRw8Za2idspGKNr+c3qyuOgBj8SanbbsOtVTY=;
+        b=rXz26za4XMRd7ZI4lU3ea1Ul6O/NjrE7W7Bc454rv9uRAr2bJ80v1jYHvyoCYO4xvO
+         4ew45K3hoPyTMIasMM+sw2egj0S1XySDNx46/u00dU4Q7N8lOij/WOLpHrt62AKYmQmV
+         EcKPZYWHKZKvXV8ljKtGM1qoEquKi30vHP+fFImJLXe0rd1Tgv57TC6sfJVblt+qi9vm
+         b1WuUO3JYosiMKJX6OYHbzMF5TtsfpWvnJExrZFgK0Vy6MlMPXb1OYUq2TeE9QK0L+D7
+         pZHH9lTPN6xaBLbpyg2xA9XXSy6Vl8ENKrFBswhg1cF1tvLWp5WOV/rQxz3ewWIf/YIt
+         iadA==
+X-Gm-Message-State: AOJu0YwO953m9mOWZJSwdLwH4kgmuTYqgafGxaghdZ9aAJ72Q6uwD7mJ
+	Edj+1XZYykdO3dH50W8o/EkOeXQhYpdfroOuvugJZTxOq6yKg/PF9rj44XPYcnO17p5ls8pNFWb
+	EPmT72Tn/XQC0DMXGwRTckNLTTY1tCn1xP08A
+X-Gm-Gg: ASbGncsw0KtkBgx7Ljptqe1JIFvwE8s4kAjLWW5O/2lcQNH2yvjHl7tuXh6cTLnFPSD
+	r4ipZuXcjY6jyIiowSowBXLmQ3aWIJbdNzw8Td75UbiwwnDnVOocCojULeuD2O/1U03UHX3MhsA
+	yn4b5h9hjhT+sZN40Ur4mXnm1nrSS07bFkhtmFOvDW64Yh1fSuPdgEMdADPSUEzV8n4IfaT5JHI
+	rt26AYOLqYDfN0eAvB0s8jVrJ071NT1eD4JLMgp68P1LU1oTTFA6dPMjNsoQg==
+X-Google-Smtp-Source: AGHT+IFUbBS9D0orKm2xB9C8XvaET+JbSSUATKOlUSCsV5bkOciPMgqAIBruymVTQl/blh+SWpZh0DX5OfRfulFF3Fs=
+X-Received: by 2002:a17:906:892:b0:b04:f5a:8c31 with SMTP id
+ a640c23a62f3a-b040f5a92e6mr914874166b.32.1756837305985; Tue, 02 Sep 2025
+ 11:21:45 -0700 (PDT)
+MIME-Version: 1.0
+References: <100094.7441993507.202509021800544993070.0015927943@mailing.idealista.com>
+In-Reply-To: <100094.7441993507.202509021800544993070.0015927943@mailing.idealista.com>
+From: =?UTF-8?B?w4FnbmVzIEJ1Z8Ohcg==?= <banyus53@gmail.com>
+Date: Tue, 2 Sep 2025 20:21:32 +0200
+X-Gm-Features: Ac12FXxnUfDmILF3rqDYS_ch8Dk1rZDC9Yqz5S3gzzcMadxOtVbB0a51n-Ug_9E
+Message-ID: <CA+39czVrtjMug-C010w8SPbekb-_2RZGYGPLSd1p=vRzCQC=ug@mail.gmail.com>
+Subject: Fwd: Spain property discounts: find your dream home for less
+To: Emese Stampel <estampel@gmail.com>
+Content-Type: multipart/alternative; boundary="0000000000008d3093063dd58f59"
+
+--0000000000008d3093063dd58f59
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+---------- Forwarded message ---------
+Felad=C3=B3: idealista <idealista@mailing.idealista.com>
+Date: 2025. szept. 2., K 20:01
+Subject: Spain property discounts: find your dream home for less
+To: banyus53@gmail.com <banyus53@gmail.com>
+
+
+Beautiful homes, better prices =E2=80=94 start your Spanish adventure. =CD=
+=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD
+=CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=
+=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=
+=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=
+=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=
+=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =
+=E2=80=87=C2=AD
+=CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=
+=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=
+=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=
+=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=
+=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =
+=E2=80=87=C2=AD
+=CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=
+=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=
+=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=
+=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=
+=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =
+=E2=80=87=C2=AD
+=CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=
+=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=
+=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=
+=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=
+=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =
+=E2=80=87=C2=AD
+=CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=
+=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=
+=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=
+=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=
+=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =
+=E2=80=87=C2=AD
+=CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=
+=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=
+=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=
+=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=
+=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =
+=E2=80=87=C2=AD
+=CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=
+=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=
+=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=
+=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=
+=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =
+=E2=80=87=C2=AD
+=CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=
+=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=
+=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=
+=AD Affordable Spanish properties
+available now: explore discounted villas, apartments, and countryside homes
+across Spain=E2=80=99s top locations. Perfect for holiday homes, permanent
+residence, or investment. Don=E2=80=99t miss out on great deals this Septem=
+ber=E2=80=94find
+your ideal property at reduced prices today.
+[image: idealista/news]
+<https://l.mailing.idealista.com/rts/go2.aspx?h=3D2017092&tp=3Di-1NGB-Q2Q-U=
+za-87dqTL-1s-7q4tl-1c-87diSg-lCHN6H7q8M-rPtOB&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3Db4cb25de589f9611658905565d1fc4e2ffd1=
+5316e10deb7e6307e33e0780952e>
+
+Spain property discounts: find your dream home for less
+<https://l.mailing.idealista.com/rts/go2.aspx?h=3D2017093&tp=3Di-1NGB-Q2Q-U=
+za-87dqTL-1s-7q4tl-1c-87diSg-lCHN6H7q8M-rPtOB&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D5dd9fdc1c46b6dcbcf1d10250a3fa76b2127=
+e726b986367450ad9117951894b6>
+idealista/news
+[image: Discounts]
+<https://l.mailing.idealista.com/rts/go2.aspx?h=3D2017094&tp=3Di-1NGB-Q2Q-U=
+za-87dqTL-1s-7q4tl-1c-87diSg-lCHN6H7q8M-rPtOB&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D9623453be377bbbe639ab5e07b3f19117e45=
+3add7249a85d5b2c427fa29bf664>
+
+Discover discounted homes across Spain this September=E2=80=94from charming
+Andalusian villages to vibrant Madrid and Barcelona apartments. Whether for
+holidays, full-time living, or investment, now is a great time to buy.
+Explore price-reduced villas, seafront properties, and countryside estates
+at unbeatable prices today.
+Keep reading
+<https://l.mailing.idealista.com/rts/go2.aspx?h=3D2017095&tp=3Di-1NGB-Q2Q-U=
+za-87dqTL-1s-7q4tl-1c-87diSg-lCHN6H7q8M-rPtOB&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D14988ced29c28d4ad0f0e67025a006bc8dc2=
+8b2b4f218f374c3141a31e737731>
+[image: idealista/news]
+<https://l.mailing.idealista.com/rts/go2.aspx?h=3D2017096&tp=3Di-1NGB-Q2Q-U=
+za-87dqTL-1s-7q4tl-1c-87diSg-lCHN6H7q8M-rPtOB&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3Dc0597444c3a5c6239114a5ddbe9285ffcf16=
+84b500bbaa8caba4b9766233b965>
+=C2=A9
+2000-2025 idealista
+If this information doesn't interest you, click here to unsubscribe
+<https://l.mailing.idealista.com/rts/go2.aspx?h=3D2017097&tp=3Di-1NGB-Q2Q-U=
+za-87dqTL-1s-7q4tl-1c-87diSg-lCHN6H7q8M-rPtOB&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3Dbanyus53@gmail.com%7c331a1be0273ca359f6921c0e9b24f8=
+ac%7c92159885&hp2=3D13e334e0aec1c1d5a64c9a12231da69b80c9ec907188d026ecf3373=
+7eadc2952>
+idealista on your mobile
+[image: app store]
+<https://l.mailing.idealista.com/rts/go2.aspx?h=3D2017098&tp=3Di-1NGB-Q2Q-U=
+za-87dqTL-1s-7q4tl-1c-87diSg-lCHN6H7q8M-rPtOB&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs>
+  [image: google play]
+<https://l.mailing.idealista.com/rts/go2.aspx?h=3D2017098&tp=3Di-1NGB-Q2Q-U=
+za-87dqTL-1s-7q4tl-1c-87diSg-lCHN6H7q8M-rPtOB&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs>
+
+Other idealista websites
+[image: idealista/news]
+<https://l.mailing.idealista.com/rts/go2.aspx?h=3D2017099&tp=3Di-1NGB-Q2Q-U=
+za-87dqTL-1s-7q4tl-1c-87diSg-lCHN6H7q8M-rPtOB&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D001941358e889a42889457efbcdc142d6cbd=
+0ac3a1f119006077a17f1f8e7d5f>
+[image:
+idealista/hipotecas]
+<https://l.mailing.idealista.com/rts/go2.aspx?h=3D2017100&tp=3Di-1NGB-Q2Q-U=
+za-87dqTL-1s-7q4tl-1c-87diSg-lCHN6H7q8M-rPtOB&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3Ddf305e3243c1e216fed9d2adcefcfa6045b2=
+8dcb1e7f61d431ceac568c85d876>
+[image:
+idealista/tools]
+<https://l.mailing.idealista.com/rts/go2.aspx?h=3D2017101&tp=3Di-1NGB-Q2Q-U=
+za-87dqTL-1s-7q4tl-1c-87diSg-lCHN6H7q8M-rPtOB&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D0fd1a3c7f0273bd749cd545f783f6985250d=
+c242e109e56fc94157094c5b08f6>
+[image:
+Rentalia]
+<https://l.mailing.idealista.com/rts/go2.aspx?h=3D2017102&tp=3Di-1NGB-Q2Q-U=
+za-87dqTL-1s-7q4tl-1c-87diSg-lCHN6H7q8M-rPtOB&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs>
+Follow us
+[image: Facebook]
+<https://l.mailing.idealista.com/rts/go2.aspx?h=3D2017103&tp=3Di-1NGB-Q2Q-U=
+za-87dqTL-1s-7q4tl-1c-87diSg-lCHN6H7q8M-rPtOB&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs>
+  [image: Twitter]
+<https://l.mailing.idealista.com/rts/go2.aspx?h=3D2017104&tp=3Di-1NGB-Q2Q-U=
+za-87dqTL-1s-7q4tl-1c-87diSg-lCHN6H7q8M-rPtOB&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs>
+  [image: Youtube]
+<https://l.mailing.idealista.com/rts/go2.aspx?h=3D2017105&tp=3Di-1NGB-Q2Q-U=
+za-87dqTL-1s-7q4tl-1c-87diSg-lCHN6H7q8M-rPtOB&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs>
+  [image: Instagram]
+<https://l.mailing.idealista.com/rts/go2.aspx?h=3D2017106&tp=3Di-1NGB-Q2Q-U=
+za-87dqTL-1s-7q4tl-1c-87diSg-lCHN6H7q8M-rPtOB&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs>
+
+<https://l.mailing.idealista.com/rts/un.aspx?tp=3Di-1NGB-Q2Q-Uza-87dqTL-1s-=
+7q4tl-1c-87diSg-lCHN6H7q8M-rPtOB>
+
+--0000000000008d3093063dd58f59
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"auto"></div><br><div class=3D"gmail_quote gmail_quote_container=
+"><div dir=3D"ltr" class=3D"gmail_attr">---------- Forwarded message ------=
+---<br>Felad=C3=B3: <strong class=3D"gmail_sendername" dir=3D"auto">idealis=
+ta</strong> <span dir=3D"auto">&lt;<a href=3D"mailto:idealista@mailing.idea=
+lista.com">idealista@mailing.idealista.com</a>&gt;</span><br>Date: 2025. sz=
+ept. 2., K 20:01<br>Subject: Spain property discounts: find your dream home=
+ for less<br>To: <a href=3D"mailto:banyus53@gmail.com">banyus53@gmail.com</=
+a> &lt;<a href=3D"mailto:banyus53@gmail.com">banyus53@gmail.com</a>&gt;<br>=
+</div><br><br><u></u><div style=3D"background-color:rgb(244,245,242)" margi=
+nwidth=3D"0" marginheight=3D"0"><span style=3D"font-size:1px;color:rgb(255,=
+255,255);line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hi=
+dden;display:none">Beautiful homes, better prices =E2=80=94 start your Span=
+ish adventure. =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD Affordable Spanish pro=
+perties available now: explore discounted villas, apartments, and countrysi=
+de homes across Spain=E2=80=99s top locations. Perfect for holiday homes, p=
+ermanent residence, or investment. Don=E2=80=99t miss out on great deals th=
+is September=E2=80=94find your ideal property at reduced prices today.</spa=
+n><img height=3D"1" width=3D"1" style=3D"display: none;"><div><div id=3D"m_=
+3623146395275916408block-idealista-news-content"><center> <table id=3D"m_36=
+23146395275916408newsletterBodyTable" align=3D"center" style=3D"border-spac=
+ing:0px;border-collapse:collapse;text-align:left;width:100%;max-width:600px=
+;background:rgb(255,255,255);margin:0px;padding:0px;height:100%"><tbody><tr=
+><td style=3D"margin:0px;padding:0px;border-collapse:collapse;text-align:le=
+ft;font:400 16px Arial"><table style=3D"border-spacing:0px;border-collapse:=
+collapse;text-align:left;width:100%;max-width:100%"><tbody><tr><td style=3D=
+"margin:0px;padding:0px;border-collapse:collapse;text-align:left;font:400 1=
+6px Arial"><table style=3D"border-spacing:0px;border-collapse:collapse;text=
+-align:left;width:100%;min-width:100%;float:none;clear:both;background:rgb(=
+225,245,110);max-width:100%"><tbody><tr><td style=3D"margin:0px;border-coll=
+apse:collapse;text-align:left;font:400 16px Arial;padding:20px 30px"> <a hr=
+ef=3D"https://l.mailing.idealista.com/rts/go2.aspx?h=3D2017092&amp;tp=3Di-1=
+NGB-Q2Q-Uza-87dqTL-1s-7q4tl-1c-87diSg-lCHN6H7q8M-rPtOB&amp;pi=3D21OEK495jHq=
+sDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=3D92159885&amp;hp2=3Db4cb25de589f961=
+1658905565d1fc4e2ffd15316e10deb7e6307e33e0780952e" rel=3D"home noreferrer" =
+title=3D"Go to idealista/news" style=3D"color:rgb(31,127,197);text-decorati=
+on:none;font:400 16px Arial" target=3D"_blank"> <img alt=3D"idealista/news"=
+ style=3D"display: block; height: auto; line-height: 100%; outline: 0px; te=
+xt-decoration: none; border: 0px none;"> </a></td><td style=3D"margin:0px;p=
+adding:0px;border-collapse:collapse;text-align:left;font:400 16px Arial"></=
+td></tr></tbody></table><table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" id=3D"m_3623146395275916408mainContent" style=3D"border-spacing:0px;=
+border-collapse:collapse;text-align:left;width:100%;max-width:100%"><tbody>=
+<tr><td style=3D"margin:0px;border-collapse:collapse;text-align:left;font:4=
+00 16px Arial;padding:0px 30px;width:100%"><div style=3D"margin:0px;padding=
+:0px"><center> <span content=3D"Spain property discounts: find your dream h=
+ome for less" style=3D"display:block"></span><table border=3D"0" cellpaddin=
+g=3D"0" cellspacing=3D"0" style=3D"border-spacing:0px;border-collapse:colla=
+pse;width:100%;text-align:left;margin:0px auto;max-width:100%"><tbody><tr><=
+td style=3D"margin:0px;border-collapse:collapse;text-align:left;font:400 16=
+px Arial;border-bottom:0px;padding:24px 0px 0px"><table border=3D"0" cellpa=
+dding=3D"0" cellspacing=3D"0" style=3D"border-spacing:0px;border-collapse:c=
+ollapse;text-align:left;width:100%;max-width:100%"><tbody><tr><td style=3D"=
+margin:0px;border-collapse:collapse;text-align:left;font:400 16px Arial;wid=
+th:100%;padding:6px 0px"><h1 style=3D"margin:0px;padding:0px;display:block;=
+font:700 20px Arial,sans-serif"> <a href=3D"https://l.mailing.idealista.com=
+/rts/go2.aspx?h=3D2017093&amp;tp=3Di-1NGB-Q2Q-Uza-87dqTL-1s-7q4tl-1c-87diSg=
+-lCHN6H7q8M-rPtOB&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;=
+x=3D92159885&amp;hp2=3D5dd9fdc1c46b6dcbcf1d10250a3fa76b2127e726b986367450ad=
+9117951894b6" style=3D"color:rgb(31,127,197);display:block;font:700 20px Ar=
+ial,sans-serif;text-decoration:none" target=3D"_blank" rel=3D"noreferrer"> =
+Spain property discounts: find your dream home for less </a></h1></td></tr>=
+<tr><td style=3D"margin:0px;border-collapse:collapse;text-align:left;font:4=
+00 14px Arial;padding:6px 0px;color:rgb(146,146,146);width:100%;display:non=
+e"> idealista/news</td></tr><tr><td style=3D"padding:6px 0px;margin:0px;bor=
+der-collapse:collapse;text-align:left;font:400 16px Arial;width:100%"> <a h=
+ref=3D"https://l.mailing.idealista.com/rts/go2.aspx?h=3D2017094&amp;tp=3Di-=
+1NGB-Q2Q-Uza-87dqTL-1s-7q4tl-1c-87diSg-lCHN6H7q8M-rPtOB&amp;pi=3D21OEK495jH=
+qsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=3D92159885&amp;hp2=3D9623453be377bb=
+be639ab5e07b3f19117e453add7249a85d5b2c427fa29bf664" style=3D"color:rgb(31,1=
+27,197);text-decoration:none;font:400 16px Arial" target=3D"_blank" rel=3D"=
+noreferrer"> <img width=3D"530" alt=3D"Discounts" title=3D"" style=3D"borde=
+r: 0px none; display: block; height: auto; line-height: 100%; outline: 0px;=
+ text-decoration: none; width: 100%;"> </a></td></tr><tr><td style=3D"paddi=
+ng:6px 0px;margin:0px;border-collapse:collapse;text-align:left;font:400 16p=
+x/24px Arial,sans-serif;width:100%;color:rgb(20,20,20)"><p style=3D"padding=
+:0px;margin:0px">Discover discounted homes across Spain this September=E2=
+=80=94from charming Andalusian villages to vibrant Madrid and Barcelona apa=
+rtments. Whether for holidays, full-time living, or investment, now is a gr=
+eat time to buy. Explore price-reduced villas, seafront properties, and cou=
+ntryside estates at unbeatable prices today.</p></td></tr><tr><td style=3D"=
+margin:0px;padding:16px 0px 0px;border-collapse:collapse;text-align:left;fo=
+nt:400 16px Arial"> <a href=3D"https://l.mailing.idealista.com/rts/go2.aspx=
+?h=3D2017095&amp;tp=3Di-1NGB-Q2Q-Uza-87dqTL-1s-7q4tl-1c-87diSg-lCHN6H7q8M-r=
+PtOB&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=3D92159885&=
+amp;hp2=3D14988ced29c28d4ad0f0e67025a006bc8dc28b2b4f218f374c3141a31e737731"=
+ style=3D"color:rgb(31,127,197);text-decoration:none;font:400 16px Arial" t=
+arget=3D"_blank" rel=3D"noreferrer">Keep reading</a></td></tr></tbody></tab=
+le></td></tr></tbody></table></center></div></td></tr></tbody></table><tabl=
+e border=3D"0" cellpadding=3D"0" cellspacing=3D"0" id=3D"m_3623146395275916=
+408footer" style=3D"border-spacing:0px;border-collapse:collapse;text-align:=
+left;width:100%;background:rgb(235,235,233);color:rgb(142,143,140);border-t=
+op:36px solid rgb(255,255,255);max-width:100%"><tbody><tr><td style=3D"marg=
+in:0px;border-collapse:collapse;text-align:left;font:400 16px Arial;color:r=
+gb(142,143,140);padding:0px 0px 30px"><div style=3D"margin:0px;padding:0px"=
+><center><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"b=
+order-spacing:0px;border-collapse:collapse;width:100%;text-align:left;margi=
+n:0px auto;max-width:100%"><tbody><tr><td style=3D"margin:0px;border-collap=
+se:collapse;text-align:left;font:400 16px Arial;color:rgb(142,143,140);padd=
+ing:20px 30px 15px"> <a href=3D"https://l.mailing.idealista.com/rts/go2.asp=
+x?h=3D2017096&amp;tp=3Di-1NGB-Q2Q-Uza-87dqTL-1s-7q4tl-1c-87diSg-lCHN6H7q8M-=
+rPtOB&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=3D92159885=
+&amp;hp2=3Dc0597444c3a5c6239114a5ddbe9285ffcf1684b500bbaa8caba4b9766233b965=
+" title=3D"Go to idealista/news" style=3D"color:rgb(31,127,197);text-decora=
+tion:none;font:400 16px Arial" target=3D"_blank" rel=3D"noreferrer"> <img a=
+lt=3D"idealista/news" rel=3D"home" style=3D"display: block; height: auto; l=
+ine-height: 100%; outline: 0px; text-decoration: none; border: 0px none;"> =
+</a></td><td style=3D"margin:0px;border-collapse:collapse;text-align:left;f=
+ont:400 14px Arial;color:rgb(142,143,140);padding:15px 30px 5px;width:100%"=
+> =C2=A9 2000-2025 idealista</td></tr><tr><td colspan=3D"2" style=3D"margin=
+:0px;border-collapse:collapse;text-align:left;font:400 14px Arial;color:rgb=
+(142,143,140);width:100%;padding:0px 30px 15px"> If this information doesn&=
+#39;t interest you, <a href=3D"https://l.mailing.idealista.com/rts/go2.aspx=
+?h=3D2017097&amp;tp=3Di-1NGB-Q2Q-Uza-87dqTL-1s-7q4tl-1c-87diSg-lCHN6H7q8M-r=
+PtOB&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=3Dbanyus53@=
+gmail.com%7c331a1be0273ca359f6921c0e9b24f8ac%7c92159885&amp;hp2=3D13e334e0a=
+ec1c1d5a64c9a12231da69b80c9ec907188d026ecf33737eadc2952" style=3D"color:rgb=
+(31,127,197);text-decoration:none;font:400 14px Arial;padding-bottom:15px" =
+target=3D"_blank" rel=3D"noreferrer">click here to unsubscribe</a> </td></t=
+r></tbody></table></center></div></td></tr></tbody></table><table style=3D"=
+border-spacing:0px;border-collapse:collapse;text-align:left;width:100%;max-=
+width:100%"><tbody><tr><td style=3D"margin:0px;padding:0px;border-collapse:=
+collapse;text-align:left;font:400 16px Arial"><div style=3D"margin:0px;padd=
+ing:0px"><center><table id=3D"m_3623146395275916408social-footer__wrapper" =
+border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-spacing:0p=
+x;border-collapse:collapse;width:100%;text-align:left;margin:0px auto;backg=
+round-color:rgb(244,245,242);max-width:100%"><tbody><tr><td style=3D"margin=
+:0px;padding:15px 0px 0px 30px;border-collapse:collapse;text-align:left;fon=
+t:400 14px/30px Arial;color:rgb(142,143,140)"> idealista on your mobile</td=
+></tr><tr style=3D"border-bottom:15px solid rgb(244,245,242)"><td style=3D"=
+margin:0px;padding:0px 0px 0px 30px;border-collapse:collapse;text-align:lef=
+t;font:400 14px/18px Arial"> <a href=3D"https://l.mailing.idealista.com/rts=
+/go2.aspx?h=3D2017098&amp;tp=3Di-1NGB-Q2Q-Uza-87dqTL-1s-7q4tl-1c-87diSg-lCH=
+N6H7q8M-rPtOB&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs" style=
+=3D"color:rgb(31,127,197);text-decoration:none;font:400 16px Arial;display:=
+inline-block" target=3D"_blank" rel=3D"noreferrer"> <img width=3D"32" heigh=
+t=3D"32" alt=3D"app store" title=3D"App store" style=3D"height: auto; line-=
+height: 100%; outline: 0px; text-decoration: none; border: 0px none; displa=
+y: inline;"></a> =C2=A0 <a href=3D"https://l.mailing.idealista.com/rts/go2.=
+aspx?h=3D2017098&amp;tp=3Di-1NGB-Q2Q-Uza-87dqTL-1s-7q4tl-1c-87diSg-lCHN6H7q=
+8M-rPtOB&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs" style=3D"col=
+or:rgb(31,127,197);text-decoration:none;font:400 16px Arial;display:inline-=
+block" target=3D"_blank" rel=3D"noreferrer"> <img width=3D"32" height=3D"32=
+" alt=3D"google play" title=3D"Google play" style=3D"height: auto; line-hei=
+ght: 100%; outline: 0px; text-decoration: none; border: 0px none; display: =
+inline;"></a> =C2=A0</td></tr><tr><td style=3D"margin:0px;padding:0px 0px 0=
+px 30px;border-collapse:collapse;text-align:left;font:400 14px/30px Arial;c=
+olor:rgb(142,143,140)"> Other idealista websites</td></tr><tr style=3D"bord=
+er-bottom:15px solid rgb(244,245,242)"><td style=3D"margin:0px;padding:0px =
+0px 0px 30px;border-collapse:collapse;text-align:left;font:400 14px/18px Ar=
+ial"> <a href=3D"https://l.mailing.idealista.com/rts/go2.aspx?h=3D2017099&a=
+mp;tp=3Di-1NGB-Q2Q-Uza-87dqTL-1s-7q4tl-1c-87diSg-lCHN6H7q8M-rPtOB&amp;pi=3D=
+21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=3D92159885&amp;hp2=3D0019=
+41358e889a42889457efbcdc142d6cbd0ac3a1f119006077a17f1f8e7d5f" style=3D"colo=
+r:rgb(31,127,197);text-decoration:none;font:400 16px Arial;display:inline-b=
+lock" target=3D"_blank" rel=3D"noreferrer"> <img alt=3D"idealista/news" tit=
+le=3D"idealista/news" style=3D"height: auto; line-height: 100%; outline: 0p=
+x; text-decoration: none; border: 0px none; display: inline;"> =C2=A0 </a> =
+<a href=3D"https://l.mailing.idealista.com/rts/go2.aspx?h=3D2017100&amp;tp=
+=3Di-1NGB-Q2Q-Uza-87dqTL-1s-7q4tl-1c-87diSg-lCHN6H7q8M-rPtOB&amp;pi=3D21OEK=
+495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=3D92159885&amp;hp2=3Ddf305e324=
+3c1e216fed9d2adcefcfa6045b28dcb1e7f61d431ceac568c85d876" style=3D"color:rgb=
+(31,127,197);text-decoration:none;font:400 16px Arial;display:inline-block"=
+ target=3D"_blank" rel=3D"noreferrer"> <img alt=3D"idealista/hipotecas" tit=
+le=3D"idealista/hipotecas" style=3D"height: auto; line-height: 100%; outlin=
+e: 0px; text-decoration: none; border: 0px none; display: inline;"> =C2=A0 =
+</a> <a href=3D"https://l.mailing.idealista.com/rts/go2.aspx?h=3D2017101&am=
+p;tp=3Di-1NGB-Q2Q-Uza-87dqTL-1s-7q4tl-1c-87diSg-lCHN6H7q8M-rPtOB&amp;pi=3D2=
+1OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=3D92159885&amp;hp2=3D0fd1a=
+3c7f0273bd749cd545f783f6985250dc242e109e56fc94157094c5b08f6" style=3D"color=
+:rgb(31,127,197);text-decoration:none;font:400 16px Arial;display:inline-bl=
+ock" target=3D"_blank" rel=3D"noreferrer"> <img alt=3D"idealista/tools" tit=
+le=3D"idealista/tools" style=3D"height: auto; line-height: 100%; outline: 0=
+px; text-decoration: none; border: 0px none; display: inline;"> =C2=A0 </a>=
+ <a href=3D"https://l.mailing.idealista.com/rts/go2.aspx?h=3D2017102&amp;tp=
+=3Di-1NGB-Q2Q-Uza-87dqTL-1s-7q4tl-1c-87diSg-lCHN6H7q8M-rPtOB&amp;pi=3D21OEK=
+495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs" style=3D"color:rgb(31,127,197);text=
+-decoration:none;font:400 16px Arial;display:inline-block" target=3D"_blank=
+" rel=3D"noreferrer"> <img alt=3D"Rentalia" title=3D"Rentalia" style=3D"hei=
+ght: auto; line-height: 100%; outline: 0px; text-decoration: none; border: =
+0px none; display: inline;"> =C2=A0 </a></td></tr><tr><td style=3D"margin:0=
+px;padding:0px 0px 0px 30px;border-collapse:collapse;text-align:left;font:4=
+00 14px/30px Arial;color:rgb(142,143,140)"> Follow us</td></tr><tr style=3D=
+"border-bottom:15px solid rgb(244,245,242)"><td style=3D"margin:0px;padding=
+:0px 0px 0px 30px;border-collapse:collapse;text-align:left;font:400 14px/18=
+px Arial"> <a href=3D"https://l.mailing.idealista.com/rts/go2.aspx?h=3D2017=
+103&amp;tp=3Di-1NGB-Q2Q-Uza-87dqTL-1s-7q4tl-1c-87diSg-lCHN6H7q8M-rPtOB&amp;=
+pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs" style=3D"color:rgb(31,127=
+,197);text-decoration:none;font:400 16px Arial;display:inline-block" target=
+=3D"_blank" rel=3D"noreferrer"> <img alt=3D"Facebook" title=3D"Facebook" st=
+yle=3D"height: auto; line-height: 100%; outline: 0px; text-decoration: none=
+; border: 0px none; display: inline;"></a> =C2=A0 <a href=3D"https://l.mail=
+ing.idealista.com/rts/go2.aspx?h=3D2017104&amp;tp=3Di-1NGB-Q2Q-Uza-87dqTL-1=
+s-7q4tl-1c-87diSg-lCHN6H7q8M-rPtOB&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwB=
+baLfJgK0sMDs" style=3D"color:rgb(31,127,197);text-decoration:none;font:400 =
+16px Arial;display:inline-block" target=3D"_blank" rel=3D"noreferrer"> <img=
+ alt=3D"Twitter" title=3D"Twitter" style=3D"height: auto; line-height: 100%=
+; outline: 0px; text-decoration: none; border: 0px none; display: inline;">=
+</a> =C2=A0 <a href=3D"https://l.mailing.idealista.com/rts/go2.aspx?h=3D201=
+7105&amp;tp=3Di-1NGB-Q2Q-Uza-87dqTL-1s-7q4tl-1c-87diSg-lCHN6H7q8M-rPtOB&amp=
+;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs" style=3D"color:rgb(31,12=
+7,197);text-decoration:none;font:400 16px Arial;display:inline-block" targe=
+t=3D"_blank" rel=3D"noreferrer"> <img alt=3D"Youtube" title=3D"Youtube" sty=
+le=3D"height: auto; line-height: 100%; outline: 0px; text-decoration: none;=
+ border: 0px none; display: inline;"></a> =C2=A0 <a href=3D"https://l.maili=
+ng.idealista.com/rts/go2.aspx?h=3D2017106&amp;tp=3Di-1NGB-Q2Q-Uza-87dqTL-1s=
+-7q4tl-1c-87diSg-lCHN6H7q8M-rPtOB&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBb=
+aLfJgK0sMDs" style=3D"color:rgb(31,127,197);text-decoration:none;font:400 1=
+6px Arial;display:inline-block" target=3D"_blank" rel=3D"noreferrer"> <img =
+alt=3D"Instagram" title=3D"Instagram" style=3D"height: auto; line-height: 1=
+00%; outline: 0px; text-decoration: none; border: 0px none; display: inline=
+;"></a> =C2=A0</td></tr></tbody></table></center></div></td></tr></tbody></=
+table></td></tr></tbody></table></td></tr></tbody></table> </center></div><=
+/div><img width=3D"1" height=3D"1" alt=3D""><div style=3D"display:none"><a =
+href=3D"https://l.mailing.idealista.com/rts/un.aspx?tp=3Di-1NGB-Q2Q-Uza-87d=
+qTL-1s-7q4tl-1c-87diSg-lCHN6H7q8M-rPtOB" style=3D"display:none" target=3D"_=
+blank" rel=3D"noreferrer"></a></div></div></div>
+
+--0000000000008d3093063dd58f59--

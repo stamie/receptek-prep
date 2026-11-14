@@ -1,0 +1,472 @@
+Delivered-To: estampel@gmail.com
+Received: by 2002:ac8:630f:0:b0:471:90a6:4296 with SMTP id lv15csp1763637qtb;
+        Mon, 24 Mar 2025 03:46:26 -0700 (PDT)
+X-Received: by 2002:a05:620a:1a05:b0:7c3:d711:6ffb with SMTP id af79cd13be357-7c5ba1ded89mr1741142085a.41.1742813185798;
+        Mon, 24 Mar 2025 03:46:25 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1742813185; cv=none;
+        d=google.com; s=arc-20240605;
+        b=K9MyXV9RK0pV+D3R/PZeIskvYwUGlCx7uFbLGKgRoy5OKEn/cN9CRZ5HSia0awWeRk
+         ZaTvsv19B8JDVIHEOI48kUu+J3gS7Zo+NzeBdM02RzOpgj4WcrzvD+OAXh4Unr1M9ljS
+         vwSN0NIEgHN18OEfkMsBn0d0CLM6gy/0zSd9RFR+wrM39GzJX82CqqOW3Xyj/uytESuz
+         9yvKOH4ASbsiy3VJKjgaglQK1VkJQ0p98ioAWNnMUy02eGtg82KUcq9PxE4Z5TZ5M92L
+         FNCUNM9BupfAK2dsovGRTj8UzebB2TaxJFkiLManXi17+ZFW4w5/2abDqhavVBveP+55
+         UshQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:from:subject:date:message-id:references:reply-to:mime-version
+         :dkim-signature;
+        bh=sfJVWT5SrmvaI9CIpTOQwaDCTVOVE3+DWjdR5Ht2oO4=;
+        fh=B2ZFBzkrESaO1DA8uJ5aRnWjyVpGE0cGoOnlIzKf4VY=;
+        b=iIGIUcjBxUfkFolKfLmoJPSrdg7CiinZ+h/ZY2QGVh0C+M3fFqTxD/YmQJ6UPgmZ84
+         mBgbIsb1KK8qzh706ApuTyLB5RHnbil1uoxehmiHBGLB2fGsHTsvtON+EMfWw4rV5nll
+         vvKvc5k07AJ6pqwIm4z0P1VcaVEGvBvgcV8cBkiWJMhW2lg8zV3Vwi5KIG7gReKYujQG
+         HbzIBOaseTCZ8XBjvF3tnYXbkNinyFQ1fDEIMq3Kdfh8J3T9UErxmkkKSeAYgNgk89/v
+         PighYSgWyXB5fzOpCFzl9XlG9T3WwVw056RCjJBQrRZSdgnbF7m33AzyuHIxFRM62Wjt
+         WlUw==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@google.com header.s=20230601 header.b=Q9GRww+F;
+       spf=pass (google.com: domain of 3atjhzxckcdwbpgtc-qfypcq-bk-lmpcnjwemmejc.amkcqrykncjekygj.amk@doclist.bounces.google.com designates 209.85.220.69 as permitted sender) smtp.mailfrom=3ATjhZxcKCDwbpgtc-qfYpcq-bk-lmpcnjwemmejc.amkcqrYkncjekYgj.amk@doclist.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <3ATjhZxcKCDwbpgtc-qfYpcq-bk-lmpcnjwemmejc.amkcqrYkncjekYgj.amk@doclist.bounces.google.com>
+Received: from mail-sor-f69.google.com (mail-sor-f69.google.com. [209.85.220.69])
+        by mx.google.com with SMTPS id af79cd13be357-7c5b9594bbdsor814877285a.17.2025.03.24.03.46.25
+        for <estampel@gmail.com>
+        (Google Transport Security);
+        Mon, 24 Mar 2025 03:46:25 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 3atjhzxckcdwbpgtc-qfypcq-bk-lmpcnjwemmejc.amkcqrykncjekygj.amk@doclist.bounces.google.com designates 209.85.220.69 as permitted sender) client-ip=209.85.220.69;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@google.com header.s=20230601 header.b=Q9GRww+F;
+       spf=pass (google.com: domain of 3atjhzxckcdwbpgtc-qfypcq-bk-lmpcnjwemmejc.amkcqrykncjekygj.amk@doclist.bounces.google.com designates 209.85.220.69 as permitted sender) smtp.mailfrom=3ATjhZxcKCDwbpgtc-qfYpcq-bk-lmpcnjwemmejc.amkcqrYkncjekYgj.amk@doclist.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1742813185; x=1743417985; dara=google.com;
+        h=cc:to:from:subject:date:message-id:references:reply-to:mime-version
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=sfJVWT5SrmvaI9CIpTOQwaDCTVOVE3+DWjdR5Ht2oO4=;
+        b=Q9GRww+FS/he0o3AqEZfWzaQkM6fRvO42LF+hvtwidzMI9GWBvZGpWWc/REbaPFOr2
+         AK23i89SAue4Bv1Jy0ZEDqjxzPGDsU5Krd0Ra2mnXlPmXb+wW/I7RP6qttPPH8n0eFYv
+         KzeMx9ApmWsASVr7FE6iidBcJNbDC3/MdXkb3odkHmA6CZQU+WSSR3NpBxcDB8My/okD
+         NLQUUnKxouzAVzvBgW49+XDLzJiJ8P7/LKW5vh8geH+zvsZsd4TpIzCEYoP5q+wKiPja
+         uwy+e/adL31fvUoNYqYpk7DMBZGIxE78Nv8jmN61tGlp9oBkKLJ6UYfR1RIHBeydu2Xr
+         tpxQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742813185; x=1743417985;
+        h=cc:to:from:subject:date:message-id:references:reply-to:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=sfJVWT5SrmvaI9CIpTOQwaDCTVOVE3+DWjdR5Ht2oO4=;
+        b=cA2WqA1vok0e9SQ+7Rmi82/oACMS/NtPy34Z7Ys8DIsA8VOsWc6HE7OuJBgyDZlTBz
+         mQ5+/Yh9czQmSqIa+QJl2lbUUFwrDmCHv0hXHwsqmFwbcM5gYBn61m8IyI3z1EAkpX0B
+         eTGhT6zQWZDijf3k8cV9m/+4XFEd6TTRUAMite4poixMpyMC19C4WR+oLj7bjGb1E6Y3
+         s6APJskjgORPebS7R3q6WXrsqULTb9msnBeqaQlTcKaTX43cynZIZHjuNQoDyFWnCECO
+         O2RltKF71aBJ3iNTLggyLMhqKRiGSWMNbzsTgKIYmiqhb5pBwmrBgosXXCiZ8Yms02we
+         lRvQ==
+X-Gm-Message-State: AOJu0YylXe31r+ZpaleN7gsYNp0FaQc6UaFGZtFs9GXdfEBsv9lGC1hO
+	ZcfPq51LAmPbbB9sexOygdY5DtxCsLCwF2H2++F4X5A3S8iznK8owLD9vWlnnDDT6A7EjbmDIhW
+	XkxMXJg==
+X-Google-Smtp-Source: AGHT+IGDdxMto1x1aR/RdfliUg0sDvgrumT+wGG1CoTZyZcitfbX2xn0vaXtPqsc6HAnXhzTGlySIq5SRns=
+MIME-Version: 1.0
+X-Received: by 2002:a05:6214:1bc7:b0:6e8:f770:5045 with SMTP id
+ 6a1803df08f44-6eb3f34b479mr203368376d6.28.1742813185158; Mon, 24 Mar 2025
+ 03:46:25 -0700 (PDT)
+Reply-To: =?UTF-8?B?TMOhc3psw7MgTW9sbsOhcg==?= <laszlo.junior@gmail.com>
+X-No-Auto-Attachment: 1
+References: <3016b2ba-be37-4976-a98f-a55336a3aa56@docs-share.google.com>
+Message-ID: <autogen-java-9de09cda-b6a7-45e2-ba8e-2ab160ff0979@google.com>
+Date: Mon, 24 Mar 2025 10:46:25 +0000
+Subject: =?UTF-8?Q?Megosztottak_=C3=96nnel_egy_KAMPA=CC=81NY2025minimum=5FLaci=2Exl?=
+	=?UTF-8?Q?sx_nev=C5=B1_t=C3=A1bl=C3=A1zatot?=
+From: =?UTF-8?B?TMOhc3psw7MgTW9sbsOhciAoZXplbiBrZXJlc3p0w7xsOiBHb29nbGUgVMOhYmzDoXphdG9rKQ==?= <drive-shares-dm-noreply@google.com>
+To: estampel@gmail.com
+Cc: banyus53@gmail.com, emma.nyers@gmail.com, istvansolti53@gmail.com, 
+	kikotobalatonlelle@gmail.com, maria.faddine@gmail.com, 
+	melinda.fenyvesi@gmail.com, orsitiszabb@gmail.com, pegazus650@gmail.com, 
+	soltine.marta@gmail.com, steiner@slp.hu, wigand.orsi@balatonboglar.org
+Content-Type: multipart/alternative; boundary="000000000000cfb85306311450c2"
+
+--000000000000cfb85306311450c2
+Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
+Content-Transfer-Encoding: base64
+
+TWVnb3N6dG90dGFtIHZlbGVkIGVneSBlbGVtZXQ6DQoNCktBTVBBzIFOWTIwMjVtaW5pbXVtX0xh
+Y2kueGxzeA0KaHR0cHM6Ly9kb2NzLmdvb2dsZS5jb20vc3ByZWFkc2hlZXRzL2QvMUd5X3lWUE8y
+cmdlRmcxUDRsMGsyZjdTV1VqTUFJb1ZPL2VkaXQ/dXNwPXNoYXJpbmcmcnRwb2Y9dHJ1ZSZzZD10
+cnVlJnRzPTY3ZTEzODAwDQoNCkV6IG5lbSBtZWxsw6lrbGV0LCBoYW5lbSBlZ3ksIGF6IGludGVy
+bmV0ZW4gdMOhcm9sdCBmw6FqbC4gTWVnbnlpdMOhc8OhaG96ICANCmVneXN6ZXLFsWVuIGNzYWsg
+a2F0dGludHNvbiBhIGZlbnRpIGxpbmtyZS4NCg==
+--000000000000cfb85306311450c2
+Content-Type: text/x-amp-html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!doctype html><html amp4email><head><meta charset=3D"utf-8"><script async =
+src=3D"https://cdn.ampproject.org/v0.js"></script><script async custom-elem=
+ent=3D"amp-list" src=3D"https://cdn.ampproject.org/v0/amp-list-0.1.js"></sc=
+ript><script async custom-template=3D"amp-mustache" src=3D"https://cdn.ampp=
+roject.org/v0/amp-mustache-0.2.js"></script><script async custom-element=3D=
+"amp-form" src=3D"https://cdn.ampproject.org/v0/amp-form-0.1.js"></script><=
+script async custom-element=3D"amp-bind" src=3D"https://cdn.ampproject.org/=
+v0/amp-bind-0.1.js"></script><script async custom-element=3D"amp-timeago" s=
+rc=3D"https://cdn.ampproject.org/v0/amp-timeago-0.1.js"></script><style amp=
+4email-boilerplate>body{visibility:hidden}</style><style amp-custom>.materi=
+al-button-filled{background-color: #1a73e8; color: #fff;}.material-button-f=
+illed:hover{background-color: #1b55c9; box-shadow: 0 1px 2px 0 rgba(60, 64,=
+ 67, 0.3), 0 1px 3px 1px rgba(60,64,67,0.15);}.material-button-filled:focus=
+{background-color: #1b5fb9; box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3), =
+0 1px 3px 1px rgba(60,64,67,0.15);}.material-button-filled:active{backgroun=
+d-color: #1b63c1; box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 2px 6px =
+2px rgba(60, 64, 67, 0.15);}.material-button-filled:disabled{background-col=
+or: rgba(60, 64, 67, .12); color: rgba(60, 64, 67, .38);}.material-button{-=
+webkit-appearance: none; cursor: pointer; outline: none;}.material-button:f=
+ocus {outline: 1px solid transparent;}.material-button:disabled{cursor: ini=
+tial; outline: none;}.material-button-transparent{background-color: transpa=
+rent; color: #1a73e8;}.material-button-transparent:hover{background-color: =
+rgba(26, 115, 232, .04);}.material-button-transparent:focus{background-colo=
+r: rgba(26, 115, 232, .12);}.material-button-transparent:active{background-=
+color: rgba(26, 115, 232, .12); box-shadow: 0 1px 3px 1px rgba(60, 64, 67, =
+.15);}.material-button-transparent:disabled{background-color: transparent; =
+color: #3c4043; opacity: 0.38;}@media screen and (max-width: 600px){.conten=
+t-spacer{height: 24px;}.content-spacer-small{height: 12px;}}@media screen a=
+nd (min-width: 601px){.content-spacer{height: 32px;}.content-spacer-small{h=
+eight: 20px;}}.dynamic-content-container-wrapper {margin-left: -6px; table-=
+layout: fixed; width: calc(100% + 12px);}.dynamic-content-container-wrapper=
+ * {hyphens: auto; overflow-wrap: break-word; word-wrap: break-word; word-b=
+reak: break-word;}#dynamic-content-container {border-radius: 8px; border: 1=
+px solid #DADCE0;box-sizing: border-box;}.thumbnail-link {border-radius: 8p=
+x; border: 1px solid #DADCE0;box-sizing: border-box;}#dynamic-content-conta=
+iner {display: inline-block; max-width: 100%; padding: 20px; width: 405px;}=
+#dynamic-content-container > * + * {margin-top: 18px;}.dynamic-content-head=
+ing {display: flex; flex-direction: row;}.dynamic-content-heading > * + * {=
+margin-left: 10px;}#star-form, #star-button {height: 22px; position: relati=
+ve; width: 22px;}#star-button {background: none; border: none; display: blo=
+ck; outline: none; z-index: 1;}#star-button[disabled] {opacity: 0.4;}#star-=
+button:not([disabled]) {cursor: pointer;}#star-button:not([disabled]):hover=
+ + .star-button-circle, #star-button:not([disabled]):focus + .star-button-c=
+ircle{display: block; outline: 1px solid transparent;}.star-button-circle {=
+background-color: #dde3ea; border-radius: 50%; display: none; height: 32px;=
+ left: 50%; position: absolute; top: 50%; transform: translate(-50%, -50%);=
+ width: 32px;}.unstarred-icon, .starred-icon {bottom: 0; left: 0; position:=
+ absolute; right: 0; top: 0; visibility: hidden;}#star-button.starred > .st=
+arred-icon, #star-button.unstarred > .unstarred-icon {visibility: visible;}=
+#star-error-message {color: #D93025; font: 400 14px/16px Roboto, Arial, Hel=
+vetica, sans-serif; margin-top: 5px;}.display-none {display: none;}.thumbna=
+il-link {display: block; overflow: hidden; position: relative;}.thumbnail-o=
+pen {align-items: center; background-color: #202124; bottom: 0; color: whit=
+e; display: none; font: 400 14px/16px Google Sans, Roboto, Arial, Helvetica=
+, sans-serif; justify-content: center; left: 0; letter-spacing: 0.15px; opa=
+city: 65%; position: absolute; right: 0; top: 0; z-index: 1;}.thumbnail-lin=
+k:hover > .thumbnail-open, .thumbnail-link:focus > .thumbnail-open {display=
+: flex;}amp-img.cover img {object-fit: cover; object-position: 0 0;}.large-=
+icon-container {align-items: center; display: flex; height: 100%; justify-c=
+ontent: center;}.dynamic-message {align-items: center; display: flex; flex-=
+direction: row;}.dynamic-message > amp-img {flex-shrink: 0;}.dynamic-messag=
+e > span {color: #5F6368;font: 400 14px/18px Roboto, Arial, Helvetica, sans=
+-serif; letter-spacing: 0; margin-left: 18px;}.dynamic-message-summary {mar=
+gin-left: 16px; margin-top: 4px;}.blue-text-header {color: #1a73e8; font-we=
+ight: 500;}.horizontal-rule-wrapper {margin-top: 16px;}#amp-timeago {displa=
+y: inline;}</style></head><body><amp-list diffable binding=3D"refresh-evalu=
+ate" src=3D"https://drive.google.com/sharing/boq/dynamicmail/fetchinvite?ts=
+=3D67e13800&amp;shareService=3Dritz_shadowdocs&amp;hl=3Dhu&amp;id=3D1Gy_yVP=
+O2rgeFg1P4l0k2f7SWUjMAIoVO&amp;dynamicEmailToken=3DAarRfRmsGSm4nXVaNxJnTu3P=
+cN2h6x4dnPmzG4WtVV26roU_F4nKquTfOW7xBuWlDZoY12O_FyCGJ2juGYLLrCvITlQNsS-ylAt=
+dnO8nSFmuxj9E5PAJc5eqGZ3OGmM%3D&amp;resourcekey&amp;buildLabel=3Ddrive.expl=
+orer_20250314.00_p0" single-item items=3D"." layout=3D"container"><template=
+ type=3D"amp-mustache"><table style=3D"border-collapse: collapse; width: 10=
+0%; background-color: white; text-align: center;" role=3D"presentation"><tr=
+><td style=3D"padding: 24px 0 16px 0;"><table style=3D"border-collapse: col=
+lapse;font-family: Roboto, Arial, Helvetica, sans-serif;hyphens: auto; over=
+flow-wrap: break-word; word-wrap: break-word; word-break: break-word;width:=
+ 90%; margin: auto;max-width: 700px;min-width: 280px; text-align: left;" ro=
+le=3D"presentation"><tr><td style=3D"padding: 0;"><table style=3D"width:100=
+%; border: 1px solid #dadce0; border-radius: 8px; border-spacing: 0; table-=
+layout:fixed; border-collapse: separate;" role=3D"presentation"><tr><td sty=
+le=3D"padding: 4.5%;" dir=3D"ltr"><div style=3D"margin-bottom:32px;font-fam=
+ily: Google Sans, Roboto, Arial, Helvetica, sans-serif; font-style: normal;=
+ font-size: 28px; line-height: 36px; color: #3c4043;">L=C3=A1szl=C3=B3 Moln=
+=C3=A1r megosztott egy t=C3=A1bl=C3=A1zatot</div><table style=3D"border-col=
+lapse: collapse;font-family: Roboto, Arial, Helvetica, sans-serif; font-siz=
+e:16px; line-height:24px; color:#202124; letter-spacing:0.1px; table-layout=
+:fixed; width:100%; overflow-wrap: break-word;" role=3D"presentation"><tr><=
+td style=3D"padding: 0; vertical-align:top; width:50px;"><div><amp-img styl=
+e=3D"border-radius:50%; display:block;" width=3D"50" height=3D"50" src=3D"h=
+ttps://lh3.googleusercontent.com/a/ACg8ocLZrz7f1xJV6mWSnE6RiR1aJtTrzrWnwhAu=
+h37Dx_CpWAOQgusx=3Ds64" alt=3D"A fejl=C3=A9cben l=C3=A1that=C3=B3 profilfot=
+=C3=B3"></amp-img></div></td><td style=3D"padding: 0; vertical-align:top; p=
+adding-left:12px;"><div style=3D"padding-top:12px;">L=C3=A1szl=C3=B3 Moln=
+=C3=A1r (<a href=3D"mailto:laszlo.junior@gmail.com" style=3D"color:inherit;=
+text-decoration:none">laszlo.junior@gmail.com</a>) megh=C3=ADvta =C3=96nt a=
+ k=C3=B6vetkez=C5=91 t=C3=A1bl=C3=A1zat <b>szerkeszt=C3=A9s=C3=A9re</b>:</d=
+iv></td></tr></table><table class=3D"dynamic-content-container-wrapper" rol=
+e=3D"presentation"><tr style=3D"height: 20px;"></tr><tr><td id=3D"dynamic-c=
+ontent-container" role=3D"presentation" tabindex=3D"0"><div class=3D"dynami=
+c-content-heading"><a href=3D"https://docs.google.com/spreadsheets/d/1Gy_yV=
+PO2rgeFg1P4l0k2f7SWUjMAIoVO/edit?usp=3Dsharing_eil_se_dm&amp;rtpof=3Dtrue&a=
+mp;sd=3Dtrue&amp;ts=3D67e13800" target=3D"_blank" style=3D"color: #3c4043; =
+display: inline-block; max-width: 100%; text-decoration: none; vertical-ali=
+gn: top;display: flex; flex-direction: column; justify-content: center;"><d=
+iv style=3D"line-height: 18px; overflow: hidden; text-overflow: ellipsis;di=
+splay: flex;"><span style=3D"display: inline-block; vertical-align: top; mi=
+n-width: 26px; width: 26px;"><amp-img src=3D"https://ssl.gstatic.com/docs/d=
+oclist/images/mediatype/icon_1_excel_x64.png" width=3D"18" height=3D"18" st=
+yle=3D"vertical-align: top;" role=3D"presentation"></amp-img></span><span s=
+tyle=3D"font: 500 14px/18px Google Sans, Roboto, Arial, Helvetica, sans-ser=
+if; display: inline; letter-spacing: 0.2px;">KAMPA=CC=81NY2025minimum_Laci.=
+xlsx</span></div></a><form id=3D"star-form" action-xhr=3D"https://drive.goo=
+gle.com/sharing/boq/dynamicmail/star?ts=3D67e13800&amp;shareService=3Dritz_=
+shadowdocs&amp;hl=3Dhu&amp;id=3D1Gy_yVPO2rgeFg1P4l0k2f7SWUjMAIoVO&amp;dynam=
+icEmailToken=3DAarRfRmsGSm4nXVaNxJnTu3PcN2h6x4dnPmzG4WtVV26roU_F4nKquTfOW7x=
+BuWlDZoY12O_FyCGJ2juGYLLrCvITlQNsS-ylAtdnO8nSFmuxj9E5PAJc5eqGZ3OGmM%3D&amp;=
+resourcekey&amp;buildLabel=3Ddrive.explorer_20250314.00_p0" method=3D"post"=
+ on=3D"submit: dynamic-content-container.focus, AMP.setState({starButton: {=
+value: starButton =3D=3D null ? {{starredByRequester}} : starButton.value, =
+inProgress: true, error: false}}); submit-success: AMP.setState({starButton=
+: {value: !starButton.value, inProgress: false, error: false}}); submit-err=
+or: AMP.setState({starButton: {inProgress: false, error: true}});"><input t=
+ype=3D"hidden" name=3D"starred" value=3D"{{#starredByRequester}}false{{/sta=
+rredByRequester}}{{^starredByRequester}}true{{/starredByRequester}}" data-a=
+mp-bind-value=3D"starButton.value ? 'false' : 'true'"><button id=3D"star-bu=
+tton" class=3D"{{#starredByRequester}}starred{{/starredByRequester}}{{^star=
+redByRequester}}unstarred{{/starredByRequester}}" data-amp-bind-class=3D"st=
+arButton.value ? 'starred' : 'unstarred'" type=3D"submit" aria-live=3D"poli=
+te" aria-label=3D"{{#starredByRequester}}Csillagozott elemek{{/starredByReq=
+uester}}{{^starredByRequester}}Nincs megcsillagozva{{/starredByRequester}}"=
+ data-amp-bind-aria-label=3D"starButton.value ? 'Csillagozott elemek' : 'Ni=
+ncs megcsillagozva'" title=3D"Megcsillagoz=C3=A1s a Drive-on" data-amp-bind=
+-disabled=3D"starButton.inProgress"><amp-img src=3D"https://fonts.gstatic.c=
+om/s/i/googlematerialicons/star_border/v8/gm_grey-48dp/1x/gm_star_border_gm=
+_grey_48dp.png" layout=3D"fixed" width=3D"22" height=3D"22" role=3D"present=
+ation" aria-hidden=3D"true" class=3D"unstarred-icon"></amp-img><amp-img src=
+=3D"https://fonts.gstatic.com/s/i/googlematerialicons/star/v8/gm_grey-48dp/=
+1x/gm_star_gm_grey_48dp.png" layout=3D"fixed" width=3D"22" height=3D"22" ro=
+le=3D"presentation" aria-hidden=3D"true" class=3D"starred-icon"></amp-img><=
+/button><div class=3D"star-button-circle"></div></form></div><div id=3D"sta=
+r-error-message" class=3D"display-none" data-amp-bind-class=3D"starButton.e=
+rror ? '' : 'display-none'">Hiba t=C3=B6rt=C3=A9nt. =C3=9Ajra</div><a href=
+=3D"https://docs.google.com/spreadsheets/d/1Gy_yVPO2rgeFg1P4l0k2f7SWUjMAIoV=
+O/edit?usp=3Dsharing_eil_se_dm&amp;rtpof=3Dtrue&amp;sd=3Dtrue&amp;ts=3D67e1=
+3800" target=3D"_blank" class=3D"thumbnail-link"><amp-layout layout=3D"resp=
+onsive" width=3D"386" height=3D"202">{{#thumbnailUrl}}<amp-img class=3D"cov=
+er" src=3D"{{thumbnailUrl}}" layout=3D"fill"><div class=3D"large-icon-conta=
+iner" fallback><amp-img src=3D"https://drive-thirdparty.googleusercontent.c=
+om/256/type/application/vnd.openxmlformats-officedocument.spreadsheetml.she=
+et" width=3D"80" height=3D"80"></amp-img></div></amp-img>{{/thumbnailUrl}}{=
+{^thumbnailUrl}}<div class=3D"large-icon-container"><amp-img src=3D"https:/=
+/drive-thirdparty.googleusercontent.com/256/type/application/vnd.openxmlfor=
+mats-officedocument.spreadsheetml.sheet" width=3D"80" height=3D"80"></amp-i=
+mg></div>{{/thumbnailUrl}}</amp-layout><div class=3D"thumbnail-open">Megnyi=
+t=C3=A1s</div></a>{{#summaryDescription}}<div><div class=3D"dynamic-message=
+"><amp-img src=3D"https://www.gstatic.com/docs/documents/share/images/smart=
+_summary.png" layout=3D"fixed" width=3D"16" height=3D"16" role=3D"presentat=
+ion" aria-hidden=3D"true"></amp-img><span><span class=3D"blue-text-header">=
+=C3=96sszegz=C3=A9s</span></span></div><div class=3D"dynamic-message dynami=
+c-message-summary"><span>{{summaryDescription}}</span></div><div class=3D"h=
+orizontal-rule-wrapper"><div style=3D"height: 1px; background-color: #DADCE=
+0;"></div></div></div>{{/summaryDescription}}{{#ownerOrCreatorMessage}}<div=
+ class=3D"dynamic-message"><amp-img src=3D"https://www.gstatic.com/docs/doc=
+uments/share/images/person_with_whitespace_128_128.png" layout=3D"fixed" wi=
+dth=3D"16" height=3D"16" role=3D"presentation" aria-hidden=3D"true"></amp-i=
+mg><span>{{ownerOrCreatorMessage}}</span></div>{{/ownerOrCreatorMessage}}{{=
+#lastEdited}}<div class=3D"dynamic-message"><amp-img src=3D"https://www.gst=
+atic.com/docs/documents/share/images/clock_with_whitespace_128_128.png" lay=
+out=3D"fixed" width=3D"16" height=3D"16" role=3D"presentation" aria-hidden=
+=3D"true"></amp-img><span>{{#lastEdited.editor}}Legut=C3=B3bb {{lastEdited.=
+editor}} szerkesztette <amp-timeago id=3D"amp-timeago" layout=3D"fixed-heig=
+ht" height=3D"1" datetime=3D"{{lastEdited.datetime}}" locale=3D"hu">{{lastE=
+dited.datetime}}</amp-timeago>{{/lastEdited.editor}}{{^lastEdited.editor}}U=
+tolj=C3=A1ra szerkesztve: <amp-timeago id=3D"amp-timeago" layout=3D"fixed-h=
+eight" height=3D"1" datetime=3D"{{lastEdited.datetime}}" locale=3D"hu">{{la=
+stEdited.datetime}}</amp-timeago>{{/lastEdited.editor}}</span></div>{{/last=
+Edited}}</td></tr></table><table style=3D"border-collapse: collapse;" role=
+=3D"presentation"><tr style=3D"height: 32px"><td></td></tr></table><div><a =
+href=3D"https://docs.google.com/spreadsheets/d/1Gy_yVPO2rgeFg1P4l0k2f7SWUjM=
+AIoVO/edit?usp=3Dsharing_eip_se_dm&amp;rtpof=3Dtrue&amp;sd=3Dtrue&amp;ts=3D=
+67e13800" class=3D"material-button material-button-filled" target=3D"_blank=
+" tabindex=3D"0" role=3D"button" style=3D"padding: 0 24px;font: 500 14px/36=
+px Google Sans, Roboto, Arial, Helvetica, sans-serif; border: none; border-=
+radius: 18px; box-sizing: border-box; display: inline-block; letter-spacing=
+: .25px; min-height: 36px; text-align: center; text-decoration: none;">Megn=
+yit=C3=A1s</a></div><table style=3D"border-collapse: collapse;" role=3D"pre=
+sentation"><tr style=3D"height: 32px"><td></td></tr></table><div style=3D"f=
+ont-size: 12px; color: #5F6368">Ha ezent=C3=BAl nem szeretne f=C3=A1jlokat =
+kapni ett=C5=91l a felhaszn=C3=A1l=C3=B3t=C3=B3l, <a href=3D"https://drive.=
+google.com/drive/blockuser?blockerEmail=3Destampel@gmail.com&amp;blockeeEma=
+il=3Dlaszlo.junior@gmail.com&amp;usp=3Dsharing_eib_se_dm" target=3D"_blank"=
+ style=3D"color: #1a73e8; text-decoration: none;">tiltsa le a felad=C3=B3t<=
+/a> a Drive-ban</div></td></tr></table><table style=3D"border-collapse: col=
+lapse; width: 100%;" role=3D"presentation"><tr><td style=3D"padding: 24px 4=
+.5%"><table style=3D"border-collapse: collapse; width: 100%;" dir=3D"ltr"><=
+tr><td style=3D"padding: 0;font-family: Roboto, Arial, Helvetica, sans-seri=
+f; color: #5F6368; width: 100%; font-size: 12px; line-height: 16px; min-hei=
+ght: 40px; letter-spacing: .3px;">Google LLC, 1600 Amphitheatre Parkway, Mo=
+untain View, CA 94043, USA<br/> Az=C3=A9rt kapta ezt az e-mailt, mert <a hr=
+ef=3D"mailto:laszlo.junior@gmail.com" style=3D"color:inherit;text-decoratio=
+n:none">laszlo.junior@gmail.com</a> megosztott =C3=96nnel egy t=C3=A1bl=C3=
+=A1zatot a Google T=C3=A1bl=C3=A1zatokban.</td><td style=3D"padding: 0;padd=
+ing-left: 20px; min-width: 96px"><a href=3D"https://www.google.com/" target=
+=3D"_blank" style=3D"text-decoration: none"><amp-img src=3D"https://www.gst=
+atic.com/images/branding/googlelogo/2x/googlelogo_grey_tm_color_96x40dp.png=
+" width=3D"96" height=3D"40" alt=3D"Google" style=3D"font-size:16px;font-we=
+ight:500;color:#5F6368"></amp-img></a></td></tr></table></td></tr></table><=
+/td></tr></table></td></tr></table></template><div role=3D"list"><table sty=
+le=3D"border-collapse: collapse; width: 100%; background-color: white; text=
+-align: center;" role=3D"presentation"><tr><td style=3D"padding: 24px 0 16p=
+x 0;"><table style=3D"border-collapse: collapse;font-family: Roboto, Arial,=
+ Helvetica, sans-serif;hyphens: auto; overflow-wrap: break-word; word-wrap:=
+ break-word; word-break: break-word;width: 90%; margin: auto;max-width: 700=
+px;min-width: 280px; text-align: left;" role=3D"presentation"><tr><td style=
+=3D"padding: 0;"><table style=3D"width:100%; border: 1px solid #dadce0; bor=
+der-radius: 8px; border-spacing: 0; table-layout:fixed; border-collapse: se=
+parate;" role=3D"presentation"><tr><td style=3D"padding: 4.5%;" dir=3D"ltr"=
+><div style=3D"margin-bottom:32px;font-family: Google Sans, Roboto, Arial, =
+Helvetica, sans-serif; font-style: normal; font-size: 28px; line-height: 36=
+px; color: #3c4043;">L=C3=A1szl=C3=B3 Moln=C3=A1r megosztott egy t=C3=A1bl=
+=C3=A1zatot</div><table style=3D"border-collapse: collapse;font-family: Rob=
+oto, Arial, Helvetica, sans-serif; font-size:16px; line-height:24px; color:=
+#202124; letter-spacing:0.1px; table-layout:fixed; width:100%; overflow-wra=
+p: break-word;" role=3D"presentation"><tr><td style=3D"padding: 0; vertical=
+-align:top; width:50px;"><div><amp-img style=3D"border-radius:50%; display:=
+block;" width=3D"50" height=3D"50" src=3D"https://lh3.googleusercontent.com=
+/a/ACg8ocLZrz7f1xJV6mWSnE6RiR1aJtTrzrWnwhAuh37Dx_CpWAOQgusx=3Ds64" alt=3D"A=
+ fejl=C3=A9cben l=C3=A1that=C3=B3 profilfot=C3=B3"></amp-img></div></td><td=
+ style=3D"padding: 0; vertical-align:top; padding-left:12px;"><div style=3D=
+"padding-top:12px;">L=C3=A1szl=C3=B3 Moln=C3=A1r (<a href=3D"mailto:laszlo.=
+junior@gmail.com" style=3D"color:inherit;text-decoration:none">laszlo.junio=
+r@gmail.com</a>) megh=C3=ADvta =C3=96nt a k=C3=B6vetkez=C5=91 t=C3=A1bl=C3=
+=A1zat <b>szerkeszt=C3=A9s=C3=A9re</b>:</div></td></tr></table><table style=
+=3D"border-spacing:0 4px; table-layout:fixed; width:100%; overflow-wrap: br=
+eak-word;" role=3D"presentation"><tr style=3D"height:28px;"></tr><tr><td st=
+yle=3D"padding: 0;"><a href=3D"https://docs.google.com/spreadsheets/d/1Gy_y=
+VPO2rgeFg1P4l0k2f7SWUjMAIoVO/edit?usp=3Dsharing_eil_se_dm&amp;rtpof=3Dtrue&=
+amp;sd=3Dtrue&amp;ts=3D67e13800" target=3D"_blank" style=3D"color: #3c4043;=
+ display: inline-block; max-width: 100%; text-decoration: none; vertical-al=
+ign: top;border: 1px solid #DADCE0; border-radius: 16px; white-space: nowra=
+p;"><div style=3D"line-height: 18px; overflow: hidden; text-overflow: ellip=
+sis;padding: 6px 12px;"><span style=3D"display: inline-block; vertical-alig=
+n: top; min-width: 26px; width: 26px;"><amp-img src=3D"https://ssl.gstatic.=
+com/docs/doclist/images/mediatype/icon_1_excel_x64.png" width=3D"18" height=
+=3D"18" style=3D"vertical-align: top;" role=3D"presentation"></amp-img></sp=
+an><span style=3D"font: 500 14px/18px Google Sans, Roboto, Arial, Helvetica=
+, sans-serif; display: inline; letter-spacing: 0.2px;">KAMPA=CC=81NY2025min=
+imum_Laci.xlsx</span></div></a></td></tr></table><table style=3D"border-col=
+lapse: collapse;" role=3D"presentation"><tr style=3D"height: 32px"><td></td=
+></tr></table><div><a href=3D"https://docs.google.com/spreadsheets/d/1Gy_yV=
+PO2rgeFg1P4l0k2f7SWUjMAIoVO/edit?usp=3Dsharing_eip_se_dm&amp;rtpof=3Dtrue&a=
+mp;sd=3Dtrue&amp;ts=3D67e13800" class=3D"material-button material-button-fi=
+lled" target=3D"_blank" tabindex=3D"0" role=3D"button" style=3D"padding: 0 =
+24px;font: 500 14px/36px Google Sans, Roboto, Arial, Helvetica, sans-serif;=
+ border: none; border-radius: 18px; box-sizing: border-box; display: inline=
+-block; letter-spacing: .25px; min-height: 36px; text-align: center; text-d=
+ecoration: none;">Megnyit=C3=A1s</a></div><table style=3D"border-collapse: =
+collapse;" role=3D"presentation"><tr style=3D"height: 32px"><td></td></tr><=
+/table><div style=3D"font-size: 12px; color: #5F6368">Ha ezent=C3=BAl nem s=
+zeretne f=C3=A1jlokat kapni ett=C5=91l a felhaszn=C3=A1l=C3=B3t=C3=B3l, <a =
+href=3D"https://drive.google.com/drive/blockuser?blockerEmail=3Destampel@gm=
+ail.com&amp;blockeeEmail=3Dlaszlo.junior@gmail.com&amp;usp=3Dsharing_eib_se=
+_dm" target=3D"_blank" style=3D"color: #1a73e8; text-decoration: none;">til=
+tsa le a felad=C3=B3t</a> a Drive-ban</div></td></tr></table><table style=
+=3D"border-collapse: collapse; width: 100%;" role=3D"presentation"><tr><td =
+style=3D"padding: 24px 4.5%"><table style=3D"border-collapse: collapse; wid=
+th: 100%;" dir=3D"ltr"><tr><td style=3D"padding: 0;font-family: Roboto, Ari=
+al, Helvetica, sans-serif; color: #5F6368; width: 100%; font-size: 12px; li=
+ne-height: 16px; min-height: 40px; letter-spacing: .3px;">Google LLC, 1600 =
+Amphitheatre Parkway, Mountain View, CA 94043, USA<br/> Az=C3=A9rt kapta ez=
+t az e-mailt, mert <a href=3D"mailto:laszlo.junior@gmail.com" style=3D"colo=
+r:inherit;text-decoration:none">laszlo.junior@gmail.com</a> megosztott =C3=
+=96nnel egy t=C3=A1bl=C3=A1zatot a Google T=C3=A1bl=C3=A1zatokban.</td><td =
+style=3D"padding: 0;padding-left: 20px; min-width: 96px"><a href=3D"https:/=
+/www.google.com/" target=3D"_blank" style=3D"text-decoration: none"><amp-im=
+g src=3D"https://www.gstatic.com/images/branding/googlelogo/2x/googlelogo_g=
+rey_tm_color_96x40dp.png" width=3D"96" height=3D"40" alt=3D"Google" style=
+=3D"font-size:16px;font-weight:500;color:#5F6368"></amp-img></a></td></tr><=
+/table></td></tr></table></td></tr></table></td></tr></table></div></amp-li=
+st></body></html>
+--000000000000cfb85306311450c2
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<html><head></head><body><table style=3D"border-collapse: collapse; width: =
+100%; background-color: white; text-align: center;" role=3D"presentation"><=
+tr><td style=3D"padding: 24px 0 16px 0;"><table style=3D"border-collapse: c=
+ollapse;font-family: Roboto, Arial, Helvetica, sans-serif;hyphens: auto; ov=
+erflow-wrap: break-word; word-wrap: break-word; word-break: break-word;widt=
+h: 90%; margin: auto;max-width: 700px;min-width: 280px; text-align: left;" =
+role=3D"presentation"><tr><td style=3D"padding: 0;"><table style=3D"width:1=
+00%; border: 1px solid #dadce0; border-radius: 8px; border-spacing: 0; tabl=
+e-layout:fixed; border-collapse: separate;" role=3D"presentation"><tr><td s=
+tyle=3D"padding: 4.5%;" dir=3D"ltr"><div style=3D"margin-bottom:32px;font-f=
+amily: Google Sans, Roboto, Arial, Helvetica, sans-serif; font-style: norma=
+l; font-size: 28px; line-height: 36px; color: #3c4043;">L=C3=A1szl=C3=B3 Mo=
+ln=C3=A1r megosztott egy t=C3=A1bl=C3=A1zatot</div><table style=3D"border-c=
+ollapse: collapse;font-family: Roboto, Arial, Helvetica, sans-serif; font-s=
+ize:16px; line-height:24px; color:#202124; letter-spacing:0.1px; table-layo=
+ut:fixed; width:100%; overflow-wrap: break-word;" role=3D"presentation"><tr=
+><td style=3D"padding: 0; vertical-align:top; width:50px;"><!--[if mso]><v:=
+oval xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:w=3D"urn:schemas-micro=
+soft-com:office:word" style=3D"height:50px;width:50px;" fill=3D"t" stroke=
+=3D"f"><v:fill type=3D"frame" src=3D"https://lh3.googleusercontent.com/a/AC=
+g8ocLZrz7f1xJV6mWSnE6RiR1aJtTrzrWnwhAuh37Dx_CpWAOQgusx=3Ds64" alt=3D"A fejl=
+=C3=A9cben l=C3=A1that=C3=B3 profilfot=C3=B3" style=3D"height:50px;width:50=
+px;"/></v:oval><![endif]--><div style=3D"mso-hide:all;"><img style=3D"borde=
+r-radius:50%; display:block;" width=3D"50" height=3D"50" src=3D"https://lh3=
+.googleusercontent.com/a/ACg8ocLZrz7f1xJV6mWSnE6RiR1aJtTrzrWnwhAuh37Dx_CpWA=
+OQgusx=3Ds64" alt=3D"A fejl=C3=A9cben l=C3=A1that=C3=B3 profilfot=C3=B3"></=
+div></td><td style=3D"padding: 0; vertical-align:top; padding-left:12px;"><=
+div style=3D"padding-top:12px;">L=C3=A1szl=C3=B3 Moln=C3=A1r (<a href=3D"ma=
+ilto:laszlo.junior@gmail.com" style=3D"color:inherit;text-decoration:none">=
+laszlo.junior@gmail.com</a>) megh=C3=ADvta =C3=96nt a k=C3=B6vetkez=C5=91 t=
+=C3=A1bl=C3=A1zat <b>szerkeszt=C3=A9s=C3=A9re</b>:</div></td></tr></table><=
+table style=3D"border-spacing:0 4px; table-layout:fixed; width:100%; overfl=
+ow-wrap: break-word;" role=3D"presentation"><tr style=3D"height:28px;"></tr=
+><tr><td style=3D"padding: 0;"><a href=3D"https://docs.google.com/spreadshe=
+ets/d/1Gy_yVPO2rgeFg1P4l0k2f7SWUjMAIoVO/edit?usp=3Dsharing_eil&amp;rtpof=3D=
+true&amp;sd=3Dtrue&amp;ts=3D67e13800" target=3D"_blank" style=3D"color: #3c=
+4043; display: inline-block; max-width: 100%; text-decoration: none; vertic=
+al-align: top;border: 1px solid #DADCE0; border-radius: 16px; white-space: =
+nowrap;"><div style=3D"line-height: 18px; overflow: hidden; text-overflow: =
+ellipsis;padding: 6px 12px;"><span style=3D"display: inline-block; vertical=
+-align: top; min-width: 26px; width: 26px;"><img src=3D"https://ssl.gstatic=
+.com/docs/doclist/images/mediatype/icon_1_excel_x64.png" width=3D"18" heigh=
+t=3D"18" style=3D"vertical-align: top;" role=3D"presentation"></span><span =
+style=3D"font: 500 14px/18px Google Sans, Roboto, Arial, Helvetica, sans-se=
+rif; display: inline; letter-spacing: 0.2px;">KAMPA=CC=81NY2025minimum_Laci=
+.xlsx</span></div></a></td></tr></table><table style=3D"border-collapse: co=
+llapse;" role=3D"presentation"><tr style=3D"height: 32px"><td></td></tr></t=
+able><div><!--[if mso]><v:roundrect xmlns:v=3D"urn:schemas-microsoft-com:vm=
+l" xmlns:w=3D"urn:schemas-microsoft-com:office:word" href=3D"https://docs.g=
+oogle.com/spreadsheets/d/1Gy_yVPO2rgeFg1P4l0k2f7SWUjMAIoVO/edit?usp=3Dshari=
+ng_eip&amp;rtpof=3Dtrue&amp;sd=3Dtrue&amp;ts=3D67e13800" style=3D"height:36=
+px; width:100px; v-text-anchor:middle;" arcsize=3D"50%" stroke=3D"f" fillco=
+lor=3D"#1a73e8"><w:anchorlock/><center style=3D"color:#ffffff;font-family:A=
+rial,Helvetica,sans-serif;font-weight:500;font-size:14px;">Megnyit=C3=A1s <=
+/center></v:roundrect><![endif]--><a href=3D"https://docs.google.com/spread=
+sheets/d/1Gy_yVPO2rgeFg1P4l0k2f7SWUjMAIoVO/edit?usp=3Dsharing_eip&amp;rtpof=
+=3Dtrue&amp;sd=3Dtrue&amp;ts=3D67e13800" class=3D"material-button material-=
+button-filled" target=3D"_blank" tabindex=3D"0" role=3D"button" style=3D"ms=
+o-hide:all;padding: 0 24px;font: 500 14px/36px Google Sans, Roboto, Arial, =
+Helvetica, sans-serif; border: none; border-radius: 18px; box-sizing: borde=
+r-box; display: inline-block; letter-spacing: .25px; min-height: 36px; text=
+-align: center; text-decoration: none;background-color: #1a73e8; color: #ff=
+f; cursor: pointer;">Megnyit=C3=A1s</a></div><table style=3D"border-collaps=
+e: collapse;" role=3D"presentation"><tr style=3D"height: 32px"><td></td></t=
+r></table><div style=3D"font-size: 12px; color: #5F6368">Ha ezent=C3=BAl ne=
+m szeretne f=C3=A1jlokat kapni ett=C5=91l a felhaszn=C3=A1l=C3=B3t=C3=B3l, =
+<a href=3D"https://drive.google.com/drive/blockuser?blockerEmail=3Destampel=
+@gmail.com&amp;blockeeEmail=3Dlaszlo.junior@gmail.com&amp;usp=3Dsharing_eib=
+" target=3D"_blank" style=3D"color: #1a73e8; text-decoration: none;">tiltsa=
+ le a felad=C3=B3t</a> a Drive-ban</div></td></tr></table><table style=3D"b=
+order-collapse: collapse; width: 100%;" role=3D"presentation"><tr><td style=
+=3D"padding: 24px 4.5%"><table style=3D"border-collapse: collapse; width: 1=
+00%;" dir=3D"ltr"><tr><td style=3D"padding: 0;font-family: Roboto, Arial, H=
+elvetica, sans-serif; color: #5F6368; width: 100%; font-size: 12px; line-he=
+ight: 16px; min-height: 40px; letter-spacing: .3px;">Google LLC, 1600 Amphi=
+theatre Parkway, Mountain View, CA 94043, USA<br/> Az=C3=A9rt kapta ezt az =
+e-mailt, mert <a href=3D"mailto:laszlo.junior@gmail.com" style=3D"color:inh=
+erit;text-decoration:none">laszlo.junior@gmail.com</a> megosztott =C3=96nne=
+l egy t=C3=A1bl=C3=A1zatot a Google T=C3=A1bl=C3=A1zatokban.</td><td style=
+=3D"padding: 0;padding-left: 20px; min-width: 96px"><a href=3D"https://www.=
+google.com/" target=3D"_blank" style=3D"text-decoration: none"><img src=3D"=
+https://www.gstatic.com/images/branding/googlelogo/2x/googlelogo_grey_tm_co=
+lor_96x40dp.png" width=3D"96" height=3D"40" alt=3D"Google" style=3D"font-si=
+ze:16px;font-weight:500;color:#5F6368"></a></td></tr></table></td></tr></ta=
+ble></td></tr></table></td></tr></table></body></html>
+--000000000000cfb85306311450c2--

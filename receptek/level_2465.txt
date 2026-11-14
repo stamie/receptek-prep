@@ -1,0 +1,808 @@
+Delivered-To: estampel@gmail.com
+Received: by 2002:a05:622a:608a:b0:4ed:1da1:8f85 with SMTP id hf10csp10842158qtb;
+        Fri, 5 Dec 2025 21:51:41 -0800 (PST)
+X-Received: by 2002:a17:907:6ea6:b0:b79:f734:4d66 with SMTP id a640c23a62f3a-b7a24307772mr154012366b.18.1765000300875;
+        Fri, 05 Dec 2025 21:51:40 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1765000300; cv=none;
+        d=google.com; s=arc-20240605;
+        b=XvHeVf/0dYWE4WS58H1xQivf1OqP9cUiBgsOnBS7lQ/cyn1Xnh1JYg6fMc2DNLwlaI
+         6Ydo3PdwqT+thANKr+XkVO5Bev8ESveMwpGhZhIy3L4ydP9+HFkrgWbWdGtDlEkYvZBj
+         OSwtasLwBn5yvqfSrrFLDzJtE0lDiIf2hTybRdH7njLNnxIDvqmbUalSDUB7m3ErSeaU
+         uiVQtvzT9Qhl2ZtQnUI6KrQlMnO3IWO6kzGqCkIFXnwHXM1RCFlUPmqpPyKrKWLFILg3
+         JFcd9VzukS1SIIQ/749PCMZ9YaXFLQk/zJKWLBLU3Uy99NpTWwTJJ6uPf/qKSxqLxjx5
+         jLZA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=iRTPhKdHmPIY33J8km/JhupvWW8/p1VUqFaszLydZzk=;
+        fh=wF/Yrd2E0xeKwPH74kML7cQSth+Fl4bwhVNrybJ4uh4=;
+        b=ev+x0xa8++O+MSNsaqXwlJ4iAfLVM8uf+ONTOAC71qVXe4ywtwZ3/FnxIopjEyqyLU
+         bKxYlB6aXeUldNuKcJgjmDy4C10U1geu2hhxWrHaHmrN2FIJVZvMq49XdBwJ16przgcb
+         6bojLXTZv+FYtmtHBm4+on6TT6diMXFsKI0b/GxYJtIL23wiEwAT0EtJIHMfC1vIlmuL
+         IvLZ0qfPfV1Nnq7vrCZWcpCFlU+H/npm5UB+8IEKIVuAyae+nmMQevE+Sm7gxv15gnCJ
+         j6DyKP6tN3ocib/gw10cUbxLFx77RYiQqLmKLEKNa/PD9uRUgfE02Z9fMecOr/qs2T9t
+         lAKQ==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b="dbbwP/Ol";
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <banyus53@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id a640c23a62f3a-b79f49fb000sor239388866b.15.2025.12.05.21.51.40
+        for <estampel@gmail.com>
+        (Google Transport Security);
+        Fri, 05 Dec 2025 21:51:40 -0800 (PST)
+Received-SPF: pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b="dbbwP/Ol";
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1765000300; x=1765605100; dara=google.com;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=iRTPhKdHmPIY33J8km/JhupvWW8/p1VUqFaszLydZzk=;
+        b=dbbwP/Ol4C8aIy3NFo7Kr0hieOQywkzIKNe2yGjqe5EGVR1Qj4I0WCxofok9aAwPI8
+         +tfhDXVmickQiFkKmA+Ldt3AXBt/+a25oRy7hwX+35vHKx9QAHEe7uRd/KAIEOKmLNls
+         OV0bN3swdOKQxnL8AarQcfon/AntkevMznlWCxYCFvT/QZnelp0YSSQ1zr3r/ip32TQD
+         ne4sedcEd56UIwrcJYZJSV1cbvwPqK9D+Ka0NPDTrevSFpQ5dFrrvqX8htIXVCyJzJg4
+         LBZ8wF+ORdTh2DpUKlKNngdmKy4o2kIvd7zirUKX8Hg4oiRR/0DYGcy/64vvY/dVha7d
+         nPgQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1765000300; x=1765605100;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=iRTPhKdHmPIY33J8km/JhupvWW8/p1VUqFaszLydZzk=;
+        b=A/NUnl5WPWR15Pb6La9zlnIGssjqYW2T4xJIH6U7aE4hsbyazjwcnK6UxYEJ9gBi78
+         tRhRavCKxVUcxGj43pMnQneMdoNowvBNhb/aHGPKpAThdq9cEw8h8RWdNHegeijhhHOa
+         AyTzYI1nTGQEhlrXbPuqyepUM/ZwlVdEtIjF+QM7m1XtQjGbr4v8eyZ+nL2TjM4BDw/d
+         aknrk54KqiWNX4rUyHJRJkhmiQK0xrCV9gC4F5bSamJkBIWAbclW1hiuhRpzinPiBNRI
+         Qj6M5TSg+ToJt6Gwq+JV6S94Jt/rSUB8nJJZAVo8HGS6ODWegDY8ErMcEQs59GUXr0/K
+         A+KA==
+X-Gm-Message-State: AOJu0YwHrLAuSHRNsb75E0MMKQFk4mU7sKG/7H3sW6XdEz+82xMfXiZw
+	p7A9VN45A32uKLTEvV+0LbC4bliSaXV/qKPYMch6o7mRijeg33tBvFNQVG9HXppmPQ26Sow2jB1
+	GTKPZRAPjWaTqAt14ALeAsVENIHHBBm4fmQ==
+X-Gm-Gg: ASbGncuBZeoni5ncEmaPax2+nXOQfp0PnAifFkNi/zJEwpO//qpV7H9R1DBj/L7sFsk
+	65LbvBDbJczlDeZbz6mgVN0zy+XLIxOZwAdkGVgQy1p+gDu0uWRCyRDg9hBgaprqkh/d/I6bSED
+	/eBg7EfzfGsJmtNJLMz53S50wFZ8FM6efoV6p4jE7WbvUeS0Job11GSMB4qU13+oOYE+1Ve5qq6
+	uP6GNo/9sC+oPEQXT1Q1HbrduJyUeLb1LnT2qTzdnOym8zublyx+rg+SSl0Ukj6KBir+lNPaXVS
+	P+21N7C6dxqVW+wWg+pEnJJg5yLL//xLYrBapsQ=
+X-Google-Smtp-Source: AGHT+IEag6ZJDrlp5lvsF1NUx4JxxY+8eX9sX4BBEphAaitNdKrHrMhjurid95w55293e3Dzg5DnFPE9NmXcIvi2988=
+X-Received: by 2002:a17:907:3e86:b0:b6d:5a24:f124 with SMTP id
+ a640c23a62f3a-b7a243073acmr165619866b.22.1765000299728; Fri, 05 Dec 2025
+ 21:51:39 -0800 (PST)
+MIME-Version: 1.0
+References: <20251206054214.26C971D80192@mx3s.idealista.com>
+In-Reply-To: <20251206054214.26C971D80192@mx3s.idealista.com>
+From: =?UTF-8?B?w4FnbmVzIEJ1Z8Ohcg==?= <banyus53@gmail.com>
+Date: Sat, 6 Dec 2025 06:51:28 +0100
+X-Gm-Features: AWmQ_blIbj79eEQ79SQ37oMaMPKJLVxnrw6Ww-UVBzCv7mcUNuObRBrBWJ1392g
+Message-ID: <CA+39czVBA_P9bKQHWOow=DVzJv5Ny0AmWsXG+XGdzUVgBx+8sg@mail.gmail.com>
+Subject: Fwd: Listings recommended for you
+To: Emese Stampel <estampel@gmail.com>
+Content-Type: multipart/alternative; boundary="000000000000e4d19906454227e1"
+
+--000000000000e4d19906454227e1
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+---------- Forwarded message ---------
+Felad=C3=B3: idealista <noresponder@idealista.com>
+Date: 2025. dec. 6., Szo 6:42
+Subject: Listings recommended for you
+To: <banyus53@gmail.com>
+
+
+We are sending you property recommendations based on your search.
+<https://www.idealista.com/?utm_medium=3Demail&utm_campaign=3Ddaily_suggest=
+ions_oneSearch&utm_campaigntype=3Dretention&utm_project=3DadNotification&ut=
+m_source=3Dalerts-id&utm_date_send=3D2025-12-06T064214&utm_link=3Dlogo&utm_=
+recipient_id=3Dich/L95N3qlY20lHKSe70OieU6nHQRF6lg7NtduNjH4=3D&utm_notificat=
+ion_id=3D1f192800-b29e-477f-aab9-d7cca697c2c0>
+Hello =C3=81gnes,
+We are sending you property recommendations based on your search.
+Recommendations for *Homes in your custom search area*
+To 60,000=E2=82=AC
+6 more filters
+
+[image: Estate in Aldea Carballo, Sedes-Pedroso-Doso, Nar=C3=B3n]
+<https://www.idealista.com/en/inmueble/108381665/?utm_medium=3Demail&utm_ca=
+mpaign=3Ddaily_suggestions_oneSearch&utm_campaigntype=3Dretention&utm_proje=
+ct=3DadNotification&utm_source=3Dalerts-id&utm_date_send=3D2025-12-06T06421=
+4&utm_link=3DpropertyRecommendedPhoto&utm_recipient_id=3Dich/L95N3qlY20lHKS=
+e70OieU6nHQRF6lg7NtduNjH4=3D&origin=3DalertSuggestionsOneSearch&savedSearch=
+AlertId=3D102755581&genericSearch=3Dfalse&utm_notification_id=3D1f192800-b2=
+9e-477f-aab9-d7cca697c2c0>
+Estate in Aldea Carballo, Sedes-Pedroso-Doso, Nar=C3=B3n
+<https://www.idealista.com/en/inmueble/108381665/?utm_medium=3Demail&utm_ca=
+mpaign=3Ddaily_suggestions_oneSearch&utm_campaigntype=3Dretention&utm_proje=
+ct=3DadNotification&utm_source=3Dalerts-id&utm_date_send=3D2025-12-06T06421=
+4&utm_link=3DpropertyRecommendedLink&utm_recipient_id=3Dich/L95N3qlY20lHKSe=
+70OieU6nHQRF6lg7NtduNjH4=3D&origin=3DalertSuggestionsOneSearch&savedSearchA=
+lertId=3D102755581&genericSearch=3Dfalse&utm_notification_id=3D1f192800-b29=
+e-477f-aab9-d7cca697c2c0>
+58,000 =E2=82=AC
+
+190 m=C2=B2 1 bed
+
+Two stone houses to restore + developable land in an exclusive rural
+setting Two attached...
+See 26 photos
+<https://www.idealista.com/en/inmueble/108381665/?utm_medium=3Demail&utm_ca=
+mpaign=3Ddaily_suggestions_oneSearch&utm_campaigntype=3Dretention&utm_proje=
+ct=3DadNotification&utm_source=3Dalerts-id&utm_date_send=3D2025-12-06T06421=
+4&utm_link=3DpropertyRecommendedPhoto&utm_recipient_id=3Dich/L95N3qlY20lHKS=
+e70OieU6nHQRF6lg7NtduNjH4=3D&origin=3DalertSuggestionsOneSearch&savedSearch=
+AlertId=3D102755581&genericSearch=3Dfalse&utm_notification_id=3D1f192800-b2=
+9e-477f-aab9-d7cca697c2c0>
+
+
+[image: Village house in Lanzos, 1, Villalba]
+<https://www.idealista.com/en/inmueble/108415278/?utm_medium=3Demail&utm_ca=
+mpaign=3Ddaily_suggestions_oneSearch&utm_campaigntype=3Dretention&utm_proje=
+ct=3DadNotification&utm_source=3Dalerts-id&utm_date_send=3D2025-12-06T06421=
+4&utm_link=3DpropertyRecommendedPhoto&utm_recipient_id=3Dich/L95N3qlY20lHKS=
+e70OieU6nHQRF6lg7NtduNjH4=3D&origin=3DalertSuggestionsOneSearch&savedSearch=
+AlertId=3D102755581&genericSearch=3Dfalse&utm_notification_id=3D1f192800-b2=
+9e-477f-aab9-d7cca697c2c0>
+Village house in Lanzos, 1, Villalba
+<https://www.idealista.com/en/inmueble/108415278/?utm_medium=3Demail&utm_ca=
+mpaign=3Ddaily_suggestions_oneSearch&utm_campaigntype=3Dretention&utm_proje=
+ct=3DadNotification&utm_source=3Dalerts-id&utm_date_send=3D2025-12-06T06421=
+4&utm_link=3DpropertyRecommendedLink&utm_recipient_id=3Dich/L95N3qlY20lHKSe=
+70OieU6nHQRF6lg7NtduNjH4=3D&origin=3DalertSuggestionsOneSearch&savedSearchA=
+lertId=3D102755581&genericSearch=3Dfalse&utm_notification_id=3D1f192800-b29=
+e-477f-aab9-d7cca697c2c0>
+64,000 =E2=82=AC
+
+129 m=C2=B2 5 bed
+
+Typical Galician stone house in Lanz=C3=B3s Villalba. The house is located =
+on a
+flat plot of a...
+See 32 photos
+<https://www.idealista.com/en/inmueble/108415278/?utm_medium=3Demail&utm_ca=
+mpaign=3Ddaily_suggestions_oneSearch&utm_campaigntype=3Dretention&utm_proje=
+ct=3DadNotification&utm_source=3Dalerts-id&utm_date_send=3D2025-12-06T06421=
+4&utm_link=3DpropertyRecommendedPhoto&utm_recipient_id=3Dich/L95N3qlY20lHKS=
+e70OieU6nHQRF6lg7NtduNjH4=3D&origin=3DalertSuggestionsOneSearch&savedSearch=
+AlertId=3D102755581&genericSearch=3Dfalse&utm_notification_id=3D1f192800-b2=
+9e-477f-aab9-d7cca697c2c0>
+
+
+[image: Country house in Ortigueira]
+<https://www.idealista.com/en/inmueble/105495919/?utm_medium=3Demail&utm_ca=
+mpaign=3Ddaily_suggestions_oneSearch&utm_campaigntype=3Dretention&utm_proje=
+ct=3DadNotification&utm_source=3Dalerts-id&utm_date_send=3D2025-12-06T06421=
+4&utm_link=3DpropertyRecommendedPhoto&utm_recipient_id=3Dich/L95N3qlY20lHKS=
+e70OieU6nHQRF6lg7NtduNjH4=3D&origin=3DalertSuggestionsOneSearch&savedSearch=
+AlertId=3D102755581&genericSearch=3Dfalse&utm_notification_id=3D1f192800-b2=
+9e-477f-aab9-d7cca697c2c0>
+Country house in Ortigueira
+<https://www.idealista.com/en/inmueble/105495919/?utm_medium=3Demail&utm_ca=
+mpaign=3Ddaily_suggestions_oneSearch&utm_campaigntype=3Dretention&utm_proje=
+ct=3DadNotification&utm_source=3Dalerts-id&utm_date_send=3D2025-12-06T06421=
+4&utm_link=3DpropertyRecommendedLink&utm_recipient_id=3Dich/L95N3qlY20lHKSe=
+70OieU6nHQRF6lg7NtduNjH4=3D&origin=3DalertSuggestionsOneSearch&savedSearchA=
+lertId=3D102755581&genericSearch=3Dfalse&utm_notification_id=3D1f192800-b29=
+e-477f-aab9-d7cca697c2c0>
+65,000 =E2=82=AC
+
+421 m=C2=B2 4 bed
+
+Property situated in a village, 3km from Ortigueira and 5km from the beach.
+It consists of...
+See 30 photos
+<https://www.idealista.com/en/inmueble/105495919/?utm_medium=3Demail&utm_ca=
+mpaign=3Ddaily_suggestions_oneSearch&utm_campaigntype=3Dretention&utm_proje=
+ct=3DadNotification&utm_source=3Dalerts-id&utm_date_send=3D2025-12-06T06421=
+4&utm_link=3DpropertyRecommendedPhoto&utm_recipient_id=3Dich/L95N3qlY20lHKS=
+e70OieU6nHQRF6lg7NtduNjH4=3D&origin=3DalertSuggestionsOneSearch&savedSearch=
+AlertId=3D102755581&genericSearch=3Dfalse&utm_notification_id=3D1f192800-b2=
+9e-477f-aab9-d7cca697c2c0>
+
+
+About the listings in this email
+
+In this email, we send you recommended listings which may be of interest to
+you when there are no new listings in your saved searches. Recommended
+listings are selected based on some of your search criteria and/or your
+activity on idealista. Recommended listings may not exactly match all your
+search criteria.
+
+You can check the criteria for Your searches
+<https://www.idealista.com/en/usuario/tus-alertas?utm_medium=3Demail&utm_ca=
+mpaign=3Ddaily_suggestions_oneSearch&utm_campaigntype=3Dretention&utm_proje=
+ct=3DadNotification&utm_source=3Dalerts-id&utm_date_send=3D2025-12-06T06421=
+4&utm_link=3DtusBusquedas&utm_recipient_id=3Dich/L95N3qlY20lHKSe70OieU6nHQR=
+F6lg7NtduNjH4=3D&utm_notification_id=3D1f192800-b29e-477f-aab9-d7cca697c2c0=
+>
+With the idealista app, you will be able to receive alerts of new listings
+immediately or see replies from the advertisers you have contacted.
+Download the idealista app
+<https://idealista.onelink.me/3139118072/i38rtpc3?af_adset=3Ddaily_suggesti=
+ons_oneSearch&utm_notification_id=3D1f192800-b29e-477f-aab9-d7cca697c2c0>
+Problems? Contact idealista via the website
+<https://www.idealista.com/en/info/contacto?utm_medium=3Demail&utm_campaign=
+=3Ddaily_suggestions_oneSearch&utm_campaigntype=3Dretention&utm_project=3Da=
+dNotification&utm_source=3Dalerts-id&utm_date_send=3D2025-12-06T064214&utm_=
+link=3Dcontacta&utm_recipient_id=3Dich/L95N3qlY20lHKSe70OieU6nHQRF6lg7NtduN=
+jH4=3D&utm_notification_id=3D1f192800-b29e-477f-aab9-d7cca697c2c0>
+By using our services, you accept the privacy policy
+<https://www.idealista.com/en/info/proteccion-datos?utm_medium=3Demail&utm_=
+campaign=3Ddaily_suggestions_oneSearch&utm_campaigntype=3Dretention&utm_pro=
+ject=3DadNotification&utm_source=3Dalerts-id&utm_date_send=3D2025-12-06T064=
+214&utm_link=3DproteccionDatos&utm_recipient_id=3Dich/L95N3qlY20lHKSe70OieU=
+6nHQRF6lg7NtduNjH4=3D&utm_notification_id=3D1f192800-b29e-477f-aab9-d7cca69=
+7c2c0>
+and the terms and conditions
+<https://www.idealista.com/en/info/nota-legal?utm_medium=3Demail&utm_campai=
+gn=3Ddaily_suggestions_oneSearch&utm_campaigntype=3Dretention&utm_project=
+=3DadNotification&utm_source=3Dalerts-id&utm_date_send=3D2025-12-06T064214&=
+utm_link=3DnotaLegal&utm_recipient_id=3Dich/L95N3qlY20lHKSe70OieU6nHQRF6lg7=
+NtduNjH4=3D&utm_notification_id=3D1f192800-b29e-477f-aab9-d7cca697c2c0>
+.
+=C2=A9 2000 - 2025
+
+--000000000000e4d19906454227e1
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"auto"></div><br><div class=3D"gmail_quote gmail_quote_container=
+"><div dir=3D"ltr" class=3D"gmail_attr">---------- Forwarded message ------=
+---<br>Felad=C3=B3: <strong class=3D"gmail_sendername" dir=3D"auto">idealis=
+ta</strong> <span dir=3D"auto">&lt;<a href=3D"mailto:noresponder@idealista.=
+com">noresponder@idealista.com</a>&gt;</span><br>Date: 2025. dec. 6., Szo 6=
+:42<br>Subject: Listings recommended for you<br>To:  &lt;<a href=3D"mailto:=
+banyus53@gmail.com">banyus53@gmail.com</a>&gt;<br></div><br><br>
+<u></u><div style=3D"background-color:#f0f0ee"><div style=3D"background-col=
+or:#f0f0ee"><span style=3D"display:none;opacity:0;color:transparent;height:=
+0;width:0">We are sending you property recommendations based on your search=
+. </span><div style=3D"background:#dffa45;background-color:#dffa45;Margin:0=
+px auto;max-width:600px"><table align=3D"center" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"background:#dffa45;=
+background-color:#dffa45;width:100%"><tbody><tr><td style=3D"direction:ltr;=
+font-size:0px;padding:18px 24px;text-align:center;vertical-align:top"><div =
+class=3D"m_1851754677786921655mj-column-per-100" style=3D"font-size:13px;te=
+xt-align:left;direction:ltr;display:inline-block;vertical-align:top;width:1=
+00%"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presen=
+tation" style=3D"vertical-align:top" width=3D"100%"><tr><td align=3D"left" =
+style=3D"font-size:0px;padding:0;word-break:break-word"><table border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"border-=
+collapse:collapse;border-spacing:0px"><tbody><tr><td style=3D"width:111px">=
+<a href=3D"https://www.idealista.com/?utm_medium=3Demail&amp;utm_campaign=
+=3Ddaily_suggestions_oneSearch&amp;utm_campaigntype=3Dretention&amp;utm_pro=
+ject=3DadNotification&amp;utm_source=3Dalerts-id&amp;utm_date_send=3D2025-1=
+2-06T064214&amp;utm_link=3Dlogo&amp;utm_recipient_id=3Dich/L95N3qlY20lHKSe7=
+0OieU6nHQRF6lg7NtduNjH4=3D&amp;utm_notification_id=3D1f192800-b29e-477f-aab=
+9-d7cca697c2c0" target=3D"_blank" rel=3D"noreferrer"><img height=3D"auto" s=
+rc=3D"https://st3.idealista.com/static/common/release/home/resources/img/lo=
+go-small.png" style=3D"border:0;display:block;outline:none;text-decoration:=
+none;height:auto;width:100%" width=3D"111"></a></td></tr></tbody></table></=
+td></tr></table></div></td></tr></tbody></table></div><div style=3D"backgro=
+und:#ffffff;background-color:#ffffff;Margin:0px auto;max-width:600px"><tabl=
+e align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D=
+"presentation" style=3D"background:#ffffff;background-color:#ffffff;width:1=
+00%"><tbody><tr><td style=3D"direction:ltr;font-size:0px;padding:24px 24px =
+0;text-align:center;vertical-align:top"><div style=3D"Margin:0px auto;max-w=
+idth:552px"><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspac=
+ing=3D"0" role=3D"presentation" style=3D"width:100%"><tbody><tr><td style=
+=3D"direction:ltr;font-size:0px;padding:0 0 8px;text-align:center;vertical-=
+align:top"><div class=3D"m_1851754677786921655mj-column-per-100" style=3D"f=
+ont-size:13px;text-align:left;direction:ltr;display:inline-block;vertical-a=
+lign:top;width:100%"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0=
+" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"vertical-ali=
+gn:top;padding:0"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" r=
+ole=3D"presentation" width=3D"100%"><tr><td align=3D"left" style=3D"font-si=
+ze:0px;padding:0;word-break:break-word"><div style=3D"font-family:Arial;fon=
+t-size:20px;font-weight:700;line-height:24px;text-align:left;color:#141414"=
+>Hello =C3=81gnes,</div></td></tr></table></td></tr></tbody></table></div><=
+/td></tr></tbody></table></div><div style=3D"Margin:0px auto;max-width:552p=
+x"><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+ role=3D"presentation" style=3D"width:100%"><tbody><tr><td style=3D"directi=
+on:ltr;font-size:0px;padding:0;text-align:center;vertical-align:top"><div c=
+lass=3D"m_1851754677786921655mj-column-per-100" style=3D"font-size:13px;tex=
+t-align:left;direction:ltr;display:inline-block;vertical-align:top;width:10=
+0%"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"present=
+ation" width=3D"100%"><tbody><tr><td style=3D"vertical-align:top;padding:0"=
+><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" width=3D"100%"><tr><td align=3D"left" style=3D"font-size:0px;padding:0;=
+word-break:break-word"><div style=3D"font-family:Arial;font-size:16px;line-=
+height:24px;text-align:left;color:#141414">We are sending you property reco=
+mmendations based on your search.</div></td></tr></table></td></tr></tbody>=
+</table></div></td></tr></tbody></table></div></td></tr></tbody></table></d=
+iv>            <div style=3D"background:#ffffff;background-color:#ffffff;Ma=
+rgin:0px auto;max-width:600px"><table align=3D"center" border=3D"0" cellpad=
+ding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"background:#fff=
+fff;background-color:#ffffff;width:100%"><tbody><tr><td style=3D"direction:=
+ltr;font-size:0px;padding:0 24px;text-align:center;vertical-align:top"><div=
+ style=3D"Margin:0px auto;max-width:552px"><table align=3D"center" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"w=
+idth:100%"><tbody><tr><td style=3D"direction:ltr;font-size:0px;padding:0;te=
+xt-align:center;vertical-align:top"><div class=3D"m_1851754677786921655mj-c=
+olumn-per-100" style=3D"font-size:13px;text-align:left;direction:ltr;displa=
+y:inline-block;vertical-align:top;width:100%"><table border=3D"0" cellpaddi=
+ng=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr>=
+<td style=3D"vertical-align:top;padding:24px 0 4px"><table border=3D"0" cel=
+lpadding=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"100%"><tr><=
+td align=3D"left" style=3D"font-size:0px;padding:0;word-break:break-word"><=
+div style=3D"font-family:Arial;font-size:20px;line-height:24px;text-align:l=
+eft;color:#141414">Recommendations for <b>Homes in your custom search area<=
+/b></div></td></tr></table></td></tr></tbody></table></div></td></tr></tbod=
+y></table></div><div style=3D"Margin:0px auto;max-width:552px"><table align=
+=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presen=
+tation" style=3D"width:100%"><tbody><tr><td style=3D"direction:ltr;font-siz=
+e:0px;padding:0 0 10px;text-align:center;vertical-align:top"><div class=3D"=
+m_1851754677786921655mj-column-per-100" style=3D"font-size:13px;text-align:=
+left;direction:ltr;display:inline-block;vertical-align:top;width:100%"><tab=
+le border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" s=
+tyle=3D"vertical-align:top" width=3D"100%"><tr><td align=3D"left" style=3D"=
+font-size:0px;padding:0;word-break:break-word"><table cellpadding=3D"0" cel=
+lspacing=3D"0" width=3D"100%" border=3D"0" style=3D"color:#000000;font-fami=
+ly:Arial;font-size:13px;line-height:22px;table-layout:auto;width:100%"><tr>=
+<td><u></u><td width=3D"100" valign=3D"top" style=3D"padding-top:8px;line-h=
+eight:0"><img src=3D"https://maps.googleapis.com/maps/api/staticmap?path=3D=
+weight%3A2%7Ccolor%3A0x666664ff%7Cfillcolor%3A0x8e8f8c44%7Cenc%3AachiGze%7B=
+p%40dnFii%40hgBmXd%7EHcmBv%5Dgz%40pnFcmBz%7ECyq%40%7CiEusAlaB__HrgBiiCh%60C=
+yaBnaBe%7CAnfCusAraBe%7CA%60yCquBzvE%7BpDp%60CmwCvaBijEzbAstFtWypDdEsuB%3Fi=
+iIuWkXoQstFqv%40_nPkKyqI%3FkxQnQucFpQcmBpv%40%7B_M%3Fa%7EBnQii%40%3FowCjKsd=
+BhKgzInQ%7B%60I%3FubJuWg%7BEej%40iyDgj%40ucFwkDamK%7BgBwrEqv%40oGc%7EDwrEsa=
+BwbAwbA%3FybA%7B%60%40%7BmBsdBmfCe%7CAmv%40%7DOyxCusAcuA%7DOsrCiz%40ep%40%3=
+FwcEekA%7ByB%3F_j%40mXkrC%3Fcp%40%7DOelC%3FmmB%7COuyB%3F%3FtsAggBdkJsjDrdKa=
+aBlgH%7DzAbmKmyB%7EmP_aBx%60I_p%40%60%7EBibAvrEwbEpdTwc%40lhDgbAtcFy%60BrtF=
+av%40d%7BEc%7C%40hjEwwCx%60RihA%7CnLo%5D%7EnC%7Bo%40jxHsc%40z%60IgKnvGbE%7E=
+mGrc%40dlFbEd%7CArc%40hyDrqCtrNzo%40xaEhhAhjE%7Co%40%60mBptAvsAtc%40vbAvzAr=
+dBnnAxq%40z%60Bji%40v%7CDxq%40vtAlGjuExq%40vaF%3F&amp;size=3D100x100&amp;fo=
+rmat=3Dpng&amp;maptype=3Droadmap&amp;language=3Des&amp;key=3DAIzaSyBvWPgYmr=
+RwIkojymtF7I60mxoB8n56onQ&amp;signature=3DVWWkMG6f9ShXr6flxod5archwhg=3D"><=
+/td><td><u></u><td valign=3D"top" align=3D"left" style=3D"padding-left:16px=
+;padding-top:6px"><u></u><div><span style=3D"font-size:16px;display:inline-=
+block;line-height:24px">To 60,000=E2=82=AC</span></div><u></u><u></u><div><=
+span style=3D"font-size:16px;display:block;line-height:24px">6 more filters=
+</span></div><u></u></td></td></td></tr></table></td></tr></table></div></t=
+d></tr></tbody></table></div> <div style=3D"Margin:0px auto;max-width:552px=
+"><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" =
+role=3D"presentation" style=3D"width:100%"><tbody><tr><td style=3D"directio=
+n:ltr;font-size:0px;padding:0;text-align:center;vertical-align:top"><div cl=
+ass=3D"m_1851754677786921655mj-column-per-100" style=3D"font-size:13px;text=
+-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100=
+%"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presenta=
+tion" style=3D"vertical-align:top" width=3D"100%"><tr><td style=3D"font-siz=
+e:0px;word-break:break-word"><div style=3D"height:12px">=C2=A0</div></td></=
+tr></table></div></td></tr></tbody></table></div><div style=3D"background:#=
+ffffff;background-color:#ffffff;Margin:0px auto;max-width:552px"><table ali=
+gn=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pres=
+entation" style=3D"background:#ffffff;background-color:#ffffff;width:100%">=
+<tbody><tr><td style=3D"border-bottom:1px solid #e5e6e1;border-left:1px sol=
+id #e5e6e1;border-right:1px solid #e5e6e1;border-top:1px solid #e5e6e1;dire=
+ction:ltr;font-size:0px;padding:0;text-align:center;vertical-align:top"><di=
+v class=3D"m_1851754677786921655mj-column-per-55" style=3D"font-size:13px;t=
+ext-align:left;direction:ltr;display:inline-block;vertical-align:top;width:=
+100%"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"prese=
+ntation" style=3D"vertical-align:top" width=3D"100%">      <td><a href=3D"h=
+ttps://www.idealista.com/en/inmueble/108381665/?utm_medium=3Demail&amp;utm_=
+campaign=3Ddaily_suggestions_oneSearch&amp;utm_campaigntype=3Dretention&amp=
+;utm_project=3DadNotification&amp;utm_source=3Dalerts-id&amp;utm_date_send=
+=3D2025-12-06T064214&amp;utm_link=3DpropertyRecommendedPhoto&amp;utm_recipi=
+ent_id=3Dich/L95N3qlY20lHKSe70OieU6nHQRF6lg7NtduNjH4=3D&amp;origin=3DalertS=
+uggestionsOneSearch&amp;savedSearchAlertId=3D102755581&amp;genericSearch=3D=
+false&amp;utm_notification_id=3D1f192800-b29e-477f-aab9-d7cca697c2c0" title=
+=3D"Estate in Aldea Carballo, Sedes-Pedroso-Doso, Nar=C3=B3n" target=3D"_bl=
+ank" rel=3D"noreferrer"><img alt=3D"Estate in Aldea Carballo, Sedes-Pedroso=
+-Doso, Nar=C3=B3n" src=3D"https://img4.idealista.com/blur/500_375_mq/0/id.p=
+ro.es.image.master/ce/91/d0/1342429159.jpg" class=3D"m_1851754677786921655i=
+magen-inmueble" width=3D"277" style=3D"width:277px;display:block"></a></td>=
+</table></div><div class=3D"m_1851754677786921655mj-column-per-44" style=3D=
+"font-size:13px;text-align:left;direction:ltr;display:inline-block;vertical=
+-align:top;width:100%"><table border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"vertical-a=
+lign:top;padding:16px 14px"><table border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" width=3D"100%"><tr><td align=3D"left" style=
+=3D"font-size:0px;padding:0;word-break:break-word"><div style=3D"font-famil=
+y:Arial;font-size:14px;line-height:16px;text-align:left;color:#000000"><a s=
+tyle=3D"color:#2172b2;text-decoration:none" href=3D"https://www.idealista.c=
+om/en/inmueble/108381665/?utm_medium=3Demail&amp;utm_campaign=3Ddaily_sugge=
+stions_oneSearch&amp;utm_campaigntype=3Dretention&amp;utm_project=3DadNotif=
+ication&amp;utm_source=3Dalerts-id&amp;utm_date_send=3D2025-12-06T064214&am=
+p;utm_link=3DpropertyRecommendedLink&amp;utm_recipient_id=3Dich/L95N3qlY20l=
+HKSe70OieU6nHQRF6lg7NtduNjH4=3D&amp;origin=3DalertSuggestionsOneSearch&amp;=
+savedSearchAlertId=3D102755581&amp;genericSearch=3Dfalse&amp;utm_notificati=
+on_id=3D1f192800-b29e-477f-aab9-d7cca697c2c0" title=3D"Estate in Aldea Carb=
+allo, Sedes-Pedroso-Doso, Nar=C3=B3n" target=3D"_blank" rel=3D"noreferrer">=
+Estate in Aldea Carballo, Sedes-Pedroso-Doso, Nar=C3=B3n</a></div></td></tr=
+><tr><td align=3D"left" style=3D"font-size:0px;padding:0;word-break:break-w=
+ord"><table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0"=
+ style=3D"color:#000000;font-family:Arial;font-size:13px;line-height:22px;t=
+able-layout:auto;width:100%"><tr><td valign=3D"middle" align=3D"left" heigh=
+t=3D"38"> <span> <span style=3D"color:#333;font-weight:bold;font-size:22px;=
+line-height:16px">58,000 =E2=82=AC </span></span></td></tr></table></td></t=
+r><tr><td align=3D"left" style=3D"font-size:0px;padding:0 0 4px;word-break:=
+break-word"><div style=3D"font-family:Arial;font-size:14px;line-height:16px=
+;text-align:left;color:#141414"><u></u>  <u></u>190 m=C2=B2<u></u>  <u></u>=
+1 bed<u></u>  <u></u></div></td></tr><tr><td align=3D"left" style=3D"font-s=
+ize:0px;padding:0 0 11px;word-break:break-word"><div style=3D"font-family:A=
+rial;font-size:14px;line-height:16px;text-align:left;color:#8e8f8c"><p styl=
+e=3D"height:34px;overflow:hidden;margin-top:0;margin-bottom:0"><u></u><u></=
+u><u></u><u></u>Two stone houses to restore + developable land in an exclus=
+ive rural setting
+
+Two attached...<u></u><u></u></p></div></td></tr><tr><td align=3D"center" s=
+tyle=3D"font-size:0px;padding:0;word-break:break-word"><table border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"border-c=
+ollapse:separate;width:100%;line-height:100%"><tr><td align=3D"center" bgco=
+lor=3D"#e5e6e1" role=3D"presentation" style=3D"border:solid 1px #cbccc7;bor=
+der-radius:2px;padding:4px 16px;background:#e5e6e1" valign=3D"middle"><a hr=
+ef=3D"https://www.idealista.com/en/inmueble/108381665/?utm_medium=3Demail&a=
+mp;utm_campaign=3Ddaily_suggestions_oneSearch&amp;utm_campaigntype=3Dretent=
+ion&amp;utm_project=3DadNotification&amp;utm_source=3Dalerts-id&amp;utm_dat=
+e_send=3D2025-12-06T064214&amp;utm_link=3DpropertyRecommendedPhoto&amp;utm_=
+recipient_id=3Dich/L95N3qlY20lHKSe70OieU6nHQRF6lg7NtduNjH4=3D&amp;origin=3D=
+alertSuggestionsOneSearch&amp;savedSearchAlertId=3D102755581&amp;genericSea=
+rch=3Dfalse&amp;utm_notification_id=3D1f192800-b29e-477f-aab9-d7cca697c2c0"=
+ style=3D"background:#e5e6e1;color:#141414;font-family:Arial;font-size:16px=
+;font-weight:700;line-height:24px;Margin:0;text-decoration:none;text-transf=
+orm:none" target=3D"_blank" rel=3D"noreferrer"><span style=3D"display:block=
+">See 26 photos</span></a></td></tr></table></td></tr></table></td></tr></t=
+body></table></div></td></tr></tbody></table></div> <div style=3D"Margin:0p=
+x auto;max-width:552px"><table align=3D"center" border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"0" role=3D"presentation" style=3D"width:100%"><tbody><tr=
+><td style=3D"direction:ltr;font-size:0px;padding:0;text-align:center;verti=
+cal-align:top"><div class=3D"m_1851754677786921655mj-column-per-100" style=
+=3D"font-size:13px;text-align:left;direction:ltr;display:inline-block;verti=
+cal-align:top;width:100%"><table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" style=3D"vertical-align:top" width=3D"100%"><t=
+r><td style=3D"font-size:0px;word-break:break-word"><div style=3D"height:12=
+px">=C2=A0</div></td></tr></table></div></td></tr></tbody></table></div> <d=
+iv style=3D"Margin:0px auto;max-width:552px"><table align=3D"center" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"w=
+idth:100%"><tbody><tr><td style=3D"direction:ltr;font-size:0px;padding:0;te=
+xt-align:center;vertical-align:top"><div class=3D"m_1851754677786921655mj-c=
+olumn-per-100" style=3D"font-size:13px;text-align:left;direction:ltr;displa=
+y:inline-block;vertical-align:top;width:100%"><table border=3D"0" cellpaddi=
+ng=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"vertical-align:to=
+p" width=3D"100%"><tr><td style=3D"font-size:0px;word-break:break-word"><di=
+v style=3D"height:12px">=C2=A0</div></td></tr></table></div></td></tr></tbo=
+dy></table></div><div style=3D"background:#ffffff;background-color:#ffffff;=
+Margin:0px auto;max-width:552px"><table align=3D"center" border=3D"0" cellp=
+adding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"background:#f=
+fffff;background-color:#ffffff;width:100%"><tbody><tr><td style=3D"border-b=
+ottom:1px solid #e5e6e1;border-left:1px solid #e5e6e1;border-right:1px soli=
+d #e5e6e1;border-top:1px solid #e5e6e1;direction:ltr;font-size:0px;padding:=
+0;text-align:center;vertical-align:top"><div class=3D"m_1851754677786921655=
+mj-column-per-55" style=3D"font-size:13px;text-align:left;direction:ltr;dis=
+play:inline-block;vertical-align:top;width:100%"><table border=3D"0" cellpa=
+dding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"vertical-align=
+:top" width=3D"100%">      <td><a href=3D"https://www.idealista.com/en/inmu=
+eble/108415278/?utm_medium=3Demail&amp;utm_campaign=3Ddaily_suggestions_one=
+Search&amp;utm_campaigntype=3Dretention&amp;utm_project=3DadNotification&am=
+p;utm_source=3Dalerts-id&amp;utm_date_send=3D2025-12-06T064214&amp;utm_link=
+=3DpropertyRecommendedPhoto&amp;utm_recipient_id=3Dich/L95N3qlY20lHKSe70Oie=
+U6nHQRF6lg7NtduNjH4=3D&amp;origin=3DalertSuggestionsOneSearch&amp;savedSear=
+chAlertId=3D102755581&amp;genericSearch=3Dfalse&amp;utm_notification_id=3D1=
+f192800-b29e-477f-aab9-d7cca697c2c0" title=3D"Village house in Lanzos, 1, V=
+illalba" target=3D"_blank" rel=3D"noreferrer"><img alt=3D"Village house in =
+Lanzos, 1, Villalba" src=3D"https://img4.idealista.com/blur/500_375_mq/0/id=
+.pro.es.image.master/df/7e/f1/1344235144.jpg" class=3D"m_185175467778692165=
+5imagen-inmueble" width=3D"277" style=3D"width:277px;display:block"></a></t=
+d></table></div><div class=3D"m_1851754677786921655mj-column-per-44" style=
+=3D"font-size:13px;text-align:left;direction:ltr;display:inline-block;verti=
+cal-align:top;width:100%"><table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"vertica=
+l-align:top;padding:16px 14px"><table border=3D"0" cellpadding=3D"0" cellsp=
+acing=3D"0" role=3D"presentation" width=3D"100%"><tr><td align=3D"left" sty=
+le=3D"font-size:0px;padding:0;word-break:break-word"><div style=3D"font-fam=
+ily:Arial;font-size:14px;line-height:16px;text-align:left;color:#000000"><a=
+ style=3D"color:#2172b2;text-decoration:none" href=3D"https://www.idealista=
+.com/en/inmueble/108415278/?utm_medium=3Demail&amp;utm_campaign=3Ddaily_sug=
+gestions_oneSearch&amp;utm_campaigntype=3Dretention&amp;utm_project=3DadNot=
+ification&amp;utm_source=3Dalerts-id&amp;utm_date_send=3D2025-12-06T064214&=
+amp;utm_link=3DpropertyRecommendedLink&amp;utm_recipient_id=3Dich/L95N3qlY2=
+0lHKSe70OieU6nHQRF6lg7NtduNjH4=3D&amp;origin=3DalertSuggestionsOneSearch&am=
+p;savedSearchAlertId=3D102755581&amp;genericSearch=3Dfalse&amp;utm_notifica=
+tion_id=3D1f192800-b29e-477f-aab9-d7cca697c2c0" title=3D"Village house in L=
+anzos, 1, Villalba" target=3D"_blank" rel=3D"noreferrer">Village house in L=
+anzos, 1, Villalba</a></div></td></tr><tr><td align=3D"left" style=3D"font-=
+size:0px;padding:0;word-break:break-word"><table cellpadding=3D"0" cellspac=
+ing=3D"0" width=3D"100%" border=3D"0" style=3D"color:#000000;font-family:Ar=
+ial;font-size:13px;line-height:22px;table-layout:auto;width:100%"><tr><td v=
+align=3D"middle" align=3D"left" height=3D"38"> <span> <span style=3D"color:=
+#333;font-weight:bold;font-size:22px;line-height:16px">64,000 =E2=82=AC </s=
+pan></span></td></tr></table></td></tr><tr><td align=3D"left" style=3D"font=
+-size:0px;padding:0 0 4px;word-break:break-word"><div style=3D"font-family:=
+Arial;font-size:14px;line-height:16px;text-align:left;color:#141414"><u></u=
+>  <u></u>129 m=C2=B2<u></u>  <u></u>5 bed<u></u>  <u></u></div></td></tr><=
+tr><td align=3D"left" style=3D"font-size:0px;padding:0 0 11px;word-break:br=
+eak-word"><div style=3D"font-family:Arial;font-size:14px;line-height:16px;t=
+ext-align:left;color:#8e8f8c"><p style=3D"height:34px;overflow:hidden;margi=
+n-top:0;margin-bottom:0"><u></u><u></u><u></u><u></u>Typical Galician stone=
+ house in Lanz=C3=B3s Villalba.
+
+The house is located on a flat plot of a...<u></u><u></u></p></div></td></t=
+r><tr><td align=3D"center" style=3D"font-size:0px;padding:0;word-break:brea=
+k-word"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation" style=3D"border-collapse:separate;width:100%;line-height:100%"><=
+tr><td align=3D"center" bgcolor=3D"#e5e6e1" role=3D"presentation" style=3D"=
+border:solid 1px #cbccc7;border-radius:2px;padding:4px 16px;background:#e5e=
+6e1" valign=3D"middle"><a href=3D"https://www.idealista.com/en/inmueble/108=
+415278/?utm_medium=3Demail&amp;utm_campaign=3Ddaily_suggestions_oneSearch&a=
+mp;utm_campaigntype=3Dretention&amp;utm_project=3DadNotification&amp;utm_so=
+urce=3Dalerts-id&amp;utm_date_send=3D2025-12-06T064214&amp;utm_link=3Dprope=
+rtyRecommendedPhoto&amp;utm_recipient_id=3Dich/L95N3qlY20lHKSe70OieU6nHQRF6=
+lg7NtduNjH4=3D&amp;origin=3DalertSuggestionsOneSearch&amp;savedSearchAlertI=
+d=3D102755581&amp;genericSearch=3Dfalse&amp;utm_notification_id=3D1f192800-=
+b29e-477f-aab9-d7cca697c2c0" style=3D"background:#e5e6e1;color:#141414;font=
+-family:Arial;font-size:16px;font-weight:700;line-height:24px;Margin:0;text=
+-decoration:none;text-transform:none" target=3D"_blank" rel=3D"noreferrer">=
+<span style=3D"display:block">See 32 photos</span></a></td></tr></table></t=
+d></tr></table></td></tr></tbody></table></div></td></tr></tbody></table></=
+div> <div style=3D"Margin:0px auto;max-width:552px"><table align=3D"center"=
+ border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" sty=
+le=3D"width:100%"><tbody><tr><td style=3D"direction:ltr;font-size:0px;paddi=
+ng:0;text-align:center;vertical-align:top"><div class=3D"m_1851754677786921=
+655mj-column-per-100" style=3D"font-size:13px;text-align:left;direction:ltr=
+;display:inline-block;vertical-align:top;width:100%"><table border=3D"0" ce=
+llpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"vertical-a=
+lign:top" width=3D"100%"><tr><td style=3D"font-size:0px;word-break:break-wo=
+rd"><div style=3D"height:12px">=C2=A0</div></td></tr></table></div></td></t=
+r></tbody></table></div> <div style=3D"Margin:0px auto;max-width:552px"><ta=
+ble align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=
+=3D"presentation" style=3D"width:100%"><tbody><tr><td style=3D"direction:lt=
+r;font-size:0px;padding:0;text-align:center;vertical-align:top"><div class=
+=3D"m_1851754677786921655mj-column-per-100" style=3D"font-size:13px;text-al=
+ign:left;direction:ltr;display:inline-block;vertical-align:top;width:100%">=
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"vertical-align:top" width=3D"100%"><tr><td style=3D"font-size:0=
+px;word-break:break-word"><div style=3D"height:12px">=C2=A0</div></td></tr>=
+</table></div></td></tr></tbody></table></div><div style=3D"background:#fff=
+fff;background-color:#ffffff;Margin:0px auto;max-width:552px"><table align=
+=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presen=
+tation" style=3D"background:#ffffff;background-color:#ffffff;width:100%"><t=
+body><tr><td style=3D"border-bottom:1px solid #e5e6e1;border-left:1px solid=
+ #e5e6e1;border-right:1px solid #e5e6e1;border-top:1px solid #e5e6e1;direct=
+ion:ltr;font-size:0px;padding:0;text-align:center;vertical-align:top"><div =
+class=3D"m_1851754677786921655mj-column-per-55" style=3D"font-size:13px;tex=
+t-align:left;direction:ltr;display:inline-block;vertical-align:top;width:10=
+0%"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"present=
+ation" style=3D"vertical-align:top" width=3D"100%">      <td><a href=3D"htt=
+ps://www.idealista.com/en/inmueble/105495919/?utm_medium=3Demail&amp;utm_ca=
+mpaign=3Ddaily_suggestions_oneSearch&amp;utm_campaigntype=3Dretention&amp;u=
+tm_project=3DadNotification&amp;utm_source=3Dalerts-id&amp;utm_date_send=3D=
+2025-12-06T064214&amp;utm_link=3DpropertyRecommendedPhoto&amp;utm_recipient=
+_id=3Dich/L95N3qlY20lHKSe70OieU6nHQRF6lg7NtduNjH4=3D&amp;origin=3DalertSugg=
+estionsOneSearch&amp;savedSearchAlertId=3D102755581&amp;genericSearch=3Dfal=
+se&amp;utm_notification_id=3D1f192800-b29e-477f-aab9-d7cca697c2c0" title=3D=
+"Country house in Ortigueira" target=3D"_blank" rel=3D"noreferrer"><img alt=
+=3D"Country house in Ortigueira" src=3D"https://img4.idealista.com/blur/500=
+_375_mq/0/id.pro.es.image.master/1c/dd/3e/1259767564.jpg" class=3D"m_185175=
+4677786921655imagen-inmueble" width=3D"277" style=3D"width:277px;display:bl=
+ock"></a></td></table></div><div class=3D"m_1851754677786921655mj-column-pe=
+r-44" style=3D"font-size:13px;text-align:left;direction:ltr;display:inline-=
+block;vertical-align:top;width:100%"><table border=3D"0" cellpadding=3D"0" =
+cellspacing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=
+=3D"vertical-align:top;padding:16px 14px"><table border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"100%"><tr><td align=
+=3D"left" style=3D"font-size:0px;padding:0;word-break:break-word"><div styl=
+e=3D"font-family:Arial;font-size:14px;line-height:16px;text-align:left;colo=
+r:#000000"><a style=3D"color:#2172b2;text-decoration:none" href=3D"https://=
+www.idealista.com/en/inmueble/105495919/?utm_medium=3Demail&amp;utm_campaig=
+n=3Ddaily_suggestions_oneSearch&amp;utm_campaigntype=3Dretention&amp;utm_pr=
+oject=3DadNotification&amp;utm_source=3Dalerts-id&amp;utm_date_send=3D2025-=
+12-06T064214&amp;utm_link=3DpropertyRecommendedLink&amp;utm_recipient_id=3D=
+ich/L95N3qlY20lHKSe70OieU6nHQRF6lg7NtduNjH4=3D&amp;origin=3DalertSuggestion=
+sOneSearch&amp;savedSearchAlertId=3D102755581&amp;genericSearch=3Dfalse&amp=
+;utm_notification_id=3D1f192800-b29e-477f-aab9-d7cca697c2c0" title=3D"Count=
+ry house in Ortigueira" target=3D"_blank" rel=3D"noreferrer">Country house =
+in Ortigueira</a></div></td></tr><tr><td align=3D"left" style=3D"font-size:=
+0px;padding:0;word-break:break-word"><table cellpadding=3D"0" cellspacing=
+=3D"0" width=3D"100%" border=3D"0" style=3D"color:#000000;font-family:Arial=
+;font-size:13px;line-height:22px;table-layout:auto;width:100%"><tr><td vali=
+gn=3D"middle" align=3D"left" height=3D"38"> <span> <span style=3D"color:#33=
+3;font-weight:bold;font-size:22px;line-height:16px">65,000 =E2=82=AC </span=
+></span></td></tr></table></td></tr><tr><td align=3D"left" style=3D"font-si=
+ze:0px;padding:0 0 4px;word-break:break-word"><div style=3D"font-family:Ari=
+al;font-size:14px;line-height:16px;text-align:left;color:#141414"><u></u>  =
+<u></u>421 m=C2=B2<u></u>  <u></u>4 bed<u></u>  <u></u></div></td></tr><tr>=
+<td align=3D"left" style=3D"font-size:0px;padding:0 0 11px;word-break:break=
+-word"><div style=3D"font-family:Arial;font-size:14px;line-height:16px;text=
+-align:left;color:#8e8f8c"><p style=3D"height:34px;overflow:hidden;margin-t=
+op:0;margin-bottom:0"><u></u><u></u><u></u><u></u>Property situated in a vi=
+llage, 3km from Ortigueira and 5km from the beach. It consists of...<u></u>=
+<u></u></p></div></td></tr><tr><td align=3D"center" style=3D"font-size:0px;=
+padding:0;word-break:break-word"><table border=3D"0" cellpadding=3D"0" cell=
+spacing=3D"0" role=3D"presentation" style=3D"border-collapse:separate;width=
+:100%;line-height:100%"><tr><td align=3D"center" bgcolor=3D"#e5e6e1" role=
+=3D"presentation" style=3D"border:solid 1px #cbccc7;border-radius:2px;paddi=
+ng:4px 16px;background:#e5e6e1" valign=3D"middle"><a href=3D"https://www.id=
+ealista.com/en/inmueble/105495919/?utm_medium=3Demail&amp;utm_campaign=3Dda=
+ily_suggestions_oneSearch&amp;utm_campaigntype=3Dretention&amp;utm_project=
+=3DadNotification&amp;utm_source=3Dalerts-id&amp;utm_date_send=3D2025-12-06=
+T064214&amp;utm_link=3DpropertyRecommendedPhoto&amp;utm_recipient_id=3Dich/=
+L95N3qlY20lHKSe70OieU6nHQRF6lg7NtduNjH4=3D&amp;origin=3DalertSuggestionsOne=
+Search&amp;savedSearchAlertId=3D102755581&amp;genericSearch=3Dfalse&amp;utm=
+_notification_id=3D1f192800-b29e-477f-aab9-d7cca697c2c0" style=3D"backgroun=
+d:#e5e6e1;color:#141414;font-family:Arial;font-size:16px;font-weight:700;li=
+ne-height:24px;Margin:0;text-decoration:none;text-transform:none" target=3D=
+"_blank" rel=3D"noreferrer"><span style=3D"display:block">See 30 photos</sp=
+an></a></td></tr></table></td></tr></table></td></tr></tbody></table></div>=
+</td></tr></tbody></table></div> <div style=3D"Margin:0px auto;max-width:55=
+2px"><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"=
+0" role=3D"presentation" style=3D"width:100%"><tbody><tr><td style=3D"direc=
+tion:ltr;font-size:0px;padding:0;text-align:center;vertical-align:top"><div=
+ class=3D"m_1851754677786921655mj-column-per-100" style=3D"font-size:13px;t=
+ext-align:left;direction:ltr;display:inline-block;vertical-align:top;width:=
+100%"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"prese=
+ntation" style=3D"vertical-align:top" width=3D"100%"><tr><td style=3D"font-=
+size:0px;word-break:break-word"><div style=3D"height:12px">=C2=A0</div></td=
+></tr></table></div></td></tr></tbody></table></div>  </td></tr></tbody></t=
+able></div><div style=3D"Margin:0px auto;max-width:600px"><table align=3D"c=
+enter" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"width:100%"><tbody><tr><td style=3D"direction:ltr;font-size:0px=
+;padding:0;text-align:center;vertical-align:top"><div class=3D"m_1851754677=
+786921655mj-column-per-100" style=3D"font-size:13px;text-align:left;directi=
+on:ltr;display:inline-block;vertical-align:top;width:100%"><table border=3D=
+"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"100%=
+"><tbody><tr><td style=3D"vertical-align:top;padding:0"><table border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"100%"><=
+tr><td style=3D"font-size:0px;padding:0;word-break:break-word"><p style=3D"=
+border-top:solid 6px #f0f0ee;font-size:1;margin:0px auto;width:100%"></p></=
+td></tr></table></td></tr></tbody></table></div></td></tr></tbody></table><=
+/div> <div style=3D"background:#ffffff;background-color:#ffffff;Margin:0px =
+auto;max-width:600px"><table align=3D"center" border=3D"0" cellpadding=3D"0=
+" cellspacing=3D"0" role=3D"presentation" style=3D"background:#ffffff;backg=
+round-color:#ffffff;width:100%"><tbody><tr><td style=3D"direction:ltr;font-=
+size:0px;padding:0;text-align:center;vertical-align:top"> <div style=3D"Mar=
+gin:0px auto;max-width:600px"><table align=3D"center" border=3D"0" cellpadd=
+ing=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"width:100%"><tbo=
+dy><tr><td style=3D"direction:ltr;font-size:0px;padding:24px 24px 0;text-al=
+ign:center;vertical-align:top"><div class=3D"m_1851754677786921655mj-column=
+-per-100" style=3D"font-size:13px;text-align:left;direction:ltr;display:inl=
+ine-block;vertical-align:top;width:100%"><table border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"0" role=3D"presentation" style=3D"vertical-align:top" wi=
+dth=3D"100%"><tr><td align=3D"left" style=3D"font-size:0px;padding:0;word-b=
+reak:break-word"><div style=3D"font-family:Arial;font-size:16px;font-weight=
+:700;line-height:24px;text-align:left;color:#666664">About the listings in =
+this email</div></td></tr></table></div></td></tr></tbody></table></div><di=
+v style=3D"Margin:0px auto;max-width:600px"><table align=3D"center" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"w=
+idth:100%"><tbody><tr><td style=3D"direction:ltr;font-size:0px;padding:0 24=
+px 24px;text-align:center;vertical-align:top"><div class=3D"m_1851754677786=
+921655mj-column-per-100" style=3D"font-size:13px;text-align:left;direction:=
+ltr;display:inline-block;vertical-align:top;width:100%"><table border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"vertica=
+l-align:top" width=3D"100%"><tr><td align=3D"left" style=3D"font-size:0px;p=
+adding:0;word-break:break-word"><div style=3D"font-family:Arial;font-size:1=
+6px;line-height:24px;text-align:left;color:#666664"><u></u><p>In this email=
+, we send you recommended listings which may be of interest to you when the=
+re are no new listings in your saved searches. Recommended listings are sel=
+ected based on some of your search criteria and/or your activity on idealis=
+ta. Recommended listings may not exactly match all your search criteria.</p=
+><p>You can check the criteria for <a style=3D"color:#2172b2;text-decoratio=
+n:none" href=3D"https://www.idealista.com/en/usuario/tus-alertas?utm_medium=
+=3Demail&amp;utm_campaign=3Ddaily_suggestions_oneSearch&amp;utm_campaigntyp=
+e=3Dretention&amp;utm_project=3DadNotification&amp;utm_source=3Dalerts-id&a=
+mp;utm_date_send=3D2025-12-06T064214&amp;utm_link=3DtusBusquedas&amp;utm_re=
+cipient_id=3Dich/L95N3qlY20lHKSe70OieU6nHQRF6lg7NtduNjH4=3D&amp;utm_notific=
+ation_id=3D1f192800-b29e-477f-aab9-d7cca697c2c0" target=3D"_blank" rel=3D"n=
+oreferrer">Your searches</a></p><u></u></div></td></tr></table></div></td><=
+/tr></tbody></table></div> <div style=3D"background:#e1f56e;background-colo=
+r:#e1f56e;Margin:0px auto;max-width:600px"><table align=3D"center" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"b=
+ackground:#e1f56e;background-color:#e1f56e;width:100%"><tbody><tr><td style=
+=3D"direction:ltr;font-size:0px;padding:24px 24px 16px;text-align:center;ve=
+rtical-align:top"><div class=3D"m_1851754677786921655mj-column-per-100" sty=
+le=3D"font-size:13px;text-align:left;direction:ltr;display:inline-block;ver=
+tical-align:top;width:100%"><table border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" style=3D"vertical-align:top" width=3D"100%">=
+<tr><td align=3D"left" style=3D"font-size:0px;padding:0;word-break:break-wo=
+rd"><div style=3D"font-family:Arial;font-size:16px;line-height:24px;text-al=
+ign:left;color:#666664">With the idealista app, you will be able to receive=
+ alerts of new listings immediately or see replies from the advertisers you=
+ have contacted.</div></td></tr></table></div></td></tr></tbody></table></d=
+iv><div style=3D"background:#e1f56e;background-color:#e1f56e;Margin:0px aut=
+o;max-width:600px"><table align=3D"center" border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" role=3D"presentation" style=3D"background:#e1f56e;backgrou=
+nd-color:#e1f56e;width:100%"><tbody><tr><td style=3D"direction:ltr;font-siz=
+e:0px;padding:0 24px 24px;text-align:center;vertical-align:top"><div class=
+=3D"m_1851754677786921655mj-column-per-100" style=3D"font-size:13px;text-al=
+ign:left;direction:ltr;display:inline-block;vertical-align:top;width:100%">=
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"vertical-align:top" width=3D"100%"><tr><td align=3D"left" style=
+=3D"font-size:0px;padding:0;word-break:break-word"><div style=3D"font-famil=
+y:Arial;font-size:16px;font-weight:700;line-height:1;text-align:left;color:=
+#000000"><a style=3D"color:#2172b2;text-decoration:none" href=3D"https://id=
+ealista.onelink.me/3139118072/i38rtpc3?af_adset=3Ddaily_suggestions_oneSear=
+ch&amp;utm_notification_id=3D1f192800-b29e-477f-aab9-d7cca697c2c0" target=
+=3D"_blank" rel=3D"noreferrer">Download the idealista app</a></div></td></t=
+r></table></div></td></tr></tbody></table></div><div style=3D"background:#e=
+7e7e4;background-color:#e7e7e4;Margin:0px auto;max-width:600px"><table alig=
+n=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"prese=
+ntation" style=3D"background:#e7e7e4;background-color:#e7e7e4;width:100%"><=
+tbody><tr><td style=3D"direction:ltr;font-size:0px;padding:24px 24px 16px;t=
+ext-align:center;vertical-align:top"><div class=3D"m_1851754677786921655mj-=
+column-per-100" style=3D"font-size:13px;text-align:left;direction:ltr;displ=
+ay:inline-block;vertical-align:top;width:100%"><table border=3D"0" cellpadd=
+ing=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"vertical-align:t=
+op" width=3D"100%"><tr><td align=3D"left" style=3D"font-size:0px;padding:0;=
+word-break:break-word"><div style=3D"font-family:Arial;font-size:12px;line-=
+height:20px;text-align:left;color:#666664"> Problems? Contact idealista <a =
+style=3D"margin:0;padding:0;font-family:Arial,sans-serif;font-size:15px;col=
+or:rgb(0,102,204);color:rgb(102,102,102);font-family:Arial,sans-serif!impor=
+tant;font-size:12px" href=3D"https://www.idealista.com/en/info/contacto?utm=
+_medium=3Demail&amp;utm_campaign=3Ddaily_suggestions_oneSearch&amp;utm_camp=
+aigntype=3Dretention&amp;utm_project=3DadNotification&amp;utm_source=3Daler=
+ts-id&amp;utm_date_send=3D2025-12-06T064214&amp;utm_link=3Dcontacta&amp;utm=
+_recipient_id=3Dich/L95N3qlY20lHKSe70OieU6nHQRF6lg7NtduNjH4=3D&amp;utm_noti=
+fication_id=3D1f192800-b29e-477f-aab9-d7cca697c2c0" target=3D"_blank" rel=
+=3D"noreferrer">via the website</a></div></td></tr></table></div></td></tr>=
+</tbody></table></div><div style=3D"background:#e7e7e4;background-color:#e7=
+e7e4;Margin:0px auto;max-width:600px"><table align=3D"center" border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"backgrou=
+nd:#e7e7e4;background-color:#e7e7e4;width:100%"><tbody><tr><td style=3D"dir=
+ection:ltr;font-size:0px;padding:0 24px;text-align:center;vertical-align:to=
+p"><div class=3D"m_1851754677786921655mj-column-per-100" style=3D"font-size=
+:13px;text-align:left;direction:ltr;display:inline-block;vertical-align:top=
+;width:100%"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=
+=3D"presentation" style=3D"vertical-align:top" width=3D"100%"><tr><td align=
+=3D"left" style=3D"font-size:0px;padding:0;word-break:break-word"><div styl=
+e=3D"font-family:Arial;font-size:12px;line-height:20px;text-align:left;colo=
+r:#666664"> By using our services, you accept the <a style=3D"margin:0;padd=
+ing:0;font-family:Arial,sans-serif;font-size:15px;color:rgb(0,102,204);colo=
+r:rgb(102,102,102);font-family:Arial,sans-serif!important;font-size:12px" h=
+ref=3D"https://www.idealista.com/en/info/proteccion-datos?utm_medium=3Demai=
+l&amp;utm_campaign=3Ddaily_suggestions_oneSearch&amp;utm_campaigntype=3Dret=
+ention&amp;utm_project=3DadNotification&amp;utm_source=3Dalerts-id&amp;utm_=
+date_send=3D2025-12-06T064214&amp;utm_link=3DproteccionDatos&amp;utm_recipi=
+ent_id=3Dich/L95N3qlY20lHKSe70OieU6nHQRF6lg7NtduNjH4=3D&amp;utm_notificatio=
+n_id=3D1f192800-b29e-477f-aab9-d7cca697c2c0" target=3D"_blank" rel=3D"noref=
+errer">privacy policy</a> and the <a style=3D"margin:0;padding:0;font-famil=
+y:Arial,sans-serif;font-size:15px;color:rgb(0,102,204);color:rgb(102,102,10=
+2);font-family:Arial,sans-serif!important;font-size:12px" href=3D"https://w=
+ww.idealista.com/en/info/nota-legal?utm_medium=3Demail&amp;utm_campaign=3Dd=
+aily_suggestions_oneSearch&amp;utm_campaigntype=3Dretention&amp;utm_project=
+=3DadNotification&amp;utm_source=3Dalerts-id&amp;utm_date_send=3D2025-12-06=
+T064214&amp;utm_link=3DnotaLegal&amp;utm_recipient_id=3Dich/L95N3qlY20lHKSe=
+70OieU6nHQRF6lg7NtduNjH4=3D&amp;utm_notification_id=3D1f192800-b29e-477f-aa=
+b9-d7cca697c2c0" target=3D"_blank" rel=3D"noreferrer">terms and conditions<=
+/a>.</div></td></tr></table></div></td></tr></tbody></table></div><div styl=
+e=3D"background:#e7e7e4;background-color:#e7e7e4;Margin:0px auto;max-width:=
+600px"><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" style=3D"background:#e7e7e4;background-color:#=
+e7e7e4;width:100%"><tbody><tr><td style=3D"direction:ltr;font-size:0px;padd=
+ing:24px 24px 0;text-align:left;vertical-align:top"><div class=3D"m_1851754=
+677786921655mj-column-px-121" style=3D"font-size:13px;text-align:left;direc=
+tion:ltr;display:inline-block;vertical-align:top;width:100%"><table border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"1=
+00%"><tbody><tr><td style=3D"vertical-align:top;padding-bottom:16px"><table=
+ border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" wid=
+th=3D"100%"><tr><td align=3D"left" style=3D"font-size:0px;padding:0 10px 0 =
+0;word-break:break-word"><table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" style=3D"border-collapse:collapse;border-spaci=
+ng:0px"><tbody><tr><td style=3D"width:111px"><img height=3D"auto" src=3D"ht=
+tps://st3.idealista.com/static/common/release/home/resources/img/logo-small=
+.png" style=3D"border:0;display:block;outline:none;text-decoration:none;hei=
+ght:auto;width:100%" width=3D"111"></td></tr></tbody></table></td></tr></ta=
+ble></td></tr></tbody></table></div><div class=3D"m_1851754677786921655mj-c=
+olumn-px-393" style=3D"font-size:13px;text-align:left;direction:ltr;display=
+:inline-block;vertical-align:bottom;width:100%"><table border=3D"0" cellpad=
+ding=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"100%"><tbody><t=
+r><td style=3D"vertical-align:bottom;padding-bottom:16px"><table border=3D"=
+0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"100%"=
+><tr><td align=3D"left" style=3D"font-size:0px;padding:0;word-break:break-w=
+ord"><div style=3D"font-family:Arial;font-size:14px;line-height:1;text-alig=
+n:left;color:#717164">=C2=A9 2000 - 2025</div></td></tr></table></td></tr><=
+/tbody></table></div></td></tr></tbody></table></div></td></tr></tbody></ta=
+ble></div> <img border=3D"0" width=3D"1" height=3D"1" src=3D"http://col.ide=
+alista.com/toto?s=3D582065&amp;events=3D[%7B%22name%22:+%22email.display.of=
+fsite%22,+%22data%22:+%7B%22src_medium%22:+%22email%22,+%22src_campaign%22:=
++%22daily_suggestions_oneSearch%22,+%22src_campaigntype%22:+%22retention%22=
+,+%22src_project%22:+%22adNotification%22,+%22src_source%22:+%22alerts-id%2=
+2,+%22src_date_send%22:+%222025-12-06T064214%22,+%22src_recipient_id%22:+%2=
+2ich/L95N3qlY20lHKSe70OieU6nHQRF6lg7NtduNjH4=3D%22,+%22src_notification_id%=
+22:+%221f192800-b29e-477f-aab9-d7cca697c2c0%22%7D%7D]"></div></div>
+</div>
+
+--000000000000e4d19906454227e1--

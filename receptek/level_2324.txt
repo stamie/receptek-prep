@@ -1,0 +1,694 @@
+Delivered-To: estampel@gmail.com
+Received: by 2002:ac8:6195:0:b0:4d8:4e8b:3876 with SMTP id kq21csp747943qtb;
+        Wed, 8 Oct 2025 01:45:59 -0700 (PDT)
+X-Received: by 2002:a17:907:94c3:b0:b3e:d492:d7b8 with SMTP id a640c23a62f3a-b50acc1aa45mr247140466b.64.1759913159283;
+        Wed, 08 Oct 2025 01:45:59 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1759913159; cv=none;
+        d=google.com; s=arc-20240605;
+        b=RNpYuS6tltIsBoA2sEENkXBtZpIdNK83sxn1HeZbGV/z8D5J1QMZz13azfO1c1TuA4
+         qopVL19xgv0xe7hHfiZEo9qDNPpFPWZHt4otg7ii+mJzoUcKPvlT6p+zicB2wnNV+eOq
+         PRs24URUO1vGXugiIe2Y0rlETYBOMW9hBmwUsyT9hfPRbRHBIY7jUWwRLiOSoCAqJ3fL
+         dJ3y6TIjRkTZ6bLKd5pqTY+M2/yguJMxSdvfTVfq+Za/URpMCnbL19SlPrA+fENi7AFZ
+         cmnnHCf5JB3EHmQj/duL6vW/5LDUsParj02+TbwQnvkaY9tOQoaoAdF7pd0C9xngWkde
+         uhUA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=MYF9nBNejiAxEurxs+aTqU62oKvt2bekjY0EQeGMPXE=;
+        fh=wF/Yrd2E0xeKwPH74kML7cQSth+Fl4bwhVNrybJ4uh4=;
+        b=HoIUUwu5IjcSbLQ2L4g2LIzjQ6QdGqPvGzqgTe+7wVrtCbD+InNndAoOBeLyxGaX+T
+         fRLcO/a9O2WfuIoE1Dv1EvMt/ZaoLqLyn3aYCGm+R06TlfN/N6i3uf32ENryu8jQCiSN
+         pcwty6RiO68uRtAlDV8Io+VobgvX8T8f8Oz3NVCTs/eOBqy+xQ+5NiTGjD+g9W3b2tXJ
+         NreoLo1d6eHF0PvUl5/bvYL3JuksQ/eAjwtGduXsJqhmkJI9CbJxy1Cy24s0WeFSjfpB
+         qdpvTLTqZhooQzA7zZBcV0EtGF8lsnWN5lswsP/QiTbr5qPnt1jAXm3m03KEBDrESq4B
+         fMfg==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b="XQt/K8Dp";
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <banyus53@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id a640c23a62f3a-b4867abf9a7sor615470866b.14.2025.10.08.01.45.59
+        for <estampel@gmail.com>
+        (Google Transport Security);
+        Wed, 08 Oct 2025 01:45:59 -0700 (PDT)
+Received-SPF: pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b="XQt/K8Dp";
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1759913158; x=1760517958; dara=google.com;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=MYF9nBNejiAxEurxs+aTqU62oKvt2bekjY0EQeGMPXE=;
+        b=XQt/K8Dp5wxdLbGFtv2Z8By9lf0yicm2+aOA3LOE9MHVxVmKSGFruWdG3jeX9W2Xsb
+         qDMShgjxZLgVgrDT5YXNNQWkWjGIcmE2D5Z4EkuWo6SRUtSmcPpfXsehVS95SJ+3jgtU
+         t/YiW8WlUoJUYB4p0kiGJqN4OvdyvvQab3RdRvy3ByFkKBZsPpUCjlSvK5cggdc0aw49
+         G0VH6GCuenWdqheNCvoWDTc5boxO+cri4YcnsGNViXnFmnKPRkP9IFb4GeAFewVnsAbA
+         yZr3oZALe1jT8s5xQ6i7REtqzkcoQ0vcgPC5UBFwFDrPumBIk+gIiPTOnMQM9GOoDb9U
+         hhcw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1759913158; x=1760517958;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=MYF9nBNejiAxEurxs+aTqU62oKvt2bekjY0EQeGMPXE=;
+        b=kwMP2snKrpCls7e+thaX3m4Jg9Z/CSUitDEllyIBHmivicqbe3vxjxKb3LLrSsm3gv
+         +WJNr+36i2H7uDuVZectddpwO3EsOF9pAjBBgeEY+A1hk+qwyfNjhxwvNbEbeSy/klRl
+         DFbrHduK5CEJu/uqMTiuteD6h92Ise/WxOwPKTDatm3wqDaJfjx2rND0f2uwvh8ClT5n
+         /ZdKY/4oQA6Sg/rQlvzqpwysxaEWoe2V4RMthBJr5FDcTl/j184YDUu0JFeuL1+3fPZr
+         KwhMxRbep3Sb7jV2u57dFig8J7gGaJRd2l+eo2EQDuqhDNB/Fq6IWdVD15QFl9Lzst2x
+         73eA==
+X-Gm-Message-State: AOJu0YzbTyAYzjAvix9f1I+2YyJqf4QFvKiy9CKpkXL8YnEz/aS18OAR
+	Q8Cz91XTQJnEfH+ZUG+43hM1YdQDNOGdzFqQhy+vAGXTFQATEgcCI7AJDXx1SbI9DFmkkMDulTI
+	VY/jBHlJFy0Mmx18x70tKEgpEJUs7V873mg==
+X-Gm-Gg: ASbGnctqT3944SYrPZ5mdsWHFQJcg4PE4vUQNuepbSLwHCRc0Rk3QAaus+Oj1IFC2sP
+	5IbCeJfTczVSc37AL+HHPP1ziPtIepmaVzVv4k/tKkPtVJQbVmISHmCUbU+TphL46Po2F+yr7+U
+	a1EmrpdcKU97vj/60zJ+r2qz/BGQaFdcwNQgYo9iCQFUj7QDja1aLgG+qat6ndDE0bMOc2TImmG
+	3DRfUFwz5pz4S5CLBYKOrMrhBsHT6lyJNegutUL97e0EFD91knfUX9VNZTzWbyFUGYbQ8MXUg==
+X-Google-Smtp-Source: AGHT+IFSLwkrZ67B1qDJlZOPmRVLThPg8o8Kn3BgSVwHvRU1eqs3Q3zctI1JJv3DfszGPy5vUbkIhIvKHqWUs+cQjSg=
+X-Received: by 2002:a17:907:e8f:b0:b34:985c:a503 with SMTP id
+ a640c23a62f3a-b50ac1c34c9mr247555866b.35.1759913158254; Wed, 08 Oct 2025
+ 01:45:58 -0700 (PDT)
+MIME-Version: 1.0
+References: <68e622ed236c7_12a0389883a@ip-10-0-12-184.ec2.internal.mail>
+In-Reply-To: <68e622ed236c7_12a0389883a@ip-10-0-12-184.ec2.internal.mail>
+From: =?UTF-8?B?w4FnbmVzIEJ1Z8Ohcg==?= <banyus53@gmail.com>
+Date: Wed, 8 Oct 2025 10:45:29 +0200
+X-Gm-Features: AS18NWB2BbbKDNOGpWU-CJfpWWVsXUi4D9rttJnNCsEo46ry_pMmswGMNpnkR0g
+Message-ID: <CA+39czXxH0qH10MoeQ==DEZX1tBF2Wc7FochpXEtaJ=jVPOV2Q@mail.gmail.com>
+Subject: =?UTF-8?B?RndkOiBbU3phYmFkYUhhbmddIMOaaiBlc2Vtw6lueTogVHJhbnN6cGFyZW5zIGd5w6FydA==?=
+	=?UTF-8?B?w7Mgd29ya3Nob3A=?=
+To: Emese Stampel <estampel@gmail.com>
+Content-Type: multipart/alternative; boundary="000000000000a226020640a1b6e7"
+
+--000000000000a226020640a1b6e7
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+---------- Forwarded message ---------
+Felad=C3=B3: =C3=81gnes Tollas via SzabadaHang <support@ahang.hu>
+Date: 2025. okt. 8., Sze, 10:38
+Subject: [SzabadaHang] =C3=9Aj esem=C3=A9ny: Transzparens gy=C3=A1rt=C3=B3 =
+workshop
+To: <banyus53@gmail.com>
+
+
+Pet=C3=ADci=C3=B3: Nem k=C3=A9r=C3=BCnk elektrolitgy=C3=A1rat Szolnokra!
+<https://szabad.ahang.hu/petitions/tarsadalmi-egyeztetest-a-szolnoki-akkugy=
+arrol>
+------------------------------
+[image: =C3=81gnes Tollas]
+
+Kedves =C3=81gnes M=C3=A1ria,
+
+Bizony=C3=A1ra hallott=C3=A1l a g=C3=B6diek tegnapi siker=C3=A9r=C5=91l: pe=
+rt nyertek! A T=C3=B6rv=C3=A9nysz=C3=A9k
+megsemmis=C3=ADtette a g=C3=B6di Samsung =C3=B6sszes m=C5=B1k=C3=B6d=C3=A9s=
+i t=C3=ADpus=C3=BA k=C3=B6rnyezetv=C3=A9delmi
+enged=C3=A9ly=C3=A9t, azaz amint az =C3=ADr=C3=A1sos =C3=ADt=C3=A9let meg=
+=C3=A9rkezik, onnant=C3=B3l a gy=C3=A1r nem
+m=C5=B1k=C3=B6dhet.
+=C5=90k =C3=A9s orsz=C3=A1gszerte mindenki, aki ebbe a k=C3=BCzdelembe civi=
+lk=C3=A9nt bele=C3=A1llt, =C3=A9jt
+nappall=C3=A1 t=C3=A9ve dolgoznak, ahogyan mi is. Sokszor =C3=A9jszak=C3=A1=
+ba ny=C3=BAl=C3=B3an, t=C3=B6bben
+kicsi gyerekek mell=C5=91l, =C3=B3ri=C3=A1si energi=C3=A1kat tesz=C3=BCnk a=
+z =C3=BCgybe.
+
+*A g=C3=B6di sikert l=C3=A1tva m=C3=A1ra nyilv=C3=A1nval=C3=B3v=C3=A1 v=C3=
+=A1lt: nem hi=C3=A1ba!*
+Szolnokon m=C3=A9g id=C5=91ben vagyunk, a gy=C3=A1r m=C3=A9g nem =C3=A9p=C3=
+=BClt fel, azonban a
+munkag=C3=A9pek megjelentek az elektrolitgy=C3=A1r =C3=A1ltal kiszemelt ter=
+=C3=BCleten.
+
+*Nem v=C3=A1rhatunk tov=C3=A1bb - MOST kell ki=C3=A1llnunk*, ez=C3=A9rt arr=
+a k=C3=A9r=C3=BCnk, gyere el
+ma d=C3=A9lut=C3=A1n az al=C3=A1bbi esem=C3=A9nyre!
+Seg=C3=ADts transzparenseket k=C3=A9sz=C3=ADteni a szombati t=C3=BCntet=C3=
+=A9s=C3=BCnkre (szombati
+t=C3=BCntet=C3=A9s : https://fb.me/e/3zBfSMAPj)!
+
+Ha ma nem tudsz elj=C3=B6nni, k=C3=BCld el nek=C3=BCnk =C3=BCzenetben, hogy=
+ mi=C3=A9rt nem szeretn=C3=A9l
+elektrolitgy=C3=A1rat Szolnokra =C3=A9s mi elmondjuk helyetted!
+Ha szeretn=C3=A9d, hogy felhangos=C3=ADtsunk, r=C3=B6vid vide=C3=B3=C3=BCze=
+netet is sz=C3=ADvesen
+fogadunk : a www.facebook.com/apontszolnok oldalon.
+
+
+Ma d=C3=A9lut=C3=A1n pedig nagyon v=C3=A1runk  - minden r=C3=A9szlet =C3=A9=
+s a r=C3=A9szv=C3=A9telhez
+sz=C3=BCks=C3=A9ges link lejjebb tal=C3=A1lhat=C3=B3.
+
+Rem=C3=A9lem, hogy tal=C3=A1lkozunk!
+
+=C3=9Cdv=C3=B6zlettel,
+=C3=81gnes
+------------------------------
+Transzparens gy=C3=A1rt=C3=B3 workshop
+<https://szabad.ahang.hu/events/transzparens-gyarto-workshop>
+[image: D=C3=A1tum =C3=A9s id=C5=91] 2025 okt=C3=B3ber 8, szerda, from 16:0=
+0 to 20:00 CEST
+[image: Helyszin]
+Sz=C5=91l=C5=91szem K=C3=B6z=C3=B6ss=C3=A9gi T=C3=A9r - Tesz-Vesz Ifj=C3=BA=
+s=C3=A1gi =C3=A9s Gyermekalap=C3=ADtv=C3=A1ny
+3 Kossuth Lajos =C3=BAt
+Szolnok, 5000
+Magyarorsz=C3=A1g
+
+M=C3=A1r t=C3=B6bb mint f=C3=A9l =C3=A9ve k=C3=BCzd=C3=BCnk a Szolnokra ter=
+vezett akkuipari beruh=C3=A1z=C3=A1s
+ellen.
+
+M=C3=A1r t=C3=B6bb mint 7000-en k=C3=B6vetelj=C3=BCk, hogy ne =C3=A9p=C3=BC=
+lj=C3=B6n elektrolitgy=C3=A1r a dr=C3=A1ga
+term=C5=91f=C3=B6ld=C3=BCnkre.
+
+V=C3=A9lem=C3=A9ny=C3=BCnket kinyilv=C3=A1n=C3=ADtottuk m=C3=A1r t=C3=BCnte=
+t=C3=A9sen, lakoss=C3=A1gi f=C3=B3rumon =C3=A9s sz=C3=A1mos
+alkalommal gy=C5=B1jt=C3=B6tt=C3=BCk az al=C3=A1=C3=ADr=C3=A1sokat Szolnok =
+=C3=A9s Abony utc=C3=A1in. Ny=C3=A1ron
+=C3=A1tadtuk az akkor 6600 al=C3=A1=C3=ADr=C3=A1st tartalmaz=C3=B3 pet=C3=
+=ADci=C3=B3t az =C3=A9rintetteknek,
+felk=C3=A9rdezt=C3=BCk d=C3=B6nt=C3=A9shoz=C3=B3inkat lakoss=C3=A1gi f=C3=
+=B3rumon =C3=A9s az utc=C3=A1n, spont=C3=A1n
+tal=C3=A1lkoz=C3=A1s keret=C3=A9ben is.
+
+=C3=89rdemi v=C3=A1laszt az=C3=B3ta sem kaptunk, a kiszemelt ter=C3=BCleten=
+ viszont munkag=C3=A9pek
+jelentek meg!
+
+Ez=C3=A9rt =C3=BAgy d=C3=B6nt=C3=B6tt=C3=BCnk, okt=C3=B3ber 11-=C3=A9n megm=
+ozdulunk =C3=A9s ehhez r=C3=A1d is sz=C3=BCks=C3=A9g=C3=BCnk
+van!
+
+Gyere el transzparens k=C3=A9sz=C3=ADt=C5=91 workshopunkra okt=C3=B3ber 8-=
+=C3=A1n 16h =C3=A9s 20h k=C3=B6z=C3=B6tt
+b=C3=A1rmikor, a Sz=C5=91l=C5=91szem k=C3=B6z=C3=B6ss=C3=A9gi t=C3=A9rbe (S=
+zolnok, Kossuth Lajos =C3=BAt 3.).
+K=C3=A9sz=C3=BClj=C3=BCnk k=C3=B6z=C3=B6sen az okt=C3=B3ber 11-i megmozdul=
+=C3=A1sra, melynek r=C3=A9szleteir=C5=91l
+k=C3=A9s=C5=91bb =C3=A9rtes=C3=ADt=C3=BCnk!
+
+Hozz magaddal kartont / leped=C5=91t/ t=C3=A1bl=C3=A1t amire felfestheted, =
+hogy te mi=C3=A9rt
+nem akarsz elektrolitgy=C3=A1rat Szolnokra.
+
+A f=C3=A9r=C5=91helyek sz=C3=A1ma korl=C3=A1tozott, ez=C3=A9rt az esem=C3=
+=A9nyen val=C3=B3 r=C3=A9szv=C3=A9tel
+regisztr=C3=A1ci=C3=B3hoz k=C3=B6t=C3=B6tt.
+
+
+
+
+MEGYEK! <https://szabad.ahang.hu/events/transzparens-gyarto-workshop>
+------------------------------
+
+You can contact the petition creator by replying directly to this email.
+Note that if you reply to this email, your message and email address will
+be shared with the petition creator.
+
+Az=C3=A9rt kapod ezt az =C3=BCzenetet, mert al=C3=A1=C3=ADrtad ezt a pet=C3=
+=ADci=C3=B3t "Nem k=C3=A9r=C3=BCnk
+elektrolitgy=C3=A1rat Szolnokra!
+<https://szabad.ahang.hu/petitions/tarsadalmi-egyeztetest-a-szolnoki-akkugy=
+arrol>"
+
+
+Ha nem szeretn=C3=A9l t=C3=B6bb e-mailt kapni a "Nem k=C3=A9r=C3=BCnk elekt=
+rolitgy=C3=A1rat
+Szolnokra!" kamp=C3=A1nyt=C3=B3l, akkor kattints ide: leiratkoz=C3=A1s
+<https://szabad.ahang.hu/petitions/tarsadalmi-egyeztetest-a-szolnoki-akkugy=
+arrol/signatures/GUEygT3DuUYfFFDC6Ym8vpg1/unsubscribing?blast_email_id=3D59=
+308>
+
+--000000000000a226020640a1b6e7
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><br><br><div class=3D"gmail_quote gmail_quote_container"><=
+div dir=3D"ltr" class=3D"gmail_attr">---------- Forwarded message ---------=
+<br>Felad=C3=B3: <strong class=3D"gmail_sendername" dir=3D"auto">=C3=81gnes=
+ Tollas via SzabadaHang</strong> <span dir=3D"auto">&lt;<a href=3D"mailto:s=
+upport@ahang.hu">support@ahang.hu</a>&gt;</span><br>Date: 2025. okt. 8., Sz=
+e, 10:38<br>Subject: [SzabadaHang] =C3=9Aj esem=C3=A9ny: Transzparens gy=C3=
+=A1rt=C3=B3 workshop<br>To:  &lt;<a href=3D"mailto:banyus53@gmail.com">bany=
+us53@gmail.com</a>&gt;<br></div><br><br><div class=3D"msg410470274329932569=
+1"><u></u>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,=
+Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;width:100%!=
+important;height:100%;line-height:1.6;margin:0;padding:0" bgcolor=3D"#f6f6f=
+6">
+<table style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot=
+;,Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;width:100=
+%;margin:0;padding:0" bgcolor=3D"#f6f6f6">
+<tbody><tr style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&=
+quot;,Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;margi=
+n:0;padding:0">
+<td style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,H=
+elvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;display:bloc=
+k!important;width:100%;max-width:600px!important;clear:both!important;margi=
+n:0 auto;padding:0" valign=3D"top">
+
+<div align=3D"center" style=3D"font-family:&quot;Helvetica Neue&quot;,&quot=
+;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:border-box;font-size=
+:14px;max-width:600px;display:block;margin:0 auto;padding:20px">
+<table align=3D"center" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" =
+style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,Helve=
+tica,Arial,sans-serif;box-sizing:border-box;font-size:14px;text-align:left;=
+border-radius:3px;margin:0;padding:0;border:1px solid #e9e9e9" bgcolor=3D"#=
+fff">
+<tbody><tr style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&=
+quot;,Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;margi=
+n:0;padding:0">
+<td style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,H=
+elvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;margin:0;pad=
+ding:20px" valign=3D"top">
+<div style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,=
+Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;margin:0;pa=
+dding:0 0 20px">
+Pet=C3=ADci=C3=B3:
+<a href=3D"https://szabad.ahang.hu/petitions/tarsadalmi-egyeztetest-a-szoln=
+oki-akkugyarrol" style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helv=
+etica&quot;,Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px=
+;color:#348eda;text-decoration:underline;margin:0;padding:0" target=3D"_bla=
+nk">Nem k=C3=A9r=C3=BCnk elektrolitgy=C3=A1rat Szolnokra!</a>
+</div>
+<hr style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,H=
+elvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;margin:0;pad=
+ding:0">
+<table style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot=
+;,Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;margin:0;=
+padding:0">
+<tbody><tr style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&=
+quot;,Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;margi=
+n:0;padding:0">
+<td style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,H=
+elvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;margin:0;pad=
+ding:10px 20px" valign=3D"top">
+<div style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,=
+Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;margin:0;pa=
+dding:0 0 30px">
+<img alt=3D"=C3=81gnes Tollas" title=3D"=C3=81gnes Tollas" src=3D"https://s=
+zabad.ahang.hu/assets/light_blue_member-5634a677d133dffa3a6675cd8317198d61a=
+7b2e5e0ee72516b92cda4b9ac9fb4.png" style=3D"font-family:&quot;Helvetica Neu=
+e&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:border-=
+box;font-size:14px;max-width:100%;width:50px;margin:0;padding:0">
+</div>
+<div style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,=
+Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;margin:0;pa=
+dding:0">
+  <p style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,=
+Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;font-weight=
+:normal;white-space:normal;line-height:normal;margin:0 0 10px;padding:0">Ke=
+dves =C3=81gnes M=C3=A1ria,</p>
+<p style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,He=
+lvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;font-weight:n=
+ormal;white-space:normal;line-height:normal;margin:0 0 10px;padding:0">Bizo=
+ny=C3=A1ra hallott=C3=A1l a g=C3=B6diek tegnapi siker=C3=A9r=C5=91l: pert n=
+yertek! A T=C3=B6rv=C3=A9nysz=C3=A9k megsemmis=C3=ADtette a g=C3=B6di Samsu=
+ng =C3=B6sszes m=C5=B1k=C3=B6d=C3=A9si t=C3=ADpus=C3=BA k=C3=B6rnyezetv=C3=
+=A9delmi enged=C3=A9ly=C3=A9t, azaz amint az =C3=ADr=C3=A1sos =C3=ADt=C3=A9=
+let meg=C3=A9rkezik, onnant=C3=B3l a gy=C3=A1r nem m=C5=B1k=C3=B6dhet.=C2=
+=A0<br style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot=
+;,Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;margin:0;=
+padding:0">=C5=90k =C3=A9s orsz=C3=A1gszerte mindenki, aki ebbe a k=C3=BCzd=
+elembe civilk=C3=A9nt bele=C3=A1llt, =C3=A9jt nappall=C3=A1 t=C3=A9ve dolgo=
+znak, ahogyan mi is. Sokszor =C3=A9jszak=C3=A1ba ny=C3=BAl=C3=B3an, t=C3=B6=
+bben kicsi gyerekek mell=C5=91l, =C3=B3ri=C3=A1si energi=C3=A1kat tesz=C3=
+=BCnk az =C3=BCgybe.</p>
+<div style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,=
+Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;margin:0;pa=
+dding:0"><br style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetic=
+a&quot;,Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;mar=
+gin:0;padding:0"></div>
+<p style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,He=
+lvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;font-weight:n=
+ormal;white-space:normal;line-height:normal;margin:0 0 10px;padding:0"><str=
+ong style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,H=
+elvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;margin:0;pad=
+ding:0">A g=C3=B6di sikert l=C3=A1tva m=C3=A1ra nyilv=C3=A1nval=C3=B3v=C3=
+=A1 v=C3=A1lt: nem hi=C3=A1ba!</strong></p>
+<div style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,=
+Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;margin:0;pa=
+dding:0">Szolnokon m=C3=A9g id=C5=91ben vagyunk, a gy=C3=A1r m=C3=A9g nem =
+=C3=A9p=C3=BClt fel, azonban a munkag=C3=A9pek megjelentek az elektrolitgy=
+=C3=A1r =C3=A1ltal kiszemelt ter=C3=BCleten.<br style=3D"font-family:&quot;=
+Helvetica Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-s=
+izing:border-box;font-size:14px;margin:0;padding:0"><br style=3D"font-famil=
+y:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-ser=
+if;box-sizing:border-box;font-size:14px;margin:0;padding:0"><strong style=
+=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,Helvetica,=
+Arial,sans-serif;box-sizing:border-box;font-size:14px;margin:0;padding:0">N=
+em v=C3=A1rhatunk tov=C3=A1bb - MOST kell ki=C3=A1llnunk</strong>, ez=C3=A9=
+rt arra k=C3=A9r=C3=BCnk, gyere el ma d=C3=A9lut=C3=A1n az al=C3=A1bbi esem=
+=C3=A9nyre!=C2=A0<br style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;=
+Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:=
+14px;margin:0;padding:0">Seg=C3=ADts transzparenseket k=C3=A9sz=C3=ADteni a=
+ szombati t=C3=BCntet=C3=A9s=C3=BCnkre (szombati t=C3=BCntet=C3=A9s : <a hr=
+ef=3D"https://fb.me/e/3zBfSMAPj" target=3D"_blank">https://fb.me/e/3zBfSMAP=
+j</a>)!<br style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&=
+quot;,Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;margi=
+n:0;padding:0"><br style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;He=
+lvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14=
+px;margin:0;padding:0">Ha ma nem tudsz elj=C3=B6nni, k=C3=BCld el nek=C3=BC=
+nk =C3=BCzenetben, hogy mi=C3=A9rt nem szeretn=C3=A9l elektrolitgy=C3=A1rat=
+ Szolnokra =C3=A9s mi elmondjuk helyetted!=C2=A0<br style=3D"font-family:&q=
+uot;Helvetica Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;b=
+ox-sizing:border-box;font-size:14px;margin:0;padding:0">Ha szeretn=C3=A9d, =
+hogy felhangos=C3=ADtsunk, r=C3=B6vid vide=C3=B3=C3=BCzenetet is sz=C3=ADve=
+sen fogadunk : a <a href=3D"http://www.facebook.com/apontszolnok" target=3D=
+"_blank">www.facebook.com/apontszolnok</a> oldalon.<br style=3D"font-family=
+:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-seri=
+f;box-sizing:border-box;font-size:14px;margin:0;padding:0"><br style=3D"fon=
+t-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,s=
+ans-serif;box-sizing:border-box;font-size:14px;margin:0;padding:0">
+</div>
+<p style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,He=
+lvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;font-weight:n=
+ormal;white-space:normal;line-height:normal;margin:0 0 10px;padding:0"><br =
+style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,Helve=
+tica,Arial,sans-serif;box-sizing:border-box;font-size:14px;margin:0;padding=
+:0">Ma d=C3=A9lut=C3=A1n pedig nagyon v=C3=A1runk=C2=A0 - minden r=C3=A9szl=
+et =C3=A9s a r=C3=A9szv=C3=A9telhez sz=C3=BCks=C3=A9ges link lejjebb tal=C3=
+=A1lhat=C3=B3.=C2=A0</p>
+<div style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,=
+Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;margin:0;pa=
+dding:0"><br style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetic=
+a&quot;,Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;mar=
+gin:0;padding:0"></div>
+<p style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,He=
+lvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;font-weight:n=
+ormal;white-space:normal;line-height:normal;margin:0 0 10px;padding:0">Rem=
+=C3=A9lem, hogy tal=C3=A1lkozunk!</p>
+<p style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,He=
+lvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;font-weight:n=
+ormal;white-space:normal;line-height:normal;margin:0 0 10px;padding:0">=C3=
+=9Cdv=C3=B6zlettel,<br style=3D"font-family:&quot;Helvetica Neue&quot;,&quo=
+t;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:border-box;font-siz=
+e:14px;margin:0;padding:0">=C3=81gnes</p>
+</div>
+
+<hr style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,H=
+elvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;margin:0;pad=
+ding:0">
+<h2 style=3D"font-family:&quot;Helvetica Neue&quot;,Helvetica,Arial,&quot;L=
+ucida Grande&quot;,sans-serif;box-sizing:border-box;font-size:24px;color:#0=
+00;line-height:1.2;font-weight:400;margin:20px 0 0 20px;padding:0">
+<a href=3D"https://szabad.ahang.hu/events/transzparens-gyarto-workshop" sty=
+le=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,Helvetic=
+a,Arial,sans-serif;box-sizing:border-box;font-size:24px;color:#348eda;text-=
+decoration:underline;margin:0;padding:0" target=3D"_blank">Transzparens gy=
+=C3=A1rt=C3=B3 workshop</a>
+</h2>
+<table style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot=
+;,Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;margin:0;=
+padding:0">
+<tbody><tr style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&=
+quot;,Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;margi=
+n:0;padding:0">
+<td style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,H=
+elvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;margin:0;pad=
+ding:20px 10px 20px 0" align=3D"right" valign=3D"middle">
+<img alt=3D"D=C3=A1tum =C3=A9s id=C5=91" style=3D"min-width:24px;font-famil=
+y:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-ser=
+if;box-sizing:border-box;font-size:14px;max-width:100%;margin:0;padding:0" =
+src=3D"https://szabad.ahang.hu/assets/icon-date-f72384c7ef0db98c515bd7dc5ed=
+89d6f416f98415c2ebcd3c8c17345ce9aa970.png">
+</td>
+<td style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,H=
+elvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;margin:0;pad=
+ding:20px 0" valign=3D"middle">
+2025 okt=C3=B3ber 8, szerda, from 16:00 to 20:00 CEST
+</td>
+</tr>
+<tr style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,H=
+elvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;margin:0;pad=
+ding:0">
+<td style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,H=
+elvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;margin:0;pad=
+ding:0 10px 0 0" align=3D"right" valign=3D"middle">
+<img alt=3D"Helyszin" style=3D"min-width:15px;font-family:&quot;Helvetica N=
+eue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:borde=
+r-box;font-size:14px;max-width:100%;margin:0;padding:0" src=3D"https://szab=
+ad.ahang.hu/assets/icon-location-a699a9c247650727bdd8416e6aa485afda6cb49cb8=
+aba206207f29aabd1498ed.png">
+</td>
+<td style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,H=
+elvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;margin:0;pad=
+ding:0" valign=3D"middle">
+<div style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,=
+Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;margin:0;pa=
+dding:0">Sz=C5=91l=C5=91szem K=C3=B6z=C3=B6ss=C3=A9gi T=C3=A9r - Tesz-Vesz =
+Ifj=C3=BAs=C3=A1gi =C3=A9s Gyermekalap=C3=ADtv=C3=A1ny</div>
+<div style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,=
+Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;margin:0;pa=
+dding:0">3 Kossuth Lajos =C3=BAt</div>
+<div style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,=
+Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;margin:0;pa=
+dding:0">Szolnok, 5000</div>
+<div style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,=
+Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;margin:0;pa=
+dding:0">Magyarorsz=C3=A1g</div>
+
+</td>
+</tr>
+</tbody></table>
+
+<table style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot=
+;,Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;margin:0;=
+padding:0">
+<tbody><tr style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&=
+quot;,Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;margi=
+n:0;padding:0">
+<td style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,H=
+elvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;margin:0;pad=
+ding:20px 0 0" valign=3D"top">
+<div style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,=
+Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;margin:0;pa=
+dding:0">
+  <div style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot=
+;,Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;margin:0;=
+padding:0">=C2=A0</div>
+<div style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,=
+Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;margin:0;pa=
+dding:0">M=C3=A1r t=C3=B6bb mint f=C3=A9l =C3=A9ve k=C3=BCzd=C3=BCnk a Szol=
+nokra tervezett akkuipari beruh=C3=A1z=C3=A1s ellen.</div>
+<div style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,=
+Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;margin:0;pa=
+dding:0"><br style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetic=
+a&quot;,Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;mar=
+gin:0;padding:0"></div>
+<div style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,=
+Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;margin:0;pa=
+dding:0">M=C3=A1r t=C3=B6bb mint 7000-en k=C3=B6vetelj=C3=BCk, hogy ne =C3=
+=A9p=C3=BClj=C3=B6n elektrolitgy=C3=A1r a dr=C3=A1ga term=C5=91f=C3=B6ld=C3=
+=BCnkre.</div>
+<div style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,=
+Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;margin:0;pa=
+dding:0"><br style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetic=
+a&quot;,Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;mar=
+gin:0;padding:0"></div>
+<div style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,=
+Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;margin:0;pa=
+dding:0">V=C3=A9lem=C3=A9ny=C3=BCnket kinyilv=C3=A1n=C3=ADtottuk m=C3=A1r t=
+=C3=BCntet=C3=A9sen, lakoss=C3=A1gi f=C3=B3rumon =C3=A9s sz=C3=A1mos alkalo=
+mmal gy=C5=B1jt=C3=B6tt=C3=BCk az al=C3=A1=C3=ADr=C3=A1sokat Szolnok =C3=A9=
+s Abony utc=C3=A1in. Ny=C3=A1ron =C3=A1tadtuk az akkor 6600 al=C3=A1=C3=ADr=
+=C3=A1st tartalmaz=C3=B3 pet=C3=ADci=C3=B3t az =C3=A9rintetteknek, felk=C3=
+=A9rdezt=C3=BCk d=C3=B6nt=C3=A9shoz=C3=B3inkat lakoss=C3=A1gi f=C3=B3rumon =
+=C3=A9s az utc=C3=A1n, spont=C3=A1n tal=C3=A1lkoz=C3=A1s keret=C3=A9ben is.=
+</div>
+<div style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,=
+Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;margin:0;pa=
+dding:0"><br style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetic=
+a&quot;,Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;mar=
+gin:0;padding:0"></div>
+<div style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,=
+Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;margin:0;pa=
+dding:0">=C3=89rdemi v=C3=A1laszt az=C3=B3ta sem kaptunk, a kiszemelt ter=
+=C3=BCleten viszont munkag=C3=A9pek jelentek meg!</div>
+<div style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,=
+Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;margin:0;pa=
+dding:0"><br style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetic=
+a&quot;,Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;mar=
+gin:0;padding:0"></div>
+<div style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,=
+Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;margin:0;pa=
+dding:0">Ez=C3=A9rt =C3=BAgy d=C3=B6nt=C3=B6tt=C3=BCnk, okt=C3=B3ber 11-=C3=
+=A9n megmozdulunk =C3=A9s ehhez r=C3=A1d is sz=C3=BCks=C3=A9g=C3=BCnk van!<=
+/div>
+<div style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,=
+Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;margin:0;pa=
+dding:0"><br style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetic=
+a&quot;,Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;mar=
+gin:0;padding:0"></div>
+<div style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,=
+Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;margin:0;pa=
+dding:0">Gyere el transzparens k=C3=A9sz=C3=ADt=C5=91 workshopunkra okt=C3=
+=B3ber 8-=C3=A1n 16h =C3=A9s 20h k=C3=B6z=C3=B6tt b=C3=A1rmikor, a Sz=C5=91=
+l=C5=91szem k=C3=B6z=C3=B6ss=C3=A9gi t=C3=A9rbe (Szolnok, Kossuth Lajos =C3=
+=BAt 3.).<br style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetic=
+a&quot;,Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;mar=
+gin:0;padding:0">K=C3=A9sz=C3=BClj=C3=BCnk k=C3=B6z=C3=B6sen az okt=C3=B3be=
+r 11-i megmozdul=C3=A1sra, melynek r=C3=A9szleteir=C5=91l k=C3=A9s=C5=91bb =
+=C3=A9rtes=C3=ADt=C3=BCnk!</div>
+<div style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,=
+Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;margin:0;pa=
+dding:0"><br style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetic=
+a&quot;,Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;mar=
+gin:0;padding:0"></div>
+<div style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,=
+Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;margin:0;pa=
+dding:0">Hozz magaddal kartont / leped=C5=91t/ t=C3=A1bl=C3=A1t amire felfe=
+stheted, hogy te mi=C3=A9rt nem akarsz elektrolitgy=C3=A1rat Szolnokra.</di=
+v>
+<div style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,=
+Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;margin:0;pa=
+dding:0"><br style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetic=
+a&quot;,Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;mar=
+gin:0;padding:0"></div>
+<div style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,=
+Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;margin:0;pa=
+dding:0">A f=C3=A9r=C5=91helyek sz=C3=A1ma korl=C3=A1tozott, ez=C3=A9rt az =
+esem=C3=A9nyen val=C3=B3 r=C3=A9szv=C3=A9tel regisztr=C3=A1ci=C3=B3hoz k=C3=
+=B6t=C3=B6tt.</div>
+<div style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,=
+Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;margin:0;pa=
+dding:0"><br style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetic=
+a&quot;,Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;mar=
+gin:0;padding:0"></div>
+<div style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,=
+Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;margin:0;pa=
+dding:0"><br style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetic=
+a&quot;,Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;mar=
+gin:0;padding:0"></div>
+<div style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,=
+Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;margin:0;pa=
+dding:0">
+<br style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,H=
+elvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;margin:0;pad=
+ding:0"><br style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica=
+&quot;,Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;marg=
+in:0;padding:0">
+</div>
+</div>
+
+</td>
+</tr>
+<tr style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,H=
+elvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;margin:0;pad=
+ding:0">
+<td style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,H=
+elvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;margin:0;pad=
+ding:0" align=3D"center" valign=3D"top">
+<a href=3D"https://szabad.ahang.hu/events/transzparens-gyarto-workshop" sty=
+le=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,Helvetic=
+a,Arial,sans-serif;box-sizing:border-box;font-size:14px;color:#fff;text-dec=
+oration:none;background-color:#348eda;line-height:2;font-weight:bold;text-a=
+lign:center;display:inline-block;border-radius:5px;text-transform:capitaliz=
+e;margin:0;padding:0;border-color:#348eda;border-style:solid;border-width:1=
+0px 20px" target=3D"_blank">MEGYEK!</a>
+</td>
+</tr>
+</tbody></table>
+
+</td>
+</tr>
+</tbody></table>
+<hr style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,H=
+elvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;margin:0;pad=
+ding:0">
+<div style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,=
+Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;width:100%;=
+clear:both;color:#999;margin:0;padding:0 20px 20px">
+<p style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,He=
+lvetica,Arial,sans-serif;box-sizing:border-box;font-size:12px;font-weight:n=
+ormal;white-space:normal;line-height:normal;margin:0 0 10px;padding:0">
+You can contact the petition creator by replying directly to this email. No=
+te that if you reply to this email, your message and email address will be =
+shared with the petition creator.
+</p>
+<p style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,He=
+lvetica,Arial,sans-serif;box-sizing:border-box;font-size:12px;font-weight:n=
+ormal;white-space:normal;line-height:normal;margin:0 0 10px;padding:0">
+Az=C3=A9rt kapod ezt az =C3=BCzenetet, mert al=C3=A1=C3=ADrtad ezt a pet=C3=
+=ADci=C3=B3t &quot;<a href=3D"https://szabad.ahang.hu/petitions/tarsadalmi-=
+egyeztetest-a-szolnoki-akkugyarrol" style=3D"font-family:&quot;Helvetica Ne=
+ue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:border=
+-box;font-size:12px;color:#999;text-decoration:underline;margin:0;padding:0=
+" target=3D"_blank">Nem k=C3=A9r=C3=BCnk elektrolitgy=C3=A1rat Szolnokra!</=
+a>&quot;
+
+</p>
+<p style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,He=
+lvetica,Arial,sans-serif;box-sizing:border-box;font-size:12px;font-weight:n=
+ormal;white-space:normal;line-height:normal;margin:0 0 10px;padding:0">
+Ha nem szeretn=C3=A9l t=C3=B6bb e-mailt kapni a &quot;Nem k=C3=A9r=C3=BCnk =
+elektrolitgy=C3=A1rat Szolnokra!&quot; kamp=C3=A1nyt=C3=B3l, akkor kattints=
+ ide: <a href=3D"https://szabad.ahang.hu/petitions/tarsadalmi-egyeztetest-a=
+-szolnoki-akkugyarrol/signatures/GUEygT3DuUYfFFDC6Ym8vpg1/unsubscribing?bla=
+st_email_id=3D59308" style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;=
+Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:=
+12px;color:#999;text-decoration:underline;margin:0;padding:0" target=3D"_bl=
+ank">leiratkoz=C3=A1s</a>
+
+</p>
+</div>
+
+</td>
+</tr>
+</tbody></table>
+<div style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,=
+Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;width:100%;=
+clear:both;color:#999;margin:0;padding:0 20px 20px">
+<table width=3D"100%" style=3D"font-family:&quot;Helvetica Neue&quot;,&quot=
+;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:border-box;font-size=
+:14px;margin:0;padding:0">
+<tbody><tr style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&=
+quot;,Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;margi=
+n:0;padding:0">
+<td style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,H=
+elvetica,Arial,sans-serif;box-sizing:border-box;font-size:12px;margin:0;pad=
+ding:0 0 20px" align=3D"center" valign=3D"top">
+
+</td>
+</tr>
+</tbody></table>
+</div>
+</div>
+
+</td>
+</tr>
+</tbody></table>
+</div>
+
+</div></div></div>
+
+--000000000000a226020640a1b6e7--

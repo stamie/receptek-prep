@@ -1,0 +1,829 @@
+Delivered-To: estampel@gmail.com
+Received: by 10.103.25.134 with SMTP id 128csp80688vsz;
+        Wed, 10 May 2017 00:43:09 -0700 (PDT)
+X-Received: by 10.46.83.82 with SMTP id t18mr2065119ljd.70.1494402189678;
+        Wed, 10 May 2017 00:43:09 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1494402189; cv=none;
+        d=google.com; s=arc-20160816;
+        b=q5lhyBcDwhmgqWvCSd6OUzTTX5e3kq0+eOXnMI3qNgIAM6CvStMN+XjaY3A+k03ZFq
+         9KKubPe/bKuGByHLWADNA2GOkTPxT/BG+MWhItbO2pCGVAHJ5QQkP261yOMo6h695ri3
+         2FN38dK7sZbY6B1kIvtlipsMGI1ASzTMhwJ9KfKjA/z/QvVyoPsI9WHLt9PxjVJSgskB
+         UFrVahjLQ+xAI6I4HBG1b+ZiRzAQc5t8WMam6tvv5rhiyuWJWmkAE6+DzluCv0u/IerF
+         /AtW4bMMa9v9o116QH+AP0ob70lCBuE5Zg4AZQDUMqsrzfLD2yS+nVozJR36pTXgWDHi
+         ydGA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:subject:message-id:date:from:references:in-reply-to:mime-version
+         :dkim-signature:arc-authentication-results;
+        bh=F0Eh1egbIumSI52GzCyjCRkj1Zk4s0i/KrMIVD+dBPE=;
+        b=jRiNUnoKkD7I7+aq72jyWkRFDgaCZ7S+cCJQYy1i/SvcmY+mJ/fvmQEg5zYZ2ZW6K7
+         aYDgfQZYsSA4NQEgIV8P2oaF3Q58iq/y7d/Bp31LAcTWsPadL7ASsiFNxkJRMRvm08Qu
+         uoiz9cdkHhzL+bOSVG4YyEbgxplcLXanJk2Zx7biBZrahEHGCczBvqKEas837TqgEvJp
+         hAJE5Oj8VazaI07T6RUHaovKbxfunNpbYEdZryIvdNRJcIwErwPQU/rMOOjSi7dBCTL6
+         FBtU+c/YKS6env1uyTPdt0DSNknUumV7vDXiTIDmLeA9QxWXtpEdmZLIYv3mZymXu6ok
+         /8Qg==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com;
+       spf=pass (google.com: domain of banyus53@gmail.com designates 2a00:1450:4010:c07::22d as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=gmail.com
+Return-Path: <banyus53@gmail.com>
+Received: from mail-lf0-x22d.google.com (mail-lf0-x22d.google.com. [2a00:1450:4010:c07::22d])
+        by mx.google.com with ESMTPS id o73si19384lfo.316.2017.05.10.00.43.09
+        for <estampel@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 10 May 2017 00:43:09 -0700 (PDT)
+Received-SPF: pass (google.com: domain of banyus53@gmail.com designates 2a00:1450:4010:c07::22d as permitted sender) client-ip=2a00:1450:4010:c07::22d;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com;
+       spf=pass (google.com: domain of banyus53@gmail.com designates 2a00:1450:4010:c07::22d as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=gmail.com
+Received: by mail-lf0-x22d.google.com with SMTP id j1so672616lfh.2
+        for <estampel@gmail.com>; Wed, 10 May 2017 00:43:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:in-reply-to:references:from:date:message-id:subject:to;
+        bh=F0Eh1egbIumSI52GzCyjCRkj1Zk4s0i/KrMIVD+dBPE=;
+        b=OksptuluGTKkrnLMfH1dSUpXFnlrP7CEfz7QsNWAKraw82D6Hc18tu03VpKsnFJJzY
+         z7vD2cyJSYPrDq8U5GJJf0+pyefwr7Vr+7W77ocBhR4BuD7z8JrzkXjB0RxlfoP5hIu/
+         JJ/eoCpIgDeAlfniA8A4CgTcct7V8aUPkBAIZ282oLA2HdXbg+PxukhvbHMMnQGHWi8w
+         N1ngXs2n8TwBXv6j06AD2N7uolbRyxwYYwPFT29OvGTFO/yi7vcKX6tcYUOK6gEtE1Ko
+         YMgP4rZYdJy+YxzTK8FLh/uEgRHJb5lcvyLIqQey2BXahUQmvXWlVTt06QgVy+76NQHC
+         3/Ew==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20161025;
+        h=x-gm-message-state:mime-version:in-reply-to:references:from:date
+         :message-id:subject:to;
+        bh=F0Eh1egbIumSI52GzCyjCRkj1Zk4s0i/KrMIVD+dBPE=;
+        b=rGV9rSWEzV0XHbBvkDSd0ob9OUZv1fe6BFsZTwxqyaX4DAc5zUM64QgiU1wfapjQBK
+         1F4aNpeWbfDYNKRjYtp7+Er8P+O9xs3sWSWyawl0uNq5+GYpehjQ8s0cZplgX/GsO7Eo
+         TTI7v7nBFpFFOuMy7Cv6HNyU+vGYvUBjNlhLs0J8oasxqicTztHgN+lXw4oh1RHKhSzU
+         +h1RcitH4+ivY6fHN1gKmGgiHx5Prath2MV2MttYEYrFQlhJmnHq1eIEvWCniLa1BM3z
+         Th2+R0NzjYtzYbEddg8EiCOqHBvM30yGa+Wskcm7zlg2GszffDSZkV9Thfck4AE5FqgM
+         4YxQ==
+X-Gm-Message-State: AODbwcA7Ar+syrt9ypRt+EOUEHzO9enOaKccei63rQ89u4MP6lel+UaZ
+	EAlc5u4FJ4/PS0A43q9GomWFj9lNPqvY
+X-Received: by 10.46.71.14 with SMTP id u14mr2053315lja.104.1494402189003;
+ Wed, 10 May 2017 00:43:09 -0700 (PDT)
+MIME-Version: 1.0
+Received: by 10.46.77.216 with HTTP; Wed, 10 May 2017 00:43:08 -0700 (PDT)
+In-Reply-To: <48331075.6419.0@wordpress.com>
+References: <48331075.6419.0@wordpress.com>
+From: =?UTF-8?B?w4FnbmVzIEJ1Z8Ohcg==?= <banyus53@gmail.com>
+Date: Wed, 10 May 2017 09:43:08 +0200
+Message-ID: <CA+39czWOz==vYAp=YjjqMOvCrHMBWZnE6zzG0bQfOe42563C3A@mail.gmail.com>
+Subject: =?UTF-8?B?RndkOiBbw5pqIGJlamVneXrDqXNdIEEgbmVneWVkaWsgc3rDvGxldMOpc25hcGkgdG9ydA==?=
+	=?UTF-8?B?YSAobnllcnMsIHZlZ8OhbiwgZ2x1dMOpbm1lbnRlcyk=?=
+To: Emese Stampel <estampel@gmail.com>
+Content-Type: multipart/alternative; boundary=001a1140311aa09263054f269f79
+
+--001a1140311aa09263054f269f79
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+---------- Tov=C3=A1bb=C3=ADtott lev=C3=A9l ----------
+Felad=C3=B3: Zizi kalandjai - Val=C3=B3di =C3=A9telek, val=C3=B3di t=C3=B6r=
+t=C3=A9netek <
+donotreply@wordpress.com>
+D=C3=A1tum: 2017. m=C3=A1jus 10. 0:41
+T=C3=A1rgy: [=C3=9Aj bejegyz=C3=A9s] A negyedik sz=C3=BClet=C3=A9snapi tort=
+a (nyers, veg=C3=A1n,
+glut=C3=A9nmentes)
+C=C3=ADmzett: banyus53@gmail.com
+
+
+Zizi posted: " El sem hiszem, hogy a nagyobbik kisfiam, =C3=81di m=C3=A1r n=
+=C3=A9gy =C3=A9ves
+lett! Tiszt=C3=A1n eml=C3=A9kszem a sz=C3=BClet=C3=A9s=C3=A9nek minden pill=
+anat=C3=A1ra, az els=C5=91 fog=C3=A1nak
+kib=C3=BAj=C3=A1s=C3=A1ra, az els=C5=91 =C3=B6n=C3=A1ll=C3=B3 l=C3=A9p=C3=
+=A9seire, amikor t=C3=ADz h=C3=B3napos kora k=C3=B6r=C3=BCl
+elkezd=C5=91d=C3=B6tt az =C3=BCbercukis=C3=A1g id=C5=91szaka, ami az=C3=B3t=
+a is t"
+
+=C3=9Aj bejegyz=C3=A9s *Zizi kalandjai - Val=C3=B3di =C3=A9telek, val=C3=B3=
+di t=C3=B6rt=C3=A9netek*
+<http://www.zizikalandjai.com/?author=3D1> A negyedik sz=C3=BClet=C3=A9snap=
+i torta
+(nyers, veg=C3=A1n, glut=C3=A9nmentes)
+<http://www.zizikalandjai.com/2017/05/a-negyedik-szuletesnapi-torta-nyers-v=
+egan-glutenmentes.html>
+K=C3=A9sz=C3=ADt=C5=91:
+Zizi <http://www.zizikalandjai.com/?author=3D1>
+
+El sem hiszem, hogy a nagyobbik kisfiam, =C3=81di m=C3=A1r n=C3=A9gy =C3=A9=
+ves lett! Tiszt=C3=A1n
+eml=C3=A9kszem a sz=C3=BClet=C3=A9s=C3=A9nek minden pillanat=C3=A1ra, az el=
+s=C5=91 fog=C3=A1nak kib=C3=BAj=C3=A1s=C3=A1ra, az
+els=C5=91 =C3=B6n=C3=A1ll=C3=B3 l=C3=A9p=C3=A9seire, amikor t=C3=ADz h=C3=
+=B3napos kora k=C3=B6r=C3=BCl elkezd=C5=91d=C3=B6tt az
+=C3=BCbercukis=C3=A1g id=C5=91szaka, ami az=C3=B3ta is tart, csak most m=C3=
+=A1r kieg=C3=A9sz=C3=BCl
+gondolkod=C3=A1ssal, =C3=A9rtelemmel. K=C3=A9t gyerek anyuk=C3=A1jak=C3=A9n=
+t l=C3=A1tom most m=C3=A1r, hogy
+minden gyerek m=C3=A1s =C3=A9s m=C3=A1s, nagyon k=C3=BCl=C3=B6nb=C3=B6z=C5=
+=91ek a testv=C3=A9rek is. =C3=81di is
+teljesen m=C3=A1s gyerek, mint =C3=81kos. Persze huncuts=C3=A1gban, zsiv=C3=
+=A1nys=C3=A1gban nincs
+akad=C3=A1ly egyik=C5=91j=C3=BCkn=C3=A9l sem! [image: =F0=9F=99=82] Nagyon =
+neh=C3=A9z k=C3=A9t zsiv=C3=A1nnyal a
+mindennapokat "t=C3=BAl=C3=A9lni", de ilyenkor =C3=89va bar=C3=A1tn=C5=91m
+<http://aholamalacnemtur.blogspot.hu/> szavai csengenek a f=C3=BClemben: "E=
+zeket
+az =C3=A9veket senki nem adja vissza nek=C3=BCnk! T=C3=B6lts=C3=BCnk vel=C3=
+=BCk olyan sok id=C5=91t,
+amennyit csak tudunk!"
+
+=C3=81di m=C3=A1r magyar=C3=A1z=C3=B3 kiskrapek hihetetlen=C3=BCl j=C3=B3 h=
+umorral. Folyamatosan k=C3=A9rdez,
+nem gy=C5=91z=C3=BCnk a k=C3=A9rd=C3=A9seire v=C3=A1laszolni =C3=A9s persze=
+ olyan k=C3=A9rd=C3=A9sekkel is bomb=C3=A1z,
+amire nem tudjuk a v=C3=A1laszt (gyorsan ut=C3=A1nan=C3=A9z=C3=BCnk a neten=
+, hogy k=C3=A9pbe
+ker=C3=BClj=C3=BCnk az adott t=C3=A9m=C3=A1val kapcsolatban [image: =F0=9F=
+=99=82] )! Neh=C3=A9z vele l=C3=A9p=C3=A9st
+tartani, de igyeksz=C3=BCnk. Im=C3=A1d kukt=C3=A1skodni a konyh=C3=A1ban, e=
+z=C3=A9rt is kapott egy
+ilyen szettet
+<https://www.instagram.com/p/BT3tN4fhN2s/?taken-by=3Dziziadventures> a
+aj=C3=A1nd=C3=A9kba.
+
+A sz=C3=BClinapj=C3=A1t megint csak a biopiacon =C3=BCnnepelt=C3=BCk sz=C5=
+=B1k csal=C3=A1di =C3=A9s bar=C3=A1ti
+k=C3=B6rben, ahogyan tavaly
+<http://www.zizikalandjai.com/2016/05/a-harmadik-szuletesnapi-torta.html>
+is. Annyira szuper a helysz=C3=ADn, minden adott a piknikez=C3=A9shez, roha=
+ng=C3=A1l=C3=A1shoz,
+j=C3=A1tsz=C3=B3terez=C3=A9shez =C3=A9s finom =C3=A9telekhez. Hasonl=C3=B3 =
+dolgokat k=C3=A9sz=C3=ADtettem, mint
+tavaly, olyanokat, amelyeket k=C3=B6nny=C5=B1 enni k=C3=A9t rohang=C3=A1l=
+=C3=A1s k=C3=B6z=C3=B6tt gyerekeknek
+=C3=A9s feln=C5=91tteknek is.
+
+A tort=C3=A1t egy=C3=BCtt v=C3=A1lasztottuk ki =C3=81dival. Az alaprecept a=
+ The Happy Pears
+sr=C3=A1cokt=C3=B3l <https://thehappypear.ie/> sz=C3=A1rmazik, kicsit m=C3=
+=B3dos=C3=ADtottam rajta.
+Az alapja magos-datoly=C3=A1s-van=C3=ADli=C3=A1s, k=C3=B6z=C3=A9pen van egy=
+ isteni karamell r=C3=A9teg, a
+tetej=C3=A9n pedig egy egyszer=C5=B1 k=C3=B3kuszkr=C3=A9m. Igen, kr=C3=A9m,=
+ b=C3=A1r t=C3=B6bben az Instagram
+fot=C3=B3 alapj=C3=A1n
+<https://www.instagram.com/p/BTeE9U7BACg/?taken-by=3Dziziadventures>
+k=C3=B3kusztejsz=C3=ADnhabnak gondolt=C3=A1tok. Nagyon-nagyon t=C3=B6m=C3=
+=A9ny torta, el=C3=A9g bel=C5=91le
+egy v=C3=A9kony szelet. Nagy kapcsos form=C3=A1ban k=C3=A9sz=C3=BClt, =C3=
+=ADgy b=C5=91ven jutott
+mindenkinek.
+Nyers veg=C3=A1n karamell-k=C3=B3kuszkr=C3=A9m torta
+Recipe Type: s=C3=BCtem=C3=A9ny, torta, nyers
+Cuisine: veg=C3=A1n, glut=C3=A9nmentes
+Author: Zizi
+Prep time: 15 mins
+Cook time: 1 hour
+Total time: 1 hour 15 mins
+Serves: 8-10 f=C5=91re
+K=C3=B6nnyen elk=C3=A9sz=C3=ADthet=C5=91 nyers veg=C3=A1n karamell-k=C3=B3k=
+uszkr=C3=A9m torta. T=C3=B6m=C3=A9ny, de
+nagyon finom!
+Ingredients
+
+   - [b]Torta alaphoz:[/b]
+   - 100 g di=C3=B3
+   - 100 g kesudi=C3=B3
+   - 105 g friss datolya, kimagozva (aszalt
+   <http://www.biorganik-online.hu/> is j=C3=B3, csak =C3=A9rdemes haszn=C3=
+=A1lat el=C5=91tt
+   egy f=C3=A9l =C3=B3r=C3=A1ra langyos v=C3=ADzbe be=C3=A1ztatni, hogy k=
+=C3=B6nnyebben apr=C3=ADtsa a robotg=C3=A9p)
+   - 2 ev=C5=91kan=C3=A1l extra sz=C5=B1z k=C3=B3kuszzs=C3=ADr
+   - 1 ev=C5=91kan=C3=A1l k=C3=B3kuszreszel=C3=A9k <http://www.biorganik-on=
+line.hu/>
+   - 1/4 te=C3=A1skan=C3=A1l =C5=91r=C3=B6lt van=C3=ADlia
+   - [b]Karamell kr=C3=A9mhez:[/b]
+   - 375 g friss datolya, kimagozva aszalt <http://www.biorganik-online.hu/=
+>
+   is j=C3=B3, csak =C3=A9rdemes haszn=C3=A1lat el=C5=91tt egy f=C3=A9l =C3=
+=B3r=C3=A1ra langyos v=C3=ADzbe be=C3=A1ztatni,
+   hogy k=C3=B6nnyebben apr=C3=ADtsa a robotg=C3=A9p)
+   - 180 g mandulavaj
+   - 9 ev=C5=91kan=C3=A1l v=C3=ADz
+   - 4 ev=C5=91kan=C3=A1l extra sz=C5=B1z k=C3=B3kuszzs=C3=ADr
+   - 1/2 te=C3=A1skan=C3=A1l =C5=91r=C3=B6lt van=C3=ADlia
+   - k=C3=A9shegynyi s=C3=B3
+   - [b]K=C3=B3kusz kr=C3=A9mhez:[/b]
+   - 2 konzerv k=C3=B3kusztej (j=C3=B3 min=C5=91s=C3=A9g=C5=B1, 60% k=C3=B3=
+kusz tartalm=C3=BA), haszn=C3=A1lat
+   el=C5=91tt h=C5=B1t=C5=91be t=C3=A9ve 2-4 =C3=B3r=C3=A1ra
+   - 2 ev=C5=91kan=C3=A1l agav=C3=A9szirup <http://www.biorganik-online.hu/=
+>
+   - 1/4 te=C3=A1skan=C3=A1l =C5=91r=C3=B6lt van=C3=ADlia
+   - [b]T=C3=A1lal=C3=A1shoz:[/b]
+   - friss eper
+
+Instructions
+
+   1. Tegy=C3=BCk a di=C3=B3t =C3=A9s a kesudi=C3=B3t a robotg=C3=A9pbe =C3=
+=A9s apr=C3=ADtsuk szemcs=C3=A9sre.
+   Ekkor adjuk hozz=C3=A1 a datoly=C3=A1t, a szobah=C5=91m=C3=A9rs=C3=A9kle=
+t=C5=B1 k=C3=B3kuszzs=C3=ADrt,
+   k=C3=B3kuszreszel=C3=A9ket, =C3=A9s van=C3=ADli=C3=A1t. Dolgoztassuk a g=
+=C3=A9pet addig, am=C3=ADg a torta
+   alapunk =C3=B6ssze=C3=A1ll =E2=80=9Ct=C3=A9szt=C3=A1v=C3=A1=E2=80=9D.
+   2. A tortaform=C3=A1t b=C3=A9lelj=C3=BCk ki folpackkal vagy kenj=C3=BCk =
+ki k=C3=B3kuszolajjal =C3=A9s
+   nyomkodjuk az alj=C3=A1ba a datoly=C3=A1s di=C3=B3s-kesudi=C3=B3s kever=
+=C3=A9ket, majd tegy=C3=BCk a
+   h=C5=B1t=C5=91be megkem=C3=A9nyedni, am=C3=ADg elk=C3=A9sz=C3=ADtj=C3=BC=
+k a t=C3=B6bbi r=C3=A9teget. Mossuk el a
+   robotg=C3=A9p tart=C3=A1ly=C3=A1t.
+   3. Tegy=C3=BCk a mandulavajat, a datoly=C3=A1t, a szobah=C5=91m=C3=A9rs=
+=C3=A9klet=C5=B1 k=C3=B3kuszzs=C3=ADrt, a
+   van=C3=ADli=C3=A1t =C3=A9s a s=C3=B3t a robotg=C3=A9pbe. Kezdj=C3=BCk el=
+ dolgoztatni a g=C3=A9pet =C3=A9s lassan
+   adagoljuk hozz=C3=A1 a vizet. Akkor van k=C3=A9sz, ha karamell =C3=ADz=
+=C5=B1 =C3=A9s ny=C3=BAl=C3=B3s az
+   =C3=A1llaga, mint a karamellnek.
+   4. Kenj=C3=BCk ezt a kr=C3=A9met (kicsit neh=C3=A9zkes a ny=C3=BAl=C3=B3=
+s =C3=A1llaga miatt) a
+   datoly=C3=A1s di=C3=B3s-kesudi=C3=B3s alapra =C3=A9s tegy=C3=BCk vissza =
+a h=C5=B1t=C5=91be.
+   5. Vegy=C3=BCk ki a k=C3=B3kusztejet a h=C5=B1t=C5=91b=C5=91l =C3=A9s bo=
+ntsuk ki. A hideg hat=C3=A1s=C3=A1ra
+   kett=C3=A9v=C3=A1lt a s=C5=B1r=C5=B1 kr=C3=A9mes r=C3=A9sz a vizest=C5=
+=91l. Kanalazzuk ki a kr=C3=A9met mindk=C3=A9t
+   konzervb=C5=91l egy t=C3=A1lk=C3=A1ba.
+   6. A vizes r=C3=A9szt tegy=C3=BCk h=C5=B1t=C5=91be =C3=A9s haszn=C3=A1lj=
+uk fel turmixok
+   <http://www.zizikalandjai.com/tag/turmix> k=C3=A9sz=C3=ADt=C3=A9s=C3=A9h=
+ez.
+   7. Adjuk a kr=C3=A9mhez az agav=C3=A9szirupot =C3=A9s a van=C3=ADli=C3=
+=A1t, majd j=C3=B3l keverj=C3=BCk el
+   =C3=A9s kanalazzuk a torta tetej=C3=A9re.
+   8. T=C3=A1lal=C3=A1sig tartsuk h=C5=B1t=C5=91ben (legal=C3=A1bb 2 =C3=B3=
+r=C3=A1t)! T=C3=A1laljuk friss eperrel!
+
+Notes
+23 cm-es kapcsos tortaform=C3=A1ban k=C3=A9sz=C3=BClt.
+Felt=C3=A9tlen j=C3=B3 min=C5=91s=C3=A9g=C5=B1 min=C3=A9l magasabb zs=C3=AD=
+rtartalm=C3=BA konzerv k=C3=B3kusztejet
+haszn=C3=A1ljunk ehhez a recepthez.
+=C3=89des=C3=ADt=C3=A9sre agav=C3=A9szirupot haszn=C3=A1ltam, hogy megmarad=
+jon a kr=C3=A9m feh=C3=A9r sz=C3=ADne,
+de term=C3=A9szetesen haszn=C3=A1lhatunk juharszirupot, vagy datolyaszirupo=
+t is.
+Ebben az esetben a kr=C3=A9m drapp, vil=C3=A1gosbarna sz=C3=ADn=C5=B1 lesz.
+3.5.3226
+
+
+*Zizi <http://www.zizikalandjai.com/?author=3D1>* | m=C3=A1jus 9, 2017 - 10=
+:40 du.
+| URL: http://wp.me/p3gN7t-1Fx
+
+Hozz=C3=A1sz=C3=B3l=C3=A1s
+<http://www.zizikalandjai.com/2017/05/a-negyedik-szuletesnapi-torta-nyers-v=
+egan-glutenmentes.html#respond>
+   See all comments
+<http://www.zizikalandjai.com/2017/05/a-negyedik-szuletesnapi-torta-nyers-v=
+egan-glutenmentes.html#comments>
+
+Unsubscribe
+<https://subscribe.wordpress.com/?key=3Df3e8a4afe9a75c25e842d6c62111e565&em=
+ail=3Dbanyus53%40gmail.com&locale=3Dhu&b=3DfCqk58T58Dig%2Be17e%3FRGd_yFbG9c=
+gW5GjEGjKR1q6E-FLsR-1d>
+to no longer receive posts from Zizi kalandjai - Val=C3=B3di =C3=A9telek, v=
+al=C3=B3di
+t=C3=B6rt=C3=A9netek.
+Change your email settings at Manage Subscriptions
+<https://subscribe.wordpress.com/?key=3Df3e8a4afe9a75c25e842d6c62111e565&em=
+ail=3Dbanyus53%40gmail.com&locale=3Dhu>.
+
+
+*Gond van a kattint=C3=A1ssal?* Akkor m=C3=A1soljuk ki az al=C3=A1bbi hivat=
+koz=C3=A1st =C3=A9s
+illessz=C3=BCk be a b=C3=B6ng=C3=A9sz=C5=91nkbe:
+http://www.zizikalandjai.com/2017/05/a-negyedik-szuletesnapi-torta-nyers-
+vegan-glutenmentes.html
+
+--001a1140311aa09263054f269f79
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><br><div class=3D"gmail_quote">---------- Tov=C3=A1bb=C3=
+=ADtott lev=C3=A9l ----------<br>Felad=C3=B3: <b class=3D"gmail_sendername"=
+>Zizi kalandjai - Val=C3=B3di =C3=A9telek, val=C3=B3di t=C3=B6rt=C3=A9netek=
+</b> <span dir=3D"ltr">&lt;<a href=3D"mailto:donotreply@wordpress.com">dono=
+treply@wordpress.com</a>&gt;</span><br>D=C3=A1tum: 2017. m=C3=A1jus 10. 0:4=
+1<br>T=C3=A1rgy: [=C3=9Aj bejegyz=C3=A9s] A negyedik sz=C3=BClet=C3=A9snapi=
+ torta (nyers, veg=C3=A1n, glut=C3=A9nmentes)<br>C=C3=ADmzett: <a href=3D"m=
+ailto:banyus53@gmail.com">banyus53@gmail.com</a><br><br><br><u></u>
+
+
+=09
+=09
+=09
+=09
+
+
+<div class=3D"m_-2452608273946496068subscription-body-tag">
+
+<table style=3D"width:100%;background:#dddddd" bgcolor=3D"#DDDDDD" cellspac=
+ing=3D"0" cellpadding=3D"0" border=3D"0">
+	<tbody><tr>
+		<td>
+					<span style=3D"display:none!important">
+				Zizi posted: &quot;
+El sem hiszem, hogy a nagyobbik kisfiam, =C3=81di m=C3=A1r n=C3=A9gy =C3=A9=
+ves lett! Tiszt=C3=A1n eml=C3=A9kszem a sz=C3=BClet=C3=A9s=C3=A9nek minden =
+pillanat=C3=A1ra, az els=C5=91 fog=C3=A1nak kib=C3=BAj=C3=A1s=C3=A1ra, az e=
+ls=C5=91 =C3=B6n=C3=A1ll=C3=B3 l=C3=A9p=C3=A9seire, amikor t=C3=ADz h=C3=B3=
+napos kora k=C3=B6r=C3=BCl elkezd=C5=91d=C3=B6tt az =C3=BCbercukis=C3=A1g i=
+d=C5=91szaka, ami az=C3=B3ta is t&quot;			</span>
+						<table class=3D"m_-2452608273946496068subscribe-body" style=3D"width:=
+100%;padding:10px" align=3D"center" cellspacing=3D"0" cellpadding=3D"0" bor=
+der=3D"0">
+				<tbody><tr>
+					<td>
+												<div style=3D"direction:ltr;max-width:600px;margin:0 auto;overf=
+low:hidden">
+							<table class=3D"m_-2452608273946496068subscribe-wrapper" style=3D"wi=
+dth:100%;background-color:#fff;text-align:left;max-width:1024px;min-width:3=
+20px;margin:0 auto" bgcolor=3D"#ffffff" cellspacing=3D"0" cellpadding=3D"0"=
+ border=3D"0">
+								<tbody><tr>
+									<td>
+										<table class=3D"m_-2452608273946496068subscribe-header-wrap" styl=
+e=3D"width:100%;background-image:url(https://ci3.googleusercontent.com/prox=
+y/A--eNJbuWGcMvC9urmzoDZ6Juea6Xcg-ciQ9rlB5LbXLHtDZDz5AaJJ-Hy6I_SwzgwlKfL3M3=
+0nRmJSp=3Ds0-d-e1-ft#https://s0.wp.com/i/emails/stripes.gif);background-rep=
+eat:repeat-x;background-color:#43a4d0;height:8px" height=3D"8" background=
+=3D"https://s0.wp.com/i/emails/stripes.gif" cellspacing=3D"0" cellpadding=
+=3D"0" border=3D"0">
+											<tbody><tr>
+												<td></td>
+											</tr>
+										</tbody></table>
+
+										<table class=3D"m_-2452608273946496068subscribe-header" style=3D"=
+width:100%;color:#08c;font-size:1.6em;background-color:#efefef;border-botto=
+m:1px solid #ddd;margin:0;padding:0" cellspacing=3D"0" cellpadding=3D"0" bo=
+rder=3D"0">
+											<tbody><tr>
+												<td>
+													<h2 class=3D"m_-2452608273946496068subscribe-title" style=3D"m=
+argin:.4em 0 .3em;font-size:1.8em;font-size:16px!important;line-height:1;fo=
+nt-weight:400;color:#464646;font-family:&quot;Helvetica Neue&quot;,Helvetic=
+a,Arial,sans-serif;margin:5px 20px!important;padding:0">
+														=C3=9Aj bejegyz=C3=A9s <b>Zizi kalandjai - Val=C3=B3di =C3=A9=
+telek, val=C3=B3di t=C3=B6rt=C3=A9netek</b>													</h2>
+												</td>
+												<td style=3D"text-align:right">
+													<img class=3D"m_-2452608273946496068head-avatar" src=3D"http:/=
+/s0.wp.com/i/emails/blavatar.png" alt=3D"" style=3D"vertical-align:middle;m=
+argin:5px 20px 5px 0;vertical-align:middle" width=3D"32" height=3D"32" bord=
+er=3D"0">
+												</td>
+											</tr>
+										</tbody></table>
+
+										<table style=3D"width:100%" bgcolor=3D"#ffffff" cellspacing=3D"0"=
+ cellpadding=3D"20" border=3D"0">
+											<tbody><tr>
+												<td>
+													<table style=3D"width:100%" cellspacing=3D"0" cellpadding=3D"0=
+" border=3D"0">
+														<tbody><tr>
+															<td class=3D"m_-2452608273946496068the-post" valign=3D"top">
+																																	<table style=3D"width:100%" cellspacing=3D=
+"0" cellpadding=3D"0" border=3D"0">
+																		<tbody><tr>
+																			<td style=3D"width:60px!important;white-space:nowrap;ver=
+tical-align:top">
+																				<a href=3D"http://www.zizikalandjai.com/?author=3D1" st=
+yle=3D"text-decoration:underline;color:#2585b2;display:block;margin-right:1=
+0px" target=3D"_blank"><img alt=3D"" src=3D"http://0.gravatar.com/avatar/97=
+e6ac9e40d5f4980db8f33375d76d57?s=3D50&amp;d=3D&amp;r=3DG" class=3D"m_-24526=
+08273946496068avatar m_-2452608273946496068avatar-50" width=3D"50" height=
+=3D"50" border=3D"0"></a>
+																			</td>
+																			<td>
+																				<h2 class=3D"m_-2452608273946496068post-title" style=3D=
+"margin:.4em 0 .3em;font-size:1.8em;font-size:1.6em;color:#555;margin:0;fon=
+t-size:20px"><a href=3D"http://www.zizikalandjai.com/2017/05/a-negyedik-szu=
+letesnapi-torta-nyers-vegan-glutenmentes.html" style=3D"text-decoration:und=
+erline;color:#2585b2;text-decoration:none!important" target=3D"_blank">A ne=
+gyedik sz=C3=BClet=C3=A9snapi torta (nyers, veg=C3=A1n,=C2=A0glut=C3=A9nmen=
+tes)</a></h2>
+																				<span style=3D"color:#888">K=C3=A9sz=C3=ADt=C5=91: <a h=
+ref=3D"http://www.zizikalandjai.com/?author=3D1" style=3D"text-decoration:u=
+nderline;color:#2585b2;color:#888!important" target=3D"_blank">Zizi</a> </s=
+pan>
+																			</td>
+																		</tr>
+																	</tbody></table>
+															=09
+																<div class=3D"m_-2452608273946496068post-content" style=3D"=
+direction:ltr;margin-top:1em;max-width:560px">
+																																			<p style=3D"direction:ltr;font-size:14px=
+;line-height:1.4em;color:#444;font-family:&quot;Helvetica Neue&quot;,Helvet=
+ica,Arial,sans-serif;margin:0 0 1em"><img class=3D"m_-2452608273946496068wp=
+-image-6421 m_-2452608273946496068size-full" src=3D"http://www.zizikalandja=
+i.com/wp-content/uploads/2017/05/untitled-2-1.jpg" alt=3D"" style=3D"max-wi=
+dth:100%;height:auto;margin-bottom:12px;clear:both;display:block;margin:0 a=
+uto;padding:4px;background-color:white;border:1px solid #ccc" border=3D"0">=
+</p>
+<p style=3D"direction:ltr;font-size:14px;line-height:1.4em;color:#444;font-=
+family:&quot;Helvetica Neue&quot;,Helvetica,Arial,sans-serif;margin:0 0 1em=
+;text-align:justify">El sem hiszem, hogy a nagyobbik kisfiam, =C3=81di m=C3=
+=A1r n=C3=A9gy =C3=A9ves lett! Tiszt=C3=A1n eml=C3=A9kszem a sz=C3=BClet=C3=
+=A9s=C3=A9nek minden pillanat=C3=A1ra, az els=C5=91 fog=C3=A1nak kib=C3=BAj=
+=C3=A1s=C3=A1ra, az els=C5=91 =C3=B6n=C3=A1ll=C3=B3 l=C3=A9p=C3=A9seire, am=
+ikor t=C3=ADz h=C3=B3napos kora k=C3=B6r=C3=BCl elkezd=C5=91d=C3=B6tt az =
+=C3=BCbercukis=C3=A1g id=C5=91szaka, ami az=C3=B3ta is tart, csak most m=C3=
+=A1r kieg=C3=A9sz=C3=BCl gondolkod=C3=A1ssal, =C3=A9rtelemmel. K=C3=A9t gye=
+rek anyuk=C3=A1jak=C3=A9nt l=C3=A1tom most m=C3=A1r, hogy minden gyerek m=
+=C3=A1s =C3=A9s m=C3=A1s, nagyon k=C3=BCl=C3=B6nb=C3=B6z=C5=91ek a testv=C3=
+=A9rek is. =C3=81di is teljesen m=C3=A1s gyerek, mint =C3=81kos. Persze hun=
+cuts=C3=A1gban, zsiv=C3=A1nys=C3=A1gban nincs akad=C3=A1ly egyik=C5=91j=C3=
+=BCkn=C3=A9l sem! <img src=3D"https://s0.wp.com/wp-content/mu-plugins/wpcom=
+-smileys/twemoji/2/72x72/1f642.png" alt=3D"=F0=9F=99=82" class=3D"m_-245260=
+8273946496068wp-smiley" style=3D"height:1em;max-height:1em"> Nagyon neh=C3=
+=A9z k=C3=A9t zsiv=C3=A1nnyal a mindennapokat &quot;t=C3=BAl=C3=A9lni&quot;=
+, de ilyenkor <a style=3D"text-decoration:underline;color:#2585b2" href=3D"=
+http://aholamalacnemtur.blogspot.hu/" rel=3D"noopener noreferrer" target=3D=
+"_blank">=C3=89va bar=C3=A1tn=C5=91m</a> szavai csengenek a f=C3=BClemben: =
+&quot;Ezeket az =C3=A9veket senki nem adja vissza nek=C3=BCnk! T=C3=B6lts=
+=C3=BCnk vel=C3=BCk olyan sok id=C5=91t, amennyit csak tudunk!&quot;</p>
+<p style=3D"direction:ltr;font-size:14px;line-height:1.4em;color:#444;font-=
+family:&quot;Helvetica Neue&quot;,Helvetica,Arial,sans-serif;margin:0 0 1em=
+;text-align:justify">=C3=81di m=C3=A1r magyar=C3=A1z=C3=B3 kiskrapek hihete=
+tlen=C3=BCl j=C3=B3 humorral. Folyamatosan k=C3=A9rdez, nem gy=C5=91z=C3=BC=
+nk a k=C3=A9rd=C3=A9seire=C2=A0v=C3=A1laszolni =C3=A9s persze olyan k=C3=A9=
+rd=C3=A9sekkel is bomb=C3=A1z, amire nem tudjuk a v=C3=A1laszt (gyorsan ut=
+=C3=A1nan=C3=A9z=C3=BCnk a neten, hogy k=C3=A9pbe ker=C3=BClj=C3=BCnk az ad=
+ott t=C3=A9m=C3=A1val kapcsolatban <img src=3D"https://s0.wp.com/wp-content=
+/mu-plugins/wpcom-smileys/twemoji/2/72x72/1f642.png" alt=3D"=F0=9F=99=82" c=
+lass=3D"m_-2452608273946496068wp-smiley" style=3D"height:1em;max-height:1em=
+"> )! Neh=C3=A9z vele l=C3=A9p=C3=A9st tartani, de igyeksz=C3=BCnk. Im=C3=
+=A1d kukt=C3=A1skodni a konyh=C3=A1ban, ez=C3=A9rt is kapott <a style=3D"te=
+xt-decoration:underline;color:#2585b2" href=3D"https://www.instagram.com/p/=
+BT3tN4fhN2s/?taken-by=3Dziziadventures" rel=3D"noopener noreferrer" target=
+=3D"_blank">egy ilyen szettet</a> a aj=C3=A1nd=C3=A9kba.</p>
+<p style=3D"direction:ltr;font-size:14px;line-height:1.4em;color:#444;font-=
+family:&quot;Helvetica Neue&quot;,Helvetica,Arial,sans-serif;margin:0 0 1em=
+;text-align:justify">A sz=C3=BClinapj=C3=A1t megint csak a biopiacon =C3=BC=
+nnepelt=C3=BCk sz=C5=B1k csal=C3=A1di =C3=A9s bar=C3=A1ti k=C3=B6rben, ahog=
+yan <a style=3D"text-decoration:underline;color:#2585b2" href=3D"http://www=
+.zizikalandjai.com/2016/05/a-harmadik-szuletesnapi-torta.html" rel=3D"noope=
+ner noreferrer" target=3D"_blank">tavaly</a> is. Annyira szuper a helysz=C3=
+=ADn, minden adott a piknikez=C3=A9shez, rohang=C3=A1l=C3=A1shoz, j=C3=A1ts=
+z=C3=B3terez=C3=A9shez =C3=A9s finom =C3=A9telekhez. Hasonl=C3=B3 dolgokat =
+k=C3=A9sz=C3=ADtettem, mint tavaly, olyanokat, amelyeket k=C3=B6nny=C5=B1 e=
+nni k=C3=A9t rohang=C3=A1l=C3=A1s k=C3=B6z=C3=B6tt gyerekeknek =C3=A9s feln=
+=C5=91tteknek is.</p>
+<p style=3D"direction:ltr;font-size:14px;line-height:1.4em;color:#444;font-=
+family:&quot;Helvetica Neue&quot;,Helvetica,Arial,sans-serif;margin:0 0 1em=
+"><img class=3D"m_-2452608273946496068size-full m_-2452608273946496068wp-im=
+age-6420" src=3D"http://www.zizikalandjai.com/wp-content/uploads/2017/05/mo=
+ntazs.jpg" alt=3D"" style=3D"max-width:100%;height:auto;margin-bottom:12px;=
+clear:both;display:block;margin:0 auto;padding:4px;background-color:white;b=
+order:1px solid #ccc" border=3D"0"></p>
+<p style=3D"direction:ltr;font-size:14px;line-height:1.4em;color:#444;font-=
+family:&quot;Helvetica Neue&quot;,Helvetica,Arial,sans-serif;margin:0 0 1em=
+;text-align:justify">A tort=C3=A1t egy=C3=BCtt v=C3=A1lasztottuk ki =C3=81d=
+ival. Az alaprecept a <a style=3D"text-decoration:underline;color:#2585b2" =
+href=3D"https://thehappypear.ie/" rel=3D"noopener noreferrer" target=3D"_bl=
+ank">The Happy Pears sr=C3=A1cokt=C3=B3l</a> sz=C3=A1rmazik, kicsit m=C3=B3=
+dos=C3=ADtottam rajta. Az alapja magos-datoly=C3=A1s-van=C3=ADli=C3=A1s, k=
+=C3=B6z=C3=A9pen van egy isteni karamell r=C3=A9teg, a tetej=C3=A9n pedig e=
+gy egyszer=C5=B1 k=C3=B3kuszkr=C3=A9m. Igen, kr=C3=A9m, b=C3=A1r t=C3=B6bbe=
+n az <a style=3D"text-decoration:underline;color:#2585b2" href=3D"https://w=
+ww.instagram.com/p/BTeE9U7BACg/?taken-by=3Dziziadventures" rel=3D"noopener =
+noreferrer" target=3D"_blank">Instagram fot=C3=B3 alapj=C3=A1n</a> k=C3=B3k=
+usztejsz=C3=ADnhabnak gondolt=C3=A1tok. Nagyon-nagyon t=C3=B6m=C3=A9ny tort=
+a, el=C3=A9g bel=C5=91le egy v=C3=A9kony szelet. Nagy kapcsos form=C3=A1ban=
+ k=C3=A9sz=C3=BClt, =C3=ADgy b=C5=91ven jutott mindenkinek.</p>
+<div style=3D"direction:ltr" class=3D"m_-2452608273946496068easyrecipe"> =
+=09
+<div style=3D"direction:ltr" class=3D"m_-2452608273946496068item m_-2452608=
+273946496068ERName">Nyers veg=C3=A1n karamell-k=C3=B3kuszkr=C3=A9m torta</d=
+iv>
+<div style=3D"direction:ltr" class=3D"m_-2452608273946496068ERClear"></div>
+<div style=3D"direction:ltr" class=3D"m_-2452608273946496068ERHead"><span c=
+lass=3D"m_-2452608273946496068xlate">Recipe Type</span>: <span class=3D"m_-=
+2452608273946496068type">s=C3=BCtem=C3=A9ny, torta, nyers</span></div>
+<div style=3D"direction:ltr" class=3D"m_-2452608273946496068ERHead">Cuisine=
+: <span class=3D"m_-2452608273946496068cuisine">veg=C3=A1n, glut=C3=A9nment=
+es</span></div>
+<div style=3D"direction:ltr" class=3D"m_-2452608273946496068ERHead">Author:=
+ <span class=3D"m_-2452608273946496068author">Zizi</span></div>
+<div style=3D"direction:ltr" class=3D"m_-2452608273946496068ERHead">Prep ti=
+me: <time datetime=3D"PT15M">15 mins</time></div>
+<div style=3D"direction:ltr" class=3D"m_-2452608273946496068ERHead">Cook ti=
+me: <time datetime=3D"PT1H">1 hour</time></div>
+<div style=3D"direction:ltr" class=3D"m_-2452608273946496068ERHead">Total t=
+ime: <time datetime=3D"PT1H15M">1 hour 15 mins</time></div>
+<div style=3D"direction:ltr" class=3D"m_-2452608273946496068ERHead">Serves:=
+ <span class=3D"m_-2452608273946496068yield">8-10 f=C5=91re</span></div>
+<div style=3D"direction:ltr" class=3D"m_-2452608273946496068ERSummary m_-24=
+52608273946496068summary">K=C3=B6nnyen elk=C3=A9sz=C3=ADthet=C5=91 nyers ve=
+g=C3=A1n karamell-k=C3=B3kuszkr=C3=A9m torta. T=C3=B6m=C3=A9ny, de nagyon f=
+inom!</div>
+<div style=3D"direction:ltr" class=3D"m_-2452608273946496068ERIngredients">
+<div style=3D"direction:ltr" class=3D"m_-2452608273946496068ERIngredientsHe=
+ader">Ingredients</div>
+<ul style=3D"margin:0 0 1em 1em;padding:0;font-size:14px;line-height:1.4em;=
+color:#444;font-family:&quot;Helvetica Neue&quot;,Helvetica,Arial,sans-seri=
+f" class=3D"m_-2452608273946496068ingredients">
+<li style=3D"line-height:1.6;margin-left:1em;font-size:14px;line-height:1.4=
+em;color:#444;font-family:&quot;Helvetica Neue&quot;,Helvetica,Arial,sans-s=
+erif" class=3D"m_-2452608273946496068ingredient">[b]Torta alaphoz:[/b]</li>
+<li style=3D"line-height:1.6;margin-left:1em;font-size:14px;line-height:1.4=
+em;color:#444;font-family:&quot;Helvetica Neue&quot;,Helvetica,Arial,sans-s=
+erif" class=3D"m_-2452608273946496068ingredient">100 g di=C3=B3</li>
+<li style=3D"line-height:1.6;margin-left:1em;font-size:14px;line-height:1.4=
+em;color:#444;font-family:&quot;Helvetica Neue&quot;,Helvetica,Arial,sans-s=
+erif" class=3D"m_-2452608273946496068ingredient">100 g kesudi=C3=B3</li>
+<li style=3D"line-height:1.6;margin-left:1em;font-size:14px;line-height:1.4=
+em;color:#444;font-family:&quot;Helvetica Neue&quot;,Helvetica,Arial,sans-s=
+erif" class=3D"m_-2452608273946496068ingredient">105 g friss datolya, kimag=
+ozva (<a style=3D"text-decoration:underline;color:#2585b2" href=3D"http://w=
+ww.biorganik-online.hu/" target=3D"_blank">aszalt</a> is j=C3=B3, csak =C3=
+=A9rdemes haszn=C3=A1lat el=C5=91tt egy f=C3=A9l =C3=B3r=C3=A1ra langyos v=
+=C3=ADzbe be=C3=A1ztatni, hogy k=C3=B6nnyebben apr=C3=ADtsa a robotg=C3=A9p=
+)</li>
+<li style=3D"line-height:1.6;margin-left:1em;font-size:14px;line-height:1.4=
+em;color:#444;font-family:&quot;Helvetica Neue&quot;,Helvetica,Arial,sans-s=
+erif" class=3D"m_-2452608273946496068ingredient">2 ev=C5=91kan=C3=A1l extra=
+ sz=C5=B1z k=C3=B3kuszzs=C3=ADr</li>
+<li style=3D"line-height:1.6;margin-left:1em;font-size:14px;line-height:1.4=
+em;color:#444;font-family:&quot;Helvetica Neue&quot;,Helvetica,Arial,sans-s=
+erif" class=3D"m_-2452608273946496068ingredient">1 ev=C5=91kan=C3=A1l <a st=
+yle=3D"text-decoration:underline;color:#2585b2" href=3D"http://www.biorgani=
+k-online.hu/" target=3D"_blank">k=C3=B3kuszreszel=C3=A9k</a></li>
+<li style=3D"line-height:1.6;margin-left:1em;font-size:14px;line-height:1.4=
+em;color:#444;font-family:&quot;Helvetica Neue&quot;,Helvetica,Arial,sans-s=
+erif" class=3D"m_-2452608273946496068ingredient">1/4 te=C3=A1skan=C3=A1l =
+=C5=91r=C3=B6lt van=C3=ADlia</li>
+<li style=3D"line-height:1.6;margin-left:1em;font-size:14px;line-height:1.4=
+em;color:#444;font-family:&quot;Helvetica Neue&quot;,Helvetica,Arial,sans-s=
+erif" class=3D"m_-2452608273946496068ingredient">[b]Karamell kr=C3=A9mhez:[=
+/b]</li>
+<li style=3D"line-height:1.6;margin-left:1em;font-size:14px;line-height:1.4=
+em;color:#444;font-family:&quot;Helvetica Neue&quot;,Helvetica,Arial,sans-s=
+erif" class=3D"m_-2452608273946496068ingredient">375 g friss datolya, kimag=
+ozva <a style=3D"text-decoration:underline;color:#2585b2" href=3D"http://ww=
+w.biorganik-online.hu/" target=3D"_blank">aszalt</a> is j=C3=B3, csak =C3=
+=A9rdemes haszn=C3=A1lat el=C5=91tt egy f=C3=A9l =C3=B3r=C3=A1ra langyos v=
+=C3=ADzbe be=C3=A1ztatni, hogy k=C3=B6nnyebben apr=C3=ADtsa a robotg=C3=A9p=
+)</li>
+<li style=3D"line-height:1.6;margin-left:1em;font-size:14px;line-height:1.4=
+em;color:#444;font-family:&quot;Helvetica Neue&quot;,Helvetica,Arial,sans-s=
+erif" class=3D"m_-2452608273946496068ingredient">180 g mandulavaj</li>
+<li style=3D"line-height:1.6;margin-left:1em;font-size:14px;line-height:1.4=
+em;color:#444;font-family:&quot;Helvetica Neue&quot;,Helvetica,Arial,sans-s=
+erif" class=3D"m_-2452608273946496068ingredient">9 ev=C5=91kan=C3=A1l v=C3=
+=ADz</li>
+<li style=3D"line-height:1.6;margin-left:1em;font-size:14px;line-height:1.4=
+em;color:#444;font-family:&quot;Helvetica Neue&quot;,Helvetica,Arial,sans-s=
+erif" class=3D"m_-2452608273946496068ingredient">4 ev=C5=91kan=C3=A1l extra=
+ sz=C5=B1z k=C3=B3kuszzs=C3=ADr</li>
+<li style=3D"line-height:1.6;margin-left:1em;font-size:14px;line-height:1.4=
+em;color:#444;font-family:&quot;Helvetica Neue&quot;,Helvetica,Arial,sans-s=
+erif" class=3D"m_-2452608273946496068ingredient">1/2 te=C3=A1skan=C3=A1l =
+=C5=91r=C3=B6lt van=C3=ADlia</li>
+<li style=3D"line-height:1.6;margin-left:1em;font-size:14px;line-height:1.4=
+em;color:#444;font-family:&quot;Helvetica Neue&quot;,Helvetica,Arial,sans-s=
+erif" class=3D"m_-2452608273946496068ingredient">k=C3=A9shegynyi s=C3=B3</l=
+i>
+<li style=3D"line-height:1.6;margin-left:1em;font-size:14px;line-height:1.4=
+em;color:#444;font-family:&quot;Helvetica Neue&quot;,Helvetica,Arial,sans-s=
+erif" class=3D"m_-2452608273946496068ingredient">[b]K=C3=B3kusz kr=C3=A9mhe=
+z:[/b]</li>
+<li style=3D"line-height:1.6;margin-left:1em;font-size:14px;line-height:1.4=
+em;color:#444;font-family:&quot;Helvetica Neue&quot;,Helvetica,Arial,sans-s=
+erif" class=3D"m_-2452608273946496068ingredient">2 konzerv k=C3=B3kusztej (=
+j=C3=B3 min=C5=91s=C3=A9g=C5=B1, 60% k=C3=B3kusz tartalm=C3=BA), haszn=C3=
+=A1lat el=C5=91tt h=C5=B1t=C5=91be t=C3=A9ve 2-4 =C3=B3r=C3=A1ra</li>
+<li style=3D"line-height:1.6;margin-left:1em;font-size:14px;line-height:1.4=
+em;color:#444;font-family:&quot;Helvetica Neue&quot;,Helvetica,Arial,sans-s=
+erif" class=3D"m_-2452608273946496068ingredient">2 ev=C5=91kan=C3=A1l <a st=
+yle=3D"text-decoration:underline;color:#2585b2" href=3D"http://www.biorgani=
+k-online.hu/" target=3D"_blank">agav=C3=A9szirup</a></li>
+<li style=3D"line-height:1.6;margin-left:1em;font-size:14px;line-height:1.4=
+em;color:#444;font-family:&quot;Helvetica Neue&quot;,Helvetica,Arial,sans-s=
+erif" class=3D"m_-2452608273946496068ingredient">1/4 te=C3=A1skan=C3=A1l =
+=C5=91r=C3=B6lt van=C3=ADlia</li>
+<li style=3D"line-height:1.6;margin-left:1em;font-size:14px;line-height:1.4=
+em;color:#444;font-family:&quot;Helvetica Neue&quot;,Helvetica,Arial,sans-s=
+erif" class=3D"m_-2452608273946496068ingredient">[b]T=C3=A1lal=C3=A1shoz:[/=
+b]</li>
+<li style=3D"line-height:1.6;margin-left:1em;font-size:14px;line-height:1.4=
+em;color:#444;font-family:&quot;Helvetica Neue&quot;,Helvetica,Arial,sans-s=
+erif" class=3D"m_-2452608273946496068ingredient">friss eper</li>
+</ul>
+</div>
+<div style=3D"direction:ltr" class=3D"m_-2452608273946496068ERInstructions"=
+>
+<div style=3D"direction:ltr" class=3D"m_-2452608273946496068ERInstructionsH=
+eader">Instructions</div>
+<div style=3D"direction:ltr" class=3D"m_-2452608273946496068instructions">
+<ol style=3D"margin:0 0 1em 1em;padding:0">
+<li style=3D"line-height:1.6;margin-left:1em;font-size:14px;line-height:1.4=
+em;color:#444;font-family:&quot;Helvetica Neue&quot;,Helvetica,Arial,sans-s=
+erif" class=3D"m_-2452608273946496068instruction">Tegy=C3=BCk a di=C3=B3t =
+=C3=A9s a kesudi=C3=B3t a robotg=C3=A9pbe =C3=A9s apr=C3=ADtsuk szemcs=C3=
+=A9sre. Ekkor adjuk hozz=C3=A1 a datoly=C3=A1t, a szobah=C5=91m=C3=A9rs=C3=
+=A9klet=C5=B1 k=C3=B3kuszzs=C3=ADrt, k=C3=B3kuszreszel=C3=A9ket, =C3=A9s va=
+n=C3=ADli=C3=A1t. Dolgoztassuk a g=C3=A9pet addig, am=C3=ADg a torta alapun=
+k =C3=B6ssze=C3=A1ll =E2=80=9Ct=C3=A9szt=C3=A1v=C3=A1=E2=80=9D.</li>
+<li style=3D"line-height:1.6;margin-left:1em;font-size:14px;line-height:1.4=
+em;color:#444;font-family:&quot;Helvetica Neue&quot;,Helvetica,Arial,sans-s=
+erif" class=3D"m_-2452608273946496068instruction">A tortaform=C3=A1t b=C3=
+=A9lelj=C3=BCk ki folpackkal vagy kenj=C3=BCk ki k=C3=B3kuszolajjal =C3=A9s=
+ nyomkodjuk az alj=C3=A1ba a datoly=C3=A1s di=C3=B3s-kesudi=C3=B3s kever=C3=
+=A9ket, majd tegy=C3=BCk a h=C5=B1t=C5=91be megkem=C3=A9nyedni, am=C3=ADg e=
+lk=C3=A9sz=C3=ADtj=C3=BCk a t=C3=B6bbi r=C3=A9teget. Mossuk el a robotg=C3=
+=A9p tart=C3=A1ly=C3=A1t.</li>
+<li style=3D"line-height:1.6;margin-left:1em;font-size:14px;line-height:1.4=
+em;color:#444;font-family:&quot;Helvetica Neue&quot;,Helvetica,Arial,sans-s=
+erif" class=3D"m_-2452608273946496068instruction">Tegy=C3=BCk a mandulavaja=
+t, a datoly=C3=A1t, a szobah=C5=91m=C3=A9rs=C3=A9klet=C5=B1 k=C3=B3kuszzs=
+=C3=ADrt, a van=C3=ADli=C3=A1t =C3=A9s a s=C3=B3t a robotg=C3=A9pbe. Kezdj=
+=C3=BCk el dolgoztatni a g=C3=A9pet =C3=A9s lassan adagoljuk hozz=C3=A1 a v=
+izet. Akkor van k=C3=A9sz, ha karamell =C3=ADz=C5=B1 =C3=A9s ny=C3=BAl=C3=
+=B3s az =C3=A1llaga, mint a karamellnek.</li>
+<li style=3D"line-height:1.6;margin-left:1em;font-size:14px;line-height:1.4=
+em;color:#444;font-family:&quot;Helvetica Neue&quot;,Helvetica,Arial,sans-s=
+erif" class=3D"m_-2452608273946496068instruction">Kenj=C3=BCk ezt a kr=C3=
+=A9met (kicsit neh=C3=A9zkes a ny=C3=BAl=C3=B3s =C3=A1llaga miatt) a datoly=
+=C3=A1s di=C3=B3s-kesudi=C3=B3s alapra =C3=A9s tegy=C3=BCk vissza a h=C5=B1=
+t=C5=91be.</li>
+<li style=3D"line-height:1.6;margin-left:1em;font-size:14px;line-height:1.4=
+em;color:#444;font-family:&quot;Helvetica Neue&quot;,Helvetica,Arial,sans-s=
+erif" class=3D"m_-2452608273946496068instruction">Vegy=C3=BCk ki a k=C3=B3k=
+usztejet a h=C5=B1t=C5=91b=C5=91l =C3=A9s bontsuk ki. A hideg hat=C3=A1s=C3=
+=A1ra kett=C3=A9v=C3=A1lt a s=C5=B1r=C5=B1 kr=C3=A9mes r=C3=A9sz a vizest=
+=C5=91l. Kanalazzuk ki a kr=C3=A9met mindk=C3=A9t konzervb=C5=91l egy t=C3=
+=A1lk=C3=A1ba.</li>
+<li style=3D"line-height:1.6;margin-left:1em;font-size:14px;line-height:1.4=
+em;color:#444;font-family:&quot;Helvetica Neue&quot;,Helvetica,Arial,sans-s=
+erif" class=3D"m_-2452608273946496068instruction">A vizes r=C3=A9szt tegy=
+=C3=BCk h=C5=B1t=C5=91be =C3=A9s haszn=C3=A1ljuk fel <a style=3D"text-decor=
+ation:underline;color:#2585b2" href=3D"http://www.zizikalandjai.com/tag/tur=
+mix" target=3D"_blank">turmixok</a> k=C3=A9sz=C3=ADt=C3=A9s=C3=A9hez.</li>
+<li style=3D"line-height:1.6;margin-left:1em;font-size:14px;line-height:1.4=
+em;color:#444;font-family:&quot;Helvetica Neue&quot;,Helvetica,Arial,sans-s=
+erif" class=3D"m_-2452608273946496068instruction">Adjuk a kr=C3=A9mhez az a=
+gav=C3=A9szirupot =C3=A9s a van=C3=ADli=C3=A1t, majd j=C3=B3l keverj=C3=BCk=
+ el =C3=A9s kanalazzuk a torta tetej=C3=A9re.</li>
+<li style=3D"line-height:1.6;margin-left:1em;font-size:14px;line-height:1.4=
+em;color:#444;font-family:&quot;Helvetica Neue&quot;,Helvetica,Arial,sans-s=
+erif" class=3D"m_-2452608273946496068instruction">T=C3=A1lal=C3=A1sig tarts=
+uk h=C5=B1t=C5=91ben (legal=C3=A1bb 2 =C3=B3r=C3=A1t)! T=C3=A1laljuk friss =
+eperrel!</li>
+</ol>
+</div>
+</div>
+<div style=3D"direction:ltr" class=3D"m_-2452608273946496068ERNutrition"></=
+div>
+<div style=3D"direction:ltr">
+<div style=3D"direction:ltr" class=3D"m_-2452608273946496068ERNotesHeader">=
+Notes</div>
+<div style=3D"direction:ltr" class=3D"m_-2452608273946496068ERNotes">23 cm-=
+es kapcsos tortaform=C3=A1ban k=C3=A9sz=C3=BClt.<br>Felt=C3=A9tlen j=C3=B3 =
+min=C5=91s=C3=A9g=C5=B1 min=C3=A9l magasabb zs=C3=ADrtartalm=C3=BA konzerv =
+k=C3=B3kusztejet haszn=C3=A1ljunk ehhez a recepthez.<br>=C3=89des=C3=ADt=C3=
+=A9sre agav=C3=A9szirupot haszn=C3=A1ltam, hogy megmaradjon a kr=C3=A9m feh=
+=C3=A9r sz=C3=ADne, de term=C3=A9szetesen haszn=C3=A1lhatunk juharszirupot,=
+ vagy datolyaszirupot is. Ebben az esetben a kr=C3=A9m drapp, vil=C3=A1gosb=
+arna sz=C3=ADn=C5=B1 lesz.</div>
+</div>
+<div class=3D"m_-2452608273946496068endeasyrecipe" style=3D"direction:ltr;d=
+isplay:none">3.5.3226</div>
+</div>
+<p style=3D"direction:ltr;font-size:14px;line-height:1.4em;color:#444;font-=
+family:&quot;Helvetica Neue&quot;,Helvetica,Arial,sans-serif;margin:0 0 1em=
+;text-align:justify"><img class=3D"m_-2452608273946496068size-full m_-24526=
+08273946496068wp-image-6422" src=3D"http://www.zizikalandjai.com/wp-content=
+/uploads/2017/05/untitled-4-1.jpg" alt=3D"" style=3D"max-width:100%;height:=
+auto;margin-bottom:12px;clear:both;display:block;margin:0 auto;padding:4px;=
+background-color:white;border:1px solid #ccc" border=3D"0"></p>
+<p style=3D"direction:ltr;font-size:14px;line-height:1.4em;color:#444;font-=
+family:&quot;Helvetica Neue&quot;,Helvetica,Arial,sans-serif;margin:0 0 1em=
+">=C2=A0</p>
+<div style=3D"direction:ltr;clear:both"></div>																													=
+				</div>
+
+																																	<div class=3D"m_-2452608273946496068meta" =
+style=3D"direction:ltr;color:#999;font-size:.9em;margin-top:4px;line-height=
+:160%;padding:15px 0 15px;border-top:1px solid #eee;border-bottom:1px solid=
+ #eee;overflow:hidden">
+																		<b><a style=3D"text-decoration:underline;color:#2585b2" h=
+ref=3D"http://www.zizikalandjai.com/?author=3D1" target=3D"_blank">Zizi</a>=
+</b> | m=C3=A1jus 9, 2017 - 10:40 du. | URL: <a style=3D"text-decoration:un=
+derline;color:#2585b2" href=3D"http://wp.me/p3gN7t-1Fx" target=3D"_blank">h=
+ttp://wp.me/p3gN7t-1Fx</a>																	</div>
+															=09
+														=09
+																<p class=3D"m_-2452608273946496068subscribe-action-links" s=
+tyle=3D"direction:ltr;font-size:14px;line-height:1.4em;color:#444;font-fami=
+ly:&quot;Helvetica Neue&quot;,Helvetica,Arial,sans-serif;margin:0 0 1em;fon=
+t-size:14px;color:#666;padding:0;width:auto;padding-top:1em;padding-bottom:=
+0em;margin-bottom:0;margin-left:0;padding-left:0">
+																	</p><table class=3D"m_-2452608273946496068auto-width" styl=
+e=3D"width:100%;width:auto" cellspacing=3D"0" cellpadding=3D"0" border=3D"0=
+">
+																		<tbody><tr>
+																			<td style=3D"width:10px"><a href=3D"http://www.zizikalan=
+djai.com/2017/05/a-negyedik-szuletesnapi-torta-nyers-vegan-glutenmentes.htm=
+l#respond" style=3D"text-decoration:underline;color:#2585b2;border-radius:1=
+0em;border:1px solid #11729e;text-decoration:none;color:#fff;background-col=
+or:#2585b2;padding:5px 15px;font-size:16px;line-height:1.4em;font-family:He=
+lvetica Neue,Helvetica,Arial,sans-serif;font-weight:normal;margin-left:0;wh=
+ite-space:nowrap" target=3D"_blank">Hozz=C3=A1sz=C3=B3l=C3=A1s</a></td>
+																																					<td>=C2=A0=C2=A0=C2=A0<a class=3D"m_-2=
+452608273946496068subscribe-action-link" href=3D"http://www.zizikalandjai.c=
+om/2017/05/a-negyedik-szuletesnapi-torta-nyers-vegan-glutenmentes.html#comm=
+ents" style=3D"text-decoration:underline;color:#2585b2;text-decoration:unde=
+rline" target=3D"_blank">See all comments</a></td>
+																																																						</tr>
+																	</tbody></table>
+																<p></p>
+																														</td>
+														</tr>
+													</tbody></table>
+												</td>
+											</tr>
+										</tbody></table>
+
+										<table class=3D"m_-2452608273946496068subscribe-wrapper-sub" styl=
+e=3D"width:100%;background-color:#efefef;text-align:left;border-top:1px sol=
+id #ddd" bgcolor=3D"#efefef" cellspacing=3D"0" cellpadding=3D"20" border=3D=
+"0">
+											<tbody><tr>
+												<td class=3D"m_-2452608273946496068subscribe-content" style=3D"=
+border-top:1px solid #f3f3f3;color:#888;font-family:&quot;Helvetica Neue&qu=
+ot;,Helvetica,Arial,sans-serif;font-size:14px;background:#efefef">
+													<p style=3D"direction:ltr;font-size:14px;line-height:1.4em;col=
+or:#444;font-family:&quot;Helvetica Neue&quot;,Helvetica,Arial,sans-serif;m=
+argin:0 0 1em;font-size:12px;line-height:1.4em;margin:0px 0px 10px 0px">
+														<a style=3D"text-decoration:underline;color:#2585b2" href=3D"=
+https://subscribe.wordpress.com/?key=3Df3e8a4afe9a75c25e842d6c62111e565&amp=
+;email=3Dbanyus53%40gmail.com&amp;locale=3Dhu&amp;b=3DfCqk58T58Dig%2Be17e%3=
+FRGd_yFbG9cgW5GjEGjKR1q6E-FLsR-1d" target=3D"_blank">Unsubscribe</a> to no =
+longer receive posts from Zizi kalandjai - Val=C3=B3di =C3=A9telek, val=C3=
+=B3di t=C3=B6rt=C3=A9netek.<br>
+														Change your email settings at <a style=3D"text-decoration:und=
+erline;color:#2585b2" href=3D"https://subscribe.wordpress.com/?key=3Df3e8a4=
+afe9a75c25e842d6c62111e565&amp;email=3Dbanyus53%40gmail.com&amp;locale=3Dhu=
+" target=3D"_blank">Manage Subscriptions</a>.													</p>
+
+													<p style=3D"direction:ltr;font-size:14px;line-height:1.4em;col=
+or:#444;font-family:&quot;Helvetica Neue&quot;,Helvetica,Arial,sans-serif;m=
+argin:0 0 1em;font-size:12px;line-height:1.4em;margin:0px 0px 0px 0px">
+														<b>Gond van a kattint=C3=A1ssal?</b>  Akkor m=C3=A1soljuk ki =
+az al=C3=A1bbi hivatkoz=C3=A1st =C3=A9s illessz=C3=BCk be a b=C3=B6ng=C3=A9=
+sz=C5=91nkbe: <br>
+														<a style=3D"text-decoration:underline;color:#2585b2" href=3D"=
+http://www.zizikalandjai.com/2017/05/a-negyedik-szuletesnapi-torta-nyers-ve=
+gan-glutenmentes.html" target=3D"_blank">http://www.zizikalandjai.com/<wbr>=
+2017/05/a-negyedik-<wbr>szuletesnapi-torta-nyers-<wbr>vegan-glutenmentes.ht=
+ml</a>
+													</p>
+												</td>
+											</tr>
+										</tbody></table>
+									</td>
+								</tr>
+							</tbody></table>
+
+							<table class=3D"m_-2452608273946496068subscribe-footer-wrap" style=
+=3D"width:100%;background-image:url(https://ci3.googleusercontent.com/proxy=
+/A--eNJbuWGcMvC9urmzoDZ6Juea6Xcg-ciQ9rlB5LbXLHtDZDz5AaJJ-Hy6I_SwzgwlKfL3M30=
+nRmJSp=3Ds0-d-e1-ft#https://s0.wp.com/i/emails/stripes.gif);background-repe=
+at:repeat-x;background-color:#43a4d0;height:3px" height=3D"3" background=3D=
+"https://s0.wp.com/i/emails/stripes.gif" cellspacing=3D"0" cellpadding=3D"0=
+" border=3D"0">
+								<tbody><tr>
+									<td></td>
+								</tr>
+							</tbody></table>
+						</div>
+					</td>
+				</tr>
+			</tbody></table>
+
+		=09
+			<br>
+		</td>
+	</tr>
+</tbody></table>
+
+<img alt=3D"" src=3D"http://pixel.wp.com/b.gif?blog=3D48331075&amp;post=3D6=
+419&amp;subd=3Dwww.zizikalandjai.com&amp;ref=3D&amp;email=3D1&amp;email_o=
+=3Djetpack&amp;host=3Djetpack.wordpress.com" width=3D"1" height=3D"1" borde=
+r=3D"0"></div>
+
+
+</div><br></div>
+
+--001a1140311aa09263054f269f79--

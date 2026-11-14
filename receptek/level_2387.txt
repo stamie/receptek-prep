@@ -1,0 +1,780 @@
+Delivered-To: estampel@gmail.com
+Received: by 2002:ac8:47d6:0:b0:4ed:1da1:8f85 with SMTP id d22csp2089527qtr;
+        Tue, 4 Nov 2025 02:07:32 -0800 (PST)
+X-Received: by 2002:a17:906:16d2:b0:b70:b9b6:9a94 with SMTP id a640c23a62f3a-b72169fc772mr214844566b.23.1762250852018;
+        Tue, 04 Nov 2025 02:07:32 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1762250852; cv=none;
+        d=google.com; s=arc-20240605;
+        b=kq2Fa6f9ktIdmelV0XU4zIcXkvYt8+gNCMGZEfHfrxqGEeJKAtMxs2LYkv+DbNJwaT
+         9QLkpzQR9kArqpKClntMr1VdlweS5yZuVnsjdoHRRfd4KFNHu+WzJgLnEe1dX3tlAI1l
+         09obCV2LVqwO+4fccn3VbUpkm+0nXmxnybAMt1zgOywigTdoGAHKHb0KHuGp1aN5qcKD
+         1kbrnrpnuwrF98jC3h/M8+qEz3mFjm9A34b1VOn4sdFsd80zyf6FNNwhOWJrkobpCsH7
+         bKwRs90EAKMH/lAhOt0HmaRZ7bg0ae8lajba1+ckk6lRgaDrbwrQhNB5P6Iz/T4wVe8T
+         6zsA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=ootzEqEdusGD1s6vf1DiEdcnZFaPhaS225QJ4+VIeEk=;
+        fh=wF/Yrd2E0xeKwPH74kML7cQSth+Fl4bwhVNrybJ4uh4=;
+        b=aTQQNI5cclGE/awSTxGl1ha6WPo+zDDFDTgMxOFuWzJ/n1VgWDIPSes2YUgxIWlKU/
+         nOzJCwt33bplnJws+nfHa1GIyMtkbDcAvjG2/AgtzHD5lOVq8M2DN9+rtXHthSoXBq/P
+         NdKJaU81We4NDDGzqD8DSGZGX0x1mfXTQhphNspi/62mflLYdDFN1lOzPoPegbBP3KXd
+         CEZtYnH60fGq+XslgT3z4SXGe8zpHw6KRssPQtmiJQfi2uqzYCHMNzhfr7ZAWcoZr8Ao
+         2mUkjj7/3tNFt8RfK92Ju0Pru63SPVRFlvobc7dx5RdmN9yZgB6MBXlvg5BSB0dWxDAC
+         EzuA==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=UtJG4H08;
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <banyus53@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id a640c23a62f3a-b70b60ad1dcsor130209966b.6.2025.11.04.02.07.31
+        for <estampel@gmail.com>
+        (Google Transport Security);
+        Tue, 04 Nov 2025 02:07:31 -0800 (PST)
+Received-SPF: pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=UtJG4H08;
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1762250851; x=1762855651; dara=google.com;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=ootzEqEdusGD1s6vf1DiEdcnZFaPhaS225QJ4+VIeEk=;
+        b=UtJG4H08Sv4b9eBueVOxTwsO7rbT2qpbBGN7PqMPrw64b1Tf+D7+EQCct/BWHHlA2A
+         DMJF4bvwysg+9E+o7zOOs6loexn6Ux1dfu/I2htWykm6hLm5p99KbP4iWBWmch48sf4z
+         DO4tzqMCigW16TkMauD6NU3nEsnriu0lN5H5yYtd2lMsvq/Wktz0vBXhIncz/y2xLZdw
+         6fI4ZehsFVGqW38m5htlecPUGPLUYVNBNDJgf69KUehhVThtaBsLAKikX0ycoZaFQvBI
+         OREv5CS6BQANpPMauOPxqz1sXA9tfcNiHx+TWAXI8r8nrOlAuKXpGxiSOzJSiWZtB+C5
+         h7BQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1762250851; x=1762855651;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=ootzEqEdusGD1s6vf1DiEdcnZFaPhaS225QJ4+VIeEk=;
+        b=c8tj2ltwSYHTbY44y7SFRcz2KB7O1bONJXD7whb82Fu8lbCpbDZsr/heaIIpxsdpbl
+         XoTIEo/KXVL/ZJw6lr7R8uGhnw2Nnq56CYEED0cPBxu89tQkSv3ijZ3xbjjfPX1ztEXc
+         6wgDD8x9/e5JB5P7i4qTWABXgEw7ih6EGIEtpQT8bbKDgY2Z8A2Kl0OYatqmZX9lHQKy
+         GrgPqp89NtmPoEOAytymFu1S0xYd7sAXb9uUi4s9oO+bRFnJ69eIc+6JZe34UhKLYMf4
+         XgzRjMErgkiZtWdM9XELZdrqZew58BXLBb51XOpgv2RfA0/eyaec0yysDFtF7dNLiQMe
+         8hJA==
+X-Gm-Message-State: AOJu0YxiZk3OqMRGAgM1ZC2pVKq24OZiEQ3u2pAuzYnhhgoiBhSOWXmp
+	Snw/8RlY0jVNf4Xe67o4FdnjWflQHUrGhrotshuICNsrjFiHUMJRMpInPMzs8v+zmK2CHBZLRvw
+	5X9zlUi+DlRFRGnHXmq68EUaDdrhfuxgAWA==
+X-Gm-Gg: ASbGncv9i+5bgHXp6IZusRWQ9sRf1eMiK4tUueBQWO7ej1JHt1qlDH0BDjYKJxs1pKn
+	lQnABOvsP+/FgDoL2vvEiF4jq8XeKazigNBNQqOiObtTdOzIXtI0uvsYlZEKZaLNSJXaYpOjI/R
+	DxkJn/b5I/w7erSo+1sS6C5pSU+U/YTVwgOhSP1wEmgHlQ3bAs506PrlQk4gySatoX/XpXOaQM8
+	vvZAN59cRmZyLMw7MdDZfQnoOkTU6CdC7SPgsFsGKO1TCvgUeijX/Hxb1OqIA23nNoSQJhGujdp
+	r2+zTL4CZcWSmOvXc3QD1DwnAKM5hQ==
+X-Google-Smtp-Source: AGHT+IE43TrKsIQE14Hmg62zDjoGk0HAQzxW3fDtmfo66p4C6pO812p8pJVMs6j6FsLwnRyXHHyhI7cLm6XYIDcmsHs=
+X-Received: by 2002:a17:907:60c9:b0:b65:7f88:72d5 with SMTP id
+ a640c23a62f3a-b7216e61f39mr273781966b.28.1762250851003; Tue, 04 Nov 2025
+ 02:07:31 -0800 (PST)
+MIME-Version: 1.0
+References: <20251104094847.113a9f801a86832a@veganmentor.email-sender.hu>
+In-Reply-To: <20251104094847.113a9f801a86832a@veganmentor.email-sender.hu>
+From: =?UTF-8?B?w4FnbmVzIEJ1Z8Ohcg==?= <banyus53@gmail.com>
+Date: Tue, 4 Nov 2025 11:07:03 +0100
+X-Gm-Features: AWmQ_bkkv6PFqOUJw1Uw-8GQTB1jOiOA8JGpcZ8MtoDeq3s9Gx2opkdxBGnGJuM
+Message-ID: <CA+39czX7KZ8MPXE5m3GM0Bb0d6be3_NeX91vtiV03wQpgpFjJw@mail.gmail.com>
+Subject: =?UTF-8?B?RndkOiDwn5OWIE1lZ8OpcmtlemV0dCBhIDcgbmFwb3MgRml0dCBWZWfDoW4gS2low612?=
+	=?UTF-8?B?w6FzIGUtYm9va29kIQ==?=
+To: Emese Stampel <estampel@gmail.com>
+Content-Type: multipart/alternative; boundary="000000000000fab18c0642c1ff37"
+
+--000000000000fab18c0642c1ff37
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+---------- Forwarded message ---------
+Felad=C3=B3: P=C3=A9ter =E2=94=82 Veg=C3=A1n Mentor <peter@veganmentor.emai=
+l-sender.hu>
+Date: 2025. nov. 4., K, 10:48
+Subject: =F0=9F=93=96 Meg=C3=A9rkezett a 7 napos Fitt Veg=C3=A1n Kih=C3=ADv=
+=C3=A1s e-bookod!
+To: <banyus53@gmail.com>
+
+
+*Kedves =C3=81gnes M=C3=A1ria ,*
+
+Gratul=C3=A1lok, sikeresen megkaptad a H=C3=A9t Napos Kih=C3=ADv=C3=A1s - *=
+Veg=C3=A1n
+Receptgy=C5=B1jtem=C3=A9nyt*! =F0=9F=8E=89
+
+Ezzel megtetted az els=C5=91 l=C3=A9p=C3=A9st egy eg=C3=A9szs=C3=A9gesebb, =
+energikusabb =C3=A9let fel=C3=A9.
+
+
+
+*=F0=9F=91=89 Az ebook-odat csatolm=C3=A1nyk=C3=A9nt el=C3=A9red!*
+<https://email.veganmentor.email-sender.hu/c/eJx8k0-TojwQxj8N3LBCIBAOHHSVHW=
+Z1dMZxRr1YgTQQBYIJf9RP_xYzW2_tYWuvnX6epJ_OLz0JHsaf0yZP5FI4fKmlW4o-c0wechcCn=
+7smlxUTddhDzuoK6laqCVRMlJaGmoOaFN3vlpMcalC6EM2pvTcQljJlrZDfdW5CaPsexm7gY9_8=
+cjhVoDXLYXzEu16rZri2h9m2sbuebHdvs99dX2aDVJeslMMftVGGs4AE4CMrcBJmuXaQWIyjzPI=
+Y9X2HAuac_inRLTSjzrF9l_AMrDQDZrkYeRZ1PGSlCcl4GnCMXTCh7oWSX0OHjZK8S8dxzCIkxE=
+MJotR3U-oDRQkBbicZpUlAEEXEFCFGmNg2clHgUtef2LbDgowim1GPOpgZLvpXoGVYtG2jDWdq4=
+MjAEVeih0kuZV7CJJWVgaNMlDCeGDiys-tq7uIyjhNyJPf4V7eMO0R4draY-ywfo0MvYDCcqNON=
+4cx1wZSoc7NMT9_ZiLoFVbMy3OFI858fl71t4Fm7HIrBnqb1_W3tzZ77fXMJMnHT3g3ixao9P1e=
+L82p1pNH5jO4cpbMFSezhdXXtxLrbrHzmb6c30JunV9L7JOIrOZyVbeBovTRwNL8FG-cj_4TFo3=
+i_vDp7Bzns_fjIdkH1Pt8eLreIzeP8PtDDPsfV4ddaP02f--OPhysp9tSnWBh41mzUxsDRB8Ajj=
+oazhyDKvP18fTRwdN29VIeev7j6UbKs9xIDRzWJrjNQ9rFhFY4L6HbZ4ccNxYYzN0v5xcPPBdp6=
+6-ubrQoavD29TPH806ygLSQPWSPMRslecFBhCYynsq4hbaUyVZiw-t5p4hguysdYx02ZWnYqhfB=
+7w0L31viTQZntyMfpr3e1YSqr01-xbENoT_-z0If4vwAAAP__SSVCFQ>
+
+Hamarosan j=C3=B6v=C3=B6k tov=C3=A1bbi inspir=C3=A1ci=C3=B3val =C3=A9s gyak=
+orlati tippekkel, hogy
+k=C3=B6nnyed=C3=A9n be tudd =C3=A9p=C3=ADteni a mindennapjaidba.
+
+
+Ha pedig szeretn=C3=A9l szem=C3=A9lyre szabott seg=C3=ADts=C3=A9get az indu=
+l=C3=A1shoz, *foglalj
+most id=C5=91pontot egy d=C3=ADjmentes =C3=A9letm=C3=B3delemz=C3=A9sre* =E2=
+=80=93 ahol egy=C3=BCtt megtervezz=C3=BCk a
+saj=C3=A1t n=C3=B6v=C3=A9nyi alap=C3=BA utadat!
+
+
+Jelentkezz itt!
+<https://email.veganmentor.email-sender.hu/c/eJx8k8ty4jwUhJ_G3pmSJV8XWsCAEz=
+IQSAgJsKGEdWQLbMtIvgBP_xdk6q9ZpGZ76nRL3fqU7iWn069hnR3UTBI-M8orZCeIzSn3IA65Z=
+3NVMlnRDjJWlVA1Sg-gZLJwDFQc9CBv_6zsVV-BNrms9821BlqolDVSfc-5DdQNA4y9OMSh_XDY=
+l2AMy-B-iQ-z0HV_brajVe22nb9av4_-bD3MeqVPolD9X7O7DIvYjyFETkwOzPHc-OAwjoQTsCg=
+MSQSY8-hviWmgvuuIG3o-F-CkApjjYRQ4EQmQkx58wdOYY-yBDVUntXqEprVWvE3vceyccleERB=
+DiMs69EKMAB8IXxAsBhb6PY1tSjLDvushDsRd54cB1CYtFhFwWBRHBzPLQvwotaCGr06DNrgIKc=
+wN9AzPIWwsnveQZNBZOTKs7uFo4eWpPsGzz6HO24x1q1-PfCbeLdP-dWlYN6IoVdI0Tw58-TxvX=
+wqNm1ue9O0yr6_siGL10m_oUC3kxwQWmk3lzfCknx_l8FyXHI7pylI4m_sHt3-bnVi7a5Txk4Wp=
+4AbN8fvO70E_4XPVH7Vo4WcwsnIwv8ZJ8Zl8wueUfpzeyIYiwj91NrOPyY7zani4JG0-zax9tNx=
+kut78X5nn40u1-3TwV4UB_yYmFR_VSLy2cfALcpkl_DBAkItiMFzsLJ-f1a7nt-KtnbgUTXXCwc=
+FL5yXkE2t3VrMTTHNq12P66oKlFxnahHqQ_TdAqWJzfXZ1H8fvz6xCPv-wSmlxxympp11p1koOm=
+BTCeqqqCtFHa1vTAqmtrfGJ5KLvXOkhVaRvV6hTo99tJ0zl3RkHbzZ38_Y9nNTRV5f7HD9dQaPb=
+_U95R_F8AAAD__xsLOCk>
+
+P=C3=A9ter
+
+*Veg=C3=A1n Mentor*
+
+<https://email.veganmentor.email-sender.hu/c/eJx8k09z4jgUxD-NfTMly_8POsCAJ2=
+RDICEkwIWSpScssC0jCRv49FuQqa0cpvb66nVL3fqJ7SQn069huy_Uiwz4i1FhJTsRuJzwELKEh=
+y5XNZUN6WBPmxoaq_QAaiorz0DDQQ_K85-Vneob0KaU7c5eWyCVYtRK9T3nLhA_iTEOswQn7sNh=
+V4MxdA_3S3yYuW77k92Mlq1_7qLl6n30Z-th1it9FJXqf8zuMiyyKIMEeVlQUC_0s8KjHAkvpmm=
+SBClgztOfEmOhvesCPwkjLsBjAqgXYhR7aRAjjxWR4CzjGIfgQtNJrR6hSasVP7N7HLckIspoFv=
+pFmnKOBSqKNIkiRpMiElmUBIkrCUY48n0UoixMw2Tg-wHNRIp8msZpgKkTov8rtCKlta1xgqGDc=
+wfnfd8PBGVQKHUcMFU7OKc_9A7O3YrtvnPKxoJuaEVWODf89-dx7Tt4ZF_6sveHrLm-z-PRc7du=
+j5mQFxNfYDqZ2cNzPTnMZts0PxzQlSM2mkSF37_NTmc5Py9mCU2WwwuYxdNb1CVRzmeqP2jfwfn=
+8xcH5-JItgs_9F0xu5cfxLVgHKKAf25tYZfXHeLk5XnI6nu6vfbpZ73G9-WdunobP3fbXLVQpjv=
+WXnDh41C70wsH5J8BtmveHGEEu4vV4vnVwflq91puOv4bmVlHRxYWD8ybKTyPQ_ralNZ6WcF6Jz=
+a8LmjrB2K3Ug-3fE7SM56d3X5dp9v70OsTjL7cGWypOaCvdVqtOctCkAsqZahpgVmlXk4I217OJ=
+AidE-3ut99Zdo86aAfl-LWk6704laNfeWd_99SxLmKp3f_1iloDd_cd1R_C_AQAA__8YyzLB>
+<https://email.veganmentor.email-sender.hu/c/eJx8k09z4jgUxD-NfTMlyf8POsCAJ2=
+RDICEkwIWSpWcssC0jCRv49FuQqa0cpvb66nVL3fqJ76Sg069hu8_Vi_TFi1FBJbvCdwUVAaSxC=
+FyhaiYb2sGeNTU0VukB1ExWnoFGgB6U5z8rO9U3oE0p2529tkArxZmV6nsuXKA4jggJ0pjE7sNh=
+V4MxbA_3S3yYuW77k92Mli0-d-Fy9T76s_Uw65U-FpXqf8zuMlKkYQox8lI_Z16A09xjAhVexJI=
+49hMgQiQ_JcZCe9f5OA5CUYDHC2BeQFDkJX6EPJ6HheCpICQAF5pOavUITVutxJnf47gl5QSlmL=
+CcC5IgzrlPUIQKjIs8YSLBvispQSTEGAUoDZIgHmDss7RIEGZJlPiEOQH6v0IrWlrbGscfOiRzS=
+Nb3_UA2xrK9ZvWAq9ohGfth4JDMrfjuO6hsLOiGVXRFMiN-fx7X2CEj-9KXPR7y5vo-j0bP3bo9=
+poW8mOgC08nMHp7ryWE22ybZ4YCuAvHRJMxx_zY7neX8vJjFLF4OL2AWT29hF4eZmKn-oLFDsvm=
+LQ7LxJV34n_svmNzKj-Obv_aRzz62t2KV1h_j5eZ4ydh4ur_2yWa9J_Xmn7l5Gj5321-3QCUk0l=
+9y4pBRu9ALh2SfALdp1h8iBFkRrcfzrUOy0-q13nTiNTC3ihVdlDska8LsNAKNty2rybSE86rY_=
+LqgqeOP3Uo94P49QctofnrHukzS96fXIRl_uTXYUgnKWum2WnVSgKYVMMFV0wC3Srua5qy5nk3o=
+OwHa32u9t-4addYc6PdzSdN5dyxBu_YO--6vZ1nKVb376x-zFOzuP7A7Sv4NAAD__5x0M0Y>
+<https://email.veganmentor.email-sender.hu/c/eJx8k8ty4jwQhZ_G3pmSZPmihRYQ8I=
+QkBAIhXDaUbLWxwbaMLNvA0_9FMvXXLKZm29WnpdPn6-SQSz7dDOtjrN5yV741ihZ5l7q25JICC=
+yS1pSpFXvEOjqIqoTJKD6AUeeE0UEnQg6z93XJQfQW6yfL6YG418EIlwuTqpy5t4DjwCaEsIIH9=
+PeFQQtOIIzw-8dnMdd1fzG60qnHbeav1cvS763tYr_Q5LVT_R-0hIynzGATIYW4sHIpZ7AiJUsc=
+XYRC4IRApwz8ljYH6oXNxQD2ZgpOkIBxKkO-Ero-cJPZSmTBJCAUbqi7X6ts0r7WSbfKwY2dcIu=
+oz5mKWCoqTMAaWBi6OY9_HSAbEs3NOEPEwRhQxGtJggLErWBoiLEI_dImwKPrXQgueGVM3lju0S=
+GSRqO_7wU21po1hkKjSIlGSiaqCwiLR-uk5ZkszfhfxAYYvt-z19eJvzNAuksOP87wyoCtR8DWJ=
+Gvnr67zFFhmZtz7r8TCpbsu5P3rptvWZpfm18a8wnczM6aWcnGazfRidTugmUTKaeDHuP2aXNp-=
+3i1kggtXwCs3i-cPrAi-SM9WfNLZINH-zSDS-soX7ddzA5J59nj_crYtc8bm_p2tWfo5Xu_M1Eu=
+Pp8daHu-2RlLvXefM8fOn2T3eqQuLrTT6xyKhe6IVFoi-A-zTqTz6CKPW34_neItFl_V7uOvlOm=
+3sh0s6PLRJVXnQZgcb7WpRkmkG7TndPVzS13LFdqG_af03Qyp9fllhnIVs-vw_JeGOXYDIluahz=
+u9aqyyVoXoCQiaoqSIzStuaxqG5t47kWRcfHWh9B2I1qdQL8J7-86ZwHp6Bt86D_8Ne3DE9Uefj=
+r0RkO5vA_6R0n_wUAAP__GD04BA>
+<https://email.veganmentor.email-sender.hu/c/eJx8k19zqjoUxT8NvNFJQviThzzoUU=
+7trdXW2qovTkg2ggLBEED99Hdsz9zpw5n7umetnayVX-S-UHz2OWoOqX4ufPXcaloWfea7iisKL=
+FLUVboSRc17OIi6gtpq8wCVKEqvhVqBeci7P5K9HmowbV40e3ttgJdaClvo77lygeMoJISyiETu=
+14Z9BW0rDnC_xHu7MM1wttvxqsFdH6zWb-M_qq9lgzanrNTDj9ndRjIWMIiQx_xUeBSz1BMKZV4=
+o4ijyYyBKxT8trYXm7vNxRAOVgSczEB4lKPRiP0SeTINMSaYIoeBC3RdGf4XmjdGqk_c4bs6ZCC=
+RTiGSYAZUYZOwHKGMEgCgR0dQtOEEkwBhRxGhMoweMfcGyGGERh7FPhEPR_xVa8tzapnX8kUMSh=
+yQ_tXnnkMQt5f47VlFbMLUo-Zokrfr9cdpgh4zt85APeCTr69siHD_1m-bEsuLShheYTef2-FRN=
+j_P5Lk6OR3RVSI6nQYqH1_m5Kxbdch6JaDW6QLt8fA36KEjUXA9Hgx2SLJ4dkkwubOl_HD5hesv=
+fT6_-xke-eN_dsjWr3ier7emSiMnscB3i7eZAqu0_i_Zx9NTvft2ojkloPoupQ8bN0iwdknwA3G=
+bJcAwRJFm4mSx2DknO65dq26sX2t5KkfVh6pCkDpLzGAzeNaIisxy6dbb9dUEzx5-4pf5C-fcUr=
+cLF-Q2bPGZvjy8jMvl0K7C5Vlw0hdsY3RcKDC9BKKnrGqTVxjU8FfW1awPfoehwr_VB6sptdWck=
+8O_HKdreu0MIxrV3tPd_Pctyqav9X3-U5WD3_2Hcc_JvAAAA___W_Czg>
+<https://email.veganmentor.email-sender.hu/c/eJx8U1FzqjoY_DXwRicJIcBDHvQop_=
+bWamtt1RcnkA-JAsEQQf31d2jP3OnDmfu6s7vJbjbZXkk--xw1h1Q_K18-t5qWqst9V3JJIQ4ld=
+aWuhKp5BwdRV1BbbR6gEqr0WqglmIfi8oey130Npi1Us7e3BnipM2GV_salCxyHjBAahyR0vxz2=
+FbStOMBwifd2YZr-bLfjVYMvXbBav43_sL7Mem1Oean7H9ggI3kcxBAiL_ZT4VEcp56QKPeYiML=
+Qj4BIGf2UtBaaQefjkAYyBy_LQXiUIOZFPkNelga5zGJJCAUX6k4Z_RWaN0bLSzbEcQsepCyQRG=
+ISZbnI_YyyMBY0ZFiyAEKWuooTRAKMEUUxjWj4gLEv4jxCWEQs8olwKPq_QkteWNu0jj9ySOKQp=
+O_7B6tOVp8eMl0NGEXih4FbZvvvlKq2YGpR8jVJWvn747TBDhnb577o8Sirb28LNn7qNs0pztW1=
+ZVeYTef2-FRNj_P5LkqOR3STKBtPgxT3r_PzRS0uy3kowtXoCu3y8TXowiCRc90fDXZIsnh2SDK=
+5xkv_4_AJ03vxfnr1Nz7yxfvunq_j6n2y2p6uiZjMDrc-2m4OpNr-s2gfR0_d7ted6ogw86mmDh=
+k3S7N0SPIBcJ8l_ZEhSHK2mSx2DknO65dq28kX2t5LkXcsdUhSB8l5DAbvGlGRWQGXdb79dUUzx=
+5-4pf5a9u8pWrHF-Q2bIorfHl9GZPLpVmALLblolNsY3SkJhpcgZKbrGrKhTMNTUd8ubeA7FB2G=
+WofW3VZfTAb8-61U23nDJsG4dlj6_q9nWZ7pav_XD2Y52P1_q-44-TcAAP__ffAx_Q>
+
+V=C3=A1rlak a d=C3=ADjmentes Facebook csoportomban is!
+<https://email.veganmentor.email-sender.hu/c/eJx8k09z4jgUxD-NfTMly_8POsCAJ2=
+RDICEkwIWSpScQ2JaRZBv49FuQqa05pPb66nVL3fqJ7SQn069hsy_Uiwz4i1FhKTsRuJzwELKEh=
+y5XFZU16WBP6wpqq_QAKipLz0DNQQ8O7Z-Vnepr0OYgm529NkBKxaiV6nvOXSB-EmMcZglO3IfD=
+rgJj6B7ul_gwc930Z7sZLRu_7aLl6n30Z-th1it9EqXq_5rdZVhkUQYJ8rKgoF7oZ4VHORJeTNM=
+kCVLAnKd_S4yF5q4L_CSMuACPCaBeiFHspUGMPFZEgrOMYxyCC3UntXqEJo1WvGX3OO6BpGmI0z=
+BjAeIcs6TwaVCgCInIFwjRJHIlwQhHvo9ClIVpmAx8P6CZSJFP0zgNMHVC9H-FluRgbWOcYOjg3=
+MF53_cDQRkUSp0GTFUOzvdatY1xcC6ktQ8vKMFWirsl230nlrUFXdOSrHBu-O_P09p38Mi-9Ife=
+H7L6-j6PR8_dujllQl5MfIHpZGaPz9XkOJtt0_x4RFeO2GgSFX7_Nju3ct4uZglNlsMLmMXTW9Q=
+lUc5nqj9q38H5_MXB-fiSLYLP_RdMboeP01uwDlBAP7Y3scqqj_Fyc7rkdDzdX_t0s97javPP3D=
+wNn7vtr1uoUhzrLzlx8KhZ6IWD80-A2zTvjzGCXMTr8Xzr4Py8eq02HX8Nza2koosLB-d1lJ9Ho=
+P1tQys8PUC7EptfFzR1grFbqgflvydoGc_P774-pNn70-sQj7_cCuxBcUIb6TZadZKDJiVQzlRd=
+A7NKu5oUtL62JgqcEO3vtd77d41qNQPy_W7SdN6dT9CuvVO_-_EsS5iqdj9-NkvA7v4jvCP43wA=
+AAP__gu02hQ>
+
+If you no longer wish to receive these emails you may unsubscribe
+<https://email.veganmentor.email-sender.hu/c/eJx8lE1zskoQhX_NsCMFzfeChUbnjb=
+kxmhgTdWMNTCOjwOAMH-qvv6W-lZtF6m67-pym--FMuhU8nnwN6l0iX4TDX7R0C9FljsFj7mIUc=
+NfgsmSiijvcsarEqpHqAUsmClNjxVE95O3flq3sK1Q6F_W2OdcYFzJljZD3OjcwtgMfwI0CCIyb=
+w7ZErdkOrx_xoWeq7o_Nerio7bbzFsv34d-um1kv1SErZP-jdpVBFnkRBpYZOQkzXTtKTMatzPR=
+ZGAROiMB5-FOiG6yvOscOXI9naKYZMtMFyzdDx7fMNPEynkYcwEUDq04oeVs6rpXkbXpdx8jjEC=
+MWZhHHNIy8BFw_DHzkDJIUeRDZzBAxWODZtuVakRu6wYNtOyzKQstmoR86wIhr_d9BizhvmloTZ=
+0CAEqAaVSdS1A-l3umKq4dUlgToTaYJ0KQVBUdFgLaVbhOdKpGg2QnsCdA_Y2vhz47vtsrD6P3p=
+dQCjLwL0ETy23-XBQuDJ7Q51H7zVxLl7EmeUsOrcas8h4LnW7lq8D_X_g0ac0W_YCPiNKK-3ZmV=
+NnNE3dt-1wCjS7Z2HqBpUFSviJVDN_3weVjaBYfPS5709SKvz-8wfPner-hBl4qT9E07G02b_XI=
+730-kmpPu9deZWOhx7id2_TY-tmLXzacCCxeCEev705nWBR_lU9ntlE6CzFwJ0dIrmzufuC8eX_=
+OPw5qwcy2Efm0u2jMqP0WJ9OFE2muzOfbhe7aBc_zPTT4PnbvN4cWUIvvoSYwLDeq7mBOgn4mVC=
+-71vIc381Wi2IUCPy9dy3fFXV18KlnV-QoBWHj0OUdmbmpUwybFdZuvHkzUhzsgo5C2DvzEySmx=
+yyWNWC6NWshMcVVwg46msKkwbqQwVf2P6AcnQslUpxve_SujOvKYHldFcM7n9dVYTp7Lc_voUND=
+E22-_8dTH8GwAA__8EgWnG>
+
+--000000000000fab18c0642c1ff37
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><br><br><div class=3D"gmail_quote gmail_quote_container"><=
+div dir=3D"ltr" class=3D"gmail_attr">---------- Forwarded message ---------=
+<br>Felad=C3=B3: <strong class=3D"gmail_sendername" dir=3D"auto">P=C3=A9ter=
+ =E2=94=82 Veg=C3=A1n Mentor</strong> <span dir=3D"auto">&lt;<a href=3D"mai=
+lto:peter@veganmentor.email-sender.hu">peter@veganmentor.email-sender.hu</a=
+>&gt;</span><br>Date: 2025. nov. 4., K, 10:48<br>Subject: =F0=9F=93=96 Meg=
+=C3=A9rkezett a 7 napos Fitt Veg=C3=A1n Kih=C3=ADv=C3=A1s e-bookod!<br>To: =
+ &lt;<a href=3D"mailto:banyus53@gmail.com">banyus53@gmail.com</a>&gt;<br></=
+div><br><br><div class=3D"msg-7623845971385176809"><u></u>
+
+ =20
+   =20
+   =20
+   =20
+   =20
+   =20
+   =20
+   =20
+   =20
+   =20
+   =20
+   =20
+   =20
+   =20
+   =20
+   =20
+ =20
+   =20
+   =20
+    =20
+   =20
+   =20
+ =20
+  <div style=3D"word-spacing:normal">
+   =20
+   =20
+      <div style=3D"background-color:#eaf0f6;background-image:url(&#39;&#39=
+;);background-repeat:no-repeat;background-size:cover;background-position:ce=
+nter center">
+       =20
+     =20
+     =20
+   =20
+     =20
+    =20
+    <div style=3D"overflow:hidden">
+      <div style=3D"background:#ffffff;background-color:#ffffff;border-widt=
+h:0px;margin:0px auto 0px auto;border-color:transparent;border-radius:0px;m=
+ax-width:600px">
+       =20
+        <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" style=3D"background:#ffffff;background-color:#=
+ffffff;width:100%;border-radius:0px">
+          <tbody>
+            <tr>
+              <td style=3D"padding:20px 0;padding-bottom:10px;padding-left:=
+20px;padding-right:20px;padding-top:10px;border-color:transparent;direction=
+:ltr;font-size:0px;text-align:center">
+               =20
+           =20
+      <div class=3D"m_-7623845971385176809mj-column-per-100" style=3D"font-=
+size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:=
+top;width:100%">
+       =20
+    <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"present=
+ation" style=3D"vertical-align:top" width=3D"100%">
+          <tbody>
+           =20
+                     =20
+                    <tr>
+                    <td align=3D"center" style=3D"font-size:0px;padding:10p=
+x 25px;padding-top:10px;padding-right:20px;padding-bottom:10px;padding-left=
+:20px;word-break:break-word">
+                     =20
+      <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"prese=
+ntation" style=3D"border-collapse:collapse;border-spacing:0px">
+        <tbody>
+          <tr>
+            <td style=3D"width:100px">
+             =20
+      <img height=3D"auto" src=3D"https://storage.googleapis.com/msgsndr/GE=
+0S6OqR1rh89RHNA2DW/media/680a014d6b698710a0263658.png" style=3D"border:0;di=
+splay:block;outline:none;text-decoration:none;height:auto;width:100%;font-s=
+ize:13px" width=3D"100">
+   =20
+            </td>
+          </tr>
+        </tbody>
+      </table>
+   =20
+                    </td>
+                  </tr>
+                   =20
+                   =20
+                     =20
+                    <tr>
+                    <td align=3D"center" style=3D"font-size:0px;padding:10p=
+x 25px;padding-top:10px;padding-right:20px;padding-bottom:10px;padding-left=
+:20px;word-break:break-word">
+                     =20
+      <p style=3D"border-top:solid 2px #30903f;font-size:1px;margin:0px aut=
+o;width:100%">
+      </p>
+     =20
+     =20
+   =20
+   =20
+                    </td>
+                  </tr>
+                   =20
+                   =20
+                     =20
+                    <tr>
+                    <td align=3D"left" style=3D"font-size:0px;padding:10px =
+25px;padding-top:10px;padding-right:20px;padding-bottom:10px;padding-left:2=
+0px;word-break:break-word">
+                     =20
+      <div style=3D"font-family:arial,helvetica,sans-serif;font-size:14px;l=
+ine-height:1.25;text-align:left;color:#000000"><p><strong>Kedves =C3=81gnes=
+ M=C3=A1ria ,</strong><br></p><p></p><p>Gratul=C3=A1lok, sikeresen megkapta=
+d a H=C3=A9t Napos Kih=C3=ADv=C3=A1s - <em>Veg=C3=A1n Receptgy=C5=B1jtem=C3=
+=A9nyt</em>! =F0=9F=8E=89<br></p><p></p><p>Ezzel megtetted az els=C5=91 l=
+=C3=A9p=C3=A9st egy eg=C3=A9szs=C3=A9gesebb, energikusabb =C3=A9let fel=C3=
+=A9.</p><p><br><br><a rel=3D"noopener noreferrer nofollow" href=3D"https://=
+email.veganmentor.email-sender.hu/c/eJx8k0-TojwQxj8N3LBCIBAOHHSVHWZ1dMZxRr1=
+YgTQQBYIJf9RP_xYzW2_tYWuvnX6epJ_OLz0JHsaf0yZP5FI4fKmlW4o-c0wechcCn7smlxUTdd=
+hDzuoK6laqCVRMlJaGmoOaFN3vlpMcalC6EM2pvTcQljJlrZDfdW5CaPsexm7gY9_8cjhVoDXLY=
+XzEu16rZri2h9m2sbuebHdvs99dX2aDVJeslMMftVGGs4AE4CMrcBJmuXaQWIyjzPIY9X2HAuac=
+_inRLTSjzrF9l_AMrDQDZrkYeRZ1PGSlCcl4GnCMXTCh7oWSX0OHjZK8S8dxzCIkxEMJotR3U-o=
+DRQkBbicZpUlAEEXEFCFGmNg2clHgUtef2LbDgowim1GPOpgZLvpXoGVYtG2jDWdq4MjAEVeih0=
+kuZV7CJJWVgaNMlDCeGDiys-tq7uIyjhNyJPf4V7eMO0R4draY-ywfo0MvYDCcqNON4cx1wZSoc=
+7NMT9_ZiLoFVbMy3OFI858fl71t4Fm7HIrBnqb1_W3tzZ77fXMJMnHT3g3ixao9P1eL82p1pNH5=
+jO4cpbMFSezhdXXtxLrbrHzmb6c30JunV9L7JOIrOZyVbeBovTRwNL8FG-cj_4TFo3i_vDp7Bzn=
+s_fjIdkH1Pt8eLreIzeP8PtDDPsfV4ddaP02f--OPhysp9tSnWBh41mzUxsDRB8AjjoazhyDKvP=
+18fTRwdN29VIeev7j6UbKs9xIDRzWJrjNQ9rFhFY4L6HbZ4ccNxYYzN0v5xcPPBdp66-ubrQoav=
+D29TPH806ygLSQPWSPMRslecFBhCYynsq4hbaUyVZiw-t5p4hguysdYx02ZWnYqhfB7w0L31viT=
+QZntyMfpr3e1YSqr01-xbENoT_-z0If4vwAAAP__SSVCFQ" target=3D"_blank"><strong>=
+=F0=9F=91=89 Az ebook-odat csatolm=C3=A1nyk=C3=A9nt el=C3=A9red!</strong></=
+a><br></p><p></p><p>Hamarosan j=C3=B6v=C3=B6k tov=C3=A1bbi inspir=C3=A1ci=
+=C3=B3val =C3=A9s gyakorlati tippekkel, hogy k=C3=B6nnyed=C3=A9n be tudd =
+=C3=A9p=C3=ADteni a mindennapjaidba.</p><p><br></p><p>Ha pedig szeretn=C3=
+=A9l szem=C3=A9lyre szabott seg=C3=ADts=C3=A9get az indul=C3=A1shoz, <stron=
+g>foglalj most id=C5=91pontot egy d=C3=ADjmentes =C3=A9letm=C3=B3delemz=C3=
+=A9sre</strong> =E2=80=93 ahol egy=C3=BCtt megtervezz=C3=BCk a saj=C3=A1t n=
+=C3=B6v=C3=A9nyi alap=C3=BA utadat!</p><p><br></p></div>
+   =20
+                    </td>
+                  </tr>
+                   =20
+                   =20
+                     =20
+                    <tr>
+                    <td align=3D"center" style=3D"font-size:0px;padding:10p=
+x 25px;padding-top:10px;padding-right:20px;padding-bottom:10px;padding-left=
+:20px;word-break:break-word">
+                     =20
+      <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"prese=
+ntation" style=3D"border-collapse:separate;line-height:100%">
+        <tbody>
+          <tr>
+            <td align=3D"center" bgcolor=3D"#30903f" role=3D"presentation" =
+style=3D"border:0px solid #00a4bd;border-radius:7px;background:#30903f" val=
+ign=3D"middle">
+              <a href=3D"https://email.veganmentor.email-sender.hu/c/eJx8k8=
+ty4jwUhJ_G3pmSJV8XWsCAEzIQSAgJsKGEdWQLbMtIvgBP_xdk6q9ZpGZ76nRL3fqU7iWn069hn=
+R3UTBI-M8orZCeIzSn3IA65Z3NVMlnRDjJWlVA1Sg-gZLJwDFQc9CBv_6zsVV-BNrms9821Blqo=
+lDVSfc-5DdQNA4y9OMSh_XDYl2AMy-B-iQ-z0HV_brajVe22nb9av4_-bD3MeqVPolD9X7O7DIv=
+YjyFETkwOzPHc-OAwjoQTsCgMSQSY8-hviWmgvuuIG3o-F-CkApjjYRQ4EQmQkx58wdOYY-yBDV=
+UntXqEprVWvE3vceyccleERBDiMs69EKMAB8IXxAsBhb6PY1tSjLDvushDsRd54cB1CYtFhFwWB=
+RHBzPLQvwotaCGr06DNrgIKcwN9AzPIWwsnveQZNBZOTKs7uFo4eWpPsGzz6HO24x1q1-PfCbeL=
+dP-dWlYN6IoVdI0Tw58-TxvXwqNm1ue9O0yr6_siGL10m_oUC3kxwQWmk3lzfCknx_l8FyXHI7p=
+ylI4m_sHt3-bnVi7a5Txk4Wp4AbN8fvO70E_4XPVH7Vo4WcwsnIwv8ZJ8Zl8wueUfpzeyIYiwj9=
+1NrOPyY7zani4JG0-zax9tNxkut78X5nn40u1-3TwV4UB_yYmFR_VSLy2cfALcpkl_DBAkItiMF=
+zsLJ-f1a7nt-KtnbgUTXXCwcFL5yXkE2t3VrMTTHNq12P66oKlFxnahHqQ_TdAqWJzfXZ1H8fvz=
+6xCPv-wSmlxxympp11p1koOmBTCeqqqCtFHa1vTAqmtrfGJ5KLvXOkhVaRvV6hTo99tJ0zl3RkH=
+bzZ38_Y9nNTRV5f7HD9dQaPb_U95R_F8AAAD__xsLOCk" style=3D"display:inline-block=
+;background:#30903f;color:#ffffff;font-family:arial,helvetica,sans-serif;fo=
+nt-size:16px;font-weight:bold;line-height:1.25;margin:0;text-decoration:non=
+e;text-transform:none;padding:10px 25px;border-radius:7px" target=3D"_blank=
+">
+                Jelentkezz itt!
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+   =20
+                    </td>
+                  </tr>
+                   =20
+                   =20
+                     =20
+                    <tr>
+                    <td align=3D"left" style=3D"font-size:0px;padding:10px =
+25px;padding-top:12px;padding-right:24px;padding-bottom:12px;padding-left:2=
+4px;word-break:break-word">
+                     =20
+      <div style=3D"font-family:arial,helvetica,sans-serif;font-size:14px;l=
+ine-height:1.25;text-align:left;color:#000000"><p>P=C3=A9ter</p><p><span st=
+yle=3D"font-family:&#39;courier new&#39;,courier,monospace"><strong>Veg=C3=
+=A1n Mentor</strong></span></p></div>
+   =20
+                    </td>
+                  </tr>
+                   =20
+                   =20
+                     =20
+                    <tr>
+                    <td align=3D"center" style=3D"font-size:0px;padding:10p=
+x 25px;padding-top:10px;padding-right:20px;padding-bottom:10px;padding-left=
+:20px;word-break:break-word">
+                     =20
+      <p style=3D"border-top:solid 2px #30903f;font-size:1px;margin:0px aut=
+o;width:100%">
+      </p>
+     =20
+     =20
+   =20
+   =20
+                    </td>
+                  </tr>
+                   =20
+                   =20
+                     =20
+                    <tr>
+                    <td align=3D"center" style=3D"font-size:0px;padding:10p=
+x 25px;padding-top:10px;padding-right:20px;padding-bottom:10px;padding-left=
+:20px;word-break:break-word">
+                     =20
+     =20
+    =20
+              <table align=3D"center" border=3D"0" cellpadding=3D"0" cellsp=
+acing=3D"0" role=3D"presentation" style=3D"float:none;display:inline-table"=
+>
+                <tbody>
+                 =20
+      <tr>
+        <td style=3D"padding:0px 4px;vertical-align:middle">
+          <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"p=
+resentation" style=3D"border-radius:3px;width:25px">
+            <tbody>
+              <tr>
+                <td style=3D"font-size:0;height:25px;vertical-align:middle;=
+width:25px">
+                  <a href=3D"https://email.veganmentor.email-sender.hu/c/eJ=
+x8k09z4jgUxD-NfTMly_8POsCAJ2RDICEkwIWSpScssC0jCRv49FuQqa0cpvb66nVL3fqJ7SQn0=
+69huy_Uiwz4i1FhJTsRuJzwELKEhy5XNZUN6WBPmxoaq_QAaiorz0DDQQ_K85-Vneob0KaU7c5e=
+WyCVYtRK9T3nLhA_iTEOswQn7sNhV4MxdA_3S3yYuW77k92Mlq1_7qLl6n30Z-th1it9FJXqf8z=
+uMiyyKIMEeVlQUC_0s8KjHAkvpmmSBClgztOfEmOhvesCPwkjLsBjAqgXYhR7aRAjjxWR4CzjGI=
+fgQtNJrR6hSasVP7N7HLckIspoFvpFmnKOBSqKNIkiRpMiElmUBIkrCUY48n0UoixMw2Tg-wHNR=
+Ip8msZpgKkTov8rtCKlta1xgqGDcwfnfd8PBGVQKHUcMFU7OKc_9A7O3YrtvnPKxoJuaEVWODf8=
+9-dx7Tt4ZF_6sveHrLm-z-PRc7duj5mQFxNfYDqZ2cNzPTnMZts0PxzQlSM2mkSF37_NTmc5Py9=
+mCU2WwwuYxdNb1CVRzmeqP2jfwfn8xcH5-JItgs_9F0xu5cfxLVgHKKAf25tYZfXHeLk5XnI6nu=
+6vfbpZ73G9-WdunobP3fbXLVQpjvWXnDh41C70wsH5J8BtmveHGEEu4vV4vnVwflq91puOv4bmV=
+lHRxYWD8ybKTyPQ_ralNZ6WcF6Jza8LmjrB2K3Ug-3fE7SM56d3X5dp9v70OsTjL7cGWypOaCvd=
+VqtOctCkAsqZahpgVmlXk4I217OJAidE-3ut99Zdo86aAfl-LWk6704laNfeWd_99SxLmKp3f_1=
+iloDd_cd1R_C_AQAA__8YyzLB" target=3D"_blank">
+                    <img alt=3D"" height=3D"25" src=3D"https://storage.goog=
+leapis.com/preview-production-assets/email/img/hl_default_img/social/facebo=
+ok_circle_black.png" style=3D"border-radius:3px;display:block" width=3D"25"=
+>
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+       =20
+      </tr>
+   =20
+                </tbody>
+              </table>
+           =20
+              <table align=3D"center" border=3D"0" cellpadding=3D"0" cellsp=
+acing=3D"0" role=3D"presentation" style=3D"float:none;display:inline-table"=
+>
+                <tbody>
+                 =20
+      <tr>
+        <td style=3D"padding:0px 4px;vertical-align:middle">
+          <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"p=
+resentation" style=3D"border-radius:3px;width:25px">
+            <tbody>
+              <tr>
+                <td style=3D"font-size:0;height:25px;vertical-align:middle;=
+width:25px">
+                  <a href=3D"https://email.veganmentor.email-sender.hu/c/eJ=
+x8k09z4jgUxD-NfTMlyf8POsCAJ2RDICEkwIWSpWcssC0jCRv49FuQqa0cpvb66nVL3fqJ76Sg0=
+69hu8_Vi_TFi1FBJbvCdwUVAaSxCFyhaiYb2sGeNTU0VukB1ExWnoFGgB6U5z8rO9U3oE0p2529=
+tkArxZmV6nsuXKA4jggJ0pjE7sNhV4MxbA_3S3yYuW77k92Mli0-d-Fy9T76s_Uw65U-FpXqf8z=
+uMlKkYQox8lI_Z16A09xjAhVexJI49hMgQiQ_JcZCe9f5OA5CUYDHC2BeQFDkJX6EPJ6HheCpIC=
+QAF5pOavUITVutxJnf47gl5QSlmLCcC5IgzrlPUIQKjIs8YSLBvispQSTEGAUoDZIgHmDss7RIE=
+GZJlPiEOQH6v0IrWlrbGscfOiRzSNb3_UA2xrK9ZvWAq9ohGfth4JDMrfjuO6hsLOiGVXRFMiN-=
+fx7X2CEj-9KXPR7y5vo-j0bP3bo9poW8mOgC08nMHp7ryWE22ybZ4YCuAvHRJMxx_zY7neX8vJj=
+FLF4OL2AWT29hF4eZmKn-oLFDsvmLQ7LxJV34n_svmNzKj-Obv_aRzz62t2KV1h_j5eZ4ydh4ur=
+_2yWa9J_Xmn7l5Gj5321-3QCUk0l9y4pBRu9ALh2SfALdp1h8iBFkRrcfzrUOy0-q13nTiNTC3i=
+hVdlDska8LsNAKNty2rybSE86rY_LqgqeOP3Uo94P49QctofnrHukzS96fXIRl_uTXYUgnKWum2=
+WnVSgKYVMMFV0wC3Srua5qy5nk3oOwHa32u9t-4addYc6PdzSdN5dyxBu_YO--6vZ1nKVb376x-=
+zFOzuP7A7Sv4NAAD__5x0M0Y" target=3D"_blank">
+                    <img alt=3D"" height=3D"25" src=3D"https://storage.goog=
+leapis.com/preview-production-assets/email/img/hl_default_img/social/instag=
+ram_circle_black.png" style=3D"border-radius:3px;display:block" width=3D"25=
+">
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+       =20
+      </tr>
+   =20
+                </tbody>
+              </table>
+           =20
+              <table align=3D"center" border=3D"0" cellpadding=3D"0" cellsp=
+acing=3D"0" role=3D"presentation" style=3D"float:none;display:inline-table"=
+>
+                <tbody>
+                 =20
+      <tr>
+        <td style=3D"padding:0px 4px;vertical-align:middle">
+          <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"p=
+resentation" style=3D"border-radius:3px;width:25px">
+            <tbody>
+              <tr>
+                <td style=3D"font-size:0;height:25px;vertical-align:middle;=
+width:25px">
+                  <a href=3D"https://email.veganmentor.email-sender.hu/c/eJ=
+x8k8ty4jwQhZ_G3pmSZPmihRYQ8IQkBAIhXDaUbLWxwbaMLNvA0_9FMvXXLKZm29WnpdPn6-SQS=
+z7dDOtjrN5yV741ihZ5l7q25JICCyS1pSpFXvEOjqIqoTJKD6AUeeE0UEnQg6z93XJQfQW6yfL6=
+YG418EIlwuTqpy5t4DjwCaEsIIH9PeFQQtOIIzw-8dnMdd1fzG60qnHbeav1cvS763tYr_Q5LVT=
+_R-0hIynzGATIYW4sHIpZ7AiJUscXYRC4IRApwz8ljYH6oXNxQD2ZgpOkIBxKkO-Ero-cJPZSmT=
+BJCAUbqi7X6ts0r7WSbfKwY2dcIuoz5mKWCoqTMAaWBi6OY9_HSAbEs3NOEPEwRhQxGtJggLErW=
+BoiLEI_dImwKPrXQgueGVM3lju0SGSRqO_7wU21po1hkKjSIlGSiaqCwiLR-uk5ZkszfhfxAYYv=
+t-z19eJvzNAuksOP87wyoCtR8DWJGvnr67zFFhmZtz7r8TCpbsu5P3rptvWZpfm18a8wnczM6aW=
+cnGazfRidTugmUTKaeDHuP2aXNp-3i1kggtXwCs3i-cPrAi-SM9WfNLZINH-zSDS-soX7ddzA5J=
+59nj_crYtc8bm_p2tWfo5Xu_M1EuPp8daHu-2RlLvXefM8fOn2T3eqQuLrTT6xyKhe6IVFoi-A-=
+zTqTz6CKPW34_neItFl_V7uOvlOm3sh0s6PLRJVXnQZgcb7WpRkmkG7TndPVzS13LFdqG_af03Q=
+yp9fllhnIVs-vw_JeGOXYDIluahzu9aqyyVoXoCQiaoqSIzStuaxqG5t47kWRcfHWh9B2I1qdQL=
+8J7-86ZwHp6Bt86D_8Ne3DE9Uefjr0RkO5vA_6R0n_wUAAP__GD04BA" target=3D"_blank">
+                    <img alt=3D"" height=3D"25" src=3D"https://storage.goog=
+leapis.com/preview-production-assets/email/img/hl_default_img/social/youtub=
+e_circle_black.png" style=3D"border-radius:3px;display:block" width=3D"25">
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+       =20
+      </tr>
+   =20
+                </tbody>
+              </table>
+           =20
+              <table align=3D"center" border=3D"0" cellpadding=3D"0" cellsp=
+acing=3D"0" role=3D"presentation" style=3D"float:none;display:inline-table"=
+>
+                <tbody>
+                 =20
+      <tr>
+        <td style=3D"padding:0px 4px;vertical-align:middle">
+          <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"p=
+resentation" style=3D"border-radius:3px;width:25px">
+            <tbody>
+              <tr>
+                <td style=3D"font-size:0;height:25px;vertical-align:middle;=
+width:25px">
+                  <a href=3D"https://email.veganmentor.email-sender.hu/c/eJ=
+x8k19zqjoUxT8NvNFJQviThzzoUU7trdXW2qovTkg2ggLBEED99Hdsz9zpw5n7umetnayVX-S-U=
+Hz2OWoOqX4ufPXcaloWfea7iisKLFLUVboSRc17OIi6gtpq8wCVKEqvhVqBeci7P5K9HmowbV40=
+e3ttgJdaClvo77lygeMoJISyiETu14Z9BW0rDnC_xHu7MM1wttvxqsFdH6zWb-M_qq9lgzanrNT=
+Dj9ndRjIWMIiQx_xUeBSz1BMKZV4o4ijyYyBKxT8trYXm7vNxRAOVgSczEB4lKPRiP0SeTINMSa=
+YIoeBC3RdGf4XmjdGqk_c4bs6ZCCRTiGSYAZUYZOwHKGMEgCgR0dQtOEEkwBhRxGhMoweMfcGyG=
+GERh7FPhEPR_xVa8tzapnX8kUMShyQ_tXnnkMQt5f47VlFbMLUo-Zokrfr9cdpgh4zt85APeCTr=
+69siHD_1m-bEsuLShheYTef2-FRNj_P5Lk6OR3RVSI6nQYqH1_m5Kxbdch6JaDW6QLt8fA36KEj=
+UXA9Hgx2SLJ4dkkwubOl_HD5hesvfT6_-xke-eN_dsjWr3ier7emSiMnscB3i7eZAqu0_i_Zx9N=
+Tvft2ojkloPoupQ8bN0iwdknwA3GbJcAwRJFm4mSx2DknO65dq26sX2t5KkfVh6pCkDpLzGAzeN=
+aIisxy6dbb9dUEzx5-4pf5C-fcUrcLF-Q2bPGZvjy8jMvl0K7C5Vlw0hdsY3RcKDC9BKKnrGqTV=
+xjU8FfW1awPfoehwr_VB6sptdWck8O_HKdreu0MIxrV3tPd_Pctyqav9X3-U5WD3_2Hcc_JvAAA=
+A___W_Czg" target=3D"_blank">
+                    <img alt=3D"" height=3D"25" src=3D"https://storage.goog=
+leapis.com/preview-production-assets/email/img/hl_default_img/social/websit=
+e_circle_black.png" style=3D"border-radius:3px;display:block" width=3D"25">
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+       =20
+      </tr>
+   =20
+                </tbody>
+              </table>
+           =20
+              <table align=3D"center" border=3D"0" cellpadding=3D"0" cellsp=
+acing=3D"0" role=3D"presentation" style=3D"float:none;display:inline-table"=
+>
+                <tbody>
+                 =20
+      <tr>
+        <td style=3D"padding:0px 4px;vertical-align:middle">
+          <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"p=
+resentation" style=3D"border-radius:3px;width:25px">
+            <tbody>
+              <tr>
+                <td style=3D"font-size:0;height:25px;vertical-align:middle;=
+width:25px">
+                  <a href=3D"https://email.veganmentor.email-sender.hu/c/eJ=
+x8U1FzqjoY_DXwRicJIcBDHvQop_bWamtt1RcnkA-JAsEQQf31d2jP3OnDmfu6s7vJbjbZXkk--=
+xw1h1Q_K18-t5qWqst9V3JJIQ4ldaWuhKp5BwdRV1BbbR6gEqr0WqglmIfi8oey130Npi1Us7e3=
+BnipM2GV_salCxyHjBAahyR0vxz2FbStOMBwifd2YZr-bLfjVYMvXbBav43_sL7Mem1Oean7H9g=
+gI3kcxBAiL_ZT4VEcp56QKPeYiMLQj4BIGf2UtBaaQefjkAYyBy_LQXiUIOZFPkNelga5zGJJCA=
+UX6k4Z_RWaN0bLSzbEcQsepCyQRGISZbnI_YyyMBY0ZFiyAEKWuooTRAKMEUUxjWj4gLEv4jxCW=
+EQs8olwKPq_QkteWNu0jj9ySOKQpO_7B6tOVp8eMl0NGEXih4FbZvvvlKq2YGpR8jVJWvn747TB=
+Dhnb577o8Sirb28LNn7qNs0pztW1ZVeYTef2-FRNj_P5LkqOR3STKBtPgxT3r_PzRS0uy3kowtX=
+oCu3y8TXowiCRc90fDXZIsnh2SDK5xkv_4_AJ03vxfnr1Nz7yxfvunq_j6n2y2p6uiZjMDrc-2m=
+4OpNr-s2gfR0_d7ted6ogw86mmDhk3S7N0SPIBcJ8l_ZEhSHK2mSx2DknO65dq28kX2t5LkXcsd=
+UhSB8l5DAbvGlGRWQGXdb79dUUzx5-4pf5a9u8pWrHF-Q2bIorfHl9GZPLpVmALLblolNsY3SkJ=
+hpcgZKbrGrKhTMNTUd8ubeA7FB2GWofW3VZfTAb8-61U23nDJsG4dlj6_q9nWZ7pav_XD2Y52P1=
+_q-44-TcAAP__ffAx_Q" target=3D"_blank">
+                    <img alt=3D"" height=3D"25" src=3D"https://storage.goog=
+leapis.com/preview-production-assets/email/img/hl_default_img/social/tiktok=
+_circle_black.png" style=3D"border-radius:3px;display:block" width=3D"25">
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+       =20
+      </tr>
+   =20
+                </tbody>
+              </table>
+           =20
+   =20
+   =20
+                    </td>
+                  </tr>
+                   =20
+                   =20
+                     =20
+                    <tr>
+                    <td align=3D"left" style=3D"font-size:0px;padding:10px =
+25px;padding-top:12px;padding-right:24px;padding-bottom:12px;padding-left:2=
+4px;word-break:break-word">
+                     =20
+      <div style=3D"font-family:arial,helvetica,sans-serif;font-size:14px;l=
+ine-height:1.25;text-align:left;color:#000000"><p style=3D"text-align:cente=
+r"><a rel=3D"noopener noreferrer nofollow" href=3D"https://email.veganmento=
+r.email-sender.hu/c/eJx8k09z4jgUxD-NfTMly_8POsCAJ2RDICEkwIWSpScQ2JaRZBv49Fu=
+Qqa05pPb66nVL3fqJ7SQn069hsy_Uiwz4i1FhKTsRuJzwELKEhy5XFZU16WBP6wpqq_QAKipLz0=
+DNQQ8O7Z-Vnepr0OYgm529NkBKxaiV6nvOXSB-EmMcZglO3IfDrgJj6B7ul_gwc930Z7sZLRu_7=
+aLl6n30Z-th1it9EqXq_5rdZVhkUQYJ8rKgoF7oZ4VHORJeTNMkCVLAnKd_S4yF5q4L_CSMuACP=
+CaBeiFHspUGMPFZEgrOMYxyCC3UntXqEJo1WvGX3OO6BpGmI0zBjAeIcs6TwaVCgCInIFwjRJHI=
+lwQhHvo9ClIVpmAx8P6CZSJFP0zgNMHVC9H-FluRgbWOcYOjg3MF53_cDQRkUSp0GTFUOzvdatY=
+1xcC6ktQ8vKMFWirsl230nlrUFXdOSrHBu-O_P09p38Mi-9IfeH7L6-j6PR8_dujllQl5MfIHpZ=
+GaPz9XkOJtt0_x4RFeO2GgSFX7_Nju3ct4uZglNlsMLmMXTW9QlUc5nqj9q38H5_MXB-fiSLYLP=
+_RdMboeP01uwDlBAP7Y3scqqj_Fyc7rkdDzdX_t0s97javPP3DwNn7vtr1uoUhzrLzlx8KhZ6IW=
+D80-A2zTvjzGCXMTr8Xzr4Py8eq02HX8Nza2koosLB-d1lJ9HoP1tQys8PUC7EptfFzR1grFbqg=
+flvydoGc_P774-pNn70-sQj7_cCuxBcUIb6TZadZKDJiVQzlRdA7NKu5oUtL62JgqcEO3vtd77d=
+41qNQPy_W7SdN6dT9CuvVO_-_EsS5iqdj9-NkvA7v4jvCP43wAAAP__gu02hQ" target=3D"_b=
+lank"><span style=3D"color:#30903f!important;font-size:9px;font-family:verd=
+ana,geneva,sans-serif;color:#30903f!important">V=C3=A1rlak a d=C3=ADjmentes=
+ Facebook csoportomban is!</span></a></p></div>
+   =20
+                    </td>
+                  </tr>
+                   =20
+                   =20
+          </tbody>
+
+        </table>
+   =20
+      </div>
+   =20
+         =20
+              </td>
+            </tr>
+          </tbody>
+        </table>
+       =20
+      </div>
+    </div>
+   =20
+   =20
+     =20
+     =20
+   =20
+   =20
+      </div>
+   =20
+  <br><p>If you no longer wish to receive these emails you may <a style=3D"=
+color:#000000;margin:0;text-decoration:underline" href=3D"https://email.veg=
+anmentor.email-sender.hu/c/eJx8lE1zskoQhX_NsCMFzfeChUbnjbkxmhgTdWMNTCOjwOAM=
+H-qvv6W-lZtF6m67-pym--FMuhU8nnwN6l0iX4TDX7R0C9FljsFj7mIUcNfgsmSiijvcsarEqpH=
+qAUsmClNjxVE95O3flq3sK1Q6F_W2OdcYFzJljZD3OjcwtgMfwI0CCIybw7ZErdkOrx_xoWeq7o=
+_Nerio7bbzFsv34d-um1kv1SErZP-jdpVBFnkRBpYZOQkzXTtKTMatzPRZGAROiMB5-FOiG6yvO=
+scOXI9naKYZMtMFyzdDx7fMNPEynkYcwEUDq04oeVs6rpXkbXpdx8jjECMWZhHHNIy8BFw_DHzk=
+DJIUeRDZzBAxWODZtuVakRu6wYNtOyzKQstmoR86wIhr_d9BizhvmloTZ0CAEqAaVSdS1A-l3um=
+Kq4dUlgToTaYJ0KQVBUdFgLaVbhOdKpGg2QnsCdA_Y2vhz47vtsrD6P3pdQCjLwL0ETy23-XBQu=
+DJ7Q51H7zVxLl7EmeUsOrcas8h4LnW7lq8D_X_g0ac0W_YCPiNKK-3ZmVNnNE3dt-1wCjS7Z2Hq=
+BpUFSviJVDN_3weVjaBYfPS5709SKvz-8wfPner-hBl4qT9E07G02b_XI730-kmpPu9deZWOhx7=
+id2_TY-tmLXzacCCxeCEev705nWBR_lU9ntlE6CzFwJ0dIrmzufuC8eX_OPw5qwcy2Efm0u2jMq=
+P0WJ9OFE2muzOfbhe7aBc_zPTT4PnbvN4cWUIvvoSYwLDeq7mBOgn4mVC-71vIc381Wi2IUCPy9=
+dy3fFXV18KlnV-QoBWHj0OUdmbmpUwybFdZuvHkzUhzsgo5C2DvzEySmxyyWNWC6NWshMcVVwg4=
+6msKkwbqQwVf2P6AcnQslUpxve_SujOvKYHldFcM7n9dVYTp7Lc_voUNDE22-_8dTH8GwAA__8E=
+gWnG" target=3D"_blank">unsubscribe</a></p><img width=3D"1" height=3D"1" al=
+t=3D"" src=3D"https://email.veganmentor.email-sender.hu/o/eJx8k19zqjoUxT8Nv=
+NHJHyDhIQ96lFN7a7W1tuqLE5KNRoFgQFA__R3bM3fOQ-e-7tlrZ601v6it0WLyOah3mX02VD83=
+NixMl1NfCx1CwnToa1tKU4kOdrIqoWqte4BSmiJooNLgHvbnPytb21fgmr2pt-21BlFYJVtjv-f=
+aB4FZTEiYMML8rwvbEppG7uBu4r2Zubo_tevhosbnLlos34Z_tr6O9dYd88L2f83uMpInUQIMBQ=
+nNZBDiJAukRnkQS84Y5UC05n9Lmhbqu45iFkY6h0DlIIOQoDjgNEaByqJcq0QTEoIPVWec_Qota=
+mf1Wd3j-HsBKMo4B4Y4KK4lY5gyrCmJ8ixLGFW-EQSRCGMUoiTkIXvAmMok5whLHnNKpBei_yu0=
+UNtv06ZqwVWyEEuSNvr3x3GFPTJsn_t9jwequr7N4uFTt6qPSW4uTXyByXjaHp7K8WE63fD0cEB=
+XjdRwHGW4f52ezmZ2nk-ZZIvBBZr542vUsSjVU9sfHPZIOnv2SDq6JHP6sfuE8W3_fnylK4qofN=
+_c8mVSvo8W6-MllaPJ7trz9WpHyvU_s-Zx8NRtft1Cy0nsPs3YI8N67uYeST8AbpO0P8QI0jxej=
+WYbj6Sn5Uu57vRL2NwKmXdx5pG0itLTEBze1LIkkz2cl_n61wVNPDryC_sF6u8xWsSz0xt2e568=
+Pb4MyOjTL6HdWy1kbfza2c5ocKIAqZWtKlCtdb4Tmayu5yaiXoh291oflC39xp6dAvFdvWm64I4=
+YOL-9g7v98a1WKFtuf_wvrYB2-x-knSD_BgAA__-dNSFl"></div></div></div></div>
+
+--000000000000fab18c0642c1ff37--

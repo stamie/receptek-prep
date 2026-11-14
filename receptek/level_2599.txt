@@ -1,0 +1,685 @@
+Delivered-To: estampel@gmail.com
+Received: by 2002:a05:622a:5013:b0:501:4c4a:635a with SMTP id fo19csp353616qtb;
+        Mon, 9 Feb 2026 23:29:26 -0800 (PST)
+X-Received: by 2002:a17:907:934a:b0:b8d:e173:9613 with SMTP id a640c23a62f3a-b8edf3eda46mr793648166b.53.1770708566435;
+        Mon, 09 Feb 2026 23:29:26 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1770708566; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=jTiH5N6SFS25UIP9Z1SNWfyv+3m8tQPQ/AaHS1HTPe8ogb8DC6md5i4YKCjZYzuU59
+         sx/qRR/jcVRBBKv7oKhuH9iBc3IJXCbJv2gfBi1fMWyBOlnkVUfArDpy3uqlDME5wbS9
+         x37xz5AmRy83Vuv7q+yXoqQhomK3W9mQX2wxf+y0afUy0DoNE/fpMHSK1nJwdKgBfscR
+         ZQ8HenjrQaH6OtzaZWFQte8Ekmbf86M7bteyBUWY5EeFuhC3OuLlo3emPgBjJgMDOGeI
+         Nc8fN1w+OqiK1RT67mmRbqdbCeZLDXaZFqvQXCqnGnhp8MO0stez1gzRYTNCTTvvYtAn
+         RGKw==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=hHRb1RQpB3BXJQ5YCM1zC4B8jr0CBZ3vl9KqFIPf4kM=;
+        fh=wF/Yrd2E0xeKwPH74kML7cQSth+Fl4bwhVNrybJ4uh4=;
+        b=A/ZyAlHGaaiy/3nNhUWYaRACt1zJ2k9e5vKisejj3aZZTQun22NhwP4mYUBO/e731m
+         MXZSCp5kkkBfO+PskPnaBkNL+X7PMjGx+0/wN/j3YLJzHxjKYkOqv2xMGPzRD9rdWdc3
+         Ndy5cudvl9M30NOOrD4Ng9PP7e9mBbuP+vPvFLnh72HpgMnwRWK2VYPVM4lfkZmfC9dS
+         Tn9CY2ZFRD6TMh5wptsu5AcncuSGcY9NQH/w9/VU6UNOLd78DyKuczPliyLJXGdbbdZb
+         eXfYNfsZrMepmLLaaERNQRJoY9RCE53BILhHyL4EwQJGf35Up1FB+kFFmxCzQrwfBEtE
+         sFwg==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=FsdW7afa;
+       arc=pass (i=1);
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <banyus53@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id a640c23a62f3a-b8eda755d57sor282864866b.1.2026.02.09.23.29.26
+        for <estampel@gmail.com>
+        (Google Transport Security);
+        Mon, 09 Feb 2026 23:29:26 -0800 (PST)
+Received-SPF: pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=FsdW7afa;
+       arc=pass (i=1);
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+ARC-Seal: i=1; a=rsa-sha256; t=1770708566; cv=none;
+        d=google.com; s=arc-20240605;
+        b=ScrY2n1t2Zvt2xa7PIDCiVekDRTimfeuswePFeTA/9Td4KoKkxCmhxDSx8QnHfdCGG
+         4QR7XYgdmDSRB0Nat28WlyzYI78KW4j7I6oq+h2r5Mz7dSBkD81i+he9IZyvYxtBilNH
+         vMCK/9/6QcZnBr9NuvStpYwLnDXGzm3vgK1Nu/49NNnzlYSgu9Wzaz6bVfzy1Asunk92
+         ggVpf0QfXMHhP0gzk7eJM48VxVuwRQPrsAOaeK6UfG2CNcK1YvQyy+Ud7l65ezOnF/pv
+         r/ZXoU6/woog6gQ/sgnvo0zNIUWdfdqsbMBiXLSp+GReAxtzlZVWwTtxXMgEh6RtCK1y
+         jHHQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=hHRb1RQpB3BXJQ5YCM1zC4B8jr0CBZ3vl9KqFIPf4kM=;
+        fh=wF/Yrd2E0xeKwPH74kML7cQSth+Fl4bwhVNrybJ4uh4=;
+        b=fvNBfAOfxcKRt+QoOB7TYiq39hpyMhCm1Yz6r/77U2h+mm6RqTrRXNErjG4iizxtNR
+         CYgYhdg1fcBfOCvh2zavCCDR1rpU630XeMfHgk1lvRe1RVktXKHpYymm6ncUq1cOHIBN
+         QfAXb8oxpCCZ17QODauW4hhfUIoRBbFqbmz69+080tMzZCvQUm/y1ePguLwa/aYiE8ja
+         iIG1t6QmQvO2ioRkoMED03rxePOj6ERBrxVN69DWEWUWHuLuPn+plOhlIGIJ6HRQWQQP
+         nNIjuSh/MXPRHcHvfOfskhG9G/hKrkybij76zXqA0T8o6hn4IBAOVfzhO9j7rgOFOuIq
+         G6oA==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1770708566; x=1771313366; dara=google.com;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=hHRb1RQpB3BXJQ5YCM1zC4B8jr0CBZ3vl9KqFIPf4kM=;
+        b=FsdW7afaShtLnyTJKUJzuJvWLgEk+BkeLhf1AfGEUcjRjAFmZYJISRvwbdRErzVkR3
+         FFZCjEiFiSyxWoZ7MA+Csnnz0XjtSAJaaZikvDLK1pO43yQaCRjUHlOFOMHAKGH6uw4r
+         GmPPOVif/PyrOCHYLyFhZjoCAtiWesdjy8/oB6VERzK+x74jUqF88Zw5KuFZl4H5SX5b
+         5gmM1wBH9zJFqb8irb4dbbddCBtV0hHfrioPvA87CdeD5MXW5Df+7dGhjvV7nM83cb9K
+         LH1SjFMx52PFIaKg3fsoRcyHb5QG8UZ8cJi+Fahm5ZKGQj/0XzoVtjf4hKUYV5z66dqW
+         gwtw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1770708566; x=1771313366;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=hHRb1RQpB3BXJQ5YCM1zC4B8jr0CBZ3vl9KqFIPf4kM=;
+        b=f8da+9kVkOLBJuev9OfZDE/49jwYl0SFctoDOnWmXGwKV0PzDNVN6v1slk9hZPIM09
+         VtowEAy4nPHfJEGzzKg1E3E3gX9vTv0JnECwkNh+BOqZXldKMMO/+aKfj+MKp+yI4/7H
+         HpgNaR1t4YHqSOPHp9mkcIgywJpw2ZXYk9fRhkdjXFT81avd/u98PlbeZWRo7w/XFOP3
+         6xiOYY4nlRjAWWPltmxaWkUSVymngd/YV3ohvFkPNhwFdGhiHU+PbFUjKNFvM1FOo0n6
+         ZKuu5T1KNazLEFzJiQJPzld3cWBLtSyWas935bALqWy4wDy2lfOoR1OwSCEvjB7IcD6E
+         xikg==
+X-Gm-Message-State: AOJu0YyZ69Eff55vb4P5NjD8eW9zzDCFApd/7k/OcUp5H53n6JkPu06b
+	2KcOH+WV0DKHHqyFwxTLveiAjSdtbfhvuNxuN1f28koPUgPW/B3iTumWdVYB8desAaF3+y7r0PX
+	GQezAe/RSE1bhz1epd0LgRLxXPdVecggu2w==
+X-Gm-Gg: AZuq6aJxe7frihkyp5HnttrV2IxGkmcqijbwqKCJmXyIufwBTa6q4WDqSgEy8FvNAjy
+	ENJeDSkh7E5yB9D9ocF5c++bPT1VVRCPrqUr3g7ta23CGeJ65cAhq/i+VUAbiVi7BPUESYx3c2V
+	dNehfvUBpCH6A7Ega4cWpWaZLbSvcB0xnixacF0h11fv2F4u16LFGKfHLhZWLdSUNA/swqx2nV4
+	9RX5xddU5NPB5K8Jr3zfpq3az8yT85YEgL5JLvQO141HOQdjckhe3OwZV2fNbfS4XI8xNX42JKK
+	olDyAEsRy0c2tecsWRRVMeofKDPy0cM+V1yMavgi150Vmai1GUBP
+X-Received: by 2002:a17:907:d9e:b0:b88:5e4c:f837 with SMTP id
+ a640c23a62f3a-b8edf456022mr744919266b.64.1770708565463; Mon, 09 Feb 2026
+ 23:29:25 -0800 (PST)
+MIME-Version: 1.0
+References: <amnesty+m.8987408.q6rt9p047w0o52a6@crm.reflexive.hu>
+In-Reply-To: <amnesty+m.8987408.q6rt9p047w0o52a6@crm.reflexive.hu>
+From: =?UTF-8?B?w4FnbmVzIEJ1Z8Ohcg==?= <banyus53@gmail.com>
+Date: Tue, 10 Feb 2026 08:28:52 +0100
+X-Gm-Features: AZwV_Qj9AerkTkDwkzt2EFmmLB1hy_FV1kdpuBcyNVso4egPyEJz_XFzC0PbgBI
+Message-ID: <CA+39czW5SAJun_+1BdrJy9da3Z06HwXUS7QJy9f+s898Sdbf1A@mail.gmail.com>
+Subject: =?UTF-8?B?RndkOiDDmmogc3ppbnRyZSBsw6lwZXR0IGF6IMO2bmvDqW55OiB2w6FkYXQgZW1lbHRlaw==?=
+	=?UTF-8?B?IGEgUMOpY3MgUHJpZGUgc3plcnZlesWRamUgZWxsZW4=?=
+To: Emese Stampel <estampel@gmail.com>
+Content-Type: multipart/alternative; boundary="0000000000000b96f9064a733787"
+
+--0000000000000b96f9064a733787
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+---------- Forwarded message ---------
+Felad=C3=B3: Mih=C3=A1ly Eszter / Amnesty International <mihaly.eszter@amne=
+sty.hu>
+Date: 2026. febr. 9., H, 17:03
+Subject: =C3=9Aj szintre l=C3=A9pett az =C3=B6nk=C3=A9ny: v=C3=A1dat emelte=
+k a P=C3=A9cs Pride szervez=C5=91je
+ellen
+To: Bug=C3=A1r =C3=81gnes M=C3=A1ria <banyus53@gmail.com>
+
+
+<https://civicrm.amnesty.hu/civicrm/mailing/url?u=3D696336&qid=3D8987408>
+Kedves =C3=81gnes M=C3=A1ria!
+
+
+A mai napon az =C3=BCgy=C3=A9szs=C3=A9g v=C3=A1dat emelt Buz=C3=A1s-H=C3=A1=
+bel G=C3=A9za, a P=C3=A9cs Pride szervez=C5=91je
+ellen. Ez a d=C3=B6nt=C3=A9s egy =C3=BAjabb m=C3=A9rf=C3=B6ldk=C5=91 a jog=
+=C3=A1llamis=C3=A1g lebont=C3=A1s=C3=A1ban. Az
+=C3=BCgy=C3=A9szs=C3=A9g azt ind=C3=ADtv=C3=A1nyozta, hogy a b=C3=ADr=C3=B3=
+s=C3=A1g t=C3=A1rgyal=C3=A1s mell=C5=91z=C3=A9s=C3=A9vel
+b=C3=BCntet=C5=91v=C3=A9gz=C3=A9ssel p=C3=A9nzb=C3=BCntet=C3=A9st szabjon k=
+i.
+[image: G=C3=A9za kit=C3=BCntet=C3=A9st =C3=A9rdemel, nem b=C3=BCntet=C3=A9=
+st!]
+<https://civicrm.amnesty.hu/civicrm/mailing/url?u=3D696337&qid=3D8987408>
+
+A szabads=C3=A1gt=C3=B3l retteg=C5=91 hatalom el akar hallgattatni mindenki=
+t, aki mer
+saj=C3=A1t v=C3=A9lem=C3=A9nyt megfogalmazni, aki kritikusan gondolkozik =
+=C3=A9s ki mer =C3=A1llni a
+sz=C3=A1m=C3=A1ra fontos =C3=BCgyek mellett. A G=C3=A9za elleni elj=C3=A1r=
+=C3=A1ssal a hat=C3=B3s=C3=A1gok el
+akarnak rettenteni mindenkit att=C3=B3l, hogy nyilv=C3=A1nosan t=C3=BCntess=
+en a szexu=C3=A1lis
+=C3=A9s nemi kisebbs=C3=A9gek jogfoszt=C3=A1sa =C3=A9s a korm=C3=A1ny gy=C3=
+=BClekez=C3=A9si jogot =C3=B6nk=C3=A9nyesen
+korl=C3=A1toz=C3=B3 szab=C3=A1lyai ellen.
+
+*Seg=C3=ADts, hogy min=C3=A9l t=C3=B6bb emberhez eljusson ennek a felh=C3=
+=A1bor=C3=ADt=C3=B3 d=C3=B6nt=C3=A9snek a
+h=C3=ADre. *Oszd meg a pet=C3=ADci=C3=B3nkat
+<https://civicrm.amnesty.hu/civicrm/mailing/url?u=3D696337&qid=3D8987408>, =
+=C3=A9s
+h=C3=ADvjuk fel egy=C3=BCtt min=C3=A9l t=C3=B6bb ember figyelm=C3=A9t arra,=
+ hogy* a t=C3=A9t, hogy olyan
+orsz=C3=A1gban =C3=A9lhet=C3=BCnk-e, ahol szabadon ki=C3=A1llhatunk az =C3=
+=A9rt=C3=A9keink =C3=A9s a
+v=C3=A9lem=C3=A9ny=C3=BCnk mellet. *
+
+=C3=89n m=C3=A1r al=C3=A1=C3=ADrtam a pet=C3=ADci=C3=B3t, amit a P=C3=A9cs =
+Pride szervez=C5=91j=C3=A9nek, Buz=C3=A1s-H=C3=A1bel
+G=C3=A9z=C3=A1nak a v=C3=A9delm=C3=A9ben ind=C3=ADtott az Amnesty. G=C3=A9z=
+a ellen az=C3=A9rt emeltek v=C3=A1dat,
+mert egy b=C3=A9k=C3=A9s felvonul=C3=A1st megszervezett. Emellett nem mehet=
+=C3=BCnk el sz=C3=B3
+n=C3=A9lk=C3=BCl!
+Megosztom itt: Facebook
+<https://civicrm.amnesty.hu/civicrm/mailing/url?u=3D696338&qid=3D8987408>
+=C3=9Cdv=C3=B6zlettel,
+
+Mih=C3=A1ly Eszter
+LMBTQI+ jogokkal foglalkoz=C3=B3 munkat=C3=A1rs
+www.amnesty.hu
+
+Az=C3=A9rt kaptad ezt a levelet, mert enged=C3=A9lyt adt=C3=A1l r=C3=A1, ho=
+gy a szexu=C3=A1lis =C3=A9s
+nemi kisebbs=C3=A9gek jogai=C3=A9rt v=C3=A9gzett munk=C3=A1nkr=C3=B3l t=C3=
+=A1j=C3=A9koztassunk. Ha nem
+szeretn=C3=A9l t=C3=B6bb h=C3=ADrlevelet kapni t=C5=91l=C3=BCnk, itt tudsz =
+leiratkozni
+<https://civicrm.amnesty.hu/civicrm/one-click/unsubscribe?reset=3D1&jid=3D1=
+60760&qid=3D8987408&h=3Dq6rt9p047w0o52a6>
+.
+ [image: Facebook]
+<https://civicrm.amnesty.hu/civicrm/mailing/url?u=3D696339&qid=3D8987408>  =
+[image:
+Web] <https://civicrm.amnesty.hu/civicrm/mailing/url?u=3D696336&qid=3D89874=
+08>
+ [image:
+Instagram]
+<https://civicrm.amnesty.hu/civicrm/mailing/url?u=3D696340&qid=3D8987408>
+
+Ha mostant=C3=B3l semmilyen t=C3=A9m=C3=A1ban nem szeretn=C3=A9l t=C5=91l=
+=C3=BCnk levelet kapni,
+a(z) banyus53@gmail.com e-mail c=C3=ADmet itt tudod letiltani
+<https://civicrm.amnesty.hu/civicrm/one-click/no-bulk?reset=3D1&jid=3D16076=
+0&qid=3D8987408&h=3Dq6rt9p047w0o52a6>
+.
+
+--0000000000000b96f9064a733787
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><br><br><div class=3D"gmail_quote gmail_quote_container"><=
+div dir=3D"ltr" class=3D"gmail_attr">---------- Forwarded message ---------=
+<br>Felad=C3=B3: <strong class=3D"gmail_sendername" dir=3D"auto">Mih=C3=A1l=
+y  Eszter / Amnesty International</strong> <span dir=3D"auto">&lt;<a href=
+=3D"mailto:mihaly.eszter@amnesty.hu">mihaly.eszter@amnesty.hu</a>&gt;</span=
+><br>Date: 2026. febr. 9., H, 17:03<br>Subject: =C3=9Aj szintre l=C3=A9pett=
+ az =C3=B6nk=C3=A9ny: v=C3=A1dat emeltek a P=C3=A9cs Pride szervez=C5=91je =
+ellen<br>To: Bug=C3=A1r =C3=81gnes M=C3=A1ria &lt;<a href=3D"mailto:banyus5=
+3@gmail.com">banyus53@gmail.com</a>&gt;<br></div><br><br><div class=3D"msg-=
+2211730983808285066"><u></u>
+
+ =20
+ =20
+ =20
+ =20
+ =20
+ =20
+ =20
+ =20
+ =20
+ =20
+
+
+<div bgcolor=3D"#ffffff" text=3D"#595959" alink=3D"#3f3f3f" vlink=3D"#3f3f3=
+f" style=3D"margin:0;padding:0;background-color:#ffffff;color:#595959"><cen=
+ter>
+
+ =20
+
+  <table role=3D"presentation" class=3D"m_-2211730983808285066vb-outer" wid=
+th=3D"100%" cellpadding=3D"0" border=3D"0" cellspacing=3D"0" bgcolor=3D"#ff=
+ffff" id=3D"m_-2211730983808285066ko_imageBlock_1" style=3D"background-colo=
+r:#ffffff">
+      <tbody><tr><td class=3D"m_-2211730983808285066vb-outer" align=3D"cent=
+er" valign=3D"top" style=3D"padding-left:9px;padding-right:9px;font-size:0"=
+>
+      <div style=3D"margin:0 auto;max-width:570px"><table role=3D"presentat=
+ion" class=3D"m_-2211730983808285066vb-row" border=3D"0" cellpadding=3D"0" =
+cellspacing=3D"0" bgcolor=3D"#ffffff" width=3D"570" style=3D"border-collaps=
+e:collapse;width:100%;background-color:#ffffff;max-width:570px">
+       =20
+        <tbody><tr><td width=3D"100%" valign=3D"top" align=3D"center" class=
+=3D"m_-2211730983808285066links-color"><a href=3D"https://civicrm.amnesty.h=
+u/civicrm/mailing/url?u=3D696336&amp;qid=3D8987408" rel=3D"nofollow" style=
+=3D"color:#3f3f3f;color:#000000;text-decoration:underline;display:inline-bl=
+ock" target=3D"_blank"><img border=3D"0" hspace=3D"0" align=3D"center" vspa=
+ce=3D"0" width=3D"570" class=3D"m_-2211730983808285066mobile-full" style=3D=
+"border:0px;display:block;vertical-align:top;height:auto;margin:0 auto;colo=
+r:#000000;font-size:16px;font-family:Arial,Helvetica,sans-serif;width:100%;=
+max-width:570px;height:auto" src=3D"https://civicrm.amnesty.hu/sites/defaul=
+t/files/civicrm/persist/contribute/images/uploads/static/fejl_c_web_f9f9e62=
+cca7fc11e21641950a838d1c7.jpg"></a></td></tr>
+     =20
+      </tbody></table></div>
+     =20
+    </td></tr>
+    </tbody></table><table role=3D"presentation" class=3D"m_-22117309838082=
+85066vb-outer" width=3D"100%" cellpadding=3D"0" border=3D"0" cellspacing=3D=
+"0" bgcolor=3D"#ffffff" id=3D"m_-2211730983808285066ko_singleArticleBlock_2=
+" style=3D"background-color:#ffffff">
+      <tbody><tr><td class=3D"m_-2211730983808285066vb-outer" align=3D"cent=
+er" valign=3D"top" style=3D"padding-left:9px;padding-right:9px;font-size:0"=
+>
+      <div style=3D"margin:0 auto;max-width:570px"><table role=3D"presentat=
+ion" class=3D"m_-2211730983808285066vb-row" border=3D"0" cellpadding=3D"0" =
+cellspacing=3D"9" bgcolor=3D"#ffffff" width=3D"570" style=3D"border-collaps=
+e:collapse;width:100%;background-color:#ffffff;max-width:570px">
+       =20
+        <tbody><tr>
+      <td align=3D"center" valign=3D"top" style=3D"font-size:0;padding:0 9p=
+x;padding-top:13px;padding-bottom:13px"><div style=3D"vertical-align:top;wi=
+dth:100%;max-width:552px"><table role=3D"presentation" border=3D"0" cellspa=
+cing=3D"9" cellpadding=3D"0" style=3D"border-collapse:collapse;width:100%" =
+width=3D"552">
+         =20
+          <tbody>
+         =20
+          <tr><td class=3D"m_-2211730983808285066long-text m_-2211730983808=
+285066links-color" width=3D"100%" valign=3D"top" align=3D"left" style=3D"fo=
+nt-weight:normal;color:#000000;font-size:16px;font-family:Arial,Helvetica,s=
+ans-serif;padding:9px;padding-top:5px;padding-bottom:5px;padding:9px;paddin=
+g-top:5px;padding-bottom:5px;text-align:left;line-height:normal"><div style=
+=3D"text-align:justify">Kedves =C3=81gnes M=C3=A1ria!</div>
+<div style=3D"text-align:justify">=C2=A0</div>
+<div style=3D"text-align:justify">
+<p style=3D"margin:1em 0px;margin-bottom:0px;margin-top:0px"><span lang=3D"=
+HU-HU"><span>A mai napon az =C3=BCgy=C3=A9szs=C3=A9g v=C3=A1dat emelt Buz=
+=C3=A1s-</span><span>H=C3=A1bel</span><span>=C2=A0G=C3=A9za, a P=C3=A9cs=C2=
+=A0</span><span>Pride</span><span>=C2=A0szervez=C5=91je ellen. Ez a d=C3=B6=
+nt=C3=A9s egy =C3=BAjabb m=C3=A9rf=C3=B6ldk=C5=91 a jog=C3=A1llamis=C3=A1g =
+lebont=C3=A1s=C3=A1ban.=C2=A0</span><span>Az =C3=BCgy=C3=A9szs=C3=A9g azt i=
+nd=C3=ADtv=C3=A1nyozta, hogy a
+b=C3=ADr=C3=B3s=C3=A1g t=C3=A1rgyal=C3=A1s mell=C5=91z=C3=A9s=C3=A9vel b=C3=
+=BCntet=C5=91v=C3=A9gz=C3=A9ssel p=C3=A9nzb=C3=BCntet=C3=A9st szabjon ki.</=
+span></span><span>=C2=A0</span></p>
+</div></td></tr>
+         =20
+       =20
+        </tbody></table></div></td>
+    </tr>
+     =20
+      </tbody></table></div>
+    </td></tr>
+    </tbody></table><table role=3D"presentation" class=3D"m_-22117309838082=
+85066vb-outer" width=3D"100%" cellpadding=3D"0" border=3D"0" cellspacing=3D=
+"0" bgcolor=3D"#ffffff" id=3D"m_-2211730983808285066ko_imageBlock_2" style=
+=3D"background-color:#ffffff">
+      <tbody><tr><td class=3D"m_-2211730983808285066vb-outer" align=3D"cent=
+er" valign=3D"top" style=3D"padding-left:9px;padding-right:9px;font-size:0"=
+>
+      <div style=3D"margin:0 auto;max-width:570px"><table role=3D"presentat=
+ion" class=3D"m_-2211730983808285066vb-row" border=3D"0" cellpadding=3D"0" =
+cellspacing=3D"0" bgcolor=3D"#ffffff" width=3D"570" style=3D"border-collaps=
+e:collapse;width:100%;background-color:#ffffff;max-width:570px">
+       =20
+        <tbody><tr><td width=3D"100%" valign=3D"top" align=3D"center" class=
+=3D"m_-2211730983808285066links-color"><a href=3D"https://civicrm.amnesty.h=
+u/civicrm/mailing/url?u=3D696337&amp;qid=3D8987408" rel=3D"nofollow" style=
+=3D"color:#3f3f3f;color:#000000;text-decoration:underline;display:inline-bl=
+ock" target=3D"_blank"><img alt=3D"G=C3=A9za kit=C3=BCntet=C3=A9st =C3=A9rd=
+emel, nem b=C3=BCntet=C3=A9st!" border=3D"0" hspace=3D"0" align=3D"center" =
+vspace=3D"0" width=3D"570" class=3D"m_-2211730983808285066mobile-full" styl=
+e=3D"border:0px;display:block;vertical-align:top;height:auto;margin:0 auto;=
+color:#000000;font-size:16px;font-family:Arial,Helvetica,sans-serif;width:1=
+00%;max-width:570px;height:auto" src=3D"https://civicrm.amnesty.hu/sites/de=
+fault/files/civicrm/persist/contribute/images/uploads/static/Karmelita_G_za=
+_20251216_NSD_9207_nagyszabolcs_ab68ccae1c54706b7661ad841002826d.jpg"></a><=
+/td></tr>
+     =20
+      </tbody></table></div>
+     =20
+    </td></tr>
+    </tbody></table><table role=3D"presentation" class=3D"m_-22117309838082=
+85066vb-outer" width=3D"100%" cellpadding=3D"0" border=3D"0" cellspacing=3D=
+"0" bgcolor=3D"#ffffff" id=3D"m_-2211730983808285066ko_textBlock_2" style=
+=3D"background-color:#ffffff">
+      <tbody><tr><td class=3D"m_-2211730983808285066vb-outer" align=3D"cent=
+er" valign=3D"top" style=3D"padding-left:9px;padding-right:9px;font-size:0"=
+>
+      <div style=3D"margin:0 auto;max-width:570px"><table role=3D"presentat=
+ion" class=3D"m_-2211730983808285066vb-row" border=3D"0" cellpadding=3D"0" =
+cellspacing=3D"9" bgcolor=3D"#ffffff" width=3D"570" style=3D"border-collaps=
+e:collapse;width:100%;background-color:#ffffff;max-width:570px">
+       =20
+        <tbody><tr>
+      <td align=3D"center" valign=3D"top" style=3D"font-size:0;padding:0 9p=
+x;padding-top:13px;padding-bottom:13px"><div style=3D"vertical-align:top;wi=
+dth:100%;max-width:552px"><table role=3D"presentation" border=3D"0" cellspa=
+cing=3D"9" cellpadding=3D"0" style=3D"border-collapse:collapse;width:100%" =
+width=3D"552">
+         =20
+          <tbody><tr><td class=3D"m_-2211730983808285066long-text m_-221173=
+0983808285066links-color" width=3D"100%" valign=3D"top" align=3D"left" styl=
+e=3D"font-weight:normal;color:#000000;font-size:16px;font-family:Arial,Helv=
+etica,sans-serif;padding:9px;padding-top:5px;padding-bottom:5px;padding:9px=
+;padding-top:5px;padding-bottom:5px;text-align:left;line-height:normal"><di=
+v style=3D"text-align:justify">
+<p style=3D"margin:1em 0px;margin-top:0px"><span>A szabads=C3=A1gt=C3=B3l r=
+etteg=C5=91 hatalom=C2=A0el akar hallgattatni=C2=A0mindenkit, aki mer saj=
+=C3=A1t v=C3=A9lem=C3=A9nyt megfogalmazni, aki kritikusan gondolkozik =C3=
+=A9s ki mer =C3=A1llni a sz=C3=A1m=C3=A1ra fontos =C3=BCgyek mellett. A G=
+=C3=A9za elleni elj=C3=A1r=C3=A1ssal a hat=C3=B3s=C3=A1gok el akarnak rette=
+nteni mindenkit att=C3=B3l, hogy nyilv=C3=A1nosan t=C3=BCntessen a szexu=C3=
+=A1lis =C3=A9s nemi kisebbs=C3=A9gek jogfoszt=C3=A1sa =C3=A9s a korm=C3=A1n=
+y gy=C3=BClekez=C3=A9si jogot =C3=B6nk=C3=A9nyesen korl=C3=A1toz=C3=B3 szab=
+=C3=A1lyai ellen.=C2=A0</span><span>=C2=A0</span></p>
+<p style=3D"margin:1em 0px;margin-bottom:0px"><span><strong>Seg=C3=ADts, ho=
+gy min=C3=A9l t=C3=B6bb emberhez eljusson ennek a felh=C3=A1bor=C3=ADt=C3=
+=B3 d=C3=B6nt=C3=A9snek a h=C3=ADre.=C2=A0</strong><a href=3D"https://civic=
+rm.amnesty.hu/civicrm/mailing/url?u=3D696337&amp;qid=3D8987408" rel=3D"nofo=
+llow" style=3D"color:#3f3f3f;color:#000000;text-decoration:underline" targe=
+t=3D"_blank">Oszd meg=C2=A0a pet=C3=ADci=C3=B3nkat</a>, =C3=A9s h=C3=ADvjuk=
+ fel egy=C3=BCtt min=C3=A9l t=C3=B6bb ember figyelm=C3=A9t arra, hogy<stron=
+g> a=C2=A0t=C3=A9t, hogy olyan orsz=C3=A1gban =C3=A9lhet=C3=BCnk-e, ahol sz=
+abadon ki=C3=A1llhatunk az =C3=A9rt=C3=A9keink =C3=A9s a v=C3=A9lem=C3=A9ny=
+=C3=BCnk mellet.=C2=A0</strong></span><span>=C2=A0</span></p>
+</div></td></tr>
+       =20
+        </tbody></table></div></td>
+    </tr>
+     =20
+      </tbody></table></div>
+    </td></tr>
+    </tbody></table><table role=3D"presentation" class=3D"m_-22117309838082=
+85066vb-outer" width=3D"100%" cellpadding=3D"0" border=3D"0" cellspacing=3D=
+"0" bgcolor=3D"#ffffff" id=3D"m_-2211730983808285066ko_textBlock_1" style=
+=3D"background-color:#ffffff">
+      <tbody><tr><td class=3D"m_-2211730983808285066vb-outer" align=3D"cent=
+er" valign=3D"top" style=3D"padding-left:9px;padding-right:9px;font-size:0"=
+>
+      <div style=3D"margin:0 auto;max-width:570px"><table role=3D"presentat=
+ion" class=3D"m_-2211730983808285066vb-row" border=3D"0" cellpadding=3D"0" =
+cellspacing=3D"9" bgcolor=3D"#ffffff" width=3D"570" style=3D"border-collaps=
+e:collapse;width:100%;background-color:#ffffff;max-width:570px">
+       =20
+        <tbody><tr>
+      <td align=3D"center" valign=3D"top" style=3D"font-size:0;padding:0 9p=
+x;padding-top:13px;padding-bottom:13px"><div style=3D"vertical-align:top;wi=
+dth:100%;max-width:552px"><table role=3D"presentation" border=3D"0" cellspa=
+cing=3D"9" cellpadding=3D"0" style=3D"border-collapse:collapse;width:100%" =
+width=3D"552">
+         =20
+          <tbody><tr><td class=3D"m_-2211730983808285066long-text m_-221173=
+0983808285066links-color" width=3D"100%" valign=3D"top" align=3D"left" styl=
+e=3D"font-weight:normal;color:#000000;font-size:16px;font-family:Arial,Helv=
+etica,sans-serif;padding:9px;padding-top:5px;padding-bottom:5px;padding:9px=
+;padding-top:5px;padding-bottom:5px;text-align:left;line-height:normal"><di=
+v style=3D"margin:0;padding:0">
+<table role=3D"presentation" width=3D"100%" cellspacing=3D"0" cellpadding=
+=3D"0" bgcolor=3D"transparent" style=3D"table-layout:fixed;vertical-align:t=
+op;min-width:320px;border-spacing:0;border-collapse:collapse;background-col=
+or:transparent;width:100%">
+<tbody>
+<tr valign=3D"top" style=3D"vertical-align:top;border-collapse:collapse">
+<td valign=3D"top" style=3D"word-break:break-word;vertical-align:top;paddin=
+g-right:10px;padding-left:10px;border-collapse:collapse">
+<div style=3D"min-width:320px;max-width:320px;word-wrap:break-word;word-bre=
+ak:break-word;margin:0 auto;background-color:transparent">
+<div style=3D"border-collapse:collapse;display:table;width:100%;background-=
+color:transparent">
+<div style=3D"display:table-cell;vertical-align:top;min-width:240px;max-wid=
+th:320px;padding:5px">
+<div style=3D"background-color:#ffffff;border:1px solid #ccc;padding:12px;b=
+order-radius:8px">=20
+<div style=3D"padding:0;color:#555555;font-family:Arial,Helvetica Neue,Helv=
+etica,sans-serif">
+<p dir=3D"auto" style=3D"margin:1em 0px;margin-bottom:10px;margin-top:0px;f=
+ont-size:12px;line-height:1.35;word-break:break-word;text-align:left;color:=
+#444">=C3=89n m=C3=A1r al=C3=A1=C3=ADrtam a pet=C3=ADci=C3=B3t, amit a P=C3=
+=A9cs Pride szervez=C5=91j=C3=A9nek, Buz=C3=A1s-H=C3=A1bel G=C3=A9z=C3=A1na=
+k a v=C3=A9delm=C3=A9ben ind=C3=ADtott az Amnesty. G=C3=A9za ellen az=C3=A9=
+rt emeltek v=C3=A1dat, mert egy b=C3=A9k=C3=A9s felvonul=C3=A1st megszervez=
+ett. Emellett nem mehet=C3=BCnk el sz=C3=B3 n=C3=A9lk=C3=BCl!</p>
+</div>
+
+<div align=3D"center" style=3D"padding:0">
+<div style=3D"border-radius:8px;background-color:#e6e6e6"><img src=3D"https=
+://media.app.sosha.ai/ae4323d5-c2f3-496f-830e-f6cfc4307cc9/jpeg/360w.jpg" w=
+idth=3D"284" align=3D"center" border=3D"0" style=3D"display:block;text-deco=
+ration:none;height:auto;border:0;width:100%;max-width:100%;border-radius:8p=
+x"></div>
+</div>
+<div align=3D"center" style=3D"padding:0;margin-top:10px">  <a href=3D"http=
+s://civicrm.amnesty.hu/civicrm/mailing/url?u=3D696338&amp;qid=3D8987408" re=
+l=3D"nofollow" style=3D"background-color:#3b5998;border:0;border-radius:8px=
+;display:inline-block;font-family:Arial,Helvetica Neue,Helvetica,sans-serif=
+;font-size:14px;font-weight:600;line-height:40px;text-align:center;text-dec=
+oration:none;width:284px;color:#ffffff" target=3D"_blank">Megosztom itt: Fa=
+cebook</a> </div>
+</div>
+</div>
+</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div></td></tr>
+       =20
+        </tbody></table></div></td>
+    </tr>
+     =20
+      </tbody></table></div>
+    </td></tr>
+    </tbody></table><table role=3D"presentation" class=3D"m_-22117309838082=
+85066vb-outer" width=3D"100%" cellpadding=3D"0" border=3D"0" cellspacing=3D=
+"0" bgcolor=3D"#ffffff" id=3D"m_-2211730983808285066ko_sideArticleBlock_3" =
+style=3D"background-color:#ffffff">
+      <tbody><tr><td class=3D"m_-2211730983808285066vb-outer" align=3D"cent=
+er" valign=3D"top" style=3D"padding-left:9px;padding-right:9px;font-size:0"=
+>
+      <div style=3D"margin:0 auto;max-width:570px"><table role=3D"presentat=
+ion" class=3D"m_-2211730983808285066vb-row" border=3D"0" cellpadding=3D"0" =
+cellspacing=3D"9" bgcolor=3D"#ffffff" width=3D"570" style=3D"border-collaps=
+e:collapse;width:100%;background-color:#ffffff;max-width:570px">
+       =20
+        <tbody><tr>
+      <td align=3D"center" valign=3D"top" style=3D"font-size:0;padding:0 9p=
+x;padding-top:13px;padding-bottom:13px"><table dir=3D"" role=3D"presentatio=
+n" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%"><tbody><=
+tr><td align=3D"center" valign=3D"top" dir=3D"ltr" style=3D"direction:ltr;b=
+order-collapse:collapse"><div style=3D"width:100%;max-width:552px"><div cla=
+ss=3D"m_-2211730983808285066mobile-full" style=3D"display:inline-block;vert=
+ical-align:top;width:100%;max-width:138px;min-width:calc(25%);max-width:cal=
+c(100%);width:calc(304704px - 55200%)"><table role=3D"presentation" border=
+=3D"0" cellspacing=3D"9" cellpadding=3D"0" width=3D"138" dir=3D"ltr" align=
+=3D"left" style=3D"border-collapse:collapse;width:100%;direction:ltr">
+         =20
+            <tbody><tr><td width=3D"100%" valign=3D"top" align=3D"center" c=
+lass=3D"m_-2211730983808285066links-color" style=3D"padding:9px;padding-top=
+:5px;padding-bottom:5px;padding:9px;padding-top:5px;padding-bottom:5px"><im=
+g border=3D"0" hspace=3D"0" align=3D"center" vspace=3D"0" width=3D"120" sty=
+le=3D"border:0px;display:block;vertical-align:top;height:auto;margin:0 auto=
+;color:#000000;font-size:16px;font-family:Arial,Helvetica,sans-serif;width:=
+100%;max-width:120px;height:auto" src=3D"https://civicrm.amnesty.hu/sites/d=
+efault/files/civicrm/persist/contribute/images/uploads/static/4_520x520_256=
+fd74d997c3f010dd84abb1642b3e2.jpg"></td></tr>
+         =20
+        </tbody></table></div><div class=3D"m_-2211730983808285066mobile-fu=
+ll" style=3D"display:inline-block;vertical-align:top;width:100%;max-width:4=
+14px;min-width:calc(75%);max-width:calc(100%);width:calc(304704px - 55200%)=
+"><table role=3D"presentation" border=3D"0" cellspacing=3D"9" cellpadding=
+=3D"0" width=3D"414" dir=3D"ltr" align=3D"left" style=3D"border-collapse:co=
+llapse;width:100%;direction:ltr">
+         =20
+            <tbody>
+            <tr><td class=3D"m_-2211730983808285066long-text m_-22117309838=
+08285066links-color" width=3D"100%" valign=3D"top" align=3D"left" style=3D"=
+font-weight:normal;color:#000000;font-size:16px;font-family:Arial,Helvetica=
+,sans-serif;padding:9px;padding-top:5px;padding-bottom:5px;padding:9px;padd=
+ing-top:5px;padding-bottom:5px;text-align:left;line-height:normal"><div>=C3=
+=9Cdv=C3=B6zlettel,</div>
+<div>=C2=A0</div>
+<div>Mih=C3=A1ly Eszter</div>
+<div>LMBTQI+ jogokkal foglalkoz=C3=B3 munkat=C3=A1rs</div>
+<div><a href=3D"http://www.amnesty.hu" target=3D"_blank">www.amnesty.hu</a>=
+</div>
+<div>=C2=A0</div></td></tr>
+           =20
+         =20
+        </tbody></table></div></div></td></tr></tbody></table></td>
+    </tr>
+     =20
+      </tbody></table></div>
+    </td></tr>
+    </tbody></table><table role=3D"presentation" class=3D"m_-22117309838082=
+85066vb-outer" width=3D"100%" cellpadding=3D"0" border=3D"0" cellspacing=3D=
+"0" bgcolor=3D"#ffffff" id=3D"m_-2211730983808285066ko_socialBlock_7" style=
+=3D"background-color:#ffffff">
+      <tbody><tr><td class=3D"m_-2211730983808285066vb-outer" align=3D"cent=
+er" valign=3D"top" style=3D"padding-left:9px;padding-right:9px;font-size:0"=
+>
+      <div style=3D"margin:0 auto;max-width:570px"><table role=3D"presentat=
+ion" class=3D"m_-2211730983808285066vb-row" border=3D"0" cellpadding=3D"0" =
+cellspacing=3D"9" style=3D"border-collapse:collapse;width:100%;max-width:57=
+0px" width=3D"570">
+       =20
+        <tbody><tr>
+      <td align=3D"center" valign=3D"top" style=3D"font-size:0;padding:0 9p=
+x;padding-top:9px;padding-bottom:9px"><div style=3D"width:100%;max-width:55=
+2px"><div class=3D"m_-2211730983808285066mobile-full" style=3D"display:inli=
+ne-block;vertical-align:top;width:100%;max-width:276px;padding-top:4px;padd=
+ing-bottom:4px;min-width:calc(50%);max-width:calc(100%);width:calc(304704px=
+ - 55200%)"><table role=3D"presentation" border=3D"0" cellspacing=3D"9" cel=
+lpadding=3D"0" style=3D"border-collapse:collapse;width:100%" width=3D"276" =
+align=3D"left">
+         =20
+            <tbody><tr><td class=3D"m_-2211730983808285066long-text m_-2211=
+730983808285066links-color" width=3D"100%" valign=3D"top" align=3D"left" st=
+yle=3D"font-weight:normal;color:#595959;font-size:13px;font-family:Arial,He=
+lvetica,sans-serif;padding:9px;padding-top:5px;padding-bottom:5px;padding:9=
+px;padding-top:5px;padding-bottom:5px;text-align:left"><div style=3D"text-a=
+lign:justify">Az=C3=A9rt kaptad ezt a levelet, mert enged=C3=A9lyt adt=C3=
+=A1l r=C3=A1, hogy a szexu=C3=A1lis =C3=A9s nemi kisebbs=C3=A9gek jogai=C3=
+=A9rt v=C3=A9gzett munk=C3=A1nkr=C3=B3l t=C3=A1j=C3=A9koztassunk. Ha nem sz=
+eretn=C3=A9l t=C3=B6bb h=C3=ADrlevelet kapni t=C5=91l=C3=BCnk, <a href=3D"h=
+ttps://civicrm.amnesty.hu/civicrm/one-click/unsubscribe?reset=3D1&amp;jid=
+=3D160760&amp;qid=3D8987408&amp;h=3Dq6rt9p047w0o52a6" rel=3D"noopener" styl=
+e=3D"color:#cccccc;color:#3f3f3f;text-decoration:underline" target=3D"_blan=
+k">itt tudsz leiratkozni</a>.</div></td></tr>
+         =20
+        </tbody></table></div><div class=3D"m_-2211730983808285066mobile-fu=
+ll" style=3D"display:inline-block;vertical-align:top;width:100%;max-width:2=
+76px;padding-top:4px;padding-bottom:4px;min-width:calc(50%);max-width:calc(=
+100%);width:calc(304704px - 55200%)"><table role=3D"presentation" border=3D=
+"0" cellspacing=3D"9" cellpadding=3D"0" style=3D"border-collapse:collapse;w=
+idth:100%" width=3D"276" align=3D"left">
+         =20
+            <tbody>
+            <tr><td width=3D"100%" valign=3D"top" align=3D"right" class=3D"=
+m_-2211730983808285066links-color m_-2211730983808285066socialLinks m_-2211=
+730983808285066mobile-textcenter" style=3D"font-size:6px;font-weight:normal=
+;text-align:right;padding:9px;padding-top:5px;padding-bottom:5px;padding:9p=
+x;padding-top:5px;padding-bottom:5px">
+             =20
+                =C2=A0<a style=3D"display:inline-block;color:#cccccc;color:=
+#3f3f3f;text-decoration:underline;background:url(),#818181;border-radius:50=
+px" href=3D"https://civicrm.amnesty.hu/civicrm/mailing/url?u=3D696339&amp;q=
+id=3D8987408" rel=3D"nofollow" target=3D"_blank"><img border=3D"0" style=3D=
+"border:0px;display:inline-block;vertical-align:top;padding-bottom:0px" src=
+=3D"https://civicrm.amnesty.hu/extensions/forked_mosaico/packages/mosaico/t=
+emplates/versafix-1/img/icons/fb-bw-96.png" width=3D"32" height=3D"32" alt=
+=3D"Facebook"></a>
+             =20
+               =20
+             =20
+               =20
+             =20
+                =C2=A0<a style=3D"display:inline-block;color:#cccccc;color:=
+#3f3f3f;text-decoration:underline;background:url(),#818181;border-radius:50=
+px" href=3D"https://civicrm.amnesty.hu/civicrm/mailing/url?u=3D696336&amp;q=
+id=3D8987408" rel=3D"nofollow" target=3D"_blank"><img border=3D"0" style=3D=
+"border:0px;display:inline-block;vertical-align:top;padding-bottom:0px" src=
+=3D"https://civicrm.amnesty.hu/extensions/forked_mosaico/packages/mosaico/t=
+emplates/versafix-1/img/icons/web-bw-96.png" width=3D"32" height=3D"32" alt=
+=3D"Web"></a>
+             =20
+               =20
+             =20
+               =20
+             =20
+               =20
+             =20
+               =20
+             =20
+               =20
+             =20
+               =20
+             =20
+                =C2=A0<a style=3D"display:inline-block;color:#cccccc;color:=
+#3f3f3f;text-decoration:underline;background:url(),#818181;border-radius:50=
+px" href=3D"https://civicrm.amnesty.hu/civicrm/mailing/url?u=3D696340&amp;q=
+id=3D8987408" rel=3D"nofollow" target=3D"_blank"><img border=3D"0" style=3D=
+"border:0px;display:inline-block;vertical-align:top;padding-bottom:0px" src=
+=3D"https://civicrm.amnesty.hu/extensions/forked_mosaico/packages/mosaico/t=
+emplates/versafix-1/img/icons/inst-bw-96.png" width=3D"32" height=3D"32" al=
+t=3D"Instagram"></a>
+             =20
+               =20
+             =20
+               =20
+             =20
+               =20
+             =20
+            </td></tr>
+           =20
+         =20
+        </tbody></table></div></div></td>
+    </tr>
+     =20
+      </tbody></table></div>
+    </td></tr>
+    </tbody></table><table role=3D"presentation" class=3D"m_-22117309838082=
+85066vb-outer" width=3D"100%" cellpadding=3D"0" border=3D"0" cellspacing=3D=
+"0" bgcolor=3D"#ffffff" id=3D"m_-2211730983808285066ko_textBlock_8" style=
+=3D"background-color:#ffffff">
+      <tbody><tr><td class=3D"m_-2211730983808285066vb-outer" align=3D"cent=
+er" valign=3D"top" style=3D"padding-left:9px;padding-right:9px;font-size:0"=
+>
+      <div style=3D"margin:0 auto;max-width:570px"><table role=3D"presentat=
+ion" class=3D"m_-2211730983808285066vb-row" border=3D"0" cellpadding=3D"0" =
+cellspacing=3D"9" bgcolor=3D"#ffffff" width=3D"570" style=3D"border-collaps=
+e:collapse;width:100%;background-color:#ffffff;max-width:570px">
+       =20
+        <tbody><tr>
+      <td align=3D"center" valign=3D"top" style=3D"font-size:0;padding:0 9p=
+x;padding-top:13px;padding-bottom:13px"><div style=3D"vertical-align:top;wi=
+dth:100%;max-width:552px"><table role=3D"presentation" border=3D"0" cellspa=
+cing=3D"9" cellpadding=3D"0" style=3D"border-collapse:collapse;width:100%" =
+width=3D"552">
+         =20
+          <tbody><tr><td class=3D"m_-2211730983808285066long-text m_-221173=
+0983808285066links-color" width=3D"100%" valign=3D"top" align=3D"left" styl=
+e=3D"font-weight:normal;color:#595959;font-size:13px;font-family:Arial,Helv=
+etica,sans-serif;padding:9px;padding-top:5px;padding-bottom:5px;padding:9px=
+;padding-top:5px;padding-bottom:5px;text-align:left;line-height:normal"><p =
+style=3D"margin:1em 0px;margin-bottom:0px;margin-top:0px;text-align:center"=
+>Ha mostant=C3=B3l semmilyen t=C3=A9m=C3=A1ban nem szeretn=C3=A9l t=C5=91l=
+=C3=BCnk levelet kapni,<br>a(z) <a href=3D"mailto:banyus53@gmail.com" targe=
+t=3D"_blank">banyus53@gmail.com</a> e-mail c=C3=ADmet <a href=3D"https://ci=
+vicrm.amnesty.hu/civicrm/one-click/no-bulk?reset=3D1&amp;jid=3D160760&amp;q=
+id=3D8987408&amp;h=3Dq6rt9p047w0o52a6" style=3D"color:#3f3f3f;color:#000000=
+;text-decoration:underline" target=3D"_blank">itt tudod letiltani</a>.</p><=
+/td></tr>
+       =20
+        </tbody></table></div></td>
+    </tr>
+     =20
+      </tbody></table></div>
+    </td></tr>
+    </tbody></table>
+
+</center></div>
+<img src=3D"https://civicrm.amnesty.hu/civicrm/mailing/open?qid=3D8987408" =
+width=3D"1" height=3D"1" alt=3D"" border=3D"0"></div></div></div>
+
+--0000000000000b96f9064a733787--

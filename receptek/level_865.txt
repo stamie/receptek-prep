@@ -1,0 +1,495 @@
+Delivered-To: estampel@gmail.com
+Received: by 2002:a05:6359:2104:b0:1c5:f3c5:8b74 with SMTP id lp4csp3335620rwb;
+        Tue, 10 Dec 2024 04:10:49 -0800 (PST)
+X-Received: by 2002:a17:906:3119:b0:aa6:5eae:7ed6 with SMTP id a640c23a62f3a-aa69cd453e1mr431386166b.13.1733832649557;
+        Tue, 10 Dec 2024 04:10:49 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1733832649; cv=none;
+        d=google.com; s=arc-20240605;
+        b=lGlvNYKlF3Ps2o/nb91Q+icBguyQeJ6YDg3vIlkN2f9fPUyfJ+YpOcrqQ2FjXeBqS+
+         NXYtFNqFDNkPeh0rmp+rK4Bm9YIcCgIayIyyKjuljSYfR8CNQWeLeW4l6zPfUVNRxNp9
+         iYPo2vw5mf9QOz11Je7efMHRUOw2KjBoyuZ+o3EHD82SkCUyoe85qFI/3dBdl7zItTZ9
+         a99g6OPRL/1NX3b8nq76m5Po6adb5qM1ds7IdTSE9SuuX9lBVvqFkdfPdPU7Vki0agFF
+         bUcxMOeFtXVycla2Ie6yyQRo5hpVWS+9u3HTyflWNI2/SY85jHepHAJv73SOkNL1IeYW
+         Wugg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=b/Vf59Udd7r087ABUAVnWoPT40td6TtdMEiXFCUIyB8=;
+        fh=wF/Yrd2E0xeKwPH74kML7cQSth+Fl4bwhVNrybJ4uh4=;
+        b=dCTf3NLM214w1VGYhCGxl1BTEK4ZDCzMKn671Ea0G3+/T1RkeVXdeV3FtzuwDAwcJB
+         B0T09TvVZTe8eIiEcnvcrncO3gEZ2+w+wNGz0UxZ0noadlDmeFjY3XG13GgSDlwr6Yn9
+         f1YP+AeWi7arORLEVnt5eLuQmTrKEdkhAQKJ+KvLVzZhKIibaEldFB0PvGTk32BqiYqE
+         wOTxGVo9GoUz4txAMTku8omDBq7EL85ApnfNjD3ni4ibChuLQM5NsKYbyqwjW7UsKHQM
+         72XLZke1wpiKPb3MVzFY+D5iaxsp0YcDJxMJ9OooKbWVEyp544kbpG7lv1xY1vQJPSg5
+         SgPQ==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=jpA88Bj9;
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <banyus53@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id a640c23a62f3a-aa6a7fdb6ddsor36525866b.13.2024.12.10.04.10.49
+        for <estampel@gmail.com>
+        (Google Transport Security);
+        Tue, 10 Dec 2024 04:10:49 -0800 (PST)
+Received-SPF: pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=jpA88Bj9;
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1733832648; x=1734437448; dara=google.com;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=b/Vf59Udd7r087ABUAVnWoPT40td6TtdMEiXFCUIyB8=;
+        b=jpA88Bj9yH2ogncUyuggB+dEFP93lxUy3+n0/Q+CbWdcfv6RzLLmxx6iQLFx5Cj7qq
+         oc1+I0Iwr9jhJovng5wV5gWJ8qN4nYs49n4mNkKKAQIWwMAphc11OA9qcRXIzhP7aVkx
+         A87M8wrg2g5anXK8qsbWTGkT/DbnbuchbDUIwya0407TiXxrAYQPCVsmIKkKzfwDcLfZ
+         m5A6nyUVMaiH9V/+ypqHJvGu2Y28tGsS5Befu+hVHlfVTIFZYwtwrukOFWRPoN8yAdjt
+         HboGfZlfNoapVG//IIJMQcykvaaED2tPmIXb+nNGpo8F2UCx/PpJD2BleTkCVFW8aaRX
+         GydA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733832648; x=1734437448;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=b/Vf59Udd7r087ABUAVnWoPT40td6TtdMEiXFCUIyB8=;
+        b=WcwZ+Ms5dZtYyMExc2liWsfQY2INTmhuXeiCEoD1sUfxKuYmNWVgF6Z4Zt0SKYtFP9
+         QK7FJbZan1Mxug/nRPH1qrFjajIe7EhyHMv6uhPquqDgsqONI5Jgi6DWp6Ci3MLa6s9P
+         MxTWUKM61p88UOTUKPN2IYCkvu9onDJHPj9hi+ZHTsDOCDTQdXYT6ksfIfNjUw1eaShH
+         IjKtdm/Qst1OQpSW0frL0vpHOMgHeFBYRBzKvZDrOECcgNnuSdQLMUxJroLFqi5WQFf6
+         Hgsh9/Pdw/KkLWOrtSSa5gEuAFhkSfl5b+RZQzXcBvZtO9zV4OCQDbGxBGUJ4tLBEb91
+         YeHA==
+X-Gm-Message-State: AOJu0YwKp8GADaLKjzTgpt2bfi230ZaEzi2yfQqzq73pzjzNio5Qh8Ys
+	2qmoj7dvudePcjAPezd/52hUWbDOUmsvMa7/IjlqogNkoi8vejJe5LkcJwW6oL8p+LrfQZjahXh
+	xeO4NVMki/Q7LLuPPm2WvC/o7EKTK7Q==
+X-Gm-Gg: ASbGncsW0WsEE2KojtaJDQepeps6WGlz3LrWv11OAFEP26xvDVdgE0buQ1WZhM9evEx
+	Yx5ZP11mxMws8X5C3Lv70vbNhoU9p/zmz8bJA4nwunj3o5LCnGWLd3MJFwOL9g1deLS3l1Q==
+X-Google-Smtp-Source: AGHT+IF5zif/iNbUKtRFMjU5m/eu3CmXb2PnraC2cZS8IaFWc47ecJFPpc6bbcz4jKu7vvFAxHpe79HAwfNbX6dDdYA=
+X-Received: by 2002:a17:906:30ca:b0:aa6:7855:ae52 with SMTP id
+ a640c23a62f3a-aa69cd2977emr392593266b.3.1733832647798; Tue, 10 Dec 2024
+ 04:10:47 -0800 (PST)
+MIME-Version: 1.0
+References: <256844937.1592430.1732708156065@5e80fb4ba299> <CA+39czX4uG2=GtOrM3gD1_L0ONBt5AgFwWsSEObUkKAXs=A5Ew@mail.gmail.com>
+ <CA+39czXBnVzPZoMpvsg+3NPTiGO6_O=PBT99gDyWVVk48-vxtg@mail.gmail.com>
+In-Reply-To: <CA+39czXBnVzPZoMpvsg+3NPTiGO6_O=PBT99gDyWVVk48-vxtg@mail.gmail.com>
+From: =?UTF-8?B?w4FnbmVzIEJ1Z8Ohcg==?= <banyus53@gmail.com>
+Date: Tue, 10 Dec 2024 13:10:19 +0100
+Message-ID: <CA+39czVB9iN=8EccO40e0NW3WUuxLcfBo2DuhO4vydxXyibGMQ@mail.gmail.com>
+Subject: =?UTF-8?B?RndkOiDDiXJ0ZXPDrXTDqXMgMjM2MTUwMzkyNzczMzIgbmVtemV0a8O2emkga8O8bGRlbQ==?=
+	=?UTF-8?B?w6lueSBmZWxhZMOhc8OhcsOzbA==?=
+To: Emese Stampel <estampel@gmail.com>
+Content-Type: multipart/mixed; boundary="00000000000012bd4d0628e95f37"
+
+--00000000000012bd4d0628e95f37
+Content-Type: multipart/alternative; boundary="00000000000012bd4b0628e95f35"
+
+--00000000000012bd4b0628e95f35
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+---------- Forwarded message ---------
+Felad=C3=B3: =C3=81gnes Bug=C3=A1r <banyus53@gmail.com>
+Date: 2024. dec. 5., Cs, 16:58
+Subject: Fwd: =C3=89rtes=C3=ADt=C3=A9s 23615039277332 nemzetk=C3=B6zi k=C3=
+=BCldem=C3=A9ny felad=C3=A1s=C3=A1r=C3=B3l
+To: Emese Stampel <estampel@gmail.com>
+
+
+
+---------- Forwarded message ---------
+Felad=C3=B3: =C3=81gnes Bug=C3=A1r <banyus53@gmail.com>
+Date: 2024. dec. 5., Cs 16:57
+Subject: Fwd: =C3=89rtes=C3=ADt=C3=A9s 23615039277332 nemzetk=C3=B6zi k=C3=
+=BCldem=C3=A9ny felad=C3=A1s=C3=A1r=C3=B3l
+To: Emese Stampel <estampel@gmail.com>
+
+
+
+---------- Forwarded message ---------
+Felad=C3=B3: DPD Hungary Kft. <noreply@dpd.hu>
+Date: 2024. nov. 27., Sze 12:49
+Subject: =C3=89rtes=C3=ADt=C3=A9s 23615039277332 nemzetk=C3=B6zi k=C3=BClde=
+m=C3=A9ny felad=C3=A1s=C3=A1r=C3=B3l
+To: <banyus53@gmail.com>
+
+
+Tisztelt C=C3=ADmzett!
+
+PIN: 2946
+
+=C3=89rtes=C3=ADtj=C3=BCk, hogy  az =C3=96n r=C3=A9sz=C3=A9re k=C3=A9zbes=
+=C3=ADtend=C5=91 nemzetk=C3=B6zi csomago(ka)t a
+k=C3=B6vetkez=C5=91 csomagsz=C3=A1mo(ko)n tartjuk nyilv=C3=A1n:
+
+*23615039277332
+<https://www.dpdgroup.com/hu/mydpd/my-parcels/track?parcelNumber=3D23615039=
+277332>*
+Ut=C3=A1nv=C3=A9t: *0.0 HUF*
+K=C3=A9szp=C3=A9nzes fizet=C3=A9s eset=C3=A9n k=C3=A9rj=C3=BCk, hogy a pont=
+os ut=C3=A1nv=C3=A9t =C3=B6sszeget k=C3=A9sz=C3=ADtse
+el=C5=91, mert fut=C3=A1raink nem minden esetben rendelkeznek v=C3=A1lt=C3=
+=B3p=C3=A9nzzel.
+
+300 ezer Ft felett kiz=C3=A1r=C3=B3lag bankk=C3=A1rty=C3=A1s fizet=C3=A9si =
+lehet=C5=91s=C3=A9get k=C3=ADn=C3=A1lunk.
+
+*Kisz=C3=A1ll=C3=ADt=C3=A1si c=C3=ADm:*
+AGNES MARIA BUGAR
+ROZSA UTCA 7
+<https://www.google.com/maps/search/ROZSA+UTCA+7+8699+SOMOGYVAMOS?entry=3Dg=
+mail&source=3Dg>
+8699 SOMOGYVAMOS
+<https://www.google.com/maps/search/ROZSA+UTCA+7+8699+SOMOGYVAMOS?entry=3Dg=
+mail&source=3Dg>
+
+*=C3=89rint=C3=A9smentes k=C3=A9zbes=C3=ADt=C3=A9s*
+
+K=C3=A9zbes=C3=ADt=C3=A9skor a 2946 PIN k=C3=B3d megad=C3=A1s=C3=A1val tudj=
+a al=C3=A1=C3=ADr=C3=A1s n=C3=A9lk=C3=BCl =C3=A1tvenni
+csomagj=C3=A1t. Ha nem rendelkezik PIN k=C3=B3ddal, a csomagok =C3=A1tv=C3=
+=A9tel=C3=A9t igazol=C3=B3
+al=C3=A1=C3=ADr=C3=A1s helyett lehet=C5=91s=C3=A9g van a szem=C3=A9lyi igaz=
+olv=C3=A1ny bemutat=C3=A1s=C3=A1ra is, aminek
+utols=C3=B3 4 karakter=C3=A9t fut=C3=A1r koll=C3=A9g=C3=A1ink r=C3=B6gz=C3=
+=ADtik az al=C3=A1=C3=ADr=C3=A1s helyettes=C3=ADt=C3=A9s=C3=A9re.
+
+*A k=C3=A9zbes=C3=ADt=C3=A9s napja:*
+Ellen=C5=91rizze a v=C3=A1rhat=C3=B3 k=C3=A9zbes=C3=ADt=C3=A9si napot Sz=C3=
+=A1ll=C3=ADt=C3=A1si id=C5=91 kalkul=C3=A1torunk
+seg=C3=ADts=C3=A9g=C3=A9vel az al=C3=A1bbi linkre kattintva:
+https://www.dpd.com/hu/hu/segitseg/szallitasi-ido-meretkalkulator/
+
+A k=C3=A9zbes=C3=ADt=C3=A9s napj=C3=A1n =C3=BAjabb =C3=A9rtes=C3=ADt=C3=A9s=
+t k=C3=BCld=C3=BCnk =C3=96nnek, melyben t=C3=A1j=C3=A9koztat=C3=A1st
+kap az adott napon bel=C3=BCl egy egy=C3=B3r=C3=A1s k=C3=A9zbes=C3=ADt=C3=
+=A9si id=C5=91intervallumr=C3=B3l. Az
+=C3=A9rtes=C3=ADt=C5=91ben szerepl=C5=91 id=C5=91intervallumok t=C3=A1j=C3=
+=A9koztat=C3=B3 jelleg=C5=B1ek. A DPD
+Hungary Kft. a nem id=C5=91garant=C3=A1lt szolg=C3=A1ltat=C3=A1sok eset=C3=
+=A9ben a kisz=C3=A1ll=C3=ADt=C3=A1si nap,
+id=C5=91pont v=C3=A1ltoz=C3=A1s=C3=A1=C3=A9rt felel=C5=91ss=C3=A9get nem v=
+=C3=A1llal.
+
+*Nyomk=C3=B6vet=C3=A9s, c=C3=ADmm=C3=B3dos=C3=ADt=C3=A1s, =C3=A1t=C3=BCteme=
+z=C3=A9s:*
+K=C3=BCldem=C3=A9ny=C3=A9t a www.dpd.hu oldalon k=C3=B6vetheti nyomon a cso=
+magsz=C3=A1m megad=C3=A1s=C3=A1val.
+Amennyiben a k=C3=A9zbes=C3=ADt=C3=A9s napja vagy a k=C3=A9zbes=C3=ADt=C3=
+=A9si c=C3=ADm nem megfelel=C5=91, a
+k=C3=BCldem=C3=A9ny Magyarorsz=C3=A1gra t=C3=B6rt=C3=A9n=C5=91 be=C3=A9rkez=
+=C3=A9s=C3=A9t k=C3=B6vet=C5=91en tudja majd m=C3=B3dos=C3=ADtani
+adatait a https://www.dpd.com/hu/hu/mydpd/ oldalon, melyhez a bel=C3=A9p=C3=
+=A9si
+k=C3=B3dot a k=C3=A9zbes=C3=ADt=C3=A9s napj=C3=A1n k=C3=BCld=C3=B6tt e-mail=
+ben kapja majd meg.
+
+Ez az e-mail =C3=A9s a vele egy=C3=BCtt tov=C3=A1bb=C3=ADtott f=C3=A1jlok b=
+izalmasak, =C3=A9s kiz=C3=A1r=C3=B3lag
+annak a szem=C3=A9lynek vagy szervezetnek sz=C3=B3lnak, akiknek c=C3=ADmezt=
+=C3=A9k =C5=91ket.
+Amennyiben ezt az e-mailt t=C3=A9ved=C3=A9sb=C5=91l kapta, akkor hivatkozva=
+ GDPR szem=C3=A9lyes
+adatok v=C3=A9delm=C3=A9re a k=C3=A9retlen levelet azonnali hat=C3=A1llyal =
+t=C3=B6r=C3=B6lje!
+Adatv=C3=A9delemmel kapcsolatos inform=C3=A1ci=C3=B3k=C3=A9rt k=C3=A9rj=C3=
+=BCk keresse fel a
+https://www.dpd.com/hu/home/siteutilities/adatvedelmi_nyilatkozat2 c=C3=ADm=
+en
+el=C3=A9rhet=C5=91 oldalunkat.
+
+Felh=C3=ADvjuk figyelm=C3=A9t, hogy erre az email-re a v=C3=A1lasz gomb meg=
+nyom=C3=A1s=C3=A1val nem
+tud v=C3=A1laszolni.
+
+=C3=9Cdv=C3=B6zlettel,
+
+DPD Hungary Kft. csapata
++36 1 501-6200 | dpd@dpd.hu
+
+--00000000000012bd4b0628e95f35
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><br><br><div class=3D"gmail_quote gmail_quote_container"><=
+div dir=3D"ltr" class=3D"gmail_attr">---------- Forwarded message ---------=
+<br>Felad=C3=B3: <strong class=3D"gmail_sendername" dir=3D"auto">=C3=81gnes=
+ Bug=C3=A1r</strong> <span dir=3D"auto">&lt;<a href=3D"mailto:banyus53@gmai=
+l.com">banyus53@gmail.com</a>&gt;</span><br>Date: 2024. dec. 5., Cs, 16:58<=
+br>Subject: Fwd: =C3=89rtes=C3=ADt=C3=A9s 23615039277332 nemzetk=C3=B6zi k=
+=C3=BCldem=C3=A9ny felad=C3=A1s=C3=A1r=C3=B3l<br>To: Emese Stampel &lt;<a h=
+ref=3D"mailto:estampel@gmail.com">estampel@gmail.com</a>&gt;<br></div><br><=
+br><div dir=3D"auto"></div><br><div class=3D"gmail_quote"><div dir=3D"ltr" =
+class=3D"gmail_attr">---------- Forwarded message ---------<br>Felad=C3=B3:=
+ <strong class=3D"gmail_sendername" dir=3D"auto">=C3=81gnes Bug=C3=A1r</str=
+ong> <span dir=3D"auto">&lt;<a href=3D"mailto:banyus53@gmail.com" target=3D=
+"_blank">banyus53@gmail.com</a>&gt;</span><br>Date: 2024. dec. 5., Cs 16:57=
+<br>Subject: Fwd: =C3=89rtes=C3=ADt=C3=A9s 23615039277332 nemzetk=C3=B6zi k=
+=C3=BCldem=C3=A9ny felad=C3=A1s=C3=A1r=C3=B3l<br>To: Emese Stampel &lt;<a h=
+ref=3D"mailto:estampel@gmail.com" target=3D"_blank">estampel@gmail.com</a>&=
+gt;<br></div><br><br><div dir=3D"auto"></div><br><div class=3D"gmail_quote"=
+><div dir=3D"ltr" class=3D"gmail_attr">---------- Forwarded message -------=
+--<br>Felad=C3=B3: <strong class=3D"gmail_sendername" dir=3D"auto">DPD Hung=
+ary Kft.</strong> <span dir=3D"auto">&lt;<a href=3D"mailto:noreply@dpd.hu" =
+rel=3D"noreferrer" target=3D"_blank">noreply@dpd.hu</a>&gt;</span><br>Date:=
+ 2024. nov. 27., Sze 12:49<br>Subject: =C3=89rtes=C3=ADt=C3=A9s 23615039277=
+332 nemzetk=C3=B6zi k=C3=BCldem=C3=A9ny felad=C3=A1s=C3=A1r=C3=B3l<br>To:  =
+&lt;<a href=3D"mailto:banyus53@gmail.com" rel=3D"noreferrer" target=3D"_bla=
+nk">banyus53@gmail.com</a>&gt;<br></div><br><br>=20
+ =20
+  =20
+ =20
+ <div>=20
+  <p><span style=3D"font-size:12pt"><span style=3D"font-family:&quot;Times =
+New Roman&quot;,serif"><span style=3D"font-size:11pt"><span style=3D"font-f=
+amily:Arial,sans-serif">Tisztelt C=C3=ADmzett!</span></span></span></span><=
+/p>=20
+  <p><span style=3D"font-size:12pt"><span style=3D"font-family:&quot;Times =
+New Roman&quot;,serif"><span style=3D"font-size:11pt"><span style=3D"font-f=
+amily:Arial,sans-serif">PIN: <span style=3D"color:rgb(220,0,50)">2946</span=
+></span></span></span></span></p>=20
+  <p><span style=3D"font-size:12pt"><span style=3D"font-family:&quot;Times =
+New Roman&quot;,serif"><span style=3D"font-size:11pt"><span style=3D"font-f=
+amily:Arial,sans-serif">=C3=89rtes=C3=ADtj=C3=BCk, hogy=C2=A0 az =C3=96n r=
+=C3=A9sz=C3=A9re k=C3=A9zbes=C3=ADtend=C5=91 nemzetk=C3=B6zi csomago(ka)t a=
+ k=C3=B6vetkez=C5=91 csomagsz=C3=A1mo(ko)n tartjuk nyilv=C3=A1n:</span></sp=
+an></span></span></p>=20
+  <p><span style=3D"font-size:12pt"><span style=3D"font-family:&quot;Times =
+New Roman&quot;,serif"><strong><span style=3D"font-size:11pt"><span style=
+=3D"font-family:Arial,sans-serif"><a href=3D"https://www.dpdgroup.com/hu/my=
+dpd/my-parcels/track?parcelNumber=3D23615039277332" rel=3D"noreferrer noref=
+errer" target=3D"_blank">23615039277332</a></span></span></strong><span sty=
+le=3D"font-size:11pt"><span style=3D"font-family:Arial,sans-serif"> Ut=C3=
+=A1nv=C3=A9t:=C2=A0<strong><span style=3D"font-family:Arial,sans-serif">0.0=
+ HUF</span></strong><br> K=C3=A9szp=C3=A9nzes fizet=C3=A9s eset=C3=A9n k=C3=
+=A9rj=C3=BCk, hogy a pontos ut=C3=A1nv=C3=A9t =C3=B6sszeget k=C3=A9sz=C3=AD=
+tse el=C5=91, mert fut=C3=A1raink nem minden esetben rendelkeznek v=C3=A1lt=
+=C3=B3p=C3=A9nzzel.</span></span></span></span></p>=20
+  <p><span style=3D"font-size:12pt"><span style=3D"font-family:&quot;Times =
+New Roman&quot;,serif"><span style=3D"font-size:11pt"><span style=3D"font-f=
+amily:Arial,sans-serif">300 ezer Ft felett kiz=C3=A1r=C3=B3lag bankk=C3=A1r=
+ty=C3=A1s fizet=C3=A9si lehet=C5=91s=C3=A9get k=C3=ADn=C3=A1lunk.</span></s=
+pan></span></span></p>=20
+  <p><span style=3D"font-size:12pt"><span style=3D"font-family:&quot;Times =
+New Roman&quot;,serif"><strong><span style=3D"font-size:11pt"><span style=
+=3D"font-family:Arial,sans-serif">Kisz=C3=A1ll=C3=ADt=C3=A1si c=C3=ADm:</sp=
+an></span></strong><br> <span style=3D"font-size:11pt"><span style=3D"font-=
+family:Arial,sans-serif">AGNES MARIA BUGAR <br> <a href=3D"https://www.goog=
+le.com/maps/search/ROZSA+UTCA+7+8699+SOMOGYVAMOS?entry=3Dgmail&amp;source=
+=3Dg" rel=3D"noreferrer" target=3D"_blank">ROZSA UTCA 7</a><br> <a href=3D"=
+https://www.google.com/maps/search/ROZSA+UTCA+7+8699+SOMOGYVAMOS?entry=3Dgm=
+ail&amp;source=3Dg" rel=3D"noreferrer" target=3D"_blank">8699 SOMOGYVAMOS</=
+a></span></span></span></span></p>=20
+  <p><span style=3D"font-size:12pt"><span style=3D"font-family:&quot;Times =
+New Roman&quot;,serif"><strong><span style=3D"font-size:11pt"><span style=
+=3D"font-family:Arial,sans-serif"><span style=3D"color:rgb(220,0,50)">=C3=
+=89rint=C3=A9smentes k=C3=A9zbes=C3=ADt=C3=A9s</span></span></span></strong=
+></span></span></p>=20
+  <p><span style=3D"font-size:12pt"><span style=3D"font-family:&quot;Times =
+New Roman&quot;,serif"><span style=3D"font-size:11pt"><span style=3D"font-f=
+amily:Arial,sans-serif">K=C3=A9zbes=C3=ADt=C3=A9skor a <span style=3D"color=
+:rgb(220,0,50)">2946 </span>PIN<b> </b>k=C3=B3d megad=C3=A1s=C3=A1val tudja=
+ al=C3=A1=C3=ADr=C3=A1s n=C3=A9lk=C3=BCl =C3=A1tvenni csomagj=C3=A1t. Ha ne=
+m rendelkezik PIN k=C3=B3ddal, a csomagok =C3=A1tv=C3=A9tel=C3=A9t igazol=
+=C3=B3 al=C3=A1=C3=ADr=C3=A1s helyett lehet=C5=91s=C3=A9g van a szem=C3=A9l=
+yi igazolv=C3=A1ny bemutat=C3=A1s=C3=A1ra is, aminek utols=C3=B3 4 karakter=
+=C3=A9t fut=C3=A1r koll=C3=A9g=C3=A1ink r=C3=B6gz=C3=ADtik az al=C3=A1=C3=
+=ADr=C3=A1s helyettes=C3=ADt=C3=A9s=C3=A9re. </span></span></span></span></=
+p>=20
+  <p><span style=3D"font-size:12pt"><span style=3D"font-family:&quot;Times =
+New Roman&quot;,serif"><strong><span style=3D"font-size:11pt"><span style=
+=3D"font-family:Arial,sans-serif"><span style=3D"color:black">A k=C3=A9zbes=
+=C3=ADt=C3=A9s napja:</span></span></span></strong><br> <span style=3D"font=
+-size:11pt"><span style=3D"font-family:Arial,sans-serif"><span style=3D"col=
+or:black">Ellen=C5=91rizze a v=C3=A1rhat=C3=B3 k=C3=A9zbes=C3=ADt=C3=A9si n=
+apot Sz=C3=A1ll=C3=ADt=C3=A1si id=C5=91 kalkul=C3=A1torunk seg=C3=ADts=C3=
+=A9g=C3=A9vel az al=C3=A1bbi linkre kattintva: </span><a href=3D"https://ww=
+w.dpd.com/hu/hu/segitseg/szallitasi-ido-meretkalkulator/" style=3D"color:bl=
+ue;text-decoration:underline" rel=3D"noreferrer noreferrer" target=3D"_blan=
+k">https://www.dpd.com/hu/hu/segitseg/szallitasi-ido-meretkalkulator/</a></=
+span></span></span></span></p>=20
+  <p><span style=3D"font-size:12pt"><span style=3D"font-family:&quot;Times =
+New Roman&quot;,serif"><span style=3D"font-size:11pt"><span style=3D"font-f=
+amily:Arial,sans-serif">A <span style=3D"color:black">k=C3=A9zbes=C3=ADt=C3=
+=A9s napj=C3=A1n =C3=BAjabb =C3=A9rtes=C3=ADt=C3=A9st k=C3=BCld=C3=BCnk =C3=
+=96nnek, melyben t=C3=A1j=C3=A9koztat=C3=A1st kap az adott napon bel=C3=BCl=
+ egy egy=C3=B3r=C3=A1s k=C3=A9zbes=C3=ADt=C3=A9si id=C5=91intervallumr=C3=
+=B3l. Az =C3=A9rtes=C3=ADt=C5=91ben szerepl=C5=91 id=C5=91intervallumok t=
+=C3=A1j=C3=A9koztat=C3=B3 jelleg=C5=B1ek. A DPD Hungary=C2=A0Kft. a nem id=
+=C5=91garant=C3=A1lt szolg=C3=A1ltat=C3=A1sok eset=C3=A9ben a kisz=C3=A1ll=
+=C3=ADt=C3=A1si nap, id=C5=91pont v=C3=A1ltoz=C3=A1s=C3=A1=C3=A9rt felel=C5=
+=91ss=C3=A9get nem v=C3=A1llal.</span></span></span></span></span></p>=20
+  <p><span style=3D"font-size:12pt"><span style=3D"font-family:&quot;Times =
+New Roman&quot;,serif"><strong><span style=3D"font-size:11pt"><span style=
+=3D"font-family:Arial,sans-serif">Nyomk=C3=B6vet=C3=A9s, c=C3=ADmm=C3=B3dos=
+=C3=ADt=C3=A1s, =C3=A1t=C3=BCtemez=C3=A9s:</span></span></strong><br> <span=
+ style=3D"font-size:11pt"><span style=3D"font-family:Arial,sans-serif">K=C3=
+=BCldem=C3=A9ny=C3=A9t a <a href=3D"http://www.dpd.hu" rel=3D"noreferrer no=
+referrer" target=3D"_blank">www.dpd.hu</a> oldalon k=C3=B6vetheti nyomon a =
+csomagsz=C3=A1m megad=C3=A1s=C3=A1val. Amennyiben a k=C3=A9zbes=C3=ADt=C3=
+=A9s napja vagy a k=C3=A9zbes=C3=ADt=C3=A9si c=C3=ADm nem megfelel=C5=91, a=
+ k=C3=BCldem=C3=A9ny Magyarorsz=C3=A1gra t=C3=B6rt=C3=A9n=C5=91 be=C3=A9rke=
+z=C3=A9s=C3=A9t k=C3=B6vet=C5=91en tudja majd m=C3=B3dos=C3=ADtani adatait =
+a <a href=3D"https://www.dpd.com/hu/hu/mydpd/" style=3D"color:blue;text-dec=
+oration:underline" rel=3D"noreferrer noreferrer" target=3D"_blank">https://=
+www.dpd.com/hu/hu/mydpd/</a> oldalon, melyhez a bel=C3=A9p=C3=A9si k=C3=B3d=
+ot a k=C3=A9zbes=C3=ADt=C3=A9s napj=C3=A1n k=C3=BCld=C3=B6tt e-mailben kapj=
+a majd meg.</span></span></span></span></p>=20
+  <p style=3D"margin-bottom:11px"><span style=3D"font-size:11pt"><span styl=
+e=3D"line-height:107%"><span style=3D"font-family:Calibri,sans-serif"><span=
+ style=3D"font-size:9pt"><span style=3D"line-height:107%"><span style=3D"fo=
+nt-family:Arial,sans-serif"><span style=3D"color:rgb(191,191,191)">Ez az e-=
+mail =C3=A9s a vele egy=C3=BCtt tov=C3=A1bb=C3=ADtott f=C3=A1jlok bizalmasa=
+k, =C3=A9s kiz=C3=A1r=C3=B3lag annak a szem=C3=A9lynek vagy szervezetnek sz=
+=C3=B3lnak, akiknek c=C3=ADmezt=C3=A9k =C5=91ket. Amennyiben ezt az e-mailt=
+ t=C3=A9ved=C3=A9sb=C5=91l kapta, akkor hivatkozva GDPR szem=C3=A9lyes adat=
+ok v=C3=A9delm=C3=A9re a k=C3=A9retlen levelet azonnali hat=C3=A1llyal t=C3=
+=B6r=C3=B6lje! Adatv=C3=A9delemmel kapcsolatos inform=C3=A1ci=C3=B3k=C3=A9r=
+t k=C3=A9rj=C3=BCk keresse fel a <a href=3D"https://www.dpd.com/hu/home/sit=
+eutilities/adatvedelmi_nyilatkozat2" rel=3D"noreferrer noreferrer" target=
+=3D"_blank">https://www.dpd.com/hu/home/siteutilities/adatvedelmi_nyilatkoz=
+at2</a> c=C3=ADmen el=C3=A9rhet=C5=91 oldalunkat. </span></span></span></sp=
+an></span></span></span></p>=20
+  <p><span style=3D"font-size:12pt"><span style=3D"font-family:&quot;Times =
+New Roman&quot;,serif"><span style=3D"font-size:11pt"><span style=3D"font-f=
+amily:Arial,sans-serif">Felh=C3=ADvjuk figyelm=C3=A9t, hogy erre az email-r=
+e a v=C3=A1lasz gomb megnyom=C3=A1s=C3=A1val nem tud v=C3=A1laszolni.</span=
+></span></span></span></p>=20
+  <p><span style=3D"font-size:12pt"><span style=3D"font-family:&quot;Times =
+New Roman&quot;,serif"><span style=3D"font-size:11pt"><span style=3D"font-f=
+amily:Arial,sans-serif">=C3=9Cdv=C3=B6zlettel,</span></span></span></span><=
+/p>=20
+  <p><span style=3D"font-size:12pt"><span style=3D"font-family:&quot;Times =
+New Roman&quot;,serif"><span style=3D"font-size:11pt"><span style=3D"font-f=
+amily:Arial,sans-serif">DPD Hungary=C2=A0Kft. csapata<br> +36 1 501-6200=C2=
+=A0| <a href=3D"mailto:dpd@dpd.hu" style=3D"color:blue;text-decoration:unde=
+rline" rel=3D"noreferrer noreferrer" target=3D"_blank">dpd@dpd.hu</a></span=
+></span></span></span></p>=20
+  <p><img></p> =20
+ </div>
+</div>
+</div>
+</div></div>
+
+--00000000000012bd4b0628e95f35--
+--00000000000012bd4d0628e95f37
+Content-Type: image/png; name=noname
+Content-Disposition: attachment; filename=noname
+Content-Transfer-Encoding: base64
+Content-ID: <ii_193978a7085c204bfcc1>
+X-Attachment-Id: ii_193978a7085c204bfcc1
+
+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
+--00000000000012bd4d0628e95f37
+Content-Type: image/png; name=noname
+Content-Disposition: attachment; filename=noname
+Content-Transfer-Encoding: base64
+Content-ID: <193978b0309c204bfcc1>
+X-Attachment-Id: 193978b0309c204bfcc1
+
+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
+--00000000000012bd4d0628e95f37--

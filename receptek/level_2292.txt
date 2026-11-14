@@ -1,0 +1,101 @@
+Delivered-To: estampel@gmail.com
+Received: by 2002:ac8:4516:0:b0:4d8:4e8b:3876 with SMTP id q22csp2014646qtn;
+        Sun, 28 Sep 2025 23:36:49 -0700 (PDT)
+X-Received: by 2002:a17:907:6ea6:b0:b38:49a6:583a with SMTP id a640c23a62f3a-b3849a6d906mr1081432766b.23.1759127808786;
+        Sun, 28 Sep 2025 23:36:48 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1759127808; cv=none;
+        d=google.com; s=arc-20240605;
+        b=kwKkpkSTpde+wxfKzTWf08XsCf4zr6VlerJ0vGeD5CWO+ox7SO/UexIVfsFnXIMTVc
+         CV+TEuieSBZywjz5c2XGzUcKoFNPVC0g20C9/KzXd4DyzD1j6+p/f0NNt/R/K33NnPdK
+         i+pGOIdc8uOPhRURBLyQdVKP3ueZyTSJOUQah8teWaqvRLikuLYH5ms93b520wu17gZ/
+         TR99ECM32cCUIyoANj8T8X3utC6EYkGkut9vdLlQx/BLctqsX9jLO8u36BR1raqmpZkj
+         9Jv9OODD+t/1t9jLCVEK6XYqAMAZWTYIHm+LAv7TMLGeZr4E9T24IBNOqbSsPef0KXJX
+         QRZQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=yR4W91KggZOZKYPQxk+7Ug7rQ6bJQYw/fm0uxViBOmg=;
+        fh=wF/Yrd2E0xeKwPH74kML7cQSth+Fl4bwhVNrybJ4uh4=;
+        b=PbkDhw1mP96bOa5+pIT2STSiQRf+D3WbUWlEUCE9AB2iOx3I5erQTVPHyyG7G06Nm1
+         B23+u2Hhzy6aGf03byYc7U+jSQ/CoqUq5uVIdR/ADUjPbxY27NTmHNUS4j7KTsk9NLW9
+         KI6zEigPUV1mzWIOW4jeMNqrph4GpRpblW5TTH2VcAU5/u+0SKsCOxc6md9J3D9/ShZk
+         d/WelnIs1+M/0oDHPNFAMBjtIp8YFcjCe09kmwaihHGadY9IvwxfBs0FL6+82jEwJoKJ
+         om/sLh+D7tzdnO9MQ/aKk4I6lMNb0TJKPxZKgtYMxeuQsqx34gkJjJPqqAj1DvgW6lex
+         vXgg==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=QckPzBht;
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <banyus53@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id a640c23a62f3a-b3dedc542e8sor76401366b.7.2025.09.28.23.36.48
+        for <estampel@gmail.com>
+        (Google Transport Security);
+        Sun, 28 Sep 2025 23:36:48 -0700 (PDT)
+Received-SPF: pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=QckPzBht;
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1759127808; x=1759732608; dara=google.com;
+        h=to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=yR4W91KggZOZKYPQxk+7Ug7rQ6bJQYw/fm0uxViBOmg=;
+        b=QckPzBhtv1G3O3BF5dxjgxsd7FCZGyx4ea41BWSbpURbye58AgSCjRKGCNRNfhSn4X
+         yWF78pfV6U71RSuYSrVRQCTvUli2KTmv80a1Fqc1cy+kQrcWUMdJpCdfR6ZO5zwRpR/G
+         ygLmUAtG+Vf503YFR+e/GFB+kzMrbWW8i/zqmsg+wsfoTIaUmXKxzdysWaxF9Arz5Kpp
+         6VURRZ+spQs6fVEB1h7BZv7sZtx7/H/lPX4uDPXwDOWEzv9oPcHGvLofujv1iwRNJlBz
+         NGT6vLkPIkwn4ni57S5R7Oz6ZDq98vlQhLaBverH7Xgf7+RUch4zxPLtn0VTEKalFf7p
+         rpWQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1759127808; x=1759732608;
+        h=to:subject:message-id:date:from:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=yR4W91KggZOZKYPQxk+7Ug7rQ6bJQYw/fm0uxViBOmg=;
+        b=lqstXiAlfFID+AsCwHI1QGZe4I49ciWnB0slHQ/4R8cGeIdeiT0wWRzzbPr4+ZCDer
+         fZxvPXZIjo9aFruiWEjS/rgfrQYY92RKMZUND0hXlMz710/5TCDOypnzzoD5ty+s4bK4
+         e9P1iYhXJycom5C4gouZXueORRspOFBxJOQn59FozdW7+KQ5OVonir+eW0yIwtzht0Oi
+         7mHXdU62eFMkq28rHz75alKBJX0u77MDOdgN2XKT/5ZL32EcJLLm2AhC7sjs/a19Cjz0
+         wmTuOMyGFO1xhRL9nUtlRtQv/CzsfTWUJtcSbMdKMD0jYbwCwR5Ij3OgDIaClGIB1sGb
+         6ImQ==
+X-Gm-Message-State: AOJu0YxVR5medmEkPqJv2WdAumd1jH7/SflB0ZUgCHBx9tSLip+t+jtM
+	a2il2FmNtoEFsWOfBU0mDgYEPMnDQwgPUtLkgWvGgQ3Svr3PYXi7s5u2D4emL0gUrqafDRqLdg6
+	59u2/huZ9Oe7RAB73VYbapv2ga8wkeFO8iQ==
+X-Gm-Gg: ASbGncuNFUkuT4HsS9ZiWzfTxh1VyY5Y1XccAxjwrjfbd5S5vE69xWrZeZqJuMblBJJ
+	MDg56264q6yJvy64Y72kN3w+9FIeuTa/APxrgdBja4F4xivJMy3AUYpyhsJsEUeTNbhB7IGedgq
+	8FLyQrT0Txtb7wbyMm69OKoA+VTk18Elvb6KiPSEaH86/IqHvXGu4rYJ0x5Yh4RMvwgrUuvifbb
+	7+wnyDU2GKIWW6OPRXH5Lb9uYKmV5Zr4Nn9iZdamCTr
+X-Google-Smtp-Source: AGHT+IGrA1BrRzr8V0G6VhS6fBPsO3FEx6udJJ7t/YhSpia9k4DjsHeKFY8PRfnJAU0fknPhvMKCatm0xtUpMbfZlqg=
+X-Received: by 2002:a17:907:3ccb:b0:b3d:6645:a6f1 with SMTP id
+ a640c23a62f3a-b3d6645adc8mr429071466b.29.1759127807781; Sun, 28 Sep 2025
+ 23:36:47 -0700 (PDT)
+MIME-Version: 1.0
+From: =?UTF-8?B?w4FnbmVzIEJ1Z8Ohcg==?= <banyus53@gmail.com>
+Date: Mon, 29 Sep 2025 08:36:34 +0200
+X-Gm-Features: AS18NWCglwPiX_A7iR2bEZvmDfSvdIADNbHmQqmMUpLROFr1g6hegxeSwPCVu_c
+Message-ID: <CA+39czUszwxZb1uDX44nG5TrEvVWYhcd8a3P3ey-tPmWQA2UKw@mail.gmail.com>
+Subject: =?UTF-8?Q?Ingyen_adja_a_Telekom_ezt_a_szolg=C3=A1ltat=C3=A1st=2C_ennyit_?=
+	=?UTF-8?Q?kell_tenni_=C3=A9rte_=2D_Naphire=2Ehu?=
+To: Emese Stampel <estampel@gmail.com>
+Content-Type: multipart/alternative; boundary="00000000000018ef1c063feadc81"
+
+--00000000000018ef1c063feadc81
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Ingyen adja a Telekom ezt a szolg=C3=A1ltat=C3=A1st, ennyit kell tenni =C3=
+=A9rte -
+Naphire.hu https://share.google/pU10kyawGozuBM3X4
+
+--00000000000018ef1c063feadc81
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"auto">Ingyen adja a Telekom ezt a szolg=C3=A1ltat=C3=A1st, enny=
+it kell tenni =C3=A9rte - Naphire.hu <a href=3D"https://share.google/pU10ky=
+awGozuBM3X4">https://share.google/pU10kyawGozuBM3X4</a>=C2=A0</div>
+
+--00000000000018ef1c063feadc81--

@@ -1,0 +1,409 @@
+Delivered-To: estampel@gmail.com
+Received: by 2002:a05:622a:6202:b0:478:54c8:56b1 with SMTP id hj2csp872077qtb;
+        Sun, 30 Mar 2025 07:39:08 -0700 (PDT)
+X-Received: by 2002:a17:907:9445:b0:ac3:b44b:de24 with SMTP id a640c23a62f3a-ac738993618mr495382966b.2.1743345548644;
+        Sun, 30 Mar 2025 07:39:08 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1743345548; cv=none;
+        d=google.com; s=arc-20240605;
+        b=btB516d+cBwtwMIO+FNxeNspmSHBZE+JQiRHpznnrYiB83LHUlvNOG/R5y3+OwiZFk
+         z3njmCIzYKQ9+iIa/2YmW/wro48a9C3Ya5cBmIGj8MlurUDxauVXgJEM4is2Y5kYfRYT
+         NeB2F64rHC0taTSWFQbgABXCQZ2ZybTLXDDYfXpmhuUlrT4H03J97LY+6XXIsxYu75ze
+         x0G4BeD4gJINZPlKYXLX7jbVPwtvpnBQbh2zxH3/DLY+CsxbO5svtLbgjV+bnbfrf2BK
+         Acz8saF4jUbhrpVjE6+ya9VhqkBlndIux7vMU2K6hB5OMkEi6+8GukHerkvtphiCAFr2
+         FOWg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=ciS0P9lWMrVmaUnb+i9uA2yxlxBj6DM3d4JyXJeX19A=;
+        fh=wF/Yrd2E0xeKwPH74kML7cQSth+Fl4bwhVNrybJ4uh4=;
+        b=f+qOErpW9U8eh3gZJMaPOGnu4FHGWxBT8agfPB2o09J5INDxM9FwA54yNnkgXpkBx+
+         dhq6wmGZskrE5qQwpOblKbiVR1LehccIwddEFpMmGBBJ2bIgvapnglLt5cN8V7lPQl/W
+         jbCOH5nubqOiXCK+qMmgEug9UtF2G+Nad97b3rXG1flABypn/vLkw8su9R6OOLribCuQ
+         BzQHmskruoIH5itXV0e4GE/Me8kWie+EtScUOvEkaXpVNcm30AljhD4osjzFTJjHYxFi
+         5zYLYtQnJeKIoEbblJyMaevj/qt9PVd1Dagc8Fd8PHC+Pfo24FRAimN8uBH7IbqAJOaE
+         nBSQ==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=MrcvRDUP;
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <banyus53@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id a640c23a62f3a-ac719595febsor227312266b.16.2025.03.30.07.39.08
+        for <estampel@gmail.com>
+        (Google Transport Security);
+        Sun, 30 Mar 2025 07:39:08 -0700 (PDT)
+Received-SPF: pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=MrcvRDUP;
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1743345547; x=1743950347; dara=google.com;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=ciS0P9lWMrVmaUnb+i9uA2yxlxBj6DM3d4JyXJeX19A=;
+        b=MrcvRDUPrH0h0edG+Tqyb0rhaZ9V4jYuTSAGYaNyWf+lS7CgHZlf1t17nRdNG8m5lP
+         N0XulkgmCcKx1qHwHYrZVt9tOw2UJP4WtBGeJdUKYkX8UMY1G5QEg5CONPaZdRCzOEnb
+         ZQwb7RDSqdwjAvFZGbXIJxTsb1F9sxJp5xYWZMiMQ/mVrZ0Dp5kjbxPOLkU6jFslqe1z
+         FRaGGmNnIUmM6TWWN5wWo6Mt3NJ4g7ytxNQCbVj4huoPv9zlbOZshywNdnWFifVS7RaU
+         rFz5tViV4qrJENHJUwUx6Jm4jOQ3nYJmVPIGV6pUusI0pXTZMEEoISwcnGhf3ffxClbp
+         k4Sw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1743345547; x=1743950347;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=ciS0P9lWMrVmaUnb+i9uA2yxlxBj6DM3d4JyXJeX19A=;
+        b=L5M+9owbE2eDLQKF3iBuBSBGTr8uKLsKHk0YKi0NxtbzHsYMzy8bi/2+HSrTNjbkWw
+         kq3yEJShFXCZRRytstUEy0vqzlAbZCQOwFOk2xxAVNEYi/u/gdnOflOKXBzl7K8SRGYG
+         wmMHLt53f78jgChwZeDp/ErDVoDdLvSVTJVijfvplzqkMG3A305WapnAqYxaN4HN7kEr
+         7XqZurE+eeIC8aCLRRHsIe2tkLpi9c0AtWQ4yHGOd3yGzDnWW/7cSpWI9kxDxPW0tw/T
+         A/F0IxVrBOdch0pzlVSK1HB05TLT8UOpUpACx+aSeGo73H+m1oKO4QbXibruOvC0nPz4
+         ovxA==
+X-Gm-Message-State: AOJu0Ywpc4g8bT9X3jU/7fpFsFReBJxzB/MRWeYRlEgqxwBR+s1I1oCk
+	Q26SjwJL1UkQoxuhrCQe5mLNu7x1UgKEn68KspXxGiwcvjph4ZiSZBZgq1yxVM9E1RUXWbl7uss
+	5eraOWj0ulGp0nimQ3WdhetD8sLcC1g==
+X-Gm-Gg: ASbGncvZjBrdoEm1SCjy2KR94GRo62dURUDEt2f7WavmrxyJRetzdTCTYQ42MKmIhZZ
+	WtSY8odafOAwrl+6DPNpt9A1M/9F06FfEGXkVr4vZ84f7TpiA+pOshg9NyJaz+PJlMPB95gZ4kP
+	29y3uCccs9ooB/aLJXJO8DLmb+2A==
+X-Google-Smtp-Source: AGHT+IFoTNUseG2VSpqxBrbtT0yqZDHEmX+DFDzB7zIl0oTmBeVTllhSaloko4nTKvpU2gplqVn55VQcjoavYgdUXPY=
+X-Received: by 2002:a17:907:2ce3:b0:ac3:2d47:f6af with SMTP id
+ a640c23a62f3a-ac7389fbfcfmr541409566b.20.1743345546484; Sun, 30 Mar 2025
+ 07:39:06 -0700 (PDT)
+MIME-Version: 1.0
+References: <1867452582.170.1743345412788.JavaMail.jboss-soa3@qsign-soa3-api-02.int.quicksign.fr>
+In-Reply-To: <1867452582.170.1743345412788.JavaMail.jboss-soa3@qsign-soa3-api-02.int.quicksign.fr>
+From: =?UTF-8?B?w4FnbmVzIEJ1Z8Ohcg==?= <banyus53@gmail.com>
+Date: Sun, 30 Mar 2025 16:38:54 +0200
+X-Gm-Features: AQ5f1JoTn8ua7w_i9RPRo-vYr-9PI4Z0MOqJezDONrzsY-FPNV0jT828DDRPiX4
+Message-ID: <CA+39czU5HDYH-+pCUKbNngG4k__7ZzR1hAT7_tDY0hCuOQhoKA@mail.gmail.com>
+Subject: =?UTF-8?B?RndkOiBDb2ZpZGlzIEJhbmsgb25saW5lIHN6ZXJ6xZFkw6lza8O2dMOpcw==?=
+To: Emese Stampel <estampel@gmail.com>
+Content-Type: multipart/alternative; boundary="00000000000004e2bd06319044de"
+
+--00000000000004e2bd06319044de
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+---------- Forwarded message ---------
+Felad=C3=B3: <no-reply@quicksign.fr>
+Date: 2025. m=C3=A1rc. 30., V 16:36
+Subject: Cofidis Bank online szerz=C5=91d=C3=A9sk=C3=B6t=C3=A9s
+To: <banyus53@gmail.com>
+
+
+  [image: Magyar Cofidis Bank Zrt.]
+<https://www.cofidisbank.hu/aruhitel/online-aruhitel>
+
+
+Szerz=C5=91d=C3=A9scsomag azonos=C3=ADt=C3=B3sz=C3=A1m: *089024810*
+
+Tisztelt =C3=9Cgyfel=C3=BCnk!
+
+K=C3=B6sz=C3=B6nj=C3=BCk megtisztel=C5=91 bizalm=C3=A1t, hogy tervei megval=
+=C3=B3s=C3=ADt=C3=A1s=C3=A1hoz a Cofidis
+Bankot v=C3=A1lasztotta. =C3=96r=C3=B6mmel t=C3=A1j=C3=A9koztatjuk, hogy az=
+ el=C5=91zetes hitelb=C3=ADr=C3=A1lata
+pozit=C3=ADv eredm=C3=A9nnyel z=C3=A1rult!
+
+Ig=C3=A9nyl=C3=A9se v=C3=A9gleges=C3=ADt=C3=A9s=C3=A9hez *juttassa el hozz=
+=C3=A1nk a szerz=C5=91d=C3=A9sk=C3=B6t=C3=A9shez
+sz=C3=BCks=C3=A9ges dokumentumokat, valamint =C3=ADrja al=C3=A1 szerz=C5=91=
+d=C3=A9s=C3=A9t 7 munkanapon bel=C3=BCl!*
+Mindezt egyszer=C5=B1en, elektronikus =C3=BAton teheti meg, =C3=ADgy a doku=
+mentumok
+k=C3=A9sedelem n=C3=A9lk=C3=BCl, biztons=C3=A1gosan =C3=A9rkeznek meg Banku=
+nkhoz.
+
+*Az online szerz=C5=91d=C3=A9sk=C3=B6t=C3=A9s folyamata:*
+1) L=C3=A9pjen be a *Cofidis Bank online szerz=C5=91d=C3=A9sk=C3=B6t=C3=A9s=
+i rendszerbe*
+2) Tanulm=C3=A1nyozza =C3=A9s fogadja el a term=C3=A9kt=C3=A1j=C3=A9koztat=
+=C3=B3t!
+3) T=C3=B6ltse fel az ig=C3=A9nyl=C3=A9shez sz=C3=BCks=C3=A9ges dokumentumo=
+kat!
+4) Ellen=C5=91rizze szerz=C5=91d=C3=A9se r=C3=A9szleteit, =C3=A9s =C3=ADrja=
+ al=C3=A1 a telefonj=C3=A1ra k=C3=BCld=C3=B6tt
+SMS-k=C3=B3d megad=C3=A1s=C3=A1val!
+
+A Cofidis Bank online szerz=C5=91d=C3=A9sk=C3=B6t=C3=A9si rendszerben szem=
+=C3=A9lyre szabottan l=C3=A1tja
+majd, hogy milyen dokumentumokat kell j=C3=B3 min=C5=91s=C3=A9g=C5=B1 fot=
+=C3=B3k=C3=A9nt vagy szkennelt
+form=C3=A1tumban felt=C3=B6ltenie.
+
+Ha az ig=C3=A9nyl=C3=A9s folyam=C3=A1n azt v=C3=A1lasztotta, hogy rendszere=
+s j=C3=B6vedelm=C3=A9t
+munk=C3=A1ltat=C3=B3i igazol=C3=A1ssal k=C3=ADv=C3=A1nja igazolni, az ehhez=
+ sz=C3=BCks=C3=A9ges
+formanyomtatv=C3=A1nyt *innen tudja let=C3=B6lteni.*
+<https://www.cofidisbank.hu/sites/default/files/documents/munkaltatoi_igazo=
+las_20241220.pdf>
+
+  [image: Gomb: bel=C3=A9p=C3=A9s az online szerz=C5=91d=C3=A9sk=C3=B6t=C3=
+=A9si rendszerbe]
+<https://www.quicksign.fr/GENERIC_FO/?id=3D74492758&token=3DZ0XQRDWLWFXL434=
+LE4>
+
+
+
+*Web=C3=A1ruh=C3=A1zb=C3=B3l t=C3=B6rt=C3=A9n=C5=91 ig=C3=A9nyl=C3=A9s eset=
+=C3=A9n* szerz=C5=91d=C3=A9se elektronikus al=C3=A1=C3=ADr=C3=A1sa
+ut=C3=A1n (amennyiben a v=C3=A9gleges b=C3=ADr=C3=A1lat eredm=C3=A9nye pozi=
+t=C3=ADv) Bankunkn=C3=A1l a
+k=C3=B6vetkez=C5=91 l=C3=A9p=C3=A9sek t=C3=B6rt=C3=A9nnek:
+
+  [image: K=C3=A9p: folyamat=C3=A1bra]
+
+
+*=C3=9Czletben QR k=C3=B3ddal t=C3=B6rt=C3=A9n=C5=91 ig=C3=A9nyl=C3=A9s ese=
+t=C3=A9n* szerz=C5=91d=C3=A9se elektronikus
+al=C3=A1=C3=ADr=C3=A1sa ut=C3=A1n (amennyiben a v=C3=A9gleges b=C3=ADr=C3=
+=A1lat eredm=C3=A9nye pozit=C3=ADv) Bankunkn=C3=A1l
+a k=C3=B6vetkez=C5=91 l=C3=A9p=C3=A9sek t=C3=B6rt=C3=A9nnek:
+
+  [image: K=C3=A9p: folyamat=C3=A1bra]
+
+
+A Magyar Cofidis Bank Zrt. adatkezel=C3=A9si t=C3=A1j=C3=A9koztat=C3=B3j=C3=
+=A1t *itt =C3=A9rheti el.*
+<https://www.cofidisbank.hu/doc/adatkezelesi-tajekoztato.pdf>
+
+Az online szerz=C5=91d=C3=A9sk=C3=B6t=C3=A9sre vonatkoz=C3=B3an fontos tudn=
+ival=C3=B3kat tal=C3=A1l az *online
+szerz=C5=91d=C3=A9sk=C3=B6t=C3=A9si inform=C3=A1ci=C3=B3s oldalunkon*
+<https://www.cofidisbank.hu/online-szerzodeskotes/aruhitel-expressz>,
+k=C3=A9rj=C3=BCk, hogy szerz=C5=91d=C3=A9sk=C3=B6t=C3=A9s el=C5=91tt minden=
+k=C3=A9pp olvassa =C3=A1t!
+
+=C3=9Cdv=C3=B6zlettel:
+Magyar Cofidis Bank Zrt.
+
+  [image: Kapcsolat: www.cofidisbank.hu] <https://www.cofidisbank.hu> [imag=
+e:
+Kapcsolat, telefon: +36-1-458-6070] <+36-1-458-6070>
+
+
+*Ez egy automatikusan k=C3=BCld=C3=B6tt lev=C3=A9l, k=C3=A9rj=C3=BCk ne v=
+=C3=A1laszoljon r=C3=A1!*
+
+--00000000000004e2bd06319044de
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"auto"></div><br><div class=3D"gmail_quote gmail_quote_container=
+"><div dir=3D"ltr" class=3D"gmail_attr">---------- Forwarded message ------=
+---<br>Felad=C3=B3: <span dir=3D"auto">&lt;<a href=3D"mailto:no-reply@quick=
+sign.fr">no-reply@quicksign.fr</a>&gt;</span><br>Date: 2025. m=C3=A1rc. 30.=
+, V 16:36<br>Subject: Cofidis Bank online szerz=C5=91d=C3=A9sk=C3=B6t=C3=A9=
+s<br>To:  &lt;<a href=3D"mailto:banyus53@gmail.com">banyus53@gmail.com</a>&=
+gt;<br></div><br><br>
+  <u></u>
+ =20
+
+ =20
+     =20
+     =20
+ =20
+
+  <div>
+      <table width=3D"600" border=3D"0" align=3D"center" cellpadding=3D"0" =
+cellspacing=3D"0">
+          <tbody>
+              <tr>
+                  <td width=3D"15">=C2=A0</td>
+                  <td width=3D"570" align=3D"center" valign=3D"middle"><a h=
+ref=3D"https://www.cofidisbank.hu/aruhitel/online-aruhitel" target=3D"_blan=
+k" rel=3D"noreferrer"><img src=3D"https://www.quicksign.fr/images-soa3/BNPP=
+FHU/mails/image-1.jpg" width=3D"600" height=3D"185" alt=3D"Magyar Cofidis B=
+ank Zrt."></a></td>
+                  <td width=3D"15">=C2=A0</td>
+              </tr>
+              <tr>
+                  <td>=C2=A0</td>
+                  <td>
+                      <p style=3D"font-family:Calibri,Arial,Helvetica,sans-=
+serif;font-size:18px;color:#4b4f54;margin-top:0px;margin-bottom:18px">
+                          Szerz=C5=91d=C3=A9scsomag azonos=C3=ADt=C3=B3sz=
+=C3=A1m: <strong>089024810</strong><br><br>
+
+                          Tisztelt =C3=9Cgyfel=C3=BCnk!<br><br>
+
+                          K=C3=B6sz=C3=B6nj=C3=BCk megtisztel=C5=91 bizalm=
+=C3=A1t, hogy tervei megval=C3=B3s=C3=ADt=C3=A1s=C3=A1hoz a Cofidis Bankot =
+v=C3=A1lasztotta.
+                          =C3=96r=C3=B6mmel t=C3=A1j=C3=A9koztatjuk, hogy a=
+z el=C5=91zetes hitelb=C3=ADr=C3=A1lata pozit=C3=ADv eredm=C3=A9nnyel z=C3=
+=A1rult!<br><br>
+
+                          Ig=C3=A9nyl=C3=A9se v=C3=A9gleges=C3=ADt=C3=A9s=
+=C3=A9hez <strong>juttassa el hozz=C3=A1nk a szerz=C5=91d=C3=A9sk=C3=B6t=C3=
+=A9shez sz=C3=BCks=C3=A9ges
+                              dokumentumokat, valamint =C3=ADrja al=C3=A1 s=
+zerz=C5=91d=C3=A9s=C3=A9t 7 munkanapon bel=C3=BCl!</strong> Mindezt
+                          egyszer=C5=B1en, elektronikus =C3=BAton teheti me=
+g, =C3=ADgy a dokumentumok k=C3=A9sedelem n=C3=A9lk=C3=BCl, biztons=C3=A1go=
+san
+                          =C3=A9rkeznek meg Bankunkhoz.<br><br>
+
+                          <strong>Az online szerz=C5=91d=C3=A9sk=C3=B6t=C3=
+=A9s folyamata:</strong><br>
+                          1)=C2=A0L=C3=A9pjen be a <strong>Cofidis Bank onl=
+ine szerz=C5=91d=C3=A9sk=C3=B6t=C3=A9si rendszerbe</strong><br>
+                          2)=C2=A0Tanulm=C3=A1nyozza =C3=A9s fogadja el a t=
+erm=C3=A9kt=C3=A1j=C3=A9koztat=C3=B3t!<br>
+                          3)=C2=A0T=C3=B6ltse fel az ig=C3=A9nyl=C3=A9shez =
+sz=C3=BCks=C3=A9ges dokumentumokat!<br>
+                          4)=C2=A0Ellen=C5=91rizze szerz=C5=91d=C3=A9se r=
+=C3=A9szleteit, =C3=A9s =C3=ADrja al=C3=A1 a telefonj=C3=A1ra k=C3=BCld=C3=
+=B6tt SMS-k=C3=B3d
+                          megad=C3=A1s=C3=A1val!<br><br>
+
+                          A Cofidis Bank online szerz=C5=91d=C3=A9sk=C3=B6t=
+=C3=A9si rendszerben szem=C3=A9lyre szabottan l=C3=A1tja majd, hogy milyen
+                          dokumentumokat kell j=C3=B3 min=C5=91s=C3=A9g=C5=
+=B1 fot=C3=B3k=C3=A9nt vagy szkennelt form=C3=A1tumban felt=C3=B6ltenie.<br=
+><br>
+
+                          Ha az ig=C3=A9nyl=C3=A9s folyam=C3=A1n azt v=C3=
+=A1lasztotta, hogy rendszeres j=C3=B6vedelm=C3=A9t munk=C3=A1ltat=C3=B3i ig=
+azol=C3=A1ssal
+                          k=C3=ADv=C3=A1nja igazolni, az ehhez sz=C3=BCks=
+=C3=A9ges formanyomtatv=C3=A1nyt <a href=3D"https://www.cofidisbank.hu/site=
+s/default/files/documents/munkaltatoi_igazolas_20241220.pdf" target=3D"_bla=
+nk" rel=3D"noreferrer"><strong>innen tudja let=C3=B6lteni.</strong></a>
+                      </p>
+                  </td>
+                  <td>=C2=A0</td>
+              </tr>
+              <tr>
+                  <td width=3D"15">=C2=A0</td>
+                  <td width=3D"570" align=3D"center" valign=3D"middle"><a h=
+ref=3D"https://www.quicksign.fr/GENERIC_FO/?id=3D74492758&amp;token=3DZ0XQR=
+DWLWFXL434LE4" target=3D"_blank" rel=3D"noreferrer"><img src=3D"https://www=
+.quicksign.fr/images-soa3/BNPPFHU/mails/image-2.jpg" width=3D"570" height=
+=3D"70" alt=3D"Gomb: bel=C3=A9p=C3=A9s az online szerz=C5=91d=C3=A9sk=C3=B6=
+t=C3=A9si rendszerbe"></a></td>
+                  <td width=3D"15">=C2=A0</td>
+              </tr>
+              <tr>
+                  <td>=C2=A0</td>
+                  <td>
+                      <p style=3D"font-family:Calibri,Arial,Helvetica,sans-=
+serif;font-size:18px;color:#4b4f54;margin-top:18px;margin-bottom:18px">
+                          <strong>Web=C3=A1ruh=C3=A1zb=C3=B3l t=C3=B6rt=C3=
+=A9n=C5=91 ig=C3=A9nyl=C3=A9s eset=C3=A9n</strong> szerz=C5=91d=C3=A9se ele=
+ktronikus al=C3=A1=C3=ADr=C3=A1sa ut=C3=A1n
+                          (amennyiben a v=C3=A9gleges b=C3=ADr=C3=A1lat ere=
+dm=C3=A9nye pozit=C3=ADv) Bankunkn=C3=A1l a k=C3=B6vetkez=C5=91 l=C3=A9p=C3=
+=A9sek t=C3=B6rt=C3=A9nnek:
+                      </p>
+                  </td>
+                  <td>=C2=A0</td>
+              </tr>
+              <tr>
+                  <td width=3D"15">=C2=A0</td>
+                  <td width=3D"570" align=3D"center" valign=3D"middle"><img=
+ src=3D"https://www.quicksign.fr/images-soa3/BNPPFHU/mails/image-3-vat.jpg"=
+ width=3D"570" height=3D"145" alt=3D"K=C3=A9p: folyamat=C3=A1bra"></td>
+                  <td width=3D"15">=C2=A0</td>
+              </tr>
+              <tr>
+                  <td>=C2=A0</td>
+                  <td>
+                      <p style=3D"font-family:Calibri,Arial,Helvetica,sans-=
+serif;font-size:18px;color:#4b4f54;margin-top:18px;margin-bottom:18px">
+                          <strong>=C3=9Czletben QR k=C3=B3ddal t=C3=B6rt=C3=
+=A9n=C5=91 ig=C3=A9nyl=C3=A9s eset=C3=A9n</strong> szerz=C5=91d=C3=A9se ele=
+ktronikus al=C3=A1=C3=ADr=C3=A1sa
+                          ut=C3=A1n (amennyiben a v=C3=A9gleges b=C3=ADr=C3=
+=A1lat eredm=C3=A9nye pozit=C3=ADv) Bankunkn=C3=A1l a k=C3=B6vetkez=C5=91 l=
+=C3=A9p=C3=A9sek t=C3=B6rt=C3=A9nnek:
+                      </p>
+                  </td>
+                  <td>=C2=A0</td>
+              </tr>
+              <tr>
+                  <td width=3D"15">=C2=A0</td>
+                  <td width=3D"570" align=3D"center" valign=3D"middle"><img=
+ src=3D"https://www.quicksign.fr/images-soa3/BNPPFHU/mails/image-4-vat.jpg"=
+ width=3D"570" height=3D"115" alt=3D"K=C3=A9p: folyamat=C3=A1bra"></td>
+                  <td width=3D"15">=C2=A0</td>
+              </tr>
+              <tr>
+                  <td>=C2=A0</td>
+                  <td>
+                      <p style=3D"font-family:Calibri,Arial,Helvetica,sans-=
+serif;font-size:18px;color:#4b4f54;margin-top:18px;margin-bottom:18px">
+                          A Magyar Cofidis Bank Zrt. adatkezel=C3=A9si t=C3=
+=A1j=C3=A9koztat=C3=B3j=C3=A1t <a href=3D"https://www.cofidisbank.hu/doc/ad=
+atkezelesi-tajekoztato.pdf" target=3D"_blank" rel=3D"noreferrer"><strong>it=
+t
+                                  =C3=A9rheti el.</strong></a><strong></str=
+ong><br><br>
+
+                          Az online szerz=C5=91d=C3=A9sk=C3=B6t=C3=A9sre vo=
+natkoz=C3=B3an fontos tudnival=C3=B3kat tal=C3=A1l az <a href=3D"https://ww=
+w.cofidisbank.hu/online-szerzodeskotes/aruhitel-expressz" target=3D"_blank"=
+ rel=3D"noreferrer"><strong>online szerz=C5=91d=C3=A9sk=C3=B6t=C3=A9si info=
+rm=C3=A1ci=C3=B3s oldalunkon</strong></a>, k=C3=A9rj=C3=BCk,
+                          hogy szerz=C5=91d=C3=A9sk=C3=B6t=C3=A9s el=C5=91t=
+t mindenk=C3=A9pp olvassa =C3=A1t!<br><br>
+
+                          =C3=9Cdv=C3=B6zlettel:<br>
+                          Magyar Cofidis Bank Zrt.</p>
+                  </td>
+                  <td>=C2=A0</td>
+              </tr>
+
+          </tbody>
+      </table>
+    <table width=3D"600" align=3D"center" cellpadding=3D"0" cellspacing=3D"=
+0">
+      <tbody>
+        <tr>
+          <td width=3D"15">=C2=A0</td>
+          <td width=3D"285" align=3D"center" valign=3D"middle"><a href=3D"h=
+ttps://www.cofidisbank.hu" target=3D"_blank" rel=3D"noreferrer"><img src=3D=
+"https://www.quicksign.fr/images-soa3/BNPPFHU/mails/button-contact-web.jpg"=
+ width=3D"165" height=3D"40" alt=3D"Kapcsolat: www.cofidisbank.hu"></a></td=
+>
+          <td width=3D"285" align=3D"center" valign=3D"middle"><a href=3D"t=
+el:+36-1-458-6070" target=3D"_blank" rel=3D"noreferrer"><img src=3D"https:/=
+/www.quicksign.fr/images-soa3/BNPPFHU/mails/button-contact-tel.jpg" width=
+=3D"170" height=3D"40" alt=3D"Kapcsolat, telefon: +36-1-458-6070"></a></td>
+          <td width=3D"15">=C2=A0</td>
+        </tr>
+          <tr>
+          <td width=3D"15">=C2=A0</td>
+          <td width=3D"285" align=3D"center" valign=3D"middle"></td>
+          <td width=3D"285" align=3D"center" valign=3D"middle"></td>
+          <td width=3D"15">=C2=A0</td>
+        </tr>
+      </tbody>
+    </table>
+     =20
+      <table width=3D"600" border=3D"0" align=3D"center" cellpadding=3D"0" =
+cellspacing=3D"0">
+          <tbody>
+              <tr>
+                  <td bgcolor=3D"#d4d4d4" align=3D"center" valign=3D"middle=
+">
+                      <p style=3D"font-family:Arial,sans-serif;font-size:14=
+px;color:#000;margin-top:14px;margin-bottom:14px">
+                          <em>Ez egy automatikusan k=C3=BCld=C3=B6tt lev=C3=
+=A9l, k=C3=A9rj=C3=BCk ne v=C3=A1laszoljon r=C3=A1!</em>
+                      </p>
+                  </td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+
+ =20
+
+</div>
+
+--00000000000004e2bd06319044de--

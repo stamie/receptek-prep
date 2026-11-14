@@ -1,0 +1,367 @@
+Delivered-To: estampel@gmail.com
+Received: by 2002:ac8:4543:0:b0:478:f523:ecca with SMTP id z3csp4267312qtn;
+        Mon, 7 Apr 2025 04:05:13 -0700 (PDT)
+X-Received: by 2002:a17:907:f1c1:b0:ac7:edfb:5210 with SMTP id a640c23a62f3a-ac7edfb536dmr656029166b.20.1744023913009;
+        Mon, 07 Apr 2025 04:05:13 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1744023912; cv=none;
+        d=google.com; s=arc-20240605;
+        b=LIG7tgCcI0Gc+cA1sOH6y149Sux3ZLEpHJe7HRFxYmqlRSy7P3QvNJnMGBKjDbA2JQ
+         fO/VOs7/NGZni2og6ynnekAL86i4w6FnCqmSykhCXnhmdeGfcLiYdTBHKDrCKDR8OC+Q
+         DgYyvk5wUjhuxXrl7XjaxACobxtP7Pm7X509hXfVPsrvoz/UFLEh3qgzC7pv7WquHBzY
+         NCKztq17074JdtHXu5vQlhNfYsrSkp5wiN40g01DJccFMSgeCNOHYzU5PDNpryh20JiA
+         QtjIVH3hudxde7sTD9Zpa0ZSqt1UHyRvODzddHC2ZXr1M45oyc8m2M3Dpd2U4iLCcdFY
+         qtbw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=Z4qYo00XQ1maHvBXU2x9nbNfRPd+s1E/MprmXearRDE=;
+        fh=wF/Yrd2E0xeKwPH74kML7cQSth+Fl4bwhVNrybJ4uh4=;
+        b=IbxjSELv1Oi6bKV8X2f539nEGb8JOppeqIxU9XiYCkANKoi4MupTmtP5ROpu2wOkZS
+         LmpVS0UoR+lE4VuCUZWJOdHB+jLwjNGToblyifriUTdsXeANP8xfg1eLIEn9IoJfKLHV
+         Jm+jd+G/wy4TIykuQJTxNq401IxeD9Y5Yze6FfzoHQe6gFCVvzdwbzymlf2EzPs4fHCv
+         QGLfPNB3eXsz7b8T/FbQcwm2l26RvmSyP6eUHxBZWqi6oRrAo3CHZhR5BQeT5O2Ft0XL
+         xgPaknRlONHo3WDTN+1f8U7ejl8XaOTkauYyqx8U9Q1U6ceZo2DU7qpqz8gghV81j7tc
+         I6rw==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=DTuO9PyP;
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <banyus53@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id a640c23a62f3a-ac7c08d7acesor403689866b.7.2025.04.07.04.05.12
+        for <estampel@gmail.com>
+        (Google Transport Security);
+        Mon, 07 Apr 2025 04:05:12 -0700 (PDT)
+Received-SPF: pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=DTuO9PyP;
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1744023912; x=1744628712; dara=google.com;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=Z4qYo00XQ1maHvBXU2x9nbNfRPd+s1E/MprmXearRDE=;
+        b=DTuO9PyPlW/51BY6yWKgGLU0gbJvaMa3oITZ9olpOOaxI/Svvn9zYLjtrX13vAmmeE
+         G9I3WLqZJPJq199Cf4oo+gz1XYDKaiMVTOVd840gJlvA1rSR3+xbKAVAyR9SSYWOXXU9
+         yPubDRkOKXmtV8WbEKc2g6ASzIl3Vx2iQcMsQkL8O56j139nLkUJ0znolX6Dy1MU+Tyt
+         6uR9+gSGZ1ZYVcSusyRc8rbeIc0ZHiKp92AggAla8G/dyznk6h5RLzTfxdqkDYeG5Cq6
+         fJ3y/PcoXKR1FFUNpB8kq2rONpm2iPszrURSXWsYzm/H+RyiQXsj8yQ/8wzh7nIUqOFK
+         G6rw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744023912; x=1744628712;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Z4qYo00XQ1maHvBXU2x9nbNfRPd+s1E/MprmXearRDE=;
+        b=CmL6buhZ9pW2EdhP4TCelhLOBAzrE83be0KMNuVHFPVXiEj5dK1vv4JJqJsR2Qj5Ux
+         o8zdkZKiCWKOHqCW592jaC0hfL0OTYGkM6Gp/nu8/FKomWfqnx2ZjrKRhUH3pKWgzWwQ
+         TX5BHA+ItpTlGsV5tOrhQchSAKoalWHFDqFEavweV3uHZ+NKmtiWbTDBEMUDTV33HqRD
+         uEIZodcgdrb1ZPIypzHNHhZJifD1M6rtDuvTdWEeY6sXGqhVdRv3hH/Z7QzZ4ERfstKE
+         5rhh3zNl/fuE1gYeab8Q1+FsptrbG/XPXqDwk6NpxI+ZBIktQ+qHhvTYuAfyH/6i6Iib
+         XVjg==
+X-Gm-Message-State: AOJu0YzTMvFV8aMT0O/rl4YMkXNuiHaPiSv3eF3HHZBM1SiXclcgKQES
+	FcOFMiAkyE34UzINuN36OCDAaOvTa5nQV4MOeUaOht4VUyxRsoRvx92ThCFgP3ZYuzpURmFDXj2
+	oNabjF1jPVHns1ZNOqeYrcPMgetOxjg==
+X-Gm-Gg: ASbGncvTeUOamQAuKwxT4IpIcr2qdH6TZF4WXhKoPKb/G773p5wh4iMa73Yv4/THHpo
+	DCtH09YN67nXAYfpcfcn3XDQQgrkjxW0KDEnieyF8SeGgswge/yxpqsbLYShy7Ca9Fzrs6ejCU5
+	oSqoTwW+qyLMa7+Pxn8Ew4Zu2qtA==
+X-Google-Smtp-Source: AGHT+IFLCP/0KnZFbjQz50/A6Zc/vMO+kYPU35g+exLxENNr+HaSl8YcGNX/rupZ7C0yyZTTwy4BXOdN9zYRQPGELBM=
+X-Received: by 2002:a17:906:6a1e:b0:ac6:f6ea:cc21 with SMTP id
+ a640c23a62f3a-ac7d6e9fe32mr949192166b.55.1744023911916; Mon, 07 Apr 2025
+ 04:05:11 -0700 (PDT)
+MIME-Version: 1.0
+References: <LOYP123MB3454CFD63AD22F7AEAA4D5BBC58C9@LOYP123MB3454.GBRP123.PROD.OUTLOOK.COM>
+ <LOYP123MB34540CBC7210937857131F4DC5F59@LOYP123MB3454.GBRP123.PROD.OUTLOOK.COM>
+ <LOYP123MB3454AA75699DA7F1CCD8E981C5FF9@LOYP123MB3454.GBRP123.PROD.OUTLOOK.COM>
+ <LOYP123MB3454317F66D13DC1E133ECACC5CC9@LOYP123MB3454.GBRP123.PROD.OUTLOOK.COM>
+ <LOYP123MB3454AFF4A8F09E820FB9D8D4C567A@LOYP123MB3454.GBRP123.PROD.OUTLOOK.COM>
+ <LOYP123MB34543FD19BDAE595FDE554D3C5AA2@LOYP123MB3454.GBRP123.PROD.OUTLOOK.COM>
+ <CA+39czWE-KjapmoprEbUF_DynPZuBiwN04ogakgYZ-z_UQScWw@mail.gmail.com>
+In-Reply-To: <CA+39czWE-KjapmoprEbUF_DynPZuBiwN04ogakgYZ-z_UQScWw@mail.gmail.com>
+From: =?UTF-8?B?w4FnbmVzIEJ1Z8Ohcg==?= <banyus53@gmail.com>
+Date: Mon, 7 Apr 2025 13:04:59 +0200
+X-Gm-Features: ATxdqUGPxlTk7dYU3_iV_z1B1lUiSDf7FUCdpsOob3A8HFm7YosHJat9p4n5clI
+Message-ID: <CA+39czX-Pb05d=sE3O-vsx7np59rE3APNNoJ_XM5VuOhNjSvnw@mail.gmail.com>
+Subject: Re: Hi Agnes
+To: Emese Stampel <estampel@gmail.com>
+Content-Type: multipart/alternative; boundary="000000000000bfef1c06322e3570"
+
+--000000000000bfef1c06322e3570
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Hello,
+
+My houses datas:
+
+It is a country house
+I don't have pictures of my house, i will send it on Thursday
+Is the property being sold unfurnished.
+2 of bedrooms
+1 of Bathrooms
+6 of rooms.
+No, it dosen't have a private or Communal Pool?.
+It's a house
+The house is 80 square meters, and the garden  is 1000 square meters
+It's near Lake of Balaton, and Kaposv=C3=A1r, and Csisztapuszta's Spa, Kris=
+hna
+Valley.
+What is your asking price to re-sell?
+No, I don't have it on with any local agents close to the property.
+Do you want to sell now or are you testing the market? Yes, I do.
+Is there any Debt on the property =E2=80=93 loans =E2=80=93 Mortgage etc? N=
+o, I don't have
+Is this the only property you want to sell as we also sell land and
+commercial property? Yes
+Is the Deeds available when we find you a buyer? Yes, I'm the owner.
+
+Best Regards
+
+=C3=81gnes, and her daughter
+
+=C3=81gnes Bug=C3=A1r <banyus53@gmail.com> ezt =C3=ADrta (id=C5=91pont: 202=
+5. =C3=A1pr. 7., H 12:37):
+
+>
+> ---------- Forwarded message ---------
+> Felad=C3=B3: Gerard Madden <gerard@esalesinternational.com>
+> Date: 2025. =C3=A1pr. 7., H 12:34
+> Subject: RE: Hi Agnes
+> To: banyus53@gmail.com <banyus53@gmail.com>
+>
+>
+>
+>
+>
+>
+> Hope you are well I am just following up to see if my email was received
+> requesting details of the property you want to sell thanks.
+>
+>
+>
+> My email requesting this may of went in your junk folders.
+>
+>
+>
+> If it makes it easier if you are very busy and don=E2=80=99t have time to=
+ answer
+> all the questions you can just send me a direct link to it on any other
+> agents website and I can download all photos and details myself if it is
+> already advertised online.
+>
+>
+>
+> As our agents have a property exhibition this weekend overseas they may
+> well want to get this into so we can present the property to buyers and
+> investors from around the world in your price range.
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+> *Kind Regards*
+>
+>
+>
+> *Gerard Madden*
+>
+> *Overseas Property Specialist*
+>
+>
+>
+> *Tel =E2=80=93 0208 050 5409*
+>
+> *Outside UK +44 208 050 5409*
+>
+> <https://www.google.com/maps/search/49+Grosvenor+Street%0D%0A+%0D%0A+Lond=
+on+%0D%0A+W1K+3HP?entry=3Dgmail&source=3Dg>
+>
+>
+>
+> <https://www.google.com/maps/search/49+Grosvenor+Street%0D%0A+%0D%0A+Lond=
+on+%0D%0A+W1K+3HP?entry=3Dgmail&source=3Dg>
+>
+> *Esales Property LTD.*
+>
+>
+>
+> *Grosvenor House *
+>
+> *49 Grosvenor Street
+> <https://www.google.com/maps/search/49+Grosvenor+Street%0D%0A+%0D%0A+Lond=
+on+%0D%0A+W1K+3HP?entry=3Dgmail&source=3Dg>*
+>
+> *London
+> <https://www.google.com/maps/search/49+Grosvenor+Street%0D%0A+%0D%0A+Lond=
+on+%0D%0A+W1K+3HP?entry=3Dgmail&source=3Dg>*
+>
+> *W1K 3HP
+> <https://www.google.com/maps/search/49+Grosvenor+Street%0D%0A+%0D%0A+Lond=
+on+%0D%0A+W1K+3HP?entry=3Dgmail&source=3Dg>*
+>
+>
+>
+> www.esalesinternational.com
+>
+>
+>
+> Email: *gerard@esalesinternational.com <gerard@esalesinternational.com>*
+>
+>
+>
+> *UK Company Number : 13782906*
+>
+>
+>
+
+--000000000000bfef1c06322e3570
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<p dir=3D"ltr">Hello,</p>
+<p dir=3D"ltr">My houses datas:</p>
+<p dir=3D"ltr">It is a country house<br>
+I don&#39;t have pictures of my house, i will send it on Thursday<br>
+Is the property being sold unfurnished.<br>
+2 of bedrooms<br>
+1 of Bathrooms<br>
+6 of rooms.<br>
+No, it dosen&#39;t have a private or Communal Pool?.<br>
+It&#39;s a house<br>
+The house is 80 square meters, and the garden=C2=A0 is 1000 square meters<b=
+r>
+It&#39;s near Lake of Balaton, and Kaposv=C3=A1r, and Csisztapuszta&#39;s S=
+pa, Krishna Valley.<br>
+What is your asking price to re-sell?<br>
+No, I don&#39;t have it on with any local agents close to the property.<br>
+Do you want to sell now or are you testing the market? Yes, I do.<br>
+Is there any Debt on the property =E2=80=93 loans =E2=80=93 Mortgage etc? N=
+o, I don&#39;t have<br>
+Is this the only property you want to sell as we also sell land and commerc=
+ial property? Yes<br>
+Is the Deeds available when we find you a buyer? Yes, I&#39;m the owner.<br=
+>
+ </p>
+<p dir=3D"ltr"> Best Regards<br><br></p>
+<p dir=3D"ltr">=C3=81gnes, and her daughter<br></p>
+<br><div class=3D"gmail_quote gmail_quote_container"><div dir=3D"ltr" class=
+=3D"gmail_attr">=C3=81gnes Bug=C3=A1r &lt;<a href=3D"mailto:banyus53@gmail.=
+com">banyus53@gmail.com</a>&gt; ezt =C3=ADrta (id=C5=91pont: 2025. =C3=A1pr=
+. 7., H 12:37):<br></div><blockquote class=3D"gmail_quote" style=3D"margin:=
+0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex"><div dir=3D"auto"><=
+/div><br><div class=3D"gmail_quote"><div dir=3D"ltr" class=3D"gmail_attr">-=
+--------- Forwarded message ---------<br>Felad=C3=B3: <strong class=3D"gmai=
+l_sendername" dir=3D"auto">Gerard Madden</strong> <span dir=3D"auto">&lt;<a=
+ href=3D"mailto:gerard@esalesinternational.com" target=3D"_blank" rel=3D"no=
+referrer">gerard@esalesinternational.com</a>&gt;</span><br>Date: 2025. =C3=
+=A1pr. 7., H 12:34<br>Subject: RE: Hi Agnes<br>To: <a href=3D"mailto:banyus=
+53@gmail.com" target=3D"_blank" rel=3D"noreferrer">banyus53@gmail.com</a> &=
+lt;<a href=3D"mailto:banyus53@gmail.com" target=3D"_blank" rel=3D"noreferre=
+r">banyus53@gmail.com</a>&gt;<br></div><br><br>
+
+
+
+
+
+<div lang=3D"EN-GB" link=3D"#0563C1" vlink=3D"#954F72">
+<div>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<p class=3D"MsoNormal">Hope you are well I am just following up to see if m=
+y email was received requesting details of the property you want to sell th=
+anks.<u></u><u></u></p>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<p class=3D"MsoNormal">My email requesting this may of went in your junk fo=
+lders.<u></u><u></u></p>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<p class=3D"MsoNormal">If it makes it easier if you are very busy and don=
+=E2=80=99t have time to answer all the questions you can just send me a dir=
+ect link to it on any other agents website and I can download all photos an=
+d details myself if it is already advertised
+ online.<u></u><u></u></p>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<p class=3D"MsoNormal">As our agents have a property exhibition this weeken=
+d overseas they may well want to get this into so we can present the proper=
+ty to buyers and investors from around the world in your price range.<u></u=
+><u></u></p>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<p class=3D"MsoNormal"><b><span style=3D"font-size:9pt;font-family:Arial,sa=
+ns-serif;color:rgb(0,32,96)">Kind Regards</span></b><span><u></u><u></u></s=
+pan></p>
+<p class=3D"MsoNormal"><b><span style=3D"color:rgb(0,32,96)">=C2=A0</span><=
+/b><span><u></u><u></u></span></p>
+<p class=3D"MsoNormal"><b><span style=3D"color:rgb(0,32,96)">Gerard Madden<=
+u></u><u></u></span></b></p>
+<p class=3D"MsoNormal"><b><span style=3D"color:rgb(0,32,96)">Overseas Prope=
+rty Specialist<u></u><u></u></span></b></p>
+<p class=3D"MsoNormal"><b><span style=3D"color:rgb(0,32,96)"><u></u>=C2=A0<=
+u></u></span></b></p>
+<p class=3D"MsoNormal"><b><span style=3D"color:rgb(0,32,96)">Tel =E2=80=93 =
+0208 050 5409<u></u><u></u></span></b></p>
+<p class=3D"MsoNormal"><b><span style=3D"color:rgb(0,32,96)">Outside UK +44=
+ 208 050 5409</span></b><span><u></u><u></u></span></p><a href=3D"https://w=
+ww.google.com/maps/search/49+Grosvenor+Street%0D%0A+%0D%0A+London+%0D%0A+W1=
+K+3HP?entry=3Dgmail&amp;source=3Dg" target=3D"_blank" rel=3D"noreferrer">
+</a><p class=3D"MsoNormal"><span>=C2=A0<u></u><u></u></span></p><a href=3D"=
+https://www.google.com/maps/search/49+Grosvenor+Street%0D%0A+%0D%0A+London+=
+%0D%0A+W1K+3HP?entry=3Dgmail&amp;source=3Dg" target=3D"_blank" rel=3D"noref=
+errer">
+</a><p class=3D"MsoNormal"><b><span style=3D"color:rgb(0,32,96)">Esales Pro=
+perty LTD.<u></u><u></u></span></b></p>
+<p class=3D"MsoNormal"><b><span style=3D"color:rgb(0,32,96)"><u></u>=C2=A0<=
+u></u></span></b></p>
+<p class=3D"MsoNormal"><b><span style=3D"color:rgb(0,32,96)">Grosvenor Hous=
+e
+<u></u><u></u></span></b></p>
+<p class=3D"MsoNormal"><b><span style=3D"color:rgb(0,32,96)"><a href=3D"htt=
+ps://www.google.com/maps/search/49+Grosvenor+Street%0D%0A+%0D%0A+London+%0D=
+%0A+W1K+3HP?entry=3Dgmail&amp;source=3Dg" target=3D"_blank" rel=3D"noreferr=
+er">49 Grosvenor Street
+</a><u></u><u></u></span></b></p>
+<p class=3D"MsoNormal"><b><span style=3D"color:rgb(0,32,96)"><a href=3D"htt=
+ps://www.google.com/maps/search/49+Grosvenor+Street%0D%0A+%0D%0A+London+%0D=
+%0A+W1K+3HP?entry=3Dgmail&amp;source=3Dg" target=3D"_blank" rel=3D"noreferr=
+er">London</a><u></u><u></u></span></b></p>
+<p class=3D"MsoNormal"><b><span style=3D"color:rgb(0,32,96)"><a href=3D"htt=
+ps://www.google.com/maps/search/49+Grosvenor+Street%0D%0A+%0D%0A+London+%0D=
+%0A+W1K+3HP?entry=3Dgmail&amp;source=3Dg" target=3D"_blank" rel=3D"noreferr=
+er">W1K 3HP</a><u></u><u></u></span></b></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:9pt;font-family:Arial,sans-=
+serif;color:rgb(29,28,29);background:white">=C2=A0</span><span><u></u><u></=
+u></span></p>
+<p class=3D"MsoNormal"><span><a href=3D"http://www.esalesinternational.com/=
+" rel=3D"noreferrer noreferrer" target=3D"_blank">www.esalesinternational.c=
+om</a>
+<u></u><u></u></span></p>
+<p class=3D"MsoNormal"><span>=C2=A0<u></u><u></u></span></p>
+<p class=3D"MsoNormal"><span>Email:=C2=A0<u><span style=3D"color:blue"><a h=
+ref=3D"mailto:gerard@esalesinternational.com" rel=3D"noreferrer noreferrer"=
+ target=3D"_blank">gerard@esalesinternational.com</a></span></u><u></u><u><=
+/u></span></p>
+<p class=3D"MsoNormal"><span><u></u>=C2=A0<u></u></span></p>
+<p class=3D"MsoNormal"><b><span>UK Company Number : 13782906<u></u><u></u><=
+/span></b></p>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+</div>
+</div>
+
+</div>
+</blockquote></div>
+
+--000000000000bfef1c06322e3570--

@@ -1,0 +1,182 @@
+Delivered-To: estampel@gmail.com
+Received: by 2002:a05:6359:504c:b0:1d2:9cb:7268 with SMTP id om12csp4236128rwb;
+        Mon, 10 Feb 2025 11:53:42 -0800 (PST)
+X-Forwarded-Encrypted: i=2; AJvYcCVkOm+dZXPGWijmV7riXMOEPDSFIPj4MY7pl7N87e1/xGZsS6nHyLxVXPgn6Dd3PfwAdIg4+ttw0g==@gmail.com
+X-Received: by 2002:a05:690c:3682:b0:6f9:7817:7154 with SMTP id 00721157ae682-6f9b2a20771mr142378597b3.36.1739217222742;
+        Mon, 10 Feb 2025 11:53:42 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1739217222; cv=none;
+        d=google.com; s=arc-20240605;
+        b=NjR/zo0E8nEH1bMyMI7nEUqcpBeJ5p+4cUiC/uCQKwrsPPUfNnRu3f+kXh/GSHdOOn
+         pM44K5K7HtdbTkoXXTKUDzNyHImHWPyMuFkWmDperTznvq1OU47+xPeZGkOQxUGrJSN+
+         ivvJ53RL6rfzYw43GJ84giED1Ms/RIXNfyaZFZoV1hJzY84agCUTQpl4u6NJiN0pDFlY
+         5DvlAkDZypV1RU1XLiDQ/HpVz0QkJU3twTK9r8kchE+XF6oI0kTqfZIGo6eSbRo7Z/80
+         5S2yN+xTfpRiPt1rpVwkCAdvA8P9X1+Wqmn7cmgUvwc3Indz+dJnF3AAwrCixmPy0u7G
+         cVfw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=H/jrBX0cZUI+fMN/YLXBn90KNPv+wxTPAbparLObFrM=;
+        fh=K+dDevlZSdFUM3N+yA6yR7/mX79gN6vAdsrEhHnT1BQ=;
+        b=Uz4z4XKgpYZRlIsJi5vrsJiNt7ujYY++hHnkDjqX/OaxRSFOGOd5V1UsxpISgmzZ/+
+         3Ttsa0cqJBXpWEOefP/hcnEqcrFiZgAhFZYj1CQg+sBkGsBPnC4Yv1egM1xsoSeXTY2C
+         7AXSJom+d1zriTWPHsH4/gqwmsNJRXfgEXJkJNv9sPJPajWiZHEx+XC3Rq1RjBjTd3fA
+         l5j6JakATcuTWTgnMEfvR1LtbgmgfQMa0xZDbb0SpEcIHKyps2tPFkflSaRsJnxBYS1T
+         8DEsBLBHUJADZajJ4QS+h2k41vveXKXb6PhMYNk85VkHZ1bEnYDdxA30frWVY4SgSUgV
+         N61g==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@slp-hu.20230601.gappssmtp.com header.s=20230601 header.b=Q3XaPJyw;
+       spf=softfail (google.com: domain of transitioning steiner@slp.hu does not designate 209.85.220.41 as permitted sender) smtp.mailfrom=steiner@slp.hu;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=slp.hu;
+       dara=pass header.i=@gmail.com
+Return-Path: <steiner@slp.hu>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id 00721157ae682-6f9ca5a6f20sor33302467b3.8.2025.02.10.11.53.42
+        for <EStampel@gmail.com>
+        (Google Transport Security);
+        Mon, 10 Feb 2025 11:53:42 -0800 (PST)
+Received-SPF: softfail (google.com: domain of transitioning steiner@slp.hu does not designate 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@slp-hu.20230601.gappssmtp.com header.s=20230601 header.b=Q3XaPJyw;
+       spf=softfail (google.com: domain of transitioning steiner@slp.hu does not designate 209.85.220.41 as permitted sender) smtp.mailfrom=steiner@slp.hu;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=slp.hu;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=slp-hu.20230601.gappssmtp.com; s=20230601; t=1739217222; x=1739822022; dara=google.com;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=H/jrBX0cZUI+fMN/YLXBn90KNPv+wxTPAbparLObFrM=;
+        b=Q3XaPJyw+7ZYDawg0HT9FjNXX8rmJ22mQBI3Q7uVb272DfkWigY4E6kIZx4LbFbioB
+         CRHyN78e6af1lSCgDN5P03/5riWJHJPkRcrfFPPMzHMW1ZZM5rL2Bb3TJZDqG/njNG+f
+         SyReoHLBSkZJ7I3QI6kzwPuXPb2WnYDB5nHlv9AEyRg98yhUWtS0B22cGZYx4YGQjXed
+         s5NgIXgxzkFecSRlS+SjMzgHlUj9V2/wUyFmayg96S6vL2/fekyTJTkA5rOM8s0g8Zgb
+         maXiygoTEH9BS2d1OI/JYntNsXH6PwvAHUz2O4s049Hwb4NDPhUdLKMcBe6cq+fN/kMo
+         0rcQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739217222; x=1739822022;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=H/jrBX0cZUI+fMN/YLXBn90KNPv+wxTPAbparLObFrM=;
+        b=Q5/fUXw/+B094J87wv2+pjTcHI+lqUa41W3c/J6lWfX9iDPBpsulWEjGbRtpKBcpGk
+         0y3ConFoVL5VVFQ6fJxjm7e/33Ph5dhsAyFRzPq7l+aBCLWoCKAJHS+aU2bEDOWO2sKW
+         zAUQtuiIWiw2Zt2QWt2f302SJYzXvi3akWBNiGbRSCLtwKZCsHS0/a2n5k21OuOJMlrD
+         AeC7rc/VD6Zy5Bu2NvViiDMUQJaW4wypMwf/gJqoAWRv5CgMyi44qZtJz2Yu8am3qMfU
+         PKycRzzCUKEbTWUPizei+MfW2in1cF06BJvEmS3pudCE/NZ3NG3h+nzFalSwvjThZ+Lh
+         srUg==
+X-Forwarded-Encrypted: i=1; AJvYcCU1M4adg1buCbWUW8UHV6K8DX7K/KT0AoVFRkNj3R1mzyDcLphy868l3OOCDbUXHuZCCLp7HpD9rg==@gmail.com
+X-Gm-Message-State: AOJu0Yw0IJoGDRNpueV3neOf1qRpIlJO9Im6+NF3MrfQueLh2SC8A33G
+	qV/aw9whqZIZxPbmCEQ3h8oA2nX9v26g9QGSh/hdZVX75Wo8IjFwsJWa05xPgVEpVeT6IZmZTZp
+	r5/1/pec4rr8C8HCq/8YdGW+VfFnmvNfLek7f4g==
+X-Gm-Gg: ASbGnctsyFZwklzktU7agq3jDvSa0fMNtSwc4nfvVOKXMNbcli9ALL6UURLHYXR58Br
+	PUGnffMIX6CV0rWNOE+HP0KNjJryzDOmwGYBMryyy9MoiU7HOv2WX5NnNOtMBnlsczU4Zzf8B+m
+	DEeTzKpoTn94/39SxIbZJucNKeeMQj
+X-Google-Smtp-Source: AGHT+IErJQXRG2ap5HVzVCEPTdqbfuimjgwpGl0lxkOHLIVKuRp+ouViUzWzMMhhDPEiQKtS+W1IO9+BnbTSNQsceYc=
+X-Received: by 2002:a05:690c:6113:b0:6f9:88ba:aa5d with SMTP id
+ 00721157ae682-6f9b2873301mr129737737b3.9.1739217221937; Mon, 10 Feb 2025
+ 11:53:41 -0800 (PST)
+MIME-Version: 1.0
+References: <CALi7w6syuu1GtwNcyN2t666Yq-UFa4+awiJieUbv3JN4K5-Kuw@mail.gmail.com>
+In-Reply-To: <CALi7w6syuu1GtwNcyN2t666Yq-UFa4+awiJieUbv3JN4K5-Kuw@mail.gmail.com>
+From: =?UTF-8?B?TMOhc3psw7MgU3RlaW5lcg==?= <steiner@slp.hu>
+Date: Mon, 10 Feb 2025 20:53:30 +0100
+X-Gm-Features: AWEUYZniGbnvtUyZPGHJADVFKEs4kHdh3Bh02RoEjTnp-PpAH3X6IeisTyf5gFA
+Message-ID: <CAHvQ8V+VRc0kO2r+yHh=0d8H91HDc4ZyU_C=iJMR_9caVgrKLg@mail.gmail.com>
+Subject: =?UTF-8?B?UmU6IEvDtnZldGtlesWRIHRhbMOhbGtvesOz?=
+To: =?UTF-8?B?TMOhc3psw7MgTW9sbsOhcg==?= <laszlo.junior@gmail.com>
+Cc: =?UTF-8?Q?Aur=C3=A9l_Polnik?= <polnik.aurel66@gmail.com>, 
+	Orsi Wigand <wigand.orsi@balatonboglar.org>, Szegedi2023@protonmail.com, 
+	Soltine Marta <soltine.marta@gmail.com>, Zita Tappler <zita1962@gmail.com>, orsitiszabb@gmail.com, 
+	EStampel@gmail.com, istvansolti53@gmail.com, banyus53@gmail.com, 
+	tiszabalatonboglar@gmail.com, 
+	=?UTF-8?Q?Plat=C3=A1n_Balatonbogl=C3=A1r?= <platanbalatonboglar@gmail.com>
+Content-Type: multipart/alternative; boundary="000000000000b39433062dcf1094"
+
+--000000000000b39433062dcf1094
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Sziasztok. Nekem ez a h=C3=A9t tele van. =C3=9Cdv, Laci
+
+L=C3=A1szl=C3=B3 Moln=C3=A1r <laszlo.junior@gmail.com> ezt =C3=ADrta (id=C5=
+=91pont: 2025. febr. 10.,
+H=C3=A9t 18:48):
+
+> Sziasztok,
+>
+> Aur=C3=A9llal ker=C3=BClgetj=C3=BCk egym=C3=A1st egy ideje, hogy kellene =
+egy k=C3=B6vetkez=C5=91
+> tal=C3=A1lkoz=C3=B3.
+>
+> - K=C3=A9sz van v=C3=A9gre a Tisz=C3=A1s f=C3=A9sz profil, jel=C3=B6ltem =
+ismer=C5=91snek =C3=A9s megh=C3=ADvtam a
+> z=C3=A1rt csopiba. *K=C3=A9rlek jel=C3=B6ljetek vissza, hogy beh=C3=ADvha=
+ssalak benneteket a
+> csoportba*, ott nyitunk egy chatet amin tudunk kommunik=C3=A1lni.
+> - Ha megvan az id=C5=91pont megh=C3=ADvjuk Fenyvesi Melind=C3=A1t, aki a =
+neten
+> jelentkezett =C3=A9s keres szigetet, telefonon besz=C3=A9ltem vele, nagyo=
+n j=C3=B3 lesz. :)
+> - A k=C3=B6rny=C3=A9kbeli falvakb=C3=B3l (Csehi, Gy=C3=B6r=C3=B6k) jutott=
+ nek=C3=BCnk hogy
+> terjeszkedj=C3=BCnk, meg kellene besz=C3=A9lni, hogyan.
+> - Talpra Magyarok bolg=C3=A1ri csopit n=C3=A9zz=C3=BCk meg egy=C3=BCtt, k=
+it pingelhetn=C3=A9nk meg!?
+> - Egy=C3=A9b
+> - Arra k=C3=A9sz=C3=BClni kell, hogy =C3=BAjra kell d=C3=A1tumoznunk az a=
+lakul=C3=A1sunkat, a
+> sziget admin-nak h=C3=ADvott webes fel=C3=BClet miatt.
+> - Esetleg kell-e k=C3=A9sz=C3=BCln=C3=BCnk z=C3=A1szl=C3=B3kkal, hangosbe=
+sz=C3=A9l=C5=91vel, t=C3=A1bl=C3=A1kkal,
+> standdal, stb.
+> - Gondoljuk =C3=A1t hogy az el=C5=91bbiekhez kital=C3=A1ljunk valami fina=
+nsz=C3=ADroz=C3=A1st...
+> (pl. Lell=C3=A9n havi 3.000Ft-ot dobnak be erre a c=C3=A9lra)
+>
+> Hol legyen =C3=A9s mikor?
+> Nekem a h=C3=A9ten a holnapi nap (02.11) =C3=A9s a szombat (02.15) lenne =
+alkalmas.
+> B=C3=A1r szombaton Si=C3=B3fokon is lesz valami sze=C3=A1nsz.
+>
+> =C3=9Cdv.
+> Laci & Aur=C3=A9l
+>
+>
+
+--000000000000b39433062dcf1094
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"auto">Sziasztok. Nekem ez a h=C3=A9t tele van. =C3=9Cdv, Laci</=
+div><br><div class=3D"gmail_quote gmail_quote_container"><div dir=3D"ltr" c=
+lass=3D"gmail_attr">L=C3=A1szl=C3=B3 Moln=C3=A1r &lt;<a href=3D"mailto:lasz=
+lo.junior@gmail.com">laszlo.junior@gmail.com</a>&gt; ezt =C3=ADrta (id=C5=
+=91pont: 2025. febr. 10., H=C3=A9t 18:48):<br></div><blockquote class=3D"gm=
+ail_quote" style=3D"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-le=
+ft:1ex"><div dir=3D"ltr">Sziasztok,<div><br></div><div>Aur=C3=A9llal ker=C3=
+=BClgetj=C3=BCk egym=C3=A1st egy ideje, hogy kellene egy k=C3=B6vetkez=C5=
+=91 tal=C3=A1lkoz=C3=B3.</div><div><br></div><div>- K=C3=A9sz van v=C3=A9gr=
+e a Tisz=C3=A1s=C2=A0f=C3=A9sz profil, jel=C3=B6ltem ismer=C5=91snek =C3=A9=
+s megh=C3=ADvtam a z=C3=A1rt csopiba. <b>K=C3=A9rlek jel=C3=B6ljetek vissza=
+, hogy beh=C3=ADvhassalak=C2=A0benneteket a csoportba</b>, ott nyitunk egy =
+chatet amin tudunk kommunik=C3=A1lni.</div><div>- Ha megvan az id=C5=91pont=
+ megh=C3=ADvjuk Fenyvesi Melind=C3=A1t, aki a neten jelentkezett =C3=A9s ke=
+res szigetet, telefonon besz=C3=A9ltem vele, nagyon j=C3=B3 lesz. :)</div><=
+div>- A k=C3=B6rny=C3=A9kbeli falvakb=C3=B3l (Csehi, Gy=C3=B6r=C3=B6k) juto=
+tt nek=C3=BCnk hogy terjeszkedj=C3=BCnk, meg kellene besz=C3=A9lni, hogyan.=
+</div><div>- Talpra Magyarok bolg=C3=A1ri csopit n=C3=A9zz=C3=BCk meg egy=
+=C3=BCtt, kit pingelhetn=C3=A9nk meg!?</div><div>- Egy=C3=A9b</div><div>- A=
+rra k=C3=A9sz=C3=BClni kell, hogy =C3=BAjra kell d=C3=A1tumoznunk=C2=A0az a=
+lakul=C3=A1sunkat, a sziget admin-nak h=C3=ADvott webes fel=C3=BClet miatt.=
+</div><div>- Esetleg kell-e k=C3=A9sz=C3=BCln=C3=BCnk z=C3=A1szl=C3=B3kkal,=
+ hangosbesz=C3=A9l=C5=91vel, t=C3=A1bl=C3=A1kkal, standdal, stb.</div><div>=
+- Gondoljuk =C3=A1t hogy az el=C5=91bbiekhez=C2=A0kital=C3=A1ljunk valami f=
+inansz=C3=ADroz=C3=A1st... (pl. Lell=C3=A9n havi 3.000Ft-ot dobnak be erre =
+a c=C3=A9lra)</div><div><br></div><div>Hol legyen =C3=A9s mikor?</div><div>=
+Nekem a h=C3=A9ten a holnapi nap (02.11) =C3=A9s a szombat (02.15) lenne al=
+kalmas.</div><div>B=C3=A1r szombaton Si=C3=B3fokon is lesz valami sze=C3=A1=
+nsz.</div><div><br></div><div>=C3=9Cdv.</div><div>Laci &amp; Aur=C3=A9l</di=
+v><div><br></div></div>
+</blockquote></div>
+
+--000000000000b39433062dcf1094--

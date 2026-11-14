@@ -1,0 +1,1661 @@
+Delivered-To: estampel@gmail.com
+Received: by 2002:a05:622a:838b:b0:479:5c49:a6e8 with SMTP id lg11csp617746qtb;
+        Wed, 9 Apr 2025 03:11:54 -0700 (PDT)
+X-Received: by 2002:a17:907:2d25:b0:ac7:ee7a:b23d with SMTP id a640c23a62f3a-aca9b73abd4mr211913166b.44.1744193514359;
+        Wed, 09 Apr 2025 03:11:54 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1744193514; cv=none;
+        d=google.com; s=arc-20240605;
+        b=A4aXuAoDmRm+rnXx5wyoFx1EGouEv7/m9iyWJFMcK8TuWJazjfDulf/NGq6hWdsTK3
+         akgby3Qto8ZMcXxj+sSjM8MEVU7sdYychWznps4mbh0xl0xyYeHStxZmHey6P1YQw365
+         uOj108PzcFHJOUX60ChwTvhFPC2gNafZvVmefqluofX+NSbpqR8xv65naFJEo2GiOjn5
+         3BCW0nXn2X2EqR2LCQQ1Jj/RWVjtE7YQExU/uwrFIHLsnrki3ycke+v381ub35m+rCGB
+         J8ZAy+8vW+XUWFHMW5C98z4EMlD6MkmebzTmof8+VM2ScaGxAmXZw91oDkaC4YeSP/QE
+         +i9w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=hJ/ToxXrhAZo0CyIvlyWhdGoWpVBq8fNfh298u9sKdE=;
+        fh=wF/Yrd2E0xeKwPH74kML7cQSth+Fl4bwhVNrybJ4uh4=;
+        b=f1P0deCsRBKEWHpDS2Spt7oFMVWvb9H8bP7IGw0tPURj6STp9G3xIbsExSTF1Dvjmr
+         4NZic34OxNZjC7xzpi/C+mvKxrOAZHWy4r0S52OTTC3LxNrFq1r4lj34pgNKB5I59e14
+         KNvBerg0NcpF3msyd9PoFoM+jgSuF04khX37Q0OkPO+JrkcizERqfJGidgKvPRQ3Gtc6
+         /SwHHtYCHxO95Mn6KGGD95pVLJP4Rn6rYHt4HiJvKjjdDDg++oTRhskXtum8Dcr+ivuN
+         jQmvCHNDLz82j6yEnHxW/MZvUyi1o+rFPGfLs9PUSJdDEL1fe4BGKIWQPy7oFPu4QNOs
+         pqtA==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=iUAeOdrf;
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <banyus53@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id a640c23a62f3a-acaa1bfa694sor47030666b.9.2025.04.09.03.11.54
+        for <estampel@gmail.com>
+        (Google Transport Security);
+        Wed, 09 Apr 2025 03:11:54 -0700 (PDT)
+Received-SPF: pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=iUAeOdrf;
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1744193513; x=1744798313; dara=google.com;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=hJ/ToxXrhAZo0CyIvlyWhdGoWpVBq8fNfh298u9sKdE=;
+        b=iUAeOdrfhYnK2eoVN4k2GsWRaTobvuHeyTphZVn+Cs1J6RjBbc80el+c2mrcBfiYm9
+         TNe1FDTslTbMuvVTxSn/9Xw4TtngFbx8kK5UTnEPaWambMC5POHyXNenWLe4GLuQPJ7D
+         5krHVsEllpmsUvwVMs/F5xVJo0JAZbKvY494GkJ/T4A63YqbLkCqF9kgBlwcCTxae7Yq
+         LE0yOKHb5gKyMRIW9NNbpVQ0PS5RSDcBw6lmYKxPcDJy+g1ywCfuVjclxgKE+MCTKuQd
+         zAj6BYRb40Qdf0ngbQ6zjZFtJFl5zwdDlLLhd9MmSmWCw/G580gjTsTneKGbdeehooBq
+         oEEw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744193513; x=1744798313;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=hJ/ToxXrhAZo0CyIvlyWhdGoWpVBq8fNfh298u9sKdE=;
+        b=OoPEGnzUJyd7DxFYZ3BNE+0NpI9JqRmBHudCRrysYqyY+Yj6Bk0bW3UFnq53Yc3R9q
+         Ro0V+Y039FiHyY4RMgv5T8K/tA2goq/CeCTUqPEUOdVofna48abh8nbmP6rVK0GdYcnp
+         ZnFV+gSDp1ANpkAUVoNYPK5HsC1wCckP3GH1As81bKg7anamE/5bgLNt+9SYzbYFDhG/
+         FraE+BRBdTni52ZLRF0d/Uf1VA1hOhi134ay9c4fQ2NBQbgW6qC6MuGfGEWCAMZ+J60T
+         cVHdSXbNrr4moXjVFfVoWiFB9IyPCQaRuzRiJBQioIgTi9bz1p6/fmZwpyYCYAZ+9wbW
+         rQGw==
+X-Gm-Message-State: AOJu0Yw9nAYVvtO0NLdhtRnQMNN1ozkQ5M9upKnt1v7VU1rE9oxJTX4t
+	Yj8g3kOfTnsRduLYUVAHv9qnMsjs4LLOnzBp7SY0s2SZLM8pfzH7JJIGm4srCj2nMFXnEWL7h7u
+	6z178Lh8iFr8vCh7IqN7Om52ueVKOYw==
+X-Gm-Gg: ASbGnctLDfS/Z4mXDUQF5kpJLuZRZlQ12lgxDSreAXRQ3TBPaJXhfpIIgN4r9cfkHJ3
+	kgg38Y0k9krc4LlMuDACBLGwpCextMVOfeciqJOP2xAnJvo6hSe+4BVZN6HTWovNPEZX+WiieEM
+	luNLHZgRwCLat8/3OW6l//t40JQc6ilNuF
+X-Google-Smtp-Source: AGHT+IHs2jyis4v4HM/HkZJVDFXr8sSq9NzCcEIL4CAaSykNjdMgoBCAvEGdcocLxAn6tbS5F4c73LKir11BY2+Maic=
+X-Received: by 2002:a17:907:9449:b0:ac7:7526:46a7 with SMTP id
+ a640c23a62f3a-aca9b613576mr232895466b.1.1744193513308; Wed, 09 Apr 2025
+ 03:11:53 -0700 (PDT)
+MIME-Version: 1.0
+References: <100094.6844342577.202504090951027647158.0001262807@diario.idealista.com>
+In-Reply-To: <100094.6844342577.202504090951027647158.0001262807@diario.idealista.com>
+From: =?UTF-8?B?w4FnbmVzIEJ1Z8Ohcg==?= <banyus53@gmail.com>
+Date: Wed, 9 Apr 2025 12:11:39 +0200
+X-Gm-Features: ATxdqUGgyboi_wxAIJC5TfxFopwZBeqYGgeScwP5hbd-kiD13DMim8wLh0LGIMQ
+Message-ID: <CA+39czW0Yu_AGVkLujxSTHFQ4odHSCm6gWwPZYhmhzzBG9gONA@mail.gmail.com>
+Subject: =?UTF-8?Q?Fwd=3A_Est=C3=A1_pasando_09=2F04=2F2025?=
+To: Emese Stampel <estampel@gmail.com>
+Content-Type: multipart/alternative; boundary="000000000000c7cab5063255b275"
+
+--000000000000c7cab5063255b275
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+---------- Forwarded message ---------
+Felad=C3=B3: idealista/news <news@diario.idealista.com>
+Date: 2025. =C3=A1pr. 9., Sze 12:09
+Subject: Est=C3=A1 pasando 09/04/2025
+To: banyus53@gmail.com <banyus53@gmail.com>
+
+
+D=C3=B3nde se levanta m=C3=A1s vivienda de obra nueva =CD=8F=E2=80=8C =E2=
+=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=
+=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD
+=CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=
+=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=
+=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=
+=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=
+=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =
+=E2=80=87=C2=AD
+=CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=
+=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=
+=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=
+=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=
+=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =
+=E2=80=87=C2=AD
+=CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=
+=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=
+=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=
+=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=
+=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =
+=E2=80=87=C2=AD
+=CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=
+=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=
+=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=
+=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=
+=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =
+=E2=80=87=C2=AD
+=CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=
+=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=
+=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=
+=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=
+=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =
+=E2=80=87=C2=AD
+=CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=
+=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=
+=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=
+=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=
+=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =
+=E2=80=87=C2=AD
+=CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=
+=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=
+=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=
+=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=
+=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =
+=E2=80=87=C2=AD
+=CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=
+=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=
+=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=
+=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=
+=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =
+=E2=80=87=C2=AD
+=CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=
+=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=
+=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=
+=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=
+=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =
+=E2=80=87=C2=AD
+=CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=
+=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=
+=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=
+=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=
+=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =
+=E2=80=87=C2=AD
+=CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=
+=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=
+=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=
+=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=
+=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =
+=E2=80=87=C2=AD
+=CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=
+=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=
+=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=
+=AD
+09/04/2025 =C2=B7 1.889.160 suscriptores =C2=B7 Ver en el navegador
+<https://l.diario.idealista.com/rts/go2.aspx?h=3D1892354&tp=3Di-1NGB-Q2Q-TW=
+L-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D36fb30eb63d5b991f5f0b962839a53866cc2=
+d4459276be8756591c12c4a74af1>
+Este correo se env=C3=ADa desde idealista/news
+[image: idealista/news]
+<https://l.diario.idealista.com/rts/go2.aspx?h=3D1892355&tp=3Di-1NGB-Q2Q-TW=
+L-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D9194d3c0bc2c4d1a91a4fc22d2cb2c5ee4f0=
+b8e8bbd6557b470861c4c69ca806>
+
+D=C3=B3nde se construye y se vende la vivienda de obra nueva en Espa=C3=B1a
+<https://l.diario.idealista.com/rts/go2.aspx?h=3D1892356&tp=3Di-1NGB-Q2Q-TW=
+L-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D15109e34fd155d60055c1780845568fc2b0a=
+de99bc9e39a7fa66ab753de944a8>
+idealista/news
+[image: D=C3=B3nde se construye y se vende la vivienda de obra nueva]
+<https://l.diario.idealista.com/rts/go2.aspx?h=3D1892357&tp=3Di-1NGB-Q2Q-TW=
+L-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3De0a1e71073c3f066b8be457fabefd39040fa=
+0e63fb19efe62d28cf1817c9bb96>
+
+La vivienda nueva se ha convertido en el objeto de deseo de muchos
+compradores, ya sea como su primera casa o para aquellos que buscan una
+vivienda de reposici=C3=B3n con mejores calidades. Pero para conseguirlo se
+enfrentan a un mercado donde la oferta disponible no es capaz de asumir la
+creciente demanda. Analizamos los datos oficiales del Ministerio de
+Vivienda sobre visados de obra nueva, viviendas iniciadas y terminadas en
+los =C3=BAltimos a=C3=B1os, para comprender el mercado de la compraventa de=
+ vivienda
+nueva. Andaluc=C3=ADa, Madrid, Catalu=C3=B1a y la Comunidad Valenciana son =
+las
+regiones m=C3=A1s activas.
+Leer m=C3=A1s
+<https://l.diario.idealista.com/rts/go2.aspx?h=3D1892358&tp=3Di-1NGB-Q2Q-TW=
+L-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D5fdc3cf636ec4348241427a66efe0fcd3638=
+572159cbfcf27c4cb329701e0a17>
+El encarecimiento de la vivienda en Espa=C3=B1a en 2024 triplic=C3=B3 el de=
+ la
+eurozona y duplic=C3=B3 el de la UE
+<https://l.diario.idealista.com/rts/go2.aspx?h=3D1892359&tp=3Di-1NGB-Q2Q-TW=
+L-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D9e5ba7cfe64feab9efa683794ed0b52758a2=
+08b516fdf536dc2965c05eb481f5>
+idealista/news
+
+La subida de los precios de la vivienda en Espa=C3=B1a se ralentiz=C3=B3 du=
+rante el
+cuarto trimestre de 2024, tras situarse en el 1,8%, un punto por debajo del
+alza registrada durante verano. Aun as=C3=AD, los datos de Eurostat muestra=
+n que
+el ritmo trimestral triplica al de la eurozona y m=C3=A1s que duplica al
+promedio de la UE, con un encarecimiento del 0,6% y el 0,8%,
+respectivamente. En el conjunto de 2024, el precio en Espa=C3=B1a aument=C3=
+=B3 un
+11,4%, firmando el cuarto dato m=C3=A1s alto de los Veintisiete tras los
+experimentados por Bulgaria, Hungr=C3=ADa y Portugal. Francia y Finlandia f=
+ueron
+los =C3=BAnicos pa=C3=ADses donde la vivienda se abarat=C3=B3 el a=C3=B1o p=
+asado.
+Leer m=C3=A1s
+<https://l.diario.idealista.com/rts/go2.aspx?h=3D1892360&tp=3Di-1NGB-Q2Q-TW=
+L-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D76afc6a8e65495323572c22f7daa0cf627de=
+21b20c747b6e327ccb727f38ca30>
+
+Publicidad
+
+   -
+   -
+   -
+
+Los aranceles de Trump aumentar=C3=A1n el precio de la construcci=C3=B3n de=
+ viviendas
+en EEUU
+<https://l.diario.idealista.com/rts/go2.aspx?h=3D1892361&tp=3Di-1NGB-Q2Q-TW=
+L-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D35e59cf494febf5592ae8fb5737542fd25c9=
+b6e846225f03586eb31f7b988663>
+Realtor
+[image: Los aranceles de Trump aumentar=C3=A1n el precio de la construcci=
+=C3=B3n de
+viviendas en EEUU]
+<https://l.diario.idealista.com/rts/go2.aspx?h=3D1892362&tp=3Di-1NGB-Q2Q-TW=
+L-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D13e63030f9ae90c4bebeb0592f0b5486aa96=
+6b6567299221cad55fcbd6e9435b>
+
+La pol=C3=ADtica de aranceles impuesta por el Gobierno de Donald Trump podr=
+=C3=ADa
+aumentar los costes de la construcci=C3=B3n en EEUU en unos 9.200 d=C3=B3la=
+res, unos
+8.390 euros, seg=C3=BAn la patronal de los constructores. Destacan que esto=
+s
+costes se trasladar=C3=A1n al precio final de la vivienda, que actualmente =
+se
+encuentra en 414.500 d=C3=B3lares de media nacional (378.000 euros). La
+Asociaci=C3=B3n Nacional de Constructores de Viviendas (NAHB) estima que
+alrededor del 10% de los materiales de construcci=C3=B3n utilizados en el
+residencial son importados.
+Leer m=C3=A1s
+<https://l.diario.idealista.com/rts/go2.aspx?h=3D1892363&tp=3Di-1NGB-Q2Q-TW=
+L-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D31a71821470daab4fe460d536a160964b15b=
+8337d068c6abe0b28d15ec0dccb9>
+El esfuerzo de los hogares para comprar vivienda cierra 2024 por encima del
+34%, seg=C3=BAn el BdE
+<https://l.diario.idealista.com/rts/go2.aspx?h=3D1892364&tp=3Di-1NGB-Q2Q-TW=
+L-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D578ff488652b3d391ea6305fbc354a42fb55=
+9b0289088dcaad4a8cd25a58ef1b>
+idealista/news
+
+El esfuerzo de los hogares para la compra de vivienda se situ=C3=B3 en el c=
+uarto
+trimestre de 2024 en el 34,4% de sus ingresos, 2,3 puntos porcentuales por
+debajo de un a=C3=B1o antes, seg=C3=BAn los =C3=BAltimos datos publicados p=
+or el Banco de
+Espa=C3=B1a. A pesar de la mejora, el esfuerzo te=C3=B3rico se mantiene por=
+ encima
+del 30% que los expertos recomiendan como m=C3=A1ximo desde primavera de 20=
+22.
+De media, las familias necesitan al menos 7,25 a=C3=B1os de salario bruto
+=C3=ADntegro para adquirir un inmueble, pese a que est=C3=A1 bajando el int=
+er=C3=A9s medio
+de los nuevos pr=C3=A9stamos hipotecarios por las rebajas del precio del di=
+nero
+que est=C3=A1 aplicando el BCE.
+Leer m=C3=A1s
+<https://l.diario.idealista.com/rts/go2.aspx?h=3D1892365&tp=3Di-1NGB-Q2Q-TW=
+L-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3Dc58f6f8470d92eb174e8f99974e63462faa9=
+1d70bb2fa5770c5f6ecb88a7b787>
+Los extranjeros acaparan el 66% de las compras de vivienda en Ciutat Vella
+de Valencia
+<https://l.diario.idealista.com/rts/go2.aspx?h=3D1892366&tp=3Di-1NGB-Q2Q-TW=
+L-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D532e5106e839e38b6ee0136797779eeebfb5=
+d7db8a4b3fa43703fcc99c18165a>
+idealista/news
+[image: Los extranjeros acaparan el 66% de las compras de vivienda
+gestionadas por Engel & V=C3=B6lkers en Ciutat Vella de Valencia]
+<https://l.diario.idealista.com/rts/go2.aspx?h=3D1892367&tp=3Di-1NGB-Q2Q-TW=
+L-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3Defd21a7f8351bbabe0ded4f915039e949f1b=
+fde5b8ee6595106537d92a3e21e5>
+
+El centro hist=C3=B3rico de Valencia contin=C3=BAa consolid=C3=A1ndose como=
+ uno de los
+destinos preferidos por los compradores internacionales. Seg=C3=BAn los =C3=
+=BAltimos
+datos de Engel & V=C3=B6lkers, el 66% de las operaciones de compraventa de
+vivienda gestionadas por la inmobiliaria de lujo en el distrito de Ciutat
+Vella durante el primer trimestre de 2025 han sido realizadas por
+extranjeros. En total, la compa=C3=B1=C3=ADa ha cerrado 57 compraventas en =
+la zona,
+lo que representa un incremento del 39% respecto al mismo periodo del a=C3=
+=B1o
+anterior.
+Leer m=C3=A1s
+<https://l.diario.idealista.com/rts/go2.aspx?h=3D1892368&tp=3Di-1NGB-Q2Q-TW=
+L-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3De3efa301ae5ed677654970d80d606e795691=
+2a527f1a590aa4fc8937b427feeb>
+El Supremo avala cobrar el plus por festivos en d=C3=ADas no laborables
+<https://l.diario.idealista.com/rts/go2.aspx?h=3D1892369&tp=3Di-1NGB-Q2Q-TW=
+L-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D081dff716e40a861572ea0d3ab6ca0c54688=
+09b7f233a95d2260f5f45020d89f>
+idealista/news
+
+El Tribunal Supremo ha resuelto una cuesti=C3=B3n clave para miles de
+trabajadores en Espa=C3=B1a: quienes tienen contratos espec=C3=ADficos para=
+ trabajar
+en fines de semana y d=C3=ADas festivos s=C3=AD pueden cobrar el plus por t=
+rabajo en
+festivos mientras su salario percibido sea igual al de quienes trabajan
+entre semana y no exista otro tipo de compensaci=C3=B3n. La decisi=C3=B3n d=
+el alto
+tribunal se basa en el principio constitucional de igualdad de trato,
+recogido en el art=C3=ADculo 14 de la Constituci=C3=B3n.
+Leer m=C3=A1s
+<https://l.diario.idealista.com/rts/go2.aspx?h=3D1892370&tp=3Di-1NGB-Q2Q-TW=
+L-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D709cb4f57b5764dd46a0aedb8b2de105b31a=
+fc8df7f1b0068fd9019c8162affe>
+Tres de cada 10 viviendas de alquiler asequible en Espa=C3=B1a se construye=
+ron
+en Madrid en 2024
+<https://l.diario.idealista.com/rts/go2.aspx?h=3D1892371&tp=3Di-1NGB-Q2Q-TW=
+L-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D716ebe3f7fb17ee789ea522b7b79d5b375f3=
+4f8ccc3189d378cb4638868906cc>
+idealista/news
+[image: Ca=C3=B1averal]
+<https://l.diario.idealista.com/rts/go2.aspx?h=3D1892372&tp=3Di-1NGB-Q2Q-TW=
+L-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D2309f48e26b4b9ef5bac9c22baa43f3ccdc0=
+1353f01939035d0adb378734ad54>
+
+La capital espa=C3=B1ola sigue consolidando su posici=C3=B3n como l=C3=ADde=
+r en la
+promoci=C3=B3n de vivienda p=C3=BAblica de alquiler asequible en el pa=C3=
+=ADs. Seg=C3=BAn el
+=C3=BAltimo Bolet=C3=ADn de Vivienda Protegida del Ministerio de Transporte=
+s y
+Movilidad Sostenible, la Empresa Municipal de la Vivienda y Suelo (EMVS
+Madrid) construy=C3=B3 en 2024 cerca de tres de cada 10 viviendas protegida=
+s por
+las administraciones locales y auton=C3=B3micas para alquiler, con un total=
+ de
+1.007 calificaciones definitivas. La cifra representa el 27,3% de las
+viviendas de este tipo a nivel nacional.
+Leer m=C3=A1s
+<https://l.diario.idealista.com/rts/go2.aspx?h=3D1892373&tp=3Di-1NGB-Q2Q-TW=
+L-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3Db13d3baa15b7f7df2d3e08506bc02c5d38c5=
+c85eb571c94d4ad5a7a08c975acc>
+El precio de la vivienda en el Reino Unido cae por segundo mes consecutivo
+en marzo, seg=C3=BAn Halifax
+<https://l.diario.idealista.com/rts/go2.aspx?h=3D1892374&tp=3Di-1NGB-Q2Q-TW=
+L-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D40437133ba4a00de2d4f1f4046eb71e7bccb=
+a733eed18306f8f4d32c7042d406>
+Bloomberg
+
+El precio de la vivienda en el Reino Unido baj=C3=B3 por segundo mes
+consecutivo, seg=C3=BAn Halifax, una de las mayores entidades de cr=C3=A9di=
+to
+hipotecario del pa=C3=ADs, justo antes de que entren en vigor los nuevos
+criterios para aplicar el impuesto del timbre (similar al impuesto de actos
+jur=C3=ADdicos documentados espa=C3=B1ol). En concreto, el precio cay=C3=B3=
+ un 0,5%
+intermensual, hasta dejar un precio medio de 296.699 libras (345.940 euros)
+en marzo, tras el descenso del 0,2% registrado en febrero.
+Leer m=C3=A1s
+<https://l.diario.idealista.com/rts/go2.aspx?h=3D1892375&tp=3Di-1NGB-Q2Q-TW=
+L-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D28af0103e0948a00fc7b4a3634ff3e6282fd=
+32607e21a246d59c42c01cc14451>
+C=C3=B3mo defenderse del mayor desplome de las bolsas desde el covid
+<https://l.diario.idealista.com/rts/go2.aspx?h=3D1892376&tp=3Di-1NGB-Q2Q-TW=
+L-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D7142e31671f0eeb670c71498b893462e9c93=
+65030110bc50173ac267a99f1d6e>
+idealista/news
+
+Las bolsas mundiales contienen la respiraci=C3=B3n. Despu=C3=A9s de una ca=
+=C3=ADda
+hist=C3=B3rica, que se ha llevado 6,6 billones de euros de capitalizaci=C3=
+=B3n en
+s=C3=B3lo tres sesiones despu=C3=A9s de que la Administraci=C3=B3n de Donal=
+d Trump
+anunciara la imposici=C3=B3n de aranceles, los mercados rebotan en un escen=
+ario
+de m=C3=A1xima volatilidad. Hay varios consejos para salvar los muebles en =
+el
+epicentro de la mayor tormenta burs=C3=A1til desde la pandemia, como aguant=
+ar
+posiciones a la espera de un rebote consistente, mirar a largo plazo y
+apostar por compa=C3=B1=C3=ADas l=C3=ADquidas en bolsa, as=C3=AD como por v=
+alores con
+resultados s=C3=B3lidos y que cuenten con dividendos sostenibles en el tiem=
+po.
+Leer m=C3=A1s
+<https://l.diario.idealista.com/rts/go2.aspx?h=3D1892377&tp=3Di-1NGB-Q2Q-TW=
+L-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D920486f6b979437c492d40b6dd30e800c58a=
+88b307e9afa47eea637e1fa68401>
+
+Publicidad
+
+   -
+   -
+   -
+
+Descubre el 'renacido' hotel Los Monteros: lujo, gastronom=C3=ADa y dise=C3=
+=B1o en la
+Costa del Sol
+<https://l.diario.idealista.com/rts/go2.aspx?h=3D1892378&tp=3Di-1NGB-Q2Q-TW=
+L-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D94ef11c11b38997b6538e77b74a21e2369bb=
+c5cc19d2c19695fd8887f1453e4f>
+idealista/news
+[image: Kimpton Los Monteros]
+<https://l.diario.idealista.com/rts/go2.aspx?h=3D1892379&tp=3Di-1NGB-Q2Q-TW=
+L-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D26bd7e7d4f7368d3a680136084dba7f19d6c=
+dc1f34f0b5d147ad1e2de2771256>
+[image: Kimpton Los Monteros]
+<https://l.diario.idealista.com/rts/go2.aspx?h=3D1892380&tp=3Di-1NGB-Q2Q-TW=
+L-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D2cb62601b4abf13598b735dc490eba308b5d=
+bb7877c2bd389a0ff4e2fab3634a>
+[image:
+Kimpton Los Monteros]
+<https://l.diario.idealista.com/rts/go2.aspx?h=3D1892381&tp=3Di-1NGB-Q2Q-TW=
+L-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3Dd2becfe8eab47ae89e7f6d8757a49c4858fb=
+52560d7c2c5a76184040cd3ddc0c>
+[image:
+Kimpton Los Monteros]
+<https://l.diario.idealista.com/rts/go2.aspx?h=3D1892382&tp=3Di-1NGB-Q2Q-TW=
+L-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3Dc0fb39caaa03c0e7e87c5431bc54d35617c1=
+f5080cefee40842b8a2f4a88932d>
+Leer m=C3=A1s
+<https://l.diario.idealista.com/rts/go2.aspx?h=3D1892383&tp=3Di-1NGB-Q2Q-TW=
+L-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3Dbef66ed5e0ac209a87f6276dc6a9ee99b8e8=
+61ef8f2b5b0009b9a4253f1dfd79>
+El 72% de los espa=C3=B1oles afirma residir en una vivienda saludable, seg=
+=C3=BAn UCI
+<https://l.diario.idealista.com/rts/go2.aspx?h=3D1892384&tp=3Di-1NGB-Q2Q-TW=
+L-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D29cb1ff0c9f5c42c06186f31be3886f087eb=
+3f31fef9d7f4a01f871e567fb4fa>
+idealista/news
+
+En el marco del D=C3=ADa Mundial de la Salud, el II Observatorio de Viviend=
+a y
+Sostenibilidad de UCI revela que el 72% de los espa=C3=B1oles considera que=
+ vive
+en una vivienda saludable, subrayando una creciente preocupaci=C3=B3n por e=
+l
+bienestar en el hogar. A pesar de los desaf=C3=ADos de un parque inmobiliar=
+io
+envejecido, comunidades como Murcia, Navarra y Castilla y Le=C3=B3n lideran=
+ en
+percepciones positivas sobre la salubridad del hogar, mientras que la luz
+natural destaca como el factor m=C3=A1s influyente en la percepci=C3=B3n de=
+ salud
+dom=C3=A9stica.
+Leer m=C3=A1s
+<https://l.diario.idealista.com/rts/go2.aspx?h=3D1892385&tp=3Di-1NGB-Q2Q-TW=
+L-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3Dad6d6c066bf3d6479ccaa35a9d006a98981b=
+60715477ffbb77cf1fb0c800f1ac>
+Juan Roig invierte en una ronda de 1,2 millones de la firma inmobiliaria
+Inversiva
+<https://l.diario.idealista.com/rts/go2.aspx?h=3D1892386&tp=3Di-1NGB-Q2Q-TW=
+L-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D0918e9a44f7f4d5eeb893d1d9ff1f6dda493=
+826ebbcf5ca567880d3118f31000>
+idealista/news
+
+Angels, veh=C3=ADculo de inversi=C3=B3n del presidente de Mercadona, Juan R=
+oig, ha
+inyectado dinero en una nueva ronda de financiaci=C3=B3n de 1,2 millones de
+euros lanzada por Inversiva, una firma de inversi=C3=B3n inmobiliaria pasiv=
+a. No
+es la primera vez que Roig invierte en esta compa=C3=B1=C3=ADa. En 2024, ya=
+ lider=C3=B3
+una primera ronda de financiaci=C3=B3n de 750.000 euros. En esta =C3=BAltim=
+a
+operaci=C3=B3n tambi=C3=A9n han participado los fondos BeWater, el fondo de=
+ inversi=C3=B3n
+de los fundadores de Indexa Capital, y Faraday Ventures, un fondo que
+agrupa peque=C3=B1os inversores profesionales.
+Leer m=C3=A1s
+<https://l.diario.idealista.com/rts/go2.aspx?h=3D1892387&tp=3Di-1NGB-Q2Q-TW=
+L-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3Dea40e141adaa01c637ed5b4f6e5d718d4e10=
+217a312fe1a6589eeec3d4c430f3>
+La alemana Limehome abrir=C3=A1 un hotel en Madrid en 2028, su mayor proyec=
+to en
+Espa=C3=B1a
+<https://l.diario.idealista.com/rts/go2.aspx?h=3D1892388&tp=3Di-1NGB-Q2Q-TW=
+L-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D4916cf09d01702fb7ea12f79d838d4132539=
+065270093745f2e3168eb4fd85a1>
+idealista/news
+[image: Econom=C3=ADa/Empresas.- limehome impulsa su crecimiento en Espa=C3=
+=B1a con
+m=C3=A1s de 1.600 unidades firmadas]
+<https://l.diario.idealista.com/rts/go2.aspx?h=3D1892389&tp=3Di-1NGB-Q2Q-TW=
+L-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3Df2fd9fb202a24fb4b4f03fb2402c4e024877=
+696d1a5d36c5fb27f6b0b9624c83>
+
+La empresa de apartamentos tur=C3=ADsticos diversifica su cartera de
+alojamientos en Espa=C3=B1a con la firma de un nuevo proyecto en Madrid: un
+hotel de 107 habitaciones ubicado en el distrito de San Blas-Canillejas,
+cuya apertura est=C3=A1 prevista para 2028. Este ser=C3=A1 el activo hotele=
+ro m=C3=A1s
+grande de la compa=C3=B1=C3=ADa alemana en el pa=C3=ADs y refuerza la apues=
+ta de Limehome
+por el mercado hotelero para expandirse por la Pen=C3=ADnsula Ib=C3=A9rica.=
+ En la
+capital, la compa=C3=B1=C3=ADa ya dispone de m=C3=A1s de 450 apartamentos t=
+ur=C3=ADsticos,
+mientras que su cartera se eleva a 1.600 unidades en el conjunto de Espa=C3=
+=B1a.
+Leer m=C3=A1s
+<https://l.diario.idealista.com/rts/go2.aspx?h=3D1892390&tp=3Di-1NGB-Q2Q-TW=
+L-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D5da288ba0a047d0ab797922ff4b257e676b9=
+e9e6f2dcb99d3e10caaa3b09fda4>
+Neinor duplica sus preventas hasta marzo y suma m=C3=A1s de 3.800 viviendas
+<https://l.diario.idealista.com/rts/go2.aspx?h=3D1892391&tp=3Di-1NGB-Q2Q-TW=
+L-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D1ec83e80d8d864635e4fb4e8728d3965e1fa=
+52d75d574f052c7bcb5ff26d38be>
+idealista/news
+
+La promotora ha anunciado que en los primeros tres meses del a=C3=B1o ha
+alcanzado unas preventas de 246 millones de euros, lo que supone un
+incremento del 97% interanual, tras haber gestionado la comercializaci=C3=
+=B3n de
+670 viviendas, un 86% m=C3=A1s que entre enero y marzo del a=C3=B1o pasado.=
+ Tras
+estos incrementos, su cartera total de preventas alcanza las 3.828
+unidades, por un importe aproximado de 1.270 millones de euros. Neinor
+tambi=C3=A9n ha confirmado el pago de un dividendo neto de 0,4059 euros por
+acci=C3=B3n el pr=C3=B3ximo 14 de mayo.
+Leer m=C3=A1s
+<https://l.diario.idealista.com/rts/go2.aspx?h=3D1892392&tp=3Di-1NGB-Q2Q-TW=
+L-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D2f5d08c80ddac949db1d30bf6580e0ae786b=
+7c592e1c297e49b16d4ca7a8e1d8>
+Una casa de dise=C3=B1o en Quebec con unas vistas id=C3=ADlicas a un lago
+<https://l.diario.idealista.com/rts/go2.aspx?h=3D1892393&tp=3Di-1NGB-Q2Q-TW=
+L-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3De0e02c120009881d5c4cd698855f9212833f=
+7198bb3e202a6c42a1726a31fa8f>
+idealista/news
+[image: La vivienda, bautizada como Palissade y dise=C3=B1ada por Naturehum=
+aine,
+se ubica entre una carretera y un lago en Quebec.]
+<https://l.diario.idealista.com/rts/go2.aspx?h=3D1892394&tp=3Di-1NGB-Q2Q-TW=
+L-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3Da2e1c6b7383e9abc53c5bdc54390f496c64f=
+e3e0c05b2e34568a43fe4ece82a7>
+[image: La cocina se compone de dos zonas, interior y exterior.]
+<https://l.diario.idealista.com/rts/go2.aspx?h=3D1892395&tp=3Di-1NGB-Q2Q-TW=
+L-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3De060de3b9d695f29447225a56a71b2a4402b=
+72bcb32da3babd94f1fee97d0614>
+[image:
+La fachada delantera destaca por el uso del ladrillo que limita las miradas
+y el ruido del tr=C3=A1fico rodado.]
+<https://l.diario.idealista.com/rts/go2.aspx?h=3D1892396&tp=3Di-1NGB-Q2Q-TW=
+L-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3De854c2776612563422cd6966d65a16ab31a9=
+c8732b0075e3d2fe31ff1789d6da>
+[image:
+La pared posterior cuenta con un amplio porche cubierto con vistas al lago.=
+]
+<https://l.diario.idealista.com/rts/go2.aspx?h=3D1892397&tp=3Di-1NGB-Q2Q-TW=
+L-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D8f21df8af1c47fe811baa09f6882ed927a64=
+fb017b7e997c2fafcb2cefbd2d53>
+Leer m=C3=A1s
+<https://l.diario.idealista.com/rts/go2.aspx?h=3D1892398&tp=3Di-1NGB-Q2Q-TW=
+L-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D706aa0d7e5af22d14631d7180ec63984ca73=
+f64a85d17fb2ecd3ff47a50b4f41>
+Las casas m=C3=A1s vistas de hoy
+<https://l.diario.idealista.com/rts/go2.aspx?h=3D1892399&tp=3Di-1NGB-Q2Q-TW=
+L-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3Df19003788594050c71e5fb009f787dfdba0f=
+06dff20ac45bb86ff1cb7f032245>
+idealista/news
+[image: Vivienda en Boadilla del Monte, Madrid - 3.200.000 eur]
+<https://l.diario.idealista.com/rts/go2.aspx?h=3D1892400&tp=3Di-1NGB-Q2Q-TW=
+L-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D01c305eeaf1b67f008ef3503fef545e577ee=
+050d6174131485fe1c5860c634dd>
+Leer m=C3=A1s
+<https://l.diario.idealista.com/rts/go2.aspx?h=3D1892401&tp=3Di-1NGB-Q2Q-TW=
+L-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D178c7b246946510bf2495ff451680ac6ac31=
+8726771cdcf87d86008074e49266>
+Bruselas propondr=C3=A1 la pr=C3=B3xima semana nuevos aranceles si EEUU no =
+negocia
+Agencias
+Rumores
+
+La Comisi=C3=B3n Europea propondr=C3=A1 la pr=C3=B3xima semana una nueva ta=
+nda de
+aranceles a EEUU en represalia por los recargos generalizados del 20% sobre
+todas las importaciones europeas y del 25% al coche y componentes
+procedentes de la UE. El plan de Bruselas ser=C3=ADa activar los nuevos
+aranceles en mayo si Washington no acepta negociaciones para esa fecha,
+mientras los Veintisiete analizan otras medidas anticoerci=C3=B3n a medio p=
+lazo.
+Brasil sondea a Santander para el rescate de Banco Master
+Expansi=C3=B3n
+Rumores
+
+El Banco Central de Brasil y el Fondo de Garant=C3=ADa de Dep=C3=B3sitos ca=
+rioca
+(FGC) mantienen conversaciones con Santander, BTG, Ita=C3=BA y Bradesco par=
+a
+encontrar una soluci=C3=B3n privada a las dificultades financieras que atra=
+viesa
+Banco Master. Esta entidad ha registrado un explosivo crecimiento en los
+=C3=BAltimos a=C3=B1os por varios motivos, como una agresiva estrategia de =
+captaci=C3=B3n
+de dep=C3=B3sitos minoristas a tipos elevados.
+El teletrabajo en Espa=C3=B1a vuelve a crecer, pero sigue lejos de la media
+europea
+<https://l.diario.idealista.com/rts/go2.aspx?h=3D1892402&tp=3Di-1NGB-Q2Q-TW=
+L-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D538f81f57f083ff62c104d50994fa263457e=
+ee2c068ec8555bf6361536ee4bc2>
+idealista/news con datos de Adecco
+[image: Teletrabajo en la UE]
+<https://l.diario.idealista.com/rts/go2.aspx?h=3D1892403&tp=3Di-1NGB-Q2Q-TW=
+L-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D421d9a7c71a6951f1e7c17b88ce2381dfae4=
+9b683998efe91c64c09ef4579da0>
+Leer m=C3=A1s
+<https://l.diario.idealista.com/rts/go2.aspx?h=3D1892404&tp=3Di-1NGB-Q2Q-TW=
+L-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3Dd376614cf8826a2c3a168671f9255509c828=
+448fa1e94ede979dcd713864ce93>
+<https://l.diario.idealista.com/rts/go2.aspx?h=3D1892405&tp=3Di-1NGB-Q2Q-TW=
+L-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D2a056d9c42165ea9c9233a6c2223be31519b=
+af8077448d3478d7ab9af0505414>
+=C2=A9
+2000-2025 idealista
+Para dejar de recibir este bolet=C3=ADn puedes darte de baja
+<https://l.diario.idealista.com/rts/go2.aspx?h=3D1892406&tp=3Di-1NGB-Q2Q-TW=
+L-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3Dbanyus53@gmail.com%7c331a1be0273ca359f6921c0e9b24f8=
+ac%7c92159885&hp2=3Dd6d220cba130ed75a438684960d9b809e73c8dd4757699cfa3763a3=
+8d18fb734>
+<https://l.diario.idealista.com/rts/un.aspx?tp=3Di-1NGB-Q2Q-TWL-7TCAAD-1s-7=
+q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq>
+
+--000000000000c7cab5063255b275
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"auto"></div><br><div class=3D"gmail_quote gmail_quote_container=
+"><div dir=3D"ltr" class=3D"gmail_attr">---------- Forwarded message ------=
+---<br>Felad=C3=B3: <strong class=3D"gmail_sendername" dir=3D"auto">idealis=
+ta/news</strong> <span dir=3D"auto">&lt;<a href=3D"mailto:news@diario.ideal=
+ista.com">news@diario.idealista.com</a>&gt;</span><br>Date: 2025. =C3=A1pr.=
+ 9., Sze 12:09<br>Subject: Est=C3=A1 pasando 09/04/2025<br>To: <a href=3D"m=
+ailto:banyus53@gmail.com">banyus53@gmail.com</a> &lt;<a href=3D"mailto:bany=
+us53@gmail.com">banyus53@gmail.com</a>&gt;<br></div><br><br><u></u><div sty=
+le=3D"background-color:rgb(244,245,242)" marginwidth=3D"0" marginheight=3D"=
+0"><span style=3D"font-size:1px;color:rgb(255,255,255);line-height:1px;max-=
+height:0px;max-width:0px;opacity:0;overflow:hidden;display:none">D=C3=B3nde=
+ se levanta m=C3=A1s vivienda de obra nueva =CD=8F=E2=80=8C=C2=A0=E2=80=87=
+=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=
+=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=
+=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=
+=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=
+=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=
+=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=
+=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=
+=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=
+=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=
+=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=
+=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=
+=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=
+=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=
+=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=
+=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=
+=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=
+=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=
+=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=
+=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=
+=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=
+=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=
+=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=
+=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=
+=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=
+=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=
+=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=
+=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=
+=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=
+=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=
+=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=
+=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=
+=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=
+=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=
+=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=
+=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=
+=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=
+=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=
+=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=
+=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=
+=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=
+=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=
+=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=
+=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=
+=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=
+=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=
+=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=
+=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=
+=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=
+=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=
+=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=
+=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=
+=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=
+=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=
+=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=
+=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=
+=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=
+=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=
+=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=
+=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=
+=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=
+=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=
+=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=
+=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=
+=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=
+=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=
+=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=
+=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=
+=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=
+=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=
+=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=
+=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=
+=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD </span><img height=3D"1" width=
+=3D"1" style=3D"display: none;"><div><div id=3D"m_-5275438232776529507block=
+-idealista-news-content"><center> <table id=3D"m_-5275438232776529507newsle=
+tterBodyTable" align=3D"center" style=3D"border-spacing:0px;border-collapse=
+:collapse;text-align:left;width:100%;max-width:600px;background:rgb(255,255=
+,255);margin:0px;padding:0px;height:100%"><tbody><tr><td align=3D"center" v=
+align=3D"top" style=3D"margin:0px;padding:0px;border-collapse:collapse;text=
+-align:left;font:400 16px Arial"><table style=3D"border-spacing:0px;border-=
+collapse:collapse;text-align:left;width:100%;max-width:100%"><tbody><tr><td=
+ style=3D"margin:0px;padding:0px;border-collapse:collapse;text-align:left;f=
+ont:400 16px Arial"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+ style=3D"border-spacing:0px;border-collapse:collapse;text-align:left;width=
+:100%;background:rgb(229,230,225);max-width:100%"><tbody><tr><td style=3D"m=
+argin:0px;padding:0px;border-collapse:collapse;text-align:left;font:400 16p=
+x Arial"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"b=
+order-spacing:0px;border-collapse:collapse;text-align:left;width:100%;backg=
+round-color:rgb(229,230,225);max-width:100%"><tbody><tr><td style=3D"margin=
+:0px;border-collapse:collapse;text-align:left;font:400 14px Arial;padding:2=
+0px 30px;color:rgb(146,146,146)"> 09/04/2025 =C2=B7 1.889.160 suscriptores =
+=C2=B7 <a href=3D"https://l.diario.idealista.com/rts/go2.aspx?h=3D1892354&a=
+mp;tp=3Di-1NGB-Q2Q-TWL-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&amp;pi=
+=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=3D92159885&amp;hp2=3D3=
+6fb30eb63d5b991f5f0b962839a53866cc2d4459276be8756591c12c4a74af1" style=3D"c=
+olor:rgb(31,127,197);text-decoration:none;font:400 14px Arial" target=3D"_b=
+lank" rel=3D"noreferrer">Ver en el navegador</a></td></tr><tr><td style=3D"=
+margin:0px;border-collapse:collapse;text-align:left;font:400 14px Arial;col=
+or:rgb(146,146,146);padding:0px 30px 20px"> Este correo se env=C3=ADa desde=
+ idealista/news</td></tr></tbody></table></td></tr></tbody></table><table s=
+tyle=3D"border-spacing:0px;border-collapse:collapse;text-align:left;width:1=
+00%;min-width:100%;float:none;clear:both;background:rgb(225,245,110);max-wi=
+dth:100%"><tbody><tr><td style=3D"margin:0px;border-collapse:collapse;text-=
+align:left;font:400 16px Arial;padding:20px 30px"> <a href=3D"https://l.dia=
+rio.idealista.com/rts/go2.aspx?h=3D1892355&amp;tp=3Di-1NGB-Q2Q-TWL-7TCAAD-1=
+s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5tww=
+BbaLfJgK0sMDs&amp;x=3D92159885&amp;hp2=3D9194d3c0bc2c4d1a91a4fc22d2cb2c5ee4=
+f0b8e8bbd6557b470861c4c69ca806" rel=3D"home noreferrer" title=3D"Ir a ideal=
+ista/news" style=3D"color:rgb(31,127,197);text-decoration:none;font:400 16p=
+x Arial" target=3D"_blank"> <img width=3D"195" height=3D"24" alt=3D"idealis=
+ta/news" style=3D"display: block; height: auto; line-height: 100%; outline:=
+ 0px; text-decoration: none; border: 0px none;"> </a></td><td style=3D"marg=
+in:0px;padding:0px;border-collapse:collapse;text-align:left;font:400 16px A=
+rial"></td></tr></tbody></table><table border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" id=3D"m_-5275438232776529507mainContent" style=3D"border-spaci=
+ng:0px;border-collapse:collapse;text-align:left;width:100%;max-width:100%">=
+<tbody><tr><td style=3D"margin:0px;border-collapse:collapse;text-align:left=
+;font:400 16px Arial;padding:0px 30px;width:100%"><div style=3D"margin:0px;=
+padding:0px"><center> <span content=3D"Est=C3=A1 pasando 09/04/2025" style=
+=3D"display:block"></span><table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" style=3D"border-spacing:0px;border-collapse:collapse;width:100%;text=
+-align:left;margin:0px auto;max-width:100%"><tbody><tr><td style=3D"margin:=
+0px;border-collapse:collapse;text-align:left;font:400 16px Arial;padding:24=
+px 0px;border-bottom:2px solid rgb(235,235,233)"><table border=3D"0" cellpa=
+dding=3D"0" cellspacing=3D"0" style=3D"border-spacing:0px;border-collapse:c=
+ollapse;text-align:left;width:100%;max-width:100%"><tbody><tr><td style=3D"=
+margin:0px;border-collapse:collapse;text-align:left;font:400 16px Arial;wid=
+th:100%;padding:6px 0px"><h1 style=3D"margin:0px;padding:0px;font:700 20px/=
+24px Arial,sans-serif;display:block"> <a href=3D"https://l.diario.idealista=
+.com/rts/go2.aspx?h=3D1892356&amp;tp=3Di-1NGB-Q2Q-TWL-7TCAAD-1s-7q4tl-1c-7T=
+4P0s-lBhT5czwPe-2HF2Sq&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs=
+&amp;x=3D92159885&amp;hp2=3D15109e34fd155d60055c1780845568fc2b0ade99bc9e39a=
+7fa66ab753de944a8" style=3D"color:rgb(31,127,197);text-decoration:none;disp=
+lay:block;font:700 34px/40px Arial,sans-serif" target=3D"_blank" rel=3D"nor=
+eferrer"> D=C3=B3nde se construye y se vende la vivienda de obra nueva en E=
+spa=C3=B1a </a></h1></td></tr><tr><td style=3D"margin:0px;border-collapse:c=
+ollapse;text-align:left;font:400 14px Arial;padding:6px 0px;color:rgb(146,1=
+46,146);width:100%"> idealista/news</td></tr><tr><td style=3D"padding:6px 0=
+px;margin:0px;border-collapse:collapse;text-align:left;font:400 16px Arial;=
+width:100%"> <a href=3D"https://l.diario.idealista.com/rts/go2.aspx?h=3D189=
+2357&amp;tp=3Di-1NGB-Q2Q-TWL-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&am=
+p;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=3D92159885&amp;hp2=
+=3De0a1e71073c3f066b8be457fabefd39040fa0e63fb19efe62d28cf1817c9bb96" style=
+=3D"color:rgb(31,127,197);text-decoration:none;font:400 16px Arial" target=
+=3D"_blank" rel=3D"noreferrer"> <img width=3D"530" alt=3D" D=C3=B3nde se co=
+nstruye y se vende la vivienda de obra nueva" title=3D" D=C3=B3nde se const=
+ruye y se vende la vivienda de obra nueva" style=3D"border: 0px none; displ=
+ay: block; height: auto; line-height: 100%; outline: 0px; text-decoration: =
+none; width: 100%;"> </a></td></tr><tr><td style=3D"padding:6px 0px;margin:=
+0px;border-collapse:collapse;text-align:left;font:400 16px/24px Arial,sans-=
+serif;width:100%;color:rgb(20,20,20)"><p style=3D"padding:0px;margin:0px">L=
+a vivienda nueva se ha convertido en el objeto de deseo de muchos comprador=
+es, ya sea como su primera casa o para aquellos que buscan una vivienda de =
+reposici=C3=B3n con mejores calidades. Pero para conseguirlo se enfrentan a=
+ un mercado donde la oferta disponible no es capaz de asumir la creciente d=
+emanda. Analizamos los datos oficiales del Ministerio de Vivienda sobre vis=
+ados de obra nueva, viviendas iniciadas y terminadas en los =C3=BAltimos a=
+=C3=B1os, para comprender el mercado de la compraventa de vivienda nueva. A=
+ndaluc=C3=ADa, Madrid, Catalu=C3=B1a y la Comunidad Valenciana son las regi=
+ones m=C3=A1s activas.</p></td></tr><tr><td style=3D"margin:0px;padding:16p=
+x 0px 0px;border-collapse:collapse;text-align:left;font:400 16px Arial"> <a=
+ href=3D"https://l.diario.idealista.com/rts/go2.aspx?h=3D1892358&amp;tp=3Di=
+-1NGB-Q2Q-TWL-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&amp;pi=3D21OEK495=
+jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=3D92159885&amp;hp2=3D5fdc3cf636ec=
+4348241427a66efe0fcd3638572159cbfcf27c4cb329701e0a17" style=3D"color:rgb(31=
+,127,197);text-decoration:none;font:400 16px Arial" target=3D"_blank" rel=
+=3D"noreferrer">Leer m=C3=A1s</a></td></tr></tbody></table></td></tr><tr><t=
+d style=3D"margin:0px;border-collapse:collapse;text-align:left;font:400 16p=
+x Arial;padding:24px 0px;border-bottom:2px solid rgb(235,235,233)"><table b=
+order=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-spacing:0px=
+;border-collapse:collapse;text-align:left;width:100%;max-width:100%"><tbody=
+><tr><td style=3D"margin:0px;border-collapse:collapse;text-align:left;font:=
+400 16px Arial;width:100%;padding:6px 0px"><h1 style=3D"margin:0px;padding:=
+0px;font:700 20px/24px Arial,sans-serif;display:block"> <a href=3D"https://=
+l.diario.idealista.com/rts/go2.aspx?h=3D1892359&amp;tp=3Di-1NGB-Q2Q-TWL-7TC=
+AAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7=
+z5twwBbaLfJgK0sMDs&amp;x=3D92159885&amp;hp2=3D9e5ba7cfe64feab9efa683794ed0b=
+52758a208b516fdf536dc2965c05eb481f5" style=3D"color:rgb(31,127,197);text-de=
+coration:none;display:block;font:700 20px/24px Arial,sans-serif" target=3D"=
+_blank" rel=3D"noreferrer"> El encarecimiento de la vivienda en Espa=C3=B1a=
+ en 2024 triplic=C3=B3 el de la eurozona y duplic=C3=B3 el de la UE </a></h=
+1></td></tr><tr><td style=3D"margin:0px;border-collapse:collapse;text-align=
+:left;font:400 14px Arial;padding:6px 0px;color:rgb(146,146,146);width:100%=
+"> idealista/news</td></tr><tr><td style=3D"padding:6px 0px;margin:0px;bord=
+er-collapse:collapse;text-align:left;font:400 16px/24px Arial,sans-serif;wi=
+dth:100%;color:rgb(20,20,20)"><p style=3D"padding:0px;margin:0px">La subida=
+ de los precios de la vivienda en Espa=C3=B1a se ralentiz=C3=B3 durante el =
+cuarto trimestre de 2024, tras situarse en el 1,8%, un punto por debajo del=
+ alza registrada durante verano. Aun as=C3=AD, los datos de Eurostat muestr=
+an que el ritmo trimestral triplica al de la eurozona y m=C3=A1s que duplic=
+a al promedio de la UE, con un encarecimiento del 0,6% y el 0,8%, respectiv=
+amente. En el conjunto de 2024, el precio en Espa=C3=B1a aument=C3=B3 un 11=
+,4%, firmando el cuarto dato m=C3=A1s alto de los Veintisiete tras los expe=
+rimentados por Bulgaria, Hungr=C3=ADa y Portugal. Francia y Finlandia fuero=
+n los =C3=BAnicos pa=C3=ADses donde la vivienda se abarat=C3=B3 el a=C3=B1o=
+ pasado.</p></td></tr><tr><td style=3D"margin:0px;padding:16px 0px 0px;bord=
+er-collapse:collapse;text-align:left;font:400 16px Arial"> <a href=3D"https=
+://l.diario.idealista.com/rts/go2.aspx?h=3D1892360&amp;tp=3Di-1NGB-Q2Q-TWL-=
+7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&amp;pi=3D21OEK495jHqsDIz-DRvJKr=
+Cj7z5twwBbaLfJgK0sMDs&amp;x=3D92159885&amp;hp2=3D76afc6a8e65495323572c22f7d=
+aa0cf627de21b20c747b6e327ccb727f38ca30" style=3D"color:rgb(31,127,197);text=
+-decoration:none;font:400 16px Arial" target=3D"_blank" rel=3D"noreferrer">=
+Leer m=C3=A1s</a></td></tr></tbody></table></td></tr><tr><td style=3D"margi=
+n:0px;border-collapse:collapse;text-align:left;font:400 16px Arial;padding:=
+24px 0px;border-bottom:2px solid rgb(235,235,233)"><table border=3D"0" cell=
+padding=3D"0" cellspacing=3D"0" style=3D"border-spacing:0px;border-collapse=
+:collapse;text-align:left;width:100%;max-width:100%"><tbody><tr><td style=
+=3D"margin:0px;padding:10px 0px;border-collapse:collapse;text-align:left;wi=
+dth:100%;color:rgb(146,146,146);font:400 16px Arial,sans-serif"><div id=3D"=
+m_-5275438232776529507publi_16028" style=3D"margin:0px;padding:0px"> <span =
+style=3D"color:rgb(146,146,146);margin:0px;padding:0px">Publicidad</span><u=
+l style=3D"font-size:0px;padding-left:0px;margin-left:18pt;margin-top:0px;l=
+ist-style-type:none"><li id=3D"m_-5275438232776529507sas_16028" style=3D"co=
+lor:rgb(146,146,146);font-size:20px;margin-left:0px;margin-bottom:0px;margi=
+n-top:0px"></li><li id=3D"m_-5275438232776529507sas_16028_2" style=3D"color=
+:rgb(146,146,146);font-size:20px;margin-left:0px;margin-bottom:0px;margin-t=
+op:0px"></li><li id=3D"m_-5275438232776529507sas_16028_3" style=3D"color:rg=
+b(146,146,146);font-size:20px;margin-left:0px;margin-bottom:0px;margin-top:=
+0px"></li></ul></div></td></tr></tbody></table></td></tr><tr><td style=3D"m=
+argin:0px;border-collapse:collapse;text-align:left;font:400 16px Arial;padd=
+ing:24px 0px;border-bottom:2px solid rgb(235,235,233)"><table border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" style=3D"border-spacing:0px;border-coll=
+apse:collapse;text-align:left;width:100%;max-width:100%"><tbody><tr><td sty=
+le=3D"margin:0px;border-collapse:collapse;text-align:left;font:400 16px Ari=
+al;width:100%;padding:6px 0px"><h1 style=3D"margin:0px;padding:0px;font:700=
+ 20px/24px Arial,sans-serif;display:block"> <a href=3D"https://l.diario.ide=
+alista.com/rts/go2.aspx?h=3D1892361&amp;tp=3Di-1NGB-Q2Q-TWL-7TCAAD-1s-7q4tl=
+-1c-7T4P0s-lBhT5czwPe-2HF2Sq&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJg=
+K0sMDs&amp;x=3D92159885&amp;hp2=3D35e59cf494febf5592ae8fb5737542fd25c9b6e84=
+6225f03586eb31f7b988663" style=3D"color:rgb(31,127,197);text-decoration:non=
+e;display:block;font:700 20px/24px Arial,sans-serif" target=3D"_blank" rel=
+=3D"noreferrer"> Los aranceles de Trump aumentar=C3=A1n el precio de la con=
+strucci=C3=B3n de viviendas en EEUU </a></h1></td></tr><tr><td style=3D"mar=
+gin:0px;border-collapse:collapse;text-align:left;font:400 14px Arial;paddin=
+g:6px 0px;color:rgb(146,146,146);width:100%"> Realtor</td></tr><tr><td styl=
+e=3D"padding:6px 0px;margin:0px;border-collapse:collapse;text-align:left;fo=
+nt:400 16px Arial;width:100%"> <a href=3D"https://l.diario.idealista.com/rt=
+s/go2.aspx?h=3D1892362&amp;tp=3Di-1NGB-Q2Q-TWL-7TCAAD-1s-7q4tl-1c-7T4P0s-lB=
+hT5czwPe-2HF2Sq&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=
+=3D92159885&amp;hp2=3D13e63030f9ae90c4bebeb0592f0b5486aa966b6567299221cad55=
+fcbd6e9435b" style=3D"color:rgb(31,127,197);text-decoration:none;font:400 1=
+6px Arial" target=3D"_blank" rel=3D"noreferrer"> <img width=3D"530" alt=3D"=
+Los aranceles de Trump aumentar=C3=A1n el precio de la construcci=C3=B3n de=
+ viviendas en EEUU" title=3D"Los aranceles de Trump aumentar=C3=A1n el prec=
+io de la construcci=C3=B3n de viviendas en EEUU" style=3D"border: 0px none;=
+ display: block; height: auto; line-height: 100%; outline: 0px; text-decora=
+tion: none; width: 100%;"> </a></td></tr><tr><td style=3D"padding:6px 0px;m=
+argin:0px;border-collapse:collapse;text-align:left;font:400 16px/24px Arial=
+,sans-serif;width:100%;color:rgb(20,20,20)"><p style=3D"padding:0px;margin:=
+0px">La pol=C3=ADtica de aranceles impuesta por el Gobierno de Donald Trump=
+ podr=C3=ADa aumentar los costes de la construcci=C3=B3n en EEUU en unos 9.=
+200 d=C3=B3lares, unos 8.390 euros, seg=C3=BAn la patronal de los construct=
+ores. Destacan que estos costes se trasladar=C3=A1n al precio final de la v=
+ivienda, que actualmente se encuentra en 414.500 d=C3=B3lares de media naci=
+onal (378.000 euros). La Asociaci=C3=B3n Nacional de Constructores de Vivie=
+ndas (NAHB) estima que alrededor del 10% de los materiales de construcci=C3=
+=B3n utilizados en el residencial son importados.</p></td></tr><tr><td styl=
+e=3D"margin:0px;padding:16px 0px 0px;border-collapse:collapse;text-align:le=
+ft;font:400 16px Arial"> <a href=3D"https://l.diario.idealista.com/rts/go2.=
+aspx?h=3D1892363&amp;tp=3Di-1NGB-Q2Q-TWL-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czw=
+Pe-2HF2Sq&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=3D9215=
+9885&amp;hp2=3D31a71821470daab4fe460d536a160964b15b8337d068c6abe0b28d15ec0d=
+ccb9" style=3D"color:rgb(31,127,197);text-decoration:none;font:400 16px Ari=
+al" target=3D"_blank" rel=3D"noreferrer">Leer m=C3=A1s</a></td></tr></tbody=
+></table></td></tr><tr><td style=3D"margin:0px;border-collapse:collapse;tex=
+t-align:left;font:400 16px Arial;padding:24px 0px;border-bottom:2px solid r=
+gb(235,235,233)"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" st=
+yle=3D"border-spacing:0px;border-collapse:collapse;text-align:left;width:10=
+0%;max-width:100%"><tbody><tr><td style=3D"margin:0px;border-collapse:colla=
+pse;text-align:left;font:400 16px Arial;width:100%;padding:6px 0px"><h1 sty=
+le=3D"margin:0px;padding:0px;font:700 20px/24px Arial,sans-serif;display:bl=
+ock"> <a href=3D"https://l.diario.idealista.com/rts/go2.aspx?h=3D1892364&am=
+p;tp=3Di-1NGB-Q2Q-TWL-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&amp;pi=3D=
+21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=3D92159885&amp;hp2=3D578f=
+f488652b3d391ea6305fbc354a42fb559b0289088dcaad4a8cd25a58ef1b" style=3D"colo=
+r:rgb(31,127,197);text-decoration:none;display:block;font:700 20px/24px Ari=
+al,sans-serif" target=3D"_blank" rel=3D"noreferrer"> El esfuerzo de los hog=
+ares para comprar vivienda cierra 2024 por encima del 34%, seg=C3=BAn el Bd=
+E </a></h1></td></tr><tr><td style=3D"margin:0px;border-collapse:collapse;t=
+ext-align:left;font:400 14px Arial;padding:6px 0px;color:rgb(146,146,146);w=
+idth:100%"> idealista/news</td></tr><tr><td style=3D"padding:6px 0px;margin=
+:0px;border-collapse:collapse;text-align:left;font:400 16px/24px Arial,sans=
+-serif;width:100%;color:rgb(20,20,20)"><p style=3D"padding:0px;margin:0px">=
+El esfuerzo de los hogares para la compra de vivienda se situ=C3=B3 en el c=
+uarto trimestre de 2024 en el 34,4% de sus ingresos, 2,3 puntos porcentuale=
+s por debajo de un a=C3=B1o antes, seg=C3=BAn los =C3=BAltimos datos public=
+ados por el Banco de Espa=C3=B1a. A pesar de la mejora, el esfuerzo te=C3=
+=B3rico se mantiene por encima del 30% que los expertos recomiendan como m=
+=C3=A1ximo desde primavera de 2022. De media, las familias necesitan al men=
+os 7,25 a=C3=B1os de salario bruto =C3=ADntegro para adquirir un inmueble, =
+pese a que est=C3=A1 bajando el inter=C3=A9s medio de los nuevos pr=C3=A9st=
+amos hipotecarios por las rebajas del precio del dinero que est=C3=A1 aplic=
+ando el BCE.</p></td></tr><tr><td style=3D"margin:0px;padding:16px 0px 0px;=
+border-collapse:collapse;text-align:left;font:400 16px Arial"> <a href=3D"h=
+ttps://l.diario.idealista.com/rts/go2.aspx?h=3D1892365&amp;tp=3Di-1NGB-Q2Q-=
+TWL-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&amp;pi=3D21OEK495jHqsDIz-DR=
+vJKrCj7z5twwBbaLfJgK0sMDs&amp;x=3D92159885&amp;hp2=3Dc58f6f8470d92eb174e8f9=
+9974e63462faa91d70bb2fa5770c5f6ecb88a7b787" style=3D"color:rgb(31,127,197);=
+text-decoration:none;font:400 16px Arial" target=3D"_blank" rel=3D"noreferr=
+er">Leer m=C3=A1s</a></td></tr></tbody></table></td></tr><tr><td style=3D"m=
+argin:0px;border-collapse:collapse;text-align:left;font:400 16px Arial;padd=
+ing:24px 0px;border-bottom:2px solid rgb(235,235,233)"><table border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" style=3D"border-spacing:0px;border-coll=
+apse:collapse;text-align:left;width:100%;max-width:100%"><tbody><tr><td sty=
+le=3D"margin:0px;border-collapse:collapse;text-align:left;font:400 16px Ari=
+al;width:100%;padding:6px 0px"><h1 style=3D"margin:0px;padding:0px;font:700=
+ 20px/24px Arial,sans-serif;display:block"> <a href=3D"https://l.diario.ide=
+alista.com/rts/go2.aspx?h=3D1892366&amp;tp=3Di-1NGB-Q2Q-TWL-7TCAAD-1s-7q4tl=
+-1c-7T4P0s-lBhT5czwPe-2HF2Sq&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJg=
+K0sMDs&amp;x=3D92159885&amp;hp2=3D532e5106e839e38b6ee0136797779eeebfb5d7db8=
+a4b3fa43703fcc99c18165a" style=3D"color:rgb(31,127,197);text-decoration:non=
+e;display:block;font:700 20px/24px Arial,sans-serif" target=3D"_blank" rel=
+=3D"noreferrer"> Los extranjeros acaparan el 66% de las compras de vivienda=
+ en Ciutat Vella de Valencia </a></h1></td></tr><tr><td style=3D"margin:0px=
+;border-collapse:collapse;text-align:left;font:400 14px Arial;padding:6px 0=
+px;color:rgb(146,146,146);width:100%"> idealista/news</td></tr><tr><td styl=
+e=3D"padding:6px 0px;margin:0px;border-collapse:collapse;text-align:left;fo=
+nt:400 16px Arial;width:100%"> <a href=3D"https://l.diario.idealista.com/rt=
+s/go2.aspx?h=3D1892367&amp;tp=3Di-1NGB-Q2Q-TWL-7TCAAD-1s-7q4tl-1c-7T4P0s-lB=
+hT5czwPe-2HF2Sq&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=
+=3D92159885&amp;hp2=3Defd21a7f8351bbabe0ded4f915039e949f1bfde5b8ee659510653=
+7d92a3e21e5" style=3D"color:rgb(31,127,197);text-decoration:none;font:400 1=
+6px Arial" target=3D"_blank" rel=3D"noreferrer"> <img width=3D"530" alt=3D"=
+Los extranjeros acaparan el 66% de las compras de vivienda gestionadas por =
+Engel &amp; V=C3=B6lkers en Ciutat Vella de Valencia" title=3D"" style=3D"b=
+order: 0px none; display: block; height: auto; line-height: 100%; outline: =
+0px; text-decoration: none; width: 100%;"> </a></td></tr><tr><td style=3D"p=
+adding:6px 0px;margin:0px;border-collapse:collapse;text-align:left;font:400=
+ 16px/24px Arial,sans-serif;width:100%;color:rgb(20,20,20)"><p style=3D"pad=
+ding:0px;margin:0px">El centro hist=C3=B3rico de Valencia contin=C3=BAa con=
+solid=C3=A1ndose como uno de los destinos preferidos por los compradores in=
+ternacionales. Seg=C3=BAn los =C3=BAltimos datos de Engel &amp; V=C3=B6lker=
+s, el 66% de las operaciones de compraventa de vivienda gestionadas por la =
+inmobiliaria de lujo en el distrito de Ciutat Vella durante el primer trime=
+stre de 2025 han sido realizadas por extranjeros. En total, la compa=C3=B1=
+=C3=ADa ha cerrado 57 compraventas en la zona, lo que representa un increme=
+nto del 39% respecto al mismo periodo del a=C3=B1o anterior.</p></td></tr><=
+tr><td style=3D"margin:0px;padding:16px 0px 0px;border-collapse:collapse;te=
+xt-align:left;font:400 16px Arial"> <a href=3D"https://l.diario.idealista.c=
+om/rts/go2.aspx?h=3D1892368&amp;tp=3Di-1NGB-Q2Q-TWL-7TCAAD-1s-7q4tl-1c-7T4P=
+0s-lBhT5czwPe-2HF2Sq&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&a=
+mp;x=3D92159885&amp;hp2=3De3efa301ae5ed677654970d80d606e7956912a527f1a590aa=
+4fc8937b427feeb" style=3D"color:rgb(31,127,197);text-decoration:none;font:4=
+00 16px Arial" target=3D"_blank" rel=3D"noreferrer">Leer m=C3=A1s</a></td><=
+/tr></tbody></table></td></tr><tr><td style=3D"margin:0px;border-collapse:c=
+ollapse;text-align:left;font:400 16px Arial;padding:24px 0px;border-bottom:=
+2px solid rgb(235,235,233)"><table border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" style=3D"border-spacing:0px;border-collapse:collapse;text-align:le=
+ft;width:100%;max-width:100%"><tbody><tr><td style=3D"margin:0px;border-col=
+lapse:collapse;text-align:left;font:400 16px Arial;width:100%;padding:6px 0=
+px"><h1 style=3D"margin:0px;padding:0px;font:700 20px/24px Arial,sans-serif=
+;display:block"> <a href=3D"https://l.diario.idealista.com/rts/go2.aspx?h=
+=3D1892369&amp;tp=3Di-1NGB-Q2Q-TWL-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF=
+2Sq&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=3D92159885&a=
+mp;hp2=3D081dff716e40a861572ea0d3ab6ca0c5468809b7f233a95d2260f5f45020d89f" =
+style=3D"color:rgb(31,127,197);text-decoration:none;display:block;font:700 =
+20px/24px Arial,sans-serif" target=3D"_blank" rel=3D"noreferrer"> El Suprem=
+o avala cobrar el plus por festivos en d=C3=ADas no laborables </a></h1></t=
+d></tr><tr><td style=3D"margin:0px;border-collapse:collapse;text-align:left=
+;font:400 14px Arial;padding:6px 0px;color:rgb(146,146,146);width:100%"> id=
+ealista/news</td></tr><tr><td style=3D"padding:6px 0px;margin:0px;border-co=
+llapse:collapse;text-align:left;font:400 16px/24px Arial,sans-serif;width:1=
+00%;color:rgb(20,20,20)"><p style=3D"padding:0px;margin:0px">El Tribunal Su=
+premo ha resuelto una cuesti=C3=B3n clave para miles de trabajadores en Esp=
+a=C3=B1a: quienes tienen contratos espec=C3=ADficos para trabajar en fines =
+de semana y d=C3=ADas festivos s=C3=AD pueden cobrar el plus por trabajo en=
+ festivos mientras su salario percibido sea igual al de quienes trabajan en=
+tre semana y no exista otro tipo de compensaci=C3=B3n. <span>La decisi=C3=
+=B3n del alto tribunal se basa en el principio constitucional de igualdad d=
+e trato, recogido en el art=C3=ADculo 14 de la Constituci=C3=B3n.</span></p=
+></td></tr><tr><td style=3D"margin:0px;padding:16px 0px 0px;border-collapse=
+:collapse;text-align:left;font:400 16px Arial"> <a href=3D"https://l.diario=
+.idealista.com/rts/go2.aspx?h=3D1892370&amp;tp=3Di-1NGB-Q2Q-TWL-7TCAAD-1s-7=
+q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBba=
+LfJgK0sMDs&amp;x=3D92159885&amp;hp2=3D709cb4f57b5764dd46a0aedb8b2de105b31af=
+c8df7f1b0068fd9019c8162affe" style=3D"color:rgb(31,127,197);text-decoration=
+:none;font:400 16px Arial" target=3D"_blank" rel=3D"noreferrer">Leer m=C3=
+=A1s</a></td></tr></tbody></table></td></tr><tr><td style=3D"margin:0px;bor=
+der-collapse:collapse;text-align:left;font:400 16px Arial;padding:24px 0px;=
+border-bottom:2px solid rgb(235,235,233)"><table border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" style=3D"border-spacing:0px;border-collapse:collap=
+se;text-align:left;width:100%;max-width:100%"><tbody><tr><td style=3D"margi=
+n:0px;border-collapse:collapse;text-align:left;font:400 16px Arial;width:10=
+0%;padding:6px 0px"><h1 style=3D"margin:0px;padding:0px;font:700 20px/24px =
+Arial,sans-serif;display:block"> <a href=3D"https://l.diario.idealista.com/=
+rts/go2.aspx?h=3D1892371&amp;tp=3Di-1NGB-Q2Q-TWL-7TCAAD-1s-7q4tl-1c-7T4P0s-=
+lBhT5czwPe-2HF2Sq&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;=
+x=3D92159885&amp;hp2=3D716ebe3f7fb17ee789ea522b7b79d5b375f34f8ccc3189d378cb=
+4638868906cc" style=3D"color:rgb(31,127,197);text-decoration:none;display:b=
+lock;font:700 20px/24px Arial,sans-serif" target=3D"_blank" rel=3D"noreferr=
+er"> Tres de cada 10 viviendas de alquiler asequible en Espa=C3=B1a se cons=
+truyeron en Madrid en 2024 </a></h1></td></tr><tr><td style=3D"margin:0px;b=
+order-collapse:collapse;text-align:left;font:400 14px Arial;padding:6px 0px=
+;color:rgb(146,146,146);width:100%"> idealista/news</td></tr><tr><td style=
+=3D"padding:6px 0px;margin:0px;border-collapse:collapse;text-align:left;fon=
+t:400 16px Arial;width:100%"> <a href=3D"https://l.diario.idealista.com/rts=
+/go2.aspx?h=3D1892372&amp;tp=3Di-1NGB-Q2Q-TWL-7TCAAD-1s-7q4tl-1c-7T4P0s-lBh=
+T5czwPe-2HF2Sq&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=
+=3D92159885&amp;hp2=3D2309f48e26b4b9ef5bac9c22baa43f3ccdc01353f01939035d0ad=
+b378734ad54" style=3D"color:rgb(31,127,197);text-decoration:none;font:400 1=
+6px Arial" target=3D"_blank" rel=3D"noreferrer"> <img width=3D"530" alt=3D"=
+Ca=C3=B1averal" title=3D"" style=3D"border: 0px none; display: block; heigh=
+t: auto; line-height: 100%; outline: 0px; text-decoration: none; width: 100=
+%;"> </a></td></tr><tr><td style=3D"padding:6px 0px;margin:0px;border-colla=
+pse:collapse;text-align:left;font:400 16px/24px Arial,sans-serif;width:100%=
+;color:rgb(20,20,20)"><p style=3D"padding:0px;margin:0px">La capital espa=
+=C3=B1ola sigue consolidando su posici=C3=B3n como l=C3=ADder en la promoci=
+=C3=B3n de vivienda p=C3=BAblica de alquiler asequible en el pa=C3=ADs. Seg=
+=C3=BAn el =C3=BAltimo Bolet=C3=ADn de Vivienda Protegida del Ministerio de=
+ Transportes y Movilidad Sostenible, la Empresa Municipal de la Vivienda y =
+Suelo (EMVS Madrid) construy=C3=B3 en 2024 cerca de tres de cada 10 viviend=
+as protegidas por las administraciones locales y auton=C3=B3micas para alqu=
+iler, con un total de 1.007 calificaciones definitivas. La cifra representa=
+ el 27,3% de las viviendas de este tipo a nivel nacional.</p></td></tr><tr>=
+<td style=3D"margin:0px;padding:16px 0px 0px;border-collapse:collapse;text-=
+align:left;font:400 16px Arial"> <a href=3D"https://l.diario.idealista.com/=
+rts/go2.aspx?h=3D1892373&amp;tp=3Di-1NGB-Q2Q-TWL-7TCAAD-1s-7q4tl-1c-7T4P0s-=
+lBhT5czwPe-2HF2Sq&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;=
+x=3D92159885&amp;hp2=3Db13d3baa15b7f7df2d3e08506bc02c5d38c5c85eb571c94d4ad5=
+a7a08c975acc" style=3D"color:rgb(31,127,197);text-decoration:none;font:400 =
+16px Arial" target=3D"_blank" rel=3D"noreferrer">Leer m=C3=A1s</a></td></tr=
+></tbody></table></td></tr><tr><td style=3D"margin:0px;border-collapse:coll=
+apse;text-align:left;font:400 16px Arial;padding:24px 0px;border-bottom:2px=
+ solid rgb(235,235,233)"><table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" style=3D"border-spacing:0px;border-collapse:collapse;text-align:left=
+;width:100%;max-width:100%"><tbody><tr><td style=3D"margin:0px;border-colla=
+pse:collapse;text-align:left;font:400 16px Arial;width:100%;padding:6px 0px=
+"><h1 style=3D"margin:0px;padding:0px;font:700 20px/24px Arial,sans-serif;d=
+isplay:block"> <a href=3D"https://l.diario.idealista.com/rts/go2.aspx?h=3D1=
+892374&amp;tp=3Di-1NGB-Q2Q-TWL-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&=
+amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=3D92159885&amp;h=
+p2=3D40437133ba4a00de2d4f1f4046eb71e7bccba733eed18306f8f4d32c7042d406" styl=
+e=3D"color:rgb(31,127,197);text-decoration:none;display:block;font:700 20px=
+/24px Arial,sans-serif" target=3D"_blank" rel=3D"noreferrer"> El precio de =
+la vivienda en el Reino Unido cae por segundo mes consecutivo en marzo, seg=
+=C3=BAn Halifax </a></h1></td></tr><tr><td style=3D"margin:0px;border-colla=
+pse:collapse;text-align:left;font:400 14px Arial;padding:6px 0px;color:rgb(=
+146,146,146);width:100%"> Bloomberg</td></tr><tr><td style=3D"padding:6px 0=
+px;margin:0px;border-collapse:collapse;text-align:left;font:400 16px/24px A=
+rial,sans-serif;width:100%;color:rgb(20,20,20)"><p style=3D"padding:0px;mar=
+gin:0px">El precio de la vivienda en el Reino Unido baj=C3=B3 por segundo m=
+es consecutivo, seg=C3=BAn Halifax, una de las mayores entidades de cr=C3=
+=A9dito hipotecario del pa=C3=ADs, justo antes de que entren en vigor los n=
+uevos criterios para aplicar el impuesto del timbre (similar al <span>impue=
+sto de actos jur=C3=ADdicos documentados espa=C3=B1ol). </span>En concreto,=
+ el precio cay=C3=B3 un 0,5% intermensual, hasta dejar un precio medio de 2=
+96.699 libras (345.940 euros) en marzo, tras el descenso del 0,2% registrad=
+o en febrero.</p></td></tr><tr><td style=3D"margin:0px;padding:16px 0px 0px=
+;border-collapse:collapse;text-align:left;font:400 16px Arial"> <a href=3D"=
+https://l.diario.idealista.com/rts/go2.aspx?h=3D1892375&amp;tp=3Di-1NGB-Q2Q=
+-TWL-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&amp;pi=3D21OEK495jHqsDIz-D=
+RvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=3D92159885&amp;hp2=3D28af0103e0948a00fc7b4=
+a3634ff3e6282fd32607e21a246d59c42c01cc14451" style=3D"color:rgb(31,127,197)=
+;text-decoration:none;font:400 16px Arial" target=3D"_blank" rel=3D"norefer=
+rer">Leer m=C3=A1s</a></td></tr></tbody></table></td></tr><tr><td style=3D"=
+margin:0px;border-collapse:collapse;text-align:left;font:400 16px Arial;pad=
+ding:24px 0px;border-bottom:2px solid rgb(235,235,233)"><table border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0" style=3D"border-spacing:0px;border-col=
+lapse:collapse;text-align:left;width:100%;max-width:100%"><tbody><tr><td st=
+yle=3D"margin:0px;border-collapse:collapse;text-align:left;font:400 16px Ar=
+ial;width:100%;padding:6px 0px"><h1 style=3D"margin:0px;padding:0px;font:70=
+0 20px/24px Arial,sans-serif;display:block"> <a href=3D"https://l.diario.id=
+ealista.com/rts/go2.aspx?h=3D1892376&amp;tp=3Di-1NGB-Q2Q-TWL-7TCAAD-1s-7q4t=
+l-1c-7T4P0s-lBhT5czwPe-2HF2Sq&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJ=
+gK0sMDs&amp;x=3D92159885&amp;hp2=3D7142e31671f0eeb670c71498b893462e9c936503=
+0110bc50173ac267a99f1d6e" style=3D"color:rgb(31,127,197);text-decoration:no=
+ne;display:block;font:700 20px/24px Arial,sans-serif" target=3D"_blank" rel=
+=3D"noreferrer"> C=C3=B3mo defenderse del mayor desplome de las bolsas desd=
+e el covid </a></h1></td></tr><tr><td style=3D"margin:0px;border-collapse:c=
+ollapse;text-align:left;font:400 14px Arial;padding:6px 0px;color:rgb(146,1=
+46,146);width:100%"> idealista/news</td></tr><tr><td style=3D"padding:6px 0=
+px;margin:0px;border-collapse:collapse;text-align:left;font:400 16px/24px A=
+rial,sans-serif;width:100%;color:rgb(20,20,20)"><p style=3D"padding:0px;mar=
+gin:0px">Las bolsas mundiales contienen la respiraci=C3=B3n. Despu=C3=A9s d=
+e una ca=C3=ADda hist=C3=B3rica, que se ha llevado 6,6 billones de euros de=
+ capitalizaci=C3=B3n en s=C3=B3lo tres sesiones despu=C3=A9s de que la Admi=
+nistraci=C3=B3n de Donald Trump anunciara la imposici=C3=B3n de aranceles, =
+los mercados rebotan en un escenario de m=C3=A1xima volatilidad. Hay varios=
+ consejos para salvar los muebles en el epicentro de la mayor tormenta burs=
+=C3=A1til desde la pandemia, como aguantar posiciones a la espera de un reb=
+ote consistente, mirar a largo plazo y apostar por compa=C3=B1=C3=ADas l=C3=
+=ADquidas en bolsa, as=C3=AD como por valores con resultados s=C3=B3lidos y=
+ que cuenten con dividendos sostenibles en el tiempo.</p></td></tr><tr><td =
+style=3D"margin:0px;padding:16px 0px 0px;border-collapse:collapse;text-alig=
+n:left;font:400 16px Arial"> <a href=3D"https://l.diario.idealista.com/rts/=
+go2.aspx?h=3D1892377&amp;tp=3Di-1NGB-Q2Q-TWL-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT=
+5czwPe-2HF2Sq&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=3D=
+92159885&amp;hp2=3D920486f6b979437c492d40b6dd30e800c58a88b307e9afa47eea637e=
+1fa68401" style=3D"color:rgb(31,127,197);text-decoration:none;font:400 16px=
+ Arial" target=3D"_blank" rel=3D"noreferrer">Leer m=C3=A1s</a></td></tr></t=
+body></table></td></tr><tr><td style=3D"margin:0px;border-collapse:collapse=
+;text-align:left;font:400 16px Arial;padding:24px 0px;border-bottom:2px sol=
+id rgb(235,235,233)"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0=
+" style=3D"border-spacing:0px;border-collapse:collapse;text-align:left;widt=
+h:100%;max-width:100%"><tbody><tr><td style=3D"margin:0px;padding:10px 0px;=
+border-collapse:collapse;text-align:left;width:100%;color:rgb(146,146,146);=
+font:400 16px Arial,sans-serif"><div id=3D"m_-5275438232776529507publi_1602=
+8" style=3D"margin:0px;padding:0px"> <span style=3D"color:rgb(146,146,146);=
+margin:0px;padding:0px">Publicidad</span><ul style=3D"font-size:0px;padding=
+-left:0px;margin-left:18pt;margin-top:0px;list-style-type:none"><li id=3D"m=
+_-5275438232776529507sas_16028_4" style=3D"color:rgb(146,146,146);font-size=
+:20px;margin-left:0px;margin-bottom:0px;margin-top:0px"></li><li id=3D"m_-5=
+275438232776529507sas_16028_5" style=3D"color:rgb(146,146,146);font-size:20=
+px;margin-left:0px;margin-bottom:0px;margin-top:0px"></li><li id=3D"m_-5275=
+438232776529507sas_16028_6" style=3D"color:rgb(146,146,146);font-size:20px;=
+margin-left:0px;margin-bottom:0px;margin-top:0px"></li></ul></div></td></tr=
+></tbody></table></td></tr><tr><td style=3D"margin:0px;border-collapse:coll=
+apse;text-align:left;font:400 16px Arial;padding:24px 0px;border-bottom:2px=
+ solid rgb(235,235,233)"><table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" style=3D"border-spacing:0px;border-collapse:collapse;text-align:left=
+;width:100%;max-width:100%"><tbody><tr><td style=3D"margin:0px;border-colla=
+pse:collapse;text-align:left;font:400 16px Arial;width:100%;padding:6px 0px=
+"><h1 style=3D"margin:0px;padding:0px;font:700 20px/24px Arial,sans-serif;d=
+isplay:block"> <a href=3D"https://l.diario.idealista.com/rts/go2.aspx?h=3D1=
+892378&amp;tp=3Di-1NGB-Q2Q-TWL-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&=
+amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=3D92159885&amp;h=
+p2=3D94ef11c11b38997b6538e77b74a21e2369bbc5cc19d2c19695fd8887f1453e4f" styl=
+e=3D"color:rgb(31,127,197);text-decoration:none;display:block;font:700 20px=
+/24px Arial,sans-serif" target=3D"_blank" rel=3D"noreferrer"> Descubre el &=
+#39;renacido&#39; hotel Los Monteros: lujo, gastronom=C3=ADa y dise=C3=B1o =
+en la Costa del Sol </a></h1></td></tr><tr><td style=3D"margin:0px;border-c=
+ollapse:collapse;text-align:left;font:400 14px Arial;padding:6px 0px;color:=
+rgb(146,146,146);width:100%"> idealista/news</td></tr><tr><td style=3D"padd=
+ing:6px 0px;margin:0px;border-collapse:collapse;text-align:left;font:400 16=
+px Arial;width:100%"> <a href=3D"https://l.diario.idealista.com/rts/go2.asp=
+x?h=3D1892379&amp;tp=3Di-1NGB-Q2Q-TWL-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-=
+2HF2Sq&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=3D9215988=
+5&amp;hp2=3D26bd7e7d4f7368d3a680136084dba7f19d6cdc1f34f0b5d147ad1e2de277125=
+6" style=3D"color:rgb(31,127,197);text-decoration:none;font:400 16px Arial"=
+ target=3D"_blank" rel=3D"noreferrer"> <img width=3D"530" alt=3D"Kimpton Lo=
+s Monteros" title=3D"" style=3D"border: 0px none; display: block; height: a=
+uto; line-height: 100%; outline: 0px; text-decoration: none; width: 100%;">=
+ </a></td></tr><tr><td style=3D"margin:0px;padding:0px;border-collapse:coll=
+apse;text-align:left;font:400 16px Arial"><table style=3D"border-spacing:0p=
+x;border-collapse:collapse;text-align:left;width:100%;max-width:100%"><tbod=
+y><tr><td style=3D"margin:0px;border-collapse:collapse;text-align:left;font=
+:400 16px Arial;max-width:170px;width:33%;padding:6px 10px 6px 0px"> <a hre=
+f=3D"https://l.diario.idealista.com/rts/go2.aspx?h=3D1892380&amp;tp=3Di-1NG=
+B-Q2Q-TWL-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&amp;pi=3D21OEK495jHqs=
+DIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=3D92159885&amp;hp2=3D2cb62601b4abf135=
+98b735dc490eba308b5dbb7877c2bd389a0ff4e2fab3634a" style=3D"color:rgb(31,127=
+,197);text-decoration:none;font:400 16px Arial" target=3D"_blank" rel=3D"no=
+referrer"> <img width=3D"170" height=3D"120" alt=3D"Kimpton Los Monteros" s=
+tyle=3D"display: block; height: auto; line-height: 100%; outline: 0px; text=
+-decoration: none; border: 0px none; max-width: 100%; max-height: 120px;"> =
+</a></td><td style=3D"margin:0px;border-collapse:collapse;text-align:left;f=
+ont:400 16px Arial;max-width:170px;width:33%;padding:6px 5px"> <a href=3D"h=
+ttps://l.diario.idealista.com/rts/go2.aspx?h=3D1892381&amp;tp=3Di-1NGB-Q2Q-=
+TWL-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&amp;pi=3D21OEK495jHqsDIz-DR=
+vJKrCj7z5twwBbaLfJgK0sMDs&amp;x=3D92159885&amp;hp2=3Dd2becfe8eab47ae89e7f6d=
+8757a49c4858fb52560d7c2c5a76184040cd3ddc0c" style=3D"color:rgb(31,127,197);=
+text-decoration:none;font:400 16px Arial" target=3D"_blank" rel=3D"noreferr=
+er"> <img width=3D"170" height=3D"120" alt=3D"Kimpton Los Monteros" style=
+=3D"display: block; height: auto; line-height: 100%; outline: 0px; text-dec=
+oration: none; border: 0px none; max-width: 100%; max-height: 120px;"> </a>=
+</td><td style=3D"margin:0px;border-collapse:collapse;text-align:left;font:=
+400 16px Arial;max-width:170px;width:33%;padding:6px 0px 6px 10px"> <a href=
+=3D"https://l.diario.idealista.com/rts/go2.aspx?h=3D1892382&amp;tp=3Di-1NGB=
+-Q2Q-TWL-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&amp;pi=3D21OEK495jHqsD=
+Iz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=3D92159885&amp;hp2=3Dc0fb39caaa03c0e7e=
+87c5431bc54d35617c1f5080cefee40842b8a2f4a88932d" style=3D"color:rgb(31,127,=
+197);text-decoration:none;font:400 16px Arial" target=3D"_blank" rel=3D"nor=
+eferrer"> <img width=3D"170" height=3D"120" alt=3D"Kimpton Los Monteros" st=
+yle=3D"display: block; height: auto; line-height: 100%; outline: 0px; text-=
+decoration: none; border: 0px none; max-width: 100%; max-height: 120px;"> <=
+/a></td></tr></tbody></table></td></tr><tr><td style=3D"margin:0px;padding:=
+16px 0px 0px;border-collapse:collapse;text-align:left;font:400 16px Arial">=
+ <a href=3D"https://l.diario.idealista.com/rts/go2.aspx?h=3D1892383&amp;tp=
+=3Di-1NGB-Q2Q-TWL-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&amp;pi=3D21OE=
+K495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=3D92159885&amp;hp2=3Dbef66ed5=
+e0ac209a87f6276dc6a9ee99b8e861ef8f2b5b0009b9a4253f1dfd79" style=3D"color:rg=
+b(31,127,197);text-decoration:none;font:400 16px Arial" target=3D"_blank" r=
+el=3D"noreferrer">Leer m=C3=A1s</a></td></tr></tbody></table></td></tr><tr>=
+<td style=3D"margin:0px;border-collapse:collapse;text-align:left;font:400 1=
+6px Arial;padding:24px 0px;border-bottom:2px solid rgb(235,235,233)"><table=
+ border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-spacing:0=
+px;border-collapse:collapse;text-align:left;width:100%;max-width:100%"><tbo=
+dy><tr><td style=3D"margin:0px;border-collapse:collapse;text-align:left;fon=
+t:400 16px Arial;width:100%;padding:6px 0px"><h1 style=3D"margin:0px;paddin=
+g:0px;font:700 20px/24px Arial,sans-serif;display:block"> <a href=3D"https:=
+//l.diario.idealista.com/rts/go2.aspx?h=3D1892384&amp;tp=3Di-1NGB-Q2Q-TWL-7=
+TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&amp;pi=3D21OEK495jHqsDIz-DRvJKrC=
+j7z5twwBbaLfJgK0sMDs&amp;x=3D92159885&amp;hp2=3D29cb1ff0c9f5c42c06186f31be3=
+886f087eb3f31fef9d7f4a01f871e567fb4fa" style=3D"color:rgb(31,127,197);text-=
+decoration:none;display:block;font:700 20px/24px Arial,sans-serif" target=
+=3D"_blank" rel=3D"noreferrer"> El 72% de los espa=C3=B1oles afirma residir=
+ en una vivienda saludable, seg=C3=BAn UCI </a></h1></td></tr><tr><td style=
+=3D"margin:0px;border-collapse:collapse;text-align:left;font:400 14px Arial=
+;padding:6px 0px;color:rgb(146,146,146);width:100%"> idealista/news</td></t=
+r><tr><td style=3D"padding:6px 0px;margin:0px;border-collapse:collapse;text=
+-align:left;font:400 16px/24px Arial,sans-serif;width:100%;color:rgb(20,20,=
+20)"><p style=3D"padding:0px;margin:0px">En el marco del D=C3=ADa Mundial d=
+e la Salud, el II Observatorio de Vivienda y Sostenibilidad de UCI revela q=
+ue el 72% de los espa=C3=B1oles considera que vive en una vivienda saludabl=
+e, subrayando una creciente preocupaci=C3=B3n por el bienestar en el hogar.=
+ A pesar de los desaf=C3=ADos de un parque inmobiliario envejecido, comunid=
+ades como Murcia, Navarra y Castilla y Le=C3=B3n lideran en percepciones po=
+sitivas sobre la salubridad del hogar, mientras que la luz natural destaca =
+como el factor m=C3=A1s influyente en la percepci=C3=B3n de salud dom=C3=A9=
+stica.</p></td></tr><tr><td style=3D"margin:0px;padding:16px 0px 0px;border=
+-collapse:collapse;text-align:left;font:400 16px Arial"> <a href=3D"https:/=
+/l.diario.idealista.com/rts/go2.aspx?h=3D1892385&amp;tp=3Di-1NGB-Q2Q-TWL-7T=
+CAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&amp;x=3D92159885&amp;hp2=3Dad6d6c066bf3d6479ccaa35a9d00=
+6a98981b60715477ffbb77cf1fb0c800f1ac" style=3D"color:rgb(31,127,197);text-d=
+ecoration:none;font:400 16px Arial" target=3D"_blank" rel=3D"noreferrer">Le=
+er m=C3=A1s</a></td></tr></tbody></table></td></tr><tr><td style=3D"margin:=
+0px;border-collapse:collapse;text-align:left;font:400 16px Arial;padding:24=
+px 0px;border-bottom:2px solid rgb(235,235,233)"><table border=3D"0" cellpa=
+dding=3D"0" cellspacing=3D"0" style=3D"border-spacing:0px;border-collapse:c=
+ollapse;text-align:left;width:100%;max-width:100%"><tbody><tr><td style=3D"=
+margin:0px;border-collapse:collapse;text-align:left;font:400 16px Arial;wid=
+th:100%;padding:6px 0px"><h1 style=3D"margin:0px;padding:0px;font:700 20px/=
+24px Arial,sans-serif;display:block"> <a href=3D"https://l.diario.idealista=
+.com/rts/go2.aspx?h=3D1892386&amp;tp=3Di-1NGB-Q2Q-TWL-7TCAAD-1s-7q4tl-1c-7T=
+4P0s-lBhT5czwPe-2HF2Sq&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs=
+&amp;x=3D92159885&amp;hp2=3D0918e9a44f7f4d5eeb893d1d9ff1f6dda493826ebbcf5ca=
+567880d3118f31000" style=3D"color:rgb(31,127,197);text-decoration:none;disp=
+lay:block;font:700 20px/24px Arial,sans-serif" target=3D"_blank" rel=3D"nor=
+eferrer"> Juan Roig invierte en una ronda de 1,2 millones de la firma inmob=
+iliaria Inversiva </a></h1></td></tr><tr><td style=3D"margin:0px;border-col=
+lapse:collapse;text-align:left;font:400 14px Arial;padding:6px 0px;color:rg=
+b(146,146,146);width:100%"> idealista/news</td></tr><tr><td style=3D"paddin=
+g:6px 0px;margin:0px;border-collapse:collapse;text-align:left;font:400 16px=
+/24px Arial,sans-serif;width:100%;color:rgb(20,20,20)"><p style=3D"padding:=
+0px;margin:0px">Angels, veh=C3=ADculo de inversi=C3=B3n del presidente de M=
+ercadona, Juan Roig, ha inyectado dinero en una nueva ronda de financiaci=
+=C3=B3n de 1,2 millones de euros lanzada por Inversiva, una firma de invers=
+i=C3=B3n inmobiliaria pasiva. No es la primera vez que Roig invierte en est=
+a compa=C3=B1=C3=ADa. En 2024, ya lider=C3=B3 una primera ronda de financia=
+ci=C3=B3n de 750.000 euros. En esta =C3=BAltima operaci=C3=B3n tambi=C3=A9n=
+ han participado los fondos BeWater, el fondo de inversi=C3=B3n de los fund=
+adores de Indexa Capital, y Faraday Ventures, un fondo que agrupa peque=C3=
+=B1os inversores profesionales.</p></td></tr><tr><td style=3D"margin:0px;pa=
+dding:16px 0px 0px;border-collapse:collapse;text-align:left;font:400 16px A=
+rial"> <a href=3D"https://l.diario.idealista.com/rts/go2.aspx?h=3D1892387&a=
+mp;tp=3Di-1NGB-Q2Q-TWL-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&amp;pi=
+=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=3D92159885&amp;hp2=3De=
+a40e141adaa01c637ed5b4f6e5d718d4e10217a312fe1a6589eeec3d4c430f3" style=3D"c=
+olor:rgb(31,127,197);text-decoration:none;font:400 16px Arial" target=3D"_b=
+lank" rel=3D"noreferrer">Leer m=C3=A1s</a></td></tr></tbody></table></td></=
+tr><tr><td style=3D"margin:0px;border-collapse:collapse;text-align:left;fon=
+t:400 16px Arial;padding:24px 0px;border-bottom:2px solid rgb(235,235,233)"=
+><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-sp=
+acing:0px;border-collapse:collapse;text-align:left;width:100%;max-width:100=
+%"><tbody><tr><td style=3D"margin:0px;border-collapse:collapse;text-align:l=
+eft;font:400 16px Arial;width:100%;padding:6px 0px"><h1 style=3D"margin:0px=
+;padding:0px;font:700 20px/24px Arial,sans-serif;display:block"> <a href=3D=
+"https://l.diario.idealista.com/rts/go2.aspx?h=3D1892388&amp;tp=3Di-1NGB-Q2=
+Q-TWL-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&amp;pi=3D21OEK495jHqsDIz-=
+DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=3D92159885&amp;hp2=3D4916cf09d01702fb7ea1=
+2f79d838d4132539065270093745f2e3168eb4fd85a1" style=3D"color:rgb(31,127,197=
+);text-decoration:none;display:block;font:700 20px/24px Arial,sans-serif" t=
+arget=3D"_blank" rel=3D"noreferrer"> La alemana Limehome abrir=C3=A1 un hot=
+el en Madrid en 2028, su mayor proyecto en Espa=C3=B1a </a></h1></td></tr><=
+tr><td style=3D"margin:0px;border-collapse:collapse;text-align:left;font:40=
+0 14px Arial;padding:6px 0px;color:rgb(146,146,146);width:100%"> idealista/=
+news</td></tr><tr><td style=3D"padding:6px 0px;margin:0px;border-collapse:c=
+ollapse;text-align:left;font:400 16px Arial;width:100%"> <a href=3D"https:/=
+/l.diario.idealista.com/rts/go2.aspx?h=3D1892389&amp;tp=3Di-1NGB-Q2Q-TWL-7T=
+CAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&amp;x=3D92159885&amp;hp2=3Df2fd9fb202a24fb4b4f03fb2402c=
+4e024877696d1a5d36c5fb27f6b0b9624c83" style=3D"color:rgb(31,127,197);text-d=
+ecoration:none;font:400 16px Arial" target=3D"_blank" rel=3D"noreferrer"> <=
+img width=3D"530" alt=3D"Econom=C3=ADa/Empresas.- limehome impulsa su creci=
+miento en Espa=C3=B1a con m=C3=A1s de 1.600 unidades firmadas" title=3D"Lim=
+ehome abrir=C3=A1 un hotel en Madrid en 2028" style=3D"border: 0px none; di=
+splay: block; height: auto; line-height: 100%; outline: 0px; text-decoratio=
+n: none; width: 100%;"> </a></td></tr><tr><td style=3D"padding:6px 0px;marg=
+in:0px;border-collapse:collapse;text-align:left;font:400 16px/24px Arial,sa=
+ns-serif;width:100%;color:rgb(20,20,20)"><p style=3D"padding:0px;margin:0px=
+">La empresa de apartamentos tur=C3=ADsticos diversifica su cartera de aloj=
+amientos en Espa=C3=B1a con la firma de un nuevo proyecto en Madrid: un hot=
+el de 107 habitaciones ubicado en el distrito de San Blas-Canillejas, cuya =
+apertura est=C3=A1 prevista para 2028. Este ser=C3=A1 el activo hotelero m=
+=C3=A1s grande de la compa=C3=B1=C3=ADa alemana en el pa=C3=ADs y refuerza =
+la apuesta de Limehome por el mercado hotelero para expandirse por la Pen=
+=C3=ADnsula Ib=C3=A9rica. En la capital, la compa=C3=B1=C3=ADa ya dispone d=
+e m=C3=A1s de 450 apartamentos tur=C3=ADsticos, mientras que su cartera se =
+eleva a 1.600 unidades en el conjunto de Espa=C3=B1a.</p></td></tr><tr><td =
+style=3D"margin:0px;padding:16px 0px 0px;border-collapse:collapse;text-alig=
+n:left;font:400 16px Arial"> <a href=3D"https://l.diario.idealista.com/rts/=
+go2.aspx?h=3D1892390&amp;tp=3Di-1NGB-Q2Q-TWL-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT=
+5czwPe-2HF2Sq&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=3D=
+92159885&amp;hp2=3D5da288ba0a047d0ab797922ff4b257e676b9e9e6f2dcb99d3e10caaa=
+3b09fda4" style=3D"color:rgb(31,127,197);text-decoration:none;font:400 16px=
+ Arial" target=3D"_blank" rel=3D"noreferrer">Leer m=C3=A1s</a></td></tr></t=
+body></table></td></tr><tr><td style=3D"margin:0px;border-collapse:collapse=
+;text-align:left;font:400 16px Arial;padding:24px 0px;border-bottom:2px sol=
+id rgb(235,235,233)"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0=
+" style=3D"border-spacing:0px;border-collapse:collapse;text-align:left;widt=
+h:100%;max-width:100%"><tbody><tr><td style=3D"margin:0px;border-collapse:c=
+ollapse;text-align:left;font:400 16px Arial;width:100%;padding:6px 0px"><h1=
+ style=3D"margin:0px;padding:0px;font:700 20px/24px Arial,sans-serif;displa=
+y:block"> <a href=3D"https://l.diario.idealista.com/rts/go2.aspx?h=3D189239=
+1&amp;tp=3Di-1NGB-Q2Q-TWL-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&amp;p=
+i=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=3D92159885&amp;hp2=3D=
+1ec83e80d8d864635e4fb4e8728d3965e1fa52d75d574f052c7bcb5ff26d38be" style=3D"=
+color:rgb(31,127,197);text-decoration:none;display:block;font:700 20px/24px=
+ Arial,sans-serif" target=3D"_blank" rel=3D"noreferrer"> Neinor duplica sus=
+ preventas hasta marzo y suma m=C3=A1s de 3.800 viviendas </a></h1></td></t=
+r><tr><td style=3D"margin:0px;border-collapse:collapse;text-align:left;font=
+:400 14px Arial;padding:6px 0px;color:rgb(146,146,146);width:100%"> idealis=
+ta/news</td></tr><tr><td style=3D"padding:6px 0px;margin:0px;border-collaps=
+e:collapse;text-align:left;font:400 16px/24px Arial,sans-serif;width:100%;c=
+olor:rgb(20,20,20)"><p style=3D"padding:0px;margin:0px">La promotora ha anu=
+nciado que en los primeros tres meses del a=C3=B1o ha alcanzado unas preven=
+tas de 246 millones de euros, lo que supone un incremento del 97% interanua=
+l, tras haber gestionado la comercializaci=C3=B3n de 670 viviendas, un 86% =
+m=C3=A1s que entre enero y marzo del a=C3=B1o pasado. Tras estos incremento=
+s, su cartera total de preventas alcanza las 3.828 unidades, por un importe=
+ aproximado de 1.270 millones de euros. Neinor tambi=C3=A9n ha confirmado e=
+l pago de un dividendo neto de 0,4059 euros por acci=C3=B3n el pr=C3=B3ximo=
+ 14 de mayo.</p></td></tr><tr><td style=3D"margin:0px;padding:16px 0px 0px;=
+border-collapse:collapse;text-align:left;font:400 16px Arial"> <a href=3D"h=
+ttps://l.diario.idealista.com/rts/go2.aspx?h=3D1892392&amp;tp=3Di-1NGB-Q2Q-=
+TWL-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&amp;pi=3D21OEK495jHqsDIz-DR=
+vJKrCj7z5twwBbaLfJgK0sMDs&amp;x=3D92159885&amp;hp2=3D2f5d08c80ddac949db1d30=
+bf6580e0ae786b7c592e1c297e49b16d4ca7a8e1d8" style=3D"color:rgb(31,127,197);=
+text-decoration:none;font:400 16px Arial" target=3D"_blank" rel=3D"noreferr=
+er">Leer m=C3=A1s</a></td></tr></tbody></table></td></tr><tr><td style=3D"m=
+argin:0px;border-collapse:collapse;text-align:left;font:400 16px Arial;padd=
+ing:24px 0px;border-bottom:2px solid rgb(235,235,233)"><table border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" style=3D"border-spacing:0px;border-coll=
+apse:collapse;text-align:left;width:100%;max-width:100%"><tbody><tr><td sty=
+le=3D"margin:0px;border-collapse:collapse;text-align:left;font:400 16px Ari=
+al;width:100%;padding:6px 0px"><h1 style=3D"margin:0px;padding:0px;font:700=
+ 20px/24px Arial,sans-serif;display:block"> <a href=3D"https://l.diario.ide=
+alista.com/rts/go2.aspx?h=3D1892393&amp;tp=3Di-1NGB-Q2Q-TWL-7TCAAD-1s-7q4tl=
+-1c-7T4P0s-lBhT5czwPe-2HF2Sq&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJg=
+K0sMDs&amp;x=3D92159885&amp;hp2=3De0e02c120009881d5c4cd698855f9212833f7198b=
+b3e202a6c42a1726a31fa8f" style=3D"color:rgb(31,127,197);text-decoration:non=
+e;display:block;font:700 20px/24px Arial,sans-serif" target=3D"_blank" rel=
+=3D"noreferrer"> Una casa de dise=C3=B1o en Quebec con unas vistas id=C3=AD=
+licas a un lago </a></h1></td></tr><tr><td style=3D"margin:0px;border-colla=
+pse:collapse;text-align:left;font:400 14px Arial;padding:6px 0px;color:rgb(=
+146,146,146);width:100%"> idealista/news</td></tr><tr><td style=3D"padding:=
+6px 0px;margin:0px;border-collapse:collapse;text-align:left;font:400 16px A=
+rial;width:100%"> <a href=3D"https://l.diario.idealista.com/rts/go2.aspx?h=
+=3D1892394&amp;tp=3Di-1NGB-Q2Q-TWL-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF=
+2Sq&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=3D92159885&a=
+mp;hp2=3Da2e1c6b7383e9abc53c5bdc54390f496c64fe3e0c05b2e34568a43fe4ece82a7" =
+style=3D"color:rgb(31,127,197);text-decoration:none;font:400 16px Arial" ta=
+rget=3D"_blank" rel=3D"noreferrer"> <img width=3D"530" alt=3D"La vivienda, =
+bautizada como Palissade y dise=C3=B1ada por Naturehumaine, se ubica entre =
+una carretera y un lago en Quebec." title=3D"" style=3D"border: 0px none; d=
+isplay: block; height: auto; line-height: 100%; outline: 0px; text-decorati=
+on: none; width: 100%;"> </a></td></tr><tr><td style=3D"margin:0px;padding:=
+0px;border-collapse:collapse;text-align:left;font:400 16px Arial"><table st=
+yle=3D"border-spacing:0px;border-collapse:collapse;text-align:left;width:10=
+0%;max-width:100%"><tbody><tr><td style=3D"margin:0px;border-collapse:colla=
+pse;text-align:left;font:400 16px Arial;max-width:170px;width:33%;padding:6=
+px 10px 6px 0px"> <a href=3D"https://l.diario.idealista.com/rts/go2.aspx?h=
+=3D1892395&amp;tp=3Di-1NGB-Q2Q-TWL-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF=
+2Sq&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=3D92159885&a=
+mp;hp2=3De060de3b9d695f29447225a56a71b2a4402b72bcb32da3babd94f1fee97d0614" =
+style=3D"color:rgb(31,127,197);text-decoration:none;font:400 16px Arial" ta=
+rget=3D"_blank" rel=3D"noreferrer"> <img width=3D"170" height=3D"120" alt=
+=3D"La cocina se compone de dos zonas, interior y exterior." style=3D"displ=
+ay: block; height: auto; line-height: 100%; outline: 0px; text-decoration: =
+none; border: 0px none; max-width: 100%; max-height: 120px;"> </a></td><td =
+style=3D"margin:0px;border-collapse:collapse;text-align:left;font:400 16px =
+Arial;max-width:170px;width:33%;padding:6px 5px"> <a href=3D"https://l.diar=
+io.idealista.com/rts/go2.aspx?h=3D1892396&amp;tp=3Di-1NGB-Q2Q-TWL-7TCAAD-1s=
+-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwB=
+baLfJgK0sMDs&amp;x=3D92159885&amp;hp2=3De854c2776612563422cd6966d65a16ab31a=
+9c8732b0075e3d2fe31ff1789d6da" style=3D"color:rgb(31,127,197);text-decorati=
+on:none;font:400 16px Arial" target=3D"_blank" rel=3D"noreferrer"> <img wid=
+th=3D"170" height=3D"120" alt=3D"La fachada delantera destaca por el uso de=
+l ladrillo que limita las miradas y el ruido del tr=C3=A1fico rodado." styl=
+e=3D"display: block; height: auto; line-height: 100%; outline: 0px; text-de=
+coration: none; border: 0px none; max-width: 100%; max-height: 120px;"> </a=
+></td><td style=3D"margin:0px;border-collapse:collapse;text-align:left;font=
+:400 16px Arial;max-width:170px;width:33%;padding:6px 0px 6px 10px"> <a hre=
+f=3D"https://l.diario.idealista.com/rts/go2.aspx?h=3D1892397&amp;tp=3Di-1NG=
+B-Q2Q-TWL-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&amp;pi=3D21OEK495jHqs=
+DIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=3D92159885&amp;hp2=3D8f21df8af1c47fe8=
+11baa09f6882ed927a64fb017b7e997c2fafcb2cefbd2d53" style=3D"color:rgb(31,127=
+,197);text-decoration:none;font:400 16px Arial" target=3D"_blank" rel=3D"no=
+referrer"> <img width=3D"170" height=3D"120" alt=3D"La pared posterior cuen=
+ta con un amplio porche cubierto con vistas al lago." style=3D"display: blo=
+ck; height: auto; line-height: 100%; outline: 0px; text-decoration: none; b=
+order: 0px none; max-width: 100%; max-height: 120px;"> </a></td></tr></tbod=
+y></table></td></tr><tr><td style=3D"margin:0px;padding:16px 0px 0px;border=
+-collapse:collapse;text-align:left;font:400 16px Arial"> <a href=3D"https:/=
+/l.diario.idealista.com/rts/go2.aspx?h=3D1892398&amp;tp=3Di-1NGB-Q2Q-TWL-7T=
+CAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&amp;x=3D92159885&amp;hp2=3D706aa0d7e5af22d14631d7180ec6=
+3984ca73f64a85d17fb2ecd3ff47a50b4f41" style=3D"color:rgb(31,127,197);text-d=
+ecoration:none;font:400 16px Arial" target=3D"_blank" rel=3D"noreferrer">Le=
+er m=C3=A1s</a></td></tr></tbody></table></td></tr><tr><td style=3D"margin:=
+0px;border-collapse:collapse;text-align:left;font:400 16px Arial;padding:24=
+px 0px;border-bottom:2px solid rgb(235,235,233)"><table border=3D"0" cellpa=
+dding=3D"0" cellspacing=3D"0" style=3D"border-spacing:0px;border-collapse:c=
+ollapse;text-align:left;width:100%;max-width:100%"><tbody><tr><td style=3D"=
+margin:0px;border-collapse:collapse;text-align:left;font:400 16px Arial;wid=
+th:100%;padding:6px 0px"><h1 style=3D"margin:0px;padding:0px;font:700 20px/=
+24px Arial,sans-serif;display:block"> <a href=3D"https://l.diario.idealista=
+.com/rts/go2.aspx?h=3D1892399&amp;tp=3Di-1NGB-Q2Q-TWL-7TCAAD-1s-7q4tl-1c-7T=
+4P0s-lBhT5czwPe-2HF2Sq&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs=
+&amp;x=3D92159885&amp;hp2=3Df19003788594050c71e5fb009f787dfdba0f06dff20ac45=
+bb86ff1cb7f032245" style=3D"color:rgb(31,127,197);text-decoration:none;disp=
+lay:block;font:700 20px/24px Arial,sans-serif" target=3D"_blank" rel=3D"nor=
+eferrer"> Las casas m=C3=A1s vistas de hoy </a></h1></td></tr><tr><td style=
+=3D"margin:0px;border-collapse:collapse;text-align:left;font:400 14px Arial=
+;padding:6px 0px;color:rgb(146,146,146);width:100%"> idealista/news</td></t=
+r><tr><td style=3D"padding:6px 0px;margin:0px;border-collapse:collapse;text=
+-align:left;font:400 16px Arial;width:100%"> <a href=3D"https://l.diario.id=
+ealista.com/rts/go2.aspx?h=3D1892400&amp;tp=3Di-1NGB-Q2Q-TWL-7TCAAD-1s-7q4t=
+l-1c-7T4P0s-lBhT5czwPe-2HF2Sq&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJ=
+gK0sMDs&amp;x=3D92159885&amp;hp2=3D01c305eeaf1b67f008ef3503fef545e577ee050d=
+6174131485fe1c5860c634dd" style=3D"color:rgb(31,127,197);text-decoration:no=
+ne;font:400 16px Arial" target=3D"_blank" rel=3D"noreferrer"> <img width=3D=
+"530" alt=3D"Vivienda en Boadilla del Monte, Madrid - 3.200.000 eur" title=
+=3D"Vivienda en Boadilla del Monte, Madrid - 3.200.000 eur" style=3D"border=
+: 0px none; display: block; height: auto; line-height: 100%; outline: 0px; =
+text-decoration: none; width: 100%;"> </a></td></tr><tr><td style=3D"margin=
+:0px;padding:16px 0px 0px;border-collapse:collapse;text-align:left;font:400=
+ 16px Arial"> <a href=3D"https://l.diario.idealista.com/rts/go2.aspx?h=3D18=
+92401&amp;tp=3Di-1NGB-Q2Q-TWL-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&a=
+mp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=3D92159885&amp;hp=
+2=3D178c7b246946510bf2495ff451680ac6ac318726771cdcf87d86008074e49266" style=
+=3D"color:rgb(31,127,197);text-decoration:none;font:400 16px Arial" target=
+=3D"_blank" rel=3D"noreferrer">Leer m=C3=A1s</a></td></tr></tbody></table><=
+/td></tr><tr><td style=3D"margin:0px;border-collapse:collapse;text-align:le=
+ft;font:400 16px Arial;padding:24px 0px;border-bottom:2px solid rgb(235,235=
+,233)"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"bor=
+der-spacing:0px;border-collapse:collapse;text-align:left;width:100%;max-wid=
+th:100%"><tbody><tr><td style=3D"margin:0px;border-collapse:collapse;text-a=
+lign:left;font:400 16px Arial;width:100%;padding:6px 0px"><h1 style=3D"marg=
+in:0px;padding:0px;font:700 20px/24px Arial,sans-serif;display:block"> Brus=
+elas propondr=C3=A1 la pr=C3=B3xima semana nuevos aranceles si EEUU no nego=
+cia</h1></td></tr><tr><td style=3D"margin:0px;border-collapse:collapse;text=
+-align:left;font:400 14px Arial;padding:6px 0px;color:rgb(146,146,146);widt=
+h:100%"> Agencias</td></tr><tr><td style=3D"margin:0px;border-collapse:coll=
+apse;text-align:left;font:400 16px Arial;padding:12px 0px"> <span style=3D"=
+color:rgb(146,146,146);background:rgb(235,235,233);border-style:solid;borde=
+r-color:rgb(235,235,233);border-width:4px 10px;font:400 14px Arial,sans-ser=
+if"> Rumores </span></td></tr><tr><td style=3D"padding:6px 0px;margin:0px;b=
+order-collapse:collapse;text-align:left;font:400 16px/24px Arial,sans-serif=
+;width:100%;color:rgb(20,20,20)"><p style=3D"padding:0px;margin:0px"><span>=
+La Comisi=C3=B3n Europea propondr=C3=A1 la pr=C3=B3xima semana una nueva ta=
+nda de aranceles a EEUU en represalia por los recargos generalizados del 20=
+% sobre todas las importaciones europeas y del 25% al coche y componentes p=
+rocedentes de la UE. El plan de Bruselas ser=C3=ADa activar los nuevos aran=
+celes en mayo si Washington no acepta negociaciones para esa fecha, mientra=
+s los Veintisiete analizan otras medidas anticoerci=C3=B3n a medio plazo.</=
+span></p></td></tr></tbody></table></td></tr><tr><td style=3D"margin:0px;bo=
+rder-collapse:collapse;text-align:left;font:400 16px Arial;padding:24px 0px=
+;border-bottom:2px solid rgb(235,235,233)"><table border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" style=3D"border-spacing:0px;border-collapse:collap=
+se;text-align:left;width:100%;max-width:100%"><tbody><tr><td style=3D"margi=
+n:0px;border-collapse:collapse;text-align:left;font:400 16px Arial;width:10=
+0%;padding:6px 0px"><h1 style=3D"margin:0px;padding:0px;font:700 20px/24px =
+Arial,sans-serif;display:block"> Brasil sondea a Santander para el rescate =
+de Banco Master</h1></td></tr><tr><td style=3D"margin:0px;border-collapse:c=
+ollapse;text-align:left;font:400 14px Arial;padding:6px 0px;color:rgb(146,1=
+46,146);width:100%"> Expansi=C3=B3n</td></tr><tr><td style=3D"margin:0px;bo=
+rder-collapse:collapse;text-align:left;font:400 16px Arial;padding:12px 0px=
+"> <span style=3D"color:rgb(146,146,146);background:rgb(235,235,233);border=
+-style:solid;border-color:rgb(235,235,233);border-width:4px 10px;font:400 1=
+4px Arial,sans-serif"> Rumores </span></td></tr><tr><td style=3D"padding:6p=
+x 0px;margin:0px;border-collapse:collapse;text-align:left;font:400 16px/24p=
+x Arial,sans-serif;width:100%;color:rgb(20,20,20)"><p style=3D"padding:0px;=
+margin:0px"><span>El Banco Central de Brasil y el Fondo de Garant=C3=ADa de=
+ Dep=C3=B3sitos carioca (FGC) mantienen conversaciones con=C2=A0Santander, =
+BTG, Ita=C3=BA y Bradesco=C2=A0para encontrar una soluci=C3=B3n privada a l=
+as dificultades financieras que atraviesa Banco Master. Esta entidad=C2=A0h=
+a registrado un explosivo crecimiento en los =C3=BAltimos a=C3=B1os por var=
+ios motivos, como una=C2=A0agresiva estrategia de captaci=C3=B3n de dep=C3=
+=B3sitos minoristas=C2=A0a tipos elevados.</span></p></td></tr></tbody></ta=
+ble></td></tr><tr><td style=3D"margin:0px;border-collapse:collapse;text-ali=
+gn:left;font:400 16px Arial;border-bottom:0px;padding:24px 0px 0px"><table =
+border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-spacing:0p=
+x;border-collapse:collapse;text-align:left;width:100%;max-width:100%"><tbod=
+y><tr><td style=3D"margin:0px;border-collapse:collapse;text-align:left;font=
+:400 16px Arial;width:100%;padding:6px 0px"><h1 style=3D"margin:0px;padding=
+:0px;font:700 20px/24px Arial,sans-serif;display:block"> <a href=3D"https:/=
+/l.diario.idealista.com/rts/go2.aspx?h=3D1892402&amp;tp=3Di-1NGB-Q2Q-TWL-7T=
+CAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&amp;x=3D92159885&amp;hp2=3D538f81f57f083ff62c104d50994f=
+a263457eee2c068ec8555bf6361536ee4bc2" style=3D"color:rgb(31,127,197);text-d=
+ecoration:none;display:block;font:700 20px/24px Arial,sans-serif" target=3D=
+"_blank" rel=3D"noreferrer"> El teletrabajo en Espa=C3=B1a vuelve a crecer,=
+ pero sigue lejos de la media europea </a></h1></td></tr><tr><td style=3D"m=
+argin:0px;border-collapse:collapse;text-align:left;font:400 14px Arial;padd=
+ing:6px 0px;color:rgb(146,146,146);width:100%"> idealista/news con datos de=
+ Adecco</td></tr><tr><td style=3D"padding:6px 0px;margin:0px;border-collaps=
+e:collapse;text-align:left;font:400 16px Arial;width:100%"> <a href=3D"http=
+s://l.diario.idealista.com/rts/go2.aspx?h=3D1892403&amp;tp=3Di-1NGB-Q2Q-TWL=
+-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&amp;pi=3D21OEK495jHqsDIz-DRvJK=
+rCj7z5twwBbaLfJgK0sMDs&amp;x=3D92159885&amp;hp2=3D421d9a7c71a6951f1e7c17b88=
+ce2381dfae49b683998efe91c64c09ef4579da0" style=3D"color:rgb(31,127,197);tex=
+t-decoration:none;font:400 16px Arial" target=3D"_blank" rel=3D"noreferrer"=
+> <img width=3D"530" alt=3D"Teletrabajo en la UE" title=3D"" style=3D"borde=
+r: 0px none; display: block; height: auto; line-height: 100%; outline: 0px;=
+ text-decoration: none; width: 100%;"> </a></td></tr><tr><td style=3D"margi=
+n:0px;padding:16px 0px 0px;border-collapse:collapse;text-align:left;font:40=
+0 16px Arial"> <a href=3D"https://l.diario.idealista.com/rts/go2.aspx?h=3D1=
+892404&amp;tp=3Di-1NGB-Q2Q-TWL-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&=
+amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=3D92159885&amp;h=
+p2=3Dd376614cf8826a2c3a168671f9255509c828448fa1e94ede979dcd713864ce93" styl=
+e=3D"color:rgb(31,127,197);text-decoration:none;font:400 16px Arial" target=
+=3D"_blank" rel=3D"noreferrer">Leer m=C3=A1s</a></td></tr></tbody></table><=
+/td></tr></tbody></table></center></div></td></tr></tbody></table><table bo=
+rder=3D"0" cellpadding=3D"0" cellspacing=3D"0" id=3D"m_-5275438232776529507=
+footer" style=3D"border-spacing:0px;border-collapse:collapse;text-align:lef=
+t;width:100%;background:rgb(235,235,233);color:rgb(142,143,140);border-top:=
+36px solid rgb(255,255,255);max-width:100%"><tbody><tr><td style=3D"margin:=
+0px;border-collapse:collapse;text-align:left;font:400 16px Arial;color:rgb(=
+142,143,140);padding:0px 0px 30px"><div style=3D"margin:0px;padding:0px"><c=
+enter><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"bord=
+er-spacing:0px;border-collapse:collapse;width:100%;text-align:left;margin:0=
+px auto;max-width:100%"><tbody><tr><td style=3D"margin:0px;border-collapse:=
+collapse;text-align:left;font:400 16px Arial;color:rgb(142,143,140);padding=
+:20px 30px 15px"> <a href=3D"https://l.diario.idealista.com/rts/go2.aspx?h=
+=3D1892405&amp;tp=3Di-1NGB-Q2Q-TWL-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF=
+2Sq&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=3D92159885&a=
+mp;hp2=3D2a056d9c42165ea9c9233a6c2223be31519baf8077448d3478d7ab9af0505414" =
+title=3D"" style=3D"color:rgb(31,127,197);text-decoration:none;font:400 16p=
+x Arial" target=3D"_blank" rel=3D"noreferrer"> <img alt=3D"" rel=3D"home" s=
+tyle=3D"display: block; height: auto; line-height: 100%; outline: 0px; text=
+-decoration: none; border: 0px none;"> </a></td><td style=3D"margin:0px;bor=
+der-collapse:collapse;text-align:left;font:400 14px Arial;color:rgb(142,143=
+,140);padding:15px 30px 5px;width:100%"> =C2=A9 2000-2025 idealista</td></t=
+r><tr><td colspan=3D"2" style=3D"margin:0px;border-collapse:collapse;text-a=
+lign:left;font:400 14px Arial;color:rgb(142,143,140);width:100%;padding:0px=
+ 30px 15px"> Para dejar de recibir este bolet=C3=ADn <a href=3D"https://l.d=
+iario.idealista.com/rts/go2.aspx?h=3D1892406&amp;tp=3Di-1NGB-Q2Q-TWL-7TCAAD=
+-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5t=
+wwBbaLfJgK0sMDs&amp;x=3Dbanyus53@gmail.com%7c331a1be0273ca359f6921c0e9b24f8=
+ac%7c92159885&amp;hp2=3Dd6d220cba130ed75a438684960d9b809e73c8dd4757699cfa37=
+63a38d18fb734" style=3D"color:rgb(31,127,197);text-decoration:none;font:400=
+ 14px Arial;padding-bottom:15px" target=3D"_blank" rel=3D"noreferrer">puede=
+s darte de baja</a> </td></tr></tbody></table></center></div></td></tr></tb=
+ody></table></td></tr></tbody></table></td></tr></tbody></table> </center><=
+/div></div><img width=3D"1" height=3D"1" alt=3D""><div style=3D"display:non=
+e"><a href=3D"https://l.diario.idealista.com/rts/un.aspx?tp=3Di-1NGB-Q2Q-TW=
+L-7TCAAD-1s-7q4tl-1c-7T4P0s-lBhT5czwPe-2HF2Sq" style=3D"display:none" targe=
+t=3D"_blank" rel=3D"noreferrer"></a></div></div></div>
+
+--000000000000c7cab5063255b275--

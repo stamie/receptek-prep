@@ -1,0 +1,298 @@
+Delivered-To: estampel@gmail.com
+Received: by 2002:a05:622a:450f:b0:479:5c49:a6e8 with SMTP id lr15csp486914qtb;
+        Tue, 13 May 2025 04:24:16 -0700 (PDT)
+X-Forwarded-Encrypted: i=2; AJvYcCUXVvwtps2qLod7yqC4yq/3Yo0UZh2E3CbLbHEzIoWRdTUFomlbriz3WN/AVwlCUqymc6hcb1M0mA==@gmail.com
+X-Received: by 2002:a05:6830:6711:b0:72b:a06b:dd71 with SMTP id 46e09a7af769-7322699565emr11133081a34.5.1747135455649;
+        Tue, 13 May 2025 04:24:15 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1747135455; cv=none;
+        d=google.com; s=arc-20240605;
+        b=XLRMUXgpLC5snlPmLp1iNblrBOyva1pQ3fKj18W0E9YwvhfsSaInHTX68I8w26iBJ0
+         SnLn1LCwmao5xbZoVyDylNZNrw1CrTgTiWCUnCB6rAPGl0qt4IRV1dxeUV6kJcAvCZHV
+         cyZmS6CyWU3TECwDYqvgeYzKZemFuQxUi3JvfAg/+tKG1IqDF6Q5f4v2IN2nflziyrM9
+         kcbz1W2e8hwKETENx9Fu4oMUOPPUPImwOZYwXHC9vDg0ecrz26nSLYFDj3KsflyNRfvQ
+         jsiD2D97p8K0VAwkVmL05jtS7zDVACicA1MAQQr89GgwGe1lgxT/htIX7lyIdiY/+obT
+         7rOg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=eQhObpSoQyhCIRLrQSlf/OobLIjOG0+wdrhNaadUaGs=;
+        fh=Lbx/uvKL4NBnkvAy0sXBH1Yzhh33DE4/Y6/dU+XeMOs=;
+        b=iUZ1s7+XoP5i4LHW2BotDDLq7kow0+OQA2z2wJ6JxCcPFtgfIi4HKPR/dLcHVzcGfE
+         BEwILNGoyPwxm8Rm9YYHzPn8gCQ+LGewRaEKnkFE/jr3Pkm0U91aKGHgWvWpphyB0dxs
+         usrghkh4LOVlof33ePdw0gCa7zyT7aza+Q7Cqe/+DhBBWYjZ5FJHdapawuWviw2a94rN
+         d6lIVddkNsIGLs0qYew3E5Cf9KysPXYBwKnC4z6SibwqDBY29/6pIOLxyEmP9o5fTmWQ
+         HFztuI7SdHPp254UOj/hxt9lYtsCsrDgjpVYFCwyEPZenLwBn99uPRNTaLuqFNEL+pWV
+         onXw==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=Cz4kP2wD;
+       spf=pass (google.com: domain of laszlo.junior@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=laszlo.junior@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <laszlo.junior@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id 46e09a7af769-732265a76acsor4276411a34.14.2025.05.13.04.24.15
+        (Google Transport Security);
+        Tue, 13 May 2025 04:24:15 -0700 (PDT)
+Received-SPF: pass (google.com: domain of laszlo.junior@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=Cz4kP2wD;
+       spf=pass (google.com: domain of laszlo.junior@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=laszlo.junior@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1747135454; x=1747740254; dara=google.com;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=eQhObpSoQyhCIRLrQSlf/OobLIjOG0+wdrhNaadUaGs=;
+        b=Cz4kP2wDP+R1jGZXzrMVHvIuc/hVw6QKzqTO0MsfmWob7FIF8jVwELvrvUH3DDw6ya
+         cn+YEglbcOiDlOohLn+CLMu0RF1vo3Y+s6dCI+UQPawaV80D77GfadMd2yNIqsamja7k
+         fpOt0eeB7Hi6z/VB4/Xqtc5zuIB/H2zFTG6RzLx/6BX52zrgkCICMjOxciHuHKEOPqiu
+         7A0z6ARmkZ0xgrK9UAJ/0gVsoPxPLHe015XQVxBrxXfMQADMIIEBZnbI3LLlConwLt5v
+         bon41mVsaearRtmbEC1KpvmfKRiWT1UNUpfR/5JudQmes/H16KQbbx5rrE7sedHS0Wae
+         LCMg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747135454; x=1747740254;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=eQhObpSoQyhCIRLrQSlf/OobLIjOG0+wdrhNaadUaGs=;
+        b=wuyWx5IluB3WsgX/3Uhy/SmOES9gN4POCOdMO5oV5/XgTPmPhSkKT11mkAbXxwG90H
+         3PQk9raetm/nC2GZRBKWZQftGhSjZbhVJC6AXblGBGIkD6LxQi4d6GALVa3v4Enl/zkT
+         HxIl2h4Jff0rOqt6uPeMydWYhiVFd1XQ4zB1kppcH940aZHEBjHQPM+ZEglwNZ9lOpcZ
+         MKC+PnGN10KQdPItZvLe6M/OAr+/p8OlJNyuLkaWjF3ltAkjTclGgEoi40IJ0LzfVgUn
+         xvLFxz+IYzxE7s0dFElaGuZkhZhd2mjelTDQa7XBAOvi8L0l/TPbmVKZAtQx9Zdr2omt
+         b2cA==
+X-Forwarded-Encrypted: i=1; AJvYcCU4Iylmwmz/ctPlfcfxQ2DmcgO6i0dbhc3xMCgMwm6c0fzWggBa6M+hG8CZKCZl+VdfqL8uUs46xavM+vo=@gmail.com, AJvYcCUAL6qxkvedip4HtwhO7r0SHOArgoyrN7nFw1xQ+u+AMi5j/SUWOGrmICbFyIDP5rtuB7eq1sDmckpqhfQjsA==@gmail.com, AJvYcCUCazA/gN3tWYT/XfHNI+grmwHgFOzq568CYcQFnWQ7zsN5bjl8SLpp5W1ggy9YeTtTZa5WRHbSH36wVUg65A==@gmail.com, AJvYcCUItJcoRE0SlDx/H8g/zwsOeWytThjAIT4+FJKtoRy+JNnkZ8FTSgpi6edMHudVbQuIiQBpN4S97kyXYJdDPSE=@gmail.com, AJvYcCUWUZXm3dkscLk0JI3EG0rMzzz3IH5NCFJ7X2cB1TDrxUJbM1aOVP6PLTQdVSXxe88uq5CQ/Lw0GVK0kQ==@gmail.com, AJvYcCUuTCXoRZEXxKiWcJd0N3zK6UrGlgFTD0mUGXjMGxbVprfXKz+daYCH+uxhWBrE9atSdgeRXLRm72snvtFhIrDt@gmail.com, AJvYcCVBDBoDdKKmkxZOUBJbvzm0K3d4J+8TgZ7NK9dGcI1688ZvHx/yoecmfpbBBixd9nwb5t4guEhU7SOHgJYQ6A==@gmail.com, AJvYcCVNrM9ESSYIuU0qGGiB/FYb9nsTUN/VjhTvhvrDZBxIY2ChdNswRapIuTU5TuoaHvKj7MGYFt0wHQ==@gmail.com, AJvYcCVXsxTmNEL8rapW0h071aBmBT3ShneNtnRwhSHKlVoG9o2iB85efD8x9yjAkuWcOEtPO+QcSyg9k4KsuahV4w==@gmail.com, AJvYcCViwBEcFgKcEZXKhzLG/1X+43MhgkDTSfhcYqOn9GFw01kzSj/DlwnNaO3EpIf4YVK4F870I0ixEZFf4A==@gmail.com, AJvYcCW75NeTSbxPNEyr86DXc+DoRw0DeaOd8FNO2TMvcBdhEhJN7xaBOeFnckXMZgtlubtPTaxan4DymJN90PI=@gmail.com, AJvYcCWFzv6suj+vVBbiPV3mKfDHsbG6T6vIpOzUE8GAN5Su66FW3AIf0pbd12lhxz3GqVJUSoJUaRBe8CeClwZ7/otlb6SYmg==@gmail.com, AJvYcCWPqMiIxxSBKWHRZtVphUEwSCkq4WGtDqI5ouBhMvV16Qelg5cdI6IIA5CUK2iDQTEYFpwdvzAuPe3ydyS3HTeGLX1j@gmail.com, AJvYcCWg0pllceUdnqw7oeZgSh9tHA8ig3Gn/Jip/kH92gehLDJhJspbEnk+ONQnqNqbyYhTqgEz3LVrC5MLdwtiggg=@gmail.com, AJvYcCWmqxSRSfotQiP4sDBGl9zO+GSw726KwaZMaEr5GyoLcKh5b9ly3aVtSV1PIJmUiRVz2f9EugniMJ8=@gmail.com, AJvYcCX3D+IyRS8aUCvaq/YmIXKou4lXYjCeuWzCx8XRPysgbHj+YSn8BRQ+u9IDZ3z8wdP2YvlLYO85CU6vtWI=@gmail.com, AJvYcCXxfeenmyiQZ4/o0b/+FRXUUA9a1yNJT2A37kcFhn0rq6xq30Dz68XUnZbNtlNSf71Vzt3hMn16b/dQ8A==@gmail.com
+X-Gm-Message-State: AOJu0YxTX07CeZjCvRIW2KMA1g0COModEEfpE9s4hhPmCKHCqHm/GSeS
+	5gb9mNPNAPwQciE+s0HuGyDQR+H/+1+l3ZDwyLK94z1T75SJoEa3tOf+vbuXUhnm/noDHcyRXPp
+	iZwnjW9Cg2TWa0/kPnBs4HzsNSfWJVKW/HgSWDA==
+X-Gm-Gg: ASbGncs/SabIMrVqgNBcIF1ntVwsQMy3TYDeC1RMCFbeeXtU0cU3GtgoRtneVKaEsVb
+	jIiKAhy5P3HDxxLIYl5SSvwr8djY7ifK/axaKNWqLSIco+VVcCbGP7xPglBRYSay2NdrenxxJIL
+	K0vrtihPRQu5STcubzfdHvrkjHuYFGQ6UipTY2wHR/
+X-Google-Smtp-Source: AGHT+IEnmcSQuabMzahGhKdMHozpYSuD1xq9pcV5on/J+N9yhyfIT/iOuxsZwdoFtrA1OmNduWvD4RdCczvThluNN2Y=
+X-Received: by 2002:a05:6870:f206:b0:2d4:ce45:698d with SMTP id
+ 586e51a60fabf-2dba4216488mr9991656fac.4.1747135454120; Tue, 13 May 2025
+ 04:24:14 -0700 (PDT)
+MIME-Version: 1.0
+References: <CALi7w6tUED4TMyQ6Fgr7ZiOJ7-JTYyyMXd5GTMndRrxUPMdtRA@mail.gmail.com>
+ <CALi7w6vr3WTx2sbizo85WyvxDVLHPpK2SCzhrOpF4=eYRuOAZQ@mail.gmail.com> <CALi7w6utS2csY2ufykdSdt4eozRqJT6Ybb318a3nEwcjKUXgMA@mail.gmail.com>
+In-Reply-To: <CALi7w6utS2csY2ufykdSdt4eozRqJT6Ybb318a3nEwcjKUXgMA@mail.gmail.com>
+From: =?UTF-8?B?TMOhc3psw7MgTW9sbsOhcg==?= <laszlo.junior@gmail.com>
+Date: Tue, 13 May 2025 13:24:02 +0200
+X-Gm-Features: AX0GCFvn6xWJ5mHhRPNGdn43yZ-8GarwuDO0bLv25tXVP0Bmvo4vjsQAxQtCMPE
+Message-ID: <CALi7w6siyHFVn69qxbuDABjRe_G3VixHb0d10i7ycrnnMMmc2w@mail.gmail.com>
+Subject: =?UTF-8?B?UmU6IEvDtnZldGtlesWRIHRhbMOhbGtvesOzIGhvbG5hcA==?=
+To: melinda.fenyvesi@gmail.com, szalai1958@gmail.com, istvansolti53@gmail.com, 
+	maria.faddine@gmail.com, Soltine Marta <soltine.marta@gmail.com>, 
+	Orsi Wigand <orsitiszabb@gmail.com>, Orsi Wigand <wigand.orsi@balatonboglar.org>, 
+	pannijusits@gmail.com, mozer.edi1975@gmail.com, eizlerzoli1@gmail.com, 
+	pegazus650@gmail.com, =?UTF-8?Q?Aur=C3=A9l_Polnik?= <polnik.aurel66@gmail.com>, 
+	anna.gati@hotmail.com, =?UTF-8?B?w4FnbmVzIEJ1Z8Ohcg==?= <banyus53@gmail.com>, 
+	EStampel@gmail.com, szerigabi@kalasz.hu, bordaszsanett1@gmail.com, 
+	emma.nyers@gmail.com, tiszabalatonboglar@gmail.com, jozsef@kalasz.hu, 
+	h.toth.brigitta@gmail.com, 
+	=?UTF-8?Q?Plat=C3=A1n_Balatonbogl=C3=A1r?= <platanbalatonboglar@gmail.com>, 
+	Laszlo Steiner <steiner@slp.hu>
+Content-Type: multipart/mixed; boundary="0000000000001f7b1e063502acb5"
+
+--0000000000001f7b1e063502acb5
+Content-Type: multipart/alternative; boundary="0000000000001f7b1c063502acb3"
+
+--0000000000001f7b1c063502acb3
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Sziasztok,
+
+Itt csatoltam kor=C3=A1bban a csv-t amiben az eg=C3=A9sz csoport benne van.
+Aki szeretn=C3=A9 ezt felhaszn=C3=A1lva be tudja import=C3=A1lni a saj=C3=
+=A1t gmail-j=C3=A9ba.
+
+Akinek nem siker=C3=BCl, annak kedden seg=C3=ADtek.
+
+Ide pedig bem=C3=A1solom Orsi csoportbejegyz=C3=A9s=C3=A9t:
+
+"Sziasztok!
+Elvileg mindenki tudja az al=C3=A1bbiakat, mert v=C3=A9gigtel=C3=B3ztam a t=
+ags=C3=A1got:
+M=C3=A1jus 20. kedd 17.00 tal=C3=A1lkoz=C3=B3 Bogl=C3=A1ron Steiner Lacin=
+=C3=A1l (Aranyh=C3=ADd utca)
+M=C3=A1jus 31. 11.00-16/17 =C3=B3r=C3=A1ig Tisza tal=C3=A1lkoz=C3=B3 Balato=
+nlell=C3=A9n a Napf=C3=A9ny
+Hotelben (es=C5=91nap m=C3=A1snap)
+ismerked=C3=A9s, besz=C3=A9lget=C3=A9s , szalonna s=C3=BCt=C3=A9s, bogr=C3=
+=A1csoz=C3=A1s
+( a k=C3=B6rnyez=C5=91 telep=C3=BCl=C3=A8sek tisz=C3=A1sai lesznek)"
+
+=C3=9Cdv.
+Laci
+
+L=C3=A1szl=C3=B3 Moln=C3=A1r <laszlo.junior@gmail.com> ezt =C3=ADrta (id=C5=
+=91pont: 2025. =C3=A1pr. 15.,
+K, 11:59):
+
+> CSatoltam egy google-ba import=C3=A1lhat=C3=B3 c=C3=ADmjegyz=C3=A9ket.
+> Akinek seg=C3=ADts=C3=A9g kell hozz=C3=A1 sz=C3=B3ljon b=C3=A1tran.
+> Ma nem, de holnapt=C3=B3l tudok, ma =C3=BAton vagyok.
+>
+> =C3=9Cdv.
+> Laci
+>
+> L=C3=A1szl=C3=B3 Moln=C3=A1r <laszlo.junior@gmail.com> ezt =C3=ADrta (id=
+=C5=91pont: 2025. =C3=A1pr.
+> 15., K, 11:57):
+>
+>> =C3=89s Laci m=C3=A9g =C3=ADgy is kimaradt!
+>>
+>> Bocsi
+>>
+>> L=C3=A1szl=C3=B3 Moln=C3=A1r <laszlo.junior@gmail.com> ezt =C3=ADrta (id=
+=C5=91pont: 2025. =C3=A1pr.
+>> 15., K, 11:49):
+>>
+>>> Sziasztok,
+>>>
+>>> Szerd=C3=A1n 16:30, 17:00 k=C3=B6r=C3=BCli kezd=C3=A9ssel tartan=C3=A1n=
+k egy megbesz=C3=A9l=C3=A9st.
+>>> Ki tudna j=C3=B6nni?
+>>>
+>>> K=C3=A9rj=C3=BCk mindenki jelezzen vissza.
+>>> K=C3=B6szi
+>>>
+>>> =C3=9Cdv.
+>>> Laci Jr.
+>>>
+>>
+
+--0000000000001f7b1c063502acb3
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr">Sziasztok,<div><br></div><div>Itt csatoltam kor=C3=A1bban =
+a csv-t amiben az eg=C3=A9sz csoport benne van.</div><div>Aki szeretn=C3=A9=
+ ezt felhaszn=C3=A1lva be tudja import=C3=A1lni a saj=C3=A1t gmail-j=C3=A9b=
+a.</div><div><br></div><div>Akinek nem=C2=A0siker=C3=BCl, annak kedden seg=
+=C3=ADtek.</div><div><br></div><div>Ide pedig bem=C3=A1solom Orsi csoportbe=
+jegyz=C3=A9s=C3=A9t:</div><div><div class=3D"gmail-html-div gmail-xdj266r g=
+mail-x11i5rnm gmail-xat24cr gmail-x1mh8g0r gmail-xexx8yu gmail-x4uap5 gmail=
+-x18d9i69 gmail-xkhd6sd"><div dir=3D"auto" class=3D"gmail-html-div gmail-xd=
+j266r gmail-x11i5rnm gmail-xat24cr gmail-x1mh8g0r gmail-xexx8yu gmail-x4uap=
+5 gmail-x18d9i69 gmail-xkhd6sd"><div class=3D"gmail-html-div gmail-xdj266r =
+gmail-x11i5rnm gmail-xat24cr gmail-x1mh8g0r gmail-xexx8yu gmail-x4uap5 gmai=
+l-x18d9i69 gmail-xkhd6sd"><div class=3D"gmail-x1iorvi4 gmail-xjkvuk6 gmail-=
+x1ye3gou gmail-xn6708d" id=3D"gmail-=C2=ABr3iu=C2=BB"><div class=3D"gmail-x=
+78zum5 gmail-xdt5ytf gmail-xz62fqu gmail-x16ldp7u"><div class=3D"gmail-xu06=
+os2 gmail-x1ok221b"><span class=3D"gmail-x193iq5w gmail-xeuugli gmail-x13fa=
+qbe gmail-x1vvkbs gmail-x1xmvt09 gmail-x1lliihq gmail-x1s928wv gmail-xhkezs=
+o gmail-x1gmr53x gmail-x1cpjm7i gmail-x1fgarty gmail-x1943h6x gmail-xudqn12=
+ gmail-x3x7a5m gmail-x6prxxf gmail-xvq8zen gmail-xo1l8bm gmail-xzsf02u gmai=
+l-x1yc453h" dir=3D"auto"><div class=3D"gmail-xdj266r gmail-x11i5rnm gmail-x=
+at24cr gmail-x1mh8g0r gmail-x1vvkbs gmail-x126k92a"><div dir=3D"auto"><br><=
+/div><div dir=3D"auto">&quot;Sziasztok!</div><div dir=3D"auto">Elvileg mind=
+enki tudja az al=C3=A1bbiakat, mert v=C3=A9gigtel=C3=B3ztam a tags=C3=A1got=
+:</div></div><div class=3D"gmail-x11i5rnm gmail-xat24cr gmail-x1mh8g0r gmai=
+l-x1vvkbs gmail-xtlvy1s gmail-x126k92a"><div dir=3D"auto">M=C3=A1jus 20. ke=
+dd 17.00 tal=C3=A1lkoz=C3=B3 Bogl=C3=A1ron Steiner Lacin=C3=A1l (Aranyh=C3=
+=ADd utca)</div></div><div class=3D"gmail-x11i5rnm gmail-xat24cr gmail-x1mh=
+8g0r gmail-x1vvkbs gmail-xtlvy1s gmail-x126k92a"><div dir=3D"auto"><span cl=
+ass=3D"gmail-html-span gmail-xdj266r gmail-x11i5rnm gmail-xat24cr gmail-x1m=
+h8g0r gmail-xexx8yu gmail-x4uap5 gmail-x18d9i69 gmail-xkhd6sd gmail-x1hl2dh=
+g gmail-x16tdsg8 gmail-x1vvkbs"><a tabindex=3D"-1" class=3D"gmail-html-a gm=
+ail-xdj266r gmail-x11i5rnm gmail-xat24cr gmail-x1mh8g0r gmail-xexx8yu gmail=
+-x4uap5 gmail-x18d9i69 gmail-xkhd6sd gmail-x1hl2dhg gmail-x16tdsg8 gmail-x1=
+vvkbs"></a></span>M=C3=A1jus 31. 11.00-16/17 =C3=B3r=C3=A1ig Tisza tal=C3=
+=A1lkoz=C3=B3 Balatonlell=C3=A9n a Napf=C3=A9ny Hotelben (es=C5=91nap m=C3=
+=A1snap)</div><div dir=3D"auto">ismerked=C3=A9s, besz=C3=A9lget=C3=A9s , sz=
+alonna s=C3=BCt=C3=A9s, bogr=C3=A1csoz=C3=A1s </div></div><div class=3D"gma=
+il-x11i5rnm gmail-xat24cr gmail-x1mh8g0r gmail-x1vvkbs gmail-xtlvy1s gmail-=
+x126k92a"><div dir=3D"auto">( a k=C3=B6rnyez=C5=91 telep=C3=BCl=C3=A8sek ti=
+sz=C3=A1sai lesznek)&quot;</div></div></span></div></div></div></div></div>=
+</div></div><div><br></div><div>=C3=9Cdv.<br>Laci</div></div><br><div class=
+=3D"gmail_quote gmail_quote_container"><div dir=3D"ltr" class=3D"gmail_attr=
+">L=C3=A1szl=C3=B3 Moln=C3=A1r &lt;<a href=3D"mailto:laszlo.junior@gmail.co=
+m">laszlo.junior@gmail.com</a>&gt; ezt =C3=ADrta (id=C5=91pont: 2025. =C3=
+=A1pr. 15., K, 11:59):<br></div><blockquote class=3D"gmail_quote" style=3D"=
+margin:0px 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204);padding-lef=
+t:1ex"><div dir=3D"ltr">CSatoltam egy google-ba import=C3=A1lhat=C3=B3 c=C3=
+=ADmjegyz=C3=A9ket.<div>Akinek seg=C3=ADts=C3=A9g kell hozz=C3=A1 sz=C3=B3l=
+jon b=C3=A1tran.</div><div>Ma nem, de holnapt=C3=B3l tudok, ma =C3=BAton va=
+gyok.</div><div><br></div><div>=C3=9Cdv.</div><div>Laci</div></div><br><div=
+ class=3D"gmail_quote"><div dir=3D"ltr" class=3D"gmail_attr">L=C3=A1szl=C3=
+=B3 Moln=C3=A1r &lt;<a href=3D"mailto:laszlo.junior@gmail.com" target=3D"_b=
+lank">laszlo.junior@gmail.com</a>&gt; ezt =C3=ADrta (id=C5=91pont: 2025. =
+=C3=A1pr. 15., K, 11:57):<br></div><blockquote class=3D"gmail_quote" style=
+=3D"margin:0px 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204);padding=
+-left:1ex"><div dir=3D"ltr">=C3=89s Laci m=C3=A9g =C3=ADgy is kimaradt!<div=
+><br></div><div>Bocsi</div></div><br><div class=3D"gmail_quote"><div dir=3D=
+"ltr" class=3D"gmail_attr">L=C3=A1szl=C3=B3 Moln=C3=A1r &lt;<a href=3D"mail=
+to:laszlo.junior@gmail.com" target=3D"_blank">laszlo.junior@gmail.com</a>&g=
+t; ezt =C3=ADrta (id=C5=91pont: 2025. =C3=A1pr. 15., K, 11:49):<br></div><b=
+lockquote class=3D"gmail_quote" style=3D"margin:0px 0px 0px 0.8ex;border-le=
+ft:1px solid rgb(204,204,204);padding-left:1ex"><div dir=3D"ltr"><div dir=
+=3D"ltr"><div dir=3D"ltr"><div dir=3D"ltr">Sziasztok,<div><br></div><div><s=
+pan dir=3D"auto"><div><div dir=3D"auto">Szerd=C3=A1n 16:30, 17:00 k=C3=B6r=
+=C3=BCli kezd=C3=A9ssel tartan=C3=A1nk egy megbesz=C3=A9l=C3=A9st.</div></d=
+iv><div><div dir=3D"auto">Ki tudna j=C3=B6nni?</div><div dir=3D"auto"><br><=
+/div><div>K=C3=A9rj=C3=BCk mindenki jelezzen vissza.</div><div>K=C3=B6szi</=
+div><div dir=3D"auto"><br></div><div>=C3=9Cdv.</div><div>Laci Jr.</div></di=
+v></span></div></div>
+</div>
+</div>
+</div>
+</blockquote></div>
+</blockquote></div>
+</blockquote></div>
+
+--0000000000001f7b1c063502acb3--
+--0000000000001f7b1e063502acb5
+Content-Type: text/csv; charset="UTF-8"; name="Platan.csv"
+Content-Disposition: attachment; filename="Platan.csv"
+Content-Transfer-Encoding: base64
+Content-ID: <f_mamfbwnf0>
+X-Attachment-Id: f_mamfbwnf0
+
+Rmlyc3QgTmFtZSxNaWRkbGUgTmFtZSxMYXN0IE5hbWUsUGhvbmV0aWMgRmlyc3QgTmFtZSxQaG9u
+ZXRpYyBNaWRkbGUgTmFtZSxQaG9uZXRpYyBMYXN0IE5hbWUsTmFtZSBQcmVmaXgsTmFtZSBTdWZm
+aXgsTmlja25hbWUsRmlsZSBBcyxPcmdhbml6YXRpb24gTmFtZSxPcmdhbml6YXRpb24gVGl0bGUs
+T3JnYW5pemF0aW9uIERlcGFydG1lbnQsQmlydGhkYXksTm90ZXMsUGhvdG8sTGFiZWxzLEUtbWFp
+bCAxIC0gTGFiZWwsRS1tYWlsIDEgLSBWYWx1ZQrDgWduZXMsLEJ1Z8OhciwsLCwsLCwsLCwsLCws
+SW1wb3J0ZWQgb24gNC8xNSA6OjogUGxhdMOhbiBUaXN6YSBTemlnZXQgOjo6ICogbXlDb250YWN0
+cywqICxiYW55dXM1M0BnbWFpbC5jb20KLCwsLCwsLCwsLCwsLCwsLEltcG9ydGVkIG9uIDQvMTUg
+Ojo6IFBsYXTDoW4gVGlzemEgU3ppZ2V0IDo6OiAqIG15Q29udGFjdHMsKiAsYW5uYS5nYXRpQGhv
+dG1haWwuY29tCiwsLCwsLCwsLCwsLCwsLCxJbXBvcnRlZCBvbiA0LzE1IDo6OiBQbGF0w6FuIFRp
+c3phIFN6aWdldCA6OjogKiBteUNvbnRhY3RzLCogLGJvcmRhc3pzYW5ldHQxQGdtYWlsLmNvbQos
+LCwsLCwsLCwsLCwsLCwsSW1wb3J0ZWQgb24gNC8xNSA6OjogUGxhdMOhbiBUaXN6YSBTemlnZXQg
+Ojo6ICogbXlDb250YWN0cywqICxlaXpsZXJ6b2xpMUBnbWFpbC5jb20KLCwsLCwsLCwsLCwsLCws
+LEltcG9ydGVkIG9uIDQvMTUgOjo6IFBsYXTDoW4gVGlzemEgU3ppZ2V0IDo6OiAqIG15Q29udGFj
+dHMsKiAsZW1tYS5ueWVyc0BnbWFpbC5jb20KLCwsLCwsLCwsLCwsLCwsLEltcG9ydGVkIG9uIDQv
+MTUgOjo6IFBsYXTDoW4gVGlzemEgU3ppZ2V0IDo6OiAqIG15Q29udGFjdHMsKiAsZXN0YW1wZWxA
+Z21haWwuY29tCiwsLCwsLCwsLCwsLCwsLCxJbXBvcnRlZCBvbiA0LzE1IDo6OiBQbGF0w6FuIFRp
+c3phIFN6aWdldCA6OjogKiBteUNvbnRhY3RzLCogLGgudG90aC5icmlnaXR0YUBnbWFpbC5jb20K
+LCwsLCwsLCwsLCwsLCwsLEltcG9ydGVkIG9uIDQvMTUgOjo6IFBsYXTDoW4gVGlzemEgU3ppZ2V0
+IDo6OiAqIG15Q29udGFjdHMsKiAsaXN0dmFuc29sdGk1M0BnbWFpbC5jb20KLCwsLCwsLCwsLCws
+LCwsLEltcG9ydGVkIG9uIDQvMTUgOjo6IFBsYXTDoW4gVGlzemEgU3ppZ2V0IDo6OiAqIG15Q29u
+dGFjdHMsKiAsam96c2VmQGthbGFzei5odQosLCwsLCwsLCwsLCwsLCwsUGxhdMOhbiBUaXN6YSBT
+emlnZXQgOjo6ICogbXlDb250YWN0cywqICxsYXN6bG8uanVuaW9yQGdtYWlsLmNvbQosLCwsLCws
+LCwsLCwsLCwsSW1wb3J0ZWQgb24gNC8xNSA6OjogUGxhdMOhbiBUaXN6YSBTemlnZXQgOjo6ICog
+bXlDb250YWN0cywqICxtYXJpYS5mYWRkaW5lQGdtYWlsLmNvbQosLCwsLCwsLCwsLCwsLCwsUGxh
+dMOhbiBUaXN6YSBTemlnZXQgOjo6ICogbXlDb250YWN0cywqICxtZWxpbmRhLmZlbnl2ZXNpQGdt
+YWlsLmNvbQosLCwsLCwsLCwsLCwsLCwsSW1wb3J0ZWQgb24gNC8xNSA6OjogUGxhdMOhbiBUaXN6
+YSBTemlnZXQgOjo6ICogbXlDb250YWN0cywqICxtb3plci5lZGkxOTc1QGdtYWlsLmNvbQpPcnNp
+LCxXaWdhbmQsLCwsLCwsLCwsLCwsLEltcG9ydGVkIG9uIDQvMTUgOjo6IFBsYXTDoW4gVGlzemEg
+U3ppZ2V0IDo6OiAqIG15Q29udGFjdHMsKiAsb3JzaXRpc3phYmJAZ21haWwuY29tCiwsLCwsLCws
+LCwsLCwsLCxJbXBvcnRlZCBvbiA0LzE1IDo6OiBQbGF0w6FuIFRpc3phIFN6aWdldCA6OjogKiBt
+eUNvbnRhY3RzLCogLHBhbm5panVzaXRzQGdtYWlsLmNvbQosLCwsLCwsLCwsLCwsLCwsSW1wb3J0
+ZWQgb24gNC8xNSA6OjogUGxhdMOhbiBUaXN6YSBTemlnZXQgOjo6ICogbXlDb250YWN0cywqICxw
+ZWdhenVzNjUwQGdtYWlsLmNvbQpQbGF0w6FuLCxCYWxhdG9uYm9nbMOhciwsLCwsLCwsLCwsLCws
+SW1wb3J0ZWQgb24gNC8xNSA6OjogUGxhdMOhbiBUaXN6YSBTemlnZXQgOjo6ICogbXlDb250YWN0
+cywqICxwbGF0YW5iYWxhdG9uYm9nbGFyQGdtYWlsLmNvbQosLCwsLCwsLCwsLCwsLCwsUGxhdMOh
+biBUaXN6YSBTemlnZXQgOjo6ICogbXlDb250YWN0cywqICxwb2xuaWsuYXVyZWw2NkBnbWFpbC5j
+b20KU29sdGluZSwsTWFydGEsLCwsLCwsLCwsLCwsLFBsYXTDoW4gVGlzemEgU3ppZ2V0IDo6OiAq
+IG15Q29udGFjdHMsKiAsc29sdGluZS5tYXJ0YUBnbWFpbC5jb20KLCwsLCwsLCwsLCwsLCwsLFBs
+YXTDoW4gVGlzemEgU3ppZ2V0IDo6OiAqIG15Q29udGFjdHMsKiAsc3RlaW5lckBzbHAuaHUKLCws
+LCwsLCwsLCwsLCwsLEltcG9ydGVkIG9uIDQvMTUgOjo6IFBsYXTDoW4gVGlzemEgU3ppZ2V0IDo6
+OiAqIG15Q29udGFjdHMsKiAsc3phbGFpMTk1OEBnbWFpbC5jb20KLCwsLCwsLCwsLCwsLCwsLElt
+cG9ydGVkIG9uIDQvMTUgOjo6IFBsYXTDoW4gVGlzemEgU3ppZ2V0IDo6OiAqIG15Q29udGFjdHMs
+KiAsc3plcmlnYWJpQGthbGFzei5odQosLCwsLCwsLCwsLCwsLCwsUGxhdMOhbiBUaXN6YSBTemln
+ZXQgOjo6ICogbXlDb250YWN0cywqICx0aXN6YWJhbGF0b25ib2dsYXJAZ21haWwuY29t
+--0000000000001f7b1e063502acb5--

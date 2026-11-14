@@ -1,0 +1,443 @@
+Delivered-To: estampel@gmail.com
+Received: by 2002:a05:6358:d596:b0:1be:d630:a8c0 with SMTP id ms22csp365190rwb;
+        Fri, 4 Oct 2024 01:00:11 -0700 (PDT)
+X-Received: by 2002:a05:6512:2315:b0:539:94cf:e327 with SMTP id 2adb3069b0e04-539ab8ae2b0mr1021318e87.37.1728028811480;
+        Fri, 04 Oct 2024 01:00:11 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1728028811; cv=none;
+        d=google.com; s=arc-20240605;
+        b=RG/KmHFULIcb5gMiFGEi0/Rmm2UJ01aggY9Upjy6PcgXJ6Dv7rpGVwiIzAXGA8gI5+
+         WuDq5NsR9C8+xFyeE7SIf25GA9/0cL2crwtnymnhQXAayvsDM9vy+oPjh6XgKecZOk8q
+         aF1oeMSKgQsF8HwvuU1aTwB5emeq9nC60lZiQwwIJSG+zdgtwEMQl1JIl6Q7pRdX32lf
+         I++jDm/1iaBLjgOdQaLNe29XMPdXdP7amUZxgf/dWGwn5mQrknrJS6E7JF+En9S8FyfO
+         GO7XFgPClGcVloA6oJPJFewl4ypXTZT0AkNDL2PbcMIe1YQPm4Zb/9OCs3k9OriDD7zj
+         cEWw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=XH3yFSPP0oK3DCAhF9uZvubU6Jpt4KVED3vnfdvBXvk=;
+        fh=wF/Yrd2E0xeKwPH74kML7cQSth+Fl4bwhVNrybJ4uh4=;
+        b=VZ9ELMdPIN0vCyykaQcQ/QhimEfH3/qKFD23VYuH3KuZ9HJprARdAtHYh2q3xHXbGt
+         Rwv/XYGvrV7X+8AU7M7EL7m1kuG5GKgFuOS4xtv9TBfywza0eU3QsctLSzFGxizSu6TV
+         0STMbfPCN6K0Db9AydXymcMiB09FtOk6Svd+mPDScom4noDSZUE8s3M2faFlkQ+0ZZC+
+         bwl4LkkT2IQEx/GKT/BsnX+CG3qweLpgs9XJ3NGkVfAfht1fKg2q3jDkU3m6C5a67vYO
+         zy5cjRyouJIVPro5o5u81NiMcqbg6e5IXm1AembsUMAS/ED0IsU8bJLRirUBj/tJeHbK
+         xjlA==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=SquTJK5X;
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <banyus53@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id a640c23a62f3a-a99100bab1dsor95494366b.8.2024.10.04.01.00.11
+        for <estampel@gmail.com>
+        (Google Transport Security);
+        Fri, 04 Oct 2024 01:00:11 -0700 (PDT)
+Received-SPF: pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=SquTJK5X;
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1728028810; x=1728633610; dara=google.com;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=XH3yFSPP0oK3DCAhF9uZvubU6Jpt4KVED3vnfdvBXvk=;
+        b=SquTJK5XfBdZ92opsilckrR3eVZ6d7f3P5blkPpfPMnLFf/WU9WgGLO5tgZeNLQ5ZP
+         iIOq5QsfbMgc5aA30Rezysd6Hb/z8NOXVE+fWepnYlHpWo8kkbNYTaHIdAIy0cHdwVQQ
+         YS4QshYka/g8BM6L9cmyiVvztepU0W0/CzEUtYfJtkU7uzZeJ+t8NFPfIH3kX9GMc9kd
+         1x7RVoK2R5nt8xUnrHgUgLYlyYmLWdtUcgYuqkOtyAP7UwpIvsCA9UXN9/Ohg94N1JLV
+         AbIFXkazkr5LQoUwniGwXrFi2cs4o1vnq9i9MIWWSfCF8WoKjgNebaVMtaGz4qhtFwFj
+         tAjA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1728028810; x=1728633610;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=XH3yFSPP0oK3DCAhF9uZvubU6Jpt4KVED3vnfdvBXvk=;
+        b=GWNzcMtR2j8i18CGs9HVqNC4DTipbmYkmIM8xH+9S6BC0hLMN0L6NWbpheCK/hCEhC
+         zmDKpDPSKcU/6/vsa8qTAzzRqlP+SrJ+BQ7f0zWgrjQ8nLML/gdg1JuH0TLV3XN9S0hF
+         80eJYSa5XkB8KDagmHYPvRKctxr8+FPnOGihim+FB3P1XV4+T1m+4SqW3gf66ou+Nhlm
+         EZgYI1tIWUswDmPFNhUI1fQes1HYMQo3bV6QG+aP7z+HfgulReA/lk4ish/HsuYU6TlW
+         M3R1ZzAcZA+UUF/PwBRNv9G+cWqXFCh+AOQzn+9jr5xCy7nahDb1/yR19Nc6VF/QIlSQ
+         EXIw==
+X-Gm-Message-State: AOJu0Yx0Ce36SdHetUwIo9j06gu0duH2Eh2RhobmZtF2vD8TeCvi4OMJ
+	/kNKLgp8/dzzaHr7iReG2IrE5DgQwILY1OO1HXBSMCL37pX6RBPqNuGdn8vXtG76SiCeIi6WcyX
+	oZW4muD68KnUBNuVgFG2g7PKD4AtGeg==
+X-Google-Smtp-Source: AGHT+IE40RxTARCylOd3jWFL3Bch+olP6HnJiYdVu9zX3i/zv9Wd7P0a9QYVLK0C0xMgOzO3ZUpLIFw4WPFpU+l4w9k=
+X-Received: by 2002:a17:907:98c:b0:a8d:3338:a492 with SMTP id
+ a640c23a62f3a-a991bd05777mr156675766b.7.1728028810245; Fri, 04 Oct 2024
+ 01:00:10 -0700 (PDT)
+MIME-Version: 1.0
+References: <66ff9339777ad_1982ef2e9f48b4c2697752be@id.ahang.hu.mail>
+In-Reply-To: <66ff9339777ad_1982ef2e9f48b4c2697752be@id.ahang.hu.mail>
+From: =?UTF-8?B?w4FnbmVzIEJ1Z8Ohcg==?= <banyus53@gmail.com>
+Date: Fri, 4 Oct 2024 09:59:59 +0200
+Message-ID: <CA+39czWNM=vBp6SfGx7XCh6k+RR8_ueJ8nuZKY2XpUZiG2bDFw@mail.gmail.com>
+Subject: =?UTF-8?Q?Fwd=3A_Dolgozz_egy=C3=BCtt_az_aHang_csapat=C3=A1val=21?=
+To: Emese Stampel <estampel@gmail.com>
+Content-Type: multipart/alternative; boundary="000000000000657e220623a20fc0"
+
+--000000000000657e220623a20fc0
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+---------- Forwarded message ---------
+Felad=C3=B3: T=C3=B3th Enik=C5=91 | aHang <posta@ahang.hu>
+Date: 2024. okt. 4., P 9:03
+Subject: Dolgozz egy=C3=BCtt az aHang csapat=C3=A1val!
+To: <banyus53@gmail.com>
+
+
+Kedves Bug=C3=A1r =C3=81gnes M=C3=A1ria!
+
+Az aHang m=C3=A9g id=C3=A9n b=C5=91v=C3=ADteni szeretn=C3=A9 az orsz=C3=A1g=
+os csapat=C3=A1t, ez=C3=A9rt =C3=ADrunk most
+neked.
+
+A 2022-es v=C3=A1laszt=C3=A1sok ut=C3=A1n kezdt=C3=BCk el rendszerr=C3=A9 s=
+zervezni orsz=C3=A1gos
+aktivistah=C3=A1l=C3=B3zatunkat, =C3=ADgy j=C3=B6ttek l=C3=A9tre *az aHang =
+megyei =C3=A9s telep=C3=BCl=C3=A9si
+szint=C5=B1 helyi csoportjai, az aPontok.*
+
+A h=C3=A1l=C3=B3zat fejleszt=C3=A9se sor=C3=A1n a k=C3=B6rny=C3=A9k=C3=BCk=
+=C3=A9rt, telep=C3=BCl=C3=A9s=C3=BCk=C3=A9rt =C3=A9s az orsz=C3=A1g
+fejl=C5=91d=C3=A9s=C3=A9=C3=A9rt akt=C3=ADvan tenni akar=C3=B3 embereknek a=
+dunk egyr=C3=A9szt elm=C3=A9leti =C3=A9s
+gyakorlati tud=C3=A1st a kamp=C3=A1nyol=C3=A1shoz, eszk=C3=B6z=C3=B6ket a h=
+elyi civil =C3=A9rdekek
+=C3=A9rv=C3=A9nyes=C3=ADt=C3=A9s=C3=A9hez, emellett pedig orsz=C3=A1gos szi=
+nt=C5=B1 k=C3=B6z=C3=B6ss=C3=A9get =C3=A9p=C3=ADt=C3=BCnk.
+
+*Olyan embereket v=C3=A1runk, akik nem akarnak felt=C3=A9tlen=C3=BCl egy ad=
+ott p=C3=A1rthoz
+elk=C3=B6telez=C5=91dni, mert vel=C3=BCnk egy=C3=BCtt hiszik =C3=A9s tudj=
+=C3=A1k: a magyar t=C3=A1rsadalomban,
+kisebb =C3=A9s nagyobb k=C3=B6z=C3=B6ss=C3=A9geinkben v=C3=A9gbemen=C5=91 f=
+olyamatok megv=C3=A1ltoztat=C3=A1sa,
+ellen=C5=91rz=C3=A9se, seg=C3=ADt=C3=A9se vagy ak=C3=A1r el=C5=91k=C3=A9sz=
+=C3=ADt=C3=A9se nemcsak a p=C3=A1rtok, hanem
+civilek, alulr=C3=B3l j=C3=B6v=C5=91 kezdem=C3=A9nyez=C3=A9sek feladata is.=
+ Egy eg=C3=A9szs=C3=A9ges
+t=C3=A1rsadalomban mindk=C3=A9t megk=C3=B6zel=C3=ADt=C3=A9sre sz=C3=BCks=C3=
+=A9g van.*
+
+Jelenleg hat megy=C3=A9ben =C3=A9s Budapesten vannak akt=C3=ADv aPontok, az=
+az helyi
+csoportjaink, azonban m=C3=A9g nagyobbra szeretn=C3=A9nk n=C5=91ni annak =
+=C3=A9rdek=C3=A9ben, hogy
+az aHang k=C3=B6z=C3=B6ss=C3=A9g=C3=A9nek, mintegy 600 ezer polg=C3=A1rt=C3=
+=A1rsunknak az =C3=A9rt=C3=A9keit
+k=C3=A9pviselve tart=C3=B3s =C3=A9s pozit=C3=ADv v=C3=A1ltoz=C3=A1st hozzun=
+k t=C3=B6megek =C3=A9let=C3=A9be ak=C3=A1r a
+szoc=C3=A1lis ell=C3=A1t=C3=B3rendszer, az eg=C3=A9szs=C3=A9g=C3=BCgy vagy =
+=C3=A9pp az oktat=C3=A1s ter=C3=BClet=C3=A9n.
+
+Ha sz=C3=A1modra is fontosak az aHang =C3=A1ltal k=C3=A9pviselt =C3=BCgyek,=
+ =C3=A9s magad=C3=A9nak =C3=A9rzed
+a felh=C3=ADv=C3=A1sunkat, akkor jelentkezz megyei koordin=C3=A1tornak vagy
+aPont-vezet=C5=91nek!
+
+*A megyei koordin=C3=A1tor egy fizetett poz=C3=ADci=C3=B3, ami nagyj=C3=A1b=
+=C3=B3l heti 20-40 =C3=B3ra
+munk=C3=A1val j=C3=A1r:*
+
+Jelentkezem megyei koordin=C3=A1tornak!
+<https://id.ahang.hu//clicks/link/2649/978a09ba-c73b-4300-ae6e-5cac080db11b=
+?url=3Dhttps%3A%2F%2Fahang.hu%2Fahang-allas%2F%3Futm_source%3Dahang%26utm_m=
+edium%3Demail%26utm_campaign%3Dblast2024-10-04&member_guid=3D88a62eb4b5dcac=
+9810b289cd94cf43b21da67c13302ba6dade9c66944a7efc34cdda09d8fc189000cf0efc385=
+f843fe4a3f0b0c0992d522217f596756a2ca812>
+
+*Az aPont-vezet=C5=91 egy =C3=B6nk=C3=A9ntes poz=C3=ADci=C3=B3, ami rendelk=
+ez=C3=A9sre =C3=A1ll=C3=A1s f=C3=BCggv=C3=A9ny=C3=A9ben
+ide=C3=A1lis esetben heti 5-10 =C3=B3r=C3=A1t jelent.*
+
+Jelentkezem aPont-vezet=C5=91nek!
+<https://id.ahang.hu//clicks/link/2649/978a09ba-c73b-4300-ae6e-5cac080db11b=
+?url=3Dhttps%3A%2F%2Fahang.hu%2Fahang-allas%2F%3Futm_source%3Dahang%26utm_m=
+edium%3Demail%26utm_campaign%3Dblast2024-10-04&member_guid=3D88a62eb4b5dcac=
+9810b289cd94cf43b21da67c13302ba6dade9c66944a7efc34cdda09d8fc189000cf0efc385=
+f843fe4a3f0b0c0992d522217f596756a2ca812>
+
+Minden egy=C3=A9b r=C3=A9szletet a munkak=C3=B6r=C3=B6kkel kapcsolatban meg=
+tal=C3=A1lsz a fenti
+gombokra kattintva, illetve ha jelentkez=C3=A9s el=C5=91tt b=C3=A1rmilyen k=
+=C3=A9rd=C3=A9sed van,
+akkor a jelentkezz@ahang.hu email c=C3=ADmre =C3=ADrj. Fontos, ha erre az e=
+mailre
+v=C3=A1laszolsz, akkor nem fogunk tudni reag=C3=A1lni, teh=C3=A1t csakis a
+jelentkezz@ahang.hu c=C3=ADmre =C3=ADrj.
+
+V=C3=A9g=C3=BCl pedig arra k=C3=A9r=C3=BCnk, ha a saj=C3=A1t kapcsolatrends=
+zeredben szerinted ez
+b=C3=A1rki m=C3=A1st is =C3=A9rdekelhet, akkor mindenk=C3=A9pp tov=C3=A1bb=
+=C3=ADtsd neki ezt a levelet
+vagy a honlap linkj=C3=A9t: ahang.hu/ahang-allas
+<https://id.ahang.hu//clicks/link/2649/978a09ba-c73b-4300-ae6e-5cac080db11b=
+?url=3Dhttps%3A%2F%2Fahang.hu%2Fahang-allas%2F%3Futm_source%3Dahang%26utm_m=
+edium%3Demail%26utm_campaign%3Dblast2024-10-04&member_guid=3D88a62eb4b5dcac=
+9810b289cd94cf43b21da67c13302ba6dade9c66944a7efc34cdda09d8fc189000cf0efc385=
+f843fe4a3f0b0c0992d522217f596756a2ca812>
+
+K=C3=B6sz=C3=B6nettel,
+
+T=C3=B3th Enik=C5=91
+kamp=C3=A1nyigazgat=C3=B3
+aHang
+
+
+Ha b=C3=A1rmi k=C3=A9rd=C3=A9sed van, v=C3=A1laszolj k=C3=B6zvetlen=C3=BCl =
+erre az email-re, vagy =C3=ADrj a
+mienk@ahang.hu email c=C3=ADmre.
+
+K=C3=B6vess minket a Facebookon, hogy a naprak=C3=A9sz inform=C3=A1ci=C3=B3=
+k hozz=C3=A1d is
+eljuthassanak:
+<https://id.ahang.hu//clicks/link/2649/978a09ba-c73b-4300-ae6e-5cac080db11b=
+?url=3Dhttps%3A%2F%2Fwww.facebook.com%2Fszabadahang%3Futm_source%3Dahang%26=
+utm_medium%3Demail%26utm_campaign%3Dblast2024-10-04&member_guid=3D88a62eb4b=
+5dcac9810b289cd94cf43b21da67c13302ba6dade9c66944a7efc34cdda09d8fc189000cf0e=
+fc385f843fe4a3f0b0c0992d522217f596756a2ca812>
+
+A lev=C3=A9l k=C3=BCld=C5=91je:
+Magyarhang Nonprofit Kft.
+
+Ezt az =C3=BCzenetet banyus53@gmail.com c=C3=ADmre k=C3=BCldt=C3=BCk. Leira=
+tkozni ide kattintva
+tudsz.
+<https://id.ahang.hu//subscriptions/unsubscribe?subscription=3D1&email=3Dba=
+nyus53%40gmail.com&mailing_id=3D2649>
+
+--000000000000657e220623a20fc0
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"auto"></div><br><div class=3D"gmail_quote"><div dir=3D"ltr" cla=
+ss=3D"gmail_attr">---------- Forwarded message ---------<br>Felad=C3=B3: <s=
+trong class=3D"gmail_sendername" dir=3D"auto">T=C3=B3th Enik=C5=91 | aHang<=
+/strong> <span dir=3D"auto">&lt;<a href=3D"mailto:posta@ahang.hu">posta@aha=
+ng.hu</a>&gt;</span><br>Date: 2024. okt. 4., P 9:03<br>Subject: Dolgozz egy=
+=C3=BCtt az aHang csapat=C3=A1val!<br>To:  &lt;<a href=3D"mailto:banyus53@g=
+mail.com">banyus53@gmail.com</a>&gt;<br></div><br><br><div style=3D"backgro=
+und:#ffffff;background-color:#ffffff;margin:0px auto;max-width:560px;text-a=
+lign:center;font-family:sans-serif;font-size:17px;line-height:25px;text-ali=
+gn:center;color:#000000">
+
+<p><img height=3D"34" src=3D"https://ahang-static.s3.eu-central-1.amazonaws=
+.com/mail/ahangikon-sm.jpg" style=3D"display:inline-block;border:0;border-r=
+adius:0;outline:none;text-decoration:none;height:34px;font-size:17px" width=
+=3D"34"></p>
+
+<p>Kedves Bug=C3=A1r =C3=81gnes M=C3=A1ria!</p>
+
+<div style=3D"text-align:left">
+
+<p>
+
+  Az aHang m=C3=A9g id=C3=A9n b=C5=91v=C3=ADteni szeretn=C3=A9 az orsz=C3=
+=A1gos csapat=C3=A1t, ez=C3=A9rt =C3=ADrunk most neked.=C2=A0
+
+</p>
+
+<p>
+
+  A 2022-es v=C3=A1laszt=C3=A1sok ut=C3=A1n kezdt=C3=BCk el rendszerr=C3=A9=
+ szervezni orsz=C3=A1gos aktivistah=C3=A1l=C3=B3zatunkat, =C3=ADgy j=C3=B6t=
+tek l=C3=A9tre <b>az aHang megyei =C3=A9s telep=C3=BCl=C3=A9si szint=C5=B1 =
+helyi csoportjai, az aPontok.</b>
+
+</p>
+
+<p>
+
+  A h=C3=A1l=C3=B3zat fejleszt=C3=A9se sor=C3=A1n a k=C3=B6rny=C3=A9k=C3=BC=
+k=C3=A9rt, telep=C3=BCl=C3=A9s=C3=BCk=C3=A9rt =C3=A9s az orsz=C3=A1g fejl=
+=C5=91d=C3=A9s=C3=A9=C3=A9rt akt=C3=ADvan tenni akar=C3=B3 embereknek adunk=
+ egyr=C3=A9szt elm=C3=A9leti =C3=A9s gyakorlati tud=C3=A1st a kamp=C3=A1nyo=
+l=C3=A1shoz, eszk=C3=B6z=C3=B6ket a helyi civil =C3=A9rdekek =C3=A9rv=C3=A9=
+nyes=C3=ADt=C3=A9s=C3=A9hez, emellett pedig orsz=C3=A1gos szint=C5=B1 k=C3=
+=B6z=C3=B6ss=C3=A9get =C3=A9p=C3=ADt=C3=BCnk.=C2=A0
+
+</p>
+
+<p>
+
+  <b>Olyan embereket v=C3=A1runk, akik nem akarnak felt=C3=A9tlen=C3=BCl eg=
+y adott p=C3=A1rthoz elk=C3=B6telez=C5=91dni, mert vel=C3=BCnk egy=C3=BCtt =
+hiszik =C3=A9s tudj=C3=A1k: a magyar t=C3=A1rsadalomban, kisebb =C3=A9s nag=
+yobb k=C3=B6z=C3=B6ss=C3=A9geinkben v=C3=A9gbemen=C5=91 folyamatok megv=C3=
+=A1ltoztat=C3=A1sa, ellen=C5=91rz=C3=A9se, seg=C3=ADt=C3=A9se vagy ak=C3=A1=
+r el=C5=91k=C3=A9sz=C3=ADt=C3=A9se nemcsak a p=C3=A1rtok, hanem civilek, al=
+ulr=C3=B3l j=C3=B6v=C5=91 kezdem=C3=A9nyez=C3=A9sek feladata is. Egy eg=C3=
+=A9szs=C3=A9ges t=C3=A1rsadalomban mindk=C3=A9t megk=C3=B6zel=C3=ADt=C3=A9s=
+re sz=C3=BCks=C3=A9g van.</b>
+
+</p>
+
+<p>
+
+  Jelenleg hat megy=C3=A9ben =C3=A9s Budapesten vannak akt=C3=ADv aPontok, =
+azaz helyi csoportjaink, azonban m=C3=A9g nagyobbra szeretn=C3=A9nk n=C5=91=
+ni annak =C3=A9rdek=C3=A9ben, hogy az aHang k=C3=B6z=C3=B6ss=C3=A9g=C3=A9ne=
+k, mintegy 600 ezer polg=C3=A1rt=C3=A1rsunknak az =C3=A9rt=C3=A9keit k=C3=
+=A9pviselve tart=C3=B3s =C3=A9s pozit=C3=ADv v=C3=A1ltoz=C3=A1st hozzunk t=
+=C3=B6megek =C3=A9let=C3=A9be ak=C3=A1r a szoc=C3=A1lis ell=C3=A1t=C3=B3ren=
+dszer, az eg=C3=A9szs=C3=A9g=C3=BCgy vagy =C3=A9pp az oktat=C3=A1s ter=C3=
+=BClet=C3=A9n.
+
+</p>
+
+<p>
+
+  Ha sz=C3=A1modra is fontosak az aHang =C3=A1ltal k=C3=A9pviselt =C3=BCgye=
+k, =C3=A9s magad=C3=A9nak =C3=A9rzed a felh=C3=ADv=C3=A1sunkat, akkor jelen=
+tkezz megyei koordin=C3=A1tornak vagy aPont-vezet=C5=91nek!=C2=A0
+
+</p>
+
+<p>
+
+  <b>A megyei koordin=C3=A1tor egy fizetett poz=C3=ADci=C3=B3, ami nagyj=C3=
+=A1b=C3=B3l heti 20-40 =C3=B3ra munk=C3=A1val j=C3=A1r:</b>
+
+</p>
+
+<p>
+
+</p>
+
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"border-collapse:separate;width:100%;line-height:100%"><tbody><t=
+r><td align=3D"center" bgcolor=3D"#ff2400" role=3D"presentation" style=3D"b=
+order:none;border-radius:4px;background:#ff2400" valign=3D"middle"><a href=
+=3D"https://id.ahang.hu//clicks/link/2649/978a09ba-c73b-4300-ae6e-5cac080db=
+11b?url=3Dhttps%3A%2F%2Fahang.hu%2Fahang-allas%2F%3Futm_source%3Dahang%26ut=
+m_medium%3Demail%26utm_campaign%3Dblast2024-10-04&amp;member_guid=3D88a62eb=
+4b5dcac9810b289cd94cf43b21da67c13302ba6dade9c66944a7efc34cdda09d8fc189000cf=
+0efc385f843fe4a3f0b0c0992d522217f596756a2ca812" style=3D"display:block;back=
+ground:#ff2400;color:#ffffff;font-family:sans-serif;font-size:17px;font-wei=
+ght:bold;line-height:25px;margin:0;text-decoration:none;text-transform:none=
+;padding:10px 25px;border-radius:4px;word-break:break-word;max-width:100%" =
+target=3D"_blank" rel=3D"noreferrer">Jelentkezem megyei koordin=C3=A1tornak=
+!</a></td></tr></tbody></table>
+
+<p></p>
+
+<p>
+
+  <b>Az aPont-vezet=C5=91 egy =C3=B6nk=C3=A9ntes poz=C3=ADci=C3=B3, ami ren=
+delkez=C3=A9sre =C3=A1ll=C3=A1s f=C3=BCggv=C3=A9ny=C3=A9ben ide=C3=A1lis es=
+etben heti 5-10 =C3=B3r=C3=A1t jelent.</b>
+
+</p>
+
+<p>
+
+</p>
+
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"border-collapse:separate;width:100%;line-height:100%"><tbody><t=
+r><td align=3D"center" bgcolor=3D"#ff2400" role=3D"presentation" style=3D"b=
+order:none;border-radius:4px;background:#ff2400" valign=3D"middle"><a href=
+=3D"https://id.ahang.hu//clicks/link/2649/978a09ba-c73b-4300-ae6e-5cac080db=
+11b?url=3Dhttps%3A%2F%2Fahang.hu%2Fahang-allas%2F%3Futm_source%3Dahang%26ut=
+m_medium%3Demail%26utm_campaign%3Dblast2024-10-04&amp;member_guid=3D88a62eb=
+4b5dcac9810b289cd94cf43b21da67c13302ba6dade9c66944a7efc34cdda09d8fc189000cf=
+0efc385f843fe4a3f0b0c0992d522217f596756a2ca812" style=3D"display:block;back=
+ground:#ff2400;color:#ffffff;font-family:sans-serif;font-size:17px;font-wei=
+ght:bold;line-height:25px;margin:0;text-decoration:none;text-transform:none=
+;padding:10px 25px;border-radius:4px;word-break:break-word;max-width:100%" =
+target=3D"_blank" rel=3D"noreferrer">Jelentkezem aPont-vezet=C5=91nek!</a><=
+/td></tr></tbody></table>
+
+<p></p>
+
+<p>
+
+  Minden egy=C3=A9b r=C3=A9szletet a munkak=C3=B6r=C3=B6kkel kapcsolatban m=
+egtal=C3=A1lsz a fenti gombokra kattintva, illetve ha jelentkez=C3=A9s el=
+=C5=91tt b=C3=A1rmilyen k=C3=A9rd=C3=A9sed van, akkor a <a href=3D"mailto:j=
+elentkezz@ahang.hu" target=3D"_blank" rel=3D"noreferrer">jelentkezz@ahang.h=
+u</a> email c=C3=ADmre =C3=ADrj. Fontos, ha erre az emailre v=C3=A1laszolsz=
+, akkor nem fogunk tudni reag=C3=A1lni, teh=C3=A1t csakis a <a href=3D"mail=
+to:jelentkezz@ahang.hu" target=3D"_blank" rel=3D"noreferrer">jelentkezz@aha=
+ng.hu</a> c=C3=ADmre =C3=ADrj.
+
+</p>
+
+<p>
+
+  V=C3=A9g=C3=BCl pedig arra k=C3=A9r=C3=BCnk, ha a saj=C3=A1t kapcsolatren=
+dszeredben szerinted ez b=C3=A1rki m=C3=A1st is =C3=A9rdekelhet, akkor mind=
+enk=C3=A9pp tov=C3=A1bb=C3=ADtsd neki ezt a levelet vagy a honlap linkj=C3=
+=A9t: <a href=3D"https://id.ahang.hu//clicks/link/2649/978a09ba-c73b-4300-a=
+e6e-5cac080db11b?url=3Dhttps%3A%2F%2Fahang.hu%2Fahang-allas%2F%3Futm_source=
+%3Dahang%26utm_medium%3Demail%26utm_campaign%3Dblast2024-10-04&amp;member_g=
+uid=3D88a62eb4b5dcac9810b289cd94cf43b21da67c13302ba6dade9c66944a7efc34cdda0=
+9d8fc189000cf0efc385f843fe4a3f0b0c0992d522217f596756a2ca812" style=3D"color=
+:rgb(255,0,255)" target=3D"_blank" rel=3D"noreferrer">ahang.hu/ahang-allas<=
+/a></p>
+
+<p>
+
+  K=C3=B6sz=C3=B6nettel,
+
+</p>
+
+<p>
+
+  T=C3=B3th Enik=C5=91<br>kamp=C3=A1nyigazgat=C3=B3<br>aHang</p>
+
+<p><img src=3D"https://ahang-static.s3-eu-central-1.amazonaws.com/uploads%2=
+F68145fc2-4367-42e5-b249-3a63ece0a623%2F1.kep.jpg" style=3D"width:100%"><br=
+></p>
+
+<p>
+
+</p>
+
+</div>
+
+<p></p>
+
+<p style=3D"border-top:solid 1px #cccccc;font-size:1;margin:0px auto;width:=
+100%"> </p>
+
+<p style=3D"color:#999999">Ha b=C3=A1rmi k=C3=A9rd=C3=A9sed van, v=C3=A1las=
+zolj k=C3=B6zvetlen=C3=BCl erre az email-re, vagy =C3=ADrj a <a href=3D"mai=
+lto:mienk@ahang.hu" target=3D"_blank" rel=3D"noreferrer">mienk@ahang.hu</a>=
+ email c=C3=ADmre.</p>
+
+<p style=3D"color:#999999">K=C3=B6vess minket a Facebookon, hogy a naprak=
+=C3=A9sz inform=C3=A1ci=C3=B3k hozz=C3=A1d is eljuthassanak:<br><a href=3D"=
+https://id.ahang.hu//clicks/link/2649/978a09ba-c73b-4300-ae6e-5cac080db11b?=
+url=3Dhttps%3A%2F%2Fwww.facebook.com%2Fszabadahang%3Futm_source%3Dahang%26u=
+tm_medium%3Demail%26utm_campaign%3Dblast2024-10-04&amp;member_guid=3D88a62e=
+b4b5dcac9810b289cd94cf43b21da67c13302ba6dade9c66944a7efc34cdda09d8fc189000c=
+f0efc385f843fe4a3f0b0c0992d522217f596756a2ca812" style=3D"display:inline-bl=
+ock" rel=3D"noreferrer nofollow noopener noreferrer" target=3D"_blank"><img=
+ src=3D"https://ahang-static.s3.eu-central-1.amazonaws.com/mail/facebook_sm=
+.png" style=3D"border-radius:0;display:inline-block" width=3D"34" height=3D=
+"34"></a></p>
+
+<p style=3D"color:#999999">A lev=C3=A9l k=C3=BCld=C5=91je:<br>Magyarhang No=
+nprofit Kft.<br></p>
+
+<p><img height=3D"34" src=3D"https://ahang-static.s3.eu-central-1.amazonaws=
+.com/mail/ahang_sm.jpg" style=3D"width:88.7px;display:inline-block"></p>
+
+<p style=3D"color:#999999">Ezt az =C3=BCzenetet  <a href=3D"mailto:banyus53=
+@gmail.com" target=3D"_blank" rel=3D"noreferrer">banyus53@gmail.com</a> c=
+=C3=ADmre k=C3=BCldt=C3=BCk. <a href=3D"https://id.ahang.hu//subscriptions/=
+unsubscribe?subscription=3D1&amp;email=3Dbanyus53%40gmail.com&amp;mailing_i=
+d=3D2649" style=3D"font-weight:normal;text-decoration:none;color:#999999" t=
+arget=3D"_blank" rel=3D"noreferrer">Leiratkozni ide kattintva tudsz.</a></p=
+>
+
+</div><img src=3D"https://id.ahang.hu//opens/2649/978a09ba-c73b-4300-ae6e-5=
+cac080db11b"></div>
+
+--000000000000657e220623a20fc0--

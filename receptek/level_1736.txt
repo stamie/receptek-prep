@@ -1,0 +1,661 @@
+Delivered-To: estampel@gmail.com
+Received: by 2002:a05:622a:1a21:b0:479:5c49:a6e8 with SMTP id f33csp463569qtb;
+        Fri, 11 Apr 2025 07:57:18 -0700 (PDT)
+X-Received: by 2002:a17:907:d2c2:b0:aca:c699:8d3c with SMTP id a640c23a62f3a-acac699918fmr524110466b.2.1744383437704;
+        Fri, 11 Apr 2025 07:57:17 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1744383437; cv=none;
+        d=google.com; s=arc-20240605;
+        b=I8ACKnwrGDk3PzGsx4PhLVMu/5AeKIGeD2yqmHwXmIvb/qKR8WyXKJ5bnSgf+VsEyn
+         1ok0mC1aZZ4+jVKjMNUTwtbdTo9cOPGct4hEM/812SAankz/VBnss/EUwiIBflShNgKp
+         RvAXz4vqr6wsRYHejZc/sc4Wo9tWI9eRfRYlMWMGIwtm37XjApNxdalV9hVLKP5Jnwhy
+         STKo1fA1/ny0vZyV4kcbQ2ewsXzWuXjApvQhuzJ8HS3C0MHC6HsdqOcx1A1Qn9OU4osD
+         xbIjWG7oG7WhW3wbgGXhv4wXW65DmEGdG2Kpwk9Q0YusGJWsJG2aCkhTogFhRsFr4DOG
+         3IRg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=siqJF8vz9WrBPRTyJIPYtx6m9SsYiAyUI6kRLvA0Kh8=;
+        fh=wF/Yrd2E0xeKwPH74kML7cQSth+Fl4bwhVNrybJ4uh4=;
+        b=KHgKQg2JSZCSHh+h/VzzqBMn9g71J2uIsnuFxcpOhNs3e+kJzS3z1GOIc8V0Oi4X/0
+         66v+wyQyp1pPr6TrOtqLD73jD5tPihGctPEm9GGLKntn1fw7m2C9uVOv2dUL1X3m0SL+
+         UW3FfH2Wn+2gVgFSFSO4eWeh4+3wodm0+Fzu3jAIpiTdZZxi3f7nHVTcdPWInNkWWdt2
+         KsH2Y4KUb6qz3WqFwpHNNn1qepFeglzEVvIcaN4h7RBYUFrZJl18+pkLXjFb7m0zSmbN
+         MS22ioHkIytcCE5mC/mqb8Loio8mNhfgfSCLfJCP5dss4HYfPXzWwmhkjYMGqKeEWQOV
+         L7ZA==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=WyYgTZ4g;
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <banyus53@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id a640c23a62f3a-acaa1c999e9sor279794366b.8.2025.04.11.07.57.17
+        for <estampel@gmail.com>
+        (Google Transport Security);
+        Fri, 11 Apr 2025 07:57:17 -0700 (PDT)
+Received-SPF: pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=WyYgTZ4g;
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1744383437; x=1744988237; dara=google.com;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=siqJF8vz9WrBPRTyJIPYtx6m9SsYiAyUI6kRLvA0Kh8=;
+        b=WyYgTZ4g+rPJ75VKxsvGhwp1YdgVzirDo/UaglcUqwVTYJVOETnno/+hHIBGyjBo3e
+         V4p907qSu/tYhd+TRcV23Ic7t+aJ0B55/K71VUcJxKgsc8W4wrJdwz/8rngC1dM8dPdr
+         opwJ4gs//6Fgi3oy0pu5DrXDeGUL/X8Lojio+B7SWuor2/Gc1eZAddOnCzyeWSgapgJQ
+         FDhoZEpH7AGy1wPFV2opPBFdPL4UgAZRebSzXjwZWwbRoJbUThCehFeO9WTLeZBmwGGd
+         63WX1LOslzY2hDKQ04vEWssbV/JbJCVVA5NLT7Hk6AEfnKP+GuaxmdPO9Gf1x1RFDN4j
+         LraA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744383437; x=1744988237;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=siqJF8vz9WrBPRTyJIPYtx6m9SsYiAyUI6kRLvA0Kh8=;
+        b=tcSuENvRMgYsVn4YayxBVeY95HK9LUHUIh4A/mTyY9fjgllDfGdG1os0MW0o+Vzj6H
+         DIIPyJ08GTtDnugTMqO1laDRxhJjw38h0Dalk+M8v5xb8SSDDwPNLUGh4VAEl1qDJi0+
+         BL4b68MHtM4o3Dy5c4MBE9HOfeuR70FNCQydaq270pyx4AmeqMRrjA854+isgLB3CwnG
+         X5XAk9qMUPDcH8iRenyGppFSt3tSffPJGFcFujxNsmnPKNi9vIg4YRFSKnPFoqashFIu
+         kyS/gNAT7/Zgy1DalJmK+s1MS/NI7RoxQkW5vSfBxiR2ItBp++9ET5Zwn8pguIZCkUh3
+         OpvA==
+X-Gm-Message-State: AOJu0YzuMv6POuOVUpm74HtIcjMZ41L9BI4VBs7A2466EjayNccE8+FV
+	LrfZCCZmbzmxcwyiBuPgrih2MDh/qYKvV5oe5QuhzrShL/iYCSDBMGPWmwNnVy/vb9lOLTXdka8
+	ojtM7ccelks5WExNaHHwIFhj5NN/3Ug==
+X-Gm-Gg: ASbGncvddymGkcyJ+PRNhDby829zsfDcNxEZnZvG9SqJtFJ/5U87GzQtuuUMwm4kQVz
+	0xgOwHgYm611f3+2zpVuukAjuzIkAPeajWGA6QsxtaO1E8mJwZElLy8etaCqfiCjiHH5H7t1rTd
+	L1PBmvZCxRcq783UKHy85b9A==
+X-Google-Smtp-Source: AGHT+IFhdamK6MwVAN0XEW4C0UezqO3PuoVqCf/7x7fkCUieLJbIKUjj4mvv7uOuX4x6rLOUvs1pJPtIjjRIYAAxWho=
+X-Received: by 2002:a17:907:7244:b0:ac7:d7f3:86ec with SMTP id
+ a640c23a62f3a-acad1622b10mr300596166b.6.1744383436705; Fri, 11 Apr 2025
+ 07:57:16 -0700 (PDT)
+MIME-Version: 1.0
+References: <32f62000bd11c9ea4afae0efbc851e50@admin.expressone.hu>
+In-Reply-To: <32f62000bd11c9ea4afae0efbc851e50@admin.expressone.hu>
+From: =?UTF-8?B?w4FnbmVzIEJ1Z8Ohcg==?= <banyus53@gmail.com>
+Date: Fri, 11 Apr 2025 16:57:04 +0200
+X-Gm-Features: ATxdqUFDsD0WRLT_20K7fmC81HarEpRnCRBK8pXrSl9Un0xqYmYP9jo3F2LxWLA
+Message-ID: <CA+39czUi++5XkvPoLU0jPvufzPAuZdgR2HfuYK2SaU8ewJw9jQ@mail.gmail.com>
+Subject: =?UTF-8?B?RndkOiBFbMWRemV0ZXMgw6lydGVzw610w6lzIGvDvGxkZW3DqW55IMOpcmtlesOpc8Opcg==?=
+	=?UTF-8?B?xZFsIC8gUHJlIG5vdGlmaWNhdGlvbiByZWdhcmRpbmcgc2hpcG1lbnQgZGVsaXZlcnk=?=
+To: Emese Stampel <estampel@gmail.com>
+Content-Type: multipart/alternative; boundary="00000000000018d672063281ebbd"
+
+--00000000000018d672063281ebbd
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+---------- Forwarded message ---------
+Felad=C3=B3: ertesites@expressone.hu <ertesites@expressone.hu>
+Date: 2025. =C3=A1pr. 11., P 16:55
+Subject: El=C5=91zetes =C3=A9rtes=C3=ADt=C3=A9s k=C3=BCldem=C3=A9ny =C3=A9r=
+kez=C3=A9s=C3=A9r=C5=91l / Pre notification
+regarding shipment delivery
+To: Bug=C3=A1r =C3=81gnes M=C3=A1ria <banyus53@gmail.com>
+
+
+
+*Tisztelt Bug=C3=A1r =C3=81gnes M=C3=A1ria!*
+
+=C3=89rtes=C3=ADtj=C3=BCk, hogy a(z) RGB INTERNATIONAL KFT. partner=C3=BCnk=
+ az =C3=96n r=C3=A9sz=C3=A9re
+k=C3=A9zbes=C3=ADtend=C5=91, 1 darab csomagb=C3=B3l =C3=A1ll=C3=B3 k=C3=BCl=
+dem=C3=A9ny felad=C3=A1s=C3=A1t jelezte fel=C3=A9nk (*a
+csomagfelad=C3=A1s m=C3=A9g nem t=C3=B6rt=C3=A9nt meg*).
+
+A kapott inform=C3=A1ci=C3=B3 alapj=C3=A1n, amennyiben a felad=C3=B3 a k=C3=
+=BCldem=C3=A9nyt =C3=A1tadja
+r=C3=A9sz=C3=BCnkre, *v=C3=A1rhat=C3=B3an a k=C3=B6vetkez=C5=91 munkanapon =
+k=C3=A9zbes=C3=ADtj=C3=BCk azt/azokat =C3=96nnek.*
+
+A kisz=C3=A1ll=C3=ADt=C3=A1s napj=C3=A1nak reggel=C3=A9n - meger=C5=91s=C3=
+=ADtve a csomag(ok) felv=C3=A9tel=C3=A9t =E2=80=93 egy
+=C3=BAjabb =C3=BCzenetben =C3=A9rtes=C3=ADtj=C3=BCk a k=C3=A9zbes=C3=ADt=C3=
+=A9s v=C3=A1rhat=C3=B3 id=C5=91pontj=C3=A1r=C3=B3l, sz=C5=B1k=C3=ADtett, 2
+=C3=B3r=C3=A1s id=C5=91ablakban, ezt k=C3=B6vet=C5=91en lesz el=C3=A9rhet=
+=C5=91 a k=C3=BCldem=C3=A9ny adatainak
+m=C3=B3dos=C3=ADt=C3=A1sa. *Ezen reggeli meger=C5=91s=C3=ADt=C3=A9s / =C3=
+=A9rtes=C3=ADt=C3=A9s hi=C3=A1ny=C3=A1ban k=C3=A9rem, ne v=C3=A1rja
+a k=C3=BCldem=C3=A9nyt.*
+
+A k=C3=BCldem=C3=A9ny adatainak m=C3=B3dos=C3=ADt=C3=A1sa a kisz=C3=A1ll=C3=
+=ADt=C3=A1s napj=C3=A1t=C3=B3l (v=C3=A1rhat=C3=B3an a
+k=C3=B6vetkez=C5=91 munkanapt=C3=B3l) lehets=C3=A9ges.
+
+A k=C3=BCldem=C3=A9nyt a k=C3=B6vetkez=C5=91 k=C3=BCldem=C3=A9nysz=C3=A1mon=
+ (fuvarlev=C3=A9lsz=C3=A1mon) tartjuk
+nyilv=C3=A1n:
+
+*487355870745000013608699*
+
+K=C3=A9zbes=C3=ADt=C3=A9si adatok:
+N=C3=A9v: Bug=C3=A1r =C3=81gnes M=C3=A1ria
+Bug=C3=A1r =C3=81gnes M=C3=A1ria
+C=C3=ADm:
+
+Somogyv=C3=A1mos
+R=C3=B3zsa utca 7
+8699
+<https://www.google.com/maps/search/?api=3D1&query=3D8699+Somogyv=C3=A1mos+=
+R=C3=B3zsa+utca+7>
+Telefonsz=C3=A1m:
+
++36 70 397 9765
+
+*A k=C3=BCldem=C3=A9ny =C3=A1tv=C3=A9telekor fizetend=C5=91 =C3=B6sszeg: 5.=
+560 Ft.*
+*Az ut=C3=A1nv=C3=A9t =C3=B6sszege fut=C3=A1runkn=C3=A1l k=C3=A9szp=C3=A9nz=
+zel vagy adott esetben
+bankk=C3=A1rty=C3=A1val is kiegyenl=C3=ADthet=C5=91 (a bankk=C3=A1rty=C3=A1=
+val t=C3=B6rt=C3=A9n=C5=91 fizet=C3=A9s
+lehet=C5=91s=C3=A9g=C3=A9r=C5=91l a kisz=C3=A1ll=C3=ADt=C3=A1s napj=C3=A1n =
+k=C3=BCld=C3=B6tt =C3=A9rtes=C3=ADt=C5=91nkben inform=C3=A1ljuk =C3=96nt
+pontosan).*
+
+A k=C3=BCldem=C3=A9ny el=C5=91rel=C3=A1that=C3=B3, becs=C3=BClt sz=C3=A1ll=
+=C3=ADt=C3=A1si intervalluma 07:00 =E2=80=93 11:00h,
+amely nem id=C5=91garant=C3=A1lt szolg=C3=A1ltat=C3=A1s, =C3=ADgy a t=C3=A9=
+nyleges k=C3=A9zbes=C3=ADt=C3=A9s ett=C5=91l
+esetenk=C3=A9nt elt=C3=A9rhet.
+
+=C3=89rtes=C3=ADt=C3=A9si adatok:
+
+E-mail: banyus53@gmail.com
+SMS: +3670 397 9765
+
+
+=C3=89RINTKEZ=C3=89S N=C3=89LK=C3=9CLI K=C3=89ZBES=C3=8DT=C3=89S lehet=C5=
+=91s=C3=A9g=C3=BCnkr=C5=91l b=C5=91vebb inform=C3=A1ci=C3=B3kat a
+k=C3=B6vetkez=C5=91 linken tal=C3=A1lhat:
+
+https://expressone.hu/aktualis/erintkezes-nelkuli-kezbesites/
+
+A k=C3=BCldem=C3=A9ny k=C3=B6zponti rakt=C3=A1runkba t=C3=B6rt=C3=A9n=C5=91=
+ be=C3=A9rkez=C3=A9s=C3=A9t k=C3=B6vet=C5=91en a
+https://tracking.expressone.hu/?plc_number=3D487355870745000013608699 linkr=
+e
+kattintva csomagk=C3=B6vet=C3=A9si szolg=C3=A1ltat=C3=A1sunkkal friss infor=
+m=C3=A1ci=C3=B3t kaphat
+k=C3=BCldem=C3=A9nye st=C3=A1tusz=C3=A1r=C3=B3l.
+
+*=C3=9Ajdons=C3=A1g!* *Haszn=C3=A1lja nyilv=C3=A1nos ChatBot alkalmaz=C3=A1=
+sunkat Facebook
+Messengeren, Viberen vagy honlapunkon.* Regisztr=C3=A1ljon, hogy mindig fri=
+ss
+inform=C3=A1ci=C3=B3kkal rendelkezzen =C3=A9ppen aktu=C3=A1lis csomagjai st=
+=C3=A1tusz=C3=A1r=C3=B3l!
+
+Facebook messenger: https://www.facebook.com/ExpressOneHungary
+(=C3=9Czenetk=C3=BCld=C3=A9s gomb)
+
+Viber: https://chats.viber.com/transoflexhungarykft
+
+Honlap: www.expressone.hu (chatBot ikon a k=C3=A9perny=C5=91 jobb als=C3=B3=
+ sark=C3=A1ban)
+
+*Ez egy automatikus e-mail, k=C3=A9rem ne v=C3=A1laszoljon r=C3=A1!*
+
+=C3=9Cdv=C3=B6zlettel: Express One Fut=C3=A1rszolg=C3=A1lat
+
+Express One Hungary Kft.
+1239 Budapest, Eur=C3=B3pa utca 12. / L1 =C3=A9p=C3=BClet
+<https://www.google.com/maps/search/1239+Budapest,+Eur%C3%B3pa+utca+12.+%2F=
++L1+%C3%A9p%C3%BClet?entry=3Dgmail&source=3Dg>
+
+Tel.: +36 1 8 777 400
+Fax: +36 1 8 777 499
+
+Ezt a levelet a k=C3=B6vetkez=C5=91 c=C3=ADmre k=C3=BCldt=C3=BCk: banyus53@=
+gmail.com
+
+
+
+
+
+
+
+
+*Dear Bug=C3=A1r =C3=81gnes M=C3=A1ria!*
+
+We would like to notify you that we received information regarding the
+departure of the following 1 parcel(s) from our shipping partner RGB
+INTERNATIONAL KFT. (*the dispatch of the parcel was not yet carried out*).
+
+Based on the received information in case the parcel(s) will be handed over
+to us, *delivery should be expected on the following working day.*
+
+Based on the received information in case the parcel(s) will be handed over
+to us, delivery should be expected on the following working day.
+
+On the morning of the delivery =E2=80=93 confirming the pickup of the parce=
+l(s)- in
+an additional message we will notify you regarding the foreseen delivery
+time, in a reduced, two-hour time window, modification of shipment data is
+possible following, mentioned prenotification. *In the absence of this
+confirmatory notification please do not expect the shipment.*
+
+Modification in the delivery data is only possible starting from the day of
+actual delivery (most probably the next working day).
+
+The respective shipment was registered in our system with the following air
+waybill:
+
+*487355870745000013608699*
+
+Delivery information:
+Name: Bug=C3=A1r =C3=81gnes M=C3=A1ria
+Bug=C3=A1r =C3=81gnes M=C3=A1ria
+Address:
+
+Somogyv=C3=A1mos
+R=C3=B3zsa utca 7
+8699
+<https://www.google.com/maps/search/?api=3D1&query=3D8699+Somogyv=C3=A1mos+=
+R=C3=B3zsa+utca+7>
+Phone:
+
++36 70 397 9765
+
+*The amount to be cleared at the time of receiving the parcel: 5.560 HUF.*
+*The COD amount can be payed at our courier with cash or in certain
+occasions with debit card (regarding the debit card payment possibility you
+will receive information in the prenotification sent to you on the day of
+delivery)*
+
+The foreseen and estimated delivery interval of the shipment is 07:00 =E2=
+=80=93
+11:00, which is not a time guaranteed service, thus the actual delivery may
+differ occasionally.
+
+Prenotification data:
+
+E-mail: banyus53@gmail.com
+SMS: +3670 397 9765
+
+
+Details regarding our CONTACTLESS DELIVERY can be found via using the link
+bellow:
+
+https://expressone.hu/aktualis/erintkezes-nelkuli-kezbesites/
+
+Following the arrival of the shipment to our central deposit by using the
+following
+https://tracking.expressone.hu/?plc_number=3D487355870745000013608699 you
+will be able to receive up to date information regarding the status of the
+shipment.
+
+*New possibility!* *We would like to offer our new public ChatBot function,
+through Facebook messenger, Viber or our homepage.* You can register for
+further up to date information regarding you shipment through the
+possibilities shown below:
+
+Facebook messenger: https://www.facebook.com/ExpressOneHungary
+<https://www.facebook.com/tofhungary> (message button)
+
+Viber: https://chats.viber.com/transoflexhungarykft
+
+Homepage: www.expressone.hu (chatBot icon in the bottom right corner of the
+screen)
+
+*It is an automatic e-mail, please do not respond to it.*
+
+With regards:
+
+Express One Hungary Kft.
+1239 Budapest, Eur=C3=B3pa utca 12. / L1 =C3=A9p=C3=BClet
+<https://www.google.com/maps/search/1239+Budapest,+Eur%C3%B3pa+utca+12.+%2F=
++L1+%C3%A9p%C3%BClet?entry=3Dgmail&source=3Dg>
+
+Tel.: +36 1 8 777 400
+Fax: +36 1 8 777 499
+
+This e-mail was sent to the following address: banyus53@gmail.com
+
+--00000000000018d672063281ebbd
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"auto"></div><br><div class=3D"gmail_quote gmail_quote_container=
+"><div dir=3D"ltr" class=3D"gmail_attr">---------- Forwarded message ------=
+---<br>Felad=C3=B3: <strong class=3D"gmail_sendername" dir=3D"auto"><a href=
+=3D"mailto:ertesites@expressone.hu">ertesites@expressone.hu</a></strong> <s=
+pan dir=3D"auto">&lt;<a href=3D"mailto:ertesites@expressone.hu">ertesites@e=
+xpressone.hu</a>&gt;</span><br>Date: 2025. =C3=A1pr. 11., P 16:55<br>Subjec=
+t: El=C5=91zetes =C3=A9rtes=C3=ADt=C3=A9s k=C3=BCldem=C3=A9ny =C3=A9rkez=C3=
+=A9s=C3=A9r=C5=91l / Pre notification regarding shipment delivery<br>To: Bu=
+g=C3=A1r =C3=81gnes M=C3=A1ria &lt;<a href=3D"mailto:banyus53@gmail.com">ba=
+nyus53@gmail.com</a>&gt;<br></div><br><br><div>
+
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"width:800p=
+x">
+	<tbody>
+		<tr>
+			<td style=3D"text-align:center"><img alt=3D"" src=3D"https://webcas.expr=
+essone.hu/media/email_logo.jpg" style=3D"width:174px;height:50px"></td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<br>
+					<strong>Tisztelt Bug=C3=A1r =C3=81gnes M=C3=A1ria!</strong><br>
+					<br>
+					=C3=89rtes=C3=ADtj=C3=BCk, hogy a(z) RGB INTERNATIONAL KFT. partner=C3=
+=BCnk az =C3=96n r=C3=A9sz=C3=A9re k=C3=A9zbes=C3=ADtend=C5=91, 1 darab cso=
+magb=C3=B3l =C3=A1ll=C3=B3 k=C3=BCldem=C3=A9ny felad=C3=A1s=C3=A1t jelezte =
+fel=C3=A9nk (<strong>a csomagfelad=C3=A1s m=C3=A9g nem t=C3=B6rt=C3=A9nt me=
+g</strong>).
+					<br>
+					<br>
+										A kapott inform=C3=A1ci=C3=B3 alapj=C3=A1n, amennyiben a felad=C3=
+=B3 a k=C3=BCldem=C3=A9nyt =C3=A1tadja r=C3=A9sz=C3=BCnkre, <strong>v=C3=A1=
+rhat=C3=B3an a k=C3=B6vetkez=C5=91 munkanapon k=C3=A9zbes=C3=ADtj=C3=BCk az=
+t/azokat =C3=96nnek.</strong>
+										<br>
+					<br>				=09
+				</p>
+				<p>A kisz=C3=A1ll=C3=ADt=C3=A1s napj=C3=A1nak reggel=C3=A9n - meger=C5=
+=91s=C3=ADtve a csomag(ok) felv=C3=A9tel=C3=A9t =E2=80=93 egy =C3=BAjabb =
+=C3=BCzenetben =C3=A9rtes=C3=ADtj=C3=BCk a k=C3=A9zbes=C3=ADt=C3=A9s v=C3=
+=A1rhat=C3=B3 id=C5=91pontj=C3=A1r=C3=B3l, sz=C5=B1k=C3=ADtett, 2 =C3=B3r=
+=C3=A1s id=C5=91ablakban, ezt k=C3=B6vet=C5=91en lesz el=C3=A9rhet=C5=91 a =
+k=C3=BCldem=C3=A9ny adatainak m=C3=B3dos=C3=ADt=C3=A1sa. <strong>Ezen regge=
+li meger=C5=91s=C3=ADt=C3=A9s / =C3=A9rtes=C3=ADt=C3=A9s hi=C3=A1ny=C3=A1ba=
+n k=C3=A9rem, ne v=C3=A1rja a k=C3=BCldem=C3=A9nyt.</strong></p>
+				<p>A k=C3=BCldem=C3=A9ny adatainak m=C3=B3dos=C3=ADt=C3=A1sa a kisz=C3=
+=A1ll=C3=ADt=C3=A1s napj=C3=A1t=C3=B3l (v=C3=A1rhat=C3=B3an a k=C3=B6vetkez=
+=C5=91 munkanapt=C3=B3l) lehets=C3=A9ges.</p>
+				<p>A k=C3=BCldem=C3=A9nyt a k=C3=B6vetkez=C5=91 k=C3=BCldem=C3=A9nysz=
+=C3=A1mon (fuvarlev=C3=A9lsz=C3=A1mon) tartjuk nyilv=C3=A1n: </p>			=09
+				<p><strong>487355870745000013608699</strong></p>
+				<br>				=09
+				<p>K=C3=A9zbes=C3=ADt=C3=A9si adatok: </p>			=09
+				<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"width:=
+100%">
+					<tbody>
+						<tr valign=3D"top">
+							<td width=3D"100px">N=C3=A9v:</td>
+							<td>Bug=C3=A1r =C3=81gnes M=C3=A1ria<br>
+							Bug=C3=A1r =C3=81gnes M=C3=A1ria</td>
+						</tr>
+						<tr valign=3D"top">
+							<td>C=C3=ADm:</td>
+							<td>
+							<p><a href=3D"https://www.google.com/maps/search/?api=3D1&amp;query=
+=3D8699+Somogyv=C3=A1mos+R=C3=B3zsa+utca+7" target=3D"_blank" rel=3D"norefe=
+rrer">Somogyv=C3=A1mos<br>
+							R=C3=B3zsa utca 7<br>
+							8699</a></p>
+							</td>
+						</tr>
+	<tr valign=3D"top">
+							<td>Telefonsz=C3=A1m:</td>
+							<td>
+							<p>+36 70 397 9765</p>
+							</td>
+						</tr>							=09
+					=09
+					</tbody>
+				</table>
+				<br>
+				<p>
+								</p>
+
+				<p>	=09
+											<strong>A k=C3=BCldem=C3=A9ny =C3=A1tv=C3=A9telekor fizetend=C5=
+=91 =C3=B6sszeg: 5.560 Ft.</strong><br>
+																					<strong>Az ut=C3=A1nv=C3=A9t =C3=B6sszege fut=C3=A1run=
+kn=C3=A1l k=C3=A9szp=C3=A9nzzel vagy adott esetben bankk=C3=A1rty=C3=A1val =
+is kiegyenl=C3=ADthet=C5=91 (a bankk=C3=A1rty=C3=A1val t=C3=B6rt=C3=A9n=C5=
+=91 fizet=C3=A9s lehet=C5=91s=C3=A9g=C3=A9r=C5=91l a kisz=C3=A1ll=C3=ADt=C3=
+=A1s napj=C3=A1n k=C3=BCld=C3=B6tt =C3=A9rtes=C3=ADt=C5=91nkben inform=C3=
+=A1ljuk =C3=96nt pontosan).</strong>
+																						</p>
+			=09
+
+							=09
+				<p>A k=C3=BCldem=C3=A9ny el=C5=91rel=C3=A1that=C3=B3, becs=C3=BClt sz=
+=C3=A1ll=C3=ADt=C3=A1si intervalluma 07:00 =E2=80=93 11:00h, amely nem id=
+=C5=91garant=C3=A1lt szolg=C3=A1ltat=C3=A1s, =C3=ADgy a t=C3=A9nyleges k=C3=
+=A9zbes=C3=ADt=C3=A9s ett=C5=91l esetenk=C3=A9nt elt=C3=A9rhet.</p>
+											=09
+				<br>
+				<p>=C3=89rtes=C3=ADt=C3=A9si adatok:</p>
+
+				<p>E-mail: <a href=3D"mailto:banyus53@gmail.com" target=3D"_blank" rel=
+=3D"noreferrer">banyus53@gmail.com</a><br>
+				SMS: +3670 397 9765<br>
+				<br>
+				<br>
+
+				<p><span style=3D"color:red">=C3=89RINTKEZ=C3=89S N=C3=89LK=C3=9CLI K=
+=C3=89ZBES=C3=8DT=C3=89S lehet=C5=91s=C3=A9g=C3=BCnkr=C5=91l b=C5=91vebb in=
+form=C3=A1ci=C3=B3kat a k=C3=B6vetkez=C5=91 linken tal=C3=A1lhat:</span></p=
+>
+				<p><a href=3D"https://expressone.hu/aktualis/erintkezes-nelkuli-kezbesi=
+tes/" target=3D"_blank" rel=3D"noreferrer">https://expressone.hu/aktualis/e=
+rintkezes-nelkuli-kezbesites/</a></p>
+				<br>
+		=09
+				<p>A k=C3=BCldem=C3=A9ny k=C3=B6zponti rakt=C3=A1runkba t=C3=B6rt=C3=A9=
+n=C5=91 be=C3=A9rkez=C3=A9s=C3=A9t k=C3=B6vet=C5=91en a <a href=3D"https://=
+tracking.expressone.hu/?plc_number=3D487355870745000013608699" target=3D"_b=
+lank" rel=3D"noreferrer">https://tracking.expressone.hu/?plc_number=3D48735=
+5870745000013608699</a> linkre kattintva csomagk=C3=B6vet=C3=A9si szolg=C3=
+=A1ltat=C3=A1sunkkal friss inform=C3=A1ci=C3=B3t kaphat k=C3=BCldem=C3=A9ny=
+e st=C3=A1tusz=C3=A1r=C3=B3l.</p>
+				<br>
+				<p> </p>
+
+				<p><span style=3D"color:#ff0000"><strong>=C3=9Ajdons=C3=A1g!</strong></=
+span> <span style=3D"color:#ff0000"><strong>Haszn=C3=A1lja nyilv=C3=A1nos C=
+hatBot alkalmaz=C3=A1sunkat Facebook Messengeren, Viberen vagy honlapunkon.=
+</strong></span> Regisztr=C3=A1ljon, hogy mindig friss inform=C3=A1ci=C3=B3=
+kkal rendelkezzen =C3=A9ppen aktu=C3=A1lis csomagjai st=C3=A1tusz=C3=A1r=C3=
+=B3l!</p>
+
+				<p>Facebook messenger: <a href=3D"https://www.facebook.com/ExpressOneHu=
+ngary" target=3D"_blank" rel=3D"noreferrer">https://www.facebook.com/Expres=
+sOneHungary</a> (=C3=9Czenetk=C3=BCld=C3=A9s gomb)</p>
+
+				<p>Viber: <a href=3D"https://chats.viber.com/transoflexhungarykft" targ=
+et=3D"_blank" rel=3D"noreferrer">https://chats.viber.com/transoflexhungaryk=
+ft</a></p>
+
+				<p>Honlap: <a href=3D"http://www.expressone.hu" target=3D"_blank" rel=
+=3D"noreferrer">www.expressone.hu</a> (chatBot ikon a k=C3=A9perny=C5=91 jo=
+bb als=C3=B3 sark=C3=A1ban)</p>
+				<br>
+
+				<p><strong>Ez egy automatikus e-mail, k=C3=A9rem ne v=C3=A1laszoljon r=
+=C3=A1!</strong></p>
+				<br>
+
+				<p>=C3=9Cdv=C3=B6zlettel: Express One Fut=C3=A1rszolg=C3=A1lat</p>
+
+				<p>Express One Hungary Kft.<br>
+				<a href=3D"https://www.google.com/maps/search/1239+Budapest,+Eur%C3%B3p=
+a+utca+12.+%2F+L1+%C3%A9p%C3%BClet?entry=3Dgmail&amp;source=3Dg">1239 Budap=
+est, Eur=C3=B3pa utca 12. / L1 =C3=A9p=C3=BClet</a></p>
+
+				<p>Tel.: +36 1 8 777 400<br>
+				Fax: +36 1 8 777 499</p>
+
+				<p><img alt=3D"" src=3D"http://webcas.expressone.hu/media/email_logo.jp=
+g" style=3D"width:174px;height:50px"></p>
+
+				<p>Ezt a levelet a k=C3=B6vetkez=C5=91 c=C3=ADmre k=C3=BCldt=C3=BCk: <a=
+ href=3D"mailto:banyus53@gmail.com" target=3D"_blank" rel=3D"noreferrer">ba=
+nyus53@gmail.com</a></p>
+			</p></td>
+		</tr>
+	</tbody>
+</table>
+
+<p>=C2=A0</p>
+<p>=C2=A0</p>
+<p>=C2=A0</p>
+
+
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"width:800p=
+x">
+	<tbody>
+		<tr>
+			<td style=3D"text-align:center"><img alt=3D"" src=3D"https://webcas.expr=
+essone.hu/media/email_logo.jpg" style=3D"width:174px;height:50px"></td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<br>
+
+				=09
+				=09
+					<strong>Dear Bug=C3=A1r =C3=81gnes M=C3=A1ria!</strong><br>
+					<br>
+					We would like to notify you that we received information regarding the=
+ departure of the following 1 parcel(s) from our shipping partner RGB INTER=
+NATIONAL KFT. (<strong>the dispatch of the parcel was not yet carried out</=
+strong>).
+					<br>
+					<br>
+										Based on the received information in case the parcel(s) will be h=
+anded over to us, <strong>delivery should be expected on the following work=
+ing day.</strong>
+									=09
+					<br>
+					<br>				=09
+				</p>
+				<p>Based on the received information in case the parcel(s) will be hand=
+ed over to us,=C2=A0delivery should be expected on the following working da=
+y.</p>			=09
+				<p>On the morning of the delivery =E2=80=93 confirming the pickup of th=
+e parcel(s)- in an additional message we will notify you regarding the fore=
+seen delivery time, in a reduced, two-hour time window, modification of shi=
+pment data is possible following, mentioned prenotification. <strong>In the=
+ absence of this confirmatory notification please do not expect the shipmen=
+t.</strong></p>			=09
+				<p>Modification in the delivery data is only possible starting from the=
+ day of actual delivery (most probably the next working day).</p>			=09
+				<p>The respective shipment was registered in our system with the follow=
+ing air waybill: </p>			=09
+				<p><strong>487355870745000013608699</strong></p>
+				<br>
+				<p>Delivery information: </p>			=09
+				<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"width:=
+100%">
+					<tbody>
+						<tr valign=3D"top">
+							<td width=3D"100px">Name:</td>
+							<td>Bug=C3=A1r =C3=81gnes M=C3=A1ria<br>
+							Bug=C3=A1r =C3=81gnes M=C3=A1ria</td>
+						</tr>
+						<tr valign=3D"top">
+							<td>Address:</td>
+							<td>
+							<p><a href=3D"https://www.google.com/maps/search/?api=3D1&amp;query=
+=3D8699+Somogyv=C3=A1mos+R=C3=B3zsa+utca+7" target=3D"_blank" rel=3D"norefe=
+rrer">Somogyv=C3=A1mos<br>
+							R=C3=B3zsa utca 7<br>
+							8699</a></p>
+							</td>
+						</tr>
+					=09
+	<tr valign=3D"top">
+							<td>Phone:</td>
+							<td>
+							<p>+36 70 397 9765</p>
+							</td>
+						</tr>							=09
+					</tbody>
+				</table>
+<br>
+				<p>
+								</p>
+				<p>	=09
+											<strong>The amount to be cleared at the time of receiving the pa=
+rcel: 5.560 HUF.</strong><br>
+																			<strong>The COD amount can be payed at our courier with =
+cash or in certain occasions with debit card (regarding the debit card paym=
+ent possibility you will receive information in the prenotification sent to=
+ you on the day of delivery)</strong>
+																				</p>
+
+							=09
+				<p>The foreseen and estimated delivery interval of the shipment is 07:0=
+0 =E2=80=93 11:00, which is not a time guaranteed service, thus the actual =
+delivery may differ occasionally.</p>
+						=09
+				<br>
+				<p>Prenotification data:</p>
+				<p>E-mail: <a href=3D"mailto:banyus53@gmail.com" target=3D"_blank" rel=
+=3D"noreferrer">banyus53@gmail.com</a><br>
+				SMS: +3670 397 9765<br>
+				<br>
+				<br>
+
+				<p><span style=3D"color:red">Details regarding our CONTACTLESS DELIVERY=
+ can be found via using the link bellow:</span></p>
+				<p><a href=3D"https://expressone.hu/aktualis/erintkezes-nelkuli-kezbesi=
+tes/" target=3D"_blank" rel=3D"noreferrer">https://expressone.hu/aktualis/e=
+rintkezes-nelkuli-kezbesites/</a></p>
+				<br>
+				=09
+				<p>Following the arrival of the shipment to our central deposit by usin=
+g the following <a href=3D"https://tracking.expressone.hu/?plc_number=3D487=
+355870745000013608699" target=3D"_blank" rel=3D"noreferrer">https://trackin=
+g.expressone.hu/?plc_number=3D487355870745000013608699</a> you will be able=
+ to receive up to date information regarding the status of the shipment.</p=
+>
+				<br>
+			=09
+				<p><span style=3D"color:#ff0000"><strong>New possibility!</strong></spa=
+n> <strong><span style=3D"color:#ff0000">We would like to offer our new pub=
+lic ChatBot function, through Facebook messenger, Viber or our homepage.</s=
+pan></strong> You can register for further up to date information regarding=
+ you shipment through the possibilities shown below:</p>
+
+				<p>Facebook messenger: <a href=3D"https://www.facebook.com/tofhungary" =
+target=3D"_blank" rel=3D"noreferrer">https://www.facebook.com/ExpressOneHun=
+gary</a> (message button)</p>
+
+				<p>Viber: <a href=3D"https://chats.viber.com/transoflexhungarykft" targ=
+et=3D"_blank" rel=3D"noreferrer">https://chats.viber.com/transoflexhungaryk=
+ft</a></p>
+
+				<p>Homepage: <a href=3D"http://www.expressone.hu" target=3D"_blank" rel=
+=3D"noreferrer">www.expressone.hu</a> (chatBot icon in the bottom right cor=
+ner of the screen)</p>
+				<br>
+
+				<p><strong>It is an automatic e-mail, please do not respond to it.</str=
+ong></p>
+				<br>
+
+				<p>With regards:</p>
+
+				<p>Express One Hungary Kft.<br>
+				<a href=3D"https://www.google.com/maps/search/1239+Budapest,+Eur%C3%B3p=
+a+utca+12.+%2F+L1+%C3%A9p%C3%BClet?entry=3Dgmail&amp;source=3Dg">1239 Budap=
+est, Eur=C3=B3pa utca 12. / L1 =C3=A9p=C3=BClet</a></p>
+
+				<p>Tel.: +36 1 8 777 400<br>
+				Fax: +36 1 8 777 499</p>
+
+				<p><img alt=3D"" src=3D"http://webcas.expressone.hu/media/email_logo.jp=
+g" style=3D"width:174px;height:50px"></p>
+
+				<p>This e-mail was sent to the following address: <a href=3D"mailto:ban=
+yus53@gmail.com" target=3D"_blank" rel=3D"noreferrer">banyus53@gmail.com</a=
+></p>
+			</p></td>
+		</tr>
+	</tbody>
+</table></div>
+
+
+</div>
+
+--00000000000018d672063281ebbd--

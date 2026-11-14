@@ -1,0 +1,629 @@
+Delivered-To: estampel@gmail.com
+Received: by 2002:a05:6358:cb09:b0:1ac:f87b:1a3 with SMTP id gr9csp837737rwb;
+        Fri, 26 Jul 2024 06:52:16 -0700 (PDT)
+X-Received: by 2002:a17:907:7285:b0:a6f:e7a0:91cf with SMTP id a640c23a62f3a-a7ab2ff4642mr876336566b.24.1722001936516;
+        Fri, 26 Jul 2024 06:52:16 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1722001936; cv=none;
+        d=google.com; s=arc-20160816;
+        b=zUsTy0SyNAJFZkEMX0mCr1yD18ryYF03zfwSHJ0wkNiu7x4ODuxtH0v+LSjEmW5+n7
+         NhUzWLWcCRfRQ4tHFIdakUXwYEh6gzK6RyvM9ZHsxrG01vggsCyKCfdsVdmDCje12xVm
+         0Aej+p/YCS85xexZuyadWT0HYaFadd+bBTpB9murPJtBU1owDRQCtO/ZBHtA+GY99fFZ
+         3OeWcGgo4tbU0XTQY7PXZnFOTqwVm56j4a0l5gwBEybXhMXvWMkMcZhKI5IkBGDdN8MS
+         Nnh2pEiv16hCxFn+D93r2SSVcIeYx1Wk1+L6eQuum8GU0lm7vULrRYqkHdQr20DmO92p
+         EOIQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=8gsLXSeuG8xmOATab1T+rh6W6d7L3r/N/C/wKa9xDQo=;
+        fh=wF/Yrd2E0xeKwPH74kML7cQSth+Fl4bwhVNrybJ4uh4=;
+        b=d9AKET9uJMTHB6CwLI/HOIT7QgFsumgppu4u8nJ5tI/zBUjEbQNkNzDQP8uKdnCqUi
+         qA6Y4P0e1xL9LFsU9CEnHSYq/EpCdJaaRhZFWaBtw2uJGKYfllgEwyySxMbmwTxcx5Fn
+         GWbQAPWZGlPL4Yh30SDFXfAsz4aVK9SoSISYuFEN5go89z9dOdHyhpKZGAwZRuPBrlxv
+         3+WLKsm4ue3KrvWVP/UFkRTwukGC6NZsWrVO4ZMDeZU2PPJGt2YS8tXvI0HCyyIlA+6r
+         mwcr6d1xQoU4pbwEw75ACJikCkMQ3YPEgVRsHZDUcRNfdBh/KzwZz/S+NCUE81LTptZn
+         9cCQ==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b="Tq7JiA/E";
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <banyus53@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id a640c23a62f3a-a7ab0ed93f2sor250928266b.1.2024.07.26.06.52.16
+        for <estampel@gmail.com>
+        (Google Transport Security);
+        Fri, 26 Jul 2024 06:52:16 -0700 (PDT)
+Received-SPF: pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b="Tq7JiA/E";
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1722001936; x=1722606736; dara=google.com;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=8gsLXSeuG8xmOATab1T+rh6W6d7L3r/N/C/wKa9xDQo=;
+        b=Tq7JiA/ENFdMkX48MHb6KQN8r+aSHEmbhCJXa/n7hXN4raNg4KB25+DhiAIddI30aU
+         FCP5FyO77f+91X9O39c37pbw8rQvPlcFrACjYblwFi6Uqtwkh0VC62bxPgxRo2jTv4sk
+         OaO+fsUxnkjsAP26ZLSGyT+03knRjnMNXewRH1qosYd35DrDmLzp2atadomEiseiY43t
+         77vmGMogCxRETZSsZa0OpA7RkgJaPZrCZ18CK74RFlHe86IcC6xVV5xWr+c/8JeNAxTr
+         dbvQ2DlWgpWzahEC+v7F7lZ3Zl674anQI7bLxZXighTy4bHrUkGnBgg5XVGyslgSjdIg
+         YzLg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1722001936; x=1722606736;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=8gsLXSeuG8xmOATab1T+rh6W6d7L3r/N/C/wKa9xDQo=;
+        b=KqhwkF7f/usSY9NVP5ugg8pFun46PJEJxL8twU3GMMocG2JN8MHNDLM0ymbod7E4p2
+         TCMOihwryiE0h1oiBtbxF9lFvcqewYytH/Npy6S7sCsYF9F7IZM5mgx1JqsfEgd5HlCp
+         sISKY4Hhe+gqJG1gsvJPtmYbaZ8eZcYKiGzSeXAsF8l3s0g9l6xATGOqCCk5ey0ZiBmi
+         1mebSfOfbbIvXipkZz8khGGVtDEsco8r6ekVixRrKsQWxmg4NRlwwyWJ1/GqT2MOrdER
+         78GpM265SkzvXrh2c37viLxxTJ1wyOuUXK4dm7XQBt0lSJNocPU7BHHOHhKZ9hPgaEGs
+         4UdA==
+X-Gm-Message-State: AOJu0YzBOspIfKekaheIxrfdlMBJNaep6QEY5CM682uA4yLfKS8rUXtm
+	BkSKC2tmEmfLjc/p8Vg4kDySA29h0QJ1BKZ6nmraO0uPvy1rGX4+YYIJfh2UpXPBDrtYtEVCFvJ
+	4Njbd4lknboLdgQ2fV13wFC7uGLYbrQ==
+X-Google-Smtp-Source: AGHT+IGSz5rinqVz3NyJGzLbXsucIDQmEbcyyFnmsyuLG/KWUsRENazoMm/5JGPMe6agTslCuLe4s1GxG+2thPJ7d9w=
+X-Received: by 2002:a17:907:9488:b0:a72:66d5:892c with SMTP id
+ a640c23a62f3a-a7ac453edc9mr681987966b.18.1722001935456; Fri, 26 Jul 2024
+ 06:52:15 -0700 (PDT)
+MIME-Version: 1.0
+References: <NTk0Nzc4MwAC54789Y1304BAMTcyMTk5ODgwMjM0MDgz@abk.lehetmas.hu>
+In-Reply-To: <NTk0Nzc4MwAC54789Y1304BAMTcyMTk5ODgwMjM0MDgz@abk.lehetmas.hu>
+From: =?UTF-8?B?w4FnbmVzIEJ1Z8Ohcg==?= <banyus53@gmail.com>
+Date: Fri, 26 Jul 2024 15:52:04 +0200
+Message-ID: <CA+39czWACZ5+oo6=3xmHCMfSA8dJKtHVM03u=3SOjabrjM9-sw@mail.gmail.com>
+Subject: =?UTF-8?B?RndkOiBOw6lwc3phdmF6w6FzIGF6IG9yc3rDoWcga2nDoXJ1c8OtdMOhc2EgZWxsZW4=?=
+To: Emese Stampel <estampel@gmail.com>
+Content-Type: multipart/alternative; boundary="000000000000aa5e01061e26d18d"
+
+--000000000000aa5e01061e26d18d
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+---------- Forwarded message ---------
+Felad=C3=B3: Cs=C3=A1rdi Antal <info@lehetmas.hu>
+Date: 2024. j=C3=BAl. 26., P 15:00
+Subject: N=C3=A9pszavaz=C3=A1s az orsz=C3=A1g ki=C3=A1rus=C3=ADt=C3=A1sa el=
+len
+To: Bug=C3=A1r =C3=81gnes M=C3=A1ria <banyus53@gmail.com>
+
+
+
+
+
+Kedves Bar=C3=A1tunk!
+
+2024. november elej=C3=A9ig 200 ezer =C3=A9rv=C3=A9nyes al=C3=A1=C3=ADr=C3=
+=A1st kell =C3=B6sszegy=C5=B1jten=C3=BCnk,
+hogy ut=C3=A1na orsz=C3=A1gos n=C3=A9pszavaz=C3=A1s keret=C3=A9ben mondhass=
+uk ki k=C3=B6z=C3=B6sen: Nemet
+mondunk a Fidesz kiemelt beruh=C3=A1z=C3=A1si t=C3=B6rv=C3=A9ny=C3=A9re! Ez=
+ a n=C3=A9pszavaz=C3=A1s nem
+p=C3=A1rtpolitikai, hanem nemzeti =C3=BCgy! Ez=C3=A9rt mindenki r=C3=A9szv=
+=C3=A9tel=C3=A9re sz=C3=A1m=C3=ADtunk,
+mert mindenkit megk=C3=A1ros=C3=ADt a kiemelt beruh=C3=A1z=C3=A1sok m=C3=B3=
+dszere.
+
+
+
+A =E2=80=9Ckiemelt beruh=C3=A1z=C3=A1soknak=E2=80=9D h=C3=ADvott gyakorlatt=
+al a hatalom a helyi emberek
+megk=C3=A9rdez=C3=A9se n=C3=A9lk=C3=BCl, t=C3=B6bbnyire s=C3=BAlyosan k=C3=
+=B6rnyezetk=C3=A1ros=C3=ADt=C3=B3 beruh=C3=A1z=C3=A1sokat
+er=C5=91ltet a telep=C3=BCl=C3=A9sekre. Ha nem t=C3=B6r=C3=B6lj=C3=BCk el a=
+ t=C3=B6rv=C3=A9nyt, akkor a Fidesz a
+tov=C3=A1bbiakban is annak seg=C3=ADts=C3=A9g=C3=A9vel =C3=A9p=C3=ADt majd =
+v=C3=A1rosaink sz=C3=A9l=C3=A9re
+akkugy=C3=A1rakat, k=C3=B6rnyezetszennyez=C5=91 szem=C3=A9tlerak=C3=B3kat, =
+vagy betonoz le =C3=A9s
+saj=C3=A1t=C3=ADtja ki legszebb tavaink partszakaszait. A kiemelt beruh=C3=
+=A1z=C3=A1si t=C3=B6rv=C3=A9ny
+egy tr=C3=BCkk, aminek az a l=C3=A9nyege, hogy a Fidesz =C3=BAgy er=C5=91lt=
+et r=C3=A1
+telep=C3=BCl=C3=A9seinkre k=C3=A1ros projekteket, hogy nem enged belesz=C3=
+=B3l=C3=A1st az ott
+=C3=A9l=C5=91knek a d=C3=B6nt=C3=A9sbe, t=C3=B6nkreteszi a k=C3=B6rnyezetet=
+ =C3=A9s elveszi az ad=C3=B3bev=C3=A9telt a
+helyiekt=C5=91l.
+
+
+
+A n=C3=A9pszavaz=C3=A1s sikere eset=C3=A9n elt=C3=B6r=C3=B6lj=C3=BCk a kiem=
+elt beruh=C3=A1z=C3=A1sok t=C3=B6rv=C3=A9ny=C3=A9t,
+mely a Fidesz szabadrabl=C3=A1s=C3=A1nak =C3=A9s az orsz=C3=A1g ki=C3=A1rus=
+=C3=ADt=C3=A1s=C3=A1nak legfontosabb
+eszk=C3=B6ze. =C3=8Dgy a korm=C3=A1ny nem hagyhatja figyelmen k=C3=ADv=C3=
+=BCl a lakoss=C3=A1g =C3=A9rdekeit, s
+nem telep=C3=ADthet majd k=C3=B6rnyezetszennyez=C5=91 beruh=C3=A1z=C3=A1sok=
+at otthonaink k=C3=B6zel=C3=A9be!
+
+
+
+V=C3=A9dj=C3=BCk meg k=C3=B6z=C3=B6sen term=C3=A9szeti =C3=A9rt=C3=A9keinke=
+t, s legyen v=C3=A9gre =C3=BAjra
+belesz=C3=B3l=C3=A1sunk az =C3=A9let=C3=BCnket befoly=C3=A1sol=C3=B3 legfon=
+tosabb d=C3=B6nt=C3=A9sekbe! - Ha
+sz=C3=ADvesen t=C3=A1mogatn=C3=A1l minket ennek megval=C3=B3s=C3=ADt=C3=A1s=
+=C3=A1ban, s fontosnak =C3=A9rzed, hogy
+ki=C3=A1llj egy olyan =C3=BCgy mellett, mely seg=C3=ADt meg=C5=91rizni a te=
+lep=C3=BCl=C3=A9sed
+auton=C3=B3mi=C3=A1j=C3=A1t, a k=C3=B6rnyezeted =C3=A9s saj=C3=A1t eg=C3=A9=
+szs=C3=A9ged =C3=A9ps=C3=A9g=C3=A9t, ezt t=C3=B6bb m=C3=B3don is
+megteheted.
+
+Az els=C5=91 =C3=A9s legfontosabb, hogy a kezdem=C3=A9nyez=C3=A9s =C3=A9s m=
+aguk az al=C3=A1=C3=ADr=C3=B3 =C3=ADvek min=C3=A9l
+t=C3=B6bb emberhez eljussanak. Ez=C3=A9rt lehet=C5=91v=C3=A9 tett=C3=BCk az=
+ al=C3=A1=C3=ADr=C3=B3 =C3=ADvek
+=C3=B6r=C3=B6kbefogad=C3=A1s=C3=A1t, melyet post=C3=A1n juttatunk el az =C3=
+=B6r=C3=B6kbefogad=C3=B3knak.
+
+
+
+*Fogadj =C3=B6r=C3=B6kbe Te is egy al=C3=A1=C3=ADr=C3=A1sgy=C5=B1jt=C5=91 =
+=C3=ADvet*, hogy =C3=B6sszegy=C5=B1lj=C3=B6n a kell=C5=91
+sz=C3=A1m=C3=BA al=C3=A1=C3=ADr=C3=A1s =C3=A9s =C3=ADgy megakad=C3=A1lyozha=
+ssuk a kiemelt beruh=C3=A1z=C3=A1sokat!
+
+
+
+Egy al=C3=A1=C3=ADr=C3=A1sgy=C5=B1jt=C5=91 =C3=ADvre 15 al=C3=A1=C3=ADr=C3=
+=A1s f=C3=A9r, amit a kit=C3=B6lt=C5=91kh=C3=B6z eljuttatunk.
+Azonban nagyon k=C3=A9r=C3=BCnk arra, hogy vigy=C3=A1zz az =C3=ADvekre, mer=
+t elveszt=C3=A9se eset=C3=A9n
+az LMP-nek minden =C3=ADv=C3=A9rt a t=C3=B6rv=C3=A9nyben meghat=C3=A1rozott=
+ b=C3=BCntet=C3=A9st kell fizetnie.
+B=C5=91vebb inform=C3=A1ci=C3=B3 az =C3=B6r=C3=B6kbefogad=C3=A1s menet=C3=
+=A9r=C5=91l, ide kattintva
+<https://abk.lehetmas.hu/index.php?subid=3D54789&option=3Dcom_acymailing&ct=
+rl=3Durl&urlid=3D5300&mailid=3D1304>
+=C3=A9rhet=C5=91 el!
+
+
+
+A n=C3=A9pszavaz=C3=A1si al=C3=A1=C3=ADr=C3=A1sgy=C5=B1jt=C3=A9sben *aktivi=
+stak=C3=A9nt is seg=C3=ADthetsz!* 200 ezer
+al=C3=A1=C3=ADr=C3=A1s b=C3=A1r val=C3=B3ban sok, hissz=C3=BCk, hogy k=C3=
+=B6z=C3=B6s er=C5=91vel lehet=C5=91s=C3=A9g=C3=BCnk van arra,
+hogy el=C3=A9rj=C3=BCk a n=C3=A9pszavaz=C3=A1si kezdem=C3=A9nyez=C3=A9shez =
+sz=C3=BCks=C3=A9ges al=C3=A1=C3=ADr=C3=A1sok
+=C3=B6sszegy=C5=B1jt=C3=A9s=C3=A9t!
+
+
+
+Ide kattintva
+<https://abk.lehetmas.hu/index.php?subid=3D54789&option=3Dcom_acymailing&ct=
+rl=3Durl&urlid=3D5162&mailid=3D1304>,
+az =C5=B1rlap kit=C3=B6lt=C3=A9s=C3=A9vel jelentkezz al=C3=A1=C3=ADr=C3=A1s=
+gy=C5=B1jt=C5=91 =C3=B6nk=C3=A9ntesnek! Ne hagyjuk,
+hogy a korm=C3=A1ny minden t=C3=B6rv=C3=A9nyt megker=C3=BClve szolg=C3=A1lj=
+a ki a gazdas=C3=A1gi
+h=C3=A1torsz=C3=A1g =C3=A9s a nagyv=C3=A1llalatok =C3=A9rdekeit!
+
+
+
+Ha sz=C3=ADvesen r=C3=A9szt venn=C3=A9l a gy=C5=B1jt=C3=A9sben, de helyhez =
+vagy k=C3=B6tve,
+munkav=C3=A9gz=C3=A9sb=C5=91l, vagy egy=C3=A9b okb=C3=B3l kifoly=C3=B3lag k=
+isebb a mozg=C3=A1stered, azzal is
+seg=C3=ADthetsz nek=C3=BCnk hogy helyben *gy=C5=B1jt=C5=91pontot tartasz fe=
+nt*, ahova megadott
+id=C5=91pontban oda lehet menni al=C3=A1=C3=ADrni az =C3=ADvet, vagy leadni=
+ azokat. Ezt a
+lehet=C5=91s=C3=A9get helyi =C3=BCgyekkel foglalkoz=C3=B3 civil szervezetek=
+nek is aj=C3=A1nljuk.
+Gy=C5=B1jt=C5=91pont l=C3=A9trehoz=C3=A1s=C3=A1t ide kattintva
+<https://abk.lehetmas.hu/index.php?subid=3D54789&option=3Dcom_acymailing&ct=
+rl=3Durl&urlid=3D5301&mailid=3D1304>
+tudod jelezni!
+
+
+
+Mindenkire sz=C3=BCks=C3=A9g van, aki tenni akar az orsz=C3=A1g ki=C3=A1rus=
+=C3=ADt=C3=A1sa ellen! K=C3=A9rj=C3=BCk
+v=C3=A1laszd a sz=C3=A1modra legink=C3=A1bb megfelel=C5=91 m=C3=B3dot az =
+=C3=BCgy t=C3=A1mogat=C3=A1s=C3=A1ra!
+K=C3=B6sz=C3=B6nj=C3=BCk, hogy r=C3=A9szese leszel annak a k=C3=BCldet=C3=
+=A9snek, hogy meg=C3=A1ll=C3=ADtsuk az
+orsz=C3=A1g ki=C3=A1rus=C3=ADt=C3=A1s=C3=A1t!
+
+Tisztelettel:
+
+Cs=C3=A1rdi Antal, az LMP frakci=C3=B3vezet=C5=91-helyettese
+
+
+Ezt a levelet az=C3=A9rt kaptad az LMP =E2=80=93 Magyarorsz=C3=A1g Z=C3=B6l=
+d P=C3=A1rtj=C3=A1t=C3=B3l, mert
+kor=C3=A1bban megadtad nek=C3=BCnk adataidat =C3=A9s *banyus53@gmail.com
+<banyus53@gmail.com>* e-mail c=C3=ADmed kapcsolatfelv=C3=A9tel c=C3=A9lj=C3=
+=A1ra. Ha nem
+szeretn=C3=A9l tov=C3=A1bbiakban levelet kapni t=C5=91l=C3=BCnk, itt
+<https://abk.lehetmas.hu/index.php?option=3Dcom_tagnyilvantartas&view=3Dlei=
+ratkozas&email=3Dbanyus53@gmail.com&mailid=3D1304&acm=3D54789_1304>
+leiratkozhatsz. A szem=C3=A9lyes adataid kezel=C3=A9s=C3=A9r=C5=91l, t=C3=
+=A1rol=C3=A1s=C3=A1r=C3=B3l =C3=A9s m=C3=B3dj=C3=A1r=C3=B3l
+ezen a linken kaphatsz t=C3=A1j=C3=A9koztat=C3=A1st.
+<https://abk.lehetmas.hu/index.php?subid=3D54789&option=3Dcom_acymailing&ct=
+rl=3Durl&urlid=3D2133&mailid=3D1304>
+
+--000000000000aa5e01061e26d18d
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"auto"></div><br><div class=3D"gmail_quote"><div dir=3D"ltr" cla=
+ss=3D"gmail_attr">---------- Forwarded message ---------<br>Felad=C3=B3: <s=
+trong class=3D"gmail_sendername" dir=3D"auto">Cs=C3=A1rdi Antal</strong> <s=
+pan dir=3D"auto">&lt;<a href=3D"mailto:info@lehetmas.hu">info@lehetmas.hu</=
+a>&gt;</span><br>Date: 2024. j=C3=BAl. 26., P 15:00<br>Subject: N=C3=A9psza=
+vaz=C3=A1s az orsz=C3=A1g ki=C3=A1rus=C3=ADt=C3=A1sa ellen<br>To: Bug=C3=A1=
+r  =C3=81gnes M=C3=A1ria &lt;<a href=3D"mailto:banyus53@gmail.com">banyus53=
+@gmail.com</a>&gt;<br></div><br><br>
+
+
+
+
+
+<div>
+<p>=C2=A0</p>
+<div>
+<div>
+<table id=3D"m_8591513447266051282u_body" style=3D"border-collapse:collapse=
+;table-layout:fixed;border-spacing:0px;vertical-align:top;min-width:320px;m=
+argin:0px auto;background-color:rgb(255,255,255);width:100%" cellspacing=3D=
+"0" cellpadding=3D"0">
+
+<tbody><tr style=3D"vertical-align:top">
+<td style=3D"word-break:break-word;vertical-align:top;border-collapse:colla=
+pse">
+<table border=3D"0" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0">
+
+<tbody><tr>
+<td style=3D"background-color:rgb(255,255,255)" align=3D"center">
+<div style=3D"padding:0px;background-color:transparent">
+<div style=3D"margin:0px auto;min-width:320px;max-width:600px;word-break:br=
+eak-word;background-color:transparent">
+<div style=3D"border-collapse:collapse;display:table;width:100%;height:100%=
+;background-color:transparent">
+<table border=3D"0" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0">
+
+<tbody><tr>
+<td style=3D"padding:0px;background-color:transparent" align=3D"center">
+<table style=3D"width:600px" border=3D"0" cellspacing=3D"0" cellpadding=3D"=
+0">
+
+<tbody><tr style=3D"background-color:transparent">
+<td style=3D"width:600px;padding:0px;border:0px solid transparent" align=3D=
+"center" valign=3D"top" width=3D"600">
+<div style=3D"max-width:320px;min-width:600px;display:table-cell;vertical-a=
+lign:top">
+<div style=3D"height:100%;width:100%">
+<div style=3D"box-sizing:border-box;height:100%;padding:0px;border:0px soli=
+d transparent">
+<table style=3D"font-family:arial,helvetica,sans-serif" border=3D"0" width=
+=3D"100%" cellspacing=3D"0" cellpadding=3D"0">
+
+<tbody><tr>
+<td style=3D"word-break:break-word;padding:10px;font-family:arial,helvetica=
+,sans-serif" align=3D"left">
+<table border=3D"0" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0">
+
+<tbody><tr style=3D"line-height:0px">
+<td style=3D"padding-right:0px;padding-left:0px" align=3D"center"><img styl=
+e=3D"outline: none; text-decoration: none; clear: both; border: none; heigh=
+t: auto; float: none; width: 100%; max-width: 580px; display: inline-block;=
+" alt=3D"" width=3D"580" align=3D"center" border=3D"0"></td>
+</tr>
+
+</tbody></table>
+</td>
+</tr>
+
+</tbody></table>
+<table style=3D"font-family:arial,helvetica,sans-serif" border=3D"0" width=
+=3D"100%" cellspacing=3D"0" cellpadding=3D"0">
+
+<tbody><tr>
+<td style=3D"word-break:break-word;padding:10px;font-family:arial,helvetica=
+,sans-serif" align=3D"left">
+<table style=3D"border-collapse:collapse;table-layout:fixed;border-spacing:=
+0px;vertical-align:top;border-top:1px solid rgb(0,0,0)" border=3D"0" width=
+=3D"100%" cellspacing=3D"0" cellpadding=3D"0" align=3D"center">
+
+<tbody><tr style=3D"vertical-align:top">
+<td style=3D"word-break:break-word;vertical-align:top;font-size:0px;line-he=
+ight:0px;border-collapse:collapse">=C2=A0</td>
+</tr>
+
+</tbody></table>
+</td>
+</tr>
+
+</tbody></table>
+<table style=3D"font-family:arial,helvetica,sans-serif" border=3D"0" width=
+=3D"100%" cellspacing=3D"0" cellpadding=3D"0">
+
+<tbody><tr>
+<td style=3D"word-break:break-word;padding:10px;font-family:arial,helvetica=
+,sans-serif" align=3D"left">
+<div style=3D"font-family:Rubik,sans-serif;font-size:18px;color:rgb(80,80,8=
+0);line-height:140%;text-align:left">
+<div style=3D"font-family:Rubik,sans-serif;font-size:18px;color:rgb(80,80,8=
+0);line-height:140%;text-align:left">
+<p style=3D"line-height:140%"><span style=3D"color:rgb(0,0,0);line-height:2=
+5.2px">Kedves Bar=C3=A1tunk!</span></p>
+<p style=3D"margin:0cm;color:rgb(34,34,34);white-space:normal;background-co=
+lor:rgb(255,255,255);line-height:140%">2024. november elej=C3=A9ig 200 ezer
+=C3=A9rv=C3=A9nyes al=C3=A1=C3=ADr=C3=A1st kell =C3=B6sszegy=C5=B1jten=C3=
+=BCnk, hogy ut=C3=A1na orsz=C3=A1gos n=C3=A9pszavaz=C3=A1s
+keret=C3=A9ben mondhassuk ki k=C3=B6z=C3=B6sen: Nemet mondunk a Fidesz kiem=
+elt beruh=C3=A1z=C3=A1si t=C3=B6rv=C3=A9ny=C3=A9re! Ez a
+n=C3=A9pszavaz=C3=A1s nem p=C3=A1rtpolitikai, hanem nemzeti =C3=BCgy! Ez=C3=
+=A9rt mindenki r=C3=A9szv=C3=A9tel=C3=A9re
+sz=C3=A1m=C3=ADtunk, mert mindenkit megk=C3=A1ros=C3=ADt a kiemelt beruh=C3=
+=A1z=C3=A1sok m=C3=B3dszere.</p>
+<p style=3D"margin:0cm;color:rgb(34,34,34);white-space:normal;background-co=
+lor:rgb(255,255,255);line-height:140%">=C2=A0</p>
+<p style=3D"margin:0cm;color:rgb(34,34,34);white-space:normal;background-co=
+lor:rgb(255,255,255);line-height:140%">A =E2=80=9Ckiemelt
+beruh=C3=A1z=C3=A1soknak=E2=80=9D h=C3=ADvott gyakorlattal a hatalom a hely=
+i emberek megk=C3=A9rdez=C3=A9se n=C3=A9lk=C3=BCl, t=C3=B6bbnyire
+s=C3=BAlyosan k=C3=B6rnyezetk=C3=A1ros=C3=ADt=C3=B3 beruh=C3=A1z=C3=A1sokat=
+ er=C5=91ltet a telep=C3=BCl=C3=A9sekre. Ha nem
+t=C3=B6r=C3=B6lj=C3=BCk el a t=C3=B6rv=C3=A9nyt, akkor a Fidesz a tov=C3=A1=
+bbiakban is annak seg=C3=ADts=C3=A9g=C3=A9vel =C3=A9p=C3=ADt
+majd v=C3=A1rosaink sz=C3=A9l=C3=A9re akkugy=C3=A1rakat, k=C3=B6rnyezetszen=
+nyez=C5=91 szem=C3=A9tlerak=C3=B3kat, vagy betonoz le =C3=A9s
+saj=C3=A1t=C3=ADtja ki legszebb tavaink partszakaszait. A kiemelt beruh=C3=
+=A1z=C3=A1si t=C3=B6rv=C3=A9ny egy tr=C3=BCkk, aminek az a
+l=C3=A9nyege, hogy a Fidesz =C3=BAgy er=C5=91ltet r=C3=A1 telep=C3=BCl=C3=
+=A9seinkre k=C3=A1ros projekteket, hogy nem enged
+belesz=C3=B3l=C3=A1st az ott =C3=A9l=C5=91knek a d=C3=B6nt=C3=A9sbe, t=C3=
+=B6nkreteszi a k=C3=B6rnyezetet =C3=A9s elveszi az
+ad=C3=B3bev=C3=A9telt a helyiekt=C5=91l.</p>
+<p style=3D"margin:0cm;color:rgb(34,34,34);white-space:normal;background-co=
+lor:rgb(255,255,255);line-height:140%">=C2=A0</p>
+<p style=3D"margin:0cm;color:rgb(34,34,34);white-space:normal;background-co=
+lor:rgb(255,255,255);line-height:140%">A n=C3=A9pszavaz=C3=A1s sikere
+eset=C3=A9n elt=C3=B6r=C3=B6lj=C3=BCk a kiemelt beruh=C3=A1z=C3=A1sok t=C3=
+=B6rv=C3=A9ny=C3=A9t, mely a Fidesz szabadrabl=C3=A1s=C3=A1nak
+=C3=A9s az orsz=C3=A1g ki=C3=A1rus=C3=ADt=C3=A1s=C3=A1nak legfontosabb eszk=
+=C3=B6ze. =C3=8Dgy a korm=C3=A1ny nem hagyhatja figyelmen
+k=C3=ADv=C3=BCl a lakoss=C3=A1g =C3=A9rdekeit, s nem telep=C3=ADthet majd k=
+=C3=B6rnyezetszennyez=C5=91 beruh=C3=A1z=C3=A1sokat otthonaink
+k=C3=B6zel=C3=A9be!</p>
+<p style=3D"margin:0cm;color:rgb(34,34,34);white-space:normal;background-co=
+lor:rgb(255,255,255);line-height:140%">=C2=A0</p>
+<p style=3D"margin:0cm;color:rgb(34,34,34);white-space:normal;background-co=
+lor:rgb(255,255,255);line-height:140%">V=C3=A9dj=C3=BCk meg k=C3=B6z=C3=B6s=
+en
+term=C3=A9szeti =C3=A9rt=C3=A9keinket, s legyen v=C3=A9gre =C3=BAjra belesz=
+=C3=B3l=C3=A1sunk az =C3=A9let=C3=BCnket
+befoly=C3=A1sol=C3=B3 legfontosabb d=C3=B6nt=C3=A9sekbe! - Ha sz=C3=ADvesen=
+ t=C3=A1mogatn=C3=A1l minket ennek
+megval=C3=B3s=C3=ADt=C3=A1s=C3=A1ban, s fontosnak =C3=A9rzed, hogy ki=C3=A1=
+llj egy olyan =C3=BCgy mellett, mely seg=C3=ADt
+meg=C5=91rizni a telep=C3=BCl=C3=A9sed auton=C3=B3mi=C3=A1j=C3=A1t, a k=C3=
+=B6rnyezeted =C3=A9s saj=C3=A1t eg=C3=A9szs=C3=A9ged
+=C3=A9ps=C3=A9g=C3=A9t, ezt t=C3=B6bb m=C3=B3don is megteheted.</p>
+</div>
+</div>
+</td>
+</tr>
+
+</tbody></table>
+<table style=3D"font-family:arial,helvetica,sans-serif" border=3D"0" width=
+=3D"100%" cellspacing=3D"0" cellpadding=3D"0">
+
+<tbody><tr>
+<td style=3D"word-break:break-word;padding:10px;font-family:arial,helvetica=
+,sans-serif" align=3D"left">
+<table border=3D"0" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0">
+
+<tbody><tr style=3D"line-height:0px">
+<td style=3D"padding-right:0px;padding-left:0px" align=3D"center"><img styl=
+e=3D"outline: none; text-decoration: none; clear: both; border: none; heigh=
+t: auto; float: none; width: 100%; max-width: 580px; display: inline-block;=
+" alt=3D"" width=3D"580" align=3D"center" border=3D"0"></td>
+</tr>
+
+</tbody></table>
+</td>
+</tr>
+
+</tbody></table>
+<table style=3D"font-family:arial,helvetica,sans-serif" border=3D"0" width=
+=3D"100%" cellspacing=3D"0" cellpadding=3D"0">
+
+<tbody><tr>
+<td style=3D"word-break:break-word;padding:10px;font-family:arial,helvetica=
+,sans-serif" align=3D"left">
+<div style=3D"font-family:Rubik,sans-serif;font-size:18px;color:rgb(80,80,8=
+0);line-height:140%;text-align:left">
+<p style=3D"margin:0cm;color:rgb(34,34,34);white-space:normal;background-co=
+lor:rgb(255,255,255);line-height:140%">Az els=C5=91 =C3=A9s legfontosabb, h=
+ogy a
+kezdem=C3=A9nyez=C3=A9s =C3=A9s maguk az al=C3=A1=C3=ADr=C3=B3 =C3=ADvek mi=
+n=C3=A9l t=C3=B6bb emberhez eljussanak. Ez=C3=A9rt
+lehet=C5=91v=C3=A9 tett=C3=BCk az al=C3=A1=C3=ADr=C3=B3 =C3=ADvek =C3=B6r=
+=C3=B6kbefogad=C3=A1s=C3=A1t, melyet post=C3=A1n juttatunk el
+az =C3=B6r=C3=B6kbefogad=C3=B3knak.</p>
+<p style=3D"margin:0cm;color:rgb(34,34,34);white-space:normal;background-co=
+lor:rgb(255,255,255);line-height:140%">=C2=A0</p>
+<p style=3D"margin:0cm;color:rgb(34,34,34);white-space:normal;background-co=
+lor:rgb(255,255,255);line-height:140%"><strong>Fogadj =C3=B6r=C3=B6kbe Te i=
+s egy
+al=C3=A1=C3=ADr=C3=A1sgy=C5=B1jt=C5=91 =C3=ADvet</strong>, hogy =C3=B6sszeg=
+y=C5=B1lj=C3=B6n a kell=C5=91 sz=C3=A1m=C3=BA
+al=C3=A1=C3=ADr=C3=A1s =C3=A9s =C3=ADgy megakad=C3=A1lyozhassuk a kiemelt b=
+eruh=C3=A1z=C3=A1sokat!</p>
+<p style=3D"margin:0cm;color:rgb(34,34,34);white-space:normal;background-co=
+lor:rgb(255,255,255);line-height:140%">=C2=A0</p>
+<p style=3D"margin:0cm;color:rgb(34,34,34);white-space:normal;background-co=
+lor:rgb(255,255,255);line-height:140%">Egy
+al=C3=A1=C3=ADr=C3=A1sgy=C5=B1jt=C5=91 =C3=ADvre 15 al=C3=A1=C3=ADr=C3=A1s =
+f=C3=A9r, amit a kit=C3=B6lt=C5=91kh=C3=B6z eljuttatunk.
+Azonban nagyon k=C3=A9r=C3=BCnk arra, hogy vigy=C3=A1zz az =C3=ADvekre, mer=
+t elveszt=C3=A9se eset=C3=A9n az LMP-nek minden
+=C3=ADv=C3=A9rt a t=C3=B6rv=C3=A9nyben meghat=C3=A1rozott b=C3=BCntet=C3=A9=
+st kell fizetnie. B=C5=91vebb inform=C3=A1ci=C3=B3 az
+=C3=B6r=C3=B6kbefogad=C3=A1s menet=C3=A9r=C5=91l, <a href=3D"https://abk.le=
+hetmas.hu/index.php?subid=3D54789&amp;option=3Dcom_acymailing&amp;ctrl=3Dur=
+l&amp;urlid=3D5300&amp;mailid=3D1304" rel=3D"noopener
+noreferrer noreferrer" target=3D"_blank">ide kattintva</a> =C3=A9rhet=C5=91=
+ el!</p>
+<p style=3D"margin:0cm;color:rgb(34,34,34);white-space:normal;background-co=
+lor:rgb(255,255,255);line-height:140%">=C2=A0</p>
+<p style=3D"margin:0cm;color:rgb(34,34,34);white-space:normal;background-co=
+lor:rgb(255,255,255);line-height:140%">A n=C3=A9pszavaz=C3=A1si
+al=C3=A1=C3=ADr=C3=A1sgy=C5=B1jt=C3=A9sben <strong>aktivistak=C3=A9nt is se=
+g=C3=ADthetsz!</strong> 200 ezer al=C3=A1=C3=ADr=C3=A1s
+b=C3=A1r val=C3=B3ban sok, hissz=C3=BCk, hogy k=C3=B6z=C3=B6s er=C5=91vel l=
+ehet=C5=91s=C3=A9g=C3=BCnk van arra, hogy el=C3=A9rj=C3=BCk a
+n=C3=A9pszavaz=C3=A1si kezdem=C3=A9nyez=C3=A9shez sz=C3=BCks=C3=A9ges al=C3=
+=A1=C3=ADr=C3=A1sok
+=C3=B6sszegy=C5=B1jt=C3=A9s=C3=A9t!</p>
+<p style=3D"margin:0cm;color:rgb(34,34,34);white-space:normal;background-co=
+lor:rgb(255,255,255);line-height:140%">=C2=A0</p>
+<p style=3D"margin:0cm;color:rgb(34,34,34);white-space:normal;background-co=
+lor:rgb(255,255,255);line-height:140%"><a href=3D"https://abk.lehetmas.hu/i=
+ndex.php?subid=3D54789&amp;option=3Dcom_acymailing&amp;ctrl=3Durl&amp;urlid=
+=3D5162&amp;mailid=3D1304" rel=3D"noopener
+noreferrer noreferrer" target=3D"_blank">Ide kattintva</a>, az =C5=B1rlap k=
+it=C3=B6lt=C3=A9s=C3=A9vel jelentkezz al=C3=A1=C3=ADr=C3=A1sgy=C5=B1jt=C5=
+=91
+=C3=B6nk=C3=A9ntesnek! Ne hagyjuk, hogy a korm=C3=A1ny minden t=C3=B6rv=C3=
+=A9nyt megker=C3=BClve szolg=C3=A1lja ki a gazdas=C3=A1gi
+h=C3=A1torsz=C3=A1g =C3=A9s a nagyv=C3=A1llalatok =C3=A9rdekeit!</p>
+<p style=3D"margin:0cm;color:rgb(34,34,34);white-space:normal;background-co=
+lor:rgb(255,255,255);line-height:140%">=C2=A0</p>
+<p style=3D"margin:0cm;color:rgb(34,34,34);white-space:normal;background-co=
+lor:rgb(255,255,255);line-height:140%">Ha sz=C3=ADvesen r=C3=A9szt
+venn=C3=A9l a gy=C5=B1jt=C3=A9sben, de helyhez vagy k=C3=B6tve, munkav=C3=
+=A9gz=C3=A9sb=C5=91l, vagy egy=C3=A9b okb=C3=B3l
+kifoly=C3=B3lag kisebb a mozg=C3=A1stered, azzal is seg=C3=ADthetsz nek=C3=
+=BCnk hogy helyben <strong>gy=C5=B1jt=C5=91pontot tartasz
+fent</strong>, ahova megadott id=C5=91pontban oda lehet menni al=C3=A1=C3=
+=ADrni az =C3=ADvet, vagy leadni azokat. Ezt a lehet=C5=91s=C3=A9get
+helyi =C3=BCgyekkel foglalkoz=C3=B3 civil szervezeteknek is aj=C3=A1nljuk. =
+Gy=C5=B1jt=C5=91pont l=C3=A9trehoz=C3=A1s=C3=A1t <a href=3D"https://abk.leh=
+etmas.hu/index.php?subid=3D54789&amp;option=3Dcom_acymailing&amp;ctrl=3Durl=
+&amp;urlid=3D5301&amp;mailid=3D1304" rel=3D"noopener
+noreferrer noreferrer" target=3D"_blank">ide kattintva</a> tudod jelezni!</=
+p>
+<p style=3D"margin:0cm;color:rgb(34,34,34);white-space:normal;background-co=
+lor:rgb(255,255,255);line-height:140%">=C2=A0</p>
+<p style=3D"margin:0cm;color:rgb(34,34,34);white-space:normal;background-co=
+lor:rgb(255,255,255);line-height:140%">Mindenkire sz=C3=BCks=C3=A9g van, ak=
+i
+tenni akar az orsz=C3=A1g ki=C3=A1rus=C3=ADt=C3=A1sa ellen! K=C3=A9rj=C3=BC=
+k v=C3=A1laszd a sz=C3=A1modra legink=C3=A1bb
+megfelel=C5=91 m=C3=B3dot az =C3=BCgy t=C3=A1mogat=C3=A1s=C3=A1ra! K=C3=B6s=
+z=C3=B6nj=C3=BCk, hogy r=C3=A9szese leszel annak a
+k=C3=BCldet=C3=A9snek, hogy meg=C3=A1ll=C3=ADtsuk az orsz=C3=A1g ki=C3=A1ru=
+s=C3=ADt=C3=A1s=C3=A1t!</p>
+</div>
+</td>
+</tr>
+
+</tbody></table>
+<table style=3D"font-family:arial,helvetica,sans-serif" border=3D"0" width=
+=3D"100%" cellspacing=3D"0" cellpadding=3D"0">
+
+<tbody><tr>
+<td style=3D"word-break:break-word;padding:10px;font-family:arial,helvetica=
+,sans-serif" align=3D"left">
+<div style=3D"font-family:Rubik,sans-serif;font-size:18px;color:rgb(80,80,8=
+0);line-height:140%;text-align:left">
+<p style=3D"line-height:140%"><span style=3D"color:rgb(0,0,0);line-height:2=
+5.2px">Tisztelettel: </span></p>
+<p style=3D"line-height:140%"><span style=3D"color:rgb(0,0,0);line-height:2=
+5.2px">Cs=C3=A1rdi Antal, az LMP
+frakci=C3=B3vezet=C5=91-helyettese</span></p>
+</div>
+</td>
+</tr>
+
+</tbody></table>
+<table style=3D"font-family:arial,helvetica,sans-serif" border=3D"0" width=
+=3D"100%" cellspacing=3D"0" cellpadding=3D"0">
+
+<tbody><tr>
+<td style=3D"word-break:break-word;padding:10px;font-family:arial,helvetica=
+,sans-serif" align=3D"left">
+<table style=3D"border-collapse:collapse;table-layout:fixed;border-spacing:=
+0px;vertical-align:top;border-top:1px solid rgb(0,0,0)" border=3D"0" width=
+=3D"100%" cellspacing=3D"0" cellpadding=3D"0" align=3D"center">
+
+<tbody><tr style=3D"vertical-align:top">
+<td style=3D"word-break:break-word;vertical-align:top;font-size:0px;line-he=
+ight:0px;border-collapse:collapse">=C2=A0</td>
+</tr>
+
+</tbody></table>
+</td>
+</tr>
+
+</tbody></table>
+<table style=3D"font-family:arial,helvetica,sans-serif" border=3D"0" width=
+=3D"100%" cellspacing=3D"0" cellpadding=3D"0">
+
+<tbody><tr>
+<td style=3D"word-break:break-word;padding:10px;font-family:arial,helvetica=
+,sans-serif" align=3D"left">
+<div style=3D"font-size:14px;color:rgb(80,80,80);line-height:140%;text-alig=
+n:left">
+<p style=3D"line-height:140%">Ezt a levelet az=C3=A9rt kaptad az LMP =E2=80=
+=93 Magyarorsz=C3=A1g Z=C3=B6ld P=C3=A1rtj=C3=A1t=C3=B3l, mert
+kor=C3=A1bban megadtad nek=C3=BCnk adataidat =C3=A9s <em><a href=3D"mailto:=
+banyus53@gmail.com" target=3D"_blank" rel=3D"noreferrer">banyus53@gmail.com=
+</a></em> e-mail c=C3=ADmed kapcsolatfelv=C3=A9tel
+c=C3=A9lj=C3=A1ra. Ha nem szeretn=C3=A9l tov=C3=A1bbiakban levelet kapni t=
+=C5=91l=C3=BCnk, <a href=3D"https://abk.lehetmas.hu/index.php?option=3Dcom_=
+tagnyilvantartas&amp;view=3Dleiratkozas&amp;email=3Dbanyus53@gmail.com&amp;=
+mailid=3D1304&amp;acm=3D54789_1304" rel=3D"noopener noreferrer noreferrer" =
+target=3D"_blank">itt</a> leiratkozhatsz. <a href=3D"https://abk.lehetmas.h=
+u/index.php?subid=3D54789&amp;option=3Dcom_acymailing&amp;ctrl=3Durl&amp;ur=
+lid=3D2133&amp;mailid=3D1304" rel=3D"noopener noreferrer noreferrer" target=
+=3D"_blank">A
+szem=C3=A9lyes adataid kezel=C3=A9s=C3=A9r=C5=91l, t=C3=A1rol=C3=A1s=C3=A1r=
+=C3=B3l =C3=A9s m=C3=B3dj=C3=A1r=C3=B3l ezen a linken
+kaphatsz t=C3=A1j=C3=A9koztat=C3=A1st.</a></p>
+</div>
+</td>
+</tr>
+
+</tbody></table>
+</div>
+</div>
+</div>
+</td>
+</tr>
+
+</tbody></table>
+</td>
+</tr>
+
+</tbody></table>
+</div>
+</div>
+</div>
+</td>
+</tr>
+
+</tbody></table>
+</td>
+</tr>
+
+</tbody></table>
+</div>
+<p>=C2=A0</p>
+</div><img alt=3D"" border=3D"0" height=3D"1" width=3D"50"></div>
+
+
+
+</div>
+
+--000000000000aa5e01061e26d18d--

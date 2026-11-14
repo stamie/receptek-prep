@@ -1,0 +1,93 @@
+Delivered-To: estampel@gmail.com
+Received: by 2002:a05:6359:4c85:b0:1ae:f888:927f with SMTP id kk5csp115743rwc;
+        Tue, 13 Aug 2024 00:44:23 -0700 (PDT)
+X-Received: by 2002:a17:907:7d90:b0:a7c:d284:4f1d with SMTP id a640c23a62f3a-a80f0ba58b8mr150467566b.28.1723535063428;
+        Tue, 13 Aug 2024 00:44:23 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1723535063; cv=none;
+        d=google.com; s=arc-20160816;
+        b=k/+lnIMXtjs8RLSGwOVPXVUy93MQR8/hMHZ3nFYaWfHS+HD9MEeiLjSNtfGZ3Zf4Ww
+         /oY9VKNd0fdAQI/XRkvfnytlYDVodCZfVcfr2/RhRYusagz+4nP+5i+Np4Y0BAKrr7a6
+         YcGfHU7EDTAIMFk5HEdszHXWjcmpwcjK31hJtrY6sjrlaqe4PvDtQIMocpZVDWt0+0G8
+         ag7Pgo2PQhWi3F3Zs7CBXgMud6mWVEoxpn5u8E2xN0rH0svXLCluOh0Ba3q3f2w7HFCi
+         4eFSwLnvcHAaQUpHjsSZ8kVrgGesEwuYmPoE4qtWgZFyTpzgh5IZ/XidOeoCc+QM9rSi
+         syJg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=8CV7FIhJaBQhFdOInGVZvUUwpAxgMmb64lhtTMFVJx8=;
+        fh=wF/Yrd2E0xeKwPH74kML7cQSth+Fl4bwhVNrybJ4uh4=;
+        b=dLcgHIY+vg4HGeRuuLKd0k6L7Wmu8x9zsx9eSsY8Lxbmu3Ss+4aNkEk6v2fhnt0guz
+         IZm/uI6Lbp+0QbZj6GeB0aIaFggaRq9yWuPogGl2eHY3ES6b1hWFBV0hnOd/0/Z3aHJc
+         MdRchMpL37kY2kcULGHQeORdvlhmMkyGJtbGgXpfs6H+B2ZOSncNTnruFqZkPK0insIM
+         CdmeN2HM2JmoiLD/0g1TkCGBHlMKPhGobHcGT86dhbGSlNxzRNHC6UrELkSHnmtX9Lbm
+         RBEAolW2wlFmcgpluE1tpjPdwL12osqYdiOPP2AE0a9+MlGGbNN+kGVyvVEtX6gm5Rb/
+         mIsw==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b="XJ3CcJ/o";
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <banyus53@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id a640c23a62f3a-a80f417ab91sor38757966b.7.2024.08.13.00.44.23
+        for <estampel@gmail.com>
+        (Google Transport Security);
+        Tue, 13 Aug 2024 00:44:23 -0700 (PDT)
+Received-SPF: pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b="XJ3CcJ/o";
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1723535063; x=1724139863; dara=google.com;
+        h=to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=8CV7FIhJaBQhFdOInGVZvUUwpAxgMmb64lhtTMFVJx8=;
+        b=XJ3CcJ/olx+yD3LHxE98eG+N1Ir200olZVwyGHMMzaFiO866DIFkPP/F5UMmGpPEQA
+         p/IAkLGuhXRiCXxX9W/EI5Yg7nG7KOJBPelp3UofAwwUyg258dtG7ZKdU4TO1VNaO2WG
+         sbDNAdg8n7HtUCTl7nzbTtrbibsS6tRb7E/B5tnwt8S2xhz0gsY9eo95zuPNXMhRJHGG
+         ThGnTypKoJGvRUku7HueyTvA4R14HqOp09+Fe48A2FxzfncJG6QIvUKpjYQL0wevOWpO
+         t8pNcwoZSk9pSO88VL8FBwgvG5iSKCT7XWXgzGa0tRNCexDEPN8oVnZRJ0P1bsOtQScR
+         R4wA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1723535063; x=1724139863;
+        h=to:subject:message-id:date:from:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=8CV7FIhJaBQhFdOInGVZvUUwpAxgMmb64lhtTMFVJx8=;
+        b=lODC9ub5Ozo+XcPU1oHsZ5BXhIjhHPu2c7ztRNj6TwTikIma5+F8yXQ7xkKhv1Zc2U
+         z6ENr1tR+G6650PMQzsJ33xhyuG/1y7jMoXOP3tGB5VEYGyshhKUZ2AOBdtY5aSuRtRw
+         roHMWnrt5iFNUT5PwsLcMZeCBVfNTZI54EWA9wgc1bKjTz2qnIURBY9c3SZKOBiPWSfz
+         2+1BNKMCaSD46lOAjzEkvAQXW/j/VmQIgmbwbElsKbgYJtSJ0G10bB6TVt7HviibZ5K5
+         66Kk4E4sgZN/YfkNot+hrezTWEOtW//h8FPiS5G2yOXw7KoGAvAmkCTIY+fwbo4JQzzM
+         QPpQ==
+X-Gm-Message-State: AOJu0Yy3rsrbRTssc6JWi26VU/wjscFTnRzQNjKl6IDVr4mfpSEuTUWO
+	wkfPN7i/yzGq8WmQiuy8to9QcY5+e5NUhlmNuv+VbslP4knjT1PDs8AEufsCZZWOxte3E27acFb
+	eiRId3xl9pct60gCvSqmQp0md4RpKfA==
+X-Google-Smtp-Source: AGHT+IEsyS655KZz2hRWMDPBR5v8F6PMllsXQ7QdB/Vo70ZMBF8rnDCIZJxLYUQeeRb+HA4UOkwojPRUmMpTPhnxYJY=
+X-Received: by 2002:a17:907:6095:b0:a77:c051:36a9 with SMTP id
+ a640c23a62f3a-a80f0ad8d64mr189350466b.9.1723535062505; Tue, 13 Aug 2024
+ 00:44:22 -0700 (PDT)
+MIME-Version: 1.0
+From: =?UTF-8?B?w4FnbmVzIEJ1Z8Ohcg==?= <banyus53@gmail.com>
+Date: Tue, 13 Aug 2024 09:44:11 +0200
+Message-ID: <CA+39czXoOT_LrBr=V=b7NjuL1iO1DgZ1kLu=68GOgb4wCfUcQw@mail.gmail.com>
+Subject: =?UTF-8?B?WmFicGVoZWx5ICw5a3LDqW1lcyB6YWJrw6FzYSwgbWVseSBkw6lsaWcgZWx0ZWzDrXQgfA==?=
+	=?UTF-8?B?IE5vc2FsdHk=?=
+To: Emese Stampel <estampel@gmail.com>
+Content-Type: multipart/alternative; boundary="00000000000028a181061f8bc7e4"
+
+--00000000000028a181061f8bc7e4
+Content-Type: text/plain; charset="UTF-8"
+
+https://www.nosalty.hu/ajanlo/zabkasa-gyumolcs-zab-reggeli-recept
+
+--00000000000028a181061f8bc7e4
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"auto"><a href=3D"https://www.nosalty.hu/ajanlo/zabkasa-gyumolcs=
+-zab-reggeli-recept">https://www.nosalty.hu/ajanlo/zabkasa-gyumolcs-zab-reg=
+geli-recept</a>=C2=A0</div>
+
+--00000000000028a181061f8bc7e4--

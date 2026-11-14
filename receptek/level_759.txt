@@ -1,0 +1,796 @@
+Delivered-To: estampel@gmail.com
+Received: by 2002:a05:6358:9141:b0:1c5:f3c5:8b74 with SMTP id r1csp3460660rwr;
+        Sat, 16 Nov 2024 07:11:43 -0800 (PST)
+X-Received: by 2002:a17:906:c112:b0:aa4:7905:b823 with SMTP id a640c23a62f3a-aa48347cb36mr552246166b.32.1731769902962;
+        Sat, 16 Nov 2024 07:11:42 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1731769902; cv=none;
+        d=google.com; s=arc-20240605;
+        b=kgkcfojKObBABkC0qvpx1uq+RJQ4H179IaGuReA1cKGR0iVGdjNj8511EWaW61/umg
+         +LZ65Fksa4WY8qnIXBNGSSuzilaId54ZDBmC6LRsEe07UfLzCSzkC1I6olHdEC7D+2aB
+         t9/B9bP0T31SteQSpWlr0qkO+0u/Pz/f9KnwQx1dzODrUDuDFCM3dVLh2gdbXCJomGc/
+         TLaOeEIwKp2RmGPJE72gnbUCV2Iy1016MJd+xmGmKfy24MneGfiRhA25Fq7SsGZ+PvRV
+         +j+uqjoqdCLFLpwuFmNL8M/AVQskg1wIjJm2f/7Be9qNKNmu0242zZbNRS4udVcvHGaW
+         wBng==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=DW5vcXZmKyUOmADXje3KbzG2zUWeg9Rr6UhVERPxjsg=;
+        fh=wF/Yrd2E0xeKwPH74kML7cQSth+Fl4bwhVNrybJ4uh4=;
+        b=jbz6xYRRWNpYaOHPHxu1GUCDkSjf6dWk6RSkhHKvtIj03Yhe2HoC4XF8x3098vwLQV
+         mqhEveki4t6kIAJVYF5MunTG4fYrBjiM0dRUFm+kdNqVG22WmAS1edKtY1xp2LyHtELD
+         UsYPWzjnOlMXu6+o6mn3S0i7hISCyn03Bk+20StoLCg03c9kzX4gAtsfjWeAPaDpM3KC
+         cJjehxkoCi5QtaB5LC43NAamYUILHW8HtHnHST5DW6x7ORG18Ooz2B9BzOSuFXK7lqeQ
+         0/Y3iYfkFZ574aGVA0S6GfZrWKVT6CqhcJuBekAkQ+c1BQ7CoxFdd66UdOheUPrtG4Ui
+         /NiA==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b="W4lVso/r";
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <banyus53@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id a640c23a62f3a-aa20dc734cdsor267760566b.0.2024.11.16.07.11.42
+        for <estampel@gmail.com>
+        (Google Transport Security);
+        Sat, 16 Nov 2024 07:11:42 -0800 (PST)
+Received-SPF: pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b="W4lVso/r";
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1731769902; x=1732374702; dara=google.com;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=DW5vcXZmKyUOmADXje3KbzG2zUWeg9Rr6UhVERPxjsg=;
+        b=W4lVso/rgBLZebvZAAF3QMESmmZIO1oiF/l6/HF914rlDqzY9B1VjuXzAiyM7zS9pz
+         2dN8vHxIYztqI8M78vm+dY5xC8n2zlQvH39uKmed7YK+UZ0UhvmnBcHFk83cI7ZOqxZB
+         NGn99sstnY9rD6RcqZq9P28def21VeKhAudUcOxWjmtmb7+qxQxNUu2pbgILAEZ9mXzz
+         q883rZqI3ejLyWC63Njczea80AZR0+niV5uqfy/4a2QfCoiyTnUGmhlaGe+E06YY/RR0
+         0UU+g/c2nu8J/uS5UPZKwG6MX1Niyw2fxkAlYmOwidT0qwgmnYQdSDRhhYNnG3YoMdiU
+         21EQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731769902; x=1732374702;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=DW5vcXZmKyUOmADXje3KbzG2zUWeg9Rr6UhVERPxjsg=;
+        b=mEVFN9SOEy2GIstSflr4G+zplDE9cyL8GiD/7BVjRib3wyBrGkY27HFyRs1gbd6VY+
+         v+UiY5LanDCzPpCZ35z7ie6t2NGb/f7EaFnJ+VEF5i/9WVwEQ/JfJx3jfqS0eOILd5YY
+         wJpPNLadKhEYkm9ug7BShafrRu8SS78TJZcPWC6y0VjtN5JMdGmWfVG4jHJXqRtyXY0w
+         9t5mPGmrz2l1MJUvfZKMiwJAiZRnGttyyG8v7chhM8UkQfw3K6VhcOZeEsgf9X1lOGiU
+         qZ6sBpVJrNR50Dj1wiej5qpFJG+TvznldiLoLO31Z+FmrarQx89Ya6hrUo4CRAiWeqtu
+         SCTA==
+X-Gm-Message-State: AOJu0YzZ8uGbTZkDTMBWmNMZeZFYTEPSA5BJLtloHU+xRt1xrUsSmqIR
+	eC4WPGLGfM8RuIEBCqQJ14vk1jpcG7i7LykKJ9SLhVlaYhKcreCASZM1++x0lGvAeaEppO0LAdJ
+	pTr7l110UshwYK7X1XdUf7aMohniiEA==
+X-Google-Smtp-Source: AGHT+IGzd2JaPme8wTqB42M+7YkMQOpM1YKZnLCp/1i10M+jYQfSy4c9CUKV6SBHruDGHWeeiGoCkc/ni2BlvUcMcfQ=
+X-Received: by 2002:a17:907:d01:b0:a9a:1115:486e with SMTP id
+ a640c23a62f3a-aa483525d0bmr473388766b.45.1731769902034; Sat, 16 Nov 2024
+ 07:11:42 -0800 (PST)
+MIME-Version: 1.0
+References: <4iuxh8.v90wp5.m3fzn5bu@lm>
+In-Reply-To: <4iuxh8.v90wp5.m3fzn5bu@lm>
+From: =?UTF-8?B?w4FnbmVzIEJ1Z8Ohcg==?= <banyus53@gmail.com>
+Date: Sat, 16 Nov 2024 16:11:15 +0100
+Message-ID: <CA+39czW740EqKi5g3kMhw+gp6F8uAH=ThRcOWTABeLMRBZHPmQ@mail.gmail.com>
+Subject: Fwd: Kedvenc mindenmentes desszertjeim
+To: Emese Stampel <estampel@gmail.com>
+Content-Type: multipart/alternative; boundary="000000000000d7f7c106270919d9"
+
+--000000000000d7f7c106270919d9
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+---------- Forwarded message ---------
+Felad=C3=B3: Andr=C3=A1si N=C3=B3ra - mindenmentes.hu <nora@mindenmentes.hu=
+>
+Date: 2024. nov. 13., Sze, 15:40
+Subject: Kedvenc mindenmentes desszertjeim
+To: <banyus53@gmail.com>
+
+
+Gy=C3=BCm=C3=B6lcs=C3=B6s, csokis, kr=C3=A9mes, habos finoms=C3=A1gok.
+
+*Kedves =C3=81gnes ,*
+
+
+
+tudom, ennyire sokat tud jelenteni egy olyan desszert, amib=C5=91l t=C3=A9n=
+yleg
+nyugodt sz=C3=ADvvel ehetsz akkor is, ha =C3=A9ppen egy =C3=A9trend- =C3=A9=
+s =C3=A9letm=C3=B3d v=C3=A1lt=C3=A1s
+kell=C5=91s k=C3=B6zep=C3=A9n vagy. =F0=9F=99=82 2012 =C3=B3ta k=C3=A9sz=C3=
+=ADtek mindenmentes desszerteket - ezek
+eleinte "csak" hozz=C3=A1adott cukor-, tej-, =C3=A9s glut=C3=A9nmentesek vo=
+ltak, majd
+ahogy megjelent az =C3=A9let=C3=BCnkben a teljes =C3=A9rt=C3=A9k=C5=B1 n=C3=
+=B6v=C3=A9nyi =C3=A9trend, egyre ink=C3=A1bb
+ez a szeml=C3=A9let hat=C3=A1rozta meg a desszertjeimet is: teljes =C3=A9rt=
+=C3=A9k=C5=B1 n=C3=B6v=C3=A9nyi
+alapanyagok, min=C3=A9l t=C3=A1pl=C3=A1l=C3=B3bb finoms=C3=A1gok.
+
+
+
+=C3=96ssze=C3=A1ll=C3=ADtottam egy csokorra val=C3=B3t gy=C3=BCm=C3=B6lcs=
+=C3=B6s, csokis, s=C3=BClt =C3=A9s hideg
+finoms=C3=A1gokb=C3=B3l, fogadd =C5=91ket t=C5=91lem szeretettel:
+*Mindenmentes r=C3=A9patorta*
+<https://listamester.hu/lmui/faces/mails/Link.jsp?m=3D3nv3xa9antvb5s983n&l=
+=3D8gh180zd4mtqi6rp&st=3Drtm>
+
+A kisl=C3=A1nyom kedvenc s=C3=BCtem=C3=A9nye. El=C5=91fordul, hogy a citrom=
+os m=C3=A1zat valamilyen
+savanyk=C3=A1s lekv=C3=A1rra cser=C3=A9li, =C3=A9s =C3=BAgy is nagyon finom=
+.
+<https://listamester.hu/lmui/faces/mails/Link.jsp?m=3D3nv3xa9antvb5s983n&l=
+=3D8gh180zd4mtqi6rp&st=3Drtm>
+
+*K=C3=B3kuszgoly=C3=B3*
+<https://listamester.hu/lmui/faces/mails/Link.jsp?m=3Dt473kahauthbos3znx&l=
+=3D8gh1x04drm2ue37j&st=3Drtm>
+<https://listamester.hu/lmui/faces/mails/Link.jsp?m=3Dt473kahauthbos3znx&l=
+=3D8gh1x04drm2ue37j&st=3Drtm>
+
+*Mindenmentes epertorta*
+<https://listamester.hu/lmui/faces/mails/Link.jsp?m=3Dksd3eaiaxt2b1sb88r&l=
+=3Dkxf100hdpm0w3rhg&st=3Drtm>
+<https://listamester.hu/lmui/faces/mails/Link.jsp?m=3Dksd3eaiaxt2b1sb88r&l=
+=3Dkxf100hdpm0w3rhg&st=3Drtm>
+
+*Balzsamos eperhab*
+<https://listamester.hu/lmui/faces/mails/Link.jsp?m=3D6563qada2tsb1sg7ai&l=
+=3Diqx1d0yd6mxy8n6v&st=3Drtm>
+<https://listamester.hu/lmui/faces/mails/Link.jsp?m=3D6563qada2tsb1sg7ai&l=
+=3Diqx1d0yd6mxy8n6v&st=3Drtm>
+
+*S=C3=BCt=C5=91ben s=C3=BClt f=C3=A1nkok sz=C3=ADnes m=C3=A1zzal*
+<https://listamester.hu/lmui/faces/mails/Link.jsp?m=3D02u3pavabtib2snxwe&l=
+=3Dqgq1h0kdzix4cvu5&st=3Drtm>
+<https://listamester.hu/lmui/faces/mails/Link.jsp?m=3D02u3pavabtib2snxwe&l=
+=3Dqgq1h0kdzix4cvu5&st=3Drtm>
+
+*Ban=C3=A1n*
+<https://listamester.hu/lmui/faces/mails/Link.jsp?m=3Didp3sa4aotobjsxaw2&l=
+=3Ds0a110yd9ncjrkbc&st=3Drtm>*fagyi
+=C3=BAtmutat=C3=B3*
+<https://listamester.hu/lmui/faces/mails/Link.jsp?m=3Didp3sa4aotobjsxaw2&l=
+=3Ds0a110yd9ncjrkbc&st=3Drtm>
+<https://listamester.hu/lmui/faces/mails/Link.jsp?m=3Dv6g3radaptwbussmk1&l=
+=3D4v41205dfnykkydk&st=3Drtm>
+
+*=C3=89desburgony=C3=A1s brownie*
+<https://listamester.hu/lmui/faces/mails/Link.jsp?m=3Dwmd3kapa8t0b4su662&l=
+=3Djgg1u0bdun3mza0b&st=3Drtm>
+<https://listamester.hu/lmui/faces/mails/Link.jsp?m=3Dwmd3kapa8t0b4su662&l=
+=3Djgg1u0bdun3mza0b&st=3Drtm>
+
+*Csokol=C3=A1d=C3=A9 puding =C3=A9desburgony=C3=A1b=C3=B3l*
+<https://listamester.hu/lmui/faces/mails/Link.jsp?m=3Delp39ahagt8brstu17&l=
+=3Dr9o1p0jdynuow0de&st=3Drtm>
+<https://listamester.hu/lmui/faces/mails/Link.jsp?m=3Delp39ahagt8brstu17&l=
+=3Dr9o1p0jdynuow0de&st=3Drtm>
+
+*Habk=C3=B6nny=C5=B1 csokikr=C3=A9m*
+<https://listamester.hu/lmui/faces/mails/Link.jsp?m=3D9nx3aajayt3b5s851n&l=
+=3Dr091c02d3nnqyw0k&st=3Drtm>
+<https://listamester.hu/lmui/faces/mails/Link.jsp?m=3D9nx3aajayt3b5s851n&l=
+=3Dr091c02d3nnqyw0k&st=3Drtm>
+
+*Tahinis*
+<https://listamester.hu/lmui/faces/mails/Link.jsp?m=3D1qf34a9a2tlbrsiha4&l=
+=3Dtc61m0cd2n8snf71&st=3Drtm>*
+=C3=A9tcsokol=C3=A1d=C3=A9 tr=C3=BCffel*
+<https://listamester.hu/lmui/faces/mails/Link.jsp?m=3D1qf34a9a2tlbrsiha4&l=
+=3Dtc61m0cd2n8snf71&st=3Drtm>
+<https://listamester.hu/lmui/faces/mails/Link.jsp?m=3D9nj34aua1trbasf1qi&l=
+=3Dibz1d00dqnjti7ms&st=3Drtm>
+
+*Mindenmentes mokkatorta*
+<https://listamester.hu/lmui/faces/mails/Link.jsp?m=3D08m3vakakt5brsu08v&l=
+=3Dzja1l0sden2vvylo&st=3Drtm>
+<https://listamester.hu/lmui/faces/mails/Link.jsp?m=3D08m3vakakt5brsu08v&l=
+=3Dzja1l0sden2vvylo&st=3Drtm>
+
+A tr=C3=BCffel =C3=A9s a torta kiv=C3=A9tel=C3=A9vel mind megfelelnek a tel=
+jes =C3=A9rt=C3=A9k=C5=B1 n=C3=B6v=C3=A9nyi
+=C3=A9trend ir=C3=A1nyelveinek is.
+
+
+
+Rem=C3=A9lem, tal=C3=A1lt=C3=A1l valami =C3=ADnyedre val=C3=B3t ebben a v=
+=C3=A1logat=C3=A1sban, =C3=A9s siker=C3=BClt
+kicsit feldobnom a napodat! =F0=9F=99=82
+
+
+
+=C3=9Cdv=C3=B6zlettel,
+
+N=C3=B3ra
+
+*Erre a h=C3=ADrlev=C3=A9lre a mindenmentes.hu
+<https://listamester.hu/lmui/faces/mails/Link.jsp?m=3Dzxu3naoaut4b7sthlj&l=
+=3Dfm81n0dd9iv7dft2&st=3Drtm>
+oldalon iratkozt=C3=A1l fel. Itt
+<https://listamester.hu/lmui/faces/mails/Link.jsp?m=3Dwv93haraltibgsnwzn&l=
+=3Dv5y190kd7i78r5iw&st=3Drtm>
+tal=C3=A1lod az adatkezel=C3=A9si t=C3=A1j=C3=A9koztat=C3=B3t, =C3=A9s ide =
+kattintva
+<https://listamester.hu/lmui/faces/forms/UnsubscribeLink.jsp?m=3Dj5c3na7avt=
+vbhskjdr&e=3Dz5sa9192tpthrj&g=3Dx971mnjnjvycft>
+tudsz leiratkozni.*
+
+<https://listamester.hu/lmui/faces/StartPage.jsp?f=3DLMlablecKep>
+
+--000000000000d7f7c106270919d9
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><br><br><div class=3D"gmail_quote"><div dir=3D"ltr" class=
+=3D"gmail_attr">---------- Forwarded message ---------<br>Felad=C3=B3: <str=
+ong class=3D"gmail_sendername" dir=3D"auto">Andr=C3=A1si N=C3=B3ra - <a hre=
+f=3D"http://mindenmentes.hu">mindenmentes.hu</a></strong> <span dir=3D"auto=
+">&lt;<a href=3D"mailto:nora@mindenmentes.hu">nora@mindenmentes.hu</a>&gt;<=
+/span><br>Date: 2024. nov. 13., Sze, 15:40<br>Subject: Kedvenc mindenmentes=
+ desszertjeim<br>To:  &lt;<a href=3D"mailto:banyus53@gmail.com">banyus53@gm=
+ail.com</a>&gt;<br></div><br><br><div class=3D"msg8451174626628749141"><u><=
+/u>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id=3D"m_8451174626628749141body" marginwidth=3D"0" marginheight=3D"0" =
+style=3D"font-family:Arial,sans-serif;font-size:0px;margin:0;padding:0">
+<span style=3D"display:none">Gy=C3=BCm=C3=B6lcs=C3=B6s, csokis, kr=C3=A9mes=
+, habos finoms=C3=A1gok.</span>
+
+
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%">
+<tbody><tr>
+<td width=3D"100%">
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%">
+<tbody><tr>
+<td align=3D"center" width=3D"100%">
+
+<table class=3D"m_8451174626628749141width600 m_8451174626628749141main-con=
+tainer" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%" sty=
+le=3D"max-width:600px">
+<tbody><tr>
+<td width=3D"100%">
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%">
+<tbody><tr>
+<td valign=3D"top" align=3D"center">
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" class=3D"m_84511746=
+26628749141fluid-on-mobile" style=3D"max-width:100%">
+<tbody><tr>
+<td valign=3D"top" align=3D"center" style=3D"padding:10px"><img src=3D"http=
+s://listamester.hu/edm/data/12256/img_13546609.png" width=3D"463" height=3D=
+"191" alt=3D"" border=3D"0" style=3D"display:block;font-size:14px;max-width=
+:100%;height:auto">
+</td>
+</tr>
+</tbody></table>
+
+</td>
+</tr>
+</tbody></table>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%">
+<tbody><tr>
+<td valign=3D"top" style=3D"padding:13px"><div style=3D"font-family:Georgia=
+,Times,Times New Roman,serif;font-size:16px;color:#555555;line-height:21px;=
+letter-spacing:0.01em;text-align:left"><p style=3D"padding:0;margin:0;text-=
+align:justify"><strong><span style=3D"font-family:Georgia">Kedves =C3=81gne=
+s ,</span></strong></p>
+<p style=3D"padding:0;margin:0;text-align:justify">=C2=A0</p>
+<p style=3D"padding:0;margin:0;text-align:justify">tudom, ennyire sokat tud=
+ jelenteni egy olyan desszert, amib=C5=91l t=C3=A9nyleg nyugodt sz=C3=ADvve=
+l ehetsz akkor is, ha =C3=A9ppen egy =C3=A9trend- =C3=A9s =C3=A9letm=C3=B3d=
+ v=C3=A1lt=C3=A1s kell=C5=91s k=C3=B6zep=C3=A9n vagy.=C2=A0=F0=9F=99=82 201=
+2 =C3=B3ta k=C3=A9sz=C3=ADtek mindenmentes desszerteket - ezek eleinte &quo=
+t;csak&quot; hozz=C3=A1adott cukor-, tej-, =C3=A9s glut=C3=A9nmentesek volt=
+ak, majd ahogy megjelent az =C3=A9let=C3=BCnkben a teljes =C3=A9rt=C3=A9k=
+=C5=B1 n=C3=B6v=C3=A9nyi =C3=A9trend, egyre ink=C3=A1bb ez a szeml=C3=A9let=
+ hat=C3=A1rozta meg a desszertjeimet is: teljes =C3=A9rt=C3=A9k=C5=B1 n=C3=
+=B6v=C3=A9nyi alapanyagok, min=C3=A9l t=C3=A1pl=C3=A1l=C3=B3bb finoms=C3=A1=
+gok.</p>
+<p style=3D"padding:0;margin:0;text-align:justify">=C2=A0</p>
+<p style=3D"padding:0;margin:0;text-align:justify">=C3=96ssze=C3=A1ll=C3=AD=
+tottam egy csokorra val=C3=B3t gy=C3=BCm=C3=B6lcs=C3=B6s, csokis, s=C3=BClt=
+ =C3=A9s hideg finoms=C3=A1gokb=C3=B3l, fogadd =C5=91ket t=C5=91lem szerete=
+ttel:</p></div>
+</td>
+</tr>
+</tbody></table>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%">
+<tbody><tr>
+<td valign=3D"top" style=3D"padding:16px"><div style=3D"font-family:Arial,H=
+elvetica Neue,Helvetica,sans-serif;font-size:14px;color:#000000;line-height=
+:14px;text-align:left"><h3 style=3D"font-family:Arial,Helvetica Neue,Helvet=
+ica,sans-serif;font-size:22px;color:#000000;font-weight:normal;line-height:=
+30px;padding:0;margin:0;text-align:center"><a href=3D"https://listamester.h=
+u/lmui/faces/mails/Link.jsp?m=3D3nv3xa9antvb5s983n&amp;l=3D8gh180zd4mtqi6rp=
+&amp;st=3Drtm" style=3D"color:#ffffff!important;text-decoration:underline!i=
+mportant" target=3D"_blank"><font style=3D"color:#ffffff"><strong><span sty=
+le=3D"font-size:22px"><span style=3D"color:#53884f">Mindenmentes r=C3=A9pat=
+orta</span></span></strong></font></a></h3>
+</div>
+</td>
+</tr>
+</tbody></table>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%">
+<tbody><tr>
+<td valign=3D"top" style=3D"padding:13px"><div style=3D"font-family:Georgia=
+,Times,Times New Roman,serif;font-size:16px;color:#555555;line-height:21px;=
+letter-spacing:0.01em;text-align:left"><p style=3D"padding:0;margin:0;text-=
+align:justify">A kisl=C3=A1nyom kedvenc s=C3=BCtem=C3=A9nye. El=C5=91fordul=
+, hogy a citromos m=C3=A1zat valamilyen savanyk=C3=A1s lekv=C3=A1rra cser=
+=C3=A9li, =C3=A9s =C3=BAgy is nagyon finom.</p></div>
+</td>
+</tr>
+</tbody></table>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%">
+<tbody><tr>
+<td valign=3D"top" align=3D"center">
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" class=3D"m_84511746=
+26628749141fluid-on-mobile" style=3D"max-width:100%">
+<tbody><tr>
+<td valign=3D"top" align=3D"center" style=3D"padding-bottom:10px"><a href=
+=3D"https://listamester.hu/lmui/faces/mails/Link.jsp?m=3D3nv3xa9antvb5s983n=
+&amp;l=3D8gh180zd4mtqi6rp&amp;st=3Drtm" target=3D"_blank">
+<img src=3D"https://listamester.hu/imgGallery/12256/luv6zjad16p8b7oh6f0f1.j=
+pg" width=3D"514" height=3D"431" alt=3D"" border=3D"0" style=3D"display:blo=
+ck;font-size:14px;max-width:100%;height:auto">
+</a>
+</td>
+</tr>
+</tbody></table>
+
+</td>
+</tr>
+</tbody></table>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%">
+<tbody><tr>
+<td valign=3D"top" style=3D"padding:16px"><div style=3D"font-family:Arial,H=
+elvetica Neue,Helvetica,sans-serif;font-size:14px;color:#000000;line-height=
+:14px;text-align:left"><h3 style=3D"font-family:Arial,Helvetica Neue,Helvet=
+ica,sans-serif;font-size:22px;color:#000000;font-weight:normal;line-height:=
+30px;padding:0;margin:0;text-align:center"><a href=3D"https://listamester.h=
+u/lmui/faces/mails/Link.jsp?m=3Dt473kahauthbos3znx&amp;l=3D8gh1x04drm2ue37j=
+&amp;st=3Drtm" style=3D"color:#ffffff!important;text-decoration:underline!i=
+mportant" target=3D"_blank"><font style=3D"color:#ffffff"><strong><span sty=
+le=3D"font-size:22px"><span style=3D"color:#53884f">K=C3=B3kuszgoly=C3=B3</=
+span></span></strong></font></a></h3>
+</div>
+</td>
+</tr>
+</tbody></table>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%">
+<tbody><tr>
+<td valign=3D"top" align=3D"center">
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" class=3D"m_84511746=
+26628749141fluid-on-mobile" style=3D"max-width:100%">
+<tbody><tr>
+<td valign=3D"top" align=3D"center" style=3D"padding-bottom:10px"><a href=
+=3D"https://listamester.hu/lmui/faces/mails/Link.jsp?m=3Dt473kahauthbos3znx=
+&amp;l=3D8gh1x04drm2ue37j&amp;st=3Drtm" target=3D"_blank">
+<img src=3D"https://listamester.hu/imgGallery/12256/ltx4x4d2ciuxjcavot71.jp=
+g" width=3D"514" height=3D"431" alt=3D"" border=3D"0" style=3D"display:bloc=
+k;font-size:14px;max-width:100%;height:auto">
+</a>
+</td>
+</tr>
+</tbody></table>
+
+</td>
+</tr>
+</tbody></table>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%">
+<tbody><tr>
+<td valign=3D"top" style=3D"padding:16px"><div style=3D"font-family:Arial,H=
+elvetica Neue,Helvetica,sans-serif;font-size:14px;color:#000000;line-height=
+:14px;text-align:left"><h3 style=3D"font-family:Arial,Helvetica Neue,Helvet=
+ica,sans-serif;font-size:22px;color:#000000;font-weight:normal;line-height:=
+30px;padding:0;margin:0;text-align:center"><a href=3D"https://listamester.h=
+u/lmui/faces/mails/Link.jsp?m=3Dksd3eaiaxt2b1sb88r&amp;l=3Dkxf100hdpm0w3rhg=
+&amp;st=3Drtm" style=3D"color:#ffffff!important;text-decoration:underline!i=
+mportant" target=3D"_blank"><font style=3D"color:#ffffff"><strong><span sty=
+le=3D"font-size:22px"><span style=3D"color:#53884f">Mindenmentes epertorta<=
+/span></span></strong></font></a></h3>
+</div>
+</td>
+</tr>
+</tbody></table>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%">
+<tbody><tr>
+<td valign=3D"top" align=3D"center">
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" class=3D"m_84511746=
+26628749141fluid-on-mobile" style=3D"max-width:100%">
+<tbody><tr>
+<td valign=3D"top" align=3D"center" style=3D"padding-bottom:10px"><a href=
+=3D"https://listamester.hu/lmui/faces/mails/Link.jsp?m=3Dksd3eaiaxt2b1sb88r=
+&amp;l=3Dkxf100hdpm0w3rhg&amp;st=3Drtm" target=3D"_blank">
+<img src=3D"https://listamester.hu/imgGallery/12256/lus9rfxpsiw1p13mceg4.jp=
+g" width=3D"514" height=3D"431" alt=3D"" border=3D"0" style=3D"display:bloc=
+k;font-size:14px;max-width:100%;height:auto">
+</a>
+</td>
+</tr>
+</tbody></table>
+
+</td>
+</tr>
+</tbody></table>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%">
+<tbody><tr>
+<td valign=3D"top" style=3D"padding:16px"><div style=3D"font-family:Arial,H=
+elvetica Neue,Helvetica,sans-serif;font-size:14px;color:#000000;line-height=
+:14px;text-align:left"><h3 style=3D"font-family:Arial,Helvetica Neue,Helvet=
+ica,sans-serif;font-size:22px;color:#000000;font-weight:normal;line-height:=
+30px;padding:0;margin:0;text-align:center"><a href=3D"https://listamester.h=
+u/lmui/faces/mails/Link.jsp?m=3D6563qada2tsb1sg7ai&amp;l=3Diqx1d0yd6mxy8n6v=
+&amp;st=3Drtm" style=3D"color:#ffffff!important;text-decoration:underline!i=
+mportant" target=3D"_blank"><font style=3D"color:#ffffff"><strong><span sty=
+le=3D"font-size:22px"><span style=3D"color:#53884f">Balzsamos eperhab</span=
+></span></strong></font></a></h3>
+</div>
+</td>
+</tr>
+</tbody></table>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%">
+<tbody><tr>
+<td valign=3D"top" align=3D"center">
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" class=3D"m_84511746=
+26628749141fluid-on-mobile" style=3D"max-width:100%">
+<tbody><tr>
+<td valign=3D"top" align=3D"center" style=3D"padding-bottom:10px"><a href=
+=3D"https://listamester.hu/lmui/faces/mails/Link.jsp?m=3D6563qada2tsb1sg7ai=
+&amp;l=3Diqx1d0yd6mxy8n6v&amp;st=3Drtm" target=3D"_blank">
+<img src=3D"https://listamester.hu/imgGallery/12256/lus9sto4x6y5ygxo8aj1.jp=
+g" width=3D"514" height=3D"431" alt=3D"" border=3D"0" style=3D"display:bloc=
+k;font-size:14px;max-width:100%;height:auto">
+</a>
+</td>
+</tr>
+</tbody></table>
+
+</td>
+</tr>
+</tbody></table>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%">
+<tbody><tr>
+<td valign=3D"top" style=3D"padding:16px"><div style=3D"font-family:Arial,H=
+elvetica Neue,Helvetica,sans-serif;font-size:14px;color:#000000;line-height=
+:14px;text-align:left"><h3 style=3D"font-family:Arial,Helvetica Neue,Helvet=
+ica,sans-serif;font-size:22px;color:#000000;font-weight:normal;line-height:=
+30px;padding:0;margin:0;text-align:center"><a href=3D"https://listamester.h=
+u/lmui/faces/mails/Link.jsp?m=3D02u3pavabtib2snxwe&amp;l=3Dqgq1h0kdzix4cvu5=
+&amp;st=3Drtm" style=3D"color:#ffffff!important;text-decoration:underline!i=
+mportant" target=3D"_blank"><font style=3D"color:#ffffff"><strong><span sty=
+le=3D"font-size:22px"><span style=3D"color:#53884f">S=C3=BCt=C5=91ben s=C3=
+=BClt f=C3=A1nkok sz=C3=ADnes m=C3=A1zzal</span></span></strong></font></a>=
+</h3>
+</div>
+</td>
+</tr>
+</tbody></table>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%">
+<tbody><tr>
+<td valign=3D"top" align=3D"center">
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" class=3D"m_84511746=
+26628749141fluid-on-mobile" style=3D"max-width:100%">
+<tbody><tr>
+<td valign=3D"top" align=3D"center" style=3D"padding-bottom:10px"><a href=
+=3D"https://listamester.hu/lmui/faces/mails/Link.jsp?m=3D02u3pavabtib2snxwe=
+&amp;l=3Dqgq1h0kdzix4cvu5&amp;st=3Drtm" target=3D"_blank">
+<img src=3D"https://listamester.hu/imgGallery/12256/luv1n7641g9ow5anfbn9x.j=
+pg" width=3D"514" height=3D"431" alt=3D"" border=3D"0" style=3D"display:blo=
+ck;font-size:14px;max-width:100%;height:auto">
+</a>
+</td>
+</tr>
+</tbody></table>
+
+</td>
+</tr>
+</tbody></table>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%">
+<tbody><tr>
+<td valign=3D"top" style=3D"padding:16px"><div style=3D"font-family:Arial,H=
+elvetica Neue,Helvetica,sans-serif;font-size:14px;color:#000000;line-height=
+:14px;text-align:left"><h3 style=3D"font-family:Arial,Helvetica Neue,Helvet=
+ica,sans-serif;font-size:22px;color:#000000;font-weight:normal;line-height:=
+30px;padding:0;margin:0;text-align:center"><a href=3D"https://listamester.h=
+u/lmui/faces/mails/Link.jsp?m=3Didp3sa4aotobjsxaw2&amp;l=3Ds0a110yd9ncjrkbc=
+&amp;st=3Drtm" style=3D"color:#ffffff!important;text-decoration:underline!i=
+mportant" target=3D"_blank"><font style=3D"color:#ffffff"><strong><span sty=
+le=3D"font-size:22px"><span style=3D"color:#53884f">Ban=C3=A1n</span></span=
+></strong></font></a><a href=3D"https://listamester.hu/lmui/faces/mails/Lin=
+k.jsp?m=3Didp3sa4aotobjsxaw2&amp;l=3Ds0a110yd9ncjrkbc&amp;st=3Drtm" style=
+=3D"color:#ffffff!important;text-decoration:underline!important" target=3D"=
+_blank"><font style=3D"color:#ffffff"><strong><span style=3D"font-size:22px=
+"><span style=3D"color:#53884f">fagyi =C3=BAtmutat=C3=B3</span></span></str=
+ong></font></a></h3>
+</div>
+</td>
+</tr>
+</tbody></table>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%">
+<tbody><tr>
+<td valign=3D"top" align=3D"center">
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" class=3D"m_84511746=
+26628749141fluid-on-mobile" style=3D"max-width:100%">
+<tbody><tr>
+<td valign=3D"top" align=3D"center" style=3D"padding-bottom:10px"><a href=
+=3D"https://listamester.hu/lmui/faces/mails/Link.jsp?m=3Dv6g3radaptwbussmk1=
+&amp;l=3D4v41205dfnykkydk&amp;st=3Drtm" target=3D"_blank">
+<img src=3D"https://listamester.hu/imgGallery/12256/luv76dk9ft953hcuaaji.jp=
+g" width=3D"514" height=3D"431" alt=3D"" border=3D"0" style=3D"display:bloc=
+k;font-size:14px;max-width:100%;height:auto">
+</a>
+</td>
+</tr>
+</tbody></table>
+
+</td>
+</tr>
+</tbody></table>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%">
+<tbody><tr>
+<td valign=3D"top" style=3D"padding:16px"><div style=3D"font-family:Arial,H=
+elvetica Neue,Helvetica,sans-serif;font-size:14px;color:#000000;line-height=
+:14px;text-align:left"><h3 style=3D"font-family:Arial,Helvetica Neue,Helvet=
+ica,sans-serif;font-size:22px;color:#000000;font-weight:normal;line-height:=
+30px;padding:0;margin:0;text-align:center"><a href=3D"https://listamester.h=
+u/lmui/faces/mails/Link.jsp?m=3Dwmd3kapa8t0b4su662&amp;l=3Djgg1u0bdun3mza0b=
+&amp;st=3Drtm" style=3D"color:#ffffff!important;text-decoration:underline!i=
+mportant" target=3D"_blank"><font style=3D"color:#ffffff"><strong><span sty=
+le=3D"font-size:22px"><span style=3D"color:#53884f">=C3=89desburgony=C3=A1s=
+ brownie</span></span></strong></font></a></h3>
+</div>
+</td>
+</tr>
+</tbody></table>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%">
+<tbody><tr>
+<td valign=3D"top" align=3D"center">
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" class=3D"m_84511746=
+26628749141fluid-on-mobile" style=3D"max-width:100%">
+<tbody><tr>
+<td valign=3D"top" align=3D"center" style=3D"padding-bottom:10px"><a href=
+=3D"https://listamester.hu/lmui/faces/mails/Link.jsp?m=3Dwmd3kapa8t0b4su662=
+&amp;l=3Djgg1u0bdun3mza0b&amp;st=3Drtm" target=3D"_blank">
+<img src=3D"https://listamester.hu/imgGallery/12256/luv77doxrgrb5wldgvje.jp=
+g" width=3D"514" height=3D"431" alt=3D"" border=3D"0" style=3D"display:bloc=
+k;font-size:14px;max-width:100%;height:auto">
+</a>
+</td>
+</tr>
+</tbody></table>
+
+</td>
+</tr>
+</tbody></table>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%">
+<tbody><tr>
+<td valign=3D"top" style=3D"padding:16px"><div style=3D"font-family:Arial,H=
+elvetica Neue,Helvetica,sans-serif;font-size:14px;color:#000000;line-height=
+:14px;text-align:left"><h3 style=3D"font-family:Arial,Helvetica Neue,Helvet=
+ica,sans-serif;font-size:22px;color:#000000;font-weight:normal;line-height:=
+30px;padding:0;margin:0;text-align:center"><a href=3D"https://listamester.h=
+u/lmui/faces/mails/Link.jsp?m=3Delp39ahagt8brstu17&amp;l=3Dr9o1p0jdynuow0de=
+&amp;st=3Drtm" style=3D"color:#ffffff!important;text-decoration:underline!i=
+mportant" target=3D"_blank"><font style=3D"color:#ffffff"><strong><span sty=
+le=3D"font-size:22px"><span style=3D"color:#53884f">Csokol=C3=A1d=C3=A9 pud=
+ing =C3=A9desburgony=C3=A1b=C3=B3l</span></span></strong></font></a></h3>
+</div>
+</td>
+</tr>
+</tbody></table>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%">
+<tbody><tr>
+<td valign=3D"top" align=3D"center">
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" class=3D"m_84511746=
+26628749141fluid-on-mobile" style=3D"max-width:100%">
+<tbody><tr>
+<td valign=3D"top" align=3D"center" style=3D"padding-bottom:10px"><a href=
+=3D"https://listamester.hu/lmui/faces/mails/Link.jsp?m=3Delp39ahagt8brstu17=
+&amp;l=3Dr9o1p0jdynuow0de&amp;st=3Drtm" target=3D"_blank">
+<img src=3D"https://listamester.hu/imgGallery/12256/luv78p55pf5cuthc8htl.jp=
+g" width=3D"514" height=3D"431" alt=3D"" border=3D"0" style=3D"display:bloc=
+k;font-size:14px;max-width:100%;height:auto">
+</a>
+</td>
+</tr>
+</tbody></table>
+
+</td>
+</tr>
+</tbody></table>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%">
+<tbody><tr>
+<td valign=3D"top" style=3D"padding:16px"><div style=3D"font-family:Arial,H=
+elvetica Neue,Helvetica,sans-serif;font-size:14px;color:#000000;line-height=
+:14px;text-align:left"><h3 style=3D"font-family:Arial,Helvetica Neue,Helvet=
+ica,sans-serif;font-size:22px;color:#000000;font-weight:normal;line-height:=
+30px;padding:0;margin:0;text-align:center"><a href=3D"https://listamester.h=
+u/lmui/faces/mails/Link.jsp?m=3D9nx3aajayt3b5s851n&amp;l=3Dr091c02d3nnqyw0k=
+&amp;st=3Drtm" style=3D"color:#ffffff!important;text-decoration:underline!i=
+mportant" target=3D"_blank"><font style=3D"color:#ffffff"><strong><span sty=
+le=3D"font-size:22px"><span style=3D"color:#53884f">Habk=C3=B6nny=C5=B1 cso=
+kikr=C3=A9m</span></span></strong></font></a></h3>
+</div>
+</td>
+</tr>
+</tbody></table>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%">
+<tbody><tr>
+<td valign=3D"top" align=3D"center">
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" class=3D"m_84511746=
+26628749141fluid-on-mobile" style=3D"max-width:100%">
+<tbody><tr>
+<td valign=3D"top" align=3D"center" style=3D"padding-bottom:10px"><a href=
+=3D"https://listamester.hu/lmui/faces/mails/Link.jsp?m=3D9nx3aajayt3b5s851n=
+&amp;l=3Dr091c02d3nnqyw0k&amp;st=3Drtm" target=3D"_blank">
+<img src=3D"https://listamester.hu/imgGallery/12256/luv7ay0hgkvamlq3564.jpg=
+" width=3D"514" height=3D"431" alt=3D"" border=3D"0" style=3D"display:block=
+;font-size:14px;max-width:100%;height:auto">
+</a>
+</td>
+</tr>
+</tbody></table>
+
+</td>
+</tr>
+</tbody></table>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%">
+<tbody><tr>
+<td valign=3D"top" style=3D"padding:16px"><div style=3D"font-family:Arial,H=
+elvetica Neue,Helvetica,sans-serif;font-size:14px;color:#000000;line-height=
+:14px;text-align:left"><h3 style=3D"font-family:Arial,Helvetica Neue,Helvet=
+ica,sans-serif;font-size:22px;color:#000000;font-weight:normal;line-height:=
+30px;padding:0;margin:0;text-align:center"><a href=3D"https://listamester.h=
+u/lmui/faces/mails/Link.jsp?m=3D1qf34a9a2tlbrsiha4&amp;l=3Dtc61m0cd2n8snf71=
+&amp;st=3Drtm" style=3D"color:#ffffff!important;text-decoration:underline!i=
+mportant" target=3D"_blank"><font style=3D"color:#ffffff"><strong><span sty=
+le=3D"font-size:22px"><span style=3D"color:#53884f">Tahinis</span></span></=
+strong></font></a><a href=3D"https://listamester.hu/lmui/faces/mails/Link.j=
+sp?m=3D1qf34a9a2tlbrsiha4&amp;l=3Dtc61m0cd2n8snf71&amp;st=3Drtm" style=3D"c=
+olor:#ffffff!important;text-decoration:underline!important" target=3D"_blan=
+k"><font style=3D"color:#ffffff"><strong><span style=3D"font-size:22px"><sp=
+an style=3D"color:#53884f"> =C3=A9tcsokol=C3=A1d=C3=A9 tr=C3=BCffel</span><=
+/span></strong></font></a></h3>
+</div>
+</td>
+</tr>
+</tbody></table>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%">
+<tbody><tr>
+<td valign=3D"top" align=3D"center">
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" class=3D"m_84511746=
+26628749141fluid-on-mobile" style=3D"max-width:100%">
+<tbody><tr>
+<td valign=3D"top" align=3D"center" style=3D"padding-bottom:10px"><a href=
+=3D"https://listamester.hu/lmui/faces/mails/Link.jsp?m=3D9nj34aua1trbasf1qi=
+&amp;l=3Dibz1d00dqnjti7ms&amp;st=3Drtm" target=3D"_blank">
+<img src=3D"https://listamester.hu/imgGallery/12256/luv7gkng17ue2kz1hhp1l.j=
+pg" width=3D"514" height=3D"431" alt=3D"" border=3D"0" style=3D"display:blo=
+ck;font-size:14px;max-width:100%;height:auto">
+</a>
+</td>
+</tr>
+</tbody></table>
+
+</td>
+</tr>
+</tbody></table>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%">
+<tbody><tr>
+<td valign=3D"top" style=3D"padding:16px"><div style=3D"font-family:Arial,H=
+elvetica Neue,Helvetica,sans-serif;font-size:14px;color:#000000;line-height=
+:14px;text-align:left"><h3 style=3D"font-family:Arial,Helvetica Neue,Helvet=
+ica,sans-serif;font-size:22px;color:#000000;font-weight:normal;line-height:=
+30px;padding:0;margin:0;text-align:center"><a href=3D"https://listamester.h=
+u/lmui/faces/mails/Link.jsp?m=3D08m3vakakt5brsu08v&amp;l=3Dzja1l0sden2vvylo=
+&amp;st=3Drtm" style=3D"color:#ffffff!important;text-decoration:underline!i=
+mportant" target=3D"_blank"><font style=3D"color:#ffffff"><strong><span sty=
+le=3D"font-size:22px"><span style=3D"color:#53884f">Mindenmentes mokkatorta=
+</span></span></strong></font></a></h3>
+</div>
+</td>
+</tr>
+</tbody></table>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%">
+<tbody><tr>
+<td valign=3D"top" align=3D"center">
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" class=3D"m_84511746=
+26628749141fluid-on-mobile" style=3D"max-width:100%">
+<tbody><tr>
+<td valign=3D"top" align=3D"center" style=3D"padding-bottom:10px"><a href=
+=3D"https://listamester.hu/lmui/faces/mails/Link.jsp?m=3D08m3vakakt5brsu08v=
+&amp;l=3Dzja1l0sden2vvylo&amp;st=3Drtm" target=3D"_blank">
+<img src=3D"https://listamester.hu/imgGallery/12256/luv7j53d1lvf5axcigtcl.j=
+pg" width=3D"514" height=3D"431" alt=3D"" border=3D"0" style=3D"display:blo=
+ck;font-size:14px;max-width:100%;height:auto">
+</a>
+</td>
+</tr>
+</tbody></table>
+
+</td>
+</tr>
+</tbody></table>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%">
+<tbody><tr>
+<td valign=3D"top" style=3D"padding:13px"><div style=3D"font-family:Georgia=
+,Times,Times New Roman,serif;font-size:16px;color:#555555;line-height:21px;=
+letter-spacing:0.01em;text-align:left"><p style=3D"padding:0;margin:0;text-=
+align:justify">A tr=C3=BCffel =C3=A9s a torta kiv=C3=A9tel=C3=A9vel mind me=
+gfelelnek a teljes =C3=A9rt=C3=A9k=C5=B1 n=C3=B6v=C3=A9nyi =C3=A9trend ir=
+=C3=A1nyelveinek is.</p>
+<p style=3D"padding:0;margin:0;text-align:justify">=C2=A0</p>
+<p style=3D"padding:0;margin:0;text-align:justify">Rem=C3=A9lem, tal=C3=A1l=
+t=C3=A1l valami =C3=ADnyedre val=C3=B3t ebben a v=C3=A1logat=C3=A1sban, =C3=
+=A9s siker=C3=BClt kicsit feldobnom a napodat! =F0=9F=99=82</p>
+<p style=3D"padding:0;margin:0;text-align:justify">=C2=A0</p>
+<p style=3D"padding:0;margin:0;text-align:justify">=C3=9Cdv=C3=B6zlettel,</=
+p>
+<p style=3D"padding:0;margin:0;text-align:justify">N=C3=B3ra</p></div>
+</td>
+</tr>
+</tbody></table>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%">
+<tbody><tr>
+<td valign=3D"top" style=3D"padding:13px"><div style=3D"font-family:Georgia=
+,Times,Times New Roman,serif;font-size:14px;color:#555555;line-height:21px;=
+text-align:left"><p style=3D"padding:0;margin:0;text-align:justify"><em>Err=
+e a h=C3=ADrlev=C3=A9lre a <a href=3D"https://listamester.hu/lmui/faces/mai=
+ls/Link.jsp?m=3Dzxu3naoaut4b7sthlj&amp;l=3Dfm81n0dd9iv7dft2&amp;st=3Drtm" s=
+tyle=3D"color:#9db838!important;text-decoration:underline!important" target=
+=3D"_blank"><font style=3D"color:#9db838">mindenmentes.hu</font></a> oldalo=
+n iratkozt=C3=A1l fel. <a href=3D"https://listamester.hu/lmui/faces/mails/L=
+ink.jsp?m=3Dwv93haraltibgsnwzn&amp;l=3Dv5y190kd7i78r5iw&amp;st=3Drtm" style=
+=3D"color:#9db838!important;text-decoration:underline!important" target=3D"=
+_blank"><font style=3D"color:#9db838">Itt</font></a> tal=C3=A1lod az adatke=
+zel=C3=A9si t=C3=A1j=C3=A9koztat=C3=B3t, =C3=A9s <a href=3D"https://listame=
+ster.hu/lmui/faces/forms/UnsubscribeLink.jsp?m=3Dj5c3na7avtvbhskjdr&amp;e=
+=3Dz5sa9192tpthrj&amp;g=3Dx971mnjnjvycft" target=3D"_blank">ide kattintva</=
+a> tudsz leiratkozni.</em></p></div>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+
+<p><a href=3D"https://listamester.hu/lmui/faces/StartPage.jsp?f=3DLMlablecK=
+ep" target=3D"_blank"><img src=3D"https://listamester.hu/lmui/faces/misc/Ma=
+ilOpened.jsp?m=3Dwwr38a4aatdbasy95g&amp;e=3D8xqav182pp81hd&amp;st=3Drtm" al=
+t=3D"" border=3D"0"></a></p>
+</div>
+</div></div></div>
+
+--000000000000d7f7c106270919d9--

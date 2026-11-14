@@ -1,0 +1,809 @@
+Delivered-To: estampel@gmail.com
+Received: by 2002:a05:6358:9141:b0:1c5:f3c5:8b74 with SMTP id r1csp7944770rwr;
+        Wed, 20 Nov 2024 01:47:24 -0800 (PST)
+X-Received: by 2002:a17:907:7ba3:b0:a9e:b471:8308 with SMTP id a640c23a62f3a-aa4dd764962mr152971066b.49.1732096044645;
+        Wed, 20 Nov 2024 01:47:24 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1732096044; cv=none;
+        d=google.com; s=arc-20240605;
+        b=VOO6uap0Pp3KNtVhXPwgTYF8oqpyq56BpVsWbFHXAEuB5BQr2CPj0w2151HPy/wkms
+         Tg/pmF2eA5hq9HnSUlNNADrpmwCBRhQb5p+vr0StkqZSJbsQVfUckYaqaRENAVGWVKxF
+         vpizDGBRvCgPqLPJGzjATdyjWwLyMmI99AOhjr/kYJdfeS+FvC3FfyPhskfDYlO8v6bc
+         3CyH6gN3SlSc2GlG5a9xQqojcA4jKm0dvcI7BhQ3dQ4XNt7ON8sY46iA4jWe64HFCnzn
+         O25sognez83VfskHsTSw7Wlw6U1oVguC9lumNDSN2cecM5zdtVVHFYV+urAsjlYDnwYI
+         mgZg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=kKTKZ8uiil2L6aaupi68o1OGu+Ya/YG9O0tSyeAZ+O0=;
+        fh=wF/Yrd2E0xeKwPH74kML7cQSth+Fl4bwhVNrybJ4uh4=;
+        b=Sjo3Zpqgwv180T2irlkjU2ge9OXplIagpQ9+xyuH2vn7RE49tAa7CIcf/Bo/Cr2mxQ
+         8b8zK0dC5Mg6Y6k2LZi0PHZDO9aDDD/WT7461OrukbBvCqRpFUFvwTSL6knl7tMW+eXs
+         DdFqrxhtfjlwS5+NkePgb/+fI6Y+XAyEovGeBD6c/wsxKcIFrxB0iThUfbcAGsM9xpcI
+         M3KihfE5uutWWSNqJISZQYBxAUj6uG4ZiT1PACciI0CtgCdXE4KQFxIWx17c09xle+B6
+         n6ZqIb999+iT1p5M95uz1nGKPjJPvNwniUnYHbdf7QXAPFlD9RufmviDfFuvso8EhZE/
+         sYjQ==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=Xg9gUoJS;
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <banyus53@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id a640c23a62f3a-aa4deb68dd3sor50860866b.2.2024.11.20.01.47.24
+        for <estampel@gmail.com>
+        (Google Transport Security);
+        Wed, 20 Nov 2024 01:47:24 -0800 (PST)
+Received-SPF: pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=Xg9gUoJS;
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1732096044; x=1732700844; dara=google.com;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=kKTKZ8uiil2L6aaupi68o1OGu+Ya/YG9O0tSyeAZ+O0=;
+        b=Xg9gUoJSXDvTCKrEJjCdZNI1wSh8+Ag+alFAx83WnKMkEntq579VuhcDU/iqlcUXO/
+         w0jw8Z1BvtFXKKKcyoWZM9eNunbe7x+vnQCsJTpmEKhs7nd1+eVEqWJXyPPtruF6l1uS
+         i4jEaW57tYWdYX6Dp0c//ZvTRlIsX115R5q/kadX55FWDuP9YAKCa+jSFhWyiArZF2Dk
+         +lbINvz6qL6b2+z6cDZPOjZTtDivhaHSWSVVYIEAEDAnribKtfDQDa4rMcXPpTvGPY16
+         zmHgfYWU691ejV1nGD8JtHrpaMiIjIkk1c03lUbQOcWc9GAxl29oey3et7Frt1FPq+vt
+         qtew==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1732096044; x=1732700844;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=kKTKZ8uiil2L6aaupi68o1OGu+Ya/YG9O0tSyeAZ+O0=;
+        b=VEsGVu+WqZVpk6DW0F2v6/oDjiQoF0XQEfgRi0O7g89pAwzhaaHzS0GWvYepwKrENR
+         xJ0VHdflW6mL3bid8EULXV34cJA8yPqqcqeGXSWsMe4g17w/CbxU5dYX+Kb4N6w13SEQ
+         TDrwBm6iJ1BHaD8UyURMtNkHgn3LNnCYeMTz325NgdANJshGUmDZq+BdMWozEmtjzNqF
+         9Oxplw9leM5bVaLXZK2HSJWYZ8KCiiIzO7u5X2o7OxturlHr7cI36x1xnmMd9NUIq/xx
+         q9vIzH1ZfC660sWYDdT9qPqqMRM94uoYu/tCdAGJ7EKo2+Pn++MFQ72R13ED90emcr/E
+         SMTg==
+X-Gm-Message-State: AOJu0YyCaYXTjcm8czjU7khrNU4kJPugybjkgx1+CxnJNTSpgUMgyxgM
+	Rq0apKiUAVFN89W/ncbQEZpnEvn2Fikw9PgD5yr+rPAosduYMpQqoa/+negnoDzXbXCNdNiFZg8
+	3q8XuL3AbIoswKq5A7xRQUJIhsl7bBg==
+X-Google-Smtp-Source: AGHT+IHZtfMFwdSrlew2b/WfBIrozN6YZb3yNFJlDihaWjM9bWsvYK7QAXxaxUMccoiOY7eB2scrpgSidcsDvECvaIY=
+X-Received: by 2002:a17:907:97c5:b0:a9e:d7df:8a7e with SMTP id
+ a640c23a62f3a-aa4dd6b0939mr196646266b.31.1732096043703; Wed, 20 Nov 2024
+ 01:47:23 -0800 (PST)
+MIME-Version: 1.0
+References: <0107019348de6fbf-961304a2-0e05-4edf-9151-ef67a797afed-000000@eu-central-1.amazonses.com>
+In-Reply-To: <0107019348de6fbf-961304a2-0e05-4edf-9151-ef67a797afed-000000@eu-central-1.amazonses.com>
+From: =?UTF-8?B?w4FnbmVzIEJ1Z8Ohcg==?= <banyus53@gmail.com>
+Date: Wed, 20 Nov 2024 10:47:12 +0100
+Message-ID: <CA+39czWRyxocWkWU461c589fSaqXiQWVX5cXSXXb6sROnSLB6g@mail.gmail.com>
+Subject: =?UTF-8?B?RndkOiBCYW5ra8OhcnR5YSBoaWJhIHwgRWzFkWZpemV0w6lzIG1lZ3N6xbFudA==?=
+To: Emese Stampel <estampel@gmail.com>
+Content-Type: multipart/alternative; boundary="00000000000066e5f4062755092d"
+
+--00000000000066e5f4062755092d
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+---------- Forwarded message ---------
+Felad=C3=B3: TISZA P=C3=A1rt <info@magyartisza.hu>
+Date: 2024. nov. 20., Sze 10:19
+Subject: Bankk=C3=A1rtya hiba | El=C5=91fizet=C3=A9s megsz=C5=B1nt
+To: Bug=C3=A1r =C3=81gnes M=C3=A1ria Bug=C3=A1r <banyus53@gmail.com>
+
+
+K=C3=A9rj=C3=BCk, regisztr=C3=A1lj egy =C3=BAj bankk=C3=A1rty=C3=A1t!
+<https://m.magyartisza.hu/r/308c9863e5545a401e075b5c2?ct=3DYTo1OntzOjY6InNv=
+dXJjZSI7YToyOntpOjA7czo1OiJlbWFpbCI7aToxO2k6MjYwO31zOjU6ImVtYWlsIjtpOjI2MDt=
+zOjQ6InN0YXQiO3M6MjI6IjY3M2RhOTQzZGY0ZGE2Mzg0NTU2MzgiO3M6NDoibGVhZCI7czo2Oi=
+I0MTA0NjgiO3M6NzoiY2hhbm5lbCI7YToxOntzOjU6ImVtYWlsIjtpOjI2MDt9fQ%3D%3D&utm_=
+source=3Demail&utm_medium=3Drvk-churn&utm_campaign=3Delofizetes-megszunt&ut=
+m_content=3D1>
+
+Kedves Bug=C3=A1r =C3=81gnes M=C3=A1ria!
+
+Sajn=C3=A1lattal l=C3=A1tjuk, hogy nem siker=C3=BClt levonni a rendszerv=C3=
+=A1lt=C3=B3 t=C3=A1mogat=C3=A1sod
+=C3=B6sszeg=C3=A9t, ez=C3=A9rt az *el=C5=91fizet=C3=A9sed sz=C3=BCneteltetv=
+e lett.*
+
+A k=C3=A1rtyakibocs=C3=A1t=C3=B3 bankt=C3=B3l azt az inform=C3=A1ci=C3=B3t =
+kaptunk, hogy lej=C3=A1rt a
+bankk=C3=A1rty=C3=A1d =C3=A9rv=C3=A9nyess=C3=A9ge, vagy nem enged=C3=A9lyez=
+ettek a havi rendszeress=C3=A9ggel
+ism=C3=A9tl=C5=91d=C5=91 tranzakci=C3=B3k.
+
+Rem=C3=A9lj=C3=BCk, hogy tov=C3=A1bbra is vel=C3=BCnk maradsz! Ha m=C3=A9g =
+ebben a h=C3=B3napban
+=C3=BAjraind=C3=ADtod a t=C3=A1mogat=C3=A1sodat, a rendszerv=C3=A1lt=C3=B3 =
+k=C3=A1rty=C3=A1d folytonoss=C3=A1ga nem
+szakad meg.
+
+*Maradj r=C3=A9szese a v=C3=A1ltoz=C3=A1snak!*
+
+Hogy megtartsd a rendszerv=C3=A1lt=C3=B3 k=C3=A1rty=C3=A1dat, csak annyit k=
+ell tenned, hogy =C3=BAj
+t=C3=A1mogat=C3=A1st ind=C3=ADtasz egy =C3=A9rv=C3=A9nyes bankk=C3=A1rty=C3=
+=A1val.
+<https://m.magyartisza.hu/r/308c9863e5545a401e075b5c2?ct=3DYTo1OntzOjY6InNv=
+dXJjZSI7YToyOntpOjA7czo1OiJlbWFpbCI7aToxO2k6MjYwO31zOjU6ImVtYWlsIjtpOjI2MDt=
+zOjQ6InN0YXQiO3M6MjI6IjY3M2RhOTQzZGY0ZGE2Mzg0NTU2MzgiO3M6NDoibGVhZCI7czo2Oi=
+I0MTA0NjgiO3M6NzoiY2hhbm5lbCI7YToxOntzOjU6ImVtYWlsIjtpOjI2MDt9fQ%3D%3D&utm_=
+source=3Demail&utm_medium=3Drvk-churn&utm_campaign=3Delofizetes-megszunt&ut=
+m_content=3D1>
+
+=C3=9Aj t=C3=A1mogat=C3=A1st a www.magyartisza.hu/rendszervaltas
+<https://m.magyartisza.hu/r/5d7cf1aeaf9dff66d0b86457a?ct=3DYTo1OntzOjY6InNv=
+dXJjZSI7YToyOntpOjA7czo1OiJlbWFpbCI7aToxO2k6MjYwO31zOjU6ImVtYWlsIjtpOjI2MDt=
+zOjQ6InN0YXQiO3M6MjI6IjY3M2RhOTQzZGY0ZGE2Mzg0NTU2MzgiO3M6NDoibGVhZCI7czo2Oi=
+I0MTA0NjgiO3M6NzoiY2hhbm5lbCI7YToxOntzOjU6ImVtYWlsIjtpOjI2MDt9fQ%3D%3D&utm_=
+source=3Demail&utm_medium=3Drvk-churn&utm_campaign=3Delofizetes-megszunt&ut=
+m_content=3D1>
+oldalon ind=C3=ADthatsz, ahogyan els=C5=91 alkalommal is tetted. Fontos, ho=
+gy az
+ *eredetileg
+regiszt=C3=A1lt email c=C3=ADmedet add meg a fizet=C3=A9s el=C5=91tt, =C3=
+=AD*gy nem j=C3=B6n l=C3=A9tre =C3=BAj
+t=C3=A1mogat=C3=B3i profil, hanem a megl=C3=A9v=C5=91 fi=C3=B3kodban friss=
+=C3=ADtj=C3=BCk a bankk=C3=A1rtya
+adataidat. Az email c=C3=ADmed megad=C3=A1sakor =C3=BCgyelj a kis- =C3=A9s =
+nagybet=C5=B1s
+karakterekre is!
+=C3=9Aj t=C3=A1mogat=C3=A1st ind=C3=ADtok
+<https://m.magyartisza.hu/r/308c9863e5545a401e075b5c2?ct=3DYTo1OntzOjY6InNv=
+dXJjZSI7YToyOntpOjA7czo1OiJlbWFpbCI7aToxO2k6MjYwO31zOjU6ImVtYWlsIjtpOjI2MDt=
+zOjQ6InN0YXQiO3M6MjI6IjY3M2RhOTQzZGY0ZGE2Mzg0NTU2MzgiO3M6NDoibGVhZCI7czo2Oi=
+I0MTA0NjgiO3M6NzoiY2hhbm5lbCI7YToxOntzOjU6ImVtYWlsIjtpOjI2MDt9fQ%3D%3D&utm_=
+source=3Demail&utm_medium=3Drvk-churn&utm_campaign=3Delofizetes-megszunt&ut=
+m_content=3D1>
+
+K=C3=B6sz=C3=B6nj=C3=BCk, hogy vel=C3=BCnk tartasz az =C3=BAton!
+
+=C3=9Cdv=C3=B6zlettel,
+a TISZA P=C3=A1rt munkat=C3=A1rsai
+<https://m.magyartisza.hu/r/1991835f7538c7085beccad13?ct=3DYTo1OntzOjY6InNv=
+dXJjZSI7YToyOntpOjA7czo1OiJlbWFpbCI7aToxO2k6MjYwO31zOjU6ImVtYWlsIjtpOjI2MDt=
+zOjQ6InN0YXQiO3M6MjI6IjY3M2RhOTQzZGY0ZGE2Mzg0NTU2MzgiO3M6NDoibGVhZCI7czo2Oi=
+I0MTA0NjgiO3M6NzoiY2hhbm5lbCI7YToxOntzOjU6ImVtYWlsIjtpOjI2MDt9fQ%3D%3D&utm_=
+source=3Demail&utm_medium=3Drvk-churn&utm_campaign=3Delofizetes-megszunt&ut=
+m_content=3D1>
+<https://m.magyartisza.hu/r/c268e8af2bd59743c9745994f?ct=3DYTo1OntzOjY6InNv=
+dXJjZSI7YToyOntpOjA7czo1OiJlbWFpbCI7aToxO2k6MjYwO31zOjU6ImVtYWlsIjtpOjI2MDt=
+zOjQ6InN0YXQiO3M6MjI6IjY3M2RhOTQzZGY0ZGE2Mzg0NTU2MzgiO3M6NDoibGVhZCI7czo2Oi=
+I0MTA0NjgiO3M6NzoiY2hhbm5lbCI7YToxOntzOjU6ImVtYWlsIjtpOjI2MDt9fQ%3D%3D&utm_=
+source=3Demail&utm_medium=3Drvk-churn&utm_campaign=3Delofizetes-megszunt&ut=
+m_content=3D1>
+<https://m.magyartisza.hu/r/f9d7d32c118fc75a0de30280c?ct=3DYTo1OntzOjY6InNv=
+dXJjZSI7YToyOntpOjA7czo1OiJlbWFpbCI7aToxO2k6MjYwO31zOjU6ImVtYWlsIjtpOjI2MDt=
+zOjQ6InN0YXQiO3M6MjI6IjY3M2RhOTQzZGY0ZGE2Mzg0NTU2MzgiO3M6NDoibGVhZCI7czo2Oi=
+I0MTA0NjgiO3M6NzoiY2hhbm5lbCI7YToxOntzOjU6ImVtYWlsIjtpOjI2MDt9fQ%3D%3D&utm_=
+source=3Demail&utm_medium=3Drvk-churn&utm_campaign=3Delofizetes-megszunt&ut=
+m_content=3D1>
+
+K=C3=A9rd=C3=A9sed van?
+
+06 1 445 2455
+
+=C3=8Drj nek=C3=BCnk!
+
+info@magyartisza.hu
+
+Aktu=C3=A1lis h=C3=ADrek:
+
+www.magyartisza.hu
+
+Ezt az =C3=BCzenetet a Tisztelet =C3=A9s Szabads=C3=A1g P=C3=A1rt (sz=C3=A9=
+khely: 3300 Eger, Dob=C3=B3
+Istv=C3=A1n utca 16
+<https://www.google.com/maps/search/3300+Eger,+Dob%C3%B3+Istv%C3%A1n+utca+1=
+6?entry=3Dgmail&source=3Dg>.,
+nyilv=C3=A1ntart=C3=A1si sz=C3=A1m: 10-02-0002971) k=C3=BCldte Neked, mert =
+a GDPR 6. cikk (1)
+bekezd=C3=A9s, valamint a GDPR 9. cikk (2) bekezd=C3=A9s a) pontja alapj=C3=
+=A1n
+feliratkozt=C3=A1l a kapcsolttart=C3=A1sra. Amennyiben szeretn=C3=A9l leira=
+tkozni a
+h=C3=ADrlev=C3=A9lr=C5=91l, k=C3=A9rj=C3=BCk kattints ide!
+<https://m.magyartisza.hu/email/unsubscribe/673da943df4da638455638> .
+
+--00000000000066e5f4062755092d
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"auto"></div><br><div class=3D"gmail_quote"><div dir=3D"ltr" cla=
+ss=3D"gmail_attr">---------- Forwarded message ---------<br>Felad=C3=B3: <s=
+trong class=3D"gmail_sendername" dir=3D"auto">TISZA P=C3=A1rt</strong> <spa=
+n dir=3D"auto">&lt;<a href=3D"mailto:info@magyartisza.hu">info@magyartisza.=
+hu</a>&gt;</span><br>Date: 2024. nov. 20., Sze 10:19<br>Subject: Bankk=C3=
+=A1rtya hiba | El=C5=91fizet=C3=A9s megsz=C5=B1nt<br>To: Bug=C3=A1r =C3=81g=
+nes M=C3=A1ria Bug=C3=A1r &lt;<a href=3D"mailto:banyus53@gmail.com">banyus5=
+3@gmail.com</a>&gt;<br></div><br><br><u></u>
+
+
+
+ =20
+ =20
+ =20
+ =20
+ =20
+ =20
+ =20
+ =20
+ =20
+ =20
+ =20
+ =20
+ =20
+
+
+<div style=3D"word-spacing:normal;background-color:rgb(242,242,242)">
+  <div style=3D"display:none;font-size:1px;color:rgb(255,255,255);line-heig=
+ht:1px;max-height:0px;max-width:0px;opacity:0;overflow:hidden"> K=C3=A9rj=
+=C3=BCk, regisztr=C3=A1lj egy =C3=BAj bankk=C3=A1rty=C3=A1t! </div>
+  <div style=3D"background-color:rgb(242,242,242)">
+   =20
+   =20
+   =20
+    <div style=3D"margin:0px auto;max-width:500px">
+      <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0" role=3D"presentation" style=3D"width:100%">
+        <tbody>
+          <tr>
+            <td style=3D"direction:ltr;font-size:0px;padding:0px;text-align=
+:center">
+             =20
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+   =20
+   =20
+   =20
+   =20
+    <div style=3D"margin:0px auto;max-width:500px">
+      <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0" role=3D"presentation" style=3D"width:100%">
+        <tbody>
+          <tr>
+            <td style=3D"direction:ltr;font-size:0px;padding:0px;text-align=
+:center">
+             =20
+              <div class=3D"m_3040040716103297263mj-column-per-100" style=
+=3D"font-size:0px;text-align:left;direction:ltr;display:inline-block;vertic=
+al-align:top;width:100%">
+                <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" rol=
+e=3D"presentation" style=3D"background-color:rgb(255,255,255);vertical-alig=
+n:top" width=3D"100%">
+                  <tbody>
+                    <tr>
+                      <td align=3D"center" style=3D"background:rgb(255,255,=
+255);font-size:0px;padding:10px 25px 0px;word-break:break-word">
+                        <table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" style=3D"border-collapse:collapse;border-spaci=
+ng:0px">
+                          <tbody>
+                            <tr>
+                              <td style=3D"width:450px">
+                                <a href=3D"https://m.magyartisza.hu/r/308c9=
+863e5545a401e075b5c2?ct=3DYTo1OntzOjY6InNvdXJjZSI7YToyOntpOjA7czo1OiJlbWFpb=
+CI7aToxO2k6MjYwO31zOjU6ImVtYWlsIjtpOjI2MDtzOjQ6InN0YXQiO3M6MjI6IjY3M2RhOTQz=
+ZGY0ZGE2Mzg0NTU2MzgiO3M6NDoibGVhZCI7czo2OiI0MTA0NjgiO3M6NzoiY2hhbm5lbCI7YTo=
+xOntzOjU6ImVtYWlsIjtpOjI2MDt9fQ%3D%3D&amp;utm_source=3Demail&amp;utm_medium=
+=3Drvk-churn&amp;utm_campaign=3Delofizetes-megszunt&amp;utm_content=3D1" ta=
+rget=3D"_blank" rel=3D"noreferrer">
+                                  <img height=3D"auto" style=3D"border: 0px=
+; display: block; outline: none; text-decoration: none; height: auto; width=
+: 100%; font-size: 13px;" width=3D"450">
+                                </a>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+             =20
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+   =20
+    <div style=3D"background:rgb(255,255,255);margin:0px auto;max-width:500=
+px">
+      <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0" role=3D"presentation" style=3D"background:rgb(255,255,255);width:100%">
+        <tbody>
+          <tr>
+            <td style=3D"direction:ltr;font-size:0px;padding:0px;text-align=
+:center">
+             =20
+              <div class=3D"m_3040040716103297263mj-column-per-100" style=
+=3D"font-size:0px;text-align:left;direction:ltr;display:inline-block;vertic=
+al-align:top;width:100%">
+                <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" rol=
+e=3D"presentation" style=3D"vertical-align:top" width=3D"100%">
+                  <tbody>
+                    <tr>
+                      <td align=3D"left" style=3D"font-size:0px;padding:15p=
+x 25px 0px;word-break:break-word">
+                        <div style=3D"font-family:&quot;Trebuchet MS&quot;,=
+Helvetica,sans-serif;font-size:14px;font-weight:500;line-height:20px;text-a=
+lign:left;color:rgb(8,28,63)">
+                          <p><span style=3D"color:rgb(7,55,99)">Kedves Bug=
+=C3=A1r =C3=81gnes M=C3=A1ria!</span></p>
+                          <p><span style=3D"color:rgb(7,55,99)">Sajn=C3=A1l=
+attal l=C3=A1tjuk, hogy=C2=A0nem siker=C3=BClt levonni a rendszerv=C3=A1lt=
+=C3=B3 t=C3=A1mogat=C3=A1sod =C3=B6sszeg=C3=A9t, ez=C3=A9rt az <strong>el=
+=C5=91fizet=C3=A9sed sz=C3=BCneteltetve lett.</strong></span></p>
+                          <p><span style=3D"color:rgb(7,55,99)">A<strong> <=
+/strong>k=C3=A1rtyakibocs=C3=A1t=C3=B3 bankt=C3=B3l azt az inform=C3=A1ci=
+=C3=B3t kaptunk, hogy lej=C3=A1rt a bankk=C3=A1rty=C3=A1d =C3=A9rv=C3=A9nye=
+ss=C3=A9ge, vagy nem enged=C3=A9lyezettek a havi rendszeress=C3=A9ggel ism=
+=C3=A9tl=C5=91d=C5=91 tranzakci=C3=B3k.=C2=A0 </span></p>
+                          <p><span style=3D"color:rgb(7,55,99)">Rem=C3=A9lj=
+=C3=BCk, hogy tov=C3=A1bbra is vel=C3=BCnk maradsz! Ha m=C3=A9g ebben a h=
+=C3=B3napban =C3=BAjraind=C3=ADtod a t=C3=A1mogat=C3=A1sodat, a rendszerv=
+=C3=A1lt=C3=B3 k=C3=A1rty=C3=A1d folytonoss=C3=A1ga nem szakad meg.</span><=
+/p>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+             =20
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+   =20
+    <div style=3D"background:rgb(255,255,255);margin:0px auto;max-width:500=
+px">
+      <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0" role=3D"presentation" style=3D"background:rgb(255,255,255);width:100%">
+        <tbody>
+          <tr>
+            <td style=3D"direction:ltr;font-size:0px;padding:1px 15px 20px =
+25px;text-align:center">
+             =20
+              <div class=3D"m_3040040716103297263mj-column-per-100" style=
+=3D"font-size:0px;text-align:left;direction:ltr;display:inline-block;vertic=
+al-align:top;width:100%">
+                <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" rol=
+e=3D"presentation" style=3D"background-color:rgb(245,244,244);vertical-alig=
+n:top" width=3D"100%">
+                  <tbody>
+                    <tr>
+                      <td align=3D"left" style=3D"background:rgb(245,244,24=
+4);font-size:0px;padding:0px 20px 15px;word-break:break-word">
+                        <div style=3D"font-family:&quot;Trebuchet MS&quot;,=
+Helvetica,sans-serif;font-size:14px;line-height:20px;text-align:left;text-d=
+ecoration:none;color:rgb(0,0,0)">
+                          <p><span style=3D"color:rgb(7,55,99)"><strong>Mar=
+adj r=C3=A9szese a v=C3=A1ltoz=C3=A1snak!</strong></span></p>
+                          <p><span style=3D"color:rgb(7,55,99)">Hogy megtar=
+tsd a rendszerv=C3=A1lt=C3=B3 k=C3=A1rty=C3=A1dat, csak annyit kell tenned,=
+ hogy =C3=BAj t=C3=A1mogat=C3=A1st ind=C3=ADtasz egy =C3=A9rv=C3=A9nyes ban=
+kk=C3=A1rty=C3=A1val.</span></p>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td align=3D"center" style=3D"background:rgb(245,244,=
+244);font-size:0px;padding:0px 20px;word-break:break-word">
+                        <table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" style=3D"border-collapse:collapse;border-spaci=
+ng:0px">
+                          <tbody>
+                            <tr>
+                              <td style=3D"width:420px">
+                                <a href=3D"https://m.magyartisza.hu/r/308c9=
+863e5545a401e075b5c2?ct=3DYTo1OntzOjY6InNvdXJjZSI7YToyOntpOjA7czo1OiJlbWFpb=
+CI7aToxO2k6MjYwO31zOjU6ImVtYWlsIjtpOjI2MDtzOjQ6InN0YXQiO3M6MjI6IjY3M2RhOTQz=
+ZGY0ZGE2Mzg0NTU2MzgiO3M6NDoibGVhZCI7czo2OiI0MTA0NjgiO3M6NzoiY2hhbm5lbCI7YTo=
+xOntzOjU6ImVtYWlsIjtpOjI2MDt9fQ%3D%3D&amp;utm_source=3Demail&amp;utm_medium=
+=3Drvk-churn&amp;utm_campaign=3Delofizetes-megszunt&amp;utm_content=3D1" ta=
+rget=3D"_blank" rel=3D"noreferrer">
+                                  <img height=3D"auto" style=3D"border: 0px=
+; border-radius: 0px; display: block; outline: none; text-decoration: none;=
+ height: auto; width: 100%; font-size: 13px;" width=3D"420">
+                                </a>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td align=3D"left" style=3D"background:rgb(245,244,24=
+4);font-size:0px;padding:15px 20px 10px;word-break:break-word">
+                        <div style=3D"font-family:&quot;Trebuchet MS&quot;,=
+Helvetica,sans-serif;font-size:14px;font-weight:500;line-height:20px;text-a=
+lign:left;color:rgb(8,28,63)">
+                          <p><span style=3D"color:rgb(7,55,99)">=C3=9Aj t=
+=C3=A1mogat=C3=A1st a </span><a href=3D"https://m.magyartisza.hu/r/5d7cf1ae=
+af9dff66d0b86457a?ct=3DYTo1OntzOjY6InNvdXJjZSI7YToyOntpOjA7czo1OiJlbWFpbCI7=
+aToxO2k6MjYwO31zOjU6ImVtYWlsIjtpOjI2MDtzOjQ6InN0YXQiO3M6MjI6IjY3M2RhOTQzZGY=
+0ZGE2Mzg0NTU2MzgiO3M6NDoibGVhZCI7czo2OiI0MTA0NjgiO3M6NzoiY2hhbm5lbCI7YToxOn=
+tzOjU6ImVtYWlsIjtpOjI2MDt9fQ%3D%3D&amp;utm_source=3Demail&amp;utm_medium=3D=
+rvk-churn&amp;utm_campaign=3Delofizetes-megszunt&amp;utm_content=3D1" style=
+=3D"color:rgb(0,0,0);text-decoration:underline;font-weight:600" target=3D"_=
+blank" rel=3D"noreferrer"><span style=3D"color:rgb(7,55,99)">www.magyartisz=
+a.hu/rendszervaltas</span></a><span style=3D"color:rgb(7,55,99)"> oldalon i=
+nd=C3=ADthatsz, ahogyan els=C5=91 alkalommal is tetted. Fontos, hogy az=C2=
+=A0 <strong>eredetileg regiszt=C3=A1lt email c=C3=ADmedet add meg a fizet=
+=C3=A9s el=C5=91tt, =C3=AD</strong>gy nem j=C3=B6n l=C3=A9tre =C3=BAj t=C3=
+=A1mogat=C3=B3i profil, hanem a megl=C3=A9v=C5=91 fi=C3=B3kodban friss=C3=
+=ADtj=C3=BCk a bankk=C3=A1rtya adataidat. Az email c=C3=ADmed megad=C3=A1sa=
+kor =C3=BCgyelj a kis- =C3=A9s nagybet=C5=B1s karakterekre is!</span></p>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td align=3D"center" style=3D"background:rgb(245,244,=
+244);font-size:0px;padding:0px 10px 20px;word-break:break-word">
+                        <table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" style=3D"border-collapse:separate;line-height:=
+100%">
+                          <tbody>
+                            <tr>
+                              <td align=3D"center" bgcolor=3D"#081c3f" role=
+=3D"presentation" style=3D"border:none;border-radius:0px;background:rgb(8,2=
+8,63)" valign=3D"middle">
+                                <a href=3D"https://m.magyartisza.hu/r/308c9=
+863e5545a401e075b5c2?ct=3DYTo1OntzOjY6InNvdXJjZSI7YToyOntpOjA7czo1OiJlbWFpb=
+CI7aToxO2k6MjYwO31zOjU6ImVtYWlsIjtpOjI2MDtzOjQ6InN0YXQiO3M6MjI6IjY3M2RhOTQz=
+ZGY0ZGE2Mzg0NTU2MzgiO3M6NDoibGVhZCI7czo2OiI0MTA0NjgiO3M6NzoiY2hhbm5lbCI7YTo=
+xOntzOjU6ImVtYWlsIjtpOjI2MDt9fQ%3D%3D&amp;utm_source=3Demail&amp;utm_medium=
+=3Drvk-churn&amp;utm_campaign=3Delofizetes-megszunt&amp;utm_content=3D1" st=
+yle=3D"display:inline-block;background:rgb(8,28,63);color:rgb(255,255,255);=
+font-family:&quot;Trebuchet MS&quot;,Helvetica,sans-serif;font-size:14px;fo=
+nt-weight:600;line-height:120%;margin:0px;text-decoration:none;text-transfo=
+rm:none;padding:10px 25px;border-radius:0px" target=3D"_blank" rel=3D"noref=
+errer"> =C3=9Aj t=C3=A1mogat=C3=A1st ind=C3=ADtok <br>
+                                </a>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+             =20
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+   =20
+    <div style=3D"margin:0px auto;max-width:500px">
+      <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0" role=3D"presentation" style=3D"width:100%">
+        <tbody>
+          <tr>
+            <td style=3D"direction:ltr;font-size:0px;padding:0px;text-align=
+:center">
+             =20
+              <div class=3D"m_3040040716103297263mj-column-per-100" style=
+=3D"font-size:0px;text-align:left;direction:ltr;display:inline-block;vertic=
+al-align:top;width:100%">
+                <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" rol=
+e=3D"presentation" style=3D"background-color:rgb(255,255,255);vertical-alig=
+n:top" width=3D"100%">
+                  <tbody>
+                    <tr>
+                      <td align=3D"left" style=3D"font-size:0px;padding:0px=
+ 40px 15px 25px;word-break:break-word">
+                        <div style=3D"font-family:&quot;Trebuchet MS&quot;,=
+Helvetica,sans-serif;font-size:14px;font-weight:500;line-height:20px;text-a=
+lign:left;color:rgb(8,28,63)">
+                          <p>
+                            <span style=3D"color:rgb(7,55,99)"><span style=
+=3D"color:rgb(7,55,99)">K=C3=B6sz=C3=B6nj=C3=BCk, hogy vel=C3=BCnk tartasz =
+az =C3=BAton!<br>
+                                <br> =C3=9Cdv=C3=B6zlettel,<br> a TISZA P=
+=C3=A1rt munkat=C3=A1rsai</span></span>
+                          </p>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+             =20
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+   =20
+   =20
+   =20
+    <div style=3D"background:rgb(9,29,64);margin:0px auto;max-width:500px">
+      <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0" role=3D"presentation" style=3D"background:rgb(9,29,64);width:100%">
+        <tbody>
+          <tr>
+            <td style=3D"border:0px solid rgb(9,29,64);direction:ltr;font-s=
+ize:0px;padding:20px 0px;text-align:center">
+             =20
+              <div class=3D"m_3040040716103297263mj-column-per-100" style=
+=3D"font-size:0px;text-align:left;direction:ltr;display:inline-block;vertic=
+al-align:top;width:100%">
+                <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" rol=
+e=3D"presentation" style=3D"vertical-align:top" width=3D"100%">
+                  <tbody>
+                    <tr>
+                      <td align=3D"center" style=3D"background:rgb(9,29,64)=
+;font-size:0px;padding:10px 25px;word-break:break-word">
+                       =20
+                        <table align=3D"center" border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"0" role=3D"presentation" style=3D"float:none;display:inl=
+ine-table">
+                          <tbody>
+                            <tr>
+                              <td style=3D"padding:4px;vertical-align:middl=
+e">
+                                <table border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" role=3D"presentation" style=3D"background:rgb(59,89,152);borde=
+r-radius:12px;width:24px">
+                                  <tbody>
+                                    <tr>
+                                      <td style=3D"font-size:0px;height:24p=
+x;vertical-align:middle;width:24px">
+                                        <a href=3D"https://m.magyartisza.hu=
+/r/1991835f7538c7085beccad13?ct=3DYTo1OntzOjY6InNvdXJjZSI7YToyOntpOjA7czo1O=
+iJlbWFpbCI7aToxO2k6MjYwO31zOjU6ImVtYWlsIjtpOjI2MDtzOjQ6InN0YXQiO3M6MjI6IjY3=
+M2RhOTQzZGY0ZGE2Mzg0NTU2MzgiO3M6NDoibGVhZCI7czo2OiI0MTA0NjgiO3M6NzoiY2hhbm5=
+lbCI7YToxOntzOjU6ImVtYWlsIjtpOjI2MDt9fQ%3D%3D&amp;utm_source=3Demail&amp;ut=
+m_medium=3Drvk-churn&amp;utm_campaign=3Delofizetes-megszunt&amp;utm_content=
+=3D1" target=3D"_blank" rel=3D"noreferrer">
+                                          <img height=3D"24" style=3D"borde=
+r-radius: 12px; display: block;" width=3D"24">
+                                        </a>
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                       =20
+                        <table align=3D"center" border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"0" role=3D"presentation" style=3D"float:none;display:inl=
+ine-table">
+                          <tbody>
+                            <tr>
+                              <td style=3D"padding:4px;vertical-align:middl=
+e">
+                                <table border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" role=3D"presentation" style=3D"background:rgb(235,51,35);borde=
+r-radius:12px;width:24px">
+                                  <tbody>
+                                    <tr>
+                                      <td style=3D"font-size:0px;height:24p=
+x;vertical-align:middle;width:24px">
+                                        <a href=3D"https://m.magyartisza.hu=
+/r/c268e8af2bd59743c9745994f?ct=3DYTo1OntzOjY6InNvdXJjZSI7YToyOntpOjA7czo1O=
+iJlbWFpbCI7aToxO2k6MjYwO31zOjU6ImVtYWlsIjtpOjI2MDtzOjQ6InN0YXQiO3M6MjI6IjY3=
+M2RhOTQzZGY0ZGE2Mzg0NTU2MzgiO3M6NDoibGVhZCI7czo2OiI0MTA0NjgiO3M6NzoiY2hhbm5=
+lbCI7YToxOntzOjU6ImVtYWlsIjtpOjI2MDt9fQ%3D%3D&amp;utm_source=3Demail&amp;ut=
+m_medium=3Drvk-churn&amp;utm_campaign=3Delofizetes-megszunt&amp;utm_content=
+=3D1" target=3D"_blank" rel=3D"noreferrer">
+                                          <img height=3D"24" style=3D"borde=
+r-radius: 12px; display: block;" width=3D"24">
+                                        </a>
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                       =20
+                        <table align=3D"center" border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"0" role=3D"presentation" style=3D"float:none;display:inl=
+ine-table">
+                          <tbody>
+                            <tr>
+                              <td style=3D"padding:4px;vertical-align:middl=
+e">
+                                <table border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" role=3D"presentation" style=3D"background:rgb(63,114,155);bord=
+er-radius:12px;width:24px">
+                                  <tbody>
+                                    <tr>
+                                      <td style=3D"font-size:0px;height:24p=
+x;vertical-align:middle;width:24px">
+                                        <a href=3D"https://m.magyartisza.hu=
+/r/f9d7d32c118fc75a0de30280c?ct=3DYTo1OntzOjY6InNvdXJjZSI7YToyOntpOjA7czo1O=
+iJlbWFpbCI7aToxO2k6MjYwO31zOjU6ImVtYWlsIjtpOjI2MDtzOjQ6InN0YXQiO3M6MjI6IjY3=
+M2RhOTQzZGY0ZGE2Mzg0NTU2MzgiO3M6NDoibGVhZCI7czo2OiI0MTA0NjgiO3M6NzoiY2hhbm5=
+lbCI7YToxOntzOjU6ImVtYWlsIjtpOjI2MDt9fQ%3D%3D&amp;utm_source=3Demail&amp;ut=
+m_medium=3Drvk-churn&amp;utm_campaign=3Delofizetes-megszunt&amp;utm_content=
+=3D1" target=3D"_blank" rel=3D"noreferrer">
+                                          <img height=3D"24" style=3D"borde=
+r-radius: 12px; display: block;" width=3D"24">
+                                        </a>
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                       =20
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+             =20
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+   =20
+    <div style=3D"background:rgb(9,29,64);margin:0px auto;max-width:500px">
+      <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0" role=3D"presentation" style=3D"background:rgb(9,29,64);width:100%">
+        <tbody>
+          <tr>
+            <td style=3D"direction:ltr;font-size:0px;padding:0px;text-align=
+:center">
+             =20
+              <div class=3D"m_3040040716103297263mj-column-per-33-333333333=
+333336" style=3D"font-size:0px;text-align:left;direction:ltr;display:inline=
+-block;vertical-align:top;width:100%">
+                <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" rol=
+e=3D"presentation" style=3D"background-color:rgb(33,47,72);border:1px solid=
+ rgb(9,29,64);border-radius:0px;vertical-align:top" width=3D"100%">
+                  <tbody>
+                    <tr>
+                      <td align=3D"center" style=3D"font-size:0px;padding:0=
+px 10px;word-break:break-word">
+                        <div style=3D"font-family:&quot;Trebuchet MS&quot;,=
+Helvetica,sans-serif;font-size:14px;font-weight:500;line-height:10px;text-a=
+lign:center;color:rgb(8,28,63)">
+                          <p>
+                            <span style=3D"color:rgb(221,221,221)">K=C3=A9r=
+d=C3=A9sed van?</span>
+                          </p>
+                          <p>
+                            <span style=3D"color:rgb(221,221,221)">06 1 445=
+ 2455</span>
+                          </p>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+             =20
+              <div class=3D"m_3040040716103297263mj-column-per-33-333333333=
+333336" style=3D"font-size:0px;text-align:left;direction:ltr;display:inline=
+-block;vertical-align:top;width:100%">
+                <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" rol=
+e=3D"presentation" style=3D"background-color:rgb(33,47,72);border:1px solid=
+ rgb(9,29,64);border-radius:0px;vertical-align:top" width=3D"100%">
+                  <tbody>
+                    <tr>
+                      <td align=3D"center" style=3D"font-size:0px;padding:0=
+px 10px;word-break:break-word">
+                        <div style=3D"font-family:&quot;Trebuchet MS&quot;,=
+Helvetica,sans-serif;font-size:14px;font-weight:500;line-height:10px;text-a=
+lign:center;color:rgb(9,29,64)">
+                          <p>
+                            <span style=3D"color:rgb(221,221,221)">=C3=8Drj=
+ nek=C3=BCnk!</span>
+                          </p>
+                          <p>
+                            <span style=3D"color:rgb(221,221,221)"><a href=
+=3D"mailto:info@magyartisza.hu" target=3D"_blank" rel=3D"noreferrer">info@m=
+agyartisza.hu</a></span>
+                          </p>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+             =20
+              <div class=3D"m_3040040716103297263mj-column-per-33-333333333=
+333336" style=3D"font-size:0px;text-align:left;direction:ltr;display:inline=
+-block;vertical-align:top;width:100%">
+                <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" rol=
+e=3D"presentation" style=3D"background-color:rgb(33,47,72);border:1px solid=
+ rgb(9,29,64);border-radius:0px;vertical-align:top" width=3D"100%">
+                  <tbody>
+                    <tr>
+                      <td align=3D"center" style=3D"font-size:0px;padding:0=
+px 10px;word-break:break-word">
+                        <div style=3D"font-family:&quot;Trebuchet MS&quot;,=
+Helvetica,sans-serif;font-size:14px;font-weight:500;line-height:10px;text-a=
+lign:center;color:rgb(8,28,63)">
+                          <p><span style=3D"color:rgb(221,221,221)">Aktu=C3=
+=A1lis h=C3=ADrek:</span></p>
+                          <p><span style=3D"color:rgb(221,221,221)"><a href=
+=3D"http://www.magyartisza.hu" target=3D"_blank" rel=3D"noreferrer">www.mag=
+yartisza.hu</a></span></p>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+             =20
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+   =20
+    <div style=3D"margin:0px auto;max-width:500px">
+      <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0" role=3D"presentation" style=3D"width:100%">
+        <tbody>
+          <tr>
+            <td style=3D"direction:ltr;font-size:0px;padding:0px 0px 20px;t=
+ext-align:center">
+             =20
+              <div class=3D"m_3040040716103297263mj-column-per-100" style=
+=3D"font-size:0px;text-align:left;direction:ltr;display:inline-block;vertic=
+al-align:top;width:100%">
+                <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" rol=
+e=3D"presentation" style=3D"background-color:rgb(9,29,64);border:1px solid =
+rgb(9,29,64);vertical-align:top" width=3D"100%">
+                  <tbody>
+                    <tr>
+                      <td align=3D"left" style=3D"background:rgb(9,29,64);f=
+ont-size:0px;padding:10px 25px;word-break:break-word">
+                        <div style=3D"font-family:&quot;Trebuchet MS&quot;,=
+Helvetica,sans-serif;font-size:13px;line-height:20px;text-align:left;color:=
+rgb(107,107,107)">
+                          <p>
+                            <span style=3D"color:rgb(153,153,153)">Ezt az =
+=C3=BCzenetet a Tisztelet =C3=A9s Szabads=C3=A1g P=C3=A1rt (sz=C3=A9khely: =
+<a href=3D"https://www.google.com/maps/search/3300+Eger,+Dob%C3%B3+Istv%C3%=
+A1n+utca+16?entry=3Dgmail&amp;source=3Dg">3300 Eger, Dob=C3=B3 Istv=C3=A1n =
+utca 16</a>., nyilv=C3=A1ntart=C3=A1si sz=C3=A1m: 10-02-0002971) k=C3=BCldt=
+e Neked, mert a GDPR 6. cikk (1) bekezd=C3=A9s, valamint a GDPR 9. cikk (2)=
+ bekezd=C3=A9s a) pontja alapj=C3=A1n feliratkozt=C3=A1l a kapcsolttart=C3=
+=A1sra. Amennyiben szeretn=C3=A9l leiratkozni a h=C3=ADrlev=C3=A9lr=C5=91l,=
+ k=C3=A9rj=C3=BCk </span>
+                            <a href=3D"https://m.magyartisza.hu/email/unsub=
+scribe/673da943df4da638455638" style=3D"color:rgb(0,0,0);text-decoration:un=
+derline;font-weight:600" target=3D"_blank" rel=3D"noreferrer"><span style=
+=3D"color:rgb(153,153,153)">kattints ide!</span></a>
+                            <span style=3D"color:rgb(153,153,153)"> .</span=
+>
+                          </p>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+             =20
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+   =20
+  </div>
+<img height=3D"1" width=3D"1" alt=3D""></div>
+
+
+</div>
+
+--00000000000066e5f4062755092d--

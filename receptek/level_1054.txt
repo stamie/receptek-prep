@@ -1,0 +1,93 @@
+Delivered-To: estampel@gmail.com
+Received: by 2002:a05:6358:8515:b0:1d2:9cb:7268 with SMTP id n21csp313599rwk;
+        Thu, 23 Jan 2025 05:22:01 -0800 (PST)
+X-Received: by 2002:a17:906:6a26:b0:aaf:73e4:e872 with SMTP id a640c23a62f3a-ab38b0b91b7mr2306517766b.3.1737638521332;
+        Thu, 23 Jan 2025 05:22:01 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1737638521; cv=none;
+        d=google.com; s=arc-20240605;
+        b=fpZiR25YuqlrT43BtH4BktmEdQ7g7I2qkq3r+ew7rbLs1AVpDa3iE0zXgpsLxUKAXq
+         lcAnWCvZLYJnsSqRnZ57i3fn8Ar95H0ZnRIi34kgzSNH4hsWAlBLI/9UfLRNV1EM90sb
+         zNCuuu/ewhsrQ00a5LevuDMerdR6D+uGe7k6VUNIdBBgSQa55NntpAZFIoqRIpjwBtDM
+         Fjocwfj/K9WfxtYkCW2Y/7At8lpyHvHvHreYuBeMgEuSHWWYZjkypjKDEF7fg+g8i3p8
+         UPsVi4T+VsAsMrSERgTrg+FZl+z5s6rwwmbgxAvNQlN+wEufqPYR9DEsjUgOr+uu6hpM
+         JAeg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=dV4vyM1/RowA1lFVXc1GCZr5RAvaqXvgcAOjzpCvwxg=;
+        fh=wF/Yrd2E0xeKwPH74kML7cQSth+Fl4bwhVNrybJ4uh4=;
+        b=LQp84OdCw9+euw2xm0aPP8u6mVKVG1voSO0UVdqhqdzpJ23OGA5qllfNaQouch3uSB
+         ZHgLGqdbcp4i9Zvkjn57FRyXuFGe/taoWoUxlflIYV6/CelHzfDFbLuf2J3VayxUqucK
+         UfapzfWqi87cPJ9iDF3BieLUaPX4taKBZ+RAixrY6xO2Cq1aJuxWi4uw/D4BGb3j4bq3
+         dJ5UeWkCsq8eJqv1BSyAkVv8x+foxOwIeqNMtdRoYb4Im4c+6ss8ajCbpPjQ21Ogp6fT
+         aFIrSdHPliTAPNmltXCvJrx5m9XXKg9PfR6V9NQcDXzIb9bbSX8DmlhOCTfDRrUuwvJv
+         64jA==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=GacoFQpt;
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <banyus53@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id a640c23a62f3a-ab6692eda0esor65995366b.1.2025.01.23.05.22.01
+        for <estampel@gmail.com>
+        (Google Transport Security);
+        Thu, 23 Jan 2025 05:22:01 -0800 (PST)
+Received-SPF: pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=GacoFQpt;
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1737638520; x=1738243320; dara=google.com;
+        h=to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=dV4vyM1/RowA1lFVXc1GCZr5RAvaqXvgcAOjzpCvwxg=;
+        b=GacoFQptjsq6BcUy+OfecSpozQ26whaKwkDfIHNbG465zUUYzYBDJ9eRl7Xpw97nA9
+         VDF+E+KmVd5nIvu2f5Q1wzjk3d+dA4nBoYOS9bTRp+l9ng1cGJMLzrnHarYN0fpsU4wp
+         KkBYqrMIxOtxC6QKepG1KbjEFw/M5cEIEZ7BWbU6DwFrhtil+opoQs5LrFMJZuhs7Pv/
+         VSZ9Cy3tpNoj9VyP2jb+Qx5InWkcc3BjgkWuLJLcbB4GoR5ZadwqUgknEGWQB8pDwVGQ
+         EdcBsqJ6FYENUWHtpvwRJlmnvIBYDw/YV32p2GLD7c2PVKsklz4pIPpAP/157YHwvK10
+         wAKQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1737638520; x=1738243320;
+        h=to:subject:message-id:date:from:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=dV4vyM1/RowA1lFVXc1GCZr5RAvaqXvgcAOjzpCvwxg=;
+        b=kGTj/lOtPQgATNm4K/oknspstIxPK9kFt+qTrvEOkqqnhRSZfvk+2VvnlYzXgTUBZ5
+         2BhVa1xNGnNshyH/RtUQLBA/ymc2FYtF5IGPghscwngedGU/LxaD5uh93WpzdfuBnyt2
+         WVpPRb2BPW/Ov1GymyaKO6WKxmWkTV7mZpCd9g2itzRKRQKv1NLbUkvWXrNK7UNibXsK
+         go1UKvNXuAyrdfTH6Lhic7mMpgC6xNSFCKa8sh9gfNafJnB+ym3XW8ssm4jldu9pIifz
+         mK9WESEkjH4AUAZJBx+yTC8B4rnK4kLkMDAzJKc0x94xn6B3vaUEDrIPu/W0cOF7gqnR
+         IkTA==
+X-Gm-Message-State: AOJu0YzWpi+5CZLJU0plO0BAuQL0BnNjbBESaHbUORF9Cco5JA8Ztm54
+	G+CrcAwKt6wAdyzvGw1u5Y8WzX0braq99oqQkx+rweFOZcMqBDc3ylckdHVGlVe7QGUGsS4ZUYj
+	u3Lz7meMxO0Cob3komswK/9zKYBV1ZeTA
+X-Gm-Gg: ASbGncsOE5m95WGKWu4/AGY1ZdRS3KCtNEWxpppcLtR4uSaAMzAKILnx1iywyDm0dZH
+	0DWjR+LAUhZQfaOsa3aKB9G5u0o8HV6KNgx9u08hpx5F3Me96TD19t68lIvMsyuzcdfH3L9DW+K
+	5JPNdCwLOAUeEdPG3gCe7s
+X-Google-Smtp-Source: AGHT+IEC8sjWH39V9ahfo4f66idv0gO8c/0kwPu94NN4nMwnP0SJ6bDUH585PY4puwiuRSmtT6/2qwFg8agIrD1YCi8=
+X-Received: by 2002:a17:907:7e92:b0:aae:b259:ef63 with SMTP id
+ a640c23a62f3a-ab38b1bca03mr2774381066b.34.1737638520350; Thu, 23 Jan 2025
+ 05:22:00 -0800 (PST)
+MIME-Version: 1.0
+From: =?UTF-8?B?w4FnbmVzIEJ1Z8Ohcg==?= <banyus53@gmail.com>
+Date: Thu, 23 Jan 2025 14:21:33 +0100
+X-Gm-Features: AbW1kvZ8ZBEQhE964MZ8k3z2W4p5qjjxRde9NDAIjuuklTF6212Hxed_t98AZSA
+Message-ID: <CA+39czXj=WVXOvhkZPfz1nEdaLANMmHUTHyC_LJATaDBG0Gkqg@mail.gmail.com>
+Subject: FALAFEL AIRFRAYERBEN
+To: Emese Stampel <estampel@gmail.com>
+Content-Type: multipart/alternative; boundary="000000000000c0ee25062c5f7e4a"
+
+--000000000000c0ee25062c5f7e4a
+Content-Type: text/plain; charset="UTF-8"
+
+https://streetkitchen.hu/vegetarianus-etelek/falafel-air-fryerben/
+
+--000000000000c0ee25062c5f7e4a
+Content-Type: text/html; charset="UTF-8"
+
+<div dir="ltr"><a href="https://streetkitchen.hu/vegetarianus-etelek/falafel-air-fryerben/">https://streetkitchen.hu/vegetarianus-etelek/falafel-air-fryerben/</a></div>
+
+--000000000000c0ee25062c5f7e4a--

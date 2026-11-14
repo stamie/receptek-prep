@@ -1,0 +1,1407 @@
+Delivered-To: estampel@gmail.com
+Received: by 2002:a05:622a:a10c:b0:494:a61f:6730 with SMTP id kx12csp960076qtb;
+        Fri, 16 May 2025 05:24:18 -0700 (PDT)
+X-Received: by 2002:a17:907:72d4:b0:ad2:4f81:65b4 with SMTP id a640c23a62f3a-ad52d5e32d8mr295645166b.60.1747398258283;
+        Fri, 16 May 2025 05:24:18 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1747398258; cv=none;
+        d=google.com; s=arc-20240605;
+        b=HAlOCPsbWf2gTC8aDoxgf6Wzc6t/UjKy7iiKrfJ93C2IVwi4fQ6DJAmCURNcOv5FA8
+         Nka0IQEZ7spSnzZAeLHGMgpU91UP7WtoG903TZtY1J0J5ohAUM0qSBLBK8nzgxv9A3BW
+         xJTaM9fMqXzH3hUU6dnpy2vgfBGxETxlXvJbJGUPEKTfocG45EStRZYSuF9wzOx0e7Bm
+         XF26/GblS7Qt9E+TI9yqek4aG/1duYOOmS1ltgg/UfAlbRVJqnZ0tR25p2/xTBaUUTtr
+         KLqjpkZd4J+7/Zbjfz6bl20D76NebKJZvWDXIy4vcUr+KdCbFXzldCV5PgQQ6/dvP3nD
+         DGvQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=gIuPC5YfLL7GGXAAx5ZvohQL5XcfQGRhUSlntUTXvNY=;
+        fh=wF/Yrd2E0xeKwPH74kML7cQSth+Fl4bwhVNrybJ4uh4=;
+        b=iqk2kBlzffA+6pI7M6TQvvp8wtXU/+dLP2vf2LCpBLObZxzyXXV3TSo9JFo7HTkGCY
+         UyRuLjQMSDIJ8istcYxaupCyy50URpqw59JcHxFCOBhbQ71Aldan92bffnuCXTdpVbfC
+         TL/x1ZMHivj++0lq/zp6IVnPmIftNVGB0vCS6FQ1A5KMW6YOASQkCuRN7ZqDhbjF0Gce
+         yKOSl0X551ho5IR9ThMg4XRfhNGrQh+cfswFQsGjZbAOW1qKPH1exbYHYZOnoWe+Lwqp
+         L6H8+W+LechqyHqt3uxg3OuMOtXu3Lgnwr3orueJGro3tnxBWxB5d06qzi+etTQSCz2c
+         Yu+g==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=fP1LDARb;
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <banyus53@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id a640c23a62f3a-ad52d27c8b2sor97691866b.5.2025.05.16.05.24.18
+        for <estampel@gmail.com>
+        (Google Transport Security);
+        Fri, 16 May 2025 05:24:18 -0700 (PDT)
+Received-SPF: pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=fP1LDARb;
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1747398257; x=1748003057; dara=google.com;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=gIuPC5YfLL7GGXAAx5ZvohQL5XcfQGRhUSlntUTXvNY=;
+        b=fP1LDARb7TmIQcNf618iwb3Fl72YE5qGruZEa1qZZe7ZlAaUnravQFnLRTET7GotKe
+         2D4piSVqiHWiPu9a88Ricr/kjp9NemJgiDdtNgMjKRYDAVxofbl7Sz2HotNlsxMs11Gj
+         fhV+Bn0jqLyb1nwkGqgvb34iRHL2zIUzBYhwQZyrLSltwznuRYasatAcl9wfpA65OO+o
+         YOjoSIRJVZkJ9m/WFnVhYaANrcZithnWfG6Z8YuQqPafnuGksZcNm52t75ohNJ3JFSqh
+         lhk0hb3Lhot+lfCIsRABVdJqfkjXuF70ExN0eeVqrp4yQH2AlBrvhT2Y07i+UMnF6Mc3
+         KgUQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747398257; x=1748003057;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=gIuPC5YfLL7GGXAAx5ZvohQL5XcfQGRhUSlntUTXvNY=;
+        b=q5e/N6PujPELnA1eiXZB1b9nQR1eQjMmpxQjzl72wDE+R3JIkDjWrVrC7QmfMAqPNf
+         zWtz4RAQ86c5BuPM6KMBuanOKUoO19+aKG0TZIBjd+5tFDknR75Qa2LIv+WJ9JhST/Yr
+         +cWp67vt6BaKa3W8w5q3FAOhe5ySZLc8nfKo8xz3RP4hnL1xiv7FnO23cI4gm/7xtCIQ
+         RTIUPpoLE4fP6l1w1mnUJEcO1vnEfSalH2mZbH0Jc0tnyXQzgFxl/S4rqpXpWBOnrrbn
+         duFTau9krFsh9VArE0Za935ZjWKSWplAKOJIqEFHSNIc38ijPTee47iryR7+oZ/emes7
+         kc+Q==
+X-Gm-Message-State: AOJu0YxAmVQDpISRqv8JTg6VTPh8egig6f8YksKQ7dN/j+wP9VXNA4Gl
+	7LwjSpsk6tviwkRtvgNQYvDi5fh69n6++zc0WW2xmELCiQSQnQeK0UFq6CaXzpZriUetmpa7CXd
+	fHY3vgpkOdIoj4FBSphBDc2NrImeoYwhKfA==
+X-Gm-Gg: ASbGncu+ATG+xVONJyU1NTDrLXOBycDALUkidej3gyBL/sDWUcH2HdlICwWpjZvReko
+	FxN0QES33Ey61i6uez9AR57V647CtD4l+dcvIBrc/c0DVhQ+Q2f5rMxLvvHxiKKZGltn93ZeVkj
+	dXupDjEQG7KCw5LasTVUpIiMrFAxUJ8DpvnA==
+X-Google-Smtp-Source: AGHT+IGADW4MBYxaBE4GbyswL4Iosfb0s38+x9chQgt4VB8QEIK8SosdgYU/Ig1EjkwcDNqlwiwFrpIFL8FSg1IzoAM=
+X-Received: by 2002:a17:907:7e9c:b0:ad2:4b3d:f742 with SMTP id
+ a640c23a62f3a-ad52d46672cmr310700866b.3.1747398256545; Fri, 16 May 2025
+ 05:24:16 -0700 (PDT)
+MIME-Version: 1.0
+References: <68272d83bea4d_1199cf28109112f5@ip-10-0-12-24.ec2.internal.mail>
+In-Reply-To: <68272d83bea4d_1199cf28109112f5@ip-10-0-12-24.ec2.internal.mail>
+From: =?UTF-8?B?w4FnbmVzIEJ1Z8Ohcg==?= <banyus53@gmail.com>
+Date: Fri, 16 May 2025 14:22:25 +0200
+X-Gm-Features: AX0GCFvcv9wyFwnXo3s-IYDITo3ch4eihx1JcRupqJXgyoydaVuchgu3SOROox8
+Message-ID: <CA+39czX1G9Va=EsbMh4wD9DVpVtv2sak5=2ZX+Fhz2UMwOMdEA@mail.gmail.com>
+Subject: =?UTF-8?B?RndkOiBLw7ZzesO2bmrDvGssIGhvZ3kgYWzDocOtcnRhZCBhKHopIFRpbHRha296dW5rIA==?=
+	=?UTF-8?B?YSBjaXZpbCB0w6Fyc2FkYWxvbSDDqXMgZsO8Z2dldGxlbiBzYWp0w7MgZmVsc3rDoW1vbMOhc2EgZWxs?=
+	=?UTF-8?B?ZW4hIHBldMOtY2nDs3Q=?=
+To: Emese Stampel <estampel@gmail.com>
+Content-Type: multipart/alternative; boundary="0000000000005cd96b06353fdcf6"
+
+--0000000000005cd96b06353fdcf6
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+---------- Forwarded message ---------
+Felad=C3=B3: Viktor Szal=C3=B3ki via SzabadaHang <support@ahang.hu>
+Date: 2025. m=C3=A1j. 16., P, 14:20
+Subject: K=C3=B6sz=C3=B6nj=C3=BCk, hogy al=C3=A1=C3=ADrtad a(z) Tiltakozunk=
+ a civil t=C3=A1rsadalom =C3=A9s
+f=C3=BCggetlen sajt=C3=B3 felsz=C3=A1mol=C3=A1sa ellen! pet=C3=ADci=C3=B3t
+To: <banyus53@gmail.com>
+
+
+[image: aHang]
+
+Kedves =C3=81gnes M=C3=A1ria!
+
+K=C3=B6sz=C3=B6nj=C3=BCk, hogy al=C3=A1=C3=ADr=C3=A1soddal t=C3=A1mogatod e=
+zt a kamp=C3=A1nyt: Tiltakozunk a civil
+t=C3=A1rsadalom =C3=A9s f=C3=BCggetlen sajt=C3=B3 felsz=C3=A1mol=C3=A1sa el=
+len!.
+
+Ha szeretn=C3=A9d seg=C3=ADteni munk=C3=A1nkat anyagilag is, akkor az al=C3=
+=A1bbi gombra
+kattintva tudsz seg=C3=ADteni. A be=C3=A9rkez=C5=91 =C3=B6sszeggel a szabad=
+aHang platform
+fenntart=C3=A1s=C3=A1t t=C3=A1mogathatod, illetve a kamp=C3=A1ny n=C3=A9psz=
+er=C5=B1s=C3=ADt=C3=A9s=C3=A9re, hirdet=C3=A9s=C3=A9re
+=C3=A9s akci=C3=B3k szervez=C3=A9s=C3=A9re is ezekb=C5=91l a t=C3=A1mogat=
+=C3=A1sokb=C3=B3l tudunk k=C3=B6lteni.
+T=C3=81MOGATOM! <https://tamogass.ahang.hu/>
+
+=C3=9Agy is sokat tudsz seg=C3=ADteni, ha megosztod a kamp=C3=A1nyt csal=C3=
+=A1doddal,
+ismer=C5=91seiddel. K=C3=BCldd tov=C3=A1bb e-mailen, vagy oszd meg a k=C3=
+=B6z=C3=B6ss=C3=A9gi m=C3=A9di=C3=A1ban:
+MEGOSZT=C3=81S A FACEBOOK-ON
+<https://www.facebook.com/sharer/sharer.php?u=3Dhttps%3A%2F%2Fszabad.ahang.=
+hu%2Fpetitions%2Ftiltakozunk-a-civil-tarsadalom-es-fuggetlen-sajto-felszamo=
+lasa-ellen%3Fshare%3D9b88082b-b68a-46be-9929-1885ee8d75e7%26source%3Dfacebo=
+ok-share-email-button%26time%3D1747392292%26utm_campaign%3Dblast2025-05-16%=
+26utm_medium%3Dszabadahang%26utm_source%3Dszabadahang-fbshare>
+MEGOSZT=C3=81S TWITTER-EN
+<https://twitter.com/intent/tweet?url=3Dhttps%3A%2F%2Fszabad.ahang.hu%2Fpet=
+itions%2Ftiltakozunk-a-civil-tarsadalom-es-fuggetlen-sajto-felszamolasa-ell=
+en%3Fshare%3Dd172c22c-5069-45a2-8cb6-c2f04d975671%26source%3Dtwitter-share-=
+email-button%26time%3D1747392292%26utm_campaign%3Dblast2025-05-16%26utm_med=
+ium%3Dszabadahang%26utm_source%3Dszabadahang-twitter&via=3Dszabadahang&text=
+=3DNagyon+meg%C3%A9rintett+ez+az+%C3%BCgy+-+k%C3%A9rlek+%C3%ADrd+al%C3%A1+T=
+e+is%21+>
+
+K=C3=B6sz=C3=B6nj=C3=BCk seg=C3=ADts=C3=A9ged!
+
+A SzabadaHang csapata
+
+A lev=C3=A9l k=C3=BCld=C5=91je:
+
+Magyarhang Nonprofit Kft.
+
+1072 Budapest, R=C3=A1k=C3=B3czi =C3=BAt 14. f=C3=A9lemelet
+[image: Szabad aHang] <https://szabad.ahang.hu/>
+M=C3=A1sold be az al=C3=A1bbi sz=C3=B6veget egy emailbe =C3=A9s oszd meg a =
+bar=C3=A1taiddal.
+*Szia!*
+=C3=89pp most =C3=ADrtam al=C3=A1 ezt a kamp=C3=A1nyt: Tiltakozunk a civil =
+t=C3=A1rsadalom =C3=A9s
+f=C3=BCggetlen sajt=C3=B3 felsz=C3=A1mol=C3=A1sa ellen!
+Sokat jelentene nekem, ha te is a nevedet adn=C3=A1d ehhez a fontos =C3=BCg=
+yh=C3=B6z.
+Minden al=C3=A1=C3=ADr=C3=A1s er=C5=91s=C3=ADti a kamp=C3=A1nyt =C3=A9s a v=
+=C3=A1ltoz=C3=A1s el=C3=A9r=C3=A9s=C3=A9t.
+K=C3=A9rlek, seg=C3=ADts el=C3=A9rnem a c=C3=A9lomat!
+Seg=C3=ADtek!
+<https://szabad.ahang.hu/petitions/tiltakozunk-a-civil-tarsadalom-es-fugget=
+len-sajto-felszamolasa-ellen?share=3D271345d5-c34c-453c-a6fb-12dae9fe62cd&s=
+ource=3Dmailfw-thanks-signing&utm_campaign=3Dblast2025-05-16&utm_medium=3Ds=
+zabadahang&utm_source=3Dmailfw-thanks-signing>
+Miut=C3=A1n al=C3=A1=C3=ADrtad ezt a pet=C3=ADci=C3=B3t, k=C3=A9rlek sz=C3=
+=A1nj n=C3=A9h=C3=A1ny pillanatot arra is,
+hogy megoszd m=C3=A1sokkal. Ez szuperk=C3=B6nny=C5=B1 - csak annyit kell te=
+nned, hogy
+tov=C3=A1bbk=C3=BCld=C3=B6d ezt az emailt.
+K=C3=B6sz=C3=B6n=C3=B6m!
+=C3=81gnes M=C3=A1ria
+------------------------------
+A lev=C3=A9l k=C3=BCld=C5=91je: Magyarhang Nonprofit Kft.
+C=C3=ADm=C3=BCnk: 1072 Budapest, R=C3=A1k=C3=B3czi =C3=BAt 14. f=C3=A9lemel=
+et.
+[image: Szabad aHang Logo]
+
+Nem vagy biztos benne, hogy mi ez az eg=C3=A9sz? T=C3=A1vol=C3=ADtsd el az =
+al=C3=A1=C3=ADr=C3=A1sod!
+<https://szabad.ahang.hu/petitions/tiltakozunk-a-civil-tarsadalom-es-fugget=
+len-sajto-felszamolasa-ellen/signatures/CGFetegZVjtfrtYUounSmEjv/confirm_de=
+stroy>
+
+You can contact the petition creator by replying directly to this email.
+Note that if you reply to this email, your message and email address will
+be shared with the petition creator.
+
+--0000000000005cd96b06353fdcf6
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><br><br><div class=3D"gmail_quote gmail_quote_container"><=
+div dir=3D"ltr" class=3D"gmail_attr">---------- Forwarded message ---------=
+<br>Felad=C3=B3: <strong class=3D"gmail_sendername" dir=3D"auto">Viktor Sza=
+l=C3=B3ki via SzabadaHang</strong> <span dir=3D"auto">&lt;<a href=3D"mailto=
+:support@ahang.hu">support@ahang.hu</a>&gt;</span><br>Date: 2025. m=C3=A1j.=
+ 16., P, 14:20<br>Subject: K=C3=B6sz=C3=B6nj=C3=BCk, hogy al=C3=A1=C3=ADrta=
+d a(z) Tiltakozunk a civil t=C3=A1rsadalom =C3=A9s f=C3=BCggetlen sajt=C3=
+=B3 felsz=C3=A1mol=C3=A1sa ellen! pet=C3=ADci=C3=B3t<br>To:  &lt;<a href=3D=
+"mailto:banyus53@gmail.com">banyus53@gmail.com</a>&gt;<br></div><br><br><di=
+v class=3D"msg-3681375736695721268"><u></u>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,=
+Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;width:100%!=
+important;height:100%;line-height:1.6;margin:0;padding:0" bgcolor=3D"#f6f6f=
+6">
+<table style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot=
+;,Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;width:100=
+%;margin:0;padding:0" bgcolor=3D"#f6f6f6">
+<tbody><tr style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&=
+quot;,Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;margi=
+n:0;padding:0">
+<td style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,H=
+elvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;display:bloc=
+k!important;width:100%;max-width:600px!important;clear:both!important;margi=
+n:0 auto;padding:0" valign=3D"top">
+
+<div align=3D"center" style=3D"font-family:&quot;Helvetica Neue&quot;,&quot=
+;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:border-box;font-size=
+:14px;max-width:600px;display:block;margin:0 auto;padding:20px">
+<table align=3D"center" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" =
+style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,Helve=
+tica,Arial,sans-serif;box-sizing:border-box;font-size:14px;text-align:left;=
+border-radius:3px;margin:0;padding:0;border:1px solid #e9e9e9" bgcolor=3D"#=
+fff">
+<tbody><tr style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&=
+quot;,Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;margi=
+n:0;padding:0">
+<td style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,H=
+elvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;margin:0;pad=
+ding:20px" valign=3D"top">
+<div style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,=
+Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;margin:0;pa=
+dding:0 0 20px">
+<div style=3D"background-color:#e5e4e2!important;font-family:Barlow,-apple-=
+system,BlinkMacSystemFont,&#39;Segoe UI&#39;,Roboto,&#39;Helvetica Neue&#39=
+;,Arial,sans-serif,&#39;Apple Color Emoji&#39;,&#39;Segoe UI Emoji&#39;,&#3=
+9;Segoe UI Symbol&#39;!important;display:block!important;box-sizing:border-=
+box;font-size:14px;margin:0;padding:0;border:1px solid #e5e4e2">
+    <table cellpadding=3D"0" cellspacing=3D"0" style=3D"border-collapse:col=
+lapse!important;border-spacing:0px!important;width:100%!important;height:10=
+0%!important;background-position:center top!important;font-family:&quot;Hel=
+vetica Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizi=
+ng:border-box;font-size:14px;margin:0;padding:0" width=3D"100%">
+        <tbody style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvet=
+ica&quot;,Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;m=
+argin:0;padding:0">
+<tr style=3D"border-collapse:collapse!important;font-family:&quot;Helvetica=
+ Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:bor=
+der-box;font-size:14px;margin:0;padding:0">
+            <td style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helve=
+tica&quot;,Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;=
+margin:0;padding:0" valign=3D"top">
+                <table align=3D"center" cellpadding=3D"0" cellspacing=3D"0"=
+ style=3D"border-collapse:collapse!important;border-spacing:0px!important;w=
+idth:100%!important;max-width:600px!important;font-family:&quot;Helvetica N=
+eue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:borde=
+r-box;font-size:14px;margin:0;padding:0;border-color:#ffffff;border-style:s=
+olid;border-width:5px 0px 0px">
+                    <tbody style=3D"font-family:&quot;Helvetica Neue&quot;,=
+&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:border-box;font=
+-size:14px;margin:0;padding:0">
+<tr style=3D"border-collapse:collapse!important;font-family:&quot;Helvetica=
+ Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:bor=
+der-box;font-size:14px;margin:0;padding:0">
+                        <td align=3D"center" style=3D"font-family:&quot;Hel=
+vetica Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizi=
+ng:border-box;font-size:14px;margin:0;padding:0" valign=3D"top">
+                            <table align=3D"center" cellpadding=3D"0" cells=
+pacing=3D"0" style=3D"border-collapse:collapse!important;border-spacing:0px=
+!important;width:100%!important;max-width:600px!important;font-family:&quot=
+;Helvetica Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-=
+sizing:border-box;font-size:14px;margin:0;padding:0" width=3D"600" bgcolor=
+=3D"#ffffff">
+                                <tbody style=3D"font-family:&quot;Helvetica=
+ Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:bor=
+der-box;font-size:14px;margin:0;padding:0">
+<tr style=3D"border-collapse:collapse!important;font-family:&quot;Helvetica=
+ Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:bor=
+der-box;font-size:14px;margin:0;padding:0">
+                                    <td align=3D"left" style=3D"background-=
+position:center center!important;font-family:&quot;Helvetica Neue&quot;,&qu=
+ot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:border-box;font-si=
+ze:14px;margin:0;padding:0 40px" bgcolor=3D"transparent" valign=3D"top">
+                                        <table cellpadding=3D"0" cellspacin=
+g=3D"0" style=3D"border-collapse:collapse!important;border-spacing:0px!impo=
+rtant;width:100%!important;max-width:600px!important;font-family:&quot;Helv=
+etica Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizin=
+g:border-box;font-size:14px;margin:0;padding:0" width=3D"100%">
+                                            <tbody style=3D"font-family:&qu=
+ot;Helvetica Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;bo=
+x-sizing:border-box;font-size:14px;margin:0;padding:0">
+<tr style=3D"border-collapse:collapse!important;font-family:&quot;Helvetica=
+ Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:bor=
+der-box;font-size:14px;margin:0;padding:0">
+                                                <td align=3D"center" style=
+=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,Helvetica,=
+Arial,sans-serif;box-sizing:border-box;font-size:14px;margin:0;padding:0" v=
+align=3D"top" width=3D"520">
+                                                    <table cellpadding=3D"0=
+" cellspacing=3D"0" style=3D"border-collapse:collapse!important;border-spac=
+ing:0px!important;width:100%!important;max-width:600px!important;font-famil=
+y:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-ser=
+if;box-sizing:border-box;font-size:14px;margin:0;padding:0" width=3D"100%">
+                                                        <tbody style=3D"fon=
+t-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,s=
+ans-serif;box-sizing:border-box;font-size:14px;margin:0;padding:0">
+<tr style=3D"border-collapse:collapse!important;font-family:&quot;Helvetica=
+ Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:bor=
+der-box;font-size:14px;margin:0;padding:0">
+                                                            <td align=3D"le=
+ft" style=3D"width:30px!important;font-family:&quot;Helvetica Neue&quot;,&q=
+uot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:border-box;font-s=
+ize:14px;margin:0;padding:10px 0" valign=3D"middle">
+                                                                <img alt=3D=
+"aHang" height=3D"24" src=3D"https://ahang.hu/mail/ahangikon.png" style=3D"=
+display:inline-block!important;text-decoration:none!important;vertical-alig=
+n:middle!important;font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&q=
+uot;,Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;max-wi=
+dth:100%;margin:0;padding:0;border-width:0" title=3D"aHang" width=3D"24">
+                                                            </td>
+                                                            <td align=3D"le=
+ft" style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,H=
+elvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;margin:0;pad=
+ding:10px 0" valign=3D"middle">
+                                                                <p style=3D=
+"font-size:16px!important;font-family:Barlow,-apple-system,BlinkMacSystemFo=
+nt,&#39;Segoe UI&#39;,Roboto,&#39;Helvetica Neue&#39;,Arial,sans-serif,&#39=
+;Apple Color Emoji&#39;,&#39;Segoe UI Emoji&#39;,&#39;Segoe UI Symbol&#39;!=
+important;line-height:24px!important;color:#000000!important;box-sizing:bor=
+der-box;font-weight:normal;white-space:normal;margin:0;padding:0">
+                                                                    Kedves =
+=C3=81gnes M=C3=A1ria!
+                                                                </p>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+</table>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+</table>
+                                    </td>
+                                </tr>
+                            </tbody>
+</table>
+                        </td>
+                    </tr>
+                </tbody>
+</table>
+                <table align=3D"center" cellpadding=3D"0" cellspacing=3D"0"=
+ style=3D"border-collapse:collapse!important;border-spacing:0px!important;w=
+idth:100%!important;max-width:600px!important;font-family:&quot;Helvetica N=
+eue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:borde=
+r-box;font-size:14px;margin:0;padding:0">
+                    <tbody style=3D"font-family:&quot;Helvetica Neue&quot;,=
+&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:border-box;font=
+-size:14px;margin:0;padding:0">
+<tr style=3D"border-collapse:collapse!important;font-family:&quot;Helvetica=
+ Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:bor=
+der-box;font-size:14px;margin:0;padding:0">
+                        <td align=3D"center" style=3D"font-family:&quot;Hel=
+vetica Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizi=
+ng:border-box;font-size:14px;margin:0;padding:0" valign=3D"top">
+                            <table align=3D"center" cellpadding=3D"0" cells=
+pacing=3D"0" style=3D"border-collapse:collapse!important;border-spacing:0px=
+!important;width:100%!important;max-width:600px!important;font-family:&quot=
+;Helvetica Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-=
+sizing:border-box;font-size:14px;margin:0;padding:0" width=3D"600" bgcolor=
+=3D"#ffffff">
+                                <tbody style=3D"font-family:&quot;Helvetica=
+ Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:bor=
+der-box;font-size:14px;margin:0;padding:0">
+<tr style=3D"border-collapse:collapse!important;font-family:&quot;Helvetica=
+ Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:bor=
+der-box;font-size:14px;margin:0;padding:0">
+                                    <td align=3D"left" style=3D"background-=
+position:center center!important;font-family:&quot;Helvetica Neue&quot;,&qu=
+ot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:border-box;font-si=
+ze:14px;margin:0;padding:0 40px" bgcolor=3D"transparent" valign=3D"top">
+                                        <table cellpadding=3D"0" cellspacin=
+g=3D"0" style=3D"border-collapse:collapse!important;border-spacing:0px!impo=
+rtant;width:100%!important;max-width:600px!important;font-family:&quot;Helv=
+etica Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizin=
+g:border-box;font-size:14px;margin:0;padding:0" width=3D"100%">
+                                            <tbody style=3D"font-family:&qu=
+ot;Helvetica Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;bo=
+x-sizing:border-box;font-size:14px;margin:0;padding:0">
+<tr style=3D"border-collapse:collapse!important;font-family:&quot;Helvetica=
+ Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:bor=
+der-box;font-size:14px;margin:0;padding:0">
+                                                <td align=3D"center" style=
+=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,Helvetica,=
+Arial,sans-serif;box-sizing:border-box;font-size:14px;margin:0;padding:0" v=
+align=3D"top" width=3D"520">
+                                                    <table cellpadding=3D"0=
+" cellspacing=3D"0" style=3D"border-collapse:collapse!important;border-spac=
+ing:0px!important;width:100%!important;max-width:600px!important;font-famil=
+y:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-ser=
+if;box-sizing:border-box;font-size:14px;margin:0;padding:0" width=3D"100%">
+                                                        <tbody style=3D"fon=
+t-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,s=
+ans-serif;box-sizing:border-box;font-size:14px;margin:0;padding:0">
+<tr style=3D"border-collapse:collapse!important;font-family:&quot;Helvetica=
+ Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:bor=
+der-box;font-size:14px;margin:0;padding:0">
+                                                            <td align=3D"le=
+ft" style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,H=
+elvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;margin:0;pad=
+ding:10px 0" valign=3D"top">
+                                                                <p style=3D=
+"font-size:16px!important;font-family:Barlow,-apple-system,BlinkMacSystemFo=
+nt,&#39;Segoe UI&#39;,Roboto,&#39;Helvetica Neue&#39;,Arial,sans-serif,&#39=
+;Apple Color Emoji&#39;,&#39;Segoe UI Emoji&#39;,&#39;Segoe UI Symbol&#39;!=
+important;line-height:24px!important;color:#000000!important;box-sizing:bor=
+der-box;font-weight:normal;white-space:normal;margin:0;padding:0">
+                                                                    K=C3=B6=
+sz=C3=B6nj=C3=BCk, hogy al=C3=A1=C3=ADr=C3=A1soddal t=C3=A1mogatod ezt a ka=
+mp=C3=A1nyt: Tiltakozunk a civil t=C3=A1rsadalom =C3=A9s f=C3=BCggetlen saj=
+t=C3=B3 felsz=C3=A1mol=C3=A1sa ellen!.
+                                                                </p>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+</table>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+</table>
+                                    </td>
+                                </tr>
+                            </tbody>
+</table>
+                        </td>
+                    </tr>
+                </tbody>
+</table>
+                <table align=3D"center" cellpadding=3D"0" cellspacing=3D"0"=
+ style=3D"border-collapse:collapse!important;border-spacing:0px!important;w=
+idth:100%!important;max-width:600px!important;font-family:&quot;Helvetica N=
+eue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:borde=
+r-box;font-size:14px;margin:0;padding:0">
+                    <tbody style=3D"font-family:&quot;Helvetica Neue&quot;,=
+&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:border-box;font=
+-size:14px;margin:0;padding:0">
+<tr style=3D"border-collapse:collapse!important;font-family:&quot;Helvetica=
+ Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:bor=
+der-box;font-size:14px;margin:0;padding:0">
+                        <td align=3D"center" style=3D"font-family:&quot;Hel=
+vetica Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizi=
+ng:border-box;font-size:14px;margin:0;padding:0" valign=3D"top">
+                            <table align=3D"center" cellpadding=3D"0" cells=
+pacing=3D"0" style=3D"border-collapse:collapse!important;border-spacing:0px=
+!important;width:100%!important;max-width:600px!important;font-family:&quot=
+;Helvetica Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-=
+sizing:border-box;font-size:14px;margin:0;padding:0" width=3D"600" bgcolor=
+=3D"#ffffff">
+                                <tbody style=3D"font-family:&quot;Helvetica=
+ Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:bor=
+der-box;font-size:14px;margin:0;padding:0">
+<tr style=3D"border-collapse:collapse!important;font-family:&quot;Helvetica=
+ Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:bor=
+der-box;font-size:14px;margin:0;padding:0">
+                                    <td align=3D"left" style=3D"background-=
+position:center center!important;font-family:&quot;Helvetica Neue&quot;,&qu=
+ot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:border-box;font-si=
+ze:14px;margin:0;padding:0 40px" bgcolor=3D"transparent" valign=3D"top">
+                                        <table cellpadding=3D"0" cellspacin=
+g=3D"0" style=3D"border-collapse:collapse!important;border-spacing:0px!impo=
+rtant;width:100%!important;max-width:600px!important;font-family:&quot;Helv=
+etica Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizin=
+g:border-box;font-size:14px;margin:0;padding:0" width=3D"100%">
+                                            <tbody style=3D"font-family:&qu=
+ot;Helvetica Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;bo=
+x-sizing:border-box;font-size:14px;margin:0;padding:0">
+<tr style=3D"border-collapse:collapse!important;font-family:&quot;Helvetica=
+ Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:bor=
+der-box;font-size:14px;margin:0;padding:0">
+                                                <td align=3D"center" style=
+=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,Helvetica,=
+Arial,sans-serif;box-sizing:border-box;font-size:14px;margin:0;padding:0" v=
+align=3D"top" width=3D"520">
+                                                    <table cellpadding=3D"0=
+" cellspacing=3D"0" style=3D"border-collapse:collapse!important;border-spac=
+ing:0px!important;width:100%!important;max-width:600px!important;font-famil=
+y:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-ser=
+if;box-sizing:border-box;font-size:14px;margin:0;padding:0" width=3D"100%">
+                                                        <tbody style=3D"fon=
+t-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,s=
+ans-serif;box-sizing:border-box;font-size:14px;margin:0;padding:0">
+<tr style=3D"border-collapse:collapse!important;font-family:&quot;Helvetica=
+ Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:bor=
+der-box;font-size:14px;margin:0;padding:0">
+                                                            <td align=3D"le=
+ft" style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,H=
+elvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;margin:0;pad=
+ding:10px 0" valign=3D"top">
+                                                                <p style=3D=
+"font-size:16px!important;font-family:Barlow,-apple-system,BlinkMacSystemFo=
+nt,&#39;Segoe UI&#39;,Roboto,&#39;Helvetica Neue&#39;,Arial,sans-serif,&#39=
+;Apple Color Emoji&#39;,&#39;Segoe UI Emoji&#39;,&#39;Segoe UI Symbol&#39;!=
+important;line-height:24px!important;color:#000000!important;box-sizing:bor=
+der-box;font-weight:normal;white-space:normal;margin:0;padding:0">
+                                                                    Ha szer=
+etn=C3=A9d seg=C3=ADteni munk=C3=A1nkat anyagilag is, akkor az al=C3=A1bbi =
+gombra kattintva tudsz seg=C3=ADteni. A be=C3=A9rkez=C5=91 =C3=B6sszeggel a=
+ szabadaHang platform fenntart=C3=A1s=C3=A1t t=C3=A1mogathatod, illetve a k=
+amp=C3=A1ny n=C3=A9pszer=C5=B1s=C3=ADt=C3=A9s=C3=A9re, hirdet=C3=A9s=C3=A9r=
+e =C3=A9s akci=C3=B3k szervez=C3=A9s=C3=A9re is ezekb=C5=91l a t=C3=A1mogat=
+=C3=A1sokb=C3=B3l tudunk k=C3=B6lteni.
+                                                                </p>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+</table>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+</table>
+                                    </td>
+                                </tr>
+                            </tbody>
+</table>
+                        </td>
+                    </tr>
+                </tbody>
+</table>
+                <table align=3D"center" cellpadding=3D"0" cellspacing=3D"0"=
+ style=3D"border-collapse:collapse!important;border-spacing:0px!important;w=
+idth:100%!important;max-width:600px!important;font-family:&quot;Helvetica N=
+eue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:borde=
+r-box;font-size:14px;margin:0;padding:0">
+                    <tbody style=3D"font-family:&quot;Helvetica Neue&quot;,=
+&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:border-box;font=
+-size:14px;margin:0;padding:0">
+<tr style=3D"border-collapse:collapse!important;font-family:&quot;Helvetica=
+ Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:bor=
+der-box;font-size:14px;margin:0;padding:0">
+                        <td align=3D"center" style=3D"font-family:&quot;Hel=
+vetica Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizi=
+ng:border-box;font-size:14px;margin:0;padding:0" valign=3D"top">
+                            <table align=3D"center" cellpadding=3D"0" cells=
+pacing=3D"0" style=3D"border-collapse:collapse!important;border-spacing:0px=
+!important;width:100%!important;max-width:600px!important;font-family:&quot=
+;Helvetica Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-=
+sizing:border-box;font-size:14px;margin:0;padding:0" width=3D"600" bgcolor=
+=3D"transparent">
+                                <tbody style=3D"font-family:&quot;Helvetica=
+ Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:bor=
+der-box;font-size:14px;margin:0;padding:0">
+<tr style=3D"border-collapse:collapse!important;font-family:&quot;Helvetica=
+ Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:bor=
+der-box;font-size:14px;margin:0;padding:0">
+                                    <td align=3D"left" style=3D"background-=
+position:center center!important;font-family:&quot;Helvetica Neue&quot;,&qu=
+ot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:border-box;font-si=
+ze:14px;margin:0;padding:5px 40px" bgcolor=3D"#ffffff" valign=3D"top">
+                                        <table cellpadding=3D"0" cellspacin=
+g=3D"0" style=3D"border-collapse:collapse!important;border-spacing:0px!impo=
+rtant;width:100%!important;max-width:600px!important;font-family:&quot;Helv=
+etica Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizin=
+g:border-box;font-size:14px;margin:0;padding:0" width=3D"100%">
+                                            <tbody style=3D"font-family:&qu=
+ot;Helvetica Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;bo=
+x-sizing:border-box;font-size:14px;margin:0;padding:0">
+<tr style=3D"border-collapse:collapse!important;font-family:&quot;Helvetica=
+ Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:bor=
+der-box;font-size:14px;margin:0;padding:0">
+                                                <td align=3D"center" style=
+=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,Helvetica,=
+Arial,sans-serif;box-sizing:border-box;font-size:14px;margin:0;padding:0" v=
+align=3D"top" width=3D"520">
+                                                    <table cellpadding=3D"0=
+" cellspacing=3D"0" style=3D"border-collapse:collapse!important;border-spac=
+ing:0px!important;width:100%!important;max-width:600px!important;font-famil=
+y:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-ser=
+if;box-sizing:border-box;font-size:14px;margin:0;padding:0" width=3D"100%">
+                                                        <tbody style=3D"fon=
+t-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,s=
+ans-serif;box-sizing:border-box;font-size:14px;margin:0;padding:0">
+<tr style=3D"border-collapse:collapse!important;font-family:&quot;Helvetica=
+ Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:bor=
+der-box;font-size:14px;margin:0;padding:0">
+                                                            <td align=3D"ce=
+nter" style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;=
+,Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;margin:0;p=
+adding:15px 0" valign=3D"top">
+                                                                <span style=
+=3D"background-image:none!important;background-color:#ff2400!important;back=
+ground-position:0% 0%!important;display:block!important;border-radius:100px=
+!important;width:100%!important;font-family:&quot;Helvetica Neue&quot;,&quo=
+t;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:border-box;font-siz=
+e:14px;margin:0;padding:0;border:0px solid transparent">
+                                                                    <a href=
+=3D"https://tamogass.ahang.hu/" style=3D"text-decoration:none!important;fon=
+t-family:Barlow,-apple-system,BlinkMacSystemFont,&#39;Segoe UI&#39;,Roboto,=
+&#39;Helvetica Neue&#39;,Arial,sans-serif,&#39;Apple Color Emoji&#39;,&#39;=
+Segoe UI Emoji&#39;,&#39;Segoe UI Symbol&#39;!important;font-size:16px!impo=
+rtant;color:#ffffff!important;display:block!important;background-image:none=
+!important;background-color:#ff2400!important;background-position:0% 0%!imp=
+ortant;border-radius:100px!important;font-weight:bold!important;font-style:=
+normal!important;line-height:24px!important;width:auto!important;text-align=
+:center!important;box-sizing:border-box;margin:0;padding:0;border-color:#ff=
+2400;border-style:solid;border-width:10px 20px" target=3D"_blank">
+                                                                        T=
+=C3=81MOGATOM!
+                                                                    </a>
+                                                                </span>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+</table>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+</table>
+                                    </td>
+                                </tr>
+                            </tbody>
+</table>
+                        </td>
+                    </tr>
+                </tbody>
+</table>
+                <table align=3D"center" cellpadding=3D"0" cellspacing=3D"0"=
+ style=3D"border-collapse:collapse!important;border-spacing:0px!important;w=
+idth:100%!important;max-width:600px!important;font-family:&quot;Helvetica N=
+eue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:borde=
+r-box;font-size:14px;margin:0;padding:0">
+                    <tbody style=3D"font-family:&quot;Helvetica Neue&quot;,=
+&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:border-box;font=
+-size:14px;margin:0;padding:0">
+<tr style=3D"border-collapse:collapse!important;font-family:&quot;Helvetica=
+ Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:bor=
+der-box;font-size:14px;margin:0;padding:0">
+                        <td align=3D"center" style=3D"font-family:&quot;Hel=
+vetica Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizi=
+ng:border-box;font-size:14px;margin:0;padding:0" valign=3D"top">
+                            <table align=3D"center" cellpadding=3D"0" cells=
+pacing=3D"0" style=3D"border-collapse:collapse!important;border-spacing:0px=
+!important;width:100%!important;max-width:600px!important;font-family:&quot=
+;Helvetica Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-=
+sizing:border-box;font-size:14px;margin:0;padding:0" width=3D"600" bgcolor=
+=3D"#ffffff">
+                                <tbody style=3D"font-family:&quot;Helvetica=
+ Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:bor=
+der-box;font-size:14px;margin:0;padding:0">
+<tr style=3D"border-collapse:collapse!important;font-family:&quot;Helvetica=
+ Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:bor=
+der-box;font-size:14px;margin:0;padding:0">
+                                    <td align=3D"left" style=3D"background-=
+position:center center!important;font-family:&quot;Helvetica Neue&quot;,&qu=
+ot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:border-box;font-si=
+ze:14px;margin:0;padding:0 40px" bgcolor=3D"transparent" valign=3D"top">
+                                        <table cellpadding=3D"0" cellspacin=
+g=3D"0" style=3D"border-collapse:collapse!important;border-spacing:0px!impo=
+rtant;width:100%!important;max-width:600px!important;font-family:&quot;Helv=
+etica Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizin=
+g:border-box;font-size:14px;margin:0;padding:0" width=3D"100%">
+                                            <tbody style=3D"font-family:&qu=
+ot;Helvetica Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;bo=
+x-sizing:border-box;font-size:14px;margin:0;padding:0">
+<tr style=3D"border-collapse:collapse!important;font-family:&quot;Helvetica=
+ Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:bor=
+der-box;font-size:14px;margin:0;padding:0">
+                                                <td align=3D"center" style=
+=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,Helvetica,=
+Arial,sans-serif;box-sizing:border-box;font-size:14px;margin:0;padding:0" v=
+align=3D"top" width=3D"520">
+                                                    <table cellpadding=3D"0=
+" cellspacing=3D"0" style=3D"border-collapse:collapse!important;border-spac=
+ing:0px!important;width:100%!important;max-width:600px!important;font-famil=
+y:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-ser=
+if;box-sizing:border-box;font-size:14px;margin:0;padding:0" width=3D"100%">
+                                                        <tbody style=3D"fon=
+t-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,s=
+ans-serif;box-sizing:border-box;font-size:14px;margin:0;padding:0">
+<tr style=3D"border-collapse:collapse!important;font-family:&quot;Helvetica=
+ Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:bor=
+der-box;font-size:14px;margin:0;padding:0">
+                                                            <td align=3D"le=
+ft" style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,H=
+elvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;margin:0;pad=
+ding:10px 0" valign=3D"top">
+                                                                <p style=3D=
+"font-size:16px!important;font-family:Barlow,-apple-system,BlinkMacSystemFo=
+nt,&#39;Segoe UI&#39;,Roboto,&#39;Helvetica Neue&#39;,Arial,sans-serif,&#39=
+;Apple Color Emoji&#39;,&#39;Segoe UI Emoji&#39;,&#39;Segoe UI Symbol&#39;!=
+important;line-height:24px!important;color:#000000!important;box-sizing:bor=
+der-box;font-weight:normal;white-space:normal;margin:0;padding:0">
+                                                                    =C3=9Ag=
+y is sokat tudsz seg=C3=ADteni, ha megosztod a kamp=C3=A1nyt csal=C3=A1dodd=
+al, ismer=C5=91seiddel. K=C3=BCldd tov=C3=A1bb e-mailen, vagy oszd meg a k=
+=C3=B6z=C3=B6ss=C3=A9gi m=C3=A9di=C3=A1ban:
+                                                                </p>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+</table>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+</table>
+                                    </td>
+                                </tr>
+                            </tbody>
+</table>
+                        </td>
+                    </tr>
+                </tbody>
+</table>
+                <table align=3D"center" cellpadding=3D"0" cellspacing=3D"0"=
+ style=3D"border-collapse:collapse!important;border-spacing:0px!important;w=
+idth:100%!important;max-width:600px!important;font-family:&quot;Helvetica N=
+eue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:borde=
+r-box;font-size:14px;margin:0;padding:0">
+                    <tbody style=3D"font-family:&quot;Helvetica Neue&quot;,=
+&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:border-box;font=
+-size:14px;margin:0;padding:0">
+<tr style=3D"border-collapse:collapse!important;font-family:&quot;Helvetica=
+ Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:bor=
+der-box;font-size:14px;margin:0;padding:0">
+                        <td align=3D"center" style=3D"font-family:&quot;Hel=
+vetica Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizi=
+ng:border-box;font-size:14px;margin:0;padding:0" valign=3D"top">
+                            <table align=3D"center" cellpadding=3D"0" cells=
+pacing=3D"0" style=3D"border-collapse:collapse!important;border-spacing:0px=
+!important;width:100%!important;max-width:600px!important;font-family:&quot=
+;Helvetica Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-=
+sizing:border-box;font-size:14px;margin:0;padding:0" width=3D"600" bgcolor=
+=3D"transparent">
+                                <tbody style=3D"font-family:&quot;Helvetica=
+ Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:bor=
+der-box;font-size:14px;margin:0;padding:0">
+<tr style=3D"border-collapse:collapse!important;font-family:&quot;Helvetica=
+ Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:bor=
+der-box;font-size:14px;margin:0;padding:0">
+                                    <td align=3D"left" style=3D"background-=
+position:center center!important;font-family:&quot;Helvetica Neue&quot;,&qu=
+ot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:border-box;font-si=
+ze:14px;margin:0;padding:5px 40px" bgcolor=3D"#ffffff" valign=3D"top">
+                                        <table cellpadding=3D"0" cellspacin=
+g=3D"0" style=3D"border-collapse:collapse!important;border-spacing:0px!impo=
+rtant;width:100%!important;max-width:600px!important;font-family:&quot;Helv=
+etica Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizin=
+g:border-box;font-size:14px;margin:0;padding:0" width=3D"100%">
+                                            <tbody style=3D"font-family:&qu=
+ot;Helvetica Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;bo=
+x-sizing:border-box;font-size:14px;margin:0;padding:0">
+<tr style=3D"border-collapse:collapse!important;font-family:&quot;Helvetica=
+ Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:bor=
+der-box;font-size:14px;margin:0;padding:0">
+                                                <td align=3D"center" style=
+=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,Helvetica,=
+Arial,sans-serif;box-sizing:border-box;font-size:14px;margin:0;padding:0" v=
+align=3D"top" width=3D"520">
+                                                    <table cellpadding=3D"0=
+" cellspacing=3D"0" style=3D"border-collapse:collapse!important;border-spac=
+ing:0px!important;width:100%!important;max-width:600px!important;font-famil=
+y:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-ser=
+if;box-sizing:border-box;font-size:14px;margin:0;padding:0" width=3D"100%">
+                                                        <tbody style=3D"fon=
+t-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,s=
+ans-serif;box-sizing:border-box;font-size:14px;margin:0;padding:0">
+<tr style=3D"border-collapse:collapse!important;font-family:&quot;Helvetica=
+ Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:bor=
+der-box;font-size:14px;margin:0;padding:0">
+                                                            <td align=3D"ce=
+nter" style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;=
+,Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;margin:0;p=
+adding:15px 0" valign=3D"top">
+                                                                <span style=
+=3D"background-image:none!important;background-color:#3b5998!important;back=
+ground-position:0% 0%!important;display:block!important;border-radius:100px=
+!important;width:100%!important;font-family:&quot;Helvetica Neue&quot;,&quo=
+t;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:border-box;font-siz=
+e:14px;margin:0;padding:0;border:0px solid transparent">
+                                                                    <a href=
+=3D"https://www.facebook.com/sharer/sharer.php?u=3Dhttps%3A%2F%2Fszabad.aha=
+ng.hu%2Fpetitions%2Ftiltakozunk-a-civil-tarsadalom-es-fuggetlen-sajto-felsz=
+amolasa-ellen%3Fshare%3D9b88082b-b68a-46be-9929-1885ee8d75e7%26source%3Dfac=
+ebook-share-email-button%26time%3D1747392292%26utm_campaign%3Dblast2025-05-=
+16%26utm_medium%3Dszabadahang%26utm_source%3Dszabadahang-fbshare" style=3D"=
+text-decoration:none!important;font-family:Barlow,-apple-system,BlinkMacSys=
+temFont,&#39;Segoe UI&#39;,Roboto,&#39;Helvetica Neue&#39;,Arial,sans-serif=
+,&#39;Apple Color Emoji&#39;,&#39;Segoe UI Emoji&#39;,&#39;Segoe UI Symbol&=
+#39;!important;font-size:16px!important;color:#ffffff!important;display:blo=
+ck!important;background-image:none!important;background-color:#3b5998!impor=
+tant;background-position:0% 0%!important;border-radius:100px!important;font=
+-weight:bold!important;font-style:normal!important;line-height:24px!importa=
+nt;width:auto!important;text-align:center!important;box-sizing:border-box;m=
+argin:0;padding:0;border-color:#3b5998;border-style:solid;border-width:10px=
+ 20px" target=3D"_blank">
+                                                                        MEG=
+OSZT=C3=81S A FACEBOOK-ON
+                                                                    </a>
+                                                                </span>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+</table>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+</table>
+                                    </td>
+                                </tr>
+                            </tbody>
+</table>
+                        </td>
+                    </tr>
+                </tbody>
+</table>
+                <table align=3D"center" cellpadding=3D"0" cellspacing=3D"0"=
+ style=3D"border-collapse:collapse!important;border-spacing:0px!important;w=
+idth:100%!important;max-width:600px!important;font-family:&quot;Helvetica N=
+eue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:borde=
+r-box;font-size:14px;margin:0;padding:0">
+                    <tbody style=3D"font-family:&quot;Helvetica Neue&quot;,=
+&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:border-box;font=
+-size:14px;margin:0;padding:0">
+<tr style=3D"border-collapse:collapse!important;font-family:&quot;Helvetica=
+ Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:bor=
+der-box;font-size:14px;margin:0;padding:0">
+                        <td align=3D"center" style=3D"font-family:&quot;Hel=
+vetica Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizi=
+ng:border-box;font-size:14px;margin:0;padding:0" valign=3D"top">
+                            <table align=3D"center" cellpadding=3D"0" cells=
+pacing=3D"0" style=3D"border-collapse:collapse!important;border-spacing:0px=
+!important;width:100%!important;max-width:600px!important;font-family:&quot=
+;Helvetica Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-=
+sizing:border-box;font-size:14px;margin:0;padding:0" width=3D"600" bgcolor=
+=3D"transparent">
+                                <tbody style=3D"font-family:&quot;Helvetica=
+ Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:bor=
+der-box;font-size:14px;margin:0;padding:0">
+<tr style=3D"border-collapse:collapse!important;font-family:&quot;Helvetica=
+ Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:bor=
+der-box;font-size:14px;margin:0;padding:0">
+                                    <td align=3D"left" style=3D"background-=
+position:center center!important;font-family:&quot;Helvetica Neue&quot;,&qu=
+ot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:border-box;font-si=
+ze:14px;margin:0;padding:5px 40px" bgcolor=3D"#ffffff" valign=3D"top">
+                                        <table cellpadding=3D"0" cellspacin=
+g=3D"0" style=3D"border-collapse:collapse!important;border-spacing:0px!impo=
+rtant;width:100%!important;max-width:600px!important;font-family:&quot;Helv=
+etica Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizin=
+g:border-box;font-size:14px;margin:0;padding:0" width=3D"100%">
+                                            <tbody style=3D"font-family:&qu=
+ot;Helvetica Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;bo=
+x-sizing:border-box;font-size:14px;margin:0;padding:0">
+<tr style=3D"border-collapse:collapse!important;font-family:&quot;Helvetica=
+ Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:bor=
+der-box;font-size:14px;margin:0;padding:0">
+                                                <td align=3D"center" style=
+=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,Helvetica,=
+Arial,sans-serif;box-sizing:border-box;font-size:14px;margin:0;padding:0" v=
+align=3D"top" width=3D"520">
+                                                    <table cellpadding=3D"0=
+" cellspacing=3D"0" style=3D"border-collapse:collapse!important;border-spac=
+ing:0px!important;width:100%!important;max-width:600px!important;font-famil=
+y:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-ser=
+if;box-sizing:border-box;font-size:14px;margin:0;padding:0" width=3D"100%">
+                                                        <tbody style=3D"fon=
+t-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,s=
+ans-serif;box-sizing:border-box;font-size:14px;margin:0;padding:0">
+<tr style=3D"border-collapse:collapse!important;font-family:&quot;Helvetica=
+ Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:bor=
+der-box;font-size:14px;margin:0;padding:0">
+                                                            <td align=3D"ce=
+nter" style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;=
+,Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;margin:0;p=
+adding:15px 0" valign=3D"top">
+                                                                <span style=
+=3D"background-image:none!important;background-color:#56bbff!important;back=
+ground-position:0% 0%!important;display:block!important;border-radius:100px=
+!important;width:100%!important;font-family:&quot;Helvetica Neue&quot;,&quo=
+t;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:border-box;font-siz=
+e:14px;margin:0;padding:0;border:0px solid transparent">
+                                                                    <a href=
+=3D"https://twitter.com/intent/tweet?url=3Dhttps%3A%2F%2Fszabad.ahang.hu%2F=
+petitions%2Ftiltakozunk-a-civil-tarsadalom-es-fuggetlen-sajto-felszamolasa-=
+ellen%3Fshare%3Dd172c22c-5069-45a2-8cb6-c2f04d975671%26source%3Dtwitter-sha=
+re-email-button%26time%3D1747392292%26utm_campaign%3Dblast2025-05-16%26utm_=
+medium%3Dszabadahang%26utm_source%3Dszabadahang-twitter&amp;via=3Dszabadaha=
+ng&amp;text=3DNagyon+meg%C3%A9rintett+ez+az+%C3%BCgy+-+k%C3%A9rlek+%C3%ADrd=
++al%C3%A1+Te+is%21+" style=3D"text-decoration:none!important;font-family:Ba=
+rlow,-apple-system,BlinkMacSystemFont,&#39;Segoe UI&#39;,Roboto,&#39;Helvet=
+ica Neue&#39;,Arial,sans-serif,&#39;Apple Color Emoji&#39;,&#39;Segoe UI Em=
+oji&#39;,&#39;Segoe UI Symbol&#39;!important;font-size:16px!important;color=
+:#ffffff!important;display:block!important;background-image:none!important;=
+background-color:#56bbff!important;background-position:0% 0%!important;bord=
+er-radius:100px!important;font-weight:bold!important;font-style:normal!impo=
+rtant;line-height:24px!important;width:auto!important;text-align:center!imp=
+ortant;box-sizing:border-box;margin:0;padding:0;border-color:#56bbff;border=
+-style:solid;border-width:10px 20px" target=3D"_blank">
+                                                                        MEG=
+OSZT=C3=81S TWITTER-EN
+                                                                    </a>
+                                                                </span>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+</table>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+</table>
+                                    </td>
+                                </tr>
+                            </tbody>
+</table>
+                        </td>
+                    </tr>
+                </tbody>
+</table>
+                <table align=3D"center" cellpadding=3D"0" cellspacing=3D"0"=
+ style=3D"border-collapse:collapse!important;border-spacing:0px!important;w=
+idth:100%!important;max-width:600px!important;font-family:&quot;Helvetica N=
+eue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:borde=
+r-box;font-size:14px;margin:0;padding:0">
+                    <tbody style=3D"font-family:&quot;Helvetica Neue&quot;,=
+&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:border-box;font=
+-size:14px;margin:0;padding:0">
+<tr style=3D"border-collapse:collapse!important;font-family:&quot;Helvetica=
+ Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:bor=
+der-box;font-size:14px;margin:0;padding:0">
+                        <td align=3D"center" style=3D"font-family:&quot;Hel=
+vetica Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizi=
+ng:border-box;font-size:14px;margin:0;padding:0" valign=3D"top">
+                            <table align=3D"center" cellpadding=3D"0" cells=
+pacing=3D"0" style=3D"border-collapse:collapse!important;border-spacing:0px=
+!important;width:100%!important;max-width:600px!important;font-family:&quot=
+;Helvetica Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-=
+sizing:border-box;font-size:14px;margin:0;padding:0" width=3D"600" bgcolor=
+=3D"transparent">
+                                <tbody style=3D"font-family:&quot;Helvetica=
+ Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:bor=
+der-box;font-size:14px;margin:0;padding:0">
+<tr style=3D"border-collapse:collapse!important;font-family:&quot;Helvetica=
+ Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:bor=
+der-box;font-size:14px;margin:0;padding:0">
+                                    <td align=3D"left" style=3D"background-=
+position:center center!important;border-bottom-right-radius:10px!important;=
+border-bottom-left-radius:10px!important;font-family:&quot;Helvetica Neue&q=
+uot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:border-box=
+;font-size:14px;margin:0;padding:20px 40px 30px" bgcolor=3D"#ffffff" valign=
+=3D"top">
+                                        <table cellpadding=3D"0" cellspacin=
+g=3D"0" style=3D"border-collapse:collapse!important;border-spacing:0px!impo=
+rtant;width:100%!important;max-width:600px!important;font-family:&quot;Helv=
+etica Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizin=
+g:border-box;font-size:14px;margin:0;padding:0" width=3D"100%">
+                                            <tbody style=3D"font-family:&qu=
+ot;Helvetica Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;bo=
+x-sizing:border-box;font-size:14px;margin:0;padding:0">
+<tr style=3D"border-collapse:collapse!important;font-family:&quot;Helvetica=
+ Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:bor=
+der-box;font-size:14px;margin:0;padding:0">
+                                                <td align=3D"center" style=
+=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,Helvetica,=
+Arial,sans-serif;box-sizing:border-box;font-size:14px;margin:0;padding:0" v=
+align=3D"top" width=3D"520">
+                                                    <table cellpadding=3D"0=
+" cellspacing=3D"0" style=3D"border-collapse:collapse!important;border-spac=
+ing:0px!important;width:100%!important;max-width:600px!important;font-famil=
+y:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-ser=
+if;box-sizing:border-box;font-size:14px;margin:0;padding:0" width=3D"100%">
+                                                        <tbody style=3D"fon=
+t-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,s=
+ans-serif;box-sizing:border-box;font-size:14px;margin:0;padding:0">
+<tr style=3D"border-collapse:collapse!important;font-family:&quot;Helvetica=
+ Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:bor=
+der-box;font-size:14px;margin:0;padding:0">
+                                                            <td align=3D"le=
+ft" style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,H=
+elvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;margin:0;pad=
+ding:0" valign=3D"top">
+                                                                <p style=3D=
+"font-size:16px!important;font-family:Barlow,-apple-system,BlinkMacSystemFo=
+nt,&#39;Segoe UI&#39;,Roboto,&#39;Helvetica Neue&#39;,Arial,sans-serif,&#39=
+;Apple Color Emoji&#39;,&#39;Segoe UI Emoji&#39;,&#39;Segoe UI Symbol&#39;!=
+important;line-height:24px!important;color:#000000!important;box-sizing:bor=
+der-box;font-weight:normal;white-space:normal;margin:0;padding:0">
+                                                                    K=C3=B6=
+sz=C3=B6nj=C3=BCk seg=C3=ADts=C3=A9ged!
+                                                                </p>
+                                                                <p style=3D=
+"font-size:16px!important;font-family:Barlow,-apple-system,BlinkMacSystemFo=
+nt,&#39;Segoe UI&#39;,Roboto,&#39;Helvetica Neue&#39;,Arial,sans-serif,&#39=
+;Apple Color Emoji&#39;,&#39;Segoe UI Emoji&#39;,&#39;Segoe UI Symbol&#39;!=
+important;line-height:24px!important;color:#000000!important;box-sizing:bor=
+der-box;font-weight:normal;white-space:normal;margin:0;padding:0">
+                                                                    A Szaba=
+daHang csapata
+                                                                </p>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+</table>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+</table>
+                                    </td>
+                                </tr>
+                            </tbody>
+</table>
+                        </td>
+                    </tr>
+                </tbody>
+</table>
+                <table align=3D"center" cellpadding=3D"0" cellspacing=3D"0"=
+ style=3D"border-collapse:collapse!important;border-spacing:0px!important;w=
+idth:100%!important;max-width:600px!important;font-family:&quot;Helvetica N=
+eue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:borde=
+r-box;font-size:14px;margin:0;padding:0">
+                    <tbody style=3D"font-family:&quot;Helvetica Neue&quot;,=
+&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:border-box;font=
+-size:14px;margin:0;padding:0">
+<tr style=3D"border-collapse:collapse!important;font-family:&quot;Helvetica=
+ Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:bor=
+der-box;font-size:14px;margin:0;padding:0">
+                        <td align=3D"center" style=3D"font-family:&quot;Hel=
+vetica Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizi=
+ng:border-box;font-size:14px;margin:0;padding:0" valign=3D"top">
+                            <table align=3D"center" cellpadding=3D"0" cells=
+pacing=3D"0" style=3D"border-collapse:collapse!important;border-spacing:0px=
+!important;width:100%!important;max-width:600px!important;font-family:&quot=
+;Helvetica Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-=
+sizing:border-box;font-size:14px;margin:0;padding:0" width=3D"600" bgcolor=
+=3D"#e5e4e2">
+                                <tbody style=3D"font-family:&quot;Helvetica=
+ Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:bor=
+der-box;font-size:14px;margin:0;padding:0">
+<tr style=3D"border-collapse:collapse!important;font-family:&quot;Helvetica=
+ Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:bor=
+der-box;font-size:14px;margin:0;padding:0">
+                                    <td align=3D"left" style=3D"background-=
+position:center center!important;font-family:&quot;Helvetica Neue&quot;,&qu=
+ot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:border-box;font-si=
+ze:14px;margin:0;padding:10px 40px" bgcolor=3D"transparent" valign=3D"top">
+                                        <table cellpadding=3D"0" cellspacin=
+g=3D"0" style=3D"border-collapse:collapse!important;border-spacing:0px!impo=
+rtant;width:100%!important;max-width:600px!important;font-family:&quot;Helv=
+etica Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizin=
+g:border-box;font-size:14px;margin:0;padding:0" width=3D"100%">
+                                            <tbody style=3D"font-family:&qu=
+ot;Helvetica Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;bo=
+x-sizing:border-box;font-size:14px;margin:0;padding:0">
+<tr style=3D"border-collapse:collapse!important;font-family:&quot;Helvetica=
+ Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:bor=
+der-box;font-size:14px;margin:0;padding:0">
+                                                <td align=3D"center" style=
+=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,Helvetica,=
+Arial,sans-serif;box-sizing:border-box;font-size:14px;margin:0;padding:0" v=
+align=3D"top" width=3D"520">
+                                                    <table cellpadding=3D"0=
+" cellspacing=3D"0" style=3D"border-collapse:collapse!important;border-spac=
+ing:0px!important;width:100%!important;max-width:600px!important;font-famil=
+y:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-ser=
+if;box-sizing:border-box;font-size:14px;margin:0;padding:0" width=3D"100%">
+                                                        <tbody style=3D"fon=
+t-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,s=
+ans-serif;box-sizing:border-box;font-size:14px;margin:0;padding:0">
+<tr style=3D"border-collapse:collapse!important;font-family:&quot;Helvetica=
+ Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:bor=
+der-box;font-size:14px;margin:0;padding:0">
+                                                            <td align=3D"ce=
+nter" style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;=
+,Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;margin:0;p=
+adding:0" valign=3D"top">
+                                                                <p style=3D=
+"font-size:16px!important;font-family:Barlow,-apple-system,BlinkMacSystemFo=
+nt,&#39;Segoe UI&#39;,Roboto,&#39;Helvetica Neue&#39;,Arial,sans-serif,&#39=
+;Apple Color Emoji&#39;,&#39;Segoe UI Emoji&#39;,&#39;Segoe UI Symbol&#39;!=
+important;line-height:24px!important;color:#000000!important;box-sizing:bor=
+der-box;font-weight:normal;white-space:normal;margin:0;padding:0">
+                                                                    A lev=
+=C3=A9l k=C3=BCld=C5=91je:
+                                                                </p>
+                                                                <p style=3D=
+"font-size:16px!important;font-family:Barlow,-apple-system,BlinkMacSystemFo=
+nt,&#39;Segoe UI&#39;,Roboto,&#39;Helvetica Neue&#39;,Arial,sans-serif,&#39=
+;Apple Color Emoji&#39;,&#39;Segoe UI Emoji&#39;,&#39;Segoe UI Symbol&#39;!=
+important;line-height:24px!important;color:#000000!important;box-sizing:bor=
+der-box;font-weight:normal;white-space:normal;margin:0;padding:0">
+                                                                    Magyarh=
+ang Nonprofit Kft.
+                                                                </p>
+                                                                <p style=3D=
+"font-size:16px!important;font-family:Barlow,-apple-system,BlinkMacSystemFo=
+nt,&#39;Segoe UI&#39;,Roboto,&#39;Helvetica Neue&#39;,Arial,sans-serif,&#39=
+;Apple Color Emoji&#39;,&#39;Segoe UI Emoji&#39;,&#39;Segoe UI Symbol&#39;!=
+important;line-height:24px!important;color:#000000!important;box-sizing:bor=
+der-box;font-weight:normal;white-space:normal;margin:0;padding:0">
+                                                                    1072 Bu=
+dapest, R=C3=A1k=C3=B3czi =C3=BAt 14. f=C3=A9lemelet
+                                                                </p>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+</table>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+</table>
+                                    </td>
+                                </tr>
+                            </tbody>
+</table>
+                        </td>
+                    </tr>
+                </tbody>
+</table>
+                <table align=3D"center" cellpadding=3D"0" cellspacing=3D"0"=
+ style=3D"border-collapse:collapse!important;border-spacing:0px!important;w=
+idth:100%!important;max-width:600px!important;font-family:&quot;Helvetica N=
+eue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:borde=
+r-box;font-size:14px;margin:0;padding:0">
+                    <tbody style=3D"font-family:&quot;Helvetica Neue&quot;,=
+&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:border-box;font=
+-size:14px;margin:0;padding:0">
+<tr style=3D"border-collapse:collapse!important;font-family:&quot;Helvetica=
+ Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:bor=
+der-box;font-size:14px;margin:0;padding:0">
+                        <td align=3D"center" style=3D"font-family:&quot;Hel=
+vetica Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizi=
+ng:border-box;font-size:14px;margin:0;padding:0" valign=3D"top">
+                            <table align=3D"center" cellpadding=3D"0" cells=
+pacing=3D"0" style=3D"border-collapse:collapse!important;border-spacing:0px=
+!important;width:100%!important;max-width:600px!important;font-family:&quot=
+;Helvetica Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-=
+sizing:border-box;font-size:14px;margin:0;padding:0" width=3D"600" bgcolor=
+=3D"#e5e4e2">
+                                <tbody style=3D"font-family:&quot;Helvetica=
+ Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:bor=
+der-box;font-size:14px;margin:0;padding:0">
+<tr style=3D"border-collapse:collapse!important;font-family:&quot;Helvetica=
+ Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:bor=
+der-box;font-size:14px;margin:0;padding:0">
+                                    <td align=3D"left" style=3D"background-=
+position:center center!important;font-family:&quot;Helvetica Neue&quot;,&qu=
+ot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:border-box;font-si=
+ze:14px;margin:0;padding:10px 40px" bgcolor=3D"transparent" valign=3D"top">
+                                        <table cellpadding=3D"0" cellspacin=
+g=3D"0" style=3D"border-collapse:collapse!important;border-spacing:0px!impo=
+rtant;width:100%!important;max-width:600px!important;font-family:&quot;Helv=
+etica Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizin=
+g:border-box;font-size:14px;margin:0;padding:0" width=3D"100%">
+                                            <tbody style=3D"font-family:&qu=
+ot;Helvetica Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;bo=
+x-sizing:border-box;font-size:14px;margin:0;padding:0">
+<tr style=3D"border-collapse:collapse!important;font-family:&quot;Helvetica=
+ Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:bor=
+der-box;font-size:14px;margin:0;padding:0">
+                                                <td align=3D"center" style=
+=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,Helvetica,=
+Arial,sans-serif;box-sizing:border-box;font-size:14px;margin:0;padding:0" v=
+align=3D"top" width=3D"520">
+                                                    <table cellpadding=3D"0=
+" cellspacing=3D"0" style=3D"border-collapse:collapse!important;border-spac=
+ing:0px!important;width:100%!important;max-width:600px!important;font-famil=
+y:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-ser=
+if;box-sizing:border-box;font-size:14px;margin:0;padding:0" width=3D"100%">
+                                                        <tbody style=3D"fon=
+t-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,s=
+ans-serif;box-sizing:border-box;font-size:14px;margin:0;padding:0">
+<tr style=3D"border-collapse:collapse!important;font-family:&quot;Helvetica=
+ Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:bor=
+der-box;font-size:14px;margin:0;padding:0">
+                                                            <td align=3D"ce=
+nter" style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;=
+,Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;margin:0;p=
+adding:0" valign=3D"top">
+                                                                <a href=3D"=
+https://szabad.ahang.hu/" style=3D"font-family:Barlow,-apple-system,BlinkMa=
+cSystemFont,&#39;Segoe UI&#39;,Roboto,&#39;Helvetica Neue&#39;,Arial,sans-s=
+erif,&#39;Apple Color Emoji&#39;,&#39;Segoe UI Emoji&#39;,&#39;Segoe UI Sym=
+bol&#39;!important;font-size:16px!important;text-decoration:none!important;=
+color:#ff2400!important;box-sizing:border-box;margin:0;padding:0" target=3D=
+"_blank">
+                                                                    <img al=
+t=3D"Szabad aHang" src=3D"https://ahang.hu/mail/szabadahang.png" style=3D"d=
+isplay:inline-block!important;text-decoration:none!important;width:171px!im=
+portant;font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,Helvet=
+ica,Arial,sans-serif;box-sizing:border-box;font-size:14px;max-width:100%;ma=
+rgin:0;padding:0;border-width:0" title=3D"Szabad aHang" width=3D"171">
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+</table>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+</table>
+                                    </td>
+                                </tr>
+                            </tbody>
+</table>
+                        </td>
+                    </tr>
+                </tbody>
+</table>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+</div>
+<div style=3D"text-transform:none;font-family:&quot;Helvetica Neue&quot;,&q=
+uot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:border-box;font-s=
+ize:smaller;color:grey;font-weight:bold;margin:0 0 10px;padding:0" align=3D=
+"center">M=C3=A1sold be az al=C3=A1bbi sz=C3=B6veget egy emailbe =C3=A9s os=
+zd meg a bar=C3=A1taiddal.</div>
+<div style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,=
+Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;margin:0;pa=
+dding:20px;border:1px dashed grey">
+<div style=3D"color:#ff2400;line-height:32px;font-family:-apple-system,Blin=
+kMacSystemFont,&#39;Segoe UI&#39;,Roboto,&#39;Helvetica Neue&#39;,Arial,san=
+s-serif,&#39;Apple Color Emoji&#39;,&#39;Segoe UI Emoji&#39;,&#39;Segoe UI =
+Symbol&#39;;display:block!important;box-sizing:border-box;font-size:14px;ma=
+rgin:0;padding:10px" align=3D"left"><span style=3D"font-size:24px;line-heig=
+ht:48px;font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,Helvet=
+ica,Arial,sans-serif;box-sizing:border-box;margin:0;padding:0"><strong styl=
+e=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,Helvetica=
+,Arial,sans-serif;box-sizing:border-box;font-size:14px;margin:0;padding:0">=
+Szia!</strong></span></div>
+
+<div style=3D"color:#2d2d2d;line-height:24px;font-family:-apple-system,Blin=
+kMacSystemFont,&#39;Segoe UI&#39;,Roboto,&#39;Helvetica Neue&#39;,Arial,san=
+s-serif,&#39;Apple Color Emoji&#39;,&#39;Segoe UI Emoji&#39;,&#39;Segoe UI =
+Symbol&#39;;display:block!important;box-sizing:border-box;font-size:14px;ma=
+rgin:0;padding:10px" align=3D"left"><span style=3D"font-size:16px;line-heig=
+ht:24px;font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,Helvet=
+ica,Arial,sans-serif;box-sizing:border-box;margin:0;padding:0">=C3=89pp mos=
+t =C3=ADrtam al=C3=A1 ezt a kamp=C3=A1nyt: Tiltakozunk a civil t=C3=A1rsada=
+lom =C3=A9s f=C3=BCggetlen sajt=C3=B3 felsz=C3=A1mol=C3=A1sa ellen!</span><=
+/div>
+
+<div style=3D"color:#2d2d2d;line-height:24px;font-family:-apple-system,Blin=
+kMacSystemFont,&#39;Segoe UI&#39;,Roboto,&#39;Helvetica Neue&#39;,Arial,san=
+s-serif,&#39;Apple Color Emoji&#39;,&#39;Segoe UI Emoji&#39;,&#39;Segoe UI =
+Symbol&#39;;display:block!important;box-sizing:border-box;font-size:14px;ma=
+rgin:0;padding:10px" align=3D"left"><span style=3D"font-size:16px;line-heig=
+ht:24px;font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,Helvet=
+ica,Arial,sans-serif;box-sizing:border-box;margin:0;padding:0">Sokat jelent=
+ene nekem, ha te is a nevedet adn=C3=A1d ehhez a fontos =C3=BCgyh=C3=B6z.<b=
+r style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,Hel=
+vetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;margin:0;paddi=
+ng:0">Minden al=C3=A1=C3=ADr=C3=A1s er=C5=91s=C3=ADti a kamp=C3=A1nyt =C3=
+=A9s a v=C3=A1ltoz=C3=A1s el=C3=A9r=C3=A9s=C3=A9t.</span></div>
+
+<div style=3D"color:#2d2d2d;line-height:24px;font-family:-apple-system,Blin=
+kMacSystemFont,&#39;Segoe UI&#39;,Roboto,&#39;Helvetica Neue&#39;,Arial,san=
+s-serif,&#39;Apple Color Emoji&#39;,&#39;Segoe UI Emoji&#39;,&#39;Segoe UI =
+Symbol&#39;;display:block!important;box-sizing:border-box;font-size:14px;ma=
+rgin:0;padding:10px" align=3D"left">
+<span style=3D"font-size:16px;line-height:24px;font-family:&quot;Helvetica =
+Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:bord=
+er-box;margin:0;padding:0">K=C3=A9rlek, seg=C3=ADts el=C3=A9rnem a c=C3=A9l=
+omat!<br style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&qu=
+ot;,Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;margin:=
+0;padding:0"></span>
+
+</div>
+<div style=3D"color:#2d2d2d;line-height:24px;font-family:-apple-system,Blin=
+kMacSystemFont,&#39;Segoe UI&#39;,Roboto,&#39;Helvetica Neue&#39;,Arial,san=
+s-serif,&#39;Apple Color Emoji&#39;,&#39;Segoe UI Emoji&#39;,&#39;Segoe UI =
+Symbol&#39;;display:block!important;box-sizing:border-box;font-size:14px;ma=
+rgin:0;padding:10px" align=3D"left">
+	<a style=3D"text-decoration:none;background-color:rgb(255,36,0);border-bot=
+tom-color:rgba(0,0,0,0);border-bottom-left-radius:5px;border-bottom-right-r=
+adius:5px;border-bottom-style:solid;border-bottom-width:2px;border-top-left=
+-radius:5px;border-top-right-radius:5px;color:rgb(255,255,255);font-family:=
+&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif=
+;box-sizing:border-box;font-size:14px;word-break:break-all;margin:0;padding=
+:8px" href=3D"https://szabad.ahang.hu/petitions/tiltakozunk-a-civil-tarsada=
+lom-es-fuggetlen-sajto-felszamolasa-ellen?share=3D271345d5-c34c-453c-a6fb-1=
+2dae9fe62cd&amp;source=3Dmailfw-thanks-signing&amp;utm_campaign=3Dblast2025=
+-05-16&amp;utm_medium=3Dszabadahang&amp;utm_source=3Dmailfw-thanks-signing"=
+ target=3D"_blank">Seg=C3=ADtek!</a>
+
+</div>
+
+<div style=3D"color:#2d2d2d;line-height:24px;font-family:-apple-system,Blin=
+kMacSystemFont,&#39;Segoe UI&#39;,Roboto,&#39;Helvetica Neue&#39;,Arial,san=
+s-serif,&#39;Apple Color Emoji&#39;,&#39;Segoe UI Emoji&#39;,&#39;Segoe UI =
+Symbol&#39;;display:block!important;box-sizing:border-box;font-size:14px;ma=
+rgin:0;padding:10px" align=3D"left"><span style=3D"font-size:16px;line-heig=
+ht:24px;font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,Helvet=
+ica,Arial,sans-serif;box-sizing:border-box;margin:0;padding:0">Miut=C3=A1n =
+al=C3=A1=C3=ADrtad ezt a pet=C3=ADci=C3=B3t, k=C3=A9rlek sz=C3=A1nj n=C3=A9=
+h=C3=A1ny pillanatot arra is, hogy megoszd m=C3=A1sokkal. Ez szuperk=C3=B6n=
+ny=C5=B1 - csak annyit kell tenned, hogy tov=C3=A1bbk=C3=BCld=C3=B6d ezt az=
+ emailt.</span></div>
+
+<div style=3D"color:#2d2d2d;line-height:24px;font-family:-apple-system,Blin=
+kMacSystemFont,&#39;Segoe UI&#39;,Roboto,&#39;Helvetica Neue&#39;,Arial,san=
+s-serif,&#39;Apple Color Emoji&#39;,&#39;Segoe UI Emoji&#39;,&#39;Segoe UI =
+Symbol&#39;;display:block!important;box-sizing:border-box;font-size:14px;ma=
+rgin:0;padding:10px" align=3D"left"><span style=3D"font-size:16px;line-heig=
+ht:24px;font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,Helvet=
+ica,Arial,sans-serif;box-sizing:border-box;margin:0;padding:0">K=C3=B6sz=C3=
+=B6n=C3=B6m!<br style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helve=
+tica&quot;,Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;=
+margin:0;padding:0">=C3=81gnes M=C3=A1ria</span></div>
+
+<hr style=3D"height:1px;background-color:#2d2d2d;font-family:&quot;Helvetic=
+a Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:bo=
+rder-box;font-size:14px;margin:0;padding:0;border-width:0">
+
+<div style=3D"color:#2d2d2d;line-height:20px;font-family:-apple-system,Blin=
+kMacSystemFont,&#39;Segoe UI&#39;,Roboto,&#39;Helvetica Neue&#39;,Arial,san=
+s-serif,&#39;Apple Color Emoji&#39;,&#39;Segoe UI Emoji&#39;,&#39;Segoe UI =
+Symbol&#39;;display:block!important;box-sizing:border-box;font-size:14px;ma=
+rgin:0;padding:10px" align=3D"left"><span style=3D"font-size:12px;line-heig=
+ht:20px;font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,Helvet=
+ica,Arial,sans-serif;box-sizing:border-box;margin:0;padding:0">A lev=C3=A9l=
+ k=C3=BCld=C5=91je: Magyarhang Nonprofit Kft.<br style=3D"font-family:&quot=
+;Helvetica Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;box-=
+sizing:border-box;font-size:14px;margin:0;padding:0">C=C3=ADm=C3=BCnk: 1072=
+ Budapest, R=C3=A1k=C3=B3czi =C3=BAt 14. f=C3=A9lemelet.</span></div>
+
+<div style=3D"color:#2d2d2d;line-height:24px;font-family:-apple-system,Blin=
+kMacSystemFont,&#39;Segoe UI&#39;,Roboto,&#39;Helvetica Neue&#39;,Arial,san=
+s-serif,&#39;Apple Color Emoji&#39;,&#39;Segoe UI Emoji&#39;,&#39;Segoe UI =
+Symbol&#39;;display:block!important;box-sizing:border-box;font-size:14px;ma=
+rgin:0;padding:10px" align=3D"left"><img align=3D"center" border=3D"0" styl=
+e=3D"text-decoration:none;clear:both;display:block!important;height:auto;wi=
+dth:100%;max-width:156px;font-family:&quot;Helvetica Neue&quot;,&quot;Helve=
+tica&quot;,Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;=
+margin:0;padding:0;border-width:0" width=3D"156" alt=3D"Szabad aHang Logo" =
+title=3D"Szabad aHang Logo" src=3D"https://ahang.hu/wp-content/uploads/2018=
+/07/szabad-ahang.png"></div>
+</div>
+
+</td>
+</tr>
+</tbody></table>
+<div style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,=
+Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;width:100%;=
+clear:both;color:#999;margin:0;padding:0 20px 20px">
+<table width=3D"100%" style=3D"font-family:&quot;Helvetica Neue&quot;,&quot=
+;Helvetica&quot;,Helvetica,Arial,sans-serif;box-sizing:border-box;font-size=
+:14px;margin:0;padding:0">
+<tbody><tr style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&=
+quot;,Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:14px;margi=
+n:0;padding:0">
+<td style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,H=
+elvetica,Arial,sans-serif;box-sizing:border-box;font-size:12px;margin:0;pad=
+ding:0 0 20px" align=3D"center" valign=3D"top">
+<p style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,He=
+lvetica,Arial,sans-serif;box-sizing:border-box;font-size:12px;font-weight:n=
+ormal;white-space:normal;line-height:normal;margin:0 0 10px;padding:0">
+<a href=3D"https://szabad.ahang.hu/petitions/tiltakozunk-a-civil-tarsadalom=
+-es-fuggetlen-sajto-felszamolasa-ellen/signatures/CGFetegZVjtfrtYUounSmEjv/=
+confirm_destroy" style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helv=
+etica&quot;,Helvetica,Arial,sans-serif;box-sizing:border-box;font-size:12px=
+;color:#999;text-decoration:underline;margin:0;padding:0" target=3D"_blank"=
+>Nem vagy biztos benne, hogy mi ez az eg=C3=A9sz? T=C3=A1vol=C3=ADtsd el az=
+ al=C3=A1=C3=ADr=C3=A1sod!</a>
+</p>
+<p style=3D"font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,He=
+lvetica,Arial,sans-serif;box-sizing:border-box;font-size:12px;font-weight:n=
+ormal;white-space:normal;line-height:normal;margin:0 0 10px;padding:0">You =
+can contact the petition creator by replying directly to this email. Note t=
+hat if you reply to this email, your message and email address will be shar=
+ed with the petition creator.</p>
+
+
+</td>
+</tr>
+</tbody></table>
+</div>
+</div>
+
+</td>
+</tr>
+</tbody></table>
+</div>
+
+</div></div></div>
+
+--0000000000005cd96b06353fdcf6--

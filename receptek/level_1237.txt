@@ -1,0 +1,860 @@
+Delivered-To: estampel@gmail.com
+Received: by 2002:a05:6358:7e0c:b0:1da:229f:2e17 with SMTP id o12csp620460rwm;
+        Tue, 18 Feb 2025 04:28:22 -0800 (PST)
+X-Forwarded-Encrypted: i=2; AJvYcCVVqC929AFVtXJQEoX6GLMkBfxG1Dh0sT9DSw84qA3MXsrJSN3KXrGyRimE/D/p3g4Calr23e6y+A==@gmail.com
+X-Received: by 2002:a05:690c:8e13:b0:6f9:97bd:5a63 with SMTP id 00721157ae682-6fb582722bbmr76901487b3.4.1739881702643;
+        Tue, 18 Feb 2025 04:28:22 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1739881702; cv=none;
+        d=google.com; s=arc-20240605;
+        b=cUBMhmQlzEB9d2/3Wa/OJsIA1tFtC/E6ddgaIv1zfsUwzdrhBNfQLAA/Tpgik7F84q
+         xprv5aqvk/Ns76vxhFza+9faWAix0SmpCioYxnDS6M/H4UvmEv3V+1oMpZhk9OKuFkb7
+         rBP9N7Xd6Y7u1kEMonH/Uz82DF38YOh84qXcAdpML6bLUzwSvzE6AoZMrdba802yYbx1
+         ZoIp0Y5hASUCYia//sRmJ425If3umHu76uwrxShoXPTMOidphuQlBy1iTxm51EbrBe+8
+         LsEO7V8IXkL7kYQ1/nndUSdP3KvNxBdUAridCviDsYSLUvoCfDAqlPCPb7pzOkX1tSAT
+         cB/A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=pBr26js4RH4FWTXJj10WNHefsQlwc71rPdAzn2P5gRo=;
+        fh=TAu+UnXieXATA7WpEQADr1Ha3fYhjWz1fxguMEhPriM=;
+        b=E8Qm5S1Z7yze3mwUIB8v4Lfk0/0cJoqO1lw5K96T+/5E1XkadGoFOSEHeEIlf0SwCk
+         z2swSX8VW32rcmvsEZezHFdWX77yIR1sCJSRL0giDxnQs9Bpf6H/hHNzcbVbQg5LXX3v
+         OMn/hKBfYZPa8OGas16q5yKdEW10AIfBnbzzaCX/G1E41bhktOOlEOGD8fK66JrOyC2v
+         SbtjQu7tJ21XTvdhJUh48L+ZCgMPM/+YniC2+2ztvxRD69PXkqdGXtN2HDnylA7ugETJ
+         pOUabO1+4QOui5Tq4eQ/wpVuWZRQD+l5Ypk99A4WFz9qNgXVYpPnoALeZvZCk7Gxr3Mw
+         EnuA==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=UsivUIuv;
+       spf=pass (google.com: domain of laszlo.junior@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=laszlo.junior@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <laszlo.junior@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id 00721157ae682-6fb36139286sor73667667b3.13.2025.02.18.04.28.22
+        (Google Transport Security);
+        Tue, 18 Feb 2025 04:28:22 -0800 (PST)
+Received-SPF: pass (google.com: domain of laszlo.junior@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=UsivUIuv;
+       spf=pass (google.com: domain of laszlo.junior@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=laszlo.junior@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1739881702; x=1740486502; dara=google.com;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=pBr26js4RH4FWTXJj10WNHefsQlwc71rPdAzn2P5gRo=;
+        b=UsivUIuvXpswlWMhXoVhuBxjtFhjnEuashaE0N6ibkrQh+3/2veQziarRphRU9WE8y
+         eSK+mh9Syw3WGBJcSLnJvOzhQL8DrEKrB0wlXB7uTCKRnbo05vdgU4epktr/bfAYt0yG
+         Q79bgBjlmSyxLVxhGV3hnSDnmjj1QkD8XgImqy6nygSAV7FM1tmtcR1ea98xwwrAJg7X
+         kvhUdlsHv/CkfnVsxHyUkplvtlQOaF2vjLcI0rS7eV4MjqoQoJyMc3MSLHiFrrr/JhWP
+         Ml8cLCgE29Ry1IF4GwoROOvOd+fWsluBBjYNkeZ7lQm6UJ5RagsmEsSj9eqFxlxlonDf
+         3OQQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739881702; x=1740486502;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=pBr26js4RH4FWTXJj10WNHefsQlwc71rPdAzn2P5gRo=;
+        b=nDu3lqw9I2AuDLRYhjKdYSJmvGksiqaqNAOsfu3Je0GSoZotniCGhS3Mar3P1skU3S
+         UicfF2QRCuCcm5zPmMBsqRsnt3qZhcRWDBJJhvyI/v8Fz+uNZAaBDz+UjiRmn2d5yUkU
+         iZFkAELxnRyqfDaKZUMOV5s1bOkLnAIMifsyEA1hDwAac2v9v+WZkkLrlPSSaW9PDyoD
+         Ylo8G43+s8t1J5xryKc+4CM34XBFf54CqDcsDcjr3zmAMO1UlYja7+wP+7N1G0QWyG8g
+         SKvL2RZU3pAXoadFtP+6UdpqngdriDsDWXXlU9bvrlMMxJ5WFXqM/kceddu6eIJ60rxp
+         3ajQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV7VATY+DwZrUqrTvgiIMG136Tn6k+RWkNZHxqfzu/VZR9qpj8yOu4pgP1awyEbg+IVE+fRYMGwawW6e7LrF+zJxCT9cQ==@gmail.com, AJvYcCVCNifMyD9UUM/4u4rtx1JnQ1H+N/gvTWzp16qyadYqoyGa0dJnod5/FZrncZyRBvAEvNsv9K1gpU9TpnhdQA==@gmail.com, AJvYcCVHCDSTOyGNq7B55IEhspNC4lJclCBbJ7rthIxcRizIhFAyAfHywlUFTro3guqCqRR9qk0UCXQIK1za2q5OGw==@gmail.com, AJvYcCWAPzt1yMveU0ic09NroB3PdRscwS764f0TRpWFp3iAt3I+IL8k65PvuPI+4/5JDA6LJRO/ltDmLMixtW86hosEtBbF@gmail.com, AJvYcCWcxC4zs0dg/pKIXoTf2gXClbgRiz/rmGnGVZfAcQwwXvCXtm4oaO89tetrXm5OCJPrKgM1EBiZPIPVXlA=@gmail.com, AJvYcCXGtwQJPbTCbB+YVr1WK5bjayPNKEh+5pBPXGu01z4Bk+mIbAo8A+5HBNkKvNeYH5QBndgxqAhHIw==@gmail.com, AJvYcCXKfycWsYXTZFOyl6cAWg2FknqFP7I/NJLora7DVgcGrHjbo8CxLAMMikm0/5H/S+fuhLChtwJx82E=@gmail.com
+X-Gm-Message-State: AOJu0YwjtLsOsUjni6vPLy/0uSKGXKVc+50jW+9wELqUt+g45DL6BmmI
+	nI+TBvJmV2TXetKOuz1RjSqzEQJ1qsALoyQWxi1f7HjlCqa81osL+sdD7249zeUI56azdobGVrL
+	0V/Vi/Tg0SLQNdoDXJJz/10BqbVA=
+X-Gm-Gg: ASbGncuQCHHVn7LQnillRgwpyuFrc0G6relErx2OdI9G8oxv/z3ZWgcn/kBQydUjycX
+	KRHXzRoDOtmdgqZWEcnEUKkPjOSjIICd435Ohy4kOejOC6bCPuObiarFLFExIssMRGE2ESr/fXG
+	g=
+X-Google-Smtp-Source: AGHT+IFK1rignM7JE9WeURCHlcr7kbCcjyNRiMTLVi1CuaGkhqGvrZexYVg0qy+ICbYVbxrD/TrIdFDqa5rrzRnePLI=
+X-Received: by 2002:a05:6902:1b01:b0:e5d:c798:146f with SMTP id
+ 3f1490d57ef6-e5dc9028376mr9481241276.2.1739881701283; Tue, 18 Feb 2025
+ 04:28:21 -0800 (PST)
+MIME-Version: 1.0
+References: <CALi7w6syuu1GtwNcyN2t666Yq-UFa4+awiJieUbv3JN4K5-Kuw@mail.gmail.com>
+ <CAEd_JDf7jEsnyijT-2GVogAM0CrYVT3-Z8VJEghzdAcJtvTTmw@mail.gmail.com>
+ <CALi7w6tnU-uxi+y87=e+a4VSqVyLNkfHWiPavkAo=Qut3OP+Ew@mail.gmail.com>
+ <CAH=Fn8QneMTp=vmu6kQnr1Egkj-_pB-1sz2TorfrZCPZw6f1xA@mail.gmail.com>
+ <CALi7w6txGO+ycK04jzeR_vbfJ9j_nVrspfcm-tsYgB8yrbGmmw@mail.gmail.com>
+ <CAHvQ8VLTYOFTe7tabPCDD+_i-DQXZC=04GyoLYYtywRR6zJ63w@mail.gmail.com>
+ <CALi7w6tQG6xKeyDF-m3au9BDaPdBZ8X47pwMjaPRiRK2me1RKA@mail.gmail.com>
+ <CAHvQ8VL6q_p+_KP50MU24V09x-Fy3wycMuKeXxOeN4iTRu2Otw@mail.gmail.com>
+ <CALi7w6vasQqOAb-7=Li+DemPQhN3C676u1Z=WOH=U9xeV0d-Aw@mail.gmail.com>
+ <CAH=Fn8RorEeLB9s7WshC5N7NY432gg+eQqu3MgMKnA+tGazK7A@mail.gmail.com>
+ <CALi7w6sdA6VEoZ5XEAAPUSCS7OAj3VOsAu0KYN0_3kggR-91wA@mail.gmail.com> <CAHvQ8V++cMVgTXEap0guDuYWS0iTT19SZR938fE6UxBhuT8WKw@mail.gmail.com>
+In-Reply-To: <CAHvQ8V++cMVgTXEap0guDuYWS0iTT19SZR938fE6UxBhuT8WKw@mail.gmail.com>
+From: =?UTF-8?B?TMOhc3psw7MgTW9sbsOhcg==?= <laszlo.junior@gmail.com>
+Date: Tue, 18 Feb 2025 13:28:09 +0100
+X-Gm-Features: AWEUYZmW9QVyDl6pRdU9lz-kBAGAu4HTCzYCADg59l3iNDxOm1SQBbZ794zyqpA
+Message-ID: <CALi7w6vp-7RZNOczpj8ffJ_3WBhYnqzH36Yf0nYwr1OjGo1hcA@mail.gmail.com>
+Subject: =?UTF-8?B?UmU6IEvDtnZldGtlesWRIHRhbMOhbGtvesOz?=
+To: =?UTF-8?B?TMOhc3psw7MgU3RlaW5lcg==?= <steiner@slp.hu>
+Cc: Orsi Wigand <wigand.orsi@balatonboglar.org>, 
+	=?UTF-8?Q?Plat=C3=A1n_Balatonbogl=C3=A1r?= <platanbalatonboglar@gmail.com>, 
+	orsitiszabb@gmail.com, istvansolti53@gmail.com, tiszabalatonboglar@gmail.com, 
+	=?UTF-8?B?w4FnbmVzIEJ1Z8Ohcg==?= <banyus53@gmail.com>, estampel@gmail.com, 
+	Soltine Marta <soltine.marta@gmail.com>
+Content-Type: multipart/related; boundary="000000000000c1d3c2062e69c6f5"
+
+--000000000000c1d3c2062e69c6f5
+Content-Type: multipart/alternative; boundary="000000000000c1d3c0062e69c6f4"
+
+--000000000000c1d3c0062e69c6f4
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Sziasztok,
+
+M=C3=A9g egyszer k=C3=BClden=C3=A9m a tervezett megbesz=C3=A9lni val=C3=B3k=
+at (friss=C3=ADtve):
+- K=C3=A9sz van v=C3=A9gre a Tisz=C3=A1s f=C3=A9sz profil, jel=C3=B6ltem is=
+mer=C5=91snek =C3=A9s megh=C3=ADvtam a
+z=C3=A1rt csopiba. *Az =C3=BAjakat kell majd beh=C3=ADvni, esetleg a cseveg=
+=C5=91s
+besz=C3=A9lget=C3=A9seket oda =C3=A1trakni. (Discord)*
+*Adminok jel=C3=B6l=C3=A9se*
+- *Fenyvesi Melinda megh=C3=ADvva, j=C3=B6n.*
+*- D=C3=A1vid J=C3=A1nos =C3=BAton lesz, v=C3=A9lhet=C5=91en nem =C3=A9r od=
+a, de h=C3=ADv ahogy k=C3=B6zeledik.*
+- A k=C3=B6rny=C3=A9kbeli falvakb=C3=B3l (Csehi, Gy=C3=B6r=C3=B6k) jutott n=
+ek=C3=BCnk hogy
+terjeszkedj=C3=BCnk, meg kellene besz=C3=A9lni, hogyan.
+- Talpra Magyarok bolg=C3=A1ri csopit n=C3=A9zz=C3=BCk meg egy=C3=BCtt, kit=
+ pingelhetn=C3=A9nk meg!?
+- Sziget regisztr=C3=A1ci=C3=B3 v=C3=A9gbe ment - Aur=C3=A9l (mikori d=C3=
+=A1tummal)
+- Esetleg kell-e k=C3=A9sz=C3=BCln=C3=BCnk z=C3=A1szl=C3=B3kkal, hangosbesz=
+=C3=A9l=C5=91vel, t=C3=A1bl=C3=A1kkal,
+standdal, stb.
+- Gondoljuk =C3=A1t hogy az el=C5=91bbiekhez kital=C3=A1ljunk valami finans=
+z=C3=ADroz=C3=A1st...
+(pl. Lell=C3=A9n havi 3.000Ft-ot dobnak be erre a c=C3=A9lra) *EZ =C3=96NK=
+=C3=89NTES ALAPON,
+NEM K=C3=96TELEZ=C5=90 LENNE!*
+- *=C3=9AJ! *=C3=89n szeretn=C3=A9k besz=C3=A9lni a tal=C3=A1lkoz=C3=B3 sze=
+rvez=C3=A9sr=C5=91l, a j=C3=B6v=C5=91beni
+kommunik=C3=A1ci=C3=B3r=C3=B3l, mert ezt a mostanit magamra n=C3=A9zve m=C3=
+=A1r k=C3=ADnosnak =C3=A9rzem. A
+hol k=C3=A9rd=C3=A9se is fontos.
+- *=C3=9AJ! *A BVE =C3=A9s a sziget (=C3=BCgyeinek) sz=C3=A9tv=C3=A1laszt=
+=C3=A1sa hogyan t=C3=B6rt=C3=A9njen,
+szerintem kell egy =C3=A9les vonal.
+- *=C3=9AJ! *=C3=9Aj bel=C3=A9p=C5=91k bemutat=C3=A1sa, bemutatkoz=C3=A1sa.
+- Egy=C3=A9b
+
+=C3=9Cdv.
+Laci
+
+L=C3=A1szl=C3=B3 Steiner <steiner@slp.hu> ezt =C3=ADrta (id=C5=91pont: 2025=
+. febr. 17., H,
+16:36):
+
+> Sziasztok,
+> kedd 15-16-ig j=C3=B3 n=C3=A1lunk, de ut=C3=A1na itt m=C3=A1sik tal=C3=A1=
+lkoz=C3=B3 lesz.
+> Felaj=C3=A1nlom az online r=C3=A9szv=C3=A9telt, aki =C3=BAgy szeretne bel=
+=C3=A9pni, zoom-on tudom
+> biztos=C3=ADtani.
+> L.
+>
+> On Mon, 17 Feb 2025 at 13:41, L=C3=A1szl=C3=B3 Moln=C3=A1r <laszlo.junior=
+@gmail.com>
+> wrote:
+>
+>> M=C3=A1rti n=C3=A9ni=C3=A9k nem lesznek, Lacinak =C3=ADrt=C3=A1k.
+>> =C3=8Dgy akkor r=C3=A1k=C3=A9rdezek kedd 15:00 Laci=C3=A9kn=C3=A1l esetl=
+eg?
+>>
+>> K=C3=A9rlek benneteket miel=C5=91bb jussunk d=C5=B1l=C5=91re, hogy a 2-3=
+ =C3=BAj embernek is
+>> tudjuk mondani m=C3=A9g ma!
+>>
+>> K=C3=B6szi
+>> Laci
+>>
+>> Orsi Wigand <wigand.orsi@balatonboglar.org> ezt =C3=ADrta (id=C5=91pont:=
+ 2025.
+>> febr. 17., H 13:18):
+>>
+>>> Nekem kedden mindkett=C5=91 j=C3=B3.
+>>>
+>>>
+>>> L=C3=A1szl=C3=B3 Moln=C3=A1r <laszlo.junior@gmail.com> (id=C5=91pont: 2=
+025. febr. 17., H,
+>>> 10:11) ezt =C3=ADrta:
+>>>
+>>>> Mindk=C3=A9t id=C5=91pontot...
+>>>> Nekem mindegy melyik id=C5=91pontban lesz.
+>>>> Csak mondjunk valamit v=C3=A9gre, mert alig akar =C3=B6sszej=C3=B6nni =
+=C3=BAgy l=C3=A1tom
+>>>> ;)
+>>>>
+>>>> L=C3=A1szl=C3=B3 Steiner <steiner@slp.hu> ezt =C3=ADrta (id=C5=91pont:=
+ 2025. febr. 17., H
+>>>> 8:36):
+>>>>
+>>>>> ??? nem =C3=A9rtem, mi az a mindkett=C5=91, amit megoldasz? L.
+>>>>>
+>>>>> On Mon, 17 Feb 2025 at 08:12, L=C3=A1szl=C3=B3 Moln=C3=A1r <laszlo.ju=
+nior@gmail.com>
+>>>>> wrote:
+>>>>>
+>>>>>> Sziasztok,
+>>>>>>
+>>>>>> =C3=89n mindkett=C5=91t megoldom.
+>>>>>>
+>>>>>> HOL?
+>>>>>>
+>>>>>> =C3=9Cdv.
+>>>>>> Laci
+>>>>>>
+>>>>>>
+>>>>>> L=C3=A1szl=C3=B3 Steiner <steiner@slp.hu> ezt =C3=ADrta (id=C5=91pon=
+t: 2025. febr. 15.,
+>>>>>> Szo 20:17):
+>>>>>>
+>>>>>>> Szia Laci, kedd 16.15-ig =C3=A9s ut=C3=A1na 17.45-t=C5=91l j=C3=B3 =
+nekem. Emes=C3=A9=C3=A9ket
+>>>>>>> tudjuk Szabival hozni-vinni. L.
+>>>>>>>
+>>>>>>> On Thu, 13 Feb 2025 at 15:46, L=C3=A1szl=C3=B3 Moln=C3=A1r <laszlo.=
+junior@gmail.com>
+>>>>>>> wrote:
+>>>>>>>
+>>>>>>>> Sziasztok,
+>>>>>>>>
+>>>>>>>> Akkor a kedd marad az eddigi jelz=C3=A9sek alapj=C3=A1n...
+>>>>>>>> Valahol 16-18 =C3=B3ra k=C3=B6z=C3=B6tt lenne j=C3=B3 megtartani.
+>>>>>>>> K=C3=A9rd=C3=A9s hogy hol?
+>>>>>>>> 3 =C3=BAj jelentkez=C5=91nk van =C3=B6sszesen, Aur=C3=A9l is tal=
+=C3=A1lt valakit.
+>>>>>>>>
+>>>>>>>> =C3=9Cdv.
+>>>>>>>> Laci
+>>>>>>>>
+>>>>>>>> Orsi Wigand <wigand.orsi@balatonboglar.org> ezt =C3=ADrta (id=C5=
+=91pont:
+>>>>>>>> 2025. febr. 11., K, 23:43):
+>>>>>>>>
+>>>>>>>>> J=C3=B6v=C5=91 h=C3=AAt kedd, szerda , cs=C3=BCt d=C3=A8lut=C3=A1=
+n j=C3=B3 nekem .
+>>>>>>>>> =C3=9Cdv Orsi
+>>>>>>>>>
+>>>>>>>>> L=C3=A1szl=C3=B3 Moln=C3=A1r <laszlo.junior@gmail.com> (id=C5=91p=
+ont: 2025. febr.
+>>>>>>>>> 11., K, 19:19) ezt =C3=ADrta:
+>>>>>>>>>
+>>>>>>>>>> Sziasztok,
+>>>>>>>>>>
+>>>>>>>>>> K=C3=B6zben leker=C3=BClt a lev=C3=A9lr=C5=91l Ica, nem fog bel=
+=C3=A9pni, =C3=A9s Zita is
+>>>>>>>>>> egyel=C5=91re, mert szint=C3=A9n nem tag.
+>>>>>>>>>> Most kaptam egy ilyet, majd besz=C3=A9lj=C3=BCk meg mit reag=C3=
+=A1lunk.
+>>>>>>>>>>
+>>>>>>>>>> [image: image.png]
+>>>>>>>>>>
+>>>>>>>>>> =C3=9Cdv.
+>>>>>>>>>> Laci
+>>>>>>>>>>
+>>>>>>>>>> Plat=C3=A1n Balatonbogl=C3=A1r <platanbalatonboglar@gmail.com> e=
+zt =C3=ADrta
+>>>>>>>>>> (id=C5=91pont: 2025. febr. 11., K, 15:03):
+>>>>>>>>>>
+>>>>>>>>>>> Sziasztok!
+>>>>>>>>>>> A csoportunk hivatalosan is elfogad=C3=A1sra ker=C3=BClt.
+>>>>>>>>>>> Tal=C3=A1lkoznunk kell!
+>>>>>>>>>>> =C3=9Agy t=C5=B1nik, a mai map m=C3=A1r okafogyott lett, de a s=
+zombat m=C3=A9g j=C3=B3
+>>>>>>>>>>> lehet, de k=C3=A9rek mindenkit, hogy =C3=ADrja le a neki j=C3=
+=B3 id=C5=91pontokat, mert =C3=BAgy
+>>>>>>>>>>> tal=C3=A1n l=C3=A9phet=C3=BCnk el=C5=91re. =C3=89n most 1 h=C3=
+=A9tig b=C3=A1rmely nap d=C3=A9lut=C3=A1nj=C3=A1n tudok id=C5=91t
+>>>>>>>>>>> szak=C3=ADtani.
+>>>>>>>>>>> Vannak =C3=BAj jelentkez=C5=91ink.
+>>>>>>>>>>> Tiszt=C3=A1zni kellene, hogy kire miben, mikor tudunk sz=C3=A1m=
+=C3=ADtani, =C3=A9s
+>>>>>>>>>>> hogy ki =C3=A9rzi mag=C3=A1t ink=C3=A1bb kispadosnak egyenl=C5=
+=91re.
+>>>>>>>>>>> Gyors v=C3=A1laszokat k=C3=A9rek a tal=C3=A1lkoz=C3=B3val kapcs=
+olatban.
+>>>>>>>>>>> Aur=C3=A9l
+>>>>>>>>>>>
+>>>>>>>>>>>
+>>>>>>>>>>> L=C3=A1szl=C3=B3 Moln=C3=A1r <laszlo.junior@gmail.com> ezt =C3=
+=ADrta (id=C5=91pont:
+>>>>>>>>>>> 2025. febr. 10., H, 18:48):
+>>>>>>>>>>>
+>>>>>>>>>>>> Sziasztok,
+>>>>>>>>>>>>
+>>>>>>>>>>>> Aur=C3=A9llal ker=C3=BClgetj=C3=BCk egym=C3=A1st egy ideje, ho=
+gy kellene egy
+>>>>>>>>>>>> k=C3=B6vetkez=C5=91 tal=C3=A1lkoz=C3=B3.
+>>>>>>>>>>>>
+>>>>>>>>>>>> - K=C3=A9sz van v=C3=A9gre a Tisz=C3=A1s f=C3=A9sz profil, jel=
+=C3=B6ltem ismer=C5=91snek =C3=A9s
+>>>>>>>>>>>> megh=C3=ADvtam a z=C3=A1rt csopiba. *K=C3=A9rlek jel=C3=B6ljet=
+ek vissza, hogy
+>>>>>>>>>>>> beh=C3=ADvhassalak benneteket a csoportba*, ott nyitunk egy ch=
+atet
+>>>>>>>>>>>> amin tudunk kommunik=C3=A1lni.
+>>>>>>>>>>>> - Ha megvan az id=C5=91pont megh=C3=ADvjuk Fenyvesi Melind=C3=
+=A1t, aki a neten
+>>>>>>>>>>>> jelentkezett =C3=A9s keres szigetet, telefonon besz=C3=A9ltem =
+vele, nagyon j=C3=B3 lesz. :)
+>>>>>>>>>>>> - A k=C3=B6rny=C3=A9kbeli falvakb=C3=B3l (Csehi, Gy=C3=B6r=C3=
+=B6k) jutott nek=C3=BCnk hogy
+>>>>>>>>>>>> terjeszkedj=C3=BCnk, meg kellene besz=C3=A9lni, hogyan.
+>>>>>>>>>>>> - Talpra Magyarok bolg=C3=A1ri csopit n=C3=A9zz=C3=BCk meg egy=
+=C3=BCtt, kit
+>>>>>>>>>>>> pingelhetn=C3=A9nk meg!?
+>>>>>>>>>>>> - Egy=C3=A9b
+>>>>>>>>>>>> - Arra k=C3=A9sz=C3=BClni kell, hogy =C3=BAjra kell d=C3=A1tum=
+oznunk az
+>>>>>>>>>>>> alakul=C3=A1sunkat, a sziget admin-nak h=C3=ADvott webes fel=
+=C3=BClet miatt.
+>>>>>>>>>>>> - Esetleg kell-e k=C3=A9sz=C3=BCln=C3=BCnk z=C3=A1szl=C3=B3kka=
+l, hangosbesz=C3=A9l=C5=91vel,
+>>>>>>>>>>>> t=C3=A1bl=C3=A1kkal, standdal, stb.
+>>>>>>>>>>>> - Gondoljuk =C3=A1t hogy az el=C5=91bbiekhez kital=C3=A1ljunk =
+valami
+>>>>>>>>>>>> finansz=C3=ADroz=C3=A1st... (pl. Lell=C3=A9n havi 3.000Ft-ot d=
+obnak be erre a c=C3=A9lra)
+>>>>>>>>>>>>
+>>>>>>>>>>>> Hol legyen =C3=A9s mikor?
+>>>>>>>>>>>> Nekem a h=C3=A9ten a holnapi nap (02.11) =C3=A9s a szombat (02=
+.15) lenne
+>>>>>>>>>>>> alkalmas.
+>>>>>>>>>>>> B=C3=A1r szombaton Si=C3=B3fokon is lesz valami sze=C3=A1nsz.
+>>>>>>>>>>>>
+>>>>>>>>>>>> =C3=9Cdv.
+>>>>>>>>>>>> Laci & Aur=C3=A9l
+>>>>>>>>>>>>
+>>>>>>>>>>>>
+
+--000000000000c1d3c0062e69c6f4
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"auto"><div dir=3D"ltr">Sziasztok,<div><br></div><div>M=C3=A9g e=
+gyszer k=C3=BClden=C3=A9m a tervezett megbesz=C3=A9lni val=C3=B3kat=C2=A0(f=
+riss=C3=ADtve):</div><div><div>- K=C3=A9sz van v=C3=A9gre a Tisz=C3=A1s=C2=
+=A0f=C3=A9sz profil, jel=C3=B6ltem ismer=C5=91snek =C3=A9s megh=C3=ADvtam a=
+ z=C3=A1rt csopiba. <b>Az =C3=BAjakat kell majd beh=C3=ADvni, esetleg a cse=
+veg=C5=91s besz=C3=A9lget=C3=A9seket=C2=A0oda =C3=A1trakni. (Discord)</b></=
+div><div><b>Adminok jel=C3=B6l=C3=A9se</b></div><div>- <b>Fenyvesi Melinda =
+megh=C3=ADvva, j=C3=B6n.</b></div><div dir=3D"auto"><b>- D=C3=A1vid J=C3=A1=
+nos =C3=BAton lesz, v=C3=A9lhet=C5=91en nem =C3=A9r oda, de h=C3=ADv ahogy =
+k=C3=B6zeledik.</b></div><div>- A k=C3=B6rny=C3=A9kbeli falvakb=C3=B3l (Cse=
+hi, Gy=C3=B6r=C3=B6k) jutott nek=C3=BCnk hogy terjeszkedj=C3=BCnk, meg kell=
+ene besz=C3=A9lni, hogyan.</div><div>- Talpra Magyarok bolg=C3=A1ri csopit =
+n=C3=A9zz=C3=BCk meg egy=C3=BCtt, kit pingelhetn=C3=A9nk meg!?</div><div>- =
+Sziget regisztr=C3=A1ci=C3=B3 v=C3=A9gbe ment=C2=A0- Aur=C3=A9l (mikori d=
+=C3=A1tummal)</div><div>- Esetleg kell-e k=C3=A9sz=C3=BCln=C3=BCnk z=C3=A1s=
+zl=C3=B3kkal, hangosbesz=C3=A9l=C5=91vel, t=C3=A1bl=C3=A1kkal, standdal, st=
+b.</div><div>- Gondoljuk =C3=A1t hogy az el=C5=91bbiekhez=C2=A0kital=C3=A1l=
+junk valami finansz=C3=ADroz=C3=A1st... (pl. Lell=C3=A9n havi 3.000Ft-ot do=
+bnak be erre a c=C3=A9lra) <b>EZ =C3=96NK=C3=89NTES ALAPON, NEM K=C3=96TELE=
+Z=C5=90 LENNE!</b></div></div><div>- <b>=C3=9AJ! </b>=C3=89n szeretn=C3=A9k=
+ besz=C3=A9lni a tal=C3=A1lkoz=C3=B3 szervez=C3=A9sr=C5=91l, a j=C3=B6v=C5=
+=91beni kommunik=C3=A1ci=C3=B3r=C3=B3l, mert ezt a mostanit magamra n=C3=A9=
+zve m=C3=A1r k=C3=ADnosnak =C3=A9rzem. A hol k=C3=A9rd=C3=A9se is fontos.</=
+div><div>- <b>=C3=9AJ! </b>A BVE =C3=A9s a sziget (=C3=BCgyeinek) sz=C3=A9t=
+v=C3=A1laszt=C3=A1sa hogyan t=C3=B6rt=C3=A9njen, szerintem kell egy =C3=A9l=
+es vonal.</div><div>- <b>=C3=9AJ! </b>=C3=9Aj bel=C3=A9p=C5=91k bemutat=C3=
+=A1sa, bemutatkoz=C3=A1sa.</div><div>- Egy=C3=A9b</div><div><br></div><div>=
+=C3=9Cdv.</div><div>Laci</div></div><br><div class=3D"gmail_quote"><div dir=
+=3D"ltr" class=3D"gmail_attr">L=C3=A1szl=C3=B3 Steiner &lt;<a href=3D"mailt=
+o:steiner@slp.hu" target=3D"_blank" rel=3D"noreferrer">steiner@slp.hu</a>&g=
+t; ezt =C3=ADrta (id=C5=91pont: 2025. febr. 17., H, 16:36):<br></div><block=
+quote class=3D"gmail_quote" style=3D"margin:0px 0px 0px 0.8ex;border-left:1=
+px solid rgb(204,204,204);padding-left:1ex"><div dir=3D"ltr">Sziasztok,<div=
+>kedd 15-16-ig j=C3=B3 n=C3=A1lunk, de ut=C3=A1na itt m=C3=A1sik tal=C3=A1l=
+koz=C3=B3 lesz.</div><div>Felaj=C3=A1nlom=C2=A0az online r=C3=A9szv=C3=A9te=
+lt, aki =C3=BAgy szeretne bel=C3=A9pni, zoom-on tudom biztos=C3=ADtani.=C2=
+=A0</div><div>L.</div></div><br><div class=3D"gmail_quote"><div dir=3D"ltr"=
+ class=3D"gmail_attr">On Mon, 17 Feb 2025 at 13:41, L=C3=A1szl=C3=B3 Moln=
+=C3=A1r &lt;<a href=3D"mailto:laszlo.junior@gmail.com" target=3D"_blank" re=
+l=3D"noreferrer">laszlo.junior@gmail.com</a>&gt; wrote:<br></div><blockquot=
+e class=3D"gmail_quote" style=3D"margin:0px 0px 0px 0.8ex;border-left:1px s=
+olid rgb(204,204,204);padding-left:1ex"><div dir=3D"auto">M=C3=A1rti n=C3=
+=A9ni=C3=A9k nem lesznek, Lacinak =C3=ADrt=C3=A1k.<div dir=3D"auto">=C3=8Dg=
+y akkor r=C3=A1k=C3=A9rdezek kedd 15:00 Laci=C3=A9kn=C3=A1l esetleg?</div><=
+div dir=3D"auto"><br></div><div dir=3D"auto">K=C3=A9rlek benneteket miel=C5=
+=91bb jussunk d=C5=B1l=C5=91re, hogy a 2-3 =C3=BAj embernek is tudjuk monda=
+ni m=C3=A9g ma!</div><div dir=3D"auto"><br></div><div dir=3D"auto">K=C3=B6s=
+zi</div><div dir=3D"auto">Laci</div></div><br><div class=3D"gmail_quote"><d=
+iv dir=3D"ltr" class=3D"gmail_attr">Orsi Wigand &lt;<a href=3D"mailto:wigan=
+d.orsi@balatonboglar.org" target=3D"_blank" rel=3D"noreferrer">wigand.orsi@=
+balatonboglar.org</a>&gt; ezt =C3=ADrta (id=C5=91pont: 2025. febr. 17., H 1=
+3:18):<br></div><blockquote class=3D"gmail_quote" style=3D"margin:0px 0px 0=
+px 0.8ex;border-left:1px solid rgb(204,204,204);padding-left:1ex"><div dir=
+=3D"auto">Nekem kedden mindkett=C5=91 j=C3=B3.</div><div dir=3D"auto"><br><=
+/div><div dir=3D"auto"><br><div class=3D"gmail_quote" dir=3D"auto"><div dir=
+=3D"ltr" class=3D"gmail_attr">L=C3=A1szl=C3=B3 Moln=C3=A1r &lt;<a href=3D"m=
+ailto:laszlo.junior@gmail.com" rel=3D"noreferrer noreferrer" target=3D"_bla=
+nk">laszlo.junior@gmail.com</a>&gt; (id=C5=91pont: 2025. febr. 17., H, 10:1=
+1) ezt =C3=ADrta:<br></div><blockquote class=3D"gmail_quote" style=3D"margi=
+n:0px 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204);padding-left:1ex=
+"><div dir=3D"auto">Mindk=C3=A9t id=C5=91pontot...<div dir=3D"auto">Nekem m=
+indegy melyik id=C5=91pontban lesz.</div><div dir=3D"auto">Csak mondjunk va=
+lamit v=C3=A9gre, mert alig akar =C3=B6sszej=C3=B6nni =C3=BAgy l=C3=A1tom</=
+div><div dir=3D"auto">;)</div></div><br><div class=3D"gmail_quote"><div dir=
+=3D"ltr" class=3D"gmail_attr">L=C3=A1szl=C3=B3 Steiner &lt;<a href=3D"mailt=
+o:steiner@slp.hu" rel=3D"noreferrer noreferrer" target=3D"_blank">steiner@s=
+lp.hu</a>&gt; ezt =C3=ADrta (id=C5=91pont: 2025. febr. 17., H 8:36):<br></d=
+iv><blockquote class=3D"gmail_quote" style=3D"margin:0px 0px 0px 0.8ex;bord=
+er-left:1px solid rgb(204,204,204);padding-left:1ex"><div dir=3D"ltr">??? n=
+em =C3=A9rtem, mi az a mindkett=C5=91, amit megoldasz? L.</div><br><div cla=
+ss=3D"gmail_quote"><div dir=3D"ltr" class=3D"gmail_attr">On Mon, 17 Feb 202=
+5 at 08:12, L=C3=A1szl=C3=B3 Moln=C3=A1r &lt;<a href=3D"mailto:laszlo.junio=
+r@gmail.com" rel=3D"noreferrer noreferrer noreferrer" target=3D"_blank">las=
+zlo.junior@gmail.com</a>&gt; wrote:<br></div><blockquote class=3D"gmail_quo=
+te" style=3D"margin:0px 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204=
+);padding-left:1ex"><div dir=3D"auto">Sziasztok,<div dir=3D"auto"><br></div=
+><div dir=3D"auto">=C3=89n mindkett=C5=91t megoldom.</div><div dir=3D"auto"=
+><br></div><div dir=3D"auto">HOL?</div><div dir=3D"auto"><br></div><div dir=
+=3D"auto">=C3=9Cdv.</div><div dir=3D"auto">Laci</div><br><br><div class=3D"=
+gmail_quote" dir=3D"auto"><div dir=3D"ltr" class=3D"gmail_attr">L=C3=A1szl=
+=C3=B3 Steiner &lt;<a href=3D"mailto:steiner@slp.hu" rel=3D"noreferrer nore=
+ferrer noreferrer" target=3D"_blank">steiner@slp.hu</a>&gt; ezt =C3=ADrta (=
+id=C5=91pont: 2025. febr. 15., Szo 20:17):<br></div><blockquote class=3D"gm=
+ail_quote" style=3D"margin:0px 0px 0px 0.8ex;border-left:1px solid rgb(204,=
+204,204);padding-left:1ex"><div dir=3D"ltr">Szia Laci, kedd 16.15-ig =C3=A9=
+s ut=C3=A1na 17.45-t=C5=91l j=C3=B3 nekem. Emes=C3=A9=C3=A9ket tudjuk Szabi=
+val hozni-vinni. L.</div><br><div class=3D"gmail_quote"><div dir=3D"ltr" cl=
+ass=3D"gmail_attr">On Thu, 13 Feb 2025 at 15:46, L=C3=A1szl=C3=B3 Moln=C3=
+=A1r &lt;<a href=3D"mailto:laszlo.junior@gmail.com" rel=3D"noreferrer noref=
+errer noreferrer noreferrer" target=3D"_blank">laszlo.junior@gmail.com</a>&=
+gt; wrote:<br></div><blockquote class=3D"gmail_quote" style=3D"margin:0px 0=
+px 0px 0.8ex;border-left:1px solid rgb(204,204,204);padding-left:1ex"><div =
+dir=3D"ltr">Sziasztok,<div><br></div><div>Akkor a kedd marad az eddigi jelz=
+=C3=A9sek alapj=C3=A1n...</div><div>Valahol 16-18 =C3=B3ra k=C3=B6z=C3=B6tt=
+ lenne j=C3=B3 megtartani.</div><div>K=C3=A9rd=C3=A9s hogy hol?</div><div>3=
+ =C3=BAj jelentkez=C5=91nk van =C3=B6sszesen, Aur=C3=A9l is tal=C3=A1lt val=
+akit.</div><div><br></div><div>=C3=9Cdv.</div><div>Laci</div></div><br><div=
+ class=3D"gmail_quote"><div dir=3D"ltr" class=3D"gmail_attr">Orsi Wigand &l=
+t;<a href=3D"mailto:wigand.orsi@balatonboglar.org" rel=3D"noreferrer norefe=
+rrer noreferrer noreferrer" target=3D"_blank">wigand.orsi@balatonboglar.org=
+</a>&gt; ezt =C3=ADrta (id=C5=91pont: 2025. febr. 11., K, 23:43):<br></div>=
+<blockquote class=3D"gmail_quote" style=3D"margin:0px 0px 0px 0.8ex;border-=
+left:1px solid rgb(204,204,204);padding-left:1ex"><div dir=3D"auto">J=C3=B6=
+v=C5=91 h=C3=AAt kedd, szerda , cs=C3=BCt d=C3=A8lut=C3=A1n j=C3=B3 nekem .=
+</div><div dir=3D"auto">=C3=9Cdv Orsi</div><div dir=3D"auto"><br><div class=
+=3D"gmail_quote" dir=3D"auto"><div dir=3D"ltr" class=3D"gmail_attr">L=C3=A1=
+szl=C3=B3 Moln=C3=A1r &lt;<a href=3D"mailto:laszlo.junior@gmail.com" rel=3D=
+"noreferrer noreferrer noreferrer noreferrer" target=3D"_blank">laszlo.juni=
+or@gmail.com</a>&gt; (id=C5=91pont: 2025. febr. 11., K, 19:19) ezt =C3=ADrt=
+a:<br></div><blockquote class=3D"gmail_quote" style=3D"margin:0px 0px 0px 0=
+.8ex;border-left:1px solid rgb(204,204,204);padding-left:1ex"><div dir=3D"l=
+tr">Sziasztok,<div><br></div><div>K=C3=B6zben leker=C3=BClt a lev=C3=A9lr=
+=C5=91l Ica, nem fog bel=C3=A9pni, =C3=A9s Zita is egyel=C5=91re, mert szin=
+t=C3=A9n nem tag.</div><div>Most kaptam egy ilyet, majd besz=C3=A9lj=C3=BCk=
+ meg mit reag=C3=A1lunk.</div><div><br></div><div><img src=3D"https://mail.=
+google.com/mail/?ui=3D2&amp;ik=3D6833141f87&amp;attid=3D0.1&amp;th=3D195188=
+f02a998d2a&amp;view=3Dfimg&amp;fur=3Dip&amp;rm=3D195188f02a998d2a&amp;sz=3D=
+w1600-h1000&amp;attbid=3DANGjdJ-Iof1m2q0AUJo-fkVzPpcuZTkUB3lWunlV1aRFnmrblu=
+osQyipjetAXjX0kIOPdbimZlHL600CjrjtDUOFbWJq4nyqX4ZAwEtDQ23OFpNOSKSErECluZz4w=
+Lc&amp;disp=3Demb&amp;realattid=3Dii_m70t37280&amp;zw" alt=3D"image.png" st=
+yle=3D"width:283px;max-width:100%"><br></div><div><br></div><div>=C3=9Cdv.<=
+/div><div>Laci</div></div><br><div class=3D"gmail_quote"><div dir=3D"ltr" c=
+lass=3D"gmail_attr">Plat=C3=A1n Balatonbogl=C3=A1r &lt;<a href=3D"mailto:pl=
+atanbalatonboglar@gmail.com" rel=3D"noreferrer noreferrer noreferrer norefe=
+rrer" target=3D"_blank">platanbalatonboglar@gmail.com</a>&gt; ezt =C3=ADrta=
+ (id=C5=91pont: 2025. febr. 11., K, 15:03):<br></div><blockquote class=3D"g=
+mail_quote" style=3D"margin:0px 0px 0px 0.8ex;border-left:1px solid rgb(204=
+,204,204);padding-left:1ex"><div dir=3D"ltr">Sziasztok!<div>A csoportunk hi=
+vatalosan is elfogad=C3=A1sra ker=C3=BClt.<br><div>Tal=C3=A1lkoznunk kell!<=
+/div><div>=C3=9Agy t=C5=B1nik, a mai map m=C3=A1r okafogyott lett, de a szo=
+mbat m=C3=A9g j=C3=B3 lehet, de k=C3=A9rek mindenkit, hogy =C3=ADrja le a n=
+eki j=C3=B3 id=C5=91pontokat, mert =C3=BAgy tal=C3=A1n l=C3=A9phet=C3=BCnk =
+el=C5=91re. =C3=89n most 1 h=C3=A9tig b=C3=A1rmely=C2=A0nap d=C3=A9lut=C3=
+=A1nj=C3=A1n tudok id=C5=91t szak=C3=ADtani.</div><div>Vannak =C3=BAj jelen=
+tkez=C5=91ink.=C2=A0</div><div>Tiszt=C3=A1zni kellene, hogy kire miben, mik=
+or tudunk sz=C3=A1m=C3=ADtani, =C3=A9s hogy ki =C3=A9rzi mag=C3=A1t ink=C3=
+=A1bb kispadosnak egyenl=C5=91re.</div><div>Gyors v=C3=A1laszokat k=C3=A9re=
+k a tal=C3=A1lkoz=C3=B3val kapcsolatban.</div><div>Aur=C3=A9l</div><div><br=
+></div></div></div><br><div class=3D"gmail_quote"><div dir=3D"ltr" class=3D=
+"gmail_attr">L=C3=A1szl=C3=B3 Moln=C3=A1r &lt;<a href=3D"mailto:laszlo.juni=
+or@gmail.com" rel=3D"noreferrer noreferrer noreferrer noreferrer" target=3D=
+"_blank">laszlo.junior@gmail.com</a>&gt; ezt =C3=ADrta (id=C5=91pont: 2025.=
+ febr. 10., H, 18:48):<br></div><blockquote class=3D"gmail_quote" style=3D"=
+margin:0px 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204);padding-lef=
+t:1ex"><div dir=3D"ltr">Sziasztok,<div><br></div><div>Aur=C3=A9llal ker=C3=
+=BClgetj=C3=BCk egym=C3=A1st egy ideje, hogy kellene egy k=C3=B6vetkez=C5=
+=91 tal=C3=A1lkoz=C3=B3.</div><div><br></div><div>- K=C3=A9sz van v=C3=A9gr=
+e a Tisz=C3=A1s=C2=A0f=C3=A9sz profil, jel=C3=B6ltem ismer=C5=91snek =C3=A9=
+s megh=C3=ADvtam a z=C3=A1rt csopiba. <b>K=C3=A9rlek jel=C3=B6ljetek vissza=
+, hogy beh=C3=ADvhassalak=C2=A0benneteket a csoportba</b>, ott nyitunk egy =
+chatet amin tudunk kommunik=C3=A1lni.</div><div>- Ha megvan az id=C5=91pont=
+ megh=C3=ADvjuk Fenyvesi Melind=C3=A1t, aki a neten jelentkezett =C3=A9s ke=
+res szigetet, telefonon besz=C3=A9ltem vele, nagyon j=C3=B3 lesz. :)</div><=
+div>- A k=C3=B6rny=C3=A9kbeli falvakb=C3=B3l (Csehi, Gy=C3=B6r=C3=B6k) juto=
+tt nek=C3=BCnk hogy terjeszkedj=C3=BCnk, meg kellene besz=C3=A9lni, hogyan.=
+</div><div>- Talpra Magyarok bolg=C3=A1ri csopit n=C3=A9zz=C3=BCk meg egy=
+=C3=BCtt, kit pingelhetn=C3=A9nk meg!?</div><div>- Egy=C3=A9b</div><div>- A=
+rra k=C3=A9sz=C3=BClni kell, hogy =C3=BAjra kell d=C3=A1tumoznunk=C2=A0az a=
+lakul=C3=A1sunkat, a sziget admin-nak h=C3=ADvott webes fel=C3=BClet miatt.=
+</div><div>- Esetleg kell-e k=C3=A9sz=C3=BCln=C3=BCnk z=C3=A1szl=C3=B3kkal,=
+ hangosbesz=C3=A9l=C5=91vel, t=C3=A1bl=C3=A1kkal, standdal, stb.</div><div>=
+- Gondoljuk =C3=A1t hogy az el=C5=91bbiekhez=C2=A0kital=C3=A1ljunk valami f=
+inansz=C3=ADroz=C3=A1st... (pl. Lell=C3=A9n havi 3.000Ft-ot dobnak be erre =
+a c=C3=A9lra)</div><div><br></div><div>Hol legyen =C3=A9s mikor?</div><div>=
+Nekem a h=C3=A9ten a holnapi nap (02.11) =C3=A9s a szombat (02.15) lenne al=
+kalmas.</div><div>B=C3=A1r szombaton Si=C3=B3fokon is lesz valami sze=C3=A1=
+nsz.</div><div><br></div><div>=C3=9Cdv.</div><div>Laci &amp; Aur=C3=A9l</di=
+v><div><br></div></div>
+</blockquote></div>
+</blockquote></div>
+</blockquote></div></div>
+</blockquote></div>
+</blockquote></div>
+</blockquote></div></div>
+</blockquote></div>
+</blockquote></div>
+</blockquote></div></div>
+</blockquote></div>
+</blockquote></div>
+</blockquote></div></div>
+
+--000000000000c1d3c0062e69c6f4--
+--000000000000c1d3c2062e69c6f5
+Content-Type: image/png; name="image.png"
+Content-Disposition: inline; filename="image.png"
+Content-Transfer-Encoding: base64
+Content-ID: <ii_m70t37280>
+X-Attachment-Id: ii_m70t37280
+
+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
+g7ctfXlz368ezfhgc/tG3PVlZ4c9m/oDRs1bPm/NjVf8/J675119R/W+D6tePTzxht3TN3408ZaP
+zr7u1SW3vfDQk7s3Pb59zeZ71m3btuzue6Ysv/L8tbeMWXjtvDUbdu3d+9u3Dnz14jNfPPNk9XUb
+26d3PSPWL6PbpD5jF18wef6CafP6jLyw36iLSgdWbn7wfpDHKmRkZKrhcV9KCnJGMqPwFAGsU3O2
+Wq+kLeYDbioQhjwJ4N+jVAyKY0wDkZFt0hDfqJg5nRCjpDr4s37DRkEDGsUo1Zw7vKBvaEovgLBA
+ypeArrCw8PiTifVtjz7Y9vmbSn++7JLt1dtf2rPr3f17Pzz4Av69u3/vS3t2ba/e/vNllzy/sfTo
+g21fXd+2EZ9MZGRkWnPVVP6AUa8d+ujPx469/va7t951/yeffP7xkU+fefnV3S+/VPva3trXX699
+8ZVXDr3zxqFDr7759obbN48ePrV/2cjCAWNjJVPOPnveMw89+ud3D/7pjZePHf7kmpXr2ucPGDh2
+SfmYJd2Gz7l2zU1rV15X0n/K4HGLB46fN2LybDMO1sRi6TwAYWRJaFk3qqprVJbwdxvFRg02p6w0
+pxgFUqG6aQBuiA0Yjs9folEJT8xq9+wzo0V3pAqHx+QEMlaSiH95PMAelDGWKfyC5AgPgak+KkaJ
+B4SnhCG987Ysbv3ZbWce2pixaf7QTVes3Xb7fXu3PbH/mT1v1j73Zu1z+5/Zs3fbE9tuv2/TFWs3
+zR96aGPGZ7eduWVx60Z8eh6LpXOKOuQfMOq993/zzR/+8J/fffuXY8d+/92ffv+X33977C8fffPl
+R//337/54+8++ebIq5++8+pHB//r2/9+6LpfXDR45vnjFw6esHjI1LUFvebMnLb0vw+889fX3qi5
+/f7OZaNGTVnV/9yFg8csLCqfdsMNd11/5Q2FZePOHr+4ZMj00rOnOAKSory8ev3yYKa7GlR/eUIR
+sD4dRYvHf+GtbLd/9Wnf3HLqS5e1vrJX9pJOOcu6dVkzcODa4cPXDh++ZuDAZd26LOmUc2Wv7Jcu
+a/3NLafuX33aysp2jfULb15eXtyMhcEPGHXLPTfveu2Zna/vfuql2ide3r3luSfu3/nAzx6+efmt
+a1euXzHzyrmVS6cNnnPueRfNWTpp/uiSkeeMvHD45JUDKy/pO3Z1dsmkt7bv/XDXy117nNN//OLu
+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
+--000000000000c1d3c2062e69c6f5--

@@ -1,0 +1,1252 @@
+Delivered-To: estampel@gmail.com
+Received: by 2002:ac8:4597:0:b0:4f1:a216:d5ee with SMTP id l23csp256011qtn;
+        Tue, 16 Dec 2025 22:33:23 -0800 (PST)
+X-Received: by 2002:a17:907:944a:b0:b7c:f5b6:bb52 with SMTP id a640c23a62f3a-b7d23a22c68mr1818900766b.43.1765953203137;
+        Tue, 16 Dec 2025 22:33:23 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1765953203; cv=none;
+        d=google.com; s=arc-20240605;
+        b=DFCQ8GB/fw8tqeSsLozLUQOv//LD19FphBTcmbzmyxhBixNqE3vBpnlAKB6Qz8qd8V
+         3kUuZ5osYRQL7G4CDtnTLvg9ydIgSs6x5gcMd6HcQePCfaEwWFvoUeulmKI48xcG5Mkr
+         hVM8PdSr1mxex+LAhb+UjUubMH/Zq55hpcSFGsZmXI5Q49PXbhRQOe6vdufHIfovyRMQ
+         WhEgClogQADPUAO9uPGN6ETH1qhLMXAlSm0HKp3KJb+xnO9AEUlW820YoMcgT6Loowei
+         R7JPZHPwDCy/5ZJjv6a1ka9Sawd8AIg2MW1WBNBO4cSdDy07Ai8FvVl7vTtmw9LFrTZx
+         iNoA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=J3LyGk3skT6bLMG5F9nD484hY8V5bal/2CXaBG9a8po=;
+        fh=wF/Yrd2E0xeKwPH74kML7cQSth+Fl4bwhVNrybJ4uh4=;
+        b=Gyq+CQUVN+HOdOXHAO2UuLNgcLI1b9cf7oBSAZld7Gf3O64sH+9zAHol171d4d5+fY
+         VoIu6OTBDx9jFDzbpYcRKqZcEHnfcC36L4M29aXjLh9eKy6hmUnUDz4VqbLobmCDd2da
+         3iKiXM/F2ht/nCPhOW/wUL1ZUdaJlpr56f0y2yCtHjtlBvu6L0Gc4riZWU66m3xcUKeb
+         ZT19OUNN8XwBP9IvLE3x2xbtQ4/9wC99o/nAXrLcPazX71M3HGik+J4LFBgBZf346c+c
+         JblN8lYjWLrK9stDNEUnSjGIq+umsAmWIrVyIciif7LfcQXRU8zSeLdln1btFITzAdgB
+         hguw==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=Sa+psTIl;
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <banyus53@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id a640c23a62f3a-b7d3b4f9446sor312492266b.24.2025.12.16.22.33.22
+        for <estampel@gmail.com>
+        (Google Transport Security);
+        Tue, 16 Dec 2025 22:33:23 -0800 (PST)
+Received-SPF: pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=Sa+psTIl;
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1765953202; x=1766558002; dara=google.com;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=J3LyGk3skT6bLMG5F9nD484hY8V5bal/2CXaBG9a8po=;
+        b=Sa+psTIlV41XCa3RKUrVq0a1Mlr8cXVzPiTxinFIPJuBFFcS1Kh1Id/UtjZqhR6dJk
+         7I3OtTNSB56aE3W2YaBtKGBkQ6NAUm3LF/4+zI/LPNbahQKXwQiiQ2WZ9gEnBTUKV+n1
+         q7SH0jw4w8BzRclRKxk6VEUHNzupq/5uA/0LEyYqqqnu2GESAAP+KUTy8WW/soCw0bH0
+         beOHEJQ5sKGLgVD0UV6qw7Cy+xQIX6MYIPeBG6Vfy3JOplzZ9Fi9R/s/9OY2vyCUlZLp
+         oUIOF5J0/dAi2uGTYuKO6aBIOJG9DMHgOiiOFOAgZYcjH/SB6zg+33Vjv2RkMeyU/Jqk
+         B5dA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1765953202; x=1766558002;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=J3LyGk3skT6bLMG5F9nD484hY8V5bal/2CXaBG9a8po=;
+        b=UTAmrupJN8teAtKoaEEr4nTlnDPCXDGrTy3gDLN1YHJtbJky0w+/DTVHEAuIchULp7
+         yXus0Mj/aRwRssCE1gSS3ZksOa2nzCzKFkRT84BCwapiEpWugi5OLFAjWTcYukg8z1H5
+         bqBsn1572itfn72e0rLak8ipZudlKz5mXGEXq+N1ER3DP7/hJefos+CaN6xg/nCbkcwe
+         bH2a8ylRRPRdjX2fVBhc/5SQbKORWDzao6YotvDS40W7n2q3axwW7ciQsXwl+UoZxdPM
+         SCVw0XTxRv4/XIGZVFNjNdl7bMADy/huB+KiW2u5BTlChhQmhJdLq99si05MJPinMWUY
+         YUpg==
+X-Gm-Message-State: AOJu0Yy9DiuJm1p7PsWhRedFuOt4PIbkaFtZufEqkEu9F0jnjwo8K1zY
+	nFP4uGOzCfaxq/SAJWeol+Ezd4sLZiQDo4VU6zGtY7j3awNz+wGIvqH25CB1WFkvnTHuWrhy9v2
+	vNFepJnLYiASL2zzZP1becm44vInvKCLMhTpT
+X-Gm-Gg: AY/fxX7kOq71qYXfgXOgeQ322vzRjTugAHXoxUxhFr2dPZKfQcj0VZ9Djdhuv2hZ7dJ
+	Mljcyei2gk6QCB6TZPFmMmJZwYJHGr3/RMv2W78uWoEe47oIVa3XsM/Ur2eOK1nmkBlDU16n26+
+	OEoHoRy7psZHSum13Oo2CAGU3S1y47XwXDDUPCIgKaEDHoI/Dr7mSdlAtQveVb7ESkBhOTQJsp3
+	111Ry7mNCp3EefDHVIqMsUYQcUd8ZxOWmVc2IMfmLZdE/LQIfssTFzn6uwxfIMVOBAIEdCdgRaT
+	XvFUGpLwz/F/AEVSa2TuaZlCztlkSIg874RwzO4j
+X-Google-Smtp-Source: AGHT+IFLS87ik0TE/T3WlmWOfEr5+sEjAqAD+feMAtgtGTlRzHeRcpqqQTSs+A/grLFAeNCtGB6k2kgoUbutElfDTs4=
+X-Received: by 2002:a17:907:3f0d:b0:b73:5a2f:2f0e with SMTP id
+ a640c23a62f3a-b7d235c84a0mr2053425466b.3.1765953201952; Tue, 16 Dec 2025
+ 22:33:21 -0800 (PST)
+MIME-Version: 1.0
+References: <post-181824984@substack.com> <20251216211802.3.9e4d92e7b3faa7e4@mg-d0.substack.com>
+In-Reply-To: <20251216211802.3.9e4d92e7b3faa7e4@mg-d0.substack.com>
+From: =?UTF-8?B?w4FnbmVzIEJ1Z8Ohcg==?= <banyus53@gmail.com>
+Date: Wed, 17 Dec 2025 07:32:53 +0100
+X-Gm-Features: AQt7F2qVqPajGJwMWbgm5LDB982zScp1OhNI1MZWabDBUchfQqJ_bqAVqFZiDfw
+Message-ID: <CA+39czUuezF1Yyr46dOOshxyCQYgEKK+43GS_oq8HgLuPtc3mQ@mail.gmail.com>
+Subject: =?UTF-8?Q?Fwd=3A_N=C3=A9gy_keksz_recept?=
+To: Emese Stampel <estampel@gmail.com>
+Content-Type: multipart/alternative; boundary="0000000000004adaf00646200573"
+
+--0000000000004adaf00646200573
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+KEKSZEK
+
+---------- Forwarded message ---------
+Felad=C3=B3: Zizi <zizikalandjai@substack.com>
+Date: 2025. dec. 16., K, 22:18
+Subject: N=C3=A9gy keksz recept
+To: <banyus53@gmail.com>
+
+
+Igaz egy =C3=BAjabb =C3=BCnnepi aj=C3=A1nd=C3=A9kaj=C3=A1nl=C3=B3t =C3=ADg=
+=C3=A9rtem nektek, de nem tudtam m=C3=A9g
+=C3=B6sszerakni.
+=CD=8F   =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=
+=CD=8F   =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=
+=CD=8F   =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=
+=CD=8F   =E2=80=87 =C2=AD=CD=8F
+=C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =
+=C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =
+=C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =
+=C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F
+=E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =
+=E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =
+=E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =
+=E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F
+  =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F =
+  =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F =
+  =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F =
+  =E2=80=87 =C2=AD=CD=8F
+=C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =
+=C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =
+=C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =
+=C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F
+=E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =
+=E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =
+=E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =
+=E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F
+  =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F =
+  =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F =
+  =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F =
+  =E2=80=87 =C2=AD=CD=8F
+=C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =
+=C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =
+=C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =
+=C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F
+=E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =
+=E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =
+=E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =
+=E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F
+  =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F =
+  =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F =
+  =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F =
+  =E2=80=87 =C2=AD=CD=8F
+=C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =
+=C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =
+=C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =
+=C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F
+=E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =
+=E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =
+=E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =
+=E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F
+  =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F =
+  =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F =
+  =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F =
+  =E2=80=87 =C2=AD=CD=8F
+=C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =
+=C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =
+=C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =
+=C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F
+=E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =
+=E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =
+=E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =
+=E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F
+  =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F =
+  =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F =
+  =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F =
+  =E2=80=87 =C2=AD=CD=8F
+=C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =
+=C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =
+=C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =
+=C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F
+=E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =
+=E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =
+=E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =
+=E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F
+  =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F =
+  =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD=CD=8F =
+  =E2=80=87 =C2=AD=CD=8F   =E2=80=87 =C2=AD
+Forwarded this email? Subscribe here
+<https://substack.com/redirect/2/eyJlIjoiaHR0cHM6Ly96aXppa2FsYW5kamFpLnN1Yn=
+N0YWNrLmNvbS9zdWJzY3JpYmU_dXRtX3NvdXJjZT1lbWFpbCZ1dG1fY2FtcGFpZ249ZW1haWwtc=
+3Vic2NyaWJlJnI9MzhvMzlpJm5leHQ9aHR0cHMlM0ElMkYlMkZ6aXppa2FsYW5kamFpLnN1YnN0=
+YWNrLmNvbSUyRnAlMkZuZWd5LWtla3N6LXJlY2VwdCIsInAiOjE4MTgyNDk4NCwicyI6MjI0MTE=
+1MSwiZiI6dHJ1ZSwidSI6MTk1OTU5NDMwLCJpYXQiOjE3NjU5MTk4OTgsImV4cCI6MjA4MTQ5NT=
+g5OCwiaXNzIjoicHViLTAiLCJzdWIiOiJsaW5rLXJlZGlyZWN0In0.lUGOhiIDg3hsFlj6np6sG=
+Kwbi0hHJwKhbkGHOkkSSao?>
+for more
+<https://substack.com/redirect/2/eyJlIjoiaHR0cHM6Ly96aXppa2FsYW5kamFpLnN1Yn=
+N0YWNrLmNvbS9wL25lZ3kta2Vrc3otcmVjZXB0P3V0bV9jYW1wYWlnbj1lbWFpbC1oYWxmLXBvc=
+3Qmcj0zOG8zOWkmdG9rZW49ZXlKMWMyVnlYMmxrSWpveE9UVTVOVGswTXpBc0luQnZjM1JmYVdR=
+aU9qRTRNVGd5TkRrNE5Dd2lhV0YwSWpveE56WTFPVEU1T0RrNExDSmxlSEFpT2pFM05qZzFNVEU=
+0T1Rnc0ltbHpjeUk2SW5CMVlpMHlNalF4TVRVeElpd2ljM1ZpSWpvaWNHOXpkQzF5WldGamRHbH=
+ZiaUo5Lms0T3dRRUJ4U1V2MmZzNm13djhmeURwY3pnanN1Nm5ySEhSWU5NWmxETzgiLCJwIjoxO=
+DE4MjQ5ODQsInMiOjIyNDExNTEsImYiOnRydWUsInUiOjE5NTk1OTQzMCwiaWF0IjoxNzY1OTE5=
+ODk4LCJleHAiOjIwODE0OTU4OTgsImlzcyI6InB1Yi0wIiwic3ViIjoibGluay1yZWRpcmVjdCJ=
+9.57has0d6S9mXwODrQ0eI5WCqpu7ksPwGrMlRFnRN7F0?>
+N=C3=A9gy keksz recept
+<https://substack.com/app-link/post?publication_id=3D2241151&post_id=3D1818=
+24984&utm_source=3Dpost-email-title&utm_campaign=3Demail-post-title&isFreem=
+ail=3Dtrue&r=3D38o39i&token=3DeyJ1c2VyX2lkIjoxOTU5NTk0MzAsInBvc3RfaWQiOjE4M=
+TgyNDk4NCwiaWF0IjoxNzY1OTE5ODk4LCJleHAiOjE3Njg1MTE4OTgsImlzcyI6InB1Yi0yMjQx=
+MTUxIiwic3ViIjoicG9zdC1yZWFjdGlvbiJ9.k4OwQEBxSUv2fs6mwv8fyDpczgjsu6nrHHRYNM=
+ZlDO8>
+
+Nagy Zita / Morzs=C3=A1k <https://substack.com/@zizikalandjai>
+Dec 16
+<https://substack.com/@zizikalandjai>
+
+<https://substack.com/app-link/post?publication_id=3D2241151&post_id=3D1818=
+24984&utm_source=3Dsubstack&isFreemail=3Dtrue&submitLike=3Dtrue&token=3DeyJ=
+1c2VyX2lkIjoxOTU5NTk0MzAsInBvc3RfaWQiOjE4MTgyNDk4NCwicmVhY3Rpb24iOiLinaQiLC=
+JpYXQiOjE3NjU5MTk4OTgsImV4cCI6MTc2ODUxMTg5OCwiaXNzIjoicHViLTIyNDExNTEiLCJzd=
+WIiOiJyZWFjdGlvbiJ9.uVmep9a-TNnRqn0ttvVtWFG0N-jnS9GuU7qv20UwF7Q&utm_medium=
+=3Demail&utm_campaign=3Demail-reaction&r=3D38o39i>
+<https://substack.com/app-link/post?publication_id=3D2241151&post_id=3D1818=
+24984&utm_source=3Dsubstack&utm_medium=3Demail&isFreemail=3Dtrue&comments=
+=3Dtrue&token=3DeyJ1c2VyX2lkIjoxOTU5NTk0MzAsInBvc3RfaWQiOjE4MTgyNDk4NCwiaWF=
+0IjoxNzY1OTE5ODk4LCJleHAiOjE3Njg1MTE4OTgsImlzcyI6InB1Yi0yMjQxMTUxIiwic3ViIj=
+oicG9zdC1yZWFjdGlvbiJ9.k4OwQEBxSUv2fs6mwv8fyDpczgjsu6nrHHRYNMZlDO8&r=3D38o3=
+9i&utm_campaign=3Demail-half-magic-comments&action=3Dpost-comment&utm_sourc=
+e=3Dsubstack&utm_medium=3Demail>
+<https://substack.com/app-link/post?publication_id=3D2241151&post_id=3D1818=
+24984&utm_source=3Dsubstack&utm_medium=3Demail&utm_content=3Dshare&utm_camp=
+aign=3Demail-share&action=3Dshare&triggerShare=3Dtrue&isFreemail=3Dtrue&r=
+=3D38o39i&token=3DeyJ1c2VyX2lkIjoxOTU5NTk0MzAsInBvc3RfaWQiOjE4MTgyNDk4NCwia=
+WF0IjoxNzY1OTE5ODk4LCJleHAiOjE3Njg1MTE4OTgsImlzcyI6InB1Yi0yMjQxMTUxIiwic3Vi=
+IjoicG9zdC1yZWFjdGlvbiJ9.k4OwQEBxSUv2fs6mwv8fyDpczgjsu6nrHHRYNMZlDO8>
+<https://substack.com/redirect/2/eyJlIjoiaHR0cHM6Ly9vcGVuLnN1YnN0YWNrLmNvbS=
+9wdWIveml6aWthbGFuZGphaS9wL25lZ3kta2Vrc3otcmVjZXB0P3V0bV9zb3VyY2U9c3Vic3RhY=
+2smdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249ZW1haWwtcmVzdGFjay1jb21tZW50JmFj=
+dGlvbj1yZXN0YWNrLWNvbW1lbnQmcj0zOG8zOWkmdG9rZW49ZXlKMWMyVnlYMmxrSWpveE9UVTV=
+OVGswTXpBc0luQnZjM1JmYVdRaU9qRTRNVGd5TkRrNE5Dd2lhV0YwSWpveE56WTFPVEU1T0RrNE=
+xDSmxlSEFpT2pFM05qZzFNVEU0T1Rnc0ltbHpjeUk2SW5CMVlpMHlNalF4TVRVeElpd2ljM1ZpS=
+WpvaWNHOXpkQzF5WldGamRHbHZiaUo5Lms0T3dRRUJ4U1V2MmZzNm13djhmeURwY3pnanN1Nm5y=
+SEhSWU5NWmxETzgiLCJwIjoxODE4MjQ5ODQsInMiOjIyNDExNTEsImYiOnRydWUsInUiOjE5NTk=
+1OTQzMCwiaWF0IjoxNzY1OTE5ODk4LCJleHAiOjIwODE0OTU4OTgsImlzcyI6InB1Yi0wIiwic3=
+ViIjoibGluay1yZWRpcmVjdCJ9.TZlz4T5HeN9yn91czCCXlqjvEb1JxtWsO5HXtFGOc-0?&utm=
+_source=3Dsubstack&utm_medium=3Demail>
+
+READ IN APP
+<https://open.substack.com/pub/zizikalandjai/p/negy-keksz-recept?utm_source=
+=3Demail&redirect=3Dapp-store&utm_campaign=3Demail-read-in-app>
+
+
+Igaz egy =C3=BAjabb =C3=BCnnepi aj=C3=A1nd=C3=A9kaj=C3=A1nl=C3=B3t =C3=ADg=
+=C3=A9rtem nektek, de nem tudtam m=C3=A9g
+=C3=B6sszerakni. Az egy olyan aj=C3=A1nl=C3=B3 lesz am=C3=BAgy, ami az =C3=
+=BAj =C3=A9vben is aktu=C3=A1lis
+lesz, sz=C3=B3val mindig haszn=C3=A1t fogj=C3=A1tok venni, akkor is, ha nem=
+ az =C3=BCnnepek
+el=C5=91tt osztom meg.
+
+*Disclaimer*: *Ha =C3=A9rt=C3=A9keled a munk=C3=A1mat, mert sz=C3=A1modra =
+=C3=A9rt=C3=A9kes a tartalom,
+amit megosztok, az a munka =C3=A9s id=C5=91, amit belefektetek, akkor ezen =
+a linken
+tudod t=C3=A1mogatni a munk=C3=A1mat
+<https://substack.com/redirect/d987cba3-f8f5-49e6-a710-2d4b0f907635?j=3DeyJ=
+1IjoiMzhvMzlpIn0.a1kdu7t11AFkzvSCf_NnglL4kwGQDn76lemutNzMp3Y>
+egy k=C3=A1v=C3=A9 =C3=A1r=C3=A1val.*
+<https://substack.com/redirect/3a747251-3fdd-4d0e-9e53-f405a637a597?j=3DeyJ=
+1IjoiMzhvMzlpIn0.a1kdu7t11AFkzvSCf_NnglL4kwGQDn76lemutNzMp3Y>
+
+Most n=C3=A9gy keksz receptet hoztam nektek, amelyeket az elm=C3=BAlt =C3=
+=A9vekben
+osztottam meg az Instagram oldalamon. Mivel Instagramon nem lehet konkr=C3=
+=A9t
+receptet keresni, ez=C3=A9rt gondoltam, hogy =C3=B6sszerakom itt egy bejegy=
+z=C3=A9sbe.
+Akut=C3=A1lisak is kar=C3=A1csony el=C5=91tt, mert mindegyik finom =C3=A9s =
+kiv=C3=A1l=C3=B3
+apr=C3=B3s=C3=BCtem=C3=A9nyek lesznek az =C3=BCnnepi asztalra.
+
+*Az =C3=BAj szak=C3=A1csk=C3=B6nyvem - LUNCHBOX - m=C3=A1r kaphat=C3=B3 a k=
+=C3=B6nyvesboltokban!
+<https://substack.com/redirect/685f941b-fccc-4854-9a95-5edb7b7576ba?j=3DeyJ=
+1IjoiMzhvMzlpIn0.a1kdu7t11AFkzvSCf_NnglL4kwGQDn76lemutNzMp3Y>*
+<https://substack.com/redirect/be56b056-15dd-4e16-aa63-016c6d99ed4b?j=3DeyJ=
+1IjoiMzhvMzlpIn0.a1kdu7t11AFkzvSCf_NnglL4kwGQDn76lemutNzMp3Y>
+
+*DUPLA CSOKIS-S=C3=93S KEKSZ *=F0=9F=8D=AA
+
+*Hozz=C3=A1val=C3=B3k*:
+- 100 g (bio) b=C3=BAzaliszt
+- 60 g teljeski=C3=B6rl=C3=A9s=C5=B1 b=C3=BAzaliszt
+- 90 g k=C3=B3kuszolaj, szobah=C5=91m=C3=A9rs=C3=A9klet=C5=B1
+- 80 g k=C3=B3kuszvir=C3=A1gcukor
+- 75 g cukrozatlan almasz=C3=B3sz
+- 50 g cukrozatlan kaka=C3=B3por
+- 1 te=C3=A1skan=C3=A1l s=C3=BCt=C5=91por
+- 1/2 te=C3=A1skan=C3=A1l s=C3=B3
+- csipet =C5=91r=C3=B6lt van=C3=ADlia vagy tonkabab
+- kev=C3=A9s n=C3=B6v=C3=A9nyi tej
+- =C3=A9tcsoki, feldarabolva
+- nagyszem=C5=B1 s=C3=B3
+
+Minden hozz=C3=A1val=C3=B3 legyen szobah=C5=91m=C3=A9rs=C3=A9klet=C5=B1. Me=
+leg=C3=ADts=C3=BCk el=C5=91 a s=C3=BCt=C5=91t 185C
+fokra, b=C3=A9lelj=C3=BCnk ki egy nagy tepsit s=C3=BCt=C5=91pap=C3=ADrral.
+Tegy=C3=BCk egy t=C3=A1lba a puha k=C3=B3kuszolajat, adjuk hozz=C3=A1 a k=
+=C3=B3kuszvir=C3=A1gcukrot =C3=A9s
+fakan=C3=A1llal keverj=C3=BCk =E2=80=9Chabosra=E2=80=9D, am=C3=ADg a cukor =
+majdnem elolvad.
+Adjuk hozz=C3=A1 a s=C3=BCt=C5=91port, a s=C3=B3t, a tonkababot/van=C3=ADli=
+=C3=A1t =C3=A9s az almasz=C3=B3szt. J=C3=B3l
+keverj=C3=BCk el, majd mehet bele a kaka=C3=B3por =C3=A9s a lisztek. J=C3=
+=B3l gy=C3=BArhat=C3=B3, nem
+ragacsos t=C3=A9szt=C3=A1t kell kapnunk. Ha t=C3=BAl sz=C3=A1raz lenne, adj=
+unk hozz=C3=A1 1-2
+ev=C5=91kan=C3=A1lnyi n=C3=B6v=C3=A9nyi tejet =C3=A9s ezzel is keverj=C3=BC=
+k el.
+Form=C3=A1zzunk goly=C3=B3kat bel=C5=91le, tegy=C3=BCk a tepsire =C3=A9s a =
+tenyer=C3=BCnkkel lap=C3=ADtsuk le.
+Nyomkodjunk a tetej=C3=A9re =C3=A9tcsoki darabokat =C3=A9s sz=C3=B3rjuk meg=
+ nagyszem=C5=B1 s=C3=B3val.
+S=C3=BCss=C3=BCk kb. 10-15 percig.
+<https://substack.com/redirect/be580319-30c6-490e-8e44-5b0d562500ad?j=3DeyJ=
+1IjoiMzhvMzlpIn0.a1kdu7t11AFkzvSCf_NnglL4kwGQDn76lemutNzMp3Y>
+
+*S=C3=9CT=C5=90T=C3=96K=C3=96S ZABKEKSZ* =F0=9F=A7=A1=F0=9F=8D=AA
+
+*Hozz=C3=A1val=C3=B3k*:
+- 1 b=C3=B6gre s=C3=BClt s=C3=BCt=C5=91t=C3=B6k (h=C3=A9j n=C3=A9lk=C3=BCl)
+- 2 b=C3=B6gre t=C3=B6nk=C3=B6ly feh=C3=A9rliszt
+- 2 b=C3=B6gre apr=C3=B3szem=C5=B1 zabpehely
+- 1 b=C3=B6gre (nyers) demerara n=C3=A1dcukor
+- 3/4 b=C3=B6gre k=C3=B3kuszolaj, olvasztva
+- 1 te=C3=A1skan=C3=A1l =C5=91r=C3=B6lt fah=C3=A9j
+- 1 te=C3=A1skan=C3=A1l s=C3=BCt=C5=91por
+- 1/2 te=C3=A1skan=C3=A1l s=C3=B3
+- 1/4 te=C3=A1skan=C3=A1l =C5=91r=C3=B6lt szerecsendi=C3=B3
+- =C3=A9tcsoki csepp (opcion=C3=A1lis)
+
+Meleg=C3=ADts=C3=BCk el=C5=91 a s=C3=BCt=C5=91t 185C fokra, b=C3=A9lelj=C3=
+=BCnk ki egy nagy tepsit
+s=C3=BCt=C5=91pap=C3=ADrral.
+Tegy=C3=BCk egy t=C3=A1lba a s=C3=BCt=C5=91t=C3=B6k=C3=B6t, vill=C3=A1val t=
+=C3=B6rj=C3=BCk p=C3=A9pesre.
+Adjuk hozz=C3=A1 a k=C3=B3kuszolajat, a n=C3=A1dcukrot =C3=A9s keverj=C3=BC=
+k j=C3=B3l el.
+Mehetnek a sz=C3=A1raz hozz=C3=A1val=C3=B3k: fah=C3=A9j, s=C3=BCt=C5=91por,=
+ s=C3=B3, szerecsendi=C3=B3,
+t=C3=B6nk=C3=B6lyliszt =C3=A9s zabpehely, =C3=A9tcsoki csepp. Keverj=C3=BCk=
+ =C3=B6ssze. Enyh=C3=A9n ragacsos
+t=C3=A9szt=C3=A1t kell kapnunk. Fagyis kan=C3=A1llal/ev=C5=91kan=C3=A1llal =
+adagoljunk gomb=C3=B3cokat a
+s=C3=BCt=C5=91pap=C3=ADrra. =C3=89n =C3=ADgy hagytam, nem nyomkodtam le a k=
+ekszeket. S=C3=BCss=C3=BCk kb. 15
+percig, am=C3=ADg enyh=C3=A9n aranybarn=C3=A1k lesznek.
+<https://substack.com/redirect/054a2e04-8825-4a11-a317-d00e6bb280aa?j=3DeyJ=
+1IjoiMzhvMzlpIn0.a1kdu7t11AFkzvSCf_NnglL4kwGQDn76lemutNzMp3Y>
+
+*OL=C3=8DVAOLAJOS CSOKIS NARANCSOS KEKSZ* =F0=9F=8D=AA=F0=9F=8D=8A
+
+*Hozz=C3=A1val=C3=B3k kb. 10-12 db-hoz*:
+- 140 g hajdinaliszt
+- 50 g mandulaliszt (dar=C3=A1lt mandula)
+- 110 g extra sz=C5=B1z ol=C3=ADvaolaj
+- 35 g frissen facsart narancsl=C3=A9
+- 1 te=C3=A1skan=C3=A1l frissen reszelt narancsh=C3=A9j (bio)
+- 70 g k=C3=B3kuszvir=C3=A1gcukor
+- 10 g juharszirup
+- 1 te=C3=A1skan=C3=A1l s=C3=B3
+- 1/2 te=C3=A1skan=C3=A1l sz=C3=B3dabikarb=C3=B3na
+- 1/4 te=C3=A1skan=C3=A1l s=C3=BCt=C5=91por
+- 40 g =C3=A9tcsokol=C3=A1d=C3=A9, felkock=C3=A1zva
+- nagyszem=C5=B1 s=C3=B3 (opcion=C3=A1lis)
+
+Egy t=C3=A1lban keverj=C3=BCk =C3=B6ssze a hajdinalisztet, a mandulalisztet=
+, a s=C3=B3t, a
+sz=C3=B3dabikarb=C3=B3n=C3=A1t, a s=C3=BCt=C5=91port =C3=A9s a k=C3=B3kuszv=
+ir=C3=A1gcukrot.
+Adjuk hozz=C3=A1 a narancsh=C3=A9jat, a narancslevet, az ol=C3=ADvaolajat =
+=C3=A9s j=C3=B3l keverj=C3=BCk
+=C3=A1t.
+Adjuk hozz=C3=A1 az =C3=A9tcsokol=C3=A1d=C3=A9t =C3=A9s ezzel is keverj=C3=
+=BCk =C3=B6ssze.
+Meleg=C3=ADts=C3=BCk el=C5=91 a s=C3=BCt=C5=91t 180C fokra, egy tepsire teg=
+y=C3=BCnk s=C3=BCt=C5=91pap=C3=ADrt.
+Fagyiskan=C3=A1lnyi f=C3=A9lg=C3=B6mb=C3=B6ket adagoljunk a t=C3=A9szt=C3=
+=A1b=C3=B3l a tepsire, majd egy
+darabka =C3=A9tcsokit a kekszek tetej=C3=A9re t=C3=A9ve nyomjuk le (lap=C3=
+=ADtsuk le) =C5=91ket.
+Sz=C3=B3rjuk meg a kekszeket nagyszem=C5=B1 s=C3=B3val. Tegy=C3=BCk a s=C3=
+=BCt=C5=91be =C3=A9s s=C3=BCss=C3=BCk kb.
+12-15 percig, am=C3=ADg aranybarn=C3=A1k lesznek. Hagyjuk a tepsin kih=C5=
+=B1lni. A sz=C3=A9le
+kicsit ropog=C3=B3s, a belseje puh=C3=A1bb. Nagyon finom!
+<https://substack.com/redirect/33dce4e2-2f48-46f1-9ef6-ef66f6be520a?j=3DeyJ=
+1IjoiMzhvMzlpIn0.a1kdu7t11AFkzvSCf_NnglL4kwGQDn76lemutNzMp3Y>
+
+*VAN=C3=8DLI=C3=81S PIR=C3=8DTOTT MANDUL=C3=81S KEKSZ* =F0=9F=A4=8E=F0=9F=
+=8D=AA
+
+*Hozz=C3=A1val=C3=B3k*:
+- 145 g mandula, megpir=C3=ADtva, dar=C3=A1lva
+- 250 g (bio) b=C3=BAzaliszt
+- 227 g vaj, szobah=C5=91m=C3=A9rs=C3=A9klet=C5=B1
+- 240 g (nyers) demerara n=C3=A1dcukor
+- 1/2 te=C3=A1skan=C3=A1l s=C3=B3
+- csipet =C5=91r=C3=B6lt van=C3=ADlia
+
+Egy sz=C3=A1raz serpeny=C5=91ben pir=C3=ADtsuk meg a mandul=C3=A1t 3-5 perc=
+ alatt. Azonnal
+bor=C3=ADtsuk ki egy t=C3=A1lba, hogy ne =C3=A9gjen tov=C3=A1bb. Ha kih=C5=
+=B1lt, dar=C3=A1ljuk le.
+Tegy=C3=BCk a puha vajat egy t=C3=A1lba a n=C3=A1dcukorral =C3=A9s elektrom=
+os k=C3=A9zi habver=C5=91vel
+habos=C3=ADtsuk fel. Adjuk hozz=C3=A1 a lisztet, a s=C3=B3t, a van=C3=ADli=
+=C3=A1t =C3=A9s a dar=C3=A1lt
+mandul=C3=A1t.
+B=C3=A9lelj=C3=BCnk ki egy tepsit s=C3=BCt=C5=91pap=C3=ADrral =C3=A9s meleg=
+=C3=ADts=C3=BCk el=C5=91 a s=C3=BCt=C5=91t 175C fokra.
+A mandul=C3=A1s t=C3=A9szt=C3=A1b=C3=B3l form=C3=A1zzunk goly=C3=B3kat =C3=
+=A9s tegy=C3=BCk a tepsire. A goly=C3=B3k
+k=C3=B6zep=C3=A9be nyomjunk f=C3=A9l szem mandul=C3=A1t.
+S=C3=BCss=C3=BCk az el=C5=91meleg=C3=ADtett s=C3=BCt=C5=91ben 13-15 percig.=
+ Ha m=C3=A9g egy kicsit puh=C3=A1k,
+vegy=C3=BCk ki a s=C3=BCt=C5=91b=C5=91l. A tepsi melege megs=C3=BCti teljes=
+en a kekszeket. Hagyjuk
+kih=C5=B1lni, majd t=C3=A1roljuk dobozban.
+Tipp: M=C3=A9rett=C5=91l f=C3=BCgg, hogy h=C3=A1ny darab lesz bel=C5=91le. =
+Ha csokol=C3=A1d=C3=A9ba
+m=C3=A1rtogatjuk, akkor s=C3=BCt=C3=A9s ut=C3=A1n hagyjuk teljesen kih=C5=
+=B1lni a kekszeket =C3=A9s ut=C3=A1na
+m=C3=A1rtogassuk a kekszek fel=C3=A9t az olvasztott csokol=C3=A1d=C3=A9ba, =
+majd tegy=C3=BCk
+s=C3=BCt=C5=91pap=C3=ADrral b=C3=A9lelt t=C3=A1lc=C3=A1ra a kekszeket =C3=
+=A9s v=C3=A1rjuk meg, am=C3=ADg a csokol=C3=A1d=C3=A9
+teljesen megdermed.
+------------------------------
+
+K=C3=B6sz=C3=B6n=C3=B6m, hogy itt vagy =C3=A9s lelkesen f=C5=91z=C3=B6l!
+
+Szeretettel,
+
+Zizi - Morzs=C3=A1k
+
+K=C3=B6sz=C3=B6n=C3=B6m, hogy olvasod a Morzs=C3=A1kat! Ha nem szeretn=C3=
+=A9l lemaradni a leg=C3=BAjabb
+=C3=ADr=C3=A1sokr=C3=B3l, akkor add meg az email c=C3=ADmedet az al=C3=A1bb=
+i mez=C5=91ben =C3=A9s kattints a
+Subscribe (Feliratkoz=C3=A1s) gombra. K=C3=B6sz=C3=B6n=C3=B6m!
+Pledge your support
+<https://substack.com/redirect/2/eyJlIjoiaHR0cHM6Ly96aXppa2FsYW5kamFpLnN1Yn=
+N0YWNrLmNvbS9zdWJzY3JpYmU_dXRtX3NvdXJjZT1wb3N0JnV0bV9jYW1wYWlnbj1lbWFpbC1ja=
+GVja291dCZuZXh0PWh0dHBzJTNBJTJGJTJGeml6aWthbGFuZGphaS5zdWJzdGFjay5jb20lMkZw=
+JTJGbmVneS1rZWtzei1yZWNlcHQmcj0zOG8zOWkiLCJwIjoxODE4MjQ5ODQsInMiOjIyNDExNTE=
+sImYiOnRydWUsInUiOjE5NTk1OTQzMCwiaWF0IjoxNzY1OTE5ODk4LCJleHAiOjIwODE0OTU4OT=
+gsImlzcyI6InB1Yi0wIiwic3ViIjoibGluay1yZWRpcmVjdCJ9.IMxsf7dx239roHSYBO1MoFLs=
+hrUA2jA-hPgqg0MBL9s?&utm_medium=3Demail&utm_source=3Dsubscribe-widget-pream=
+ble&utm_content=3D181824984>
+
+Zizi Kalandjai - Morzs=C3=A1k is free today. But if you enjoyed this post, =
+you
+can tell Zizi Kalandjai - Morzs=C3=A1k that their writing is valuable by
+pledging a future subscription. You won't be charged unless they enable
+payments.
+
+Pledge your support
+<https://substack.com/redirect/2/eyJlIjoiaHR0cHM6Ly96aXppa2FsYW5kamFpLnN1Yn=
+N0YWNrLmNvbS9zdWJzY3JpYmU_dXRtX3NvdXJjZT1wb3N0JnV0bV9jYW1wYWlnbj1lbWFpbC1ja=
+GVja291dCZuZXh0PWh0dHBzJTNBJTJGJTJGeml6aWthbGFuZGphaS5zdWJzdGFjay5jb20lMkZw=
+JTJGbmVneS1rZWtzei1yZWNlcHQmcj0zOG8zOWkiLCJwIjoxODE4MjQ5ODQsInMiOjIyNDExNTE=
+sImYiOnRydWUsInUiOjE5NTk1OTQzMCwiaWF0IjoxNzY1OTE5ODk4LCJleHAiOjIwODE0OTU4OT=
+gsImlzcyI6InB1Yi0wIiwic3ViIjoibGluay1yZWRpcmVjdCJ9.IMxsf7dx239roHSYBO1MoFLs=
+hrUA2jA-hPgqg0MBL9s?&utm_source=3Dsubstack&utm_medium=3Demail&utm_content=
+=3Dpostcta>
+
+Like
+<https://substack.com/app-link/post?publication_id=3D2241151&post_id=3D1818=
+24984&utm_source=3Dsubstack&isFreemail=3Dtrue&submitLike=3Dtrue&token=3DeyJ=
+1c2VyX2lkIjoxOTU5NTk0MzAsInBvc3RfaWQiOjE4MTgyNDk4NCwicmVhY3Rpb24iOiLinaQiLC=
+JpYXQiOjE3NjU5MTk4OTgsImV4cCI6MTc2ODUxMTg5OCwiaXNzIjoicHViLTIyNDExNTEiLCJzd=
+WIiOiJyZWFjdGlvbiJ9.uVmep9a-TNnRqn0ttvVtWFG0N-jnS9GuU7qv20UwF7Q&utm_medium=
+=3Demail&utm_campaign=3Demail-reaction&r=3D38o39i>
+Comment
+<https://substack.com/app-link/post?publication_id=3D2241151&post_id=3D1818=
+24984&utm_source=3Dsubstack&utm_medium=3Demail&isFreemail=3Dtrue&comments=
+=3Dtrue&token=3DeyJ1c2VyX2lkIjoxOTU5NTk0MzAsInBvc3RfaWQiOjE4MTgyNDk4NCwiaWF=
+0IjoxNzY1OTE5ODk4LCJleHAiOjE3Njg1MTE4OTgsImlzcyI6InB1Yi0yMjQxMTUxIiwic3ViIj=
+oicG9zdC1yZWFjdGlvbiJ9.k4OwQEBxSUv2fs6mwv8fyDpczgjsu6nrHHRYNMZlDO8&r=3D38o3=
+9i&utm_campaign=3Demail-half-magic-comments&action=3Dpost-comment&utm_sourc=
+e=3Dsubstack&utm_medium=3Demail>
+Restack
+<https://substack.com/redirect/2/eyJlIjoiaHR0cHM6Ly9vcGVuLnN1YnN0YWNrLmNvbS=
+9wdWIveml6aWthbGFuZGphaS9wL25lZ3kta2Vrc3otcmVjZXB0P3V0bV9zb3VyY2U9c3Vic3RhY=
+2smdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249ZW1haWwtcmVzdGFjay1jb21tZW50JmFj=
+dGlvbj1yZXN0YWNrLWNvbW1lbnQmcj0zOG8zOWkmdG9rZW49ZXlKMWMyVnlYMmxrSWpveE9UVTV=
+OVGswTXpBc0luQnZjM1JmYVdRaU9qRTRNVGd5TkRrNE5Dd2lhV0YwSWpveE56WTFPVEU1T0RrNE=
+xDSmxlSEFpT2pFM05qZzFNVEU0T1Rnc0ltbHpjeUk2SW5CMVlpMHlNalF4TVRVeElpd2ljM1ZpS=
+WpvaWNHOXpkQzF5WldGamRHbHZiaUo5Lms0T3dRRUJ4U1V2MmZzNm13djhmeURwY3pnanN1Nm5y=
+SEhSWU5NWmxETzgiLCJwIjoxODE4MjQ5ODQsInMiOjIyNDExNTEsImYiOnRydWUsInUiOjE5NTk=
+1OTQzMCwiaWF0IjoxNzY1OTE5ODk4LCJleHAiOjIwODE0OTU4OTgsImlzcyI6InB1Yi0wIiwic3=
+ViIjoibGluay1yZWRpcmVjdCJ9.TZlz4T5HeN9yn91czCCXlqjvEb1JxtWsO5HXtFGOc-0?&utm=
+_source=3Dsubstack&utm_medium=3Demail>
+
+
+=C2=A9 2025 Zizi Kalandjai
+Unsubscribe
+<https://substack.com/redirect/2/eyJlIjoiaHR0cHM6Ly96aXppa2FsYW5kamFpLnN1Yn=
+N0YWNrLmNvbS9hY3Rpb24vZGlzYWJsZV9lbWFpbD90b2tlbj1leUoxYzJWeVgybGtJam94T1RVN=
+U5UazBNekFzSW5CdmMzUmZhV1FpT2pFNE1UZ3lORGs0TkN3aWFXRjBJam94TnpZMU9URTVPRGs0=
+TENKbGVIQWlPakUzT1RjME5UVTRPVGdzSW1semN5STZJbkIxWWkweU1qUXhNVFV4SWl3aWMzVml=
+Jam9pWkdsellXSnNaVjlsYldGcGJDSjkuNFRrV3lPejNQY3V0ZnZJdmJpUk9HVllvUmg3LWE4Zn=
+VmOUVHMnFRSTBzTSIsInAiOjE4MTgyNDk4NCwicyI6MjI0MTE1MSwiZiI6dHJ1ZSwidSI6MTk1O=
+TU5NDMwLCJpYXQiOjE3NjU5MTk4OTgsImV4cCI6MjA4MTQ5NTg5OCwiaXNzIjoicHViLTAiLCJz=
+dWIiOiJsaW5rLXJlZGlyZWN0In0.SReaq4eb7CG4Xc0G1sn4hGx-S89ODjMqGWrqHKRC_TU?>
+
+[image: Get the app]
+<https://substack.com/redirect/80e6bd9f-3f41-44b8-a18f-244e175e61d8?j=3DeyJ=
+1IjoiMzhvMzlpIn0.a1kdu7t11AFkzvSCf_NnglL4kwGQDn76lemutNzMp3Y>[image:
+Start writing]
+<https://substack.com/redirect/2/eyJlIjoiaHR0cHM6Ly9zdWJzdGFjay5jb20vc2lnbn=
+VwP3V0bV9zb3VyY2U9c3Vic3RhY2smdXRtX21lZGl1bT1lbWFpbCZ1dG1fY29udGVudD1mb290Z=
+XImdXRtX2NhbXBhaWduPWF1dG9maWxsZWQtZm9vdGVyJmZyZWVTaWdudXBFbWFpbD1iYW55dXM1=
+M0BnbWFpbC5jb20mcj0zOG8zOWkiLCJwIjoxODE4MjQ5ODQsInMiOjIyNDExNTEsImYiOnRydWU=
+sInUiOjE5NTk1OTQzMCwiaWF0IjoxNzY1OTE5ODk4LCJleHAiOjIwODE0OTU4OTgsImlzcyI6In=
+B1Yi0wIiwic3ViIjoibGluay1yZWRpcmVjdCJ9.YNq25fNjE0nwM7KbwFyDwHhSw25dejkDW5o-=
+jm4pEnY?>
+
+--0000000000004adaf00646200573
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr">KEKSZEK<br><br><div class=3D"gmail_quote gmail_quote_conta=
+iner"><div dir=3D"ltr" class=3D"gmail_attr">---------- Forwarded message --=
+-------<br>Felad=C3=B3: <strong class=3D"gmail_sendername" dir=3D"auto">Ziz=
+i</strong> <span dir=3D"auto">&lt;<a href=3D"mailto:zizikalandjai@substack.=
+com">zizikalandjai@substack.com</a>&gt;</span><br>Date: 2025. dec. 16., K, =
+22:18<br>Subject: N=C3=A9gy keksz recept<br>To:  &lt;<a href=3D"mailto:bany=
+us53@gmail.com">banyus53@gmail.com</a>&gt;<br></div><br><br><div style=3D"f=
+ont-kerning:auto"><img src=3D"https://eotrx.substackcdn.com/open?token=3Dey=
+JtIjoiPDIwMjUxMjE2MjExODAyLjMuOWU0ZDkyZTdiM2ZhYTdlNEBtZy1kMC5zdWJzdGFjay5jb=
+20-IiwidSI6MTk1OTU5NDMwLCJyIjoiYmFueXVzNTNAZ21haWwuY29tIiwiZCI6Im1nLWQwLnN1=
+YnN0YWNrLmNvbSIsInAiOjE4MTgyNDk4NCwidCI6Im5ld3NsZXR0ZXIiLCJhIjoiZXZlcnlvbmU=
+iLCJzIjoyMjQxMTUxLCJjIjoicG9zdCIsImYiOnRydWUsInBvc2l0aW9uIjoidG9wIiwiaWF0Ij=
+oxNzY1OTE5ODk5LCJleHAiOjE3Njg1MTE4OTksImlzcyI6InB1Yi0wIiwic3ViIjoiZW8ifQ.F6=
+RqMsu_5JmxbKr-crtuT6c2J06ChsK77tQFEug67mU" alt=3D"" width=3D"1" height=3D"1=
+" border=3D"0" style=3D"height:1px!important;width:1px!important;border-wid=
+th:0!important;margin-top:0!important;margin-bottom:0!important;margin-righ=
+t:0!important;margin-left:0!important;padding-top:0!important;padding-botto=
+m:0!important;padding-right:0!important;padding-left:0!important"><div styl=
+e=3D"display:none;font-size:1px;color:#333333;line-height:1px;max-height:0p=
+x;max-width:0px;opacity:0;overflow:hidden">Igaz egy =C3=BAjabb =C3=BCnnepi =
+aj=C3=A1nd=C3=A9kaj=C3=A1nl=C3=B3t =C3=ADg=C3=A9rtem nektek, de nem tudtam =
+m=C3=A9g =C3=B6sszerakni.</div><div style=3D"display:none;font-size:1px;col=
+or:#333333;line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:=
+hidden">=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =
+=C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=
+=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=
+=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=
+=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=
+=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =
+=E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=
+=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=
+=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =
+=C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =
+=C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=
+=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=
+=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=
+=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=
+=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =
+=E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=
+=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=
+=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =
+=C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =
+=C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=
+=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=
+=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=
+=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=
+=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =
+=E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=
+=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=
+=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =
+=C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =
+=C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=
+=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=
+=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=
+=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=
+=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =
+=E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=
+=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=
+=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =
+=C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =
+=C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=
+=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=
+=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=
+=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=
+=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =
+=E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=
+=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=
+=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =
+=C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =
+=C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=
+=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=
+=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=
+=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=
+=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =
+=E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=
+=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=
+=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =
+=C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =
+=C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=
+=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=
+=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=
+=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=
+=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =
+=E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=
+=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=
+=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =
+=C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =
+=C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=
+=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=
+=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=
+=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=
+=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =
+=E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=
+=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=
+=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =
+=C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =
+=C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=
+=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=
+=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=
+=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=
+=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =
+=E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=
+=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=
+=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =
+=C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD=CD=8F =C2=A0 =E2=80=87 =C2=AD</div><ta=
+ble role=3D"presentation" width=3D"100%" border=3D"0" cellspacing=3D"0" cel=
+lpadding=3D"0"><tbody><tr><td></td><td width=3D"550"></td><td></td></tr><tr=
+><td></td><td width=3D"550" align=3D"left"><div style=3D"font-size:16px;lin=
+e-height:26px;max-width:550px;width:100%;margin:0 auto"><table role=3D"pres=
+entation" width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0"><=
+tbody><tr><td align=3D"right" style=3D"height:20px"><table role=3D"presenta=
+tion" width=3D"auto" border=3D"0" cellspacing=3D"0" cellpadding=3D"0"><tbod=
+y><tr><td style=3D"vertical-align:middle"><span style=3D"font-family:SF Pro=
+ Text,-apple-system,system-ui,BlinkMacSystemFont,Inter,Segoe UI,Roboto,Helv=
+etica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;fon=
+t-size:13px;color:unset;list-style:none;text-decoration:unset;margin:0"><di=
+v style=3D"list-style:none;color:unset;text-align:right;font-size:12px;line=
+-height:16px;text-decoration:unset;margin:0"><span style=3D"list-style:none=
+;color:unset;text-decoration:unset;margin:0">Forwarded this email? <a href=
+=3D"https://substack.com/redirect/2/eyJlIjoiaHR0cHM6Ly96aXppa2FsYW5kamFpLnN=
+1YnN0YWNrLmNvbS9zdWJzY3JpYmU_dXRtX3NvdXJjZT1lbWFpbCZ1dG1fY2FtcGFpZ249ZW1haW=
+wtc3Vic2NyaWJlJnI9MzhvMzlpJm5leHQ9aHR0cHMlM0ElMkYlMkZ6aXppa2FsYW5kamFpLnN1Y=
+nN0YWNrLmNvbSUyRnAlMkZuZWd5LWtla3N6LXJlY2VwdCIsInAiOjE4MTgyNDk4NCwicyI6MjI0=
+MTE1MSwiZiI6dHJ1ZSwidSI6MTk1OTU5NDMwLCJpYXQiOjE3NjU5MTk4OTgsImV4cCI6MjA4MTQ=
+5NTg5OCwiaXNzIjoicHViLTAiLCJzdWIiOiJsaW5rLXJlZGlyZWN0In0.lUGOhiIDg3hsFlj6np=
+6sGKwbi0hHJwKhbkGHOkkSSao?" style=3D"list-style:none;color:unset;text-decor=
+ation:unset;margin:0;text-decoration-line:underline" target=3D"_blank">Subs=
+cribe here</a> for more</span></div></span></td></tr></tbody></table></td><=
+/tr></tbody></table><table role=3D"presentation" style=3D"border-spacing:0;=
+padding:16px 0 32px"><tbody><tr><td align=3D"center" style=3D"text-align:ce=
+nter;padding:0"><a href=3D"https://substack.com/redirect/2/eyJlIjoiaHR0cHM6=
+Ly96aXppa2FsYW5kamFpLnN1YnN0YWNrLmNvbS9wL25lZ3kta2Vrc3otcmVjZXB0P3V0bV9jYW1=
+wYWlnbj1lbWFpbC1oYWxmLXBvc3Qmcj0zOG8zOWkmdG9rZW49ZXlKMWMyVnlYMmxrSWpveE9UVT=
+VOVGswTXpBc0luQnZjM1JmYVdRaU9qRTRNVGd5TkRrNE5Dd2lhV0YwSWpveE56WTFPVEU1T0RrN=
+ExDSmxlSEFpT2pFM05qZzFNVEU0T1Rnc0ltbHpjeUk2SW5CMVlpMHlNalF4TVRVeElpd2ljM1Zp=
+SWpvaWNHOXpkQzF5WldGamRHbHZiaUo5Lms0T3dRRUJ4U1V2MmZzNm13djhmeURwY3pnanN1Nm5=
+ySEhSWU5NWmxETzgiLCJwIjoxODE4MjQ5ODQsInMiOjIyNDExNTEsImYiOnRydWUsInUiOjE5NT=
+k1OTQzMCwiaWF0IjoxNzY1OTE5ODk4LCJleHAiOjIwODE0OTU4OTgsImlzcyI6InB1Yi0wIiwic=
+3ViIjoibGluay1yZWRpcmVjdCJ9.57has0d6S9mXwODrQ0eI5WCqpu7ksPwGrMlRFnRN7F0?" t=
+arget=3D"_blank"><img role=3D"presentation" width=3D"550" height=3D"105" sr=
+c=3D"https://substackcdn.com/image/fetch/$s_!G7eB!,w_1100,c_limit,f_auto,q_=
+auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazona=
+ws.com%2Fpublic%2Fimages%2Facd8f50f-7106-4dfc-8c66-f6f118069d3b_1344x256.pn=
+g" style=3D"border:none!important;vertical-align:middle;max-width:550px;dis=
+play:block;margin:0 auto;height:auto;width:100%"></a></td></tr></tbody></ta=
+ble><div dir=3D"auto" style=3D"padding:32px 0 0 0;font-size:16px;line-heigh=
+t:26px"><div role=3D"region" aria-label=3D"Post header" style=3D"font-size:=
+16px;line-height:26px"><h1 dir=3D"auto" style=3D"direction:auto;text-align:=
+start;unicode-bidi:isolate;color:rgb(54,55,55);font-family:&#39;SF Pro Disp=
+lay&#39;,-apple-system-headline,system-ui,-apple-system,BlinkMacSystemFont,=
+&#39;Segoe UI&#39;,Roboto,Helvetica,Arial,sans-serif,&#39;Apple Color Emoji=
+&#39;,&#39;Segoe UI Emoji&#39;,&#39;Segoe UI Symbol&#39;;font-weight:bold;m=
+argin:0;line-height:36px;font-size:32px"><a href=3D"https://substack.com/ap=
+p-link/post?publication_id=3D2241151&amp;post_id=3D181824984&amp;utm_source=
+=3Dpost-email-title&amp;utm_campaign=3Demail-post-title&amp;isFreemail=3Dtr=
+ue&amp;r=3D38o39i&amp;token=3DeyJ1c2VyX2lkIjoxOTU5NTk0MzAsInBvc3RfaWQiOjE4M=
+TgyNDk4NCwiaWF0IjoxNzY1OTE5ODk4LCJleHAiOjE3Njg1MTE4OTgsImlzcyI6InB1Yi0yMjQx=
+MTUxIiwic3ViIjoicG9zdC1yZWFjdGlvbiJ9.k4OwQEBxSUv2fs6mwv8fyDpczgjsu6nrHHRYNM=
+ZlDO8" style=3D"color:rgb(54,55,55);text-decoration:none" target=3D"_blank"=
+>N=C3=A9gy keksz recept</a></h1><table role=3D"presentation" width=3D"100%"=
+ border=3D"0" cellspacing=3D"0" cellpadding=3D"0" style=3D"margin:1em 0;hei=
+ght:20px"><tbody><tr><td><table role=3D"presentation" width=3D"auto" border=
+=3D"0" cellspacing=3D"0" cellpadding=3D"0"><tbody><tr><td><table role=3D"pr=
+esentation" width=3D"auto" border=3D"0" cellspacing=3D"0" cellpadding=3D"0"=
+><tbody><tr><td style=3D"vertical-align:middle"><div style=3D"list-style:no=
+ne;font-size:11px;line-height:20px;text-decoration:unset;color:rgb(54,55,55=
+);margin:0;font-family:&#39;SF Compact&#39;,-apple-system,system-ui,-apple-=
+system,BlinkMacSystemFont,&#39;Segoe UI&#39;,Roboto,Helvetica,Arial,sans-se=
+rif,&#39;Apple Color Emoji&#39;,&#39;Segoe UI Emoji&#39;,&#39;Segoe UI Symb=
+ol&#39;;font-weight:500;text-transform:uppercase;letter-spacing:.2px"><a st=
+yle=3D"list-style:none;color:rgb(54,55,55);margin:0;font-size:11px;line-hei=
+ght:20px;font-family:&#39;SF Compact&#39;,-apple-system,system-ui,-apple-sy=
+stem,BlinkMacSystemFont,&#39;Segoe UI&#39;,Roboto,Helvetica,Arial,sans-seri=
+f,&#39;Apple Color Emoji&#39;,&#39;Segoe UI Emoji&#39;,&#39;Segoe UI Symbol=
+&#39;;font-weight:500;text-transform:uppercase;letter-spacing:.2px;text-dec=
+oration:none" href=3D"https://substack.com/@zizikalandjai" target=3D"_blank=
+">Nagy Zita / Morzs=C3=A1k</a></div></td></tr></tbody></table></td></tr><tr=
+><td><table role=3D"presentation" width=3D"auto" border=3D"0" cellspacing=
+=3D"0" cellpadding=3D"0"><tbody><tr><td style=3D"vertical-align:middle"><di=
+v style=3D"list-style:none;font-size:11px;line-height:20px;text-decoration:=
+unset;color:rgb(119,119,119);margin:0;font-family:&#39;SF Compact&#39;,-app=
+le-system,system-ui,-apple-system,BlinkMacSystemFont,&#39;Segoe UI&#39;,Rob=
+oto,Helvetica,Arial,sans-serif,&#39;Apple Color Emoji&#39;,&#39;Segoe UI Em=
+oji&#39;,&#39;Segoe UI Symbol&#39;;font-weight:500;text-transform:uppercase=
+;letter-spacing:.2px">Dec 16</div></td></tr></tbody></table></td></tr></tbo=
+dy></table></td><td align=3D"right"><table role=3D"presentation" width=3D"a=
+uto" border=3D"0" cellspacing=3D"0" cellpadding=3D"0"><tbody><tr><td style=
+=3D"vertical-align:middle"><a href=3D"https://substack.com/@zizikalandjai" =
+target=3D"_blank"><img src=3D"https://substackcdn.com/image/fetch/$s_!dHBY!=
+,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.=
+s3.amazonaws.com%2Fpublic%2Fimages%2F6b29cf33-3eb2-4e6d-bef2-59a6f8c9cbb0_2=
+240x979.jpeg" style=3D"box-sizing:border-box;border-radius:500000px;max-wid=
+th:550px;border:none;vertical-align:middle;width:40px;height:40px;min-width=
+:40px;min-height:40px;object-fit:cover;margin:0px;display:inline" width=3D"=
+40" height=3D"40"></a></td></tr></tbody></table></td></tr></tbody></table><=
+table role=3D"presentation" width=3D"100%" border=3D"0" cellspacing=3D"0" c=
+ellpadding=3D"0" style=3D"border-top:1px solid rgb(0,0,0,.1);border-bottom:=
+1px solid rgb(0,0,0,.1);min-width:100%"><tbody><tr height=3D"16"><td height=
+=3D"16" style=3D"font-size:0px;line-height:0">=C2=A0</td></tr><tr><td><tabl=
+e role=3D"presentation" width=3D"100%" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0"><tbody><tr><td><table role=3D"presentation" width=3D"auto" bor=
+der=3D"0" cellspacing=3D"0" cellpadding=3D"0"><tbody><tr><td style=3D"verti=
+cal-align:middle"><table role=3D"presentation" width=3D"38" border=3D"0" ce=
+llspacing=3D"0" cellpadding=3D"0"><tbody><tr><td align=3D"center"><a href=
+=3D"https://substack.com/app-link/post?publication_id=3D2241151&amp;post_id=
+=3D181824984&amp;utm_source=3Dsubstack&amp;isFreemail=3Dtrue&amp;submitLike=
+=3Dtrue&amp;token=3DeyJ1c2VyX2lkIjoxOTU5NTk0MzAsInBvc3RfaWQiOjE4MTgyNDk4NCw=
+icmVhY3Rpb24iOiLinaQiLCJpYXQiOjE3NjU5MTk4OTgsImV4cCI6MTc2ODUxMTg5OCwiaXNzIj=
+oicHViLTIyNDExNTEiLCJzdWIiOiJyZWFjdGlvbiJ9.uVmep9a-TNnRqn0ttvVtWFG0N-jnS9Gu=
+U7qv20UwF7Q&amp;utm_medium=3Demail&amp;utm_campaign=3Demail-reaction&amp;r=
+=3D38o39i" style=3D"font-family:system-ui,-apple-system,BlinkMacSystemFont,=
+&#39;Segoe UI&#39;,Roboto,Helvetica,Arial,sans-serif,&#39;Apple Color Emoji=
+&#39;,&#39;Segoe UI Emoji&#39;,&#39;Segoe UI Symbol&#39;;display:inline-blo=
+ck;font-weight:500;border:1px solid rgb(0,0,0,.1);border-radius:9999px;text=
+-transform:uppercase;font-size:12px;line-height:1;padding:9px 0;text-decora=
+tion:none;color:rgb(119,119,119);min-width:38px;box-sizing:border-box;width=
+:38px" target=3D"_blank"><img src=3D"https://substackcdn.com/image/fetch/$s=
+_!PeVs!,w_36,c_scale,f_png,q_auto:good,fl_progressive:steep/https%3A%2F%2Fs=
+ubstack.com%2Ficon%2FLucideHeart%3Fv%3D4%26height%3D36%26fill%3Dnone%26stro=
+ke%3D%2523808080%26strokeWidth%3D2" width=3D"18" height=3D"18" style=3D"bor=
+der:none;vertical-align:middle;max-width:18px" alt=3D""></a></td></tr></tbo=
+dy></table></td><td width=3D"8" style=3D"min-width:8px"></td><td style=3D"v=
+ertical-align:middle"><table role=3D"presentation" width=3D"38" border=3D"0=
+" cellspacing=3D"0" cellpadding=3D"0"><tbody><tr><td align=3D"center"><a hr=
+ef=3D"https://substack.com/app-link/post?publication_id=3D2241151&amp;post_=
+id=3D181824984&amp;utm_source=3Dsubstack&amp;utm_medium=3Demail&amp;isFreem=
+ail=3Dtrue&amp;comments=3Dtrue&amp;token=3DeyJ1c2VyX2lkIjoxOTU5NTk0MzAsInBv=
+c3RfaWQiOjE4MTgyNDk4NCwiaWF0IjoxNzY1OTE5ODk4LCJleHAiOjE3Njg1MTE4OTgsImlzcyI=
+6InB1Yi0yMjQxMTUxIiwic3ViIjoicG9zdC1yZWFjdGlvbiJ9.k4OwQEBxSUv2fs6mwv8fyDpcz=
+gjsu6nrHHRYNMZlDO8&amp;r=3D38o39i&amp;utm_campaign=3Demail-half-magic-comme=
+nts&amp;action=3Dpost-comment&amp;utm_source=3Dsubstack&amp;utm_medium=3Dem=
+ail" style=3D"font-family:system-ui,-apple-system,BlinkMacSystemFont,&#39;S=
+egoe UI&#39;,Roboto,Helvetica,Arial,sans-serif,&#39;Apple Color Emoji&#39;,=
+&#39;Segoe UI Emoji&#39;,&#39;Segoe UI Symbol&#39;;display:inline-block;fon=
+t-weight:500;border:1px solid rgb(0,0,0,.1);border-radius:9999px;text-trans=
+form:uppercase;font-size:12px;line-height:1;padding:9px 0;text-decoration:n=
+one;color:rgb(119,119,119);min-width:38px;box-sizing:border-box;width:38px"=
+ target=3D"_blank"><img src=3D"https://substackcdn.com/image/fetch/$s_!x1tS=
+!,w_36,c_scale,f_png,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstac=
+k.com%2Ficon%2FLucideComments%3Fv%3D4%26height%3D36%26fill%3Dnone%26stroke%=
+3D%2523808080%26strokeWidth%3D2" width=3D"18" height=3D"18" style=3D"border=
+:none;vertical-align:middle;max-width:18px" alt=3D""></a></td></tr></tbody>=
+</table></td><td width=3D"8" style=3D"min-width:8px"></td><td style=3D"vert=
+ical-align:middle"><table role=3D"presentation" width=3D"38" border=3D"0" c=
+ellspacing=3D"0" cellpadding=3D"0"><tbody><tr><td align=3D"center"><a href=
+=3D"https://substack.com/app-link/post?publication_id=3D2241151&amp;post_id=
+=3D181824984&amp;utm_source=3Dsubstack&amp;utm_medium=3Demail&amp;utm_conte=
+nt=3Dshare&amp;utm_campaign=3Demail-share&amp;action=3Dshare&amp;triggerSha=
+re=3Dtrue&amp;isFreemail=3Dtrue&amp;r=3D38o39i&amp;token=3DeyJ1c2VyX2lkIjox=
+OTU5NTk0MzAsInBvc3RfaWQiOjE4MTgyNDk4NCwiaWF0IjoxNzY1OTE5ODk4LCJleHAiOjE3Njg=
+1MTE4OTgsImlzcyI6InB1Yi0yMjQxMTUxIiwic3ViIjoicG9zdC1yZWFjdGlvbiJ9.k4OwQEBxS=
+Uv2fs6mwv8fyDpczgjsu6nrHHRYNMZlDO8" style=3D"font-family:system-ui,-apple-s=
+ystem,BlinkMacSystemFont,&#39;Segoe UI&#39;,Roboto,Helvetica,Arial,sans-ser=
+if,&#39;Apple Color Emoji&#39;,&#39;Segoe UI Emoji&#39;,&#39;Segoe UI Symbo=
+l&#39;;display:inline-block;font-weight:500;border:1px solid rgb(0,0,0,.1);=
+border-radius:9999px;text-transform:uppercase;font-size:12px;line-height:1;=
+padding:9px 0;text-decoration:none;color:rgb(119,119,119);min-width:38px;bo=
+x-sizing:border-box;width:38px" target=3D"_blank"><img src=3D"https://subst=
+ackcdn.com/image/fetch/$s_!_L14!,w_36,c_scale,f_png,q_auto:good,fl_progress=
+ive:steep/https%3A%2F%2Fsubstack.com%2Ficon%2FLucideShare2%3Fv%3D4%26height=
+%3D36%26fill%3Dnone%26stroke%3D%2523808080%26strokeWidth%3D2" width=3D"18" =
+height=3D"18" style=3D"border:none;vertical-align:middle;max-width:18px" al=
+t=3D""></a></td></tr></tbody></table></td><td width=3D"8" style=3D"min-widt=
+h:8px"></td><td style=3D"vertical-align:middle"><table role=3D"presentation=
+" width=3D"38" border=3D"0" cellspacing=3D"0" cellpadding=3D"0"><tbody><tr>=
+<td align=3D"center"><a href=3D"https://substack.com/redirect/2/eyJlIjoiaHR=
+0cHM6Ly9vcGVuLnN1YnN0YWNrLmNvbS9wdWIveml6aWthbGFuZGphaS9wL25lZ3kta2Vrc3otcm=
+VjZXB0P3V0bV9zb3VyY2U9c3Vic3RhY2smdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249Z=
+W1haWwtcmVzdGFjay1jb21tZW50JmFjdGlvbj1yZXN0YWNrLWNvbW1lbnQmcj0zOG8zOWkmdG9r=
+ZW49ZXlKMWMyVnlYMmxrSWpveE9UVTVOVGswTXpBc0luQnZjM1JmYVdRaU9qRTRNVGd5TkRrNE5=
+Dd2lhV0YwSWpveE56WTFPVEU1T0RrNExDSmxlSEFpT2pFM05qZzFNVEU0T1Rnc0ltbHpjeUk2SW=
+5CMVlpMHlNalF4TVRVeElpd2ljM1ZpSWpvaWNHOXpkQzF5WldGamRHbHZiaUo5Lms0T3dRRUJ4U=
+1V2MmZzNm13djhmeURwY3pnanN1Nm5ySEhSWU5NWmxETzgiLCJwIjoxODE4MjQ5ODQsInMiOjIy=
+NDExNTEsImYiOnRydWUsInUiOjE5NTk1OTQzMCwiaWF0IjoxNzY1OTE5ODk4LCJleHAiOjIwODE=
+0OTU4OTgsImlzcyI6InB1Yi0wIiwic3ViIjoibGluay1yZWRpcmVjdCJ9.TZlz4T5HeN9yn91cz=
+CCXlqjvEb1JxtWsO5HXtFGOc-0?&amp;utm_source=3Dsubstack&amp;utm_medium=3Demai=
+l" style=3D"font-family:system-ui,-apple-system,BlinkMacSystemFont,&#39;Seg=
+oe UI&#39;,Roboto,Helvetica,Arial,sans-serif,&#39;Apple Color Emoji&#39;,&#=
+39;Segoe UI Emoji&#39;,&#39;Segoe UI Symbol&#39;;display:inline-block;font-=
+weight:500;border:1px solid rgb(0,0,0,.1);border-radius:9999px;text-transfo=
+rm:uppercase;font-size:12px;line-height:1;padding:9px 0;text-decoration:non=
+e;color:rgb(119,119,119);min-width:38px;box-sizing:border-box;width:38px" t=
+arget=3D"_blank"><img src=3D"https://substackcdn.com/image/fetch/$s_!5EGt!,=
+w_36,c_scale,f_png,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack.=
+com%2Ficon%2FNoteForwardIcon%3Fv%3D4%26height%3D36%26fill%3Dnone%26stroke%3=
+D%2523808080%26strokeWidth%3D2" width=3D"18" height=3D"18" style=3D"border:=
+none;vertical-align:middle;max-width:18px" alt=3D""></a></td></tr></tbody><=
+/table></td></tr></tbody></table></td><td align=3D"right"><table role=3D"pr=
+esentation" width=3D"auto" border=3D"0" cellspacing=3D"0" cellpadding=3D"0"=
+><tbody><tr><td style=3D"vertical-align:middle"><table role=3D"presentation=
+" width=3D"auto" border=3D"0" cellspacing=3D"0" cellpadding=3D"0"><tbody><t=
+r><td align=3D"center"><a href=3D"https://open.substack.com/pub/zizikalandj=
+ai/p/negy-keksz-recept?utm_source=3Demail&amp;redirect=3Dapp-store&amp;utm_=
+campaign=3Demail-read-in-app" style=3D"font-family:system-ui,-apple-system,=
+BlinkMacSystemFont,&#39;Segoe UI&#39;,Roboto,Helvetica,Arial,sans-serif,&#3=
+9;Apple Color Emoji&#39;,&#39;Segoe UI Emoji&#39;,&#39;Segoe UI Symbol&#39;=
+;display:inline-block;font-weight:500;border:1px solid rgb(0,0,0,.1);border=
+-radius:9999px;text-transform:uppercase;font-size:12px;line-height:12px;pad=
+ding:9px 14px;text-decoration:none;color:rgb(119,119,119)" target=3D"_blank=
+"><div style=3D"font-size:16px;line-height:26px;display:inline-block;vertic=
+al-align:middle;max-width:0;min-height:18px"></div><span style=3D"vertical-=
+align:middle;margin-right:4px">READ IN APP</span><img src=3D"https://substa=
+ckcdn.com/image/fetch/$s_!ET-_!,w_36,c_scale,f_png,q_auto:good,fl_progressi=
+ve:steep/https%3A%2F%2Fsubstack.com%2Ficon%2FLucideArrowUpRight%3Fv%3D4%26h=
+eight%3D36%26fill%3Dnone%26stroke%3D%2523808080%26strokeWidth%3D2" width=3D=
+"18" height=3D"18" style=3D"min-width:18px;min-height:18px;border:none;vert=
+ical-align:middle;margin-right:0;margin-left:0;max-width:18px" alt=3D""></a=
+></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></ta=
+ble></td></tr><tr height=3D"16"><td height=3D"16" style=3D"font-size:0px;li=
+ne-height:0">=C2=A0</td></tr></tbody></table></div></div><div dir=3D"auto" =
+style=3D"padding:32px 0 0 0;font-size:16px;line-height:26px"><div dir=3D"au=
+to" style=3D"text-align:initial;font-size:16px;line-height:26px;width:100%;=
+word-break:break-word;margin-bottom:16px"><p style=3D"margin:0 0 20px 0;col=
+or:rgb(54,55,55);line-height:26px;font-size:16px;margin-top:0">Igaz egy =C3=
+=BAjabb =C3=BCnnepi aj=C3=A1nd=C3=A9kaj=C3=A1nl=C3=B3t =C3=ADg=C3=A9rtem ne=
+ktek, de nem tudtam m=C3=A9g =C3=B6sszerakni. Az egy olyan aj=C3=A1nl=C3=B3=
+ lesz am=C3=BAgy, ami az =C3=BAj =C3=A9vben is aktu=C3=A1lis lesz, sz=C3=B3=
+val mindig haszn=C3=A1t fogj=C3=A1tok venni, akkor is, ha nem az =C3=BCnnep=
+ek el=C5=91tt osztom meg.</p><p style=3D"margin:0 0 20px 0;color:rgb(54,55,=
+55);line-height:26px;font-size:16px"><em>Disclaimer</em><span>: </span><em>=
+<span>Ha =C3=A9rt=C3=A9keled a munk=C3=A1mat, mert sz=C3=A1modra =C3=A9rt=
+=C3=A9kes a tartalom, amit megosztok, az a munka =C3=A9s id=C5=91, amit bel=
+efektetek, akkor </span><strong><a href=3D"https://substack.com/redirect/d9=
+87cba3-f8f5-49e6-a710-2d4b0f907635?j=3DeyJ1IjoiMzhvMzlpIn0.a1kdu7t11AFkzvSC=
+f_NnglL4kwGQDn76lemutNzMp3Y" rel=3D"" style=3D"color:rgb(54,55,55);text-dec=
+oration:underline" target=3D"_blank">ezen a linken tudod t=C3=A1mogatni a m=
+unk=C3=A1mat</a></strong><span> egy k=C3=A1v=C3=A9 =C3=A1r=C3=A1val.</span>=
+</em></p><div style=3D"font-size:16px;line-height:26px;margin:32px auto"><t=
+able width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0"><tbody=
+><tr><td style=3D"text-align:center"></td><td align=3D"left" width=3D"990" =
+style=3D"text-align:center"><a href=3D"https://substack.com/redirect/3a7472=
+51-3fdd-4d0e-9e53-f405a637a597?j=3DeyJ1IjoiMzhvMzlpIn0.a1kdu7t11AFkzvSCf_Nn=
+glL4kwGQDn76lemutNzMp3Y" rel=3D"" style=3D"padding:0;width:auto;height:auto=
+;border:none;text-decoration:none;display:block;margin:0" target=3D"_blank"=
+><img alt=3D"" width=3D"550" height=3D"366.6666666666667" src=3D"https://su=
+bstackcdn.com/image/fetch/$s_!hEko!,w_1100,c_limit,f_auto,q_auto:good,fl_pr=
+ogressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic=
+%2Fimages%2F2cc9d34a-efb3-49da-bd56-29d6c31c6811_990x660.jpeg" style=3D"bor=
+der:none!important;vertical-align:middle;display:block;height:auto;margin-b=
+ottom:0;width:auto!important;max-width:100%!important;margin:0 auto"></a></=
+td><td style=3D"text-align:center"></td></tr></tbody></table></div><p style=
+=3D"margin:0 0 20px 0;color:rgb(54,55,55);line-height:26px;font-size:16px">=
+Most n=C3=A9gy keksz receptet hoztam nektek, amelyeket az elm=C3=BAlt =C3=
+=A9vekben osztottam meg az Instagram oldalamon. Mivel Instagramon nem lehet=
+ konkr=C3=A9t receptet keresni, ez=C3=A9rt gondoltam, hogy =C3=B6sszerakom =
+itt egy bejegyz=C3=A9sbe. Akut=C3=A1lisak is kar=C3=A1csony el=C5=91tt, mer=
+t mindegyik finom =C3=A9s kiv=C3=A1l=C3=B3 apr=C3=B3s=C3=BCtem=C3=A9nyek le=
+sznek az =C3=BCnnepi asztalra.</p><div style=3D"width:100%;font-size:16px;l=
+ine-height:26px;margin:32px0"><img src=3D"https://substackcdn.com/image/fet=
+ch/$s_!_oMK!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3=
+A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F275f6883-35=
+6c-4f7d-8e96-1c634d080344_1456x720.png" alt=3D"" style=3D"border:none!impor=
+tant;vertical-align:middle;display:block;max-width:100%;height:auto;margin:=
+0 auto"></div><p style=3D"margin:0 0 20px 0;color:rgb(54,55,55);line-height=
+:26px;font-size:16px"><em><a href=3D"https://substack.com/redirect/685f941b=
+-fccc-4854-9a95-5edb7b7576ba?j=3DeyJ1IjoiMzhvMzlpIn0.a1kdu7t11AFkzvSCf_Nngl=
+L4kwGQDn76lemutNzMp3Y" rel=3D"" style=3D"color:rgb(54,55,55);text-decoratio=
+n:underline" target=3D"_blank">Az =C3=BAj szak=C3=A1csk=C3=B6nyvem - LUNCHB=
+OX - m=C3=A1r kaphat=C3=B3 a k=C3=B6nyvesboltokban!</a></em></p><div style=
+=3D"font-size:16px;line-height:26px;margin:32px auto"><table width=3D"100%"=
+ border=3D"0" cellspacing=3D"0" cellpadding=3D"0"><tbody><tr><td style=3D"t=
+ext-align:center"></td><td align=3D"left" width=3D"660" style=3D"text-align=
+:center"><a href=3D"https://substack.com/redirect/be56b056-15dd-4e16-aa63-0=
+16c6d99ed4b?j=3DeyJ1IjoiMzhvMzlpIn0.a1kdu7t11AFkzvSCf_NnglL4kwGQDn76lemutNz=
+Mp3Y" rel=3D"" style=3D"padding:0;width:auto;height:auto;border:none;text-d=
+ecoration:none;display:block;margin:0" target=3D"_blank"><img alt=3D"" widt=
+h=3D"550" height=3D"825" src=3D"https://substackcdn.com/image/fetch/$s_!u6k=
+4!,w_1100,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsub=
+stack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ffb1bcd3a-9827-4d44-93=
+c5-ed16945e167e_660x990.jpeg" style=3D"border:none!important;vertical-align=
+:middle;display:block;height:auto;margin-bottom:0;width:auto!important;max-=
+width:100%!important;margin:0 auto"></a></td><td style=3D"text-align:center=
+"></td></tr></tbody></table></div><p style=3D"margin:0 0 20px 0;color:rgb(5=
+4,55,55);line-height:26px;font-size:16px"><strong>DUPLA CSOKIS-S=C3=93S KEK=
+SZ </strong><span>=F0=9F=8D=AA</span><br><br><em>Hozz=C3=A1val=C3=B3k</em><=
+span>:</span><br><span>- 100 g (bio) b=C3=BAzaliszt</span><br><span>- 60 g =
+teljeski=C3=B6rl=C3=A9s=C5=B1 b=C3=BAzaliszt</span><br><span>- 90 g k=C3=B3=
+kuszolaj, szobah=C5=91m=C3=A9rs=C3=A9klet=C5=B1</span><br><span>- 80 g k=C3=
+=B3kuszvir=C3=A1gcukor</span><br><span>- 75 g cukrozatlan almasz=C3=B3sz</s=
+pan><br><span>- 50 g cukrozatlan kaka=C3=B3por</span><br><span>- 1 te=C3=A1=
+skan=C3=A1l s=C3=BCt=C5=91por</span><br><span>- 1/2 te=C3=A1skan=C3=A1l s=
+=C3=B3</span><br><span>- csipet =C5=91r=C3=B6lt van=C3=ADlia vagy tonkabab<=
+/span><br><span>- kev=C3=A9s n=C3=B6v=C3=A9nyi tej</span><br><span>- =C3=A9=
+tcsoki, feldarabolva</span><br><span>- nagyszem=C5=B1 s=C3=B3</span><br><br=
+><span>Minden hozz=C3=A1val=C3=B3 legyen szobah=C5=91m=C3=A9rs=C3=A9klet=C5=
+=B1. Meleg=C3=ADts=C3=BCk el=C5=91 a s=C3=BCt=C5=91t 185C fokra, b=C3=A9lel=
+j=C3=BCnk ki egy nagy tepsit s=C3=BCt=C5=91pap=C3=ADrral.</span><br><span>T=
+egy=C3=BCk egy t=C3=A1lba a puha k=C3=B3kuszolajat, adjuk hozz=C3=A1 a k=C3=
+=B3kuszvir=C3=A1gcukrot =C3=A9s fakan=C3=A1llal keverj=C3=BCk =E2=80=9Chabo=
+sra=E2=80=9D, am=C3=ADg a cukor majdnem elolvad. </span><br><span>Adjuk hoz=
+z=C3=A1 a s=C3=BCt=C5=91port, a s=C3=B3t, a tonkababot/van=C3=ADli=C3=A1t =
+=C3=A9s az almasz=C3=B3szt. J=C3=B3l keverj=C3=BCk el, majd mehet bele a ka=
+ka=C3=B3por =C3=A9s a lisztek. J=C3=B3l gy=C3=BArhat=C3=B3, nem ragacsos t=
+=C3=A9szt=C3=A1t kell kapnunk. Ha t=C3=BAl sz=C3=A1raz lenne, adjunk hozz=
+=C3=A1 1-2 ev=C5=91kan=C3=A1lnyi n=C3=B6v=C3=A9nyi tejet =C3=A9s ezzel is k=
+everj=C3=BCk el. </span><br><span>Form=C3=A1zzunk goly=C3=B3kat bel=C5=91le=
+, tegy=C3=BCk a tepsire =C3=A9s a tenyer=C3=BCnkkel lap=C3=ADtsuk le. Nyomk=
+odjunk a tetej=C3=A9re =C3=A9tcsoki darabokat =C3=A9s sz=C3=B3rjuk meg nagy=
+szem=C5=B1 s=C3=B3val. S=C3=BCss=C3=BCk kb. 10-15 percig.</span></p><div st=
+yle=3D"font-size:16px;line-height:26px;margin:32px auto"><table width=3D"10=
+0%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0"><tbody><tr><td style=
+=3D"text-align:center"></td><td align=3D"left" width=3D"1024" style=3D"text=
+-align:center"><a href=3D"https://substack.com/redirect/be580319-30c6-490e-=
+8e44-5b0d562500ad?j=3DeyJ1IjoiMzhvMzlpIn0.a1kdu7t11AFkzvSCf_NnglL4kwGQDn76l=
+emutNzMp3Y" rel=3D"" style=3D"padding:0;width:auto;height:auto;border:none;=
+text-decoration:none;display:block;margin:0" target=3D"_blank"><img alt=3D"=
+" width=3D"550" height=3D"687.5" src=3D"https://substackcdn.com/image/fetch=
+/$s_!wgXR!,w_1100,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%=
+2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fdfdb5e00-8998=
+-41d5-a1b5-bfc5cb57e739_1024x1280.jpeg" style=3D"border:none!important;vert=
+ical-align:middle;display:block;height:auto;margin-bottom:0;width:auto!impo=
+rtant;max-width:100%!important;margin:0 auto"></a></td><td style=3D"text-al=
+ign:center"></td></tr></tbody></table></div><p style=3D"margin:0 0 20px 0;c=
+olor:rgb(54,55,55);line-height:26px;font-size:16px"><strong>S=C3=9CT=C5=90T=
+=C3=96K=C3=96S ZABKEKSZ</strong><span> =F0=9F=A7=A1=F0=9F=8D=AA</span><br><=
+br><em>Hozz=C3=A1val=C3=B3k</em><span>:</span><br><span>- 1 b=C3=B6gre s=C3=
+=BClt s=C3=BCt=C5=91t=C3=B6k (h=C3=A9j n=C3=A9lk=C3=BCl)</span><br><span>- =
+2 b=C3=B6gre t=C3=B6nk=C3=B6ly feh=C3=A9rliszt</span><br><span>- 2 b=C3=B6g=
+re apr=C3=B3szem=C5=B1 zabpehely</span><br><span>- 1 b=C3=B6gre (nyers) dem=
+erara n=C3=A1dcukor</span><br><span>- 3/4 b=C3=B6gre k=C3=B3kuszolaj, olvas=
+ztva</span><br><span>- 1 te=C3=A1skan=C3=A1l =C5=91r=C3=B6lt fah=C3=A9j</sp=
+an><br><span>- 1 te=C3=A1skan=C3=A1l s=C3=BCt=C5=91por</span><br><span>- 1/=
+2 te=C3=A1skan=C3=A1l s=C3=B3</span><br><span>- 1/4 te=C3=A1skan=C3=A1l =C5=
+=91r=C3=B6lt szerecsendi=C3=B3</span><br><span>- =C3=A9tcsoki csepp (opcion=
+=C3=A1lis)</span><br><br><span>Meleg=C3=ADts=C3=BCk el=C5=91 a s=C3=BCt=C5=
+=91t 185C fokra, b=C3=A9lelj=C3=BCnk ki egy nagy tepsit s=C3=BCt=C5=91pap=
+=C3=ADrral. </span><br><span>Tegy=C3=BCk egy t=C3=A1lba a s=C3=BCt=C5=91t=
+=C3=B6k=C3=B6t, vill=C3=A1val t=C3=B6rj=C3=BCk p=C3=A9pesre. </span><br><sp=
+an>Adjuk hozz=C3=A1 a k=C3=B3kuszolajat, a n=C3=A1dcukrot =C3=A9s keverj=C3=
+=BCk j=C3=B3l el. </span><br><span>Mehetnek a sz=C3=A1raz hozz=C3=A1val=C3=
+=B3k: fah=C3=A9j, s=C3=BCt=C5=91por, s=C3=B3, szerecsendi=C3=B3, t=C3=B6nk=
+=C3=B6lyliszt =C3=A9s zabpehely, =C3=A9tcsoki csepp. Keverj=C3=BCk =C3=B6ss=
+ze. Enyh=C3=A9n ragacsos t=C3=A9szt=C3=A1t kell kapnunk. Fagyis kan=C3=A1ll=
+al/ev=C5=91kan=C3=A1llal adagoljunk gomb=C3=B3cokat a s=C3=BCt=C5=91pap=C3=
+=ADrra. =C3=89n =C3=ADgy hagytam, nem nyomkodtam le a kekszeket. S=C3=BCss=
+=C3=BCk kb. 15 percig, am=C3=ADg enyh=C3=A9n aranybarn=C3=A1k lesznek.</spa=
+n></p><div style=3D"font-size:16px;line-height:26px;margin:32px auto"><tabl=
+e width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0"><tbody><t=
+r><td style=3D"text-align:center"></td><td align=3D"left" width=3D"660" sty=
+le=3D"text-align:center"><a href=3D"https://substack.com/redirect/054a2e04-=
+8825-4a11-a317-d00e6bb280aa?j=3DeyJ1IjoiMzhvMzlpIn0.a1kdu7t11AFkzvSCf_NnglL=
+4kwGQDn76lemutNzMp3Y" rel=3D"" style=3D"padding:0;width:auto;height:auto;bo=
+rder:none;text-decoration:none;display:block;margin:0" target=3D"_blank"><i=
+mg alt=3D"" width=3D"550" height=3D"825" src=3D"https://substackcdn.com/ima=
+ge/fetch/$s_!Wsbo!,w_1100,c_limit,f_auto,q_auto:good,fl_progressive:steep/h=
+ttps%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F49fa7=
+5fa-19ad-4440-bafe-64249ec73f2b_660x990.jpeg" style=3D"border:none!importan=
+t;vertical-align:middle;display:block;height:auto;margin-bottom:0;width:aut=
+o!important;max-width:100%!important;margin:0 auto"></a></td><td style=3D"t=
+ext-align:center"></td></tr></tbody></table></div><p style=3D"margin:0 0 20=
+px 0;color:rgb(54,55,55);line-height:26px;font-size:16px"><strong>OL=C3=8DV=
+AOLAJOS CSOKIS NARANCSOS KEKSZ</strong><span> =F0=9F=8D=AA=F0=9F=8D=8A</spa=
+n><br><br><em>Hozz=C3=A1val=C3=B3k kb. 10-12 db-hoz</em><span>:</span><br><=
+span>- 140 g hajdinaliszt</span><br><span>- 50 g mandulaliszt (dar=C3=A1lt =
+mandula)</span><br><span>- 110 g extra sz=C5=B1z ol=C3=ADvaolaj</span><br><=
+span>- 35 g frissen facsart narancsl=C3=A9</span><br><span>- 1 te=C3=A1skan=
+=C3=A1l frissen reszelt narancsh=C3=A9j (bio)</span><br><span>- 70 g k=C3=
+=B3kuszvir=C3=A1gcukor</span><br><span>- 10 g juharszirup</span><br><span>-=
+ 1 te=C3=A1skan=C3=A1l s=C3=B3</span><br><span>- 1/2 te=C3=A1skan=C3=A1l sz=
+=C3=B3dabikarb=C3=B3na</span><br><span>- 1/4 te=C3=A1skan=C3=A1l s=C3=BCt=
+=C5=91por</span><br><span>- 40 g =C3=A9tcsokol=C3=A1d=C3=A9, felkock=C3=A1z=
+va</span><br><span>- nagyszem=C5=B1 s=C3=B3 (opcion=C3=A1lis)</span><br><br=
+><span>Egy t=C3=A1lban keverj=C3=BCk =C3=B6ssze a hajdinalisztet, a mandula=
+lisztet, a s=C3=B3t, a sz=C3=B3dabikarb=C3=B3n=C3=A1t, a s=C3=BCt=C5=91port=
+ =C3=A9s a k=C3=B3kuszvir=C3=A1gcukrot. </span><br><span>Adjuk hozz=C3=A1 a=
+ narancsh=C3=A9jat, a narancslevet, az ol=C3=ADvaolajat =C3=A9s j=C3=B3l ke=
+verj=C3=BCk =C3=A1t. </span><br><span>Adjuk hozz=C3=A1 az =C3=A9tcsokol=C3=
+=A1d=C3=A9t =C3=A9s ezzel is keverj=C3=BCk =C3=B6ssze. </span><br><span>Mel=
+eg=C3=ADts=C3=BCk el=C5=91 a s=C3=BCt=C5=91t 180C fokra, egy tepsire tegy=
+=C3=BCnk s=C3=BCt=C5=91pap=C3=ADrt. </span><br><span>Fagyiskan=C3=A1lnyi f=
+=C3=A9lg=C3=B6mb=C3=B6ket adagoljunk a t=C3=A9szt=C3=A1b=C3=B3l a tepsire, =
+majd egy darabka =C3=A9tcsokit a kekszek tetej=C3=A9re t=C3=A9ve nyomjuk le=
+ (lap=C3=ADtsuk le) =C5=91ket. Sz=C3=B3rjuk meg a kekszeket nagyszem=C5=B1 =
+s=C3=B3val. Tegy=C3=BCk a s=C3=BCt=C5=91be =C3=A9s s=C3=BCss=C3=BCk kb. 12-=
+15 percig, am=C3=ADg aranybarn=C3=A1k lesznek. Hagyjuk a tepsin kih=C5=B1ln=
+i. A sz=C3=A9le kicsit ropog=C3=B3s, a belseje puh=C3=A1bb. Nagyon finom!</=
+span></p><div style=3D"font-size:16px;line-height:26px;margin:32px auto"><t=
+able width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0"><tbody=
+><tr><td style=3D"text-align:center"></td><td align=3D"left" width=3D"960" =
+style=3D"text-align:center"><a href=3D"https://substack.com/redirect/33dce4=
+e2-2f48-46f1-9ef6-ef66f6be520a?j=3DeyJ1IjoiMzhvMzlpIn0.a1kdu7t11AFkzvSCf_Nn=
+glL4kwGQDn76lemutNzMp3Y" rel=3D"" style=3D"padding:0;width:auto;height:auto=
+;border:none;text-decoration:none;display:block;margin:0" target=3D"_blank"=
+><img alt=3D"" width=3D"550" height=3D"733.3333333333334" src=3D"https://su=
+bstackcdn.com/image/fetch/$s_!16Pc!,w_1100,c_limit,f_auto,q_auto:good,fl_pr=
+ogressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic=
+%2Fimages%2Ff8538912-5664-4c8e-a1ce-8c68a8baf36a_960x1280.jpeg" style=3D"bo=
+rder:none!important;vertical-align:middle;display:block;height:auto;margin-=
+bottom:0;width:auto!important;max-width:100%!important;margin:0 auto"></a><=
+/td><td style=3D"text-align:center"></td></tr></tbody></table></div><p styl=
+e=3D"margin:0 0 20px 0;color:rgb(54,55,55);line-height:26px;font-size:16px"=
+><strong>VAN=C3=8DLI=C3=81S PIR=C3=8DTOTT MANDUL=C3=81S KEKSZ</strong><span=
+> =F0=9F=A4=8E=F0=9F=8D=AA</span><br><br><em>Hozz=C3=A1val=C3=B3k</em><span=
+>:</span><br><span>- 145 g mandula, megpir=C3=ADtva, dar=C3=A1lva</span><br=
+><span>- 250 g (bio) b=C3=BAzaliszt</span><br><span>- 227 g vaj, szobah=C5=
+=91m=C3=A9rs=C3=A9klet=C5=B1</span><br><span>- 240 g (nyers) demerara n=C3=
+=A1dcukor</span><br><span>- 1/2 te=C3=A1skan=C3=A1l s=C3=B3</span><br><span=
+>- csipet =C5=91r=C3=B6lt van=C3=ADlia</span><br><br><span>Egy sz=C3=A1raz =
+serpeny=C5=91ben pir=C3=ADtsuk meg a mandul=C3=A1t 3-5 perc alatt. Azonnal =
+bor=C3=ADtsuk ki egy t=C3=A1lba, hogy ne =C3=A9gjen tov=C3=A1bb. Ha kih=C5=
+=B1lt, dar=C3=A1ljuk le.</span><br><span>Tegy=C3=BCk a puha vajat egy t=C3=
+=A1lba a n=C3=A1dcukorral =C3=A9s elektromos k=C3=A9zi habver=C5=91vel habo=
+s=C3=ADtsuk fel. Adjuk hozz=C3=A1 a lisztet, a s=C3=B3t, a van=C3=ADli=C3=
+=A1t =C3=A9s a dar=C3=A1lt mandul=C3=A1t.</span><br><span>B=C3=A9lelj=C3=BC=
+nk ki egy tepsit s=C3=BCt=C5=91pap=C3=ADrral =C3=A9s meleg=C3=ADts=C3=BCk e=
+l=C5=91 a s=C3=BCt=C5=91t 175C fokra.</span><br><span>A mandul=C3=A1s t=C3=
+=A9szt=C3=A1b=C3=B3l form=C3=A1zzunk goly=C3=B3kat =C3=A9s tegy=C3=BCk a te=
+psire. A goly=C3=B3k k=C3=B6zep=C3=A9be nyomjunk f=C3=A9l szem mandul=C3=A1=
+t.</span><br><span>S=C3=BCss=C3=BCk az el=C5=91meleg=C3=ADtett s=C3=BCt=C5=
+=91ben 13-15 percig. Ha m=C3=A9g egy kicsit puh=C3=A1k, vegy=C3=BCk ki a s=
+=C3=BCt=C5=91b=C5=91l. A tepsi melege megs=C3=BCti teljesen a kekszeket. Ha=
+gyjuk kih=C5=B1lni, majd t=C3=A1roljuk dobozban.</span><br><span>Tipp: M=C3=
+=A9rett=C5=91l f=C3=BCgg, hogy h=C3=A1ny darab lesz bel=C5=91le. Ha csokol=
+=C3=A1d=C3=A9ba m=C3=A1rtogatjuk, akkor s=C3=BCt=C3=A9s ut=C3=A1n hagyjuk t=
+eljesen kih=C5=B1lni a kekszeket =C3=A9s ut=C3=A1na m=C3=A1rtogassuk a keks=
+zek fel=C3=A9t az olvasztott csokol=C3=A1d=C3=A9ba, majd tegy=C3=BCk s=C3=
+=BCt=C5=91pap=C3=ADrral b=C3=A9lelt t=C3=A1lc=C3=A1ra a kekszeket =C3=A9s v=
+=C3=A1rjuk meg, am=C3=ADg a csokol=C3=A1d=C3=A9 teljesen megdermed.</span><=
+/p><div style=3D"font-size:16px;line-height:26px"><hr style=3D"margin:32px =
+0;padding:0;height:1px;background:#e6e6e6;border:none"></div><p style=3D"ma=
+rgin:0 0 20px 0;color:rgb(54,55,55);line-height:26px;font-size:16px">K=C3=
+=B6sz=C3=B6n=C3=B6m, hogy itt vagy =C3=A9s lelkesen f=C5=91z=C3=B6l!</p><p =
+style=3D"margin:0 0 20px 0;color:rgb(54,55,55);line-height:26px;font-size:1=
+6px">Szeretettel,</p><p style=3D"margin:0 0 20px 0;color:rgb(54,55,55);line=
+-height:26px;font-size:16px">Zizi - Morzs=C3=A1k</p><div style=3D"font-size=
+:16px;line-height:26px"><div style=3D"font-size:16px;direction:ltr!importan=
+t;font-weight:400;text-decoration:none;font-family:system-ui,-apple-system,=
+BlinkMacSystemFont,&#39;Segoe UI&#39;,Roboto,Helvetica,Arial,sans-serif,&#3=
+9;Apple Color Emoji&#39;,&#39;Segoe UI Emoji&#39;,&#39;Segoe UI Symbol&#39;=
+;color:#363737;line-height:1.5;max-width:560px;margin:24px auto;display:blo=
+ck;text-align:center;padding:0px 32px"><div style=3D"margin-top:16px;font-f=
+amily:system-ui,-apple-system,BlinkMacSystemFont,&#39;Segoe UI&#39;,Roboto,=
+Helvetica,Arial,sans-serif,&#39;Apple Color Emoji&#39;,&#39;Segoe UI Emoji&=
+#39;,&#39;Segoe UI Symbol&#39;;font-size:18px;max-width:384px;width:fit-con=
+tent;line-height:22px;display:flex;text-align:center;font-weight:400;margin=
+-left:auto;margin-right:auto"><p style=3D"margin:0 0 20px 0;color:rgb(54,55=
+,55);line-height:26px;font-size:16px">K=C3=B6sz=C3=B6n=C3=B6m, hogy olvasod=
+ a Morzs=C3=A1kat! Ha nem szeretn=C3=A9l lemaradni a leg=C3=BAjabb =C3=ADr=
+=C3=A1sokr=C3=B3l, akkor add meg az email c=C3=ADmedet az al=C3=A1bbi mez=
+=C5=91ben =C3=A9s kattints a Subscribe (Feliratkoz=C3=A1s) gombra. K=C3=B6s=
+z=C3=B6n=C3=B6m!</p></div><div style=3D"margin:0 0 1em;direction:ltr;font-s=
+ize:16px;line-height:26px"><div style=3D"text-decoration:unset;list-style:n=
+one;font-size:16px;line-height:26px;text-align:center;border-radius:4px"><a=
+ href=3D"https://substack.com/redirect/2/eyJlIjoiaHR0cHM6Ly96aXppa2FsYW5kam=
+FpLnN1YnN0YWNrLmNvbS9zdWJzY3JpYmU_dXRtX3NvdXJjZT1wb3N0JnV0bV9jYW1wYWlnbj1lb=
+WFpbC1jaGVja291dCZuZXh0PWh0dHBzJTNBJTJGJTJGeml6aWthbGFuZGphaS5zdWJzdGFjay5j=
+b20lMkZwJTJGbmVneS1rZWtzei1yZWNlcHQmcj0zOG8zOWkiLCJwIjoxODE4MjQ5ODQsInMiOjI=
+yNDExNTEsImYiOnRydWUsInUiOjE5NTk1OTQzMCwiaWF0IjoxNzY1OTE5ODk4LCJleHAiOjIwOD=
+E0OTU4OTgsImlzcyI6InB1Yi0wIiwic3ViIjoibGluay1yZWRpcmVjdCJ9.IMxsf7dx239roHSY=
+BO1MoFLshrUA2jA-hPgqg0MBL9s?&amp;utm_medium=3Demail&amp;utm_source=3Dsubscr=
+ibe-widget-preamble&amp;utm_content=3D181824984" style=3D"font-family:syste=
+m-ui,-apple-system,BlinkMacSystemFont,&#39;Segoe UI&#39;,Roboto,Helvetica,A=
+rial,sans-serif,&#39;Apple Color Emoji&#39;,&#39;Segoe UI Emoji&#39;,&#39;S=
+egoe UI Symbol&#39;;display:inline-block;box-sizing:border-box;border:none;=
+border-radius:8px;font-size:14px;line-height:20px;font-weight:600;text-alig=
+n:center;opacity:1;outline:none;white-space:nowrap;text-decoration:none!imp=
+ortant;margin:0 auto;background-color:#91ae21;color:#ffffff!important;paddi=
+ng:12px 20px;height:auto" target=3D"_blank"><span style=3D"color:#ffffff;te=
+xt-decoration:none">Pledge your support</span></a></div></div></div></div><=
+p style=3D"margin:0 0 20px 0;color:rgb(54,55,55);line-height:26px;font-size=
+:16px;margin-bottom:0"></p></div></div><div style=3D"margin:32px 0 0;width:=
+100%;box-sizing:border-box;border-top:1px solid #e6e6e6;font-size:16px;line=
+-height:26px"></div><div style=3D"text-align:initial;word-break:break-word;=
+margin-bottom:32px;margin:32px 0;font-size:16px;line-height:26px"><p style=
+=3D"color:rgb(54,55,55);margin:0 auto 20px;text-align:center;width:90%;line=
+-height:26px;font-size:16px;margin-top:0"><span style=3D"list-style:none;co=
+lor:unset;text-decoration:unset;margin:0">Zizi Kalandjai - Morzs=C3=A1k is =
+free today. But if you enjoyed this post, you can tell Zizi Kalandjai - Mor=
+zs=C3=A1k that their writing is valuable by pledging a future subscription.=
+ You won&#39;t be charged unless they enable payments.</span></p><p style=
+=3D"color:rgb(54,55,55);margin:0 auto 20px;width:90%;line-height:26px;font-=
+size:16px;margin-bottom:0;text-align:center;margin-left:auto;margin-right:a=
+uto"><a role=3D"button" href=3D"https://substack.com/redirect/2/eyJlIjoiaHR=
+0cHM6Ly96aXppa2FsYW5kamFpLnN1YnN0YWNrLmNvbS9zdWJzY3JpYmU_dXRtX3NvdXJjZT1wb3=
+N0JnV0bV9jYW1wYWlnbj1lbWFpbC1jaGVja291dCZuZXh0PWh0dHBzJTNBJTJGJTJGeml6aWthb=
+GFuZGphaS5zdWJzdGFjay5jb20lMkZwJTJGbmVneS1rZWtzei1yZWNlcHQmcj0zOG8zOWkiLCJw=
+IjoxODE4MjQ5ODQsInMiOjIyNDExNTEsImYiOnRydWUsInUiOjE5NTk1OTQzMCwiaWF0IjoxNzY=
+1OTE5ODk4LCJleHAiOjIwODE0OTU4OTgsImlzcyI6InB1Yi0wIiwic3ViIjoibGluay1yZWRpcm=
+VjdCJ9.IMxsf7dx239roHSYBO1MoFLshrUA2jA-hPgqg0MBL9s?&amp;utm_source=3Dsubsta=
+ck&amp;utm_medium=3Demail&amp;utm_content=3Dpostcta" style=3D"font-family:s=
+ystem-ui,-apple-system,BlinkMacSystemFont,&#39;Segoe UI&#39;,Roboto,Helveti=
+ca,Arial,sans-serif,&#39;Apple Color Emoji&#39;,&#39;Segoe UI Emoji&#39;,&#=
+39;Segoe UI Symbol&#39;;display:inline-block;box-sizing:border-box;border:n=
+one;height:40px;border-radius:8px;font-size:14px;line-height:20px;font-weig=
+ht:600;text-align:center;padding:10px 20px;margin:0;opacity:1;outline:none;=
+white-space:nowrap;color:#ffffff!important;text-decoration:none!important;b=
+ackground-color:#91ae21" target=3D"_blank">Pledge your support</a></p></div=
+><table role=3D"presentation" width=3D"100%" border=3D"0" cellspacing=3D"0"=
+ cellpadding=3D"0" style=3D"border-top:1px solid rgb(0,0,0,.1);border-botto=
+m:1px solid rgb(0,0,0,.1);min-width:100%"><tbody><tr height=3D"16"><td heig=
+ht=3D"16" style=3D"font-size:0px;line-height:0">=C2=A0</td></tr><tr><td><ta=
+ble role=3D"presentation" width=3D"100%" border=3D"0" cellspacing=3D"0" cel=
+lpadding=3D"0"><tbody><tr><td><table role=3D"presentation" width=3D"auto" b=
+order=3D"0" cellspacing=3D"0" cellpadding=3D"0" style=3D"margin:0 auto"><tb=
+ody><tr><td style=3D"vertical-align:middle"><table role=3D"presentation" wi=
+dth=3D"auto" border=3D"0" cellspacing=3D"0" cellpadding=3D"0"><tbody><tr><t=
+d align=3D"center"><a href=3D"https://substack.com/app-link/post?publicatio=
+n_id=3D2241151&amp;post_id=3D181824984&amp;utm_source=3Dsubstack&amp;isFree=
+mail=3Dtrue&amp;submitLike=3Dtrue&amp;token=3DeyJ1c2VyX2lkIjoxOTU5NTk0MzAsI=
+nBvc3RfaWQiOjE4MTgyNDk4NCwicmVhY3Rpb24iOiLinaQiLCJpYXQiOjE3NjU5MTk4OTgsImV4=
+cCI6MTc2ODUxMTg5OCwiaXNzIjoicHViLTIyNDExNTEiLCJzdWIiOiJyZWFjdGlvbiJ9.uVmep9=
+a-TNnRqn0ttvVtWFG0N-jnS9GuU7qv20UwF7Q&amp;utm_medium=3Demail&amp;utm_campai=
+gn=3Demail-reaction&amp;r=3D38o39i" style=3D"font-family:system-ui,-apple-s=
+ystem,BlinkMacSystemFont,&#39;Segoe UI&#39;,Roboto,Helvetica,Arial,sans-ser=
+if,&#39;Apple Color Emoji&#39;,&#39;Segoe UI Emoji&#39;,&#39;Segoe UI Symbo=
+l&#39;;display:inline-block;font-weight:500;border:1px solid rgb(0,0,0,.1);=
+border-radius:9999px;text-transform:uppercase;font-size:12px;line-height:12=
+px;padding:9px 14px;text-decoration:none;color:rgb(119,119,119)" target=3D"=
+_blank"><img src=3D"https://substackcdn.com/image/fetch/$s_!PeVs!,w_36,c_sc=
+ale,f_png,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack.com%2Fico=
+n%2FLucideHeart%3Fv%3D4%26height%3D36%26fill%3Dnone%26stroke%3D%2523808080%=
+26strokeWidth%3D2" width=3D"18" height=3D"18" style=3D"margin-right:8px;min=
+-width:18px;min-height:18px;border:none;vertical-align:middle;max-width:18p=
+x" alt=3D""><span style=3D"vertical-align:middle">Like</span></a></td></tr>=
+</tbody></table></td><td width=3D"8" style=3D"min-width:8px"></td><td style=
+=3D"vertical-align:middle"><table role=3D"presentation" width=3D"auto" bord=
+er=3D"0" cellspacing=3D"0" cellpadding=3D"0"><tbody><tr><td align=3D"center=
+"><a href=3D"https://substack.com/app-link/post?publication_id=3D2241151&am=
+p;post_id=3D181824984&amp;utm_source=3Dsubstack&amp;utm_medium=3Demail&amp;=
+isFreemail=3Dtrue&amp;comments=3Dtrue&amp;token=3DeyJ1c2VyX2lkIjoxOTU5NTk0M=
+zAsInBvc3RfaWQiOjE4MTgyNDk4NCwiaWF0IjoxNzY1OTE5ODk4LCJleHAiOjE3Njg1MTE4OTgs=
+ImlzcyI6InB1Yi0yMjQxMTUxIiwic3ViIjoicG9zdC1yZWFjdGlvbiJ9.k4OwQEBxSUv2fs6mwv=
+8fyDpczgjsu6nrHHRYNMZlDO8&amp;r=3D38o39i&amp;utm_campaign=3Demail-half-magi=
+c-comments&amp;action=3Dpost-comment&amp;utm_source=3Dsubstack&amp;utm_medi=
+um=3Demail" style=3D"font-family:system-ui,-apple-system,BlinkMacSystemFont=
+,&#39;Segoe UI&#39;,Roboto,Helvetica,Arial,sans-serif,&#39;Apple Color Emoj=
+i&#39;,&#39;Segoe UI Emoji&#39;,&#39;Segoe UI Symbol&#39;;display:inline-bl=
+ock;font-weight:500;border:1px solid rgb(0,0,0,.1);border-radius:9999px;tex=
+t-transform:uppercase;font-size:12px;line-height:12px;padding:9px 14px;text=
+-decoration:none;color:rgb(119,119,119)" target=3D"_blank"><img src=3D"http=
+s://substackcdn.com/image/fetch/$s_!x1tS!,w_36,c_scale,f_png,q_auto:good,fl=
+_progressive:steep/https%3A%2F%2Fsubstack.com%2Ficon%2FLucideComments%3Fv%3=
+D4%26height%3D36%26fill%3Dnone%26stroke%3D%2523808080%26strokeWidth%3D2" wi=
+dth=3D"18" height=3D"18" style=3D"margin-right:8px;min-width:18px;min-heigh=
+t:18px;border:none;vertical-align:middle;max-width:18px" alt=3D""><span sty=
+le=3D"vertical-align:middle">Comment</span></a></td></tr></tbody></table></=
+td><td width=3D"8" style=3D"min-width:8px"></td><td style=3D"vertical-align=
+:middle"><table role=3D"presentation" width=3D"auto" border=3D"0" cellspaci=
+ng=3D"0" cellpadding=3D"0"><tbody><tr><td align=3D"center"><a href=3D"https=
+://substack.com/redirect/2/eyJlIjoiaHR0cHM6Ly9vcGVuLnN1YnN0YWNrLmNvbS9wdWIv=
+eml6aWthbGFuZGphaS9wL25lZ3kta2Vrc3otcmVjZXB0P3V0bV9zb3VyY2U9c3Vic3RhY2smdXR=
+tX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249ZW1haWwtcmVzdGFjay1jb21tZW50JmFjdGlvbj=
+1yZXN0YWNrLWNvbW1lbnQmcj0zOG8zOWkmdG9rZW49ZXlKMWMyVnlYMmxrSWpveE9UVTVOVGswT=
+XpBc0luQnZjM1JmYVdRaU9qRTRNVGd5TkRrNE5Dd2lhV0YwSWpveE56WTFPVEU1T0RrNExDSmxl=
+SEFpT2pFM05qZzFNVEU0T1Rnc0ltbHpjeUk2SW5CMVlpMHlNalF4TVRVeElpd2ljM1ZpSWpvaWN=
+HOXpkQzF5WldGamRHbHZiaUo5Lms0T3dRRUJ4U1V2MmZzNm13djhmeURwY3pnanN1Nm5ySEhSWU=
+5NWmxETzgiLCJwIjoxODE4MjQ5ODQsInMiOjIyNDExNTEsImYiOnRydWUsInUiOjE5NTk1OTQzM=
+CwiaWF0IjoxNzY1OTE5ODk4LCJleHAiOjIwODE0OTU4OTgsImlzcyI6InB1Yi0wIiwic3ViIjoi=
+bGluay1yZWRpcmVjdCJ9.TZlz4T5HeN9yn91czCCXlqjvEb1JxtWsO5HXtFGOc-0?&amp;utm_s=
+ource=3Dsubstack&amp;utm_medium=3Demail" style=3D"font-family:system-ui,-ap=
+ple-system,BlinkMacSystemFont,&#39;Segoe UI&#39;,Roboto,Helvetica,Arial,san=
+s-serif,&#39;Apple Color Emoji&#39;,&#39;Segoe UI Emoji&#39;,&#39;Segoe UI =
+Symbol&#39;;display:inline-block;font-weight:500;border:1px solid rgb(0,0,0=
+,.1);border-radius:9999px;text-transform:uppercase;font-size:12px;line-heig=
+ht:12px;padding:9px 14px;text-decoration:none;color:rgb(119,119,119)" targe=
+t=3D"_blank"><img src=3D"https://substackcdn.com/image/fetch/$s_!5EGt!,w_36=
+,c_scale,f_png,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack.com%=
+2Ficon%2FNoteForwardIcon%3Fv%3D4%26height%3D36%26fill%3Dnone%26stroke%3D%25=
+23808080%26strokeWidth%3D2" width=3D"18" height=3D"18" style=3D"margin-righ=
+t:8px;min-width:18px;min-height:18px;border:none;vertical-align:middle;max-=
+width:18px" alt=3D""><span style=3D"vertical-align:middle">Restack</span></=
+a></td></tr></tbody></table></td></tr></tbody></table></td><td align=3D"rig=
+ht"><table role=3D"presentation" width=3D"auto" border=3D"0" cellspacing=3D=
+"0" cellpadding=3D"0"><tbody><tr></tr></tbody></table></td></tr></tbody></t=
+able></td></tr><tr height=3D"16"><td height=3D"16" style=3D"font-size:0px;l=
+ine-height:0">=C2=A0</td></tr></tbody></table><div style=3D"color:rgb(119,1=
+19,119);text-align:center;font-size:16px;line-height:26px;padding:24px0"><d=
+iv style=3D"font-size:16px;line-height:26px;padding-bottom:24px"><p style=
+=3D"list-style:none;font-family:system-ui,-apple-system,BlinkMacSystemFont,=
+&#39;Segoe UI&#39;,Roboto,Helvetica,Arial,sans-serif,&#39;Apple Color Emoji=
+&#39;,&#39;Segoe UI Emoji&#39;,&#39;Segoe UI Symbol&#39;;padding-bottom:0;f=
+ont-size:12px;line-height:16px;margin:0;color:rgb(119,119,119);text-decorat=
+ion:unset">=C2=A9 2025 <span>Zizi Kalandjai</span> <br><a href=3D"https://s=
+ubstack.com/redirect/2/eyJlIjoiaHR0cHM6Ly96aXppa2FsYW5kamFpLnN1YnN0YWNrLmNv=
+bS9hY3Rpb24vZGlzYWJsZV9lbWFpbD90b2tlbj1leUoxYzJWeVgybGtJam94T1RVNU5UazBNekF=
+zSW5CdmMzUmZhV1FpT2pFNE1UZ3lORGs0TkN3aWFXRjBJam94TnpZMU9URTVPRGs0TENKbGVIQW=
+lPakUzT1RjME5UVTRPVGdzSW1semN5STZJbkIxWWkweU1qUXhNVFV4SWl3aWMzVmlJam9pWkdse=
+llXSnNaVjlsYldGcGJDSjkuNFRrV3lPejNQY3V0ZnZJdmJpUk9HVllvUmg3LWE4ZnVmOUVHMnFR=
+STBzTSIsInAiOjE4MTgyNDk4NCwicyI6MjI0MTE1MSwiZiI6dHJ1ZSwidSI6MTk1OTU5NDMwLCJ=
+pYXQiOjE3NjU5MTk4OTgsImV4cCI6MjA4MTQ5NTg5OCwiaXNzIjoicHViLTAiLCJzdWIiOiJsaW=
+5rLXJlZGlyZWN0In0.SReaq4eb7CG4Xc0G1sn4hGx-S89ODjMqGWrqHKRC_TU?" style=3D"te=
+xt-decoration:underline;color:rgb(119,119,119)" target=3D"_blank"><span sty=
+le=3D"color:rgb(119,119,119);text-decoration:underline">Unsubscribe</span><=
+/a></p></div><p style=3D"padding:0 24px;font-size:12px;line-height:20px;mar=
+gin:0;color:rgb(119,119,119);font-family:system-ui,-apple-system,BlinkMacSy=
+stemFont,&#39;Segoe UI&#39;,Roboto,Helvetica,Arial,sans-serif,&#39;Apple Co=
+lor Emoji&#39;,&#39;Segoe UI Emoji&#39;,&#39;Segoe UI Symbol&#39;;padding-b=
+ottom:0;margin-top:0"><a href=3D"https://substack.com/redirect/80e6bd9f-3f4=
+1-44b8-a18f-244e175e61d8?j=3DeyJ1IjoiMzhvMzlpIn0.a1kdu7t11AFkzvSCf_NnglL4kw=
+GQDn76lemutNzMp3Y" style=3D"color:rgb(119,119,119);text-decoration:none;dis=
+play:inline-block;margin:0 4px" target=3D"_blank"><img src=3D"https://subst=
+ackcdn.com/image/fetch/$s_!IzGP!,w_262,c_limit,f_auto,q_auto:good,fl_progre=
+ssive:steep/https%3A%2F%2Fsubstack.com%2Fimg%2Femail%2Fgeneric-app-button%4=
+02x.png" width=3D"131" alt=3D"Get the app" height=3D"40" style=3D"max-width=
+:550px;border:none!important;vertical-align:middle"></a><a href=3D"https://=
+substack.com/redirect/2/eyJlIjoiaHR0cHM6Ly9zdWJzdGFjay5jb20vc2lnbnVwP3V0bV9=
+zb3VyY2U9c3Vic3RhY2smdXRtX21lZGl1bT1lbWFpbCZ1dG1fY29udGVudD1mb290ZXImdXRtX2=
+NhbXBhaWduPWF1dG9maWxsZWQtZm9vdGVyJmZyZWVTaWdudXBFbWFpbD1iYW55dXM1M0BnbWFpb=
+C5jb20mcj0zOG8zOWkiLCJwIjoxODE4MjQ5ODQsInMiOjIyNDExNTEsImYiOnRydWUsInUiOjE5=
+NTk1OTQzMCwiaWF0IjoxNzY1OTE5ODk4LCJleHAiOjIwODE0OTU4OTgsImlzcyI6InB1Yi0wIiw=
+ic3ViIjoibGluay1yZWRpcmVjdCJ9.YNq25fNjE0nwM7KbwFyDwHhSw25dejkDW5o-jm4pEnY?"=
+ style=3D"color:rgb(119,119,119);text-decoration:none;display:inline-block;=
+margin:0 4px" target=3D"_blank"><img src=3D"https://substackcdn.com/image/f=
+etch/$s_!LkrL!,w_270,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%=
+3A%2F%2Fsubstack.com%2Fimg%2Femail%2Fpublish-button%402x.png" width=3D"135"=
+ alt=3D"Start writing" height=3D"40" style=3D"max-width:550px;border:none!i=
+mportant;vertical-align:middle"></a></p></div></div></td><td></td></tr></tb=
+ody></table><img src=3D"https://eotrx.substackcdn.com/open?token=3DeyJtIjoi=
+PDIwMjUxMjE2MjExODAyLjMuOWU0ZDkyZTdiM2ZhYTdlNEBtZy1kMC5zdWJzdGFjay5jb20-Iiw=
+idSI6MTk1OTU5NDMwLCJyIjoiYmFueXVzNTNAZ21haWwuY29tIiwiZCI6Im1nLWQwLnN1YnN0YW=
+NrLmNvbSIsInAiOjE4MTgyNDk4NCwidCI6Im5ld3NsZXR0ZXIiLCJhIjoiZXZlcnlvbmUiLCJzI=
+joyMjQxMTUxLCJjIjoicG9zdCIsImYiOnRydWUsInBvc2l0aW9uIjoiYm90dG9tIiwiaWF0Ijox=
+NzY1OTE5ODk5LCJleHAiOjE3Njg1MTE4OTksImlzcyI6InB1Yi0wIiwic3ViIjoiZW8ifQ.iiHh=
+hKfXaXO2Tpr4GvmJd0if9v0MKkYAGEal_f6NDLI" alt=3D"" width=3D"1" height=3D"1" =
+border=3D"0" style=3D"height:1px!important;width:1px!important;border-width=
+:0!important;margin-top:0!important;margin-bottom:0!important;margin-right:=
+0!important;margin-left:0!important;padding-top:0!important;padding-bottom:=
+0!important;padding-right:0!important;padding-left:0!important"><img width=
+=3D"1" height=3D"1" alt=3D"" src=3D"https://email.mg-d0.substack.com/o/eJw0=
+0E1uwyAQhuHThF0tGAM2C85iDTBxaWyI-EnlnL6Kk26_kV49Go-N1lwOe8-1sWD1iFcVGFkxaWW=
+EMRwY7Ri3ZaVEBRuFBdv_dTYG-MS-LZHSIyH3WpNDb9AFCUZ6AIeTdppFCxyUAKFBiJnDMA6GZD=
+BAkxuviBPJi-T7-hX4ULurDf1t8HlnsS7XQifBttKJvaAL9hApebL0oHLk9JljsGIWM0gzy_fSj=
+jvZRL91o9aosHt3i8_73lNsx0IJ3UbhE-5uix5bzOkVApBCKMGKdZiOXtV4kXx9OU5X7S7kHWOy=
+z_iMN9wwhR-MrL0_2SuVk2OUUUaOnD0s_AUAAP__A095oQ"></div></div></div>
+
+--0000000000004adaf00646200573--

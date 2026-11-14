@@ -1,0 +1,89 @@
+Delivered-To: estampel@gmail.com
+Received: by 2002:a05:6358:44e:b0:1ae:f888:927f with SMTP id 14csp1289644rwe;
+        Sun, 28 Jul 2024 06:00:50 -0700 (PDT)
+X-Received: by 2002:ac2:4f07:0:b0:52e:a60e:3a08 with SMTP id 2adb3069b0e04-5309b25aa12mr4199552e87.11.1722171650670;
+        Sun, 28 Jul 2024 06:00:50 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1722171650; cv=none;
+        d=google.com; s=arc-20160816;
+        b=sP6frpICUWktWPXijD8zH/C5j1NII9/dA7jx6fxHTsbC+QrupP2hjkxpqT4yCP1Qt9
+         0Nyx7LJgdeUz7Prtp6JROALuRPtSnHPGOclEsfDzyxwJOe+alO5bXG9bibNI6VkKZGi+
+         Fv8e1A6/9D4UaFC/cPz3Xtbmnm7y64/FhRpm6uUWf2zMsRWerc+MOHWB+Eb8xeVXHXIb
+         GHlwOtyemAJ/iOsisM1aw4KOu32ECcCcz35Ryxf8gTGJjixTaYTGJPzNG3V2A+2ptUE3
+         kFbbILsAsqBDjtCMcAoHUYZNY4+WtpgP+sa0Dednm/MegzyRNyCXEC7hSFW3sMOMvlAE
+         q25w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=o1mhhGM0yiGS68W8tObpzo07SPdoqrIdUEfUS+8Y9CU=;
+        fh=wF/Yrd2E0xeKwPH74kML7cQSth+Fl4bwhVNrybJ4uh4=;
+        b=JD2LmZP0iJYE1thriuCNFC662djlVzajuK1SaNzZF+8uBesJ9DUTFCY6Qs5yq1B0Em
+         NtnVg79ip29Jhl2c6O50Uo3coDAg1O1sPKT62bXrIhKti0zn/g2NWEZ/zFqbHAiQpWUo
+         7BBLDeZjrq/HPighxA1gQWuyd0C4CsB9PYd0e69593OHAup/Ke71cU+vZLHmWozuVp0n
+         I67eRZL+AVbG4I4NABhYYsPd+DL/Vibpzfu8wh009ryd+U7KhM7bJRoHL/dw22HTY0pC
+         rp48ajdYapGotNwwAT1J/0EAuGvZ2TbxRNVLAYnjzJNRFfH8gPMfV8HWOu/lZu2PBCKv
+         dI+Q==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=c12TMsEh;
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <banyus53@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id 2adb3069b0e04-52fd5b98c21sor2625078e87.5.2024.07.28.06.00.50
+        for <estampel@gmail.com>
+        (Google Transport Security);
+        Sun, 28 Jul 2024 06:00:50 -0700 (PDT)
+Received-SPF: pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=c12TMsEh;
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1722171650; x=1722776450; dara=google.com;
+        h=to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=o1mhhGM0yiGS68W8tObpzo07SPdoqrIdUEfUS+8Y9CU=;
+        b=c12TMsEhIe5vTc7+UsVQ1QJnWJ3Vry5J86IOOAM/Z8yncjyoFNw1i0ZF3BgHdhV+TC
+         HfCi6Hg2kVPFCicntSCZcL9vaWWk6f2S5Rjx6Gk83JTQh2fx+Vk8QQht4tl2LeVqj026
+         zpWwJqkrsce5dqpRAHPT7mAYdMptqbOtyC2VqvOb47BYYUT9cAGJRY5qkeT9NriS0S09
+         Gd7wK7i3WjQ5dQ4KSpuzcV22hJMTdDhyZAGsDiDWimDnPuyCqaAI3p6ZxrbviB1LnAXn
+         8SxveyhR9cHsFgYxyFY5D9TkApvYy+tUvkvcz2b/4ZaWx1if+XvvVEbonAOjbfhL6+ES
+         tc8w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1722171650; x=1722776450;
+        h=to:subject:message-id:date:from:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=o1mhhGM0yiGS68W8tObpzo07SPdoqrIdUEfUS+8Y9CU=;
+        b=n8eC9HtTCklKTwkJjMtELKmDzYbN5o6zwyygCar8ikJ4Sf+t4avroVXhxx6GDVwQn+
+         BUUO0Ec6cqWaFQvl/uORtF2cV11lahBVy5zyEUwyGkpdI+DbfpOypv454zyHiRU8KAr7
+         a17VPq0HnBCnzJqYvcLf6UewjT3FNT9q8+5BJUp5HuCtiLRm+LwfwQySmRPvUO/Gcckc
+         EbugyFHRFjPriInQkAAUZqU1YsDXTtLGGrWYtopFuQgmsa7ncWBv+EfArMyw1ZEfE8kY
+         WwDRdP9vA8xDtfc/97fSZH4wXNQucPLlz8CCwRIXLpEBMyNhajXf5HMKG1MDo7myUZxc
+         JfgA==
+X-Gm-Message-State: AOJu0YzmoGjsqTUBWn1Zmn81qQYPK+wYbj5l5FnrjPULL12lLIXvEFhR
+	fuvMIhxMGXV4RovCA7jOTLtEUW38PM9aaWpZZFmEC3fvBWZ11gtrx7uvGi4fjfLOxt+4W9zebWz
+	oqwdyfS8qEd1MIDsZTc4iEygJiAj5KrC6
+X-Google-Smtp-Source: AGHT+IGqIqT1+ovWFwYyrPhmZjQ4xkRB5oajdDevt9FiKaOnLuLOw059ZdrrLorHsuJGOi6fsTR4ECoAoBlC4ssdLfw=
+X-Received: by 2002:ac2:43d9:0:b0:52e:9d28:c28a with SMTP id
+ 2adb3069b0e04-5309b27d489mr2962117e87.26.1722171649421; Sun, 28 Jul 2024
+ 06:00:49 -0700 (PDT)
+MIME-Version: 1.0
+From: =?UTF-8?B?w4FnbmVzIEJ1Z8Ohcg==?= <banyus53@gmail.com>
+Date: Sun, 28 Jul 2024 15:00:23 +0200
+Message-ID: <CA+39czWt6ZN+R=V0TJ_HGNdcxb8VQrXZk_NG-V4Uhr0AoSo6Qg@mail.gmail.com>
+Subject: tankini
+To: Emese Stampel <estampel@gmail.com>
+Content-Type: multipart/alternative; boundary="00000000000067fbf0061e4e554c"
+
+--00000000000067fbf0061e4e554c
+Content-Type: text/plain; charset="UTF-8"
+
+https://walmart-uk.shop/products/dazzling-floral-print-swimsuit-11254461
+
+--00000000000067fbf0061e4e554c
+Content-Type: text/html; charset="UTF-8"
+
+<div dir="ltr"><a href="https://walmart-uk.shop/products/dazzling-floral-print-swimsuit-11254461">https://walmart-uk.shop/products/dazzling-floral-print-swimsuit-11254461</a><br><div><br></div><div><br></div></div>
+
+--00000000000067fbf0061e4e554c--

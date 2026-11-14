@@ -1,0 +1,503 @@
+Delivered-To: estampel@gmail.com
+Received: by 2002:a05:6359:28cb:b0:1a5:8351:3811 with SMTP id qb11csp728414rwb;
+        Wed, 26 Jun 2024 04:15:58 -0700 (PDT)
+X-Received: by 2002:a17:906:e0c4:b0:a6f:96b0:ed2 with SMTP id a640c23a62f3a-a7242c39c5fmr809792666b.30.1719400558520;
+        Wed, 26 Jun 2024 04:15:58 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1719400558; cv=none;
+        d=google.com; s=arc-20160816;
+        b=l50WQRamJysA8jPN41dSAg/MEm5/QYTMxpV9mrQbB8zAQPCT3Bbrb0mjGhStXOZxCn
+         hevRFBYW96wzQewB2p8HTBMoT7tdQAe6ySLx5rbQiVtYwikrBP1/lOMQOQ53fIT8XTJD
+         8bpRHAnWNLK1imq6nTvatE4c/T4SJNJa7x4l58/jWgJX6gqjS1E8z+aRaF63qDzFY15D
+         zj9EwR1ewBj2UU0gR0iwOKCz/FToFIKUE3hYIsYYtENYXFE6AqopMOtl7GXx0c6AOhmz
+         BGDvliBCCJJIAXjohHwU6pBSm6GKDaU9Q+lkzs1OEcz1/vPoVLb4d3Ppw+p8XL6wskfE
+         uJhg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=avJRJRJl/DyVJ1HADOSDQElFugG5MptrbHWe8aD5YhU=;
+        fh=wF/Yrd2E0xeKwPH74kML7cQSth+Fl4bwhVNrybJ4uh4=;
+        b=C4i6ZQTaLlWTLKCq8bCpERMWDxKmH1mn/a/thyZKP0/JwN7p7tvg3lgkasBEI/Hbie
+         2P3zOOfiO1rzq8nlDuEElJ/MZrARglFLOsrE+0e0Kk4TklF3c8H/Jq/uehDc4lybNQY8
+         nxzz1wr/2MQoBxr2/+VkU94WtFcrhju8NryQ8I9LuXooPzrZDmgDFVj/yNWTDFqc96n1
+         sQGhnBHmzy3QxlKLjkBMUOlkpYbr8Hj+ovOpyQdoEYPain4ab3Zz6ZedESLipMJPhbk5
+         NbOeNR31potjQJR9axtf2m+Jj1JhOjRv8eRuFyNuLILh6umjKvSPCpEsVMxTqJCaCdWJ
+         MmQw==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=JCoQuBOb;
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Return-Path: <banyus53@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id a640c23a62f3a-a711ec4e2adsor257202566b.0.2024.06.26.04.15.58
+        for <estampel@gmail.com>
+        (Google Transport Security);
+        Wed, 26 Jun 2024 04:15:58 -0700 (PDT)
+Received-SPF: pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=JCoQuBOb;
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1719400558; x=1720005358; dara=google.com;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=avJRJRJl/DyVJ1HADOSDQElFugG5MptrbHWe8aD5YhU=;
+        b=JCoQuBObtZgx9rRbTO/dbg5i5KiDddFCzAC4IRA49yoySNUxnJ+j6G0o5UZbKiHymR
+         ygjtWDzlnHcQxt4nEOwklBdaLl1ZsrJdc5V4Gs3xcTxAcD7fMvs9TKP2oU7LUGrFGj/6
+         T0Rdh4pWuHafdYUflCAlJQThr+MghedW0tZdCJ3gRG2LB0lBi1v1uAUa2ZIE9lh4CUjw
+         Fj2aJfuQvtCwpi/d/GHfOEViclbt+lKDp8vepkJr4p28i7E4yxWjbd3+hYumL5mp8FvW
+         FzoRUl2bo5TEBFVjrkHHBvwc8u7qjJXp51tM+5VwVKi0uoIKCku/rlOS1DWmabBT1mbN
+         yTzg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1719400558; x=1720005358;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=avJRJRJl/DyVJ1HADOSDQElFugG5MptrbHWe8aD5YhU=;
+        b=suzI6pQ862klek8WVzsB77X1eOAzO3qbWH0QzmKW0ZnetlpX1a3r19KqSzYqyAmyRA
+         DKRy/KEkWVxIVTwKALTLMcKsAwNyfzITxGj+uLm1PqOBOWnYoFKdQ4e9zbwY4cPpXdt4
+         EEVnGIlxRHSataJsMjSrwhmD3BzrluUBpteljA0rR2k4GzslHda6yXxKUpkH5GfbKb34
+         yXZoP7flX4P0r6ioWkeqcAE8APAwY3mSoAQe4/so9Xz5rwAQGwMX0eiXqQXj+qt1zmL6
+         xBmV+QYrON/LRcjjik905/McwsyFKh4zADxDti25W6icfGAsATbQYCsW/pa9A7v57665
+         wS6w==
+X-Gm-Message-State: AOJu0YyAjxtKzuI771HtJAAg1t92MBHXXTLlCD4nWm7s3a4DYva2KVih
+	sVunud2huL0UhRmRwQbBk9Cenm1RfnAd+zlRk3GmawOu2o2nPpBKLW/NFGZO1Dgsi+tmnZpfg+P
+	rt+Uz3rHfFvpqZ7B2yXEUn2dVP5yLeg==
+X-Google-Smtp-Source: AGHT+IECAeG764+I6cdD2tN7qY19EJ+m/KBIZpsO/1FalFgvSgj2SSXoP8XQSx1LzUqS8N5I2nkW7xvCvjuxfVbEMGo=
+X-Received: by 2002:a17:906:f196:b0:a6f:d1e9:5bc8 with SMTP id
+ a640c23a62f3a-a7242c39b71mr818572266b.31.1719400557241; Wed, 26 Jun 2024
+ 04:15:57 -0700 (PDT)
+MIME-Version: 1.0
+References: <667be6548face_eee2af4b566673092400493@id.ahang.hu.mail>
+In-Reply-To: <667be6548face_eee2af4b566673092400493@id.ahang.hu.mail>
+From: =?UTF-8?B?w4FnbmVzIEJ1Z8Ohcg==?= <banyus53@gmail.com>
+Date: Wed, 26 Jun 2024 13:15:30 +0200
+Message-ID: <CA+39czVZD8WNCrm7JzeXBYN+oKaJ8TMYcuHnJ8b_CZcWoWhORQ@mail.gmail.com>
+Subject: =?UTF-8?B?RndkOiBCb3N6b3Jrw6FuecO8bGTDtnrDqXMgemFqbGlr?=
+To: Emese Stampel <estampel@gmail.com>
+Content-Type: multipart/alternative; boundary="00000000000070ee78061bc92331"
+
+--00000000000070ee78061bc92331
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+---------- Forwarded message ---------
+Felad=C3=B3: T=C3=B3th Enik=C5=91 | aHang <posta@ahang.hu>
+Date: 2024. j=C3=BAn. 26., Sze, 11:58
+Subject: Boszork=C3=A1ny=C3=BCld=C3=B6z=C3=A9s zajlik
+To: <banyus53@gmail.com>
+
+
+Kedves =C3=81gnes M=C3=A1ria Bug=C3=A1r!
+
+* Az elker=C3=BClhetetlen beteljes=C3=BClt: a Szuverenit=C3=A1sv=C3=A9delmi=
+ Hivatal elkezdte
+szedni az =C3=A1ldozatait. A Transparency International Magyarorsz=C3=A1g =
+=C3=A9s az
+=C3=81tl=C3=A1tsz=C3=B3 ellen vizsg=C3=A1latot ind=C3=ADtottak.  *
+
+Novemberben robbant a h=C3=ADr: a szuverenit=C3=A1sv=C3=A9delmi t=C3=B6rv=
+=C3=A9nycsomag (sz=C3=A1nd=C3=A9kosan
+hom=C3=A1lyos) =C3=A9rtelm=C3=A9ben egy =C3=BAjonnan l=C3=A9trehozott =C3=
+=A1llami szerv, a
+Szuverenit=C3=A1sv=C3=A9delmi Hivatal *b=C3=A1rmilyen m=C3=A9lys=C3=A9gben =
+b=C3=A1rkit =C3=A1tvizsg=C3=A1lhat,* aki
+a felt=C3=A9telez=C3=A9sek szerint az orsz=C3=A1g szuverenit=C3=A1s=C3=A1t =
+vesz=C3=A9lyezteti.
+
+A t=C3=B6rv=C3=A9nyt =C3=A1t is nyomt=C3=A1k. *=C3=9Ajs=C3=A1g=C3=ADr=C3=B3=
+k, szerkeszt=C5=91s=C3=A9gek, az =C3=A1llam feladatait
+emberfeletti er=C5=91vel p=C3=B3tl=C3=B3 civilek ker=C3=BCltek vesz=C3=A9ly=
+be.  *
+
+Most pedig a febru=C3=A1r 1-j=C3=A9n fel=C3=A1llt *Szuverenit=C3=A1sv=C3=A9=
+delmi Hivatal akci=C3=B3ba
+lend=C3=BClt: elkezdte a vizsg=C3=A1latokat.  *
+
+A pet=C3=ADci=C3=B3 al=C3=A1=C3=ADr=C3=B3jak=C3=A9nt arra k=C3=A9rlek, hogy=
+ =C3=A1llj ki =C3=BAjfent a
+szuverenit=C3=A1sv=C3=A9delmi t=C3=B6rv=C3=A9ny ellen, a Transparency =C3=
+=A9s az =C3=81tl=C3=A1tsz=C3=B3 mellett.
+
+* Oszd meg az al=C3=A1bbi posztunkat az ismer=C5=91seiddel Facebookon vagy =
+b=C3=A1rhol,
+hogy t=C3=B6bb t=C3=ADzezren =C3=A9rtes=C3=BCljenek az =C3=BCgyr=C5=91l, =
+=C3=A9s tiltakoz=C3=A1sunk el=C3=A9rjen a
+legfels=C5=91bb szintekig! A Facebook-megoszt=C3=A1shoz:  *
+
+Kattints ide!
+<https://id.ahang.hu//clicks/link/2524/7fb5b936-e731-49bf-bb08-607a7ecca629=
+?url=3Dhttps%3A%2F%2Fwww.facebook.com%2Fsharer%2Fsharer.php%3Futm_source%3D=
+ahang%26utm_medium%3Demail%26utm_campaign%3Dblast2024-06-26%26u%3Dhttps%253=
+A%252F%252Fwww.facebook.com%252Fszabadahang%252Fposts%252Fpfbid0fMfRpSDZmaa=
+uGJawijWfLiRehMXY9M3kLSJEBr8KZms8Crcke45PjadAePkjNsuvl&member_guid=3D88a62e=
+b4b5dcac9810b289cd94cf43b21da67c13302ba6dade9c66944a7efc34cdda09d8fc189000c=
+f0efc385f843fe4a3f0b0c0992d522217f596756a2ca812>
+
+Vagy egyszer=C5=B1en *m=C3=A1sold ki az al=C3=A1bbi sz=C3=B6veget, =C3=A9s =
+juttasd el min=C3=A9l t=C3=B6bb
+embernek a pet=C3=ADci=C3=B3 linkj=C3=A9vel egy=C3=BCtt, hogy =C5=91k is ki=
+=C3=A1llhassanak a vesz=C3=A9lybe
+ker=C3=BClt szervezetek=C3=A9rt =C3=A9s a szuverenit=C3=A1sv=C3=A9delmi t=
+=C3=B6rv=C3=A9ny ellen:  *
+
+A Szuverenit=C3=A1sv=C3=A9delmi Hivatal a ny=C3=A1ri uborkaszezonra id=C5=
+=91z=C3=ADtve sz=C3=A9p csendben
+megkezdte a civil szervezetek vegz=C3=A1l=C3=A1s=C3=A1t: els=C5=91 c=C3=A9l=
+pontjaik a Transparency
+International =C3=A9s az =C3=81tl=C3=A1tsz=C3=B3 lettek. A Transparency k=
+=C3=B6zlem=C3=A9nyben
+eml=C3=A9keztet: a hivatallal az =E2=80=9Ea hatalom sz=C3=A1nd=C3=A9ka=E2=
+=80=9D, hogy =E2=80=9Et=C3=A1madja a kritik=C3=A1t
+megfogalmaz=C3=B3 polg=C3=A1rokat =C3=A9s civil szervezeteket, ami ellent=
+=C3=A9tes Magyarorsz=C3=A1g
+Alapt=C3=B6rv=C3=A9ny=C3=A9vel =C3=A9s az Eur=C3=B3pai Uni=C3=B3 alapvet=C5=
+=91 =C3=A9rt=C3=A9keivel=E2=80=9D.
+
+Ne hagyjuk, hogy a korm=C3=A1ny kiz=C3=A1rja saj=C3=A1t =C3=A1llampolg=C3=
+=A1rait a demokratikus
+k=C3=B6z=C3=A9letb=C5=91l! M=C3=A1r t=C3=B6bb mint 100 civil szervezet =C3=
+=A9s 15000 al=C3=A1=C3=ADr=C3=B3 tiltakozik a
+Szabadahangon a t=C3=B6rv=C3=A9ny ellen, csatlakozzatok! =E2=9C=8D=EF=B8=8F
+https://szabad.ahang.hu/petitions/a-demokracia-nem-veszelyezteti-magyarorsz=
+ag-szuverenitasat
+<https://id.ahang.hu//clicks/link/2524/7fb5b936-e731-49bf-bb08-607a7ecca629=
+?url=3Dhttps%3A%2F%2Fszabad.ahang.hu%2Fpetitions%2Fa-demokracia-nem-veszely=
+ezteti-magyarorszag-szuverenitasat%3Futm_source%3Dahang%26utm_medium%3Demai=
+l%26utm_campaign%3Dblast2024-06-26&member_guid=3D88a62eb4b5dcac9810b289cd94=
+cf43b21da67c13302ba6dade9c66944a7efc34cdda09d8fc189000cf0efc385f843fe4a3f0b=
+0c0992d522217f596756a2ca812>
+
+
+Vagy oszd meg k=C3=A9t gombnyom=C3=A1ssal a pet=C3=ADci=C3=B3t =C3=A9s az =
+=C3=A1ll=C3=A1sfoglal=C3=A1sunkat a
+Facebookon:
+
+Megosztom!
+<https://id.ahang.hu//clicks/link/2524/7fb5b936-e731-49bf-bb08-607a7ecca629=
+?url=3Dhttps%3A%2F%2Fwww.facebook.com%2Fsharer%2Fsharer.php%3Futm_source%3D=
+ahang%26utm_medium%3Demail%26utm_campaign%3Dblast2024-06-26%26u%3Dhttps%253=
+A%252F%252Fwww.facebook.com%252Fszabadahang%252Fposts%252Fpfbid0fMfRpSDZmaa=
+uGJawijWfLiRehMXY9M3kLSJEBr8KZms8Crcke45PjadAePkjNsuvl&member_guid=3D88a62e=
+b4b5dcac9810b289cd94cf43b21da67c13302ba6dade9c66944a7efc34cdda09d8fc189000c=
+f0efc385f843fe4a3f0b0c0992d522217f596756a2ca812>
+
+A gyorsas=C3=A1g most kulcsfontoss=C3=A1g=C3=BA. A tiltakoz=C3=A1sunkkal ne=
+m csak itthon, hanem
+az EU-ban is felhangos=C3=ADtjuk a civilek =C3=A9s a szabad sajt=C3=B3 =C3=
+=A9rdekeit!
+
+=C3=9Cdv=C3=B6zlettel:
+
+T=C3=B3th Enik=C5=91
+aHang
+
+Ha b=C3=A1rmi k=C3=A9rd=C3=A9sed van, v=C3=A1laszolj k=C3=B6zvetlen=C3=BCl =
+erre az email-re, vagy =C3=ADrj a
+mienk@ahang.hu email c=C3=ADmre.
+
+K=C3=B6vess minket a Facebookon, hogy a naprak=C3=A9sz inform=C3=A1ci=C3=B3=
+k hozz=C3=A1d is
+eljuthassanak:
+<https://id.ahang.hu//clicks/link/2524/7fb5b936-e731-49bf-bb08-607a7ecca629=
+?url=3Dhttps%3A%2F%2Fwww.facebook.com%2Fszabadahang%3Futm_source%3Dahang%26=
+utm_medium%3Demail%26utm_campaign%3Dblast2024-06-26&member_guid=3D88a62eb4b=
+5dcac9810b289cd94cf43b21da67c13302ba6dade9c66944a7efc34cdda09d8fc189000cf0e=
+fc385f843fe4a3f0b0c0992d522217f596756a2ca812>
+
+A lev=C3=A9l k=C3=BCld=C5=91je:
+Magyarhang Nonprofit Kft.
+
+Ezt az =C3=BCzenetet banyus53@gmail.com c=C3=ADmre k=C3=BCldt=C3=BCk. Leira=
+tkozni ide kattintva
+tudsz.
+<https://id.ahang.hu//subscriptions/unsubscribe?subscription=3D1&email=3Dba=
+nyus53%40gmail.com&mailing_id=3D2524>
+
+--00000000000070ee78061bc92331
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><br><br><div class=3D"gmail_quote"><div dir=3D"ltr" class=
+=3D"gmail_attr">---------- Forwarded message ---------<br>Felad=C3=B3: <str=
+ong class=3D"gmail_sendername" dir=3D"auto">T=C3=B3th Enik=C5=91 | aHang</s=
+trong> <span dir=3D"auto">&lt;<a href=3D"mailto:posta@ahang.hu">posta@ahang=
+.hu</a>&gt;</span><br>Date: 2024. j=C3=BAn. 26., Sze, 11:58<br>Subject: Bos=
+zork=C3=A1ny=C3=BCld=C3=B6z=C3=A9s zajlik<br>To:  &lt;<a href=3D"mailto:ban=
+yus53@gmail.com">banyus53@gmail.com</a>&gt;<br></div><br><br><div style=3D"=
+background:#ffffff;background-color:#ffffff;margin:0px auto;max-width:560px=
+;text-align:center;font-family:sans-serif;font-size:17px;line-height:25px;t=
+ext-align:center;color:#000000">
+
+<p><img height=3D"34" src=3D"https://ahang-static.s3.eu-central-1.amazonaws=
+.com/mail/ahangikon-sm.jpg" style=3D"display:inline-block;border:0;border-r=
+adius:0;outline:none;text-decoration:none;height:34px;font-size:17px" width=
+=3D"34"></p>
+
+<p>Kedves =C3=81gnes M=C3=A1ria Bug=C3=A1r!</p>
+
+<div style=3D"text-align:left">
+
+<p>
+
+  <b>
+
+    Az elker=C3=BClhetetlen beteljes=C3=BClt: a Szuverenit=C3=A1sv=C3=A9del=
+mi Hivatal elkezdte szedni az =C3=A1ldozatait. A Transparency International=
+ Magyarorsz=C3=A1g =C3=A9s az =C3=81tl=C3=A1tsz=C3=B3 ellen vizsg=C3=A1lato=
+t ind=C3=ADtottak.=C2=A0
+
+  </b>
+
+</p>
+
+<p>
+
+  Novemberben robbant a h=C3=ADr: a szuverenit=C3=A1sv=C3=A9delmi t=C3=B6rv=
+=C3=A9nycsomag (sz=C3=A1nd=C3=A9kosan hom=C3=A1lyos) =C3=A9rtelm=C3=A9ben e=
+gy =C3=BAjonnan l=C3=A9trehozott =C3=A1llami szerv, a Szuverenit=C3=A1sv=C3=
+=A9delmi Hivatal <b>b=C3=A1rmilyen m=C3=A9lys=C3=A9gben b=C3=A1rkit =C3=A1t=
+vizsg=C3=A1lhat,</b> aki a felt=C3=A9telez=C3=A9sek szerint az orsz=C3=A1g =
+szuverenit=C3=A1s=C3=A1t vesz=C3=A9lyezteti.=C2=A0
+
+</p>
+
+<p>
+
+  A t=C3=B6rv=C3=A9nyt =C3=A1t is nyomt=C3=A1k. <b>=C3=9Ajs=C3=A1g=C3=ADr=
+=C3=B3k, szerkeszt=C5=91s=C3=A9gek, az =C3=A1llam feladatait emberfeletti e=
+r=C5=91vel p=C3=B3tl=C3=B3 civilek ker=C3=BCltek vesz=C3=A9lybe.=C2=A0
+
+  </b>
+
+</p>
+
+<p>
+
+  Most pedig a febru=C3=A1r 1-j=C3=A9n fel=C3=A1llt <b>Szuverenit=C3=A1sv=
+=C3=A9delmi Hivatal akci=C3=B3ba lend=C3=BClt: elkezdte a vizsg=C3=A1latoka=
+t.=C2=A0
+
+  </b>
+
+</p>
+
+<p>
+
+  A pet=C3=ADci=C3=B3 al=C3=A1=C3=ADr=C3=B3jak=C3=A9nt arra k=C3=A9rlek, ho=
+gy =C3=A1llj ki =C3=BAjfent a szuverenit=C3=A1sv=C3=A9delmi t=C3=B6rv=C3=A9=
+ny ellen, a Transparency =C3=A9s az =C3=81tl=C3=A1tsz=C3=B3 mellett.=C2=A0
+
+</p>
+
+<p>
+
+  <b>
+
+    Oszd meg az al=C3=A1bbi posztunkat az ismer=C5=91seiddel Facebookon vag=
+y b=C3=A1rhol, hogy t=C3=B6bb t=C3=ADzezren =C3=A9rtes=C3=BCljenek az =C3=
+=BCgyr=C5=91l, =C3=A9s tiltakoz=C3=A1sunk el=C3=A9rjen a legfels=C5=91bb sz=
+intekig! A Facebook-megoszt=C3=A1shoz:=C2=A0
+
+  </b>
+
+</p>
+
+<p>
+
+</p>
+
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"border-collapse:separate;width:100%;line-height:100%">
+
+  <tbody>
+
+    <tr>
+
+      <td align=3D"center" bgcolor=3D"#ff2400" role=3D"presentation" style=
+=3D"border:none;border-radius:4px;background:#ff2400" valign=3D"middle">
+
+        <a href=3D"https://id.ahang.hu//clicks/link/2524/7fb5b936-e731-49bf=
+-bb08-607a7ecca629?url=3Dhttps%3A%2F%2Fwww.facebook.com%2Fsharer%2Fsharer.p=
+hp%3Futm_source%3Dahang%26utm_medium%3Demail%26utm_campaign%3Dblast2024-06-=
+26%26u%3Dhttps%253A%252F%252Fwww.facebook.com%252Fszabadahang%252Fposts%252=
+Fpfbid0fMfRpSDZmaauGJawijWfLiRehMXY9M3kLSJEBr8KZms8Crcke45PjadAePkjNsuvl&am=
+p;member_guid=3D88a62eb4b5dcac9810b289cd94cf43b21da67c13302ba6dade9c66944a7=
+efc34cdda09d8fc189000cf0efc385f843fe4a3f0b0c0992d522217f596756a2ca812" styl=
+e=3D"display:block;background:#ff2400;color:#ffffff;font-family:sans-serif;=
+font-size:17px;font-weight:bold;line-height:25px;margin:0;text-decoration:n=
+one;text-transform:none;padding:10px 25px;border-radius:4px;word-break:brea=
+k-word;max-width:100%" target=3D"_blank">Kattints ide!</a>
+
+      </td>
+
+    </tr>
+
+  </tbody>
+
+</table>
+
+<p>
+
+</p>
+
+<p>
+
+  Vagy egyszer=C5=B1en <b>m=C3=A1sold ki az al=C3=A1bbi sz=C3=B6veget, =C3=
+=A9s juttasd el min=C3=A9l t=C3=B6bb embernek a pet=C3=ADci=C3=B3 linkj=C3=
+=A9vel egy=C3=BCtt, hogy =C5=91k is ki=C3=A1llhassanak a vesz=C3=A9lybe ker=
+=C3=BClt szervezetek=C3=A9rt =C3=A9s a szuverenit=C3=A1sv=C3=A9delmi t=C3=
+=B6rv=C3=A9ny ellen:=C2=A0
+
+</b></p>
+
+<p>
+
+  <span style=3D"font-style:italic">
+
+    A Szuverenit=C3=A1sv=C3=A9delmi Hivatal a ny=C3=A1ri uborkaszezonra id=
+=C5=91z=C3=ADtve sz=C3=A9p csendben megkezdte a civil szervezetek vegz=C3=
+=A1l=C3=A1s=C3=A1t: els=C5=91 c=C3=A9lpontjaik a Transparency International=
+ =C3=A9s az =C3=81tl=C3=A1tsz=C3=B3 lettek. A Transparency k=C3=B6zlem=C3=
+=A9nyben eml=C3=A9keztet: a hivatallal az =E2=80=9Ea hatalom sz=C3=A1nd=C3=
+=A9ka=E2=80=9D, hogy =E2=80=9Et=C3=A1madja a kritik=C3=A1t megfogalmaz=C3=
+=B3 polg=C3=A1rokat =C3=A9s civil szervezeteket, ami ellent=C3=A9tes Magyar=
+orsz=C3=A1g Alapt=C3=B6rv=C3=A9ny=C3=A9vel =C3=A9s az Eur=C3=B3pai Uni=C3=
+=B3 alapvet=C5=91 =C3=A9rt=C3=A9keivel=E2=80=9D.
+
+  </span>
+
+</p>
+
+<p>
+
+  <span style=3D"font-style:italic">
+
+    Ne hagyjuk, hogy a korm=C3=A1ny kiz=C3=A1rja saj=C3=A1t =C3=A1llampolg=
+=C3=A1rait a demokratikus k=C3=B6z=C3=A9letb=C5=91l! M=C3=A1r t=C3=B6bb min=
+t 100 civil szervezet =C3=A9s 15000 al=C3=A1=C3=ADr=C3=B3 tiltakozik a Szab=
+adahangon a t=C3=B6rv=C3=A9ny ellen, csatlakozzatok! =E2=9C=8D=EF=B8=8F=C2=
+=A0</span><a href=3D"https://id.ahang.hu//clicks/link/2524/7fb5b936-e731-49=
+bf-bb08-607a7ecca629?url=3Dhttps%3A%2F%2Fszabad.ahang.hu%2Fpetitions%2Fa-de=
+mokracia-nem-veszelyezteti-magyarorszag-szuverenitasat%3Futm_source%3Dahang=
+%26utm_medium%3Demail%26utm_campaign%3Dblast2024-06-26&amp;member_guid=3D88=
+a62eb4b5dcac9810b289cd94cf43b21da67c13302ba6dade9c66944a7efc34cdda09d8fc189=
+000cf0efc385f843fe4a3f0b0c0992d522217f596756a2ca812" style=3D"font-style:it=
+alic;color:rgb(255,0,255)" target=3D"_blank">https://szabad.ahang.hu/petiti=
+ons/a-demokracia-nem-veszelyezteti-magyarorszag-szuverenitasat</a><span sty=
+le=3D"font-style:italic">=C2=A0
+
+  </span>
+
+</p>
+
+<p>
+
+  <span style=3D"font-weight:bold">
+
+    Vagy oszd meg k=C3=A9t gombnyom=C3=A1ssal a pet=C3=ADci=C3=B3t =C3=A9s =
+az =C3=A1ll=C3=A1sfoglal=C3=A1sunkat a Facebookon:=C2=A0
+
+  </span>
+
+</p>
+
+<p>
+
+</p>
+
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"border-collapse:separate;width:100%;line-height:100%">
+
+  <tbody>
+
+    <tr>
+
+      <td align=3D"center" bgcolor=3D"#ff2400" role=3D"presentation" style=
+=3D"border:none;border-radius:4px;background:#ff2400" valign=3D"middle">
+
+        <a href=3D"https://id.ahang.hu//clicks/link/2524/7fb5b936-e731-49bf=
+-bb08-607a7ecca629?url=3Dhttps%3A%2F%2Fwww.facebook.com%2Fsharer%2Fsharer.p=
+hp%3Futm_source%3Dahang%26utm_medium%3Demail%26utm_campaign%3Dblast2024-06-=
+26%26u%3Dhttps%253A%252F%252Fwww.facebook.com%252Fszabadahang%252Fposts%252=
+Fpfbid0fMfRpSDZmaauGJawijWfLiRehMXY9M3kLSJEBr8KZms8Crcke45PjadAePkjNsuvl&am=
+p;member_guid=3D88a62eb4b5dcac9810b289cd94cf43b21da67c13302ba6dade9c66944a7=
+efc34cdda09d8fc189000cf0efc385f843fe4a3f0b0c0992d522217f596756a2ca812" styl=
+e=3D"display:block;background:#ff2400;color:#ffffff;font-family:sans-serif;=
+font-size:17px;font-weight:bold;line-height:25px;margin:0;text-decoration:n=
+one;text-transform:none;padding:10px 25px;border-radius:4px;word-break:brea=
+k-word;max-width:100%" target=3D"_blank">Megosztom!</a>
+
+      </td>
+
+    </tr>
+
+  </tbody>
+
+</table>
+
+<p>
+
+</p>
+
+<p>
+
+  A gyorsas=C3=A1g most kulcsfontoss=C3=A1g=C3=BA. A tiltakoz=C3=A1sunkkal =
+nem csak itthon, hanem az EU-ban is felhangos=C3=ADtjuk a civilek =C3=A9s a=
+ szabad sajt=C3=B3 =C3=A9rdekeit!=C2=A0
+
+</p>
+
+<p>
+
+  =C3=9Cdv=C3=B6zlettel:=C2=A0
+
+</p>
+
+<p>
+
+  T=C3=B3th Enik=C5=91<br>aHang
+
+</p>
+
+</div>
+
+<p></p>
+
+<p style=3D"border-top:solid 1px #cccccc;font-size:1;margin:0px auto;width:=
+100%"> </p>
+
+<p style=3D"color:#999999">Ha b=C3=A1rmi k=C3=A9rd=C3=A9sed van, v=C3=A1las=
+zolj k=C3=B6zvetlen=C3=BCl erre az email-re, vagy =C3=ADrj a <a href=3D"mai=
+lto:mienk@ahang.hu" target=3D"_blank">mienk@ahang.hu</a> email c=C3=ADmre.<=
+/p>
+
+<p style=3D"color:#999999">K=C3=B6vess minket a Facebookon, hogy a naprak=
+=C3=A9sz inform=C3=A1ci=C3=B3k hozz=C3=A1d is eljuthassanak:<br><a href=3D"=
+https://id.ahang.hu//clicks/link/2524/7fb5b936-e731-49bf-bb08-607a7ecca629?=
+url=3Dhttps%3A%2F%2Fwww.facebook.com%2Fszabadahang%3Futm_source%3Dahang%26u=
+tm_medium%3Demail%26utm_campaign%3Dblast2024-06-26&amp;member_guid=3D88a62e=
+b4b5dcac9810b289cd94cf43b21da67c13302ba6dade9c66944a7efc34cdda09d8fc189000c=
+f0efc385f843fe4a3f0b0c0992d522217f596756a2ca812" style=3D"display:inline-bl=
+ock" rel=3D"noreferrer nofollow noopener" target=3D"_blank"><img src=3D"htt=
+ps://ahang-static.s3.eu-central-1.amazonaws.com/mail/facebook_sm.png" style=
+=3D"border-radius:0;display:inline-block" width=3D"34" height=3D"34"></a></=
+p>
+
+<p style=3D"color:#999999">A lev=C3=A9l k=C3=BCld=C5=91je:<br>Magyarhang No=
+nprofit Kft.<br></p>
+
+<p><img height=3D"34" src=3D"https://ahang-static.s3.eu-central-1.amazonaws=
+.com/mail/ahang_sm.jpg" style=3D"width:88.7px;display:inline-block"></p>
+
+<p style=3D"color:#999999">Ezt az =C3=BCzenetet  <a href=3D"mailto:banyus53=
+@gmail.com" target=3D"_blank">banyus53@gmail.com</a> c=C3=ADmre k=C3=BCldt=
+=C3=BCk. <a href=3D"https://id.ahang.hu//subscriptions/unsubscribe?subscrip=
+tion=3D1&amp;email=3Dbanyus53%40gmail.com&amp;mailing_id=3D2524" style=3D"f=
+ont-weight:normal;text-decoration:none;color:#999999" target=3D"_blank">Lei=
+ratkozni ide kattintva tudsz.</a></p>
+
+</div><img src=3D"https://id.ahang.hu//opens/2524/7fb5b936-e731-49bf-bb08-6=
+07a7ecca629"></div></div>
+
+--00000000000070ee78061bc92331--

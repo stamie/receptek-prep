@@ -1,0 +1,887 @@
+Delivered-To: estampel@gmail.com
+Received: by 2002:a05:622a:6116:b0:4a9:ddcf:f699 with SMTP id hg22csp1650467qtb;
+        Fri, 11 Jul 2025 01:55:49 -0700 (PDT)
+X-Received: by 2002:a17:907:86a1:b0:ae3:65a7:5621 with SMTP id a640c23a62f3a-ae6fbf22a3cmr262323066b.37.1752224149633;
+        Fri, 11 Jul 2025 01:55:49 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1752224149; cv=none;
+        d=google.com; s=arc-20240605;
+        b=JQXEJfO57cIkzkl2xCBWIn2BLRm9ndT+0JSKisQaSAKtZl9LjCXUjxbUV2hK8CWSaB
+         VuysWFkRtwEgBk0WYH7PrLMxqq1vxSPQpGYrD4LgV31FwFUlXgB58KBkEr7Fs3e6FaMS
+         yu82Z1WQADkGyrDwCQ7eOOqL6NDcn1vLXFDk119WKTmYjyYYVBWFAFC3MvChWRhUSaTz
+         iKcpAaQxjwg0XZY6JakL0O1zB2mTxGi2EU3zwT3pWqljpO0JzvRyKfMK9BmSVA2dMkNZ
+         KDRfxPicUAR0756c8i1SgZ2RVP5s3vQPT0hw0WWhTNJ0gS2lrgELeOFmrVoemC8/+KHu
+         i1dg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=lB7oO5naVXCbNBhk4tFlGnQ0ntcntOv6GG0MKi1qiM4=;
+        fh=wF/Yrd2E0xeKwPH74kML7cQSth+Fl4bwhVNrybJ4uh4=;
+        b=VXUm4zN47y0YcXACV5gMyMx1rtmsZc8sWKhwlXhMWwN9S4kEecce8GtLaf+btZrrgZ
+         1i+FOvoJ54RP/UFteLqiPXb5BOHYz2Nj+VSl+5FPdO/CGN5rO2tuXuZy8SEnc8XNycsj
+         yHDwdaUsblaok4FL2Ty26mGvi4zngSPpNPv7qcmR4xP40QvrOFMCLsePiKcqUU9zYGUR
+         oOr532/uaqdbb0MnDxmFj/Mr1TCn2iEWY6S94qyZQ0JRE6T988DIZlGn4Uf3wORLZY5+
+         9S2yCbZA9GojK7CLqodb0+OVEeJr13b2gPPibpWRyJ0Y59N/iZXH+xRr8xyHwLRiecI8
+         PPKg==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=G4XRoNfs;
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <banyus53@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id a640c23a62f3a-ae6e7c08ae4sor179829666b.0.2025.07.11.01.55.49
+        for <estampel@gmail.com>
+        (Google Transport Security);
+        Fri, 11 Jul 2025 01:55:49 -0700 (PDT)
+Received-SPF: pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=G4XRoNfs;
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1752224149; x=1752828949; dara=google.com;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=lB7oO5naVXCbNBhk4tFlGnQ0ntcntOv6GG0MKi1qiM4=;
+        b=G4XRoNfsTnVv6dCBR7S9KdLUHbeKRtAOykXTTYsXcrZ+bTG2GNYPDLF+meLilDhTQf
+         ii6FoDYDuc3hWaHYCIA/vkeiTkm0OxKL4qJ9aZsjLVcsT8fWN7gZssGL6J/bkdttilDQ
+         ZFYrd/lyrVXbB9fZ7xV3w4D5jZLiSEXTTKVas5xUIsz/AX6jaTttPg2ssCHrHuAeJ41N
+         fFBLQJlBD7K3ozCnCkVz+OLmld2SyENmSdtn9qUWLZ8i6Bn8P/K2eyd99IIhBX9BkZ3k
+         9Z9YNM5EXRpt3yN5XeOdirRHOWX4AKnhO0ad+0EvZKitak09Mw56Zt0rBMdpnWQUpC+r
+         VBZw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1752224149; x=1752828949;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=lB7oO5naVXCbNBhk4tFlGnQ0ntcntOv6GG0MKi1qiM4=;
+        b=U5k4FU+Me2AuHheiQMZz7l4XvWhsM/q/anwiLo0FP2wVieqz3gOLXsYlbF6772LqIM
+         qkM/W739kzWhr3JRnNuEqdF2Ids1pBb8oLFtJUTuXSLoeAadpx5sFO9Vqu1mbXZY5cJ+
+         oDqc6xKpwsYkBAa0aKCd0Zjbv4nk621XP6oeLxcQmEivBfRXHtmJA1Xk8MkTroWLw3Nc
+         aza7IxCId9ZP8W0BjXav6I7XdBbA/08lPbjOzl807qZ9G/80RGlJOfWr4Xy9wWiz8rc2
+         pOh2YsXtyXai2vY7ude2/LfnjvVcaUlDrnDVRPTxXpnmFS51OY9e9Ewq0Th/17OMgbLn
+         /BHQ==
+X-Gm-Message-State: AOJu0Yy5ZrC9AaWwQqELNk1NQf0acnxd22QQFZn0fYrqZnZfxslG0On8
+	KhYF8PHnNfLkZBc+y9YC/ZipJVp0nHis4zLgqVAC7kDNidP7Eowqtr/XdV6EqG2O8uVWtpst0VI
+	3Luk3U4PWzjCyLmqmCYYpP0wtVWw6lcbOMjsd
+X-Gm-Gg: ASbGncsvtpvKpogELZZbHtyyZ1JyUOhRdxhb5CZW6q63yXDGHLdio1ClUP9IEjNj2o/
+	7PHvf4jPLG36D4ILR9DF74bjQPCuO39QVwqzxpMtMXs0DPGS+ayoIKbKfOHchmsm2W6q0e3RdCO
+	QZJNxLPgqI/1qv/b9X2H4FvmO2ve2sV4XnRbW7DX59Ft0+eBXOLKfcx0F7sIYvQtmSZ6VEU3ya7
+	8mu0vqoT4ue69ingD+p3ViPuaGhSIDgGM0Db2ebRN54C93vKJHs
+X-Google-Smtp-Source: AGHT+IGXNJ0XjVlReu2hhAH8V9U4uxISTnqj3JgmRpfJfxAtCCwDgQcEmkF3FjgY/5gsaSl1dIq8H73YckLGq4Q/HfI=
+X-Received: by 2002:a17:907:9711:b0:ae6:c9b3:57cb with SMTP id
+ a640c23a62f3a-ae6fbc1a818mr243507866b.5.1752224148068; Fri, 11 Jul 2025
+ 01:55:48 -0700 (PDT)
+MIME-Version: 1.0
+References: <100094.7225659636.202507110800383830252.0006194227@semanal.idealista.com>
+In-Reply-To: <100094.7225659636.202507110800383830252.0006194227@semanal.idealista.com>
+From: =?UTF-8?B?w4FnbmVzIEJ1Z8Ohcg==?= <banyus53@gmail.com>
+Date: Fri, 11 Jul 2025 10:55:20 +0200
+X-Gm-Features: Ac12FXwanXyKjx2qrnkDHF-C-mKYyWDPc5-JoCM5neWIGDxLBeJpZOYkiW_9cds
+Message-ID: <CA+39czV+OrOJbi=d1PP65N=2O9gCq+y4w0OYwE4c2Cxckru8RA@mail.gmail.com>
+Subject: Fwd: Mistakes to avoid when selling your house in Spain
+To: Emese Stampel <estampel@gmail.com>
+Content-Type: multipart/alternative; boundary="000000000000e99d7c0639a379f8"
+
+--000000000000e99d7c0639a379f8
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+---------- Forwarded message ---------
+Felad=C3=B3: idealista/news <news@semanal.idealista.com>
+Date: 2025. j=C3=BAl. 11., P, 10:10
+Subject: Mistakes to avoid when selling your house in Spain
+To: banyus53@gmail.com <banyus53@gmail.com>
+
+
+What most people get wrong when selling in Spain =CD=8F=E2=80=8C =E2=80=87=
+=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=
+=8F=E2=80=8C =E2=80=87=C2=AD
+=CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=
+=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=
+=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=
+=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=
+=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =
+=E2=80=87=C2=AD
+=CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=
+=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=
+=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=
+=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=
+=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =
+=E2=80=87=C2=AD
+=CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=
+=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=
+=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=
+=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=
+=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =
+=E2=80=87=C2=AD
+=CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=
+=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=
+=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=
+=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=
+=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =
+=E2=80=87=C2=AD
+=CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=
+=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=
+=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=
+=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=
+=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =
+=E2=80=87=C2=AD
+=CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=
+=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=
+=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=
+=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=
+=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =
+=E2=80=87=C2=AD
+=CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=
+=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=
+=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=
+=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=
+=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =
+=E2=80=87=C2=AD
+=CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=
+=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=
+=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=
+=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=
+=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =
+=E2=80=87=C2=AD
+=CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=
+=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=
+=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=
+=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=
+=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =E2=80=87=C2=AD =CD=8F=E2=80=8C =
+=E2=80=87=C2=AD
+Selling your Spanish home? Here=E2=80=99s what to watch out for so you don=
+=E2=80=99t lose
+money or waste time during the process. Plus, cheap villas for sale in
+Italy and the Disney-inspired palace on the market in Portugal.
+11/07/2025 =C2=B7 2.182.283 subscribers =C2=B7 View in browser
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1975183&tp=3Di-1NGB-Q2Q-U=
+Wx-7t089M-1s-7q4tl-1c-7szoFt-lC4GZ7oxxs-ueeay&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D0702c6ef8b0a434e59f06865c0888d7a8b53=
+6ceae28d0b755abf67515b7d1f1e>
+This email is sent by idealista/news
+[image: idealista/news]
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1975184&tp=3Di-1NGB-Q2Q-U=
+Wx-7t089M-1s-7q4tl-1c-7szoFt-lC4GZ7oxxs-ueeay&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D7e07ee0ef2585d2b3e9354e50c8ef5c828bd=
+9a127f8fb91c8e0656394d315f52>
+
+Mistakes to avoid when selling your house in Spain
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1975185&tp=3Di-1NGB-Q2Q-U=
+Wx-7t089M-1s-7q4tl-1c-7szoFt-lC4GZ7oxxs-ueeay&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D8711904d809874ffef70f97318027d14c396=
+b41975df07f81ade63fdeb6b9c99>
+[image: Property for sale on the Costa Brava]
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1975186&tp=3Di-1NGB-Q2Q-U=
+Wx-7t089M-1s-7q4tl-1c-7szoFt-lC4GZ7oxxs-ueeay&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D155347d00d79b838b314e8a45186f05e18ec=
+991edf3fb3bdabf06964e2ba2155>
+
+Selling your house in Spain? Avoid common mistakes that could cost you time
+and money. From setting the right price to preparing your property and
+handling paperwork correctly, learn what to watch out for to ensure a
+smooth and successful sale in Spain.
+Keep reading
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1975187&tp=3Di-1NGB-Q2Q-U=
+Wx-7t089M-1s-7q4tl-1c-7szoFt-lC4GZ7oxxs-ueeay&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3Dbde83b557a65fbac6d4e5295ea9254752420=
+0092406b32e6539ae556070a3f20>
+New prefab homes available on Amazon starting at =E2=82=AC7,000
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1975188&tp=3Di-1NGB-Q2Q-U=
+Wx-7t089M-1s-7q4tl-1c-7szoFt-lC4GZ7oxxs-ueeay&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3Da5cc19d00eab30bd5379ef929c815ec446d3=
+f19c5c72911355c5eeb41d05a40f>
+
+New prefab homes are now on sale on Amazon from around =E2=82=AC7,000, feat=
+uring
+refined designs and unique models. In this article, we explore some of the
+most striking prefab homes you can buy on Amazon in 2025, offering style
+and affordability for modern living.
+Keep reading
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1975189&tp=3Di-1NGB-Q2Q-U=
+Wx-7t089M-1s-7q4tl-1c-7szoFt-lC4GZ7oxxs-ueeay&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D204bbaa981e46c1f004ba8f542ac47de85fb=
+f5425ff0e5994dfc805bb6f365f9>
+Bank-owned homes for sale in Spain from =E2=82=AC5,000
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1975190&tp=3Di-1NGB-Q2Q-U=
+Wx-7t089M-1s-7q4tl-1c-7szoFt-lC4GZ7oxxs-ueeay&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3Dfc4c46619b44fb6603d592d7ea1af26b59bc=
+f1c365a56e5f73d645ead3ce6015>
+[image: Repossessed property in Spain]
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1975191&tp=3Di-1NGB-Q2Q-U=
+Wx-7t089M-1s-7q4tl-1c-7szoFt-lC4GZ7oxxs-ueeay&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D25e4dac3fa24c84faa7e189d515a6be2ca8c=
+ce45b060c4a04e0ec67fed0366e8>
+
+Bank-owned properties are often priced below market value, as banks sell
+vacant homes quickly to recover funds. If you=E2=80=99re looking for a prop=
+erty
+deal, this article features a selection of bank-owned properties starting
+from =E2=82=AC5,000, offering opportunities for buyers seeking lower-priced
+investments.
+Keep reading
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1975192&tp=3Di-1NGB-Q2Q-U=
+Wx-7t089M-1s-7q4tl-1c-7szoFt-lC4GZ7oxxs-ueeay&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3Dc90c02c014dc7c57606fb8cbb8cc6d12e665=
+bfdadd3d44026d8e038113095066>
+How to get a NIE in Spain in 2025: Step-by-step guide for expats
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1975193&tp=3Di-1NGB-Q2Q-U=
+Wx-7t089M-1s-7q4tl-1c-7szoFt-lC4GZ7oxxs-ueeay&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D600de856f83d658bf0c965c25115c030c11e=
+f4996956bfb182d006c2cdb75bc9>
+
+Getting your NIE number is essential when moving to Spain, as you need it
+to work, study, open a bank account, buy property, or pay taxes. This
+article explains how to get your NIE in Spain in 2025, required documents,
+costs, and key tips.
+Keep reading
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1975194&tp=3Di-1NGB-Q2Q-U=
+Wx-7t089M-1s-7q4tl-1c-7szoFt-lC4GZ7oxxs-ueeay&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D1e5c0bcad27e6e6768937a5a742e403d1464=
+f1721a43186c724caa63987dd643>
+The 12 best rooftops in M=C3=A1laga
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1975195&tp=3Di-1NGB-Q2Q-U=
+Wx-7t089M-1s-7q4tl-1c-7szoFt-lC4GZ7oxxs-ueeay&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D1a236d3dae1b2bee180f08607340f84d66a9=
+8e39ec4b9d3af701d67b28551065>
+[image: Malaga views]
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1975196&tp=3Di-1NGB-Q2Q-U=
+Wx-7t089M-1s-7q4tl-1c-7szoFt-lC4GZ7oxxs-ueeay&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D95c80e42acfe385f61bb53d8220ef6b2e80a=
+45fc872f8cbb4b6d7e92b6f1d738>
+
+M=C3=A1laga=E2=80=99s enviable climate, Mediterranean views and vibrant cul=
+tural scene
+make it perfect for outdoor living. Whether you want sunset drinks, a
+relaxed dinner, or sweeping city views, the city=E2=80=99s rooftop terraces=
+ offer a
+unique perspective. Discover 12 of the best rooftop bars in M=C3=A1laga.
+Keep reading
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1975197&tp=3Di-1NGB-Q2Q-U=
+Wx-7t089M-1s-7q4tl-1c-7szoFt-lC4GZ7oxxs-ueeay&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D75cb9124a68b4648492fb16b4916b93062b9=
+3d8dc23195493c6a75e17a380efa>
+Surfing in Northern Spain: finding the best waves
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1975198&tp=3Di-1NGB-Q2Q-U=
+Wx-7t089M-1s-7q4tl-1c-7szoFt-lC4GZ7oxxs-ueeay&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D0a8baea9287701063854dc469f41316126fd=
+4f34690dd55429ec742f641b4cd8>
+
+Spain is known for sunbathing and sangria, but northern Spain offers a
+different scene with crashing waves, green landscapes, and a growing surf
+culture. From beginner-friendly waves to challenging breaks for pros,
+surfing in northern Spain is gaining popularity for its incredible variety
+of spots.
+Keep reading
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1975199&tp=3Di-1NGB-Q2Q-U=
+Wx-7t089M-1s-7q4tl-1c-7szoFt-lC4GZ7oxxs-ueeay&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D4c9e0a40f767fea4817f332288eaab416ece=
+f46a4db43adb395fe15e045372fe>
+Affordable Italy villas under =E2=82=AC250,000
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1975200&tp=3Di-1NGB-Q2Q-U=
+Wx-7t089M-1s-7q4tl-1c-7szoFt-lC4GZ7oxxs-ueeay&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3Dede07fece82f6092bbeed1f37f9d44bfb8b2=
+d277d0a306199097bdd5db1f9839>
+Italy
+[image: Italy villa for sale]
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1975201&tp=3Di-1NGB-Q2Q-U=
+Wx-7t089M-1s-7q4tl-1c-7szoFt-lC4GZ7oxxs-ueeay&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3Ddfb2d74a9977ff0285eead1d0ea272e49c56=
+fca6ab803fbaa6b09fd6e63d2c84>
+
+Owning a villa in Italy under =E2=82=AC250,000 is possible, offering tradit=
+ional
+charm and beautiful surroundings. These affordable homes are perfect as
+holiday retreats, rental investments, or permanent residences, combining
+authentic Italian architecture with peaceful settings and the chance to
+embrace Italy=E2=80=99s rich culture and lifestyle.
+Keep reading
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1975202&tp=3Di-1NGB-Q2Q-U=
+Wx-7t089M-1s-7q4tl-1c-7szoFt-lC4GZ7oxxs-ueeay&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3Dc691b66f145cd8469843385e1ecfc446c490=
+ee0be2fda017414e9bec22fa725a>
+What to do in Alberobello: discover the magic of the trulli in Puglia
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1975203&tp=3Di-1NGB-Q2Q-U=
+Wx-7t089M-1s-7q4tl-1c-7szoFt-lC4GZ7oxxs-ueeay&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D57240154167cbe63715d34b83281abdff7ce=
+4ee0753574b161d0efa77272ca45>
+Italy
+
+Alberobello, a UNESCO World Heritage town, is famed for its unique trulli,
+delicious cuisine, and southern charm. Discover what to see, how to get
+there, and what to expect. This guide covers everything you need to plan
+your visit and explore the area.
+Keep reading
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1975204&tp=3Di-1NGB-Q2Q-U=
+Wx-7t089M-1s-7q4tl-1c-7szoFt-lC4GZ7oxxs-ueeay&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D7e05b1a9688cd0e05b8cfc5367ade2f00536=
+d205e5f7d6e7771a5f14e3ed6ffa>
+Disney-inspired palace in Sintra returns to market after luxury makeover
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1975205&tp=3Di-1NGB-Q2Q-U=
+Wx-7t089M-1s-7q4tl-1c-7szoFt-lC4GZ7oxxs-ueeay&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3Df125ac9a515d7b21625e93c4fa7415ff8017=
+61c6cf00379f3de3b0b6437cb1c7>
+Portugal
+[image: Disney palace in Portugal]
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1975206&tp=3Di-1NGB-Q2Q-U=
+Wx-7t089M-1s-7q4tl-1c-7szoFt-lC4GZ7oxxs-ueeay&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D32af9ee3dc3e96d04d4be23d192d81c50a82=
+a49677f7e9922abd6aa71f87ad89>
+
+In Sintra=E2=80=99s enchanting hills, Quinta da Felicidade=E2=80=94known as=
+ the Portuguese
+Disney palace=E2=80=94blends fantasy and luxury. Once abandoned, this uniqu=
+e
+mansion is now back on the market, listed on idealista for =E2=82=AC24 mill=
+ion,
+offering a fairy-tale property full of history and charm.
+Keep reading
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1975207&tp=3Di-1NGB-Q2Q-U=
+Wx-7t089M-1s-7q4tl-1c-7szoFt-lC4GZ7oxxs-ueeay&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3Dcbb494bba781532ede48d55aa360c91f93ca=
+f94c75fb8335e2648fedb249a393>
+Potential pitfalls of buying property in Portugal: a guide for foreign
+buyers
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1975208&tp=3Di-1NGB-Q2Q-U=
+Wx-7t089M-1s-7q4tl-1c-7szoFt-lC4GZ7oxxs-ueeay&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D3b173ded05dbfab62d182291f880c4ebed07=
+46b408af9588ecc98ff34023b812>
+Portugal
+
+Buying property in Portugal can be exciting but overwhelming for expats due
+to legal differences and language barriers. Understanding common mistakes
+foreign buyers make=E2=80=94and how to avoid them=E2=80=94is essential. Thi=
+s guide covers
+key tips for a smooth property purchase before signing any contracts.
+Keep reading
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1975209&tp=3Di-1NGB-Q2Q-U=
+Wx-7t089M-1s-7q4tl-1c-7szoFt-lC4GZ7oxxs-ueeay&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D2562fa3d2f56c6617e2f49dae4790c135cf4=
+2b81e131a0bb0c30ed440c09f086>
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1975210&tp=3Di-1NGB-Q2Q-U=
+Wx-7t089M-1s-7q4tl-1c-7szoFt-lC4GZ7oxxs-ueeay&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3D92159885&hp2=3D8e4e4dd74e5cfeb269a9e17efe273384d358=
+8fb7f9e4e4404f617d70688688ef>
+=C2=A9
+2000-2025 idealista
+To stop receiving this newsletter click here to unsubscribe
+<https://l.semanal.idealista.com/rts/go2.aspx?h=3D1975211&tp=3Di-1NGB-Q2Q-U=
+Wx-7t089M-1s-7q4tl-1c-7szoFt-lC4GZ7oxxs-ueeay&pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&x=3Dbanyus53@gmail.com%7c331a1be0273ca359f6921c0e9b24f8=
+ac%7c92159885&hp2=3Dca85e15d5cef72cb9dd4eccdf79c23d6f0fab6ca936c97066d7a826=
+88e818ec9>
+<https://l.semanal.idealista.com/rts/un.aspx?tp=3Di-1NGB-Q2Q-UWx-7t089M-1s-=
+7q4tl-1c-7szoFt-lC4GZ7oxxs-ueeay>
+
+--000000000000e99d7c0639a379f8
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><br><br><div class=3D"gmail_quote gmail_quote_container"><=
+div dir=3D"ltr" class=3D"gmail_attr">---------- Forwarded message ---------=
+<br>Felad=C3=B3: <strong class=3D"gmail_sendername" dir=3D"auto">idealista/=
+news</strong> <span dir=3D"auto">&lt;<a href=3D"mailto:news@semanal.idealis=
+ta.com">news@semanal.idealista.com</a>&gt;</span><br>Date: 2025. j=C3=BAl. =
+11., P, 10:10<br>Subject: Mistakes to avoid when selling your house in Spai=
+n<br>To: <a href=3D"mailto:banyus53@gmail.com">banyus53@gmail.com</a> &lt;<=
+a href=3D"mailto:banyus53@gmail.com">banyus53@gmail.com</a>&gt;<br></div><b=
+r><br><div class=3D"msg-6080296845328222990"><u></u><div style=3D"backgroun=
+d-color:#f4f5f2" marginwidth=3D"0" marginheight=3D"0"><span style=3D"displa=
+y:none!important;font-size:1px;color:#ffffff;line-height:1px;max-height:0px=
+;max-width:0px;opacity:0;overflow:hidden">What most people get wrong when s=
+elling in Spain =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=
+=E2=80=87=C2=AD Selling your Spanish home? Here=E2=80=99s what to watch out=
+ for so you don=E2=80=99t lose money or waste time during the process. Plus=
+, cheap villas for sale in Italy and the Disney-inspired palace on the mark=
+et in Portugal.</span><img src=3D"https://l.semanal.idealista.com/rts/open.=
+aspx?tp=3Di-1NGB-Q2Q-UWx-7t089M-1s-7q4tl-1c-7szoFt-lC4GZ7oxxs-ueeay&amp;pi=
+=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs" height=3D"1" width=3D"1" st=
+yle=3D"display:none"><div><div id=3D"m_-6080296845328222990block-idealista-=
+news-content"><center> <table id=3D"m_-6080296845328222990newsletterBodyTab=
+le" align=3D"center" style=3D"border-spacing:0;border-collapse:collapse;tex=
+t-align:left;width:100%;max-width:600px;background:#fff;margin:0;padding:0;=
+height:100%"><tbody><tr><td align=3D"center" valign=3D"top" style=3D"margin=
+:0;padding:0;border-collapse:collapse;text-align:left;font:400 16px Arial">=
+<table style=3D"border-spacing:0;border-collapse:collapse;text-align:left;w=
+idth:100%;max-width:100%"><tbody><tr><td style=3D"margin:0;padding:0;border=
+-collapse:collapse;text-align:left;font:400 16px Arial"><table border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0" style=3D"border-spacing:0;border-colla=
+pse:collapse;text-align:left;width:100%;background:#e5e6e1;max-width:100%">=
+<tbody><tr><td style=3D"margin:0;padding:0;border-collapse:collapse;text-al=
+ign:left;font:400 16px Arial"><table border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" style=3D"border-spacing:0;border-collapse:collapse;text-align:le=
+ft;width:100%;background-color:#e5e6e1;max-width:100%"><tbody><tr><td style=
+=3D"margin:0;border-collapse:collapse;text-align:left;font:400 16px Arial;p=
+adding:20px 30px;color:#929292;font-size:14px"> 11/07/2025 =C2=B7 2.182.283=
+ subscribers =C2=B7 <a href=3D"https://l.semanal.idealista.com/rts/go2.aspx=
+?h=3D1975183&amp;tp=3Di-1NGB-Q2Q-UWx-7t089M-1s-7q4tl-1c-7szoFt-lC4GZ7oxxs-u=
+eeay&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=3D92159885&=
+amp;hp2=3D0702c6ef8b0a434e59f06865c0888d7a8b536ceae28d0b755abf67515b7d1f1e"=
+ style=3D"color:#1f7fc5;text-decoration:none;font:400 16px Arial;font-size:=
+14px" target=3D"_blank">View in browser</a></td></tr><tr><td style=3D"margi=
+n:0;border-collapse:collapse;text-align:left;font:400 16px Arial;color:#929=
+292;font-size:14px;padding:0 30px 20px"> This email is sent by idealista/ne=
+ws</td></tr></tbody></table></td></tr></tbody></table><table style=3D"borde=
+r-spacing:0;border-collapse:collapse;text-align:left;width:100%;min-width:1=
+00%;float:none;clear:both;background:#e1f56e;max-width:100%"><tbody><tr><td=
+ style=3D"margin:0;border-collapse:collapse;text-align:left;font:400 16px A=
+rial;padding:20px 30px"> <a href=3D"https://l.semanal.idealista.com/rts/go2=
+.aspx?h=3D1975184&amp;tp=3Di-1NGB-Q2Q-UWx-7t089M-1s-7q4tl-1c-7szoFt-lC4GZ7o=
+xxs-ueeay&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=3D9215=
+9885&amp;hp2=3D7e07ee0ef2585d2b3e9354e50c8ef5c828bd9a127f8fb91c8e0656394d31=
+5f52" rel=3D"home" title=3D"Go to idealista/news" style=3D"color:#1f7fc5;te=
+xt-decoration:none;font:400 16px Arial" target=3D"_blank"> <img alt=3D"idea=
+lista/news" src=3D"https://st1.idealista.com/news/news9/themes/custom/ideal=
+ista_news/images/logo_news_boletines.png" style=3D"display:block;height:aut=
+o;line-height:100%;outline:0;text-decoration:none;border:0 none"> </a></td>=
+<td style=3D"margin:0;padding:0;border-collapse:collapse;text-align:left;fo=
+nt:400 16px Arial"></td></tr></tbody></table><table border=3D"0" cellpaddin=
+g=3D"0" cellspacing=3D"0" id=3D"m_-6080296845328222990mainContent" style=3D=
+"border-spacing:0;border-collapse:collapse;text-align:left;width:100%;max-w=
+idth:100%"><tbody><tr><td style=3D"margin:0;border-collapse:collapse;text-a=
+lign:left;font:400 16px Arial;padding:0 30px;width:100%"><div style=3D"marg=
+in:0;padding:0"><center> <span content=3D"Mistakes to avoid when selling yo=
+ur house in Spain" style=3D"display:block"></span><table border=3D"0" cellp=
+adding=3D"0" cellspacing=3D"0" style=3D"border-spacing:0;border-collapse:co=
+llapse;width:100%;text-align:left;margin:0 auto;max-width:100%"><tbody><tr>=
+<td style=3D"margin:0;border-collapse:collapse;text-align:left;font:400 16p=
+x Arial;padding:24px 0;border-bottom:2px solid #ebebe9"><table border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0" style=3D"border-spacing:0;border-colla=
+pse:collapse;text-align:left;width:100%;max-width:100%"><tbody><tr><td styl=
+e=3D"margin:0;border-collapse:collapse;text-align:left;font:400 16px Arial;=
+width:100%;padding:6px 0"><h1 style=3D"margin:0;padding:0;font-size:100%;fo=
+nt-weight:400;display:block;line-height:24px;font:700 20px Arial,sans-serif=
+"> <a href=3D"https://l.semanal.idealista.com/rts/go2.aspx?h=3D1975185&amp;=
+tp=3Di-1NGB-Q2Q-UWx-7t089M-1s-7q4tl-1c-7szoFt-lC4GZ7oxxs-ueeay&amp;pi=3D21O=
+EK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=3D92159885&amp;hp2=3D8711904=
+d809874ffef70f97318027d14c396b41975df07f81ade63fdeb6b9c99" style=3D"color:#=
+1f7fc5;display:block;line-height:24px;font:700 20px Arial,sans-serif;text-d=
+ecoration:none" target=3D"_blank"> Mistakes to avoid when selling your hous=
+e in Spain </a></h1></td></tr><tr><td style=3D"padding:6px 0;margin:0;borde=
+r-collapse:collapse;text-align:left;font:400 16px Arial;width:100%"> <a hre=
+f=3D"https://l.semanal.idealista.com/rts/go2.aspx?h=3D1975186&amp;tp=3Di-1N=
+GB-Q2Q-UWx-7t089M-1s-7q4tl-1c-7szoFt-lC4GZ7oxxs-ueeay&amp;pi=3D21OEK495jHqs=
+DIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=3D92159885&amp;hp2=3D155347d00d79b838=
+b314e8a45186f05e18ec991edf3fb3bdabf06964e2ba2155" style=3D"color:#1f7fc5;te=
+xt-decoration:none;font:400 16px Arial" target=3D"_blank"> <img src=3D"http=
+s://st3.idealista.com/news/archivos/2025-07/images/1281206641_1.jpg?Version=
+Id=3D4he3hqVj3h4j9BIh6vJZu1h4b2t_Xkrl" width=3D"530" alt=3D"Property for sa=
+le on the Costa Brava" title=3D"" style=3D"border:0 none;display:block;heig=
+ht:auto;line-height:100%;outline:0;text-decoration:none;width:100%"> </a></=
+td></tr><tr><td style=3D"padding:6px 0;margin:0;border-collapse:collapse;te=
+xt-align:left;font:400 16px Arial,sans-serif;width:100%;line-height:24px;co=
+lor:#141414"><p style=3D"padding:0;margin:0">Selling your house in Spain? A=
+void common mistakes that could cost you time and money. From setting the r=
+ight price to preparing your property and handling paperwork correctly, lea=
+rn what to watch out for to ensure a smooth and successful sale in Spain.</=
+p></td></tr><tr><td style=3D"margin:0;padding:0;border-collapse:collapse;te=
+xt-align:left;font:400 16px Arial;padding-top:16px"> <a href=3D"https://l.s=
+emanal.idealista.com/rts/go2.aspx?h=3D1975187&amp;tp=3Di-1NGB-Q2Q-UWx-7t089=
+M-1s-7q4tl-1c-7szoFt-lC4GZ7oxxs-ueeay&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5t=
+wwBbaLfJgK0sMDs&amp;x=3D92159885&amp;hp2=3Dbde83b557a65fbac6d4e5295ea925475=
+24200092406b32e6539ae556070a3f20" style=3D"color:#1f7fc5;text-decoration:no=
+ne;font:400 16px Arial" target=3D"_blank">Keep reading</a></td></tr></tbody=
+></table></td></tr><tr><td style=3D"margin:0;border-collapse:collapse;text-=
+align:left;font:400 16px Arial;padding:24px 0;border-bottom:2px solid #ebeb=
+e9"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"border=
+-spacing:0;border-collapse:collapse;text-align:left;width:100%;max-width:10=
+0%"><tbody><tr><td style=3D"margin:0;border-collapse:collapse;text-align:le=
+ft;font:400 16px Arial;width:100%;padding:6px 0"><h1 style=3D"margin:0;padd=
+ing:0;font-size:100%;font-weight:400;display:block;line-height:24px;font:70=
+0 20px Arial,sans-serif"> <a href=3D"https://l.semanal.idealista.com/rts/go=
+2.aspx?h=3D1975188&amp;tp=3Di-1NGB-Q2Q-UWx-7t089M-1s-7q4tl-1c-7szoFt-lC4GZ7=
+oxxs-ueeay&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=3D921=
+59885&amp;hp2=3Da5cc19d00eab30bd5379ef929c815ec446d3f19c5c72911355c5eeb41d0=
+5a40f" style=3D"color:#1f7fc5;display:block;line-height:24px;font:700 20px =
+Arial,sans-serif;text-decoration:none" target=3D"_blank"> New prefab homes =
+available on Amazon starting at =E2=82=AC7,000 </a></h1></td></tr><tr><td s=
+tyle=3D"padding:6px 0;margin:0;border-collapse:collapse;text-align:left;fon=
+t:400 16px Arial,sans-serif;width:100%;line-height:24px;color:#141414"><p s=
+tyle=3D"padding:0;margin:0">New prefab homes are now on sale on Amazon from=
+ around =E2=82=AC7,000, featuring refined designs and unique models. In thi=
+s article, we explore some of the most striking prefab homes you can buy on=
+ Amazon in 2025, offering style and affordability for modern living.</p></t=
+d></tr><tr><td style=3D"margin:0;padding:0;border-collapse:collapse;text-al=
+ign:left;font:400 16px Arial;padding-top:16px"> <a href=3D"https://l.semana=
+l.idealista.com/rts/go2.aspx?h=3D1975189&amp;tp=3Di-1NGB-Q2Q-UWx-7t089M-1s-=
+7q4tl-1c-7szoFt-lC4GZ7oxxs-ueeay&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBba=
+LfJgK0sMDs&amp;x=3D92159885&amp;hp2=3D204bbaa981e46c1f004ba8f542ac47de85fbf=
+5425ff0e5994dfc805bb6f365f9" style=3D"color:#1f7fc5;text-decoration:none;fo=
+nt:400 16px Arial" target=3D"_blank">Keep reading</a></td></tr></tbody></ta=
+ble></td></tr><tr></tr><tr><td style=3D"margin:0;border-collapse:collapse;t=
+ext-align:left;font:400 16px Arial;padding:24px 0;border-bottom:2px solid #=
+ebebe9"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"bo=
+rder-spacing:0;border-collapse:collapse;text-align:left;width:100%;max-widt=
+h:100%"><tbody><tr><td style=3D"margin:0;border-collapse:collapse;text-alig=
+n:left;font:400 16px Arial;width:100%;padding:6px 0"><h1 style=3D"margin:0;=
+padding:0;font-size:100%;font-weight:400;display:block;line-height:24px;fon=
+t:700 20px Arial,sans-serif"> <a href=3D"https://l.semanal.idealista.com/rt=
+s/go2.aspx?h=3D1975190&amp;tp=3Di-1NGB-Q2Q-UWx-7t089M-1s-7q4tl-1c-7szoFt-lC=
+4GZ7oxxs-ueeay&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=
+=3D92159885&amp;hp2=3Dfc4c46619b44fb6603d592d7ea1af26b59bcf1c365a56e5f73d64=
+5ead3ce6015" style=3D"color:#1f7fc5;display:block;line-height:24px;font:700=
+ 20px Arial,sans-serif;text-decoration:none" target=3D"_blank"> Bank-owned =
+homes for sale in Spain from =E2=82=AC5,000 </a></h1></td></tr><tr><td styl=
+e=3D"padding:6px 0;margin:0;border-collapse:collapse;text-align:left;font:4=
+00 16px Arial;width:100%"> <a href=3D"https://l.semanal.idealista.com/rts/g=
+o2.aspx?h=3D1975191&amp;tp=3Di-1NGB-Q2Q-UWx-7t089M-1s-7q4tl-1c-7szoFt-lC4GZ=
+7oxxs-ueeay&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=3D92=
+159885&amp;hp2=3D25e4dac3fa24c84faa7e189d515a6be2ca8cce45b060c4a04e0ec67fed=
+0366e8" style=3D"color:#1f7fc5;text-decoration:none;font:400 16px Arial" ta=
+rget=3D"_blank"> <img src=3D"https://st3.idealista.com/news/archivos/2025-0=
+7/images/1336545154.jpg?VersionId=3DRj4gJcSULx56pVwSs8VGojTi9hzyhaKE" width=
+=3D"530" alt=3D"Repossessed property in Spain" title=3D"" style=3D"border:0=
+ none;display:block;height:auto;line-height:100%;outline:0;text-decoration:=
+none;width:100%"> </a></td></tr><tr><td style=3D"padding:6px 0;margin:0;bor=
+der-collapse:collapse;text-align:left;font:400 16px Arial,sans-serif;width:=
+100%;line-height:24px;color:#141414"><p style=3D"padding:0;margin:0">Bank-o=
+wned properties are often priced below market value, as banks sell vacant h=
+omes quickly to recover funds. If you=E2=80=99re looking for a property dea=
+l, this article features a selection of bank-owned properties starting from=
+ =E2=82=AC5,000, offering opportunities for buyers seeking lower-priced inv=
+estments.</p></td></tr><tr><td style=3D"margin:0;padding:0;border-collapse:=
+collapse;text-align:left;font:400 16px Arial;padding-top:16px"> <a href=3D"=
+https://l.semanal.idealista.com/rts/go2.aspx?h=3D1975192&amp;tp=3Di-1NGB-Q2=
+Q-UWx-7t089M-1s-7q4tl-1c-7szoFt-lC4GZ7oxxs-ueeay&amp;pi=3D21OEK495jHqsDIz-D=
+RvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=3D92159885&amp;hp2=3Dc90c02c014dc7c57606fb=
+8cbb8cc6d12e665bfdadd3d44026d8e038113095066" style=3D"color:#1f7fc5;text-de=
+coration:none;font:400 16px Arial" target=3D"_blank">Keep reading</a></td><=
+/tr></tbody></table></td></tr><tr><td style=3D"margin:0;border-collapse:col=
+lapse;text-align:left;font:400 16px Arial;padding:24px 0;border-bottom:2px =
+solid #ebebe9"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" styl=
+e=3D"border-spacing:0;border-collapse:collapse;text-align:left;width:100%;m=
+ax-width:100%"><tbody><tr><td style=3D"margin:0;border-collapse:collapse;te=
+xt-align:left;font:400 16px Arial;width:100%;padding:6px 0"><h1 style=3D"ma=
+rgin:0;padding:0;font-size:100%;font-weight:400;display:block;line-height:2=
+4px;font:700 20px Arial,sans-serif"> <a href=3D"https://l.semanal.idealista=
+.com/rts/go2.aspx?h=3D1975193&amp;tp=3Di-1NGB-Q2Q-UWx-7t089M-1s-7q4tl-1c-7s=
+zoFt-lC4GZ7oxxs-ueeay&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&=
+amp;x=3D92159885&amp;hp2=3D600de856f83d658bf0c965c25115c030c11ef4996956bfb1=
+82d006c2cdb75bc9" style=3D"color:#1f7fc5;display:block;line-height:24px;fon=
+t:700 20px Arial,sans-serif;text-decoration:none" target=3D"_blank"> How to=
+ get a NIE in Spain in 2025: Step-by-step guide for expats </a></h1></td></=
+tr><tr><td style=3D"padding:6px 0;margin:0;border-collapse:collapse;text-al=
+ign:left;font:400 16px Arial,sans-serif;width:100%;line-height:24px;color:#=
+141414"><p style=3D"padding:0;margin:0">Getting your NIE number is essentia=
+l when moving to Spain, as you need it to work, study, open a bank account,=
+ buy property, or pay taxes. This article explains how to get your NIE in S=
+pain in 2025, required documents, costs, and key tips.</p></td></tr><tr><td=
+ style=3D"margin:0;padding:0;border-collapse:collapse;text-align:left;font:=
+400 16px Arial;padding-top:16px"> <a href=3D"https://l.semanal.idealista.co=
+m/rts/go2.aspx?h=3D1975194&amp;tp=3Di-1NGB-Q2Q-UWx-7t089M-1s-7q4tl-1c-7szoF=
+t-lC4GZ7oxxs-ueeay&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp=
+;x=3D92159885&amp;hp2=3D1e5c0bcad27e6e6768937a5a742e403d1464f1721a43186c724=
+caa63987dd643" style=3D"color:#1f7fc5;text-decoration:none;font:400 16px Ar=
+ial" target=3D"_blank">Keep reading</a></td></tr></tbody></table></td></tr>=
+<tr><td style=3D"margin:0;border-collapse:collapse;text-align:left;font:400=
+ 16px Arial;padding:24px 0;border-bottom:2px solid #ebebe9"><table border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-spacing:0;border=
+-collapse:collapse;text-align:left;width:100%;max-width:100%"><tbody><tr><t=
+d style=3D"margin:0;border-collapse:collapse;text-align:left;font:400 16px =
+Arial;width:100%;padding:6px 0"><h1 style=3D"margin:0;padding:0;font-size:1=
+00%;font-weight:400;display:block;line-height:24px;font:700 20px Arial,sans=
+-serif"> <a href=3D"https://l.semanal.idealista.com/rts/go2.aspx?h=3D197519=
+5&amp;tp=3Di-1NGB-Q2Q-UWx-7t089M-1s-7q4tl-1c-7szoFt-lC4GZ7oxxs-ueeay&amp;pi=
+=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=3D92159885&amp;hp2=3D1=
+a236d3dae1b2bee180f08607340f84d66a98e39ec4b9d3af701d67b28551065" style=3D"c=
+olor:#1f7fc5;display:block;line-height:24px;font:700 20px Arial,sans-serif;=
+text-decoration:none" target=3D"_blank"> The 12 best rooftops in M=C3=A1lag=
+a </a></h1></td></tr><tr><td style=3D"padding:6px 0;margin:0;border-collaps=
+e:collapse;text-align:left;font:400 16px Arial;width:100%"> <a href=3D"http=
+s://l.semanal.idealista.com/rts/go2.aspx?h=3D1975196&amp;tp=3Di-1NGB-Q2Q-UW=
+x-7t089M-1s-7q4tl-1c-7szoFt-lC4GZ7oxxs-ueeay&amp;pi=3D21OEK495jHqsDIz-DRvJK=
+rCj7z5twwBbaLfJgK0sMDs&amp;x=3D92159885&amp;hp2=3D95c80e42acfe385f61bb53d82=
+20ef6b2e80a45fc872f8cbb4b6d7e92b6f1d738" style=3D"color:#1f7fc5;text-decora=
+tion:none;font:400 16px Arial" target=3D"_blank"> <img src=3D"https://st3.i=
+dealista.com/news/archivos/2025-07/images/malaga_vistas_desde_hotel_malaga_=
+palacio.jpg?VersionId=3DNTuR5w1k0Y0TJfYyI_FA9l5g.8y.VR.s" width=3D"530" alt=
+=3D"Malaga views" title=3D"" style=3D"border:0 none;display:block;height:au=
+to;line-height:100%;outline:0;text-decoration:none;width:100%"> </a></td></=
+tr><tr><td style=3D"padding:6px 0;margin:0;border-collapse:collapse;text-al=
+ign:left;font:400 16px Arial,sans-serif;width:100%;line-height:24px;color:#=
+141414"><p style=3D"padding:0;margin:0">M=C3=A1laga=E2=80=99s enviable clim=
+ate, Mediterranean views and vibrant cultural scene make it perfect for out=
+door living. Whether you want sunset drinks, a relaxed dinner, or sweeping =
+city views, the city=E2=80=99s rooftop terraces offer a unique perspective.=
+ Discover 12 of the best rooftop bars in M=C3=A1laga.</p></td></tr><tr><td =
+style=3D"margin:0;padding:0;border-collapse:collapse;text-align:left;font:4=
+00 16px Arial;padding-top:16px"> <a href=3D"https://l.semanal.idealista.com=
+/rts/go2.aspx?h=3D1975197&amp;tp=3Di-1NGB-Q2Q-UWx-7t089M-1s-7q4tl-1c-7szoFt=
+-lC4GZ7oxxs-ueeay&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;=
+x=3D92159885&amp;hp2=3D75cb9124a68b4648492fb16b4916b93062b93d8dc23195493c6a=
+75e17a380efa" style=3D"color:#1f7fc5;text-decoration:none;font:400 16px Ari=
+al" target=3D"_blank">Keep reading</a></td></tr></tbody></table></td></tr><=
+tr><td style=3D"margin:0;border-collapse:collapse;text-align:left;font:400 =
+16px Arial;padding:24px 0;border-bottom:2px solid #ebebe9"><table border=3D=
+"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-spacing:0;border-co=
+llapse:collapse;text-align:left;width:100%;max-width:100%"><tbody><tr><td s=
+tyle=3D"margin:0;border-collapse:collapse;text-align:left;font:400 16px Ari=
+al;width:100%;padding:6px 0"><h1 style=3D"margin:0;padding:0;font-size:100%=
+;font-weight:400;display:block;line-height:24px;font:700 20px Arial,sans-se=
+rif"> <a href=3D"https://l.semanal.idealista.com/rts/go2.aspx?h=3D1975198&a=
+mp;tp=3Di-1NGB-Q2Q-UWx-7t089M-1s-7q4tl-1c-7szoFt-lC4GZ7oxxs-ueeay&amp;pi=3D=
+21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=3D92159885&amp;hp2=3D0a8b=
+aea9287701063854dc469f41316126fd4f34690dd55429ec742f641b4cd8" style=3D"colo=
+r:#1f7fc5;display:block;line-height:24px;font:700 20px Arial,sans-serif;tex=
+t-decoration:none" target=3D"_blank"> Surfing in Northern Spain: finding th=
+e best waves </a></h1></td></tr><tr><td style=3D"padding:6px 0;margin:0;bor=
+der-collapse:collapse;text-align:left;font:400 16px Arial,sans-serif;width:=
+100%;line-height:24px;color:#141414"><p style=3D"padding:0;margin:0">Spain =
+is known for sunbathing and sangria, but northern Spain offers a different =
+scene with crashing waves, green landscapes, and a growing surf culture. Fr=
+om beginner-friendly waves to challenging breaks for pros, surfing in north=
+ern Spain is gaining popularity for its incredible variety of spots.</p></t=
+d></tr><tr><td style=3D"margin:0;padding:0;border-collapse:collapse;text-al=
+ign:left;font:400 16px Arial;padding-top:16px"> <a href=3D"https://l.semana=
+l.idealista.com/rts/go2.aspx?h=3D1975199&amp;tp=3Di-1NGB-Q2Q-UWx-7t089M-1s-=
+7q4tl-1c-7szoFt-lC4GZ7oxxs-ueeay&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBba=
+LfJgK0sMDs&amp;x=3D92159885&amp;hp2=3D4c9e0a40f767fea4817f332288eaab416ecef=
+46a4db43adb395fe15e045372fe" style=3D"color:#1f7fc5;text-decoration:none;fo=
+nt:400 16px Arial" target=3D"_blank">Keep reading</a></td></tr></tbody></ta=
+ble></td></tr><tr><td style=3D"margin:0;border-collapse:collapse;text-align=
+:left;font:400 16px Arial;padding:24px 0;border-bottom:2px solid #ebebe9"><=
+table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-spac=
+ing:0;border-collapse:collapse;text-align:left;width:100%;max-width:100%"><=
+tbody><tr><td style=3D"margin:0;border-collapse:collapse;text-align:left;fo=
+nt:400 16px Arial;width:100%;padding:6px 0"><h1 style=3D"margin:0;padding:0=
+;font-size:100%;font-weight:400;display:block;line-height:24px;font:700 20p=
+x Arial,sans-serif"> <a href=3D"https://l.semanal.idealista.com/rts/go2.asp=
+x?h=3D1975200&amp;tp=3Di-1NGB-Q2Q-UWx-7t089M-1s-7q4tl-1c-7szoFt-lC4GZ7oxxs-=
+ueeay&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=3D92159885=
+&amp;hp2=3Dede07fece82f6092bbeed1f37f9d44bfb8b2d277d0a306199097bdd5db1f9839=
+" style=3D"color:#1f7fc5;display:block;line-height:24px;font:700 20px Arial=
+,sans-serif;text-decoration:none" target=3D"_blank"> Affordable Italy villa=
+s under =E2=82=AC250,000 </a></h1></td></tr><tr><td style=3D"margin:0;borde=
+r-collapse:collapse;text-align:left;font:400 16px Arial;padding:12px 0"> <s=
+pan style=3D"color:#929292;background:#ebebe9;border:10px solid #ebebe9;bor=
+der-width:4px 10px;font:400 14px Arial,sans-serif"> Italy </span></td></tr>=
+<tr><td style=3D"padding:6px 0;margin:0;border-collapse:collapse;text-align=
+:left;font:400 16px Arial;width:100%"> <a href=3D"https://l.semanal.idealis=
+ta.com/rts/go2.aspx?h=3D1975201&amp;tp=3Di-1NGB-Q2Q-UWx-7t089M-1s-7q4tl-1c-=
+7szoFt-lC4GZ7oxxs-ueeay&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMD=
+s&amp;x=3D92159885&amp;hp2=3Ddfb2d74a9977ff0285eead1d0ea272e49c56fca6ab803f=
+baa6b09fd6e63d2c84" style=3D"color:#1f7fc5;text-decoration:none;font:400 16=
+px Arial" target=3D"_blank"> <img src=3D"https://st3.idealista.com/news/arc=
+hivos/2025-07/images/313950936_1.jpg?VersionId=3Dz0nyhKpgYRgQXl8bW2deQiP_it=
+fLi6Zq" width=3D"530" alt=3D"Italy villa for sale" title=3D"" style=3D"bord=
+er:0 none;display:block;height:auto;line-height:100%;outline:0;text-decorat=
+ion:none;width:100%"> </a></td></tr><tr><td style=3D"padding:6px 0;margin:0=
+;border-collapse:collapse;text-align:left;font:400 16px Arial,sans-serif;wi=
+dth:100%;line-height:24px;color:#141414"><p style=3D"padding:0;margin:0">Ow=
+ning a villa in Italy under =E2=82=AC250,000 is possible, offering traditio=
+nal charm and beautiful surroundings. These affordable homes are perfect as=
+ holiday retreats, rental investments, or permanent residences, combining a=
+uthentic Italian architecture with peaceful settings and the chance to embr=
+ace Italy=E2=80=99s rich culture and lifestyle.</p></td></tr><tr><td style=
+=3D"margin:0;padding:0;border-collapse:collapse;text-align:left;font:400 16=
+px Arial;padding-top:16px"> <a href=3D"https://l.semanal.idealista.com/rts/=
+go2.aspx?h=3D1975202&amp;tp=3Di-1NGB-Q2Q-UWx-7t089M-1s-7q4tl-1c-7szoFt-lC4G=
+Z7oxxs-ueeay&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=3D9=
+2159885&amp;hp2=3Dc691b66f145cd8469843385e1ecfc446c490ee0be2fda017414e9bec2=
+2fa725a" style=3D"color:#1f7fc5;text-decoration:none;font:400 16px Arial" t=
+arget=3D"_blank">Keep reading</a></td></tr></tbody></table></td></tr><tr><t=
+d style=3D"margin:0;border-collapse:collapse;text-align:left;font:400 16px =
+Arial;padding:24px 0;border-bottom:2px solid #ebebe9"><table border=3D"0" c=
+ellpadding=3D"0" cellspacing=3D"0" style=3D"border-spacing:0;border-collaps=
+e:collapse;text-align:left;width:100%;max-width:100%"><tbody><tr><td style=
+=3D"margin:0;border-collapse:collapse;text-align:left;font:400 16px Arial;w=
+idth:100%;padding:6px 0"><h1 style=3D"margin:0;padding:0;font-size:100%;fon=
+t-weight:400;display:block;line-height:24px;font:700 20px Arial,sans-serif"=
+> <a href=3D"https://l.semanal.idealista.com/rts/go2.aspx?h=3D1975203&amp;t=
+p=3Di-1NGB-Q2Q-UWx-7t089M-1s-7q4tl-1c-7szoFt-lC4GZ7oxxs-ueeay&amp;pi=3D21OE=
+K495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=3D92159885&amp;hp2=3D57240154=
+167cbe63715d34b83281abdff7ce4ee0753574b161d0efa77272ca45" style=3D"color:#1=
+f7fc5;display:block;line-height:24px;font:700 20px Arial,sans-serif;text-de=
+coration:none" target=3D"_blank"> What to do in Alberobello: discover the m=
+agic of the trulli in Puglia </a></h1></td></tr><tr><td style=3D"margin:0;b=
+order-collapse:collapse;text-align:left;font:400 16px Arial;padding:12px 0"=
+> <span style=3D"color:#929292;background:#ebebe9;border:10px solid #ebebe9=
+;border-width:4px 10px;font:400 14px Arial,sans-serif"> Italy </span></td><=
+/tr><tr><td style=3D"padding:6px 0;margin:0;border-collapse:collapse;text-a=
+lign:left;font:400 16px Arial,sans-serif;width:100%;line-height:24px;color:=
+#141414"><p style=3D"padding:0;margin:0">Alberobello, a UNESCO World Herita=
+ge town, is famed for its unique trulli, delicious cuisine, and southern ch=
+arm. Discover what to see, how to get there, and what to expect. This guide=
+ covers everything you need to plan your visit and explore the area.</p></t=
+d></tr><tr><td style=3D"margin:0;padding:0;border-collapse:collapse;text-al=
+ign:left;font:400 16px Arial;padding-top:16px"> <a href=3D"https://l.semana=
+l.idealista.com/rts/go2.aspx?h=3D1975204&amp;tp=3Di-1NGB-Q2Q-UWx-7t089M-1s-=
+7q4tl-1c-7szoFt-lC4GZ7oxxs-ueeay&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBba=
+LfJgK0sMDs&amp;x=3D92159885&amp;hp2=3D7e05b1a9688cd0e05b8cfc5367ade2f00536d=
+205e5f7d6e7771a5f14e3ed6ffa" style=3D"color:#1f7fc5;text-decoration:none;fo=
+nt:400 16px Arial" target=3D"_blank">Keep reading</a></td></tr></tbody></ta=
+ble></td></tr><tr></tr><tr><td style=3D"margin:0;border-collapse:collapse;t=
+ext-align:left;font:400 16px Arial;padding:24px 0;border-bottom:2px solid #=
+ebebe9"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"bo=
+rder-spacing:0;border-collapse:collapse;text-align:left;width:100%;max-widt=
+h:100%"><tbody><tr><td style=3D"margin:0;border-collapse:collapse;text-alig=
+n:left;font:400 16px Arial;width:100%;padding:6px 0"><h1 style=3D"margin:0;=
+padding:0;font-size:100%;font-weight:400;display:block;line-height:24px;fon=
+t:700 20px Arial,sans-serif"> <a href=3D"https://l.semanal.idealista.com/rt=
+s/go2.aspx?h=3D1975205&amp;tp=3Di-1NGB-Q2Q-UWx-7t089M-1s-7q4tl-1c-7szoFt-lC=
+4GZ7oxxs-ueeay&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=
+=3D92159885&amp;hp2=3Df125ac9a515d7b21625e93c4fa7415ff801761c6cf00379f3de3b=
+0b6437cb1c7" style=3D"color:#1f7fc5;display:block;line-height:24px;font:700=
+ 20px Arial,sans-serif;text-decoration:none" target=3D"_blank"> Disney-insp=
+ired palace in Sintra returns to market after luxury makeover </a></h1></td=
+></tr><tr><td style=3D"margin:0;border-collapse:collapse;text-align:left;fo=
+nt:400 16px Arial;padding:12px 0"> <span style=3D"color:#929292;background:=
+#ebebe9;border:10px solid #ebebe9;border-width:4px 10px;font:400 14px Arial=
+,sans-serif"> Portugal </span></td></tr><tr><td style=3D"padding:6px 0;marg=
+in:0;border-collapse:collapse;text-align:left;font:400 16px Arial;width:100=
+%"> <a href=3D"https://l.semanal.idealista.com/rts/go2.aspx?h=3D1975206&amp=
+;tp=3Di-1NGB-Q2Q-UWx-7t089M-1s-7q4tl-1c-7szoFt-lC4GZ7oxxs-ueeay&amp;pi=3D21=
+OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=3D92159885&amp;hp2=3D32af9e=
+e3dc3e96d04d4be23d192d81c50a82a49677f7e9922abd6aa71f87ad89" style=3D"color:=
+#1f7fc5;text-decoration:none;font:400 16px Arial" target=3D"_blank"> <img s=
+rc=3D"https://st3.idealista.com/news/archivos/2025-07/images/captura_de_ecr=
+a_2025-07-01_095831.png?VersionId=3D8jXfksJ95xTWdXhGKldWmAbR71LltYVH" width=
+=3D"530" alt=3D"Disney palace in Portugal" title=3D"" style=3D"border:0 non=
+e;display:block;height:auto;line-height:100%;outline:0;text-decoration:none=
+;width:100%"> </a></td></tr><tr><td style=3D"padding:6px 0;margin:0;border-=
+collapse:collapse;text-align:left;font:400 16px Arial,sans-serif;width:100%=
+;line-height:24px;color:#141414"><p style=3D"padding:0;margin:0">In Sintra=
+=E2=80=99s enchanting hills, Quinta da Felicidade=E2=80=94known as the Port=
+uguese Disney palace=E2=80=94blends fantasy and luxury. Once abandoned, thi=
+s unique mansion is now back on the market, listed on idealista for =E2=82=
+=AC24 million, offering a fairy-tale property full of history and charm.</p=
+></td></tr><tr><td style=3D"margin:0;padding:0;border-collapse:collapse;tex=
+t-align:left;font:400 16px Arial;padding-top:16px"> <a href=3D"https://l.se=
+manal.idealista.com/rts/go2.aspx?h=3D1975207&amp;tp=3Di-1NGB-Q2Q-UWx-7t089M=
+-1s-7q4tl-1c-7szoFt-lC4GZ7oxxs-ueeay&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5tw=
+wBbaLfJgK0sMDs&amp;x=3D92159885&amp;hp2=3Dcbb494bba781532ede48d55aa360c91f9=
+3caf94c75fb8335e2648fedb249a393" style=3D"color:#1f7fc5;text-decoration:non=
+e;font:400 16px Arial" target=3D"_blank">Keep reading</a></td></tr></tbody>=
+</table></td></tr><tr><td style=3D"margin:0;border-collapse:collapse;text-a=
+lign:left;font:400 16px Arial;padding:24px 0;border-bottom:2px solid #ebebe=
+9"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-=
+spacing:0;border-collapse:collapse;text-align:left;width:100%;max-width:100=
+%"><tbody><tr><td style=3D"margin:0;border-collapse:collapse;text-align:lef=
+t;font:400 16px Arial;width:100%;padding:6px 0"><h1 style=3D"margin:0;paddi=
+ng:0;font-size:100%;font-weight:400;display:block;line-height:24px;font:700=
+ 20px Arial,sans-serif"> <a href=3D"https://l.semanal.idealista.com/rts/go2=
+.aspx?h=3D1975208&amp;tp=3Di-1NGB-Q2Q-UWx-7t089M-1s-7q4tl-1c-7szoFt-lC4GZ7o=
+xxs-ueeay&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=3D9215=
+9885&amp;hp2=3D3b173ded05dbfab62d182291f880c4ebed0746b408af9588ecc98ff34023=
+b812" style=3D"color:#1f7fc5;display:block;line-height:24px;font:700 20px A=
+rial,sans-serif;text-decoration:none" target=3D"_blank"> Potential pitfalls=
+ of buying property in Portugal: a guide for foreign buyers </a></h1></td><=
+/tr><tr><td style=3D"margin:0;border-collapse:collapse;text-align:left;font=
+:400 16px Arial;padding:12px 0"> <span style=3D"color:#929292;background:#e=
+bebe9;border:10px solid #ebebe9;border-width:4px 10px;font:400 14px Arial,s=
+ans-serif"> Portugal </span></td></tr><tr><td style=3D"padding:6px 0;margin=
+:0;border-collapse:collapse;text-align:left;font:400 16px Arial,sans-serif;=
+width:100%;line-height:24px;color:#141414"><p style=3D"padding:0;margin:0">=
+Buying property in Portugal can be exciting but overwhelming for expats due=
+ to legal differences and language barriers. Understanding common mistakes =
+foreign buyers make=E2=80=94and how to avoid them=E2=80=94is essential. Thi=
+s guide covers key tips for a smooth property purchase before signing any c=
+ontracts.</p></td></tr><tr><td style=3D"margin:0;padding:0;border-collapse:=
+collapse;text-align:left;font:400 16px Arial;padding-top:16px"> <a href=3D"=
+https://l.semanal.idealista.com/rts/go2.aspx?h=3D1975209&amp;tp=3Di-1NGB-Q2=
+Q-UWx-7t089M-1s-7q4tl-1c-7szoFt-lC4GZ7oxxs-ueeay&amp;pi=3D21OEK495jHqsDIz-D=
+RvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=3D92159885&amp;hp2=3D2562fa3d2f56c6617e2f4=
+9dae4790c135cf42b81e131a0bb0c30ed440c09f086" style=3D"color:#1f7fc5;text-de=
+coration:none;font:400 16px Arial" target=3D"_blank">Keep reading</a></td><=
+/tr></tbody></table></td></tr><tr></tr></tbody></table></center></div></td>=
+</tr></tbody></table><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0=
+" id=3D"m_-6080296845328222990footer" style=3D"border-spacing:0;border-coll=
+apse:collapse;text-align:left;width:100%;background:#ebebe9;color:#8e8f8c;b=
+order-top:36px solid #fff;max-width:100%"><tbody><tr><td style=3D"margin:0;=
+border-collapse:collapse;text-align:left;font:400 16px Arial;color:#8e8f8c;=
+padding:0 0 30px"><div style=3D"margin:0;padding:0"><center><table border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-spacing:0;border=
+-collapse:collapse;width:100%;text-align:left;margin:0 auto;max-width:100%"=
+><tbody><tr><td style=3D"margin:0;border-collapse:collapse;text-align:left;=
+font:400 16px Arial;color:#8e8f8c;padding:20px 30px 15px"> <a href=3D"https=
+://l.semanal.idealista.com/rts/go2.aspx?h=3D1975210&amp;tp=3Di-1NGB-Q2Q-UWx=
+-7t089M-1s-7q4tl-1c-7szoFt-lC4GZ7oxxs-ueeay&amp;pi=3D21OEK495jHqsDIz-DRvJKr=
+Cj7z5twwBbaLfJgK0sMDs&amp;x=3D92159885&amp;hp2=3D8e4e4dd74e5cfeb269a9e17efe=
+273384d3588fb7f9e4e4404f617d70688688ef" title=3D"" style=3D"color:#1f7fc5;t=
+ext-decoration:none;font:400 16px Arial" target=3D"_blank"> <img alt=3D"" s=
+rc=3D"https://st1.idealista.com/news/news9/themes/custom/idealista_news/ima=
+ges/logo_news_small.png" rel=3D"home" style=3D"display:block;height:auto;li=
+ne-height:100%;outline:0;text-decoration:none;border:0 none"> </a></td><td =
+style=3D"margin:0;border-collapse:collapse;text-align:left;font:400 16px Ar=
+ial;color:#8e8f8c;padding:15px 30px 5px 30px;width:100%;font-size:14px"> =
+=C2=A9 2000-2025 idealista</td></tr><tr><td colspan=3D"2" style=3D"margin:0=
+;border-collapse:collapse;text-align:left;font:400 16px Arial;color:#8e8f8c=
+;width:100%;font-size:14px;padding:0 30px 15px"> To stop receiving this new=
+sletter <a href=3D"https://l.semanal.idealista.com/rts/go2.aspx?h=3D1975211=
+&amp;tp=3Di-1NGB-Q2Q-UWx-7t089M-1s-7q4tl-1c-7szoFt-lC4GZ7oxxs-ueeay&amp;pi=
+=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=3Dbanyus53@gmail.com%7=
+c331a1be0273ca359f6921c0e9b24f8ac%7c92159885&amp;hp2=3Dca85e15d5cef72cb9dd4=
+eccdf79c23d6f0fab6ca936c97066d7a82688e818ec9" style=3D"color:#1f7fc5;text-d=
+ecoration:none;font:400 16px Arial;padding-bottom:15px;font-size:14px" targ=
+et=3D"_blank">click here to unsubscribe</a> </td></tr></tbody></table></cen=
+ter></div></td></tr></tbody></table></td></tr></tbody></table></td></tr></t=
+body></table> </center></div></div><img width=3D"1" height=3D"1" alt=3D"" s=
+rc=3D"https://col.idealista.com/toto?s=3D582065&amp;events=3D%5B%7B%22name%=
+22%3A%22email.display.offsite%22%2C%22data%22%3A%7B%22src_medium%22%3A%22em=
+ail%22%2C%22src_campaign%22%3A%22news_weekly%22%2C%22src_campaigntype%22%3A=
+%22retention%22%2C%22src_date_send%22%3A%222025-07-1107%3A00%3A00%22%2C%22s=
+rc_project%22%3A%22visitGeneration%22%2C%22src_recipient_id%22%3A%227249215=
+9885%22%2C%22src_recipient_list%22%3A%221%22%2C%22src_source%22%3A%22newsle=
+tters%22%7D%7D%5D"><div style=3D"display:none!important"><a href=3D"https:/=
+/l.semanal.idealista.com/rts/un.aspx?tp=3Di-1NGB-Q2Q-UWx-7t089M-1s-7q4tl-1c=
+-7szoFt-lC4GZ7oxxs-ueeay" style=3D"display:none!important" target=3D"_blank=
+"></a></div></div></div></div></div>
+
+--000000000000e99d7c0639a379f8--

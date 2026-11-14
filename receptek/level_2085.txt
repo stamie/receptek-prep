@@ -1,0 +1,479 @@
+Delivered-To: estampel@gmail.com
+Received: by 2002:a05:622a:5b09:b0:4af:1c51:55e1 with SMTP id ea9csp2178823qtb;
+        Tue, 5 Aug 2025 20:13:11 -0700 (PDT)
+X-Received: by 2002:a17:907:94d6:b0:af2:5229:bd74 with SMTP id a640c23a62f3a-af990344c44mr80267666b.26.1754449990948;
+        Tue, 05 Aug 2025 20:13:10 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1754449990; cv=none;
+        d=google.com; s=arc-20240605;
+        b=dEEGRNFw19nZRIV29kR1zvEPf3+aLOYxO9mq67e8NwxN8fHEtV9D6nmZ6X9Z0QOUt7
+         2pYMlc2tM5VuJQWpEHPjMD0mtXiphn3FjO/Q83ZwYhbXDXJ1GrTSdrciKxJuvsMbOmQR
+         /YCv5UGkmMHsjQMKSqMrPzq0OW+BdK8zMAwTeVmGk45HVsFwWfSVqYzRoPJtjLjQ/KxA
+         9te/Z1qS/MVF9WV7qJEwyToe42taWPvtKDqdlP36VsLDzuCIcT/VYe4kebUPmCZdraO9
+         t1Ji1IfJGCqZBkEt1j6rIJFCtOzJ/ANCY5V5s3BGb6yZESmhPV5UDFhS2DR60JS7hWv5
+         97Lw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=hwgf5pbz55ni96+FDMXIHF9E38EqETkb+kRocvbcdAs=;
+        fh=wF/Yrd2E0xeKwPH74kML7cQSth+Fl4bwhVNrybJ4uh4=;
+        b=Vun9Wnd6b9yTmNKOLAuPtaJkEahBw8v97JUlqaGDYhuPLLKKgHMw6rLe2tkbqB1UpQ
+         fqlasB9LGMldBoNx1OJJMN/Q0d7cSXhvujtuqkxJ4DLn/W0giGwdJq6gnnVrI4XxR5pY
+         TMTfhBcdTvonGsPbbSEadM1/5Gbz2xDDGxICu4oqSOonO/n5DQN7cHoNJgyDlsMoryGO
+         b3klbZ+wq0BqkblnPWv7HERupOjSbarNUUvo+mLOZmOVGw5nBHnjMeLj20ZvY96YucQL
+         Lb2xZQFhCVg/+wvBUH681LvTZ0yy5+mR0AHqP3srT1Ohuj+a/ALiQ6ndP6H65rScx6Zh
+         lC9w==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=VbJaIlqS;
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <banyus53@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id a640c23a62f3a-af959df6fecsor536875766b.2.2025.08.05.20.13.10
+        for <estampel@gmail.com>
+        (Google Transport Security);
+        Tue, 05 Aug 2025 20:13:10 -0700 (PDT)
+Received-SPF: pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=VbJaIlqS;
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1754449990; x=1755054790; dara=google.com;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=hwgf5pbz55ni96+FDMXIHF9E38EqETkb+kRocvbcdAs=;
+        b=VbJaIlqSFXIywB7k+/KvQg2eKN6bIULjAGY//jqxq98dz158ONkHPIiVjipJiLXUSw
+         4nrt2L7qcLepojoZNUY+aWrLtO9sEnoa8iKzxh6o9FDr28oQrmlKZ1IyqvwhF1932Zes
+         /WqLII2xgI0xGL/We0nMnDLzPzU5b8oQKPdoGQxemVyLcVSHJrZME778ykmBM+W96koQ
+         DdholD6ByKt5HLRXlvPb5SgwoaaqCdRVVbFYl/5i3RfT4RSYNrbD0FMz/yLJ7uTtIEjE
+         0qfgUT7P2xnBtovlF1o4gRc/9AX9D40s6que+9y/+tTi8q5TBdbXaZdAXK/KvKqSnF2r
+         0V9Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1754449990; x=1755054790;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=hwgf5pbz55ni96+FDMXIHF9E38EqETkb+kRocvbcdAs=;
+        b=mHOOgOKjYcRAyiY0ieRmljOrS/JlY4+WSvPiZEC9YG7eFWm6iBSNGvZloG90FoIWr0
+         lh6iO2ycWwLDANta33VOx9nCPxT4QyHL4V1cHqrjuzmkVuhT9nnAvHY4pwFvJ72md1r6
+         CQYm1Sj+cElbhkI/+NFDZcP1tMPQcJCMtGJzF10oXjD1n3Rvkg0P+uK71X6tRVEfXsPz
+         GsDw3h/GpKezUojtfZeTmc10bqNEZXBgWffgkpgUMVXr1adK08gLK8l71XiT51ONmoyj
+         Ma3l4rMD8hW1s3pzer/oB0B0UA88WqAee6waCJXnC7jhnGizLaU+IDLEYD+qtJQtSaI0
+         gKoQ==
+X-Gm-Message-State: AOJu0YzPkWK+vHfdrdBk0WXPlC5zpzA4AX6UV0idPY3KToVRfm9QpHW9
+	pZmppynesNgYUnVwDsD/ZrkPbHEF/zCwn8Q9dhKXdlh3VMNlCg27cpbA7zIUo1y4tHppTRSXCQg
+	Vo0qbB3W6JwzVTp4CIWNpm174s9amL+Ta8g==
+X-Gm-Gg: ASbGncu7zTAqfbevcv2NCLyMvtE57bKJzupYu/UyxWYlO3iOyRF/XnePzDNU/rslu4r
+	mtHXYpuqBg2q1opoLV5birQ05u77Rfh7oplYwouDQnqPBs453Z7ihwvQCf+ATfUBQDqgaSB/Nd9
+	FK6ouxehdA6pXjrOsvD6M6qcHUDDGMt1dyxb49jhhVWz8bJsNtnFGItwdslpq27ZNHMKXZ8LNUC
+	bmw+dVuvd7bazYA+yA=
+X-Google-Smtp-Source: AGHT+IF60tI333sIYnrYzVLtwYpopmq7NCVl65q1znPF27P7UuA6dKNFvi5hwuahYaExuuO/DcxyfkVd+8xXMgj2UOk=
+X-Received: by 2002:a17:907:2d1f:b0:af9:7b9b:c993 with SMTP id
+ a640c23a62f3a-af990419817mr110960266b.39.1754449989898; Tue, 05 Aug 2025
+ 20:13:09 -0700 (PDT)
+MIME-Version: 1.0
+References: <100094.7328693995.202508051800313100648.0012707185@mailing.idealista.com>
+In-Reply-To: <100094.7328693995.202508051800313100648.0012707185@mailing.idealista.com>
+From: =?UTF-8?B?w4FnbmVzIEJ1Z8Ohcg==?= <banyus53@gmail.com>
+Date: Wed, 6 Aug 2025 05:12:57 +0200
+X-Gm-Features: Ac12FXyVqWxVqMrXYZtxODl0CbDN9AnzsYtkznCBChElbdjktEcPtdawoZWcBEo
+Message-ID: <CA+39czU5M_2vMPKCBUQWigC4YE4QP7FbWbA8cn_pWk3PF_2iyA@mail.gmail.com>
+Subject: Fwd: Cheap Spanish property near the beach
+To: Emese Stampel <estampel@gmail.com>
+Content-Type: multipart/alternative; boundary="0000000000006c965c063ba9b882"
+
+--0000000000006c965c063ba9b882
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: base64
+
+LS0tLS0tLS0tLSBGb3J3YXJkZWQgbWVzc2FnZSAtLS0tLS0tLS0NCkZlbGFkw7M6IGlkZWFsaXN0
+YSA8aWRlYWxpc3RhQG1haWxpbmcuaWRlYWxpc3RhLmNvbT4NCkRhdGU6IDIwMjUuIGF1Zy4gNS4s
+IEsgMjA6MTANClN1YmplY3Q6IENoZWFwIFNwYW5pc2ggcHJvcGVydHkgbmVhciB0aGUgYmVhY2gN
+ClRvOiBiYW55dXM1M0BnbWFpbC5jb20gPGJhbnl1czUzQGdtYWlsLmNvbT4NCg0KDQpCZWFjaGZy
+b250IGJhcmdhaW5zIGluIFNwYWluIOKAkyBzZWEgdmlld3MsIGxvdyBwcmljZXMgzY/igIwg4oCH
+wq0gzY/igIwg4oCHwq0gzY/igIwg4oCHwq0NCs2P4oCMIOKAh8KtIM2P4oCMIOKAh8KtIM2P4oCM
+IOKAh8KtIM2P4oCMIOKAh8KtIM2P4oCMIOKAh8KtIM2P4oCMIOKAh8KtIM2P4oCMIOKAh8KtIM2P
+4oCMIOKAh8KtIM2P4oCMIOKAh8KtIM2P4oCMIOKAh8KtIM2P4oCMIOKAh8KtIM2P4oCMIOKAh8Kt
+DQrNj+KAjCDigIfCrSDNj+KAjCDigIfCrSDNj+KAjCDigIfCrSDNj+KAjCDigIfCrSDNj+KAjCDi
+gIfCrSDNj+KAjCDigIfCrSDNj+KAjCDigIfCrSDNj+KAjCDigIfCrSDNj+KAjCDigIfCrSDNj+KA
+jCDigIfCrSDNj+KAjCDigIfCrSDNj+KAjCDigIfCrQ0KzY/igIwg4oCHwq0gzY/igIwg4oCHwq0g
+zY/igIwg4oCHwq0gzY/igIwg4oCHwq0gzY/igIwg4oCHwq0gzY/igIwg4oCHwq0gzY/igIwg4oCH
+wq0gzY/igIwg4oCHwq0gzY/igIwg4oCHwq0gzY/igIwg4oCHwq0gzY/igIwg4oCHwq0gzY/igIwg
+4oCHwq0NCs2P4oCMIOKAh8KtIM2P4oCMIOKAh8KtIM2P4oCMIOKAh8KtIM2P4oCMIOKAh8KtIM2P
+4oCMIOKAh8KtIM2P4oCMIOKAh8KtIM2P4oCMIOKAh8KtIM2P4oCMIOKAh8KtIM2P4oCMIOKAh8Kt
+IM2P4oCMIOKAh8KtIM2P4oCMIOKAh8KtIM2P4oCMIOKAh8KtDQrNj+KAjCDigIfCrSDNj+KAjCDi
+gIfCrSDNj+KAjCDigIfCrSDNj+KAjCDigIfCrSDNj+KAjCDigIfCrSDNj+KAjCDigIfCrSDNj+KA
+jCDigIfCrSDNj+KAjCDigIfCrSDNj+KAjCDigIfCrSDNj+KAjCDigIfCrSDNj+KAjCDigIfCrSDN
+j+KAjCDigIfCrQ0KzY/igIwg4oCHwq0gzY/igIwg4oCHwq0gzY/igIwg4oCHwq0gzY/igIwg4oCH
+wq0gzY/igIwg4oCHwq0gzY/igIwg4oCHwq0gzY/igIwg4oCHwq0gzY/igIwg4oCHwq0gzY/igIwg
+4oCHwq0gzY/igIwg4oCHwq0gzY/igIwg4oCHwq0gzY/igIwg4oCHwq0NCs2P4oCMIOKAh8KtIM2P
+4oCMIOKAh8KtIM2P4oCMIOKAh8KtIM2P4oCMIOKAh8KtIM2P4oCMIOKAh8KtIM2P4oCMIOKAh8Kt
+IM2P4oCMIOKAh8KtIM2P4oCMIOKAh8KtIM2P4oCMIOKAh8KtIM2P4oCMIOKAh8KtIM2P4oCMIOKA
+h8KtIM2P4oCMIOKAh8KtDQrNj+KAjCDigIfCrSDNj+KAjCDigIfCrSDNj+KAjCDigIfCrSDNj+KA
+jCDigIfCrSDNj+KAjCDigIfCrSDNj+KAjCDigIfCrSDNj+KAjCDigIfCrSDNj+KAjCDigIfCrSDN
+j+KAjCDigIfCrSDNj+KAjCDigIfCrSDNj+KAjCDigIfCrSDNj+KAjCDigIfCrQ0KzY/igIwg4oCH
+wq0gzY/igIwg4oCHwq0gzY/igIwg4oCHwq0gzY/igIwg4oCHwq0gzY/igIwg4oCHwq0gzY/igIwg
+4oCHwq0gzY/igIwg4oCHwq0gzY/igIwg4oCHwq0gzY/igIwg4oCHwq0gzY/igIwg4oCHwq0gzY/i
+gIwg4oCHwq0gzY/igIwg4oCHwq0NCs2P4oCMIOKAh8KtIM2P4oCMIOKAh8KtIM2P4oCMIOKAh8Kt
+IM2P4oCMIOKAh8KtIM2P4oCMIOKAh8KtIM2P4oCMIOKAh8KtIM2P4oCMIOKAh8KtIM2P4oCMIOKA
+h8KtIM2P4oCMIOKAh8KtIM2P4oCMIOKAh8KtIFRoaXMgd2VlaywNCmRpc2NvdmVyIGFmZm9yZGFi
+bGUgYmVhY2hmcm9udCBwcm9wZXJ0eSBpbiBTcGFpbiBpbiBzdW1tZXIgMjAyNS4gRnJvbQ0KQWxp
+Y2FudGUgdG8gdGhlIENvc3RhIGRlbCBTb2wsIGV4cGxvcmUgc2VhLXZpZXcgaG9tZXMgZm9yIHNh
+bGUgdW5kZXINCuKCrDI1MCwwMDAuDQpbaW1hZ2U6IGlkZWFsaXN0YS9uZXdzXQ0KPGh0dHBzOi8v
+bC5tYWlsaW5nLmlkZWFsaXN0YS5jb20vcnRzL2dvMi5hc3B4P2g9MTk5NDU1NyZ0cD1pLTFOR0It
+UTJRLVVrUC03enlTNXItMXMtN3E0dGwtMWMtN3p5QWNTLWxDQVZCTjRGVXUtVG5rVjMmcGk9MjFP
+RUs0OTVqSHFzREl6LURSdkpLckNqN3o1dHd3QmJhTGZKZ0swc01EcyZ4PTkyMTU5ODg1JmhwMj0z
+NDk5YmU0NmI1MDdiZDYyNjk3MDhhZDhkNjVkYTMxNmQ2MTJjYzk3M2Y1NmY1OTM1MWMxYTkxOTE3
+Mjc5ZmY5Pg0KDQpDaGVhcCBTcGFuaXNoIHByb3BlcnR5IG5lYXIgdGhlIGJlYWNoDQo8aHR0cHM6
+Ly9sLm1haWxpbmcuaWRlYWxpc3RhLmNvbS9ydHMvZ28yLmFzcHg/aD0xOTk0NTU4JnRwPWktMU5H
+Qi1RMlEtVWtQLTd6eVM1ci0xcy03cTR0bC0xYy03enlBY1MtbENBVkJONEZVdS1UbmtWMyZwaT0y
+MU9FSzQ5NWpIcXNESXotRFJ2SktyQ2o3ejV0d3dCYmFMZkpnSzBzTURzJng9OTIxNTk4ODUmaHAy
+PWJhMDUyZjFiMjExMGE3NjBkZGNkMGJjZjJkZTA2MTk2Mzk1ZWMzZTE0MWM4NzE0ZTUzNmRlYWZk
+MzFkMThkYWM+DQppZGVhbGlzdGEvbmV3cw0KW2ltYWdlOiBDaGVhcCBiZWFjaCBob3VzZXMgaW4g
+U3BhaW5dDQo8aHR0cHM6Ly9sLm1haWxpbmcuaWRlYWxpc3RhLmNvbS9ydHMvZ28yLmFzcHg/aD0x
+OTk0NTU5JnRwPWktMU5HQi1RMlEtVWtQLTd6eVM1ci0xcy03cTR0bC0xYy03enlBY1MtbENBVkJO
+NEZVdS1UbmtWMyZwaT0yMU9FSzQ5NWpIcXNESXotRFJ2SktyQ2o3ejV0d3dCYmFMZkpnSzBzTURz
+Jng9OTIxNTk4ODUmaHAyPWVhNGY0MmI3NzU1ZmI4OWE5MWY3ZjQ4YzIyMmEyMzA3NTM4YzcyYTVk
+YTYyZDFiOThmYjJlNzhlZWY2YWRhZjg+DQoNCkRyZWFtaW5nIG9mIGxpZmUgYnkgdGhlIHNlYT8g
+U3BhaW4gc3RpbGwgb2ZmZXJzIHNvbWUgb2YgdGhlIGJlc3QtdmFsdWUNCmJlYWNoZnJvbnQgcHJv
+cGVydHkgaW4gRXVyb3BlLiBGcm9tIHRoZSBDb3N0YSBkZWwgU29sIHRvIEFsaWNhbnRlLCBkaXNj
+b3Zlcg0Kc3VuLXNvYWtlZCBob21lcyBuZWFyIHRoZSBiZWFjaCBmb3IgdW5kZXIg4oKsMjUwLDAw
+MC4gRmluZCB5b3VyIHBlcmZlY3QNCmNvYXN0YWwgZXNjYXBlIHdpdGhvdXQgYnJlYWtpbmcgdGhl
+IGJhbmsuDQpLZWVwIHJlYWRpbmcNCjxodHRwczovL2wubWFpbGluZy5pZGVhbGlzdGEuY29tL3J0
+cy9nbzIuYXNweD9oPTE5OTQ1NjAmdHA9aS0xTkdCLVEyUS1Va1AtN3p5UzVyLTFzLTdxNHRsLTFj
+LTd6eUFjUy1sQ0FWQk40RlV1LVRua1YzJnBpPTIxT0VLNDk1akhxc0RJei1EUnZKS3JDajd6NXR3
+d0JiYUxmSmdLMHNNRHMmeD05MjE1OTg4NSZocDI9YjRhZTNiODM3ZGNmNDgyZDI2NzAwNTRhMmJj
+M2NhYmE2ZGRiOGQ1NmY3ZDRhNmEzZTRhZjZkZDMxMzdlZWVhMj4NCltpbWFnZTogaWRlYWxpc3Rh
+L25ld3NdDQo8aHR0cHM6Ly9sLm1haWxpbmcuaWRlYWxpc3RhLmNvbS9ydHMvZ28yLmFzcHg/aD0x
+OTk0NTYxJnRwPWktMU5HQi1RMlEtVWtQLTd6eVM1ci0xcy03cTR0bC0xYy03enlBY1MtbENBVkJO
+NEZVdS1UbmtWMyZwaT0yMU9FSzQ5NWpIcXNESXotRFJ2SktyQ2o3ejV0d3dCYmFMZkpnSzBzTURz
+Jng9OTIxNTk4ODUmaHAyPWQ4ZTNjZDU1NGJhZmQwMmM3YjQwMjViNDMyOGU5OWM1YmJlZmY2NGEz
+YTIzZGI1NzM1NmVlZmY5ZjliZTBkZTU+DQrCqQ0KMjAwMC0yMDI1IGlkZWFsaXN0YQ0KSWYgdGhp
+cyBpbmZvcm1hdGlvbiBkb2Vzbid0IGludGVyZXN0IHlvdSwgY2xpY2sgaGVyZSB0byB1bnN1YnNj
+cmliZQ0KPGh0dHBzOi8vbC5tYWlsaW5nLmlkZWFsaXN0YS5jb20vcnRzL2dvMi5hc3B4P2g9MTk5
+NDU2MiZ0cD1pLTFOR0ItUTJRLVVrUC03enlTNXItMXMtN3E0dGwtMWMtN3p5QWNTLWxDQVZCTjRG
+VXUtVG5rVjMmcGk9MjFPRUs0OTVqSHFzREl6LURSdkpLckNqN3o1dHd3QmJhTGZKZ0swc01EcyZ4
+PWJhbnl1czUzQGdtYWlsLmNvbSU3YzMzMWExYmUwMjczY2EzNTlmNjkyMWMwZTliMjRmOGFjJTdj
+OTIxNTk4ODUmaHAyPWJlMTBjYTBhZjdjZTEzMmU1MTVlYTUwZThhMjZjM2Q1NDViZTdkNzYyYzQ4
+NzM1YmM2MTQyYTNmMTQyOTZjMDM+DQppZGVhbGlzdGEgb24geW91ciBtb2JpbGUNCltpbWFnZTog
+YXBwIHN0b3JlXQ0KPGh0dHBzOi8vbC5tYWlsaW5nLmlkZWFsaXN0YS5jb20vcnRzL2dvMi5hc3B4
+P2g9MTk5NDU2MyZ0cD1pLTFOR0ItUTJRLVVrUC03enlTNXItMXMtN3E0dGwtMWMtN3p5QWNTLWxD
+QVZCTjRGVXUtVG5rVjMmcGk9MjFPRUs0OTVqSHFzREl6LURSdkpLckNqN3o1dHd3QmJhTGZKZ0sw
+c01Ecz4NCiAgW2ltYWdlOiBnb29nbGUgcGxheV0NCjxodHRwczovL2wubWFpbGluZy5pZGVhbGlz
+dGEuY29tL3J0cy9nbzIuYXNweD9oPTE5OTQ1NjMmdHA9aS0xTkdCLVEyUS1Va1AtN3p5UzVyLTFz
+LTdxNHRsLTFjLTd6eUFjUy1sQ0FWQk40RlV1LVRua1YzJnBpPTIxT0VLNDk1akhxc0RJei1EUnZK
+S3JDajd6NXR3d0JiYUxmSmdLMHNNRHM+DQoNCk90aGVyIGlkZWFsaXN0YSB3ZWJzaXRlcw0KW2lt
+YWdlOiBpZGVhbGlzdGEvbmV3c10NCjxodHRwczovL2wubWFpbGluZy5pZGVhbGlzdGEuY29tL3J0
+cy9nbzIuYXNweD9oPTE5OTQ1NjQmdHA9aS0xTkdCLVEyUS1Va1AtN3p5UzVyLTFzLTdxNHRsLTFj
+LTd6eUFjUy1sQ0FWQk40RlV1LVRua1YzJnBpPTIxT0VLNDk1akhxc0RJei1EUnZKS3JDajd6NXR3
+d0JiYUxmSmdLMHNNRHMmeD05MjE1OTg4NSZocDI9YTc2ZTMzNzRhNjljNzMxNWM2ZjUwNWNmNTVh
+YTlhMTg3ZWVkYTMyZmQ3YTlkZjkyNTEzNjYwY2U0N2ZhOGU5Mz4NCltpbWFnZToNCmlkZWFsaXN0
+YS9oaXBvdGVjYXNdDQo8aHR0cHM6Ly9sLm1haWxpbmcuaWRlYWxpc3RhLmNvbS9ydHMvZ28yLmFz
+cHg/aD0xOTk0NTY1JnRwPWktMU5HQi1RMlEtVWtQLTd6eVM1ci0xcy03cTR0bC0xYy03enlBY1Mt
+bENBVkJONEZVdS1UbmtWMyZwaT0yMU9FSzQ5NWpIcXNESXotRFJ2SktyQ2o3ejV0d3dCYmFMZkpn
+SzBzTURzJng9OTIxNTk4ODUmaHAyPTA0YjkxYThjMmM3OTczYjVlZTljMDRkMzc3ZmIyMWE0OWNi
+ZGYyMzIxNjA1MWNmYWZmN2FkZGRmNTg0M2UyNmU+DQpbaW1hZ2U6DQppZGVhbGlzdGEvdG9vbHNd
+DQo8aHR0cHM6Ly9sLm1haWxpbmcuaWRlYWxpc3RhLmNvbS9ydHMvZ28yLmFzcHg/aD0xOTk0NTY2
+JnRwPWktMU5HQi1RMlEtVWtQLTd6eVM1ci0xcy03cTR0bC0xYy03enlBY1MtbENBVkJONEZVdS1U
+bmtWMyZwaT0yMU9FSzQ5NWpIcXNESXotRFJ2SktyQ2o3ejV0d3dCYmFMZkpnSzBzTURzJng9OTIx
+NTk4ODUmaHAyPWJkNjdlOTEzZjM3MTUxNzM4ZWY4ZjA5NGQ3MWYxOTcwNWJkOWZiYWEyMThjOTg3
+ZTZmZWFiODIyNTYxNmRjY2E+DQpbaW1hZ2U6DQpSZW50YWxpYV0NCjxodHRwczovL2wubWFpbGlu
+Zy5pZGVhbGlzdGEuY29tL3J0cy9nbzIuYXNweD9oPTE5OTQ1NjcmdHA9aS0xTkdCLVEyUS1Va1At
+N3p5UzVyLTFzLTdxNHRsLTFjLTd6eUFjUy1sQ0FWQk40RlV1LVRua1YzJnBpPTIxT0VLNDk1akhx
+c0RJei1EUnZKS3JDajd6NXR3d0JiYUxmSmdLMHNNRHM+DQpGb2xsb3cgdXMNCltpbWFnZTogRmFj
+ZWJvb2tdDQo8aHR0cHM6Ly9sLm1haWxpbmcuaWRlYWxpc3RhLmNvbS9ydHMvZ28yLmFzcHg/aD0x
+OTk0NTY4JnRwPWktMU5HQi1RMlEtVWtQLTd6eVM1ci0xcy03cTR0bC0xYy03enlBY1MtbENBVkJO
+NEZVdS1UbmtWMyZwaT0yMU9FSzQ5NWpIcXNESXotRFJ2SktyQ2o3ejV0d3dCYmFMZkpnSzBzTURz
+Pg0KICBbaW1hZ2U6IFR3aXR0ZXJdDQo8aHR0cHM6Ly9sLm1haWxpbmcuaWRlYWxpc3RhLmNvbS9y
+dHMvZ28yLmFzcHg/aD0xOTk0NTY5JnRwPWktMU5HQi1RMlEtVWtQLTd6eVM1ci0xcy03cTR0bC0x
+Yy03enlBY1MtbENBVkJONEZVdS1UbmtWMyZwaT0yMU9FSzQ5NWpIcXNESXotRFJ2SktyQ2o3ejV0
+d3dCYmFMZkpnSzBzTURzPg0KICBbaW1hZ2U6IFlvdXR1YmVdDQo8aHR0cHM6Ly9sLm1haWxpbmcu
+aWRlYWxpc3RhLmNvbS9ydHMvZ28yLmFzcHg/aD0xOTk0NTcwJnRwPWktMU5HQi1RMlEtVWtQLTd6
+eVM1ci0xcy03cTR0bC0xYy03enlBY1MtbENBVkJONEZVdS1UbmtWMyZwaT0yMU9FSzQ5NWpIcXNE
+SXotRFJ2SktyQ2o3ejV0d3dCYmFMZkpnSzBzTURzPg0KICBbaW1hZ2U6IEluc3RhZ3JhbV0NCjxo
+dHRwczovL2wubWFpbGluZy5pZGVhbGlzdGEuY29tL3J0cy9nbzIuYXNweD9oPTE5OTQ1NzEmdHA9
+aS0xTkdCLVEyUS1Va1AtN3p5UzVyLTFzLTdxNHRsLTFjLTd6eUFjUy1sQ0FWQk40RlV1LVRua1Yz
+JnBpPTIxT0VLNDk1akhxc0RJei1EUnZKS3JDajd6NXR3d0JiYUxmSmdLMHNNRHM+DQoNCjxodHRw
+czovL2wubWFpbGluZy5pZGVhbGlzdGEuY29tL3J0cy91bi5hc3B4P3RwPWktMU5HQi1RMlEtVWtQ
+LTd6eVM1ci0xcy03cTR0bC0xYy03enlBY1MtbENBVkJONEZVdS1UbmtWMz4NCg==
+--0000000000006c965c063ba9b882
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"auto"></div><br><div class=3D"gmail_quote gmail_quote_container=
+"><div dir=3D"ltr" class=3D"gmail_attr">---------- Forwarded message ------=
+---<br>Felad=C3=B3: <strong class=3D"gmail_sendername" dir=3D"auto">idealis=
+ta</strong> <span dir=3D"auto">&lt;<a href=3D"mailto:idealista@mailing.idea=
+lista.com">idealista@mailing.idealista.com</a>&gt;</span><br>Date: 2025. au=
+g. 5., K 20:10<br>Subject: Cheap Spanish property near the beach<br>To: <a =
+href=3D"mailto:banyus53@gmail.com">banyus53@gmail.com</a> &lt;<a href=3D"ma=
+ilto:banyus53@gmail.com">banyus53@gmail.com</a>&gt;<br></div><br><br><u></u=
+><div style=3D"background-color:rgb(244,245,242)" marginwidth=3D"0" marginh=
+eight=3D"0"><span style=3D"font-size:1px;color:rgb(255,255,255);line-height=
+:1px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;display:none">B=
+eachfront bargains in Spain =E2=80=93 sea views, low prices =CD=8F=E2=80=8C=
+=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=
+=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=
+=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=
+=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=
+=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=
+=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=
+=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=
+=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=
+=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=
+=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=
+=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=
+=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=
+=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=
+=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=
+=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=
+=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=
+=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=
+=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=
+=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=
+=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=
+=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=
+=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=
+=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=
+=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=
+=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=
+=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=
+=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=
+=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=
+=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=
+=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=
+=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=
+=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=
+=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=
+=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=
+=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=
+=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=
+=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=
+=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=
+=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=
+=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=
+=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=
+=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=
+=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=
+=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=
+=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=
+=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=
+=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=
+=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=
+=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=
+=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=
+=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=
+=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=
+=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=
+=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=
+=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=
+=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=
+=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=
+=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=
+=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=
+=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=C2=A0=E2=80=87=C2=AD =CD=8F=E2=80=8C=
+=C2=A0=E2=80=87=C2=AD This week, discover affordable beachfront property in=
+ Spain in summer 2025. From Alicante to the Costa del Sol, explore sea-view=
+ homes for sale under =E2=82=AC250,000.</span><img height=3D"1" width=3D"1"=
+ style=3D"display: none;"><div><div id=3D"m_475615918469179870block-idealis=
+ta-news-content"><center> <table id=3D"m_475615918469179870newsletterBodyTa=
+ble" align=3D"center" style=3D"border-spacing:0px;border-collapse:collapse;=
+text-align:left;width:100%;max-width:600px;background:rgb(255,255,255);marg=
+in:0px;padding:0px;height:100%"><tbody><tr><td style=3D"margin:0px;padding:=
+0px;border-collapse:collapse;text-align:left;font:400 16px Arial"><table st=
+yle=3D"border-spacing:0px;border-collapse:collapse;text-align:left;width:10=
+0%;max-width:100%"><tbody><tr><td style=3D"margin:0px;padding:0px;border-co=
+llapse:collapse;text-align:left;font:400 16px Arial"><table style=3D"border=
+-spacing:0px;border-collapse:collapse;text-align:left;width:100%;min-width:=
+100%;float:none;clear:both;background:rgb(225,245,110);max-width:100%"><tbo=
+dy><tr><td style=3D"margin:0px;border-collapse:collapse;text-align:left;fon=
+t:400 16px Arial;padding:20px 30px"> <a href=3D"https://l.mailing.idealista=
+.com/rts/go2.aspx?h=3D1994557&amp;tp=3Di-1NGB-Q2Q-UkP-7zyS5r-1s-7q4tl-1c-7z=
+yAcS-lCAVBN4FUu-TnkV3&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&=
+amp;x=3D92159885&amp;hp2=3D3499be46b507bd6269708ad8d65da316d612cc973f56f593=
+51c1a91917279ff9" rel=3D"home noreferrer" title=3D"Go to idealista/news" st=
+yle=3D"color:rgb(31,127,197);text-decoration:none;font:400 16px Arial" targ=
+et=3D"_blank"> <img alt=3D"idealista/news" style=3D"display: block; height:=
+ auto; line-height: 100%; outline: 0px; text-decoration: none; border: 0px =
+none;"> </a></td><td style=3D"margin:0px;padding:0px;border-collapse:collap=
+se;text-align:left;font:400 16px Arial"></td></tr></tbody></table><table bo=
+rder=3D"0" cellpadding=3D"0" cellspacing=3D"0" id=3D"m_475615918469179870ma=
+inContent" style=3D"border-spacing:0px;border-collapse:collapse;text-align:=
+left;width:100%;max-width:100%"><tbody><tr><td style=3D"margin:0px;border-c=
+ollapse:collapse;text-align:left;font:400 16px Arial;padding:0px 30px;width=
+:100%"><div style=3D"margin:0px;padding:0px"><center> <span content=3D"Chea=
+p Spanish property near the beach" style=3D"display:block"></span><table bo=
+rder=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-spacing:0px;=
+border-collapse:collapse;width:100%;text-align:left;margin:0px auto;max-wid=
+th:100%"><tbody><tr><td style=3D"margin:0px;border-collapse:collapse;text-a=
+lign:left;font:400 16px Arial;border-bottom:0px;padding:24px 0px 0px"><tabl=
+e border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-spacing:=
+0px;border-collapse:collapse;text-align:left;width:100%;max-width:100%"><tb=
+ody><tr><td style=3D"margin:0px;border-collapse:collapse;text-align:left;fo=
+nt:400 16px Arial;width:100%;padding:6px 0px"><h1 style=3D"margin:0px;paddi=
+ng:0px;display:block;font:700 20px Arial,sans-serif"> <a href=3D"https://l.=
+mailing.idealista.com/rts/go2.aspx?h=3D1994558&amp;tp=3Di-1NGB-Q2Q-UkP-7zyS=
+5r-1s-7q4tl-1c-7zyAcS-lCAVBN4FUu-TnkV3&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5=
+twwBbaLfJgK0sMDs&amp;x=3D92159885&amp;hp2=3Dba052f1b2110a760ddcd0bcf2de0619=
+6395ec3e141c8714e536deafd31d18dac" style=3D"color:rgb(31,127,197);display:b=
+lock;font:700 20px Arial,sans-serif;text-decoration:none" target=3D"_blank"=
+ rel=3D"noreferrer"> Cheap Spanish property near the beach </a></h1></td></=
+tr><tr><td style=3D"margin:0px;border-collapse:collapse;text-align:left;fon=
+t:400 14px Arial;padding:6px 0px;color:rgb(146,146,146);width:100%;display:=
+none"> idealista/news</td></tr><tr><td style=3D"padding:6px 0px;margin:0px;=
+border-collapse:collapse;text-align:left;font:400 16px Arial;width:100%"> <=
+a href=3D"https://l.mailing.idealista.com/rts/go2.aspx?h=3D1994559&amp;tp=
+=3Di-1NGB-Q2Q-UkP-7zyS5r-1s-7q4tl-1c-7zyAcS-lCAVBN4FUu-TnkV3&amp;pi=3D21OEK=
+495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&amp;x=3D92159885&amp;hp2=3Dea4f42b77=
+55fb89a91f7f48c222a2307538c72a5da62d1b98fb2e78eef6adaf8" style=3D"color:rgb=
+(31,127,197);text-decoration:none;font:400 16px Arial" target=3D"_blank" re=
+l=3D"noreferrer"> <img width=3D"530" alt=3D"Cheap beach houses in Spain" ti=
+tle=3D"" style=3D"border: 0px none; display: block; height: auto; line-heig=
+ht: 100%; outline: 0px; text-decoration: none; width: 100%;"> </a></td></tr=
+><tr><td style=3D"padding:6px 0px;margin:0px;border-collapse:collapse;text-=
+align:left;font:400 16px/24px Arial,sans-serif;width:100%;color:rgb(20,20,2=
+0)"><p style=3D"padding:0px;margin:0px">Dreaming of life by the sea? Spain =
+still offers some of the best-value beachfront property in Europe. From the=
+ Costa del Sol to Alicante, discover sun-soaked homes near the beach for un=
+der =E2=82=AC250,000. Find your perfect coastal escape without breaking the=
+ bank.</p></td></tr><tr><td style=3D"margin:0px;padding:16px 0px 0px;border=
+-collapse:collapse;text-align:left;font:400 16px Arial"> <a href=3D"https:/=
+/l.mailing.idealista.com/rts/go2.aspx?h=3D1994560&amp;tp=3Di-1NGB-Q2Q-UkP-7=
+zyS5r-1s-7q4tl-1c-7zyAcS-lCAVBN4FUu-TnkV3&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&amp;x=3D92159885&amp;hp2=3Db4ae3b837dcf482d2670054a2bc3=
+caba6ddb8d56f7d4a6a3e4af6dd3137eeea2" style=3D"color:rgb(31,127,197);text-d=
+ecoration:none;font:400 16px Arial" target=3D"_blank" rel=3D"noreferrer">Ke=
+ep reading</a></td></tr></tbody></table></td></tr></tbody></table></center>=
+</div></td></tr></tbody></table><table border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" id=3D"m_475615918469179870footer" style=3D"border-spacing:0px;=
+border-collapse:collapse;text-align:left;width:100%;background:rgb(235,235,=
+233);color:rgb(142,143,140);border-top:36px solid rgb(255,255,255);max-widt=
+h:100%"><tbody><tr><td style=3D"margin:0px;border-collapse:collapse;text-al=
+ign:left;font:400 16px Arial;color:rgb(142,143,140);padding:0px 0px 30px"><=
+div style=3D"margin:0px;padding:0px"><center><table border=3D"0" cellpaddin=
+g=3D"0" cellspacing=3D"0" style=3D"border-spacing:0px;border-collapse:colla=
+pse;width:100%;text-align:left;margin:0px auto;max-width:100%"><tbody><tr><=
+td style=3D"margin:0px;border-collapse:collapse;text-align:left;font:400 16=
+px Arial;color:rgb(142,143,140);padding:20px 30px 15px"> <a href=3D"https:/=
+/l.mailing.idealista.com/rts/go2.aspx?h=3D1994561&amp;tp=3Di-1NGB-Q2Q-UkP-7=
+zyS5r-1s-7q4tl-1c-7zyAcS-lCAVBN4FUu-TnkV3&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj=
+7z5twwBbaLfJgK0sMDs&amp;x=3D92159885&amp;hp2=3Dd8e3cd554bafd02c7b4025b4328e=
+99c5bbeff64a3a23db57356eeff9f9be0de5" title=3D"Go to idealista/news" style=
+=3D"color:rgb(31,127,197);text-decoration:none;font:400 16px Arial" target=
+=3D"_blank" rel=3D"noreferrer"> <img alt=3D"idealista/news" rel=3D"home" st=
+yle=3D"display: block; height: auto; line-height: 100%; outline: 0px; text-=
+decoration: none; border: 0px none;"> </a></td><td style=3D"margin:0px;bord=
+er-collapse:collapse;text-align:left;font:400 14px Arial;color:rgb(142,143,=
+140);padding:15px 30px 5px;width:100%"> =C2=A9 2000-2025 idealista</td></tr=
+><tr><td colspan=3D"2" style=3D"margin:0px;border-collapse:collapse;text-al=
+ign:left;font:400 14px Arial;color:rgb(142,143,140);width:100%;padding:0px =
+30px 15px"> If this information doesn&#39;t interest you, <a href=3D"https:=
+//l.mailing.idealista.com/rts/go2.aspx?h=3D1994562&amp;tp=3Di-1NGB-Q2Q-UkP-=
+7zyS5r-1s-7q4tl-1c-7zyAcS-lCAVBN4FUu-TnkV3&amp;pi=3D21OEK495jHqsDIz-DRvJKrC=
+j7z5twwBbaLfJgK0sMDs&amp;x=3Dbanyus53@gmail.com%7c331a1be0273ca359f6921c0e9=
+b24f8ac%7c92159885&amp;hp2=3Dbe10ca0af7ce132e515ea50e8a26c3d545be7d762c4873=
+5bc6142a3f14296c03" style=3D"color:rgb(31,127,197);text-decoration:none;fon=
+t:400 14px Arial;padding-bottom:15px" target=3D"_blank" rel=3D"noreferrer">=
+click here to unsubscribe</a> </td></tr></tbody></table></center></div></td=
+></tr></tbody></table><table style=3D"border-spacing:0px;border-collapse:co=
+llapse;text-align:left;width:100%;max-width:100%"><tbody><tr><td style=3D"m=
+argin:0px;padding:0px;border-collapse:collapse;text-align:left;font:400 16p=
+x Arial"><div style=3D"margin:0px;padding:0px"><center><table id=3D"m_47561=
+5918469179870social-footer__wrapper" border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" style=3D"border-spacing:0px;border-collapse:collapse;width:100%;=
+text-align:left;margin:0px auto;background-color:rgb(244,245,242);max-width=
+:100%"><tbody><tr><td style=3D"margin:0px;padding:15px 0px 0px 30px;border-=
+collapse:collapse;text-align:left;font:400 14px/30px Arial;color:rgb(142,14=
+3,140)"> idealista on your mobile</td></tr><tr style=3D"border-bottom:15px =
+solid rgb(244,245,242)"><td style=3D"margin:0px;padding:0px 0px 0px 30px;bo=
+rder-collapse:collapse;text-align:left;font:400 14px/18px Arial"> <a href=
+=3D"https://l.mailing.idealista.com/rts/go2.aspx?h=3D1994563&amp;tp=3Di-1NG=
+B-Q2Q-UkP-7zyS5r-1s-7q4tl-1c-7zyAcS-lCAVBN4FUu-TnkV3&amp;pi=3D21OEK495jHqsD=
+Iz-DRvJKrCj7z5twwBbaLfJgK0sMDs" style=3D"color:rgb(31,127,197);text-decorat=
+ion:none;font:400 16px Arial;display:inline-block" target=3D"_blank" rel=3D=
+"noreferrer"> <img width=3D"32" height=3D"32" alt=3D"app store" title=3D"Ap=
+p store" style=3D"height: auto; line-height: 100%; outline: 0px; text-decor=
+ation: none; border: 0px none; display: inline;"></a> =C2=A0 <a href=3D"htt=
+ps://l.mailing.idealista.com/rts/go2.aspx?h=3D1994563&amp;tp=3Di-1NGB-Q2Q-U=
+kP-7zyS5r-1s-7q4tl-1c-7zyAcS-lCAVBN4FUu-TnkV3&amp;pi=3D21OEK495jHqsDIz-DRvJ=
+KrCj7z5twwBbaLfJgK0sMDs" style=3D"color:rgb(31,127,197);text-decoration:non=
+e;font:400 16px Arial;display:inline-block" target=3D"_blank" rel=3D"norefe=
+rrer"> <img width=3D"32" height=3D"32" alt=3D"google play" title=3D"Google =
+play" style=3D"height: auto; line-height: 100%; outline: 0px; text-decorati=
+on: none; border: 0px none; display: inline;"></a> =C2=A0</td></tr><tr><td =
+style=3D"margin:0px;padding:0px 0px 0px 30px;border-collapse:collapse;text-=
+align:left;font:400 14px/30px Arial;color:rgb(142,143,140)"> Other idealist=
+a websites</td></tr><tr style=3D"border-bottom:15px solid rgb(244,245,242)"=
+><td style=3D"margin:0px;padding:0px 0px 0px 30px;border-collapse:collapse;=
+text-align:left;font:400 14px/18px Arial"> <a href=3D"https://l.mailing.ide=
+alista.com/rts/go2.aspx?h=3D1994564&amp;tp=3Di-1NGB-Q2Q-UkP-7zyS5r-1s-7q4tl=
+-1c-7zyAcS-lCAVBN4FUu-TnkV3&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK=
+0sMDs&amp;x=3D92159885&amp;hp2=3Da76e3374a69c7315c6f505cf55aa9a187eeda32fd7=
+a9df92513660ce47fa8e93" style=3D"color:rgb(31,127,197);text-decoration:none=
+;font:400 16px Arial;display:inline-block" target=3D"_blank" rel=3D"norefer=
+rer"> <img alt=3D"idealista/news" title=3D"idealista/news" style=3D"height:=
+ auto; line-height: 100%; outline: 0px; text-decoration: none; border: 0px =
+none; display: inline;"> =C2=A0 </a> <a href=3D"https://l.mailing.idealista=
+.com/rts/go2.aspx?h=3D1994565&amp;tp=3Di-1NGB-Q2Q-UkP-7zyS5r-1s-7q4tl-1c-7z=
+yAcS-lCAVBN4FUu-TnkV3&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs&=
+amp;x=3D92159885&amp;hp2=3D04b91a8c2c7973b5ee9c04d377fb21a49cbdf23216051cfa=
+ff7adddf5843e26e" style=3D"color:rgb(31,127,197);text-decoration:none;font:=
+400 16px Arial;display:inline-block" target=3D"_blank" rel=3D"noreferrer"> =
+<img alt=3D"idealista/hipotecas" title=3D"idealista/hipotecas" style=3D"hei=
+ght: auto; line-height: 100%; outline: 0px; text-decoration: none; border: =
+0px none; display: inline;"> =C2=A0 </a> <a href=3D"https://l.mailing.ideal=
+ista.com/rts/go2.aspx?h=3D1994566&amp;tp=3Di-1NGB-Q2Q-UkP-7zyS5r-1s-7q4tl-1=
+c-7zyAcS-lCAVBN4FUu-TnkV3&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0s=
+MDs&amp;x=3D92159885&amp;hp2=3Dbd67e913f37151738ef8f094d71f19705bd9fbaa218c=
+987e6feab8225616dcca" style=3D"color:rgb(31,127,197);text-decoration:none;f=
+ont:400 16px Arial;display:inline-block" target=3D"_blank" rel=3D"noreferre=
+r"> <img alt=3D"idealista/tools" title=3D"idealista/tools" style=3D"height:=
+ auto; line-height: 100%; outline: 0px; text-decoration: none; border: 0px =
+none; display: inline;"> =C2=A0 </a> <a href=3D"https://l.mailing.idealista=
+.com/rts/go2.aspx?h=3D1994567&amp;tp=3Di-1NGB-Q2Q-UkP-7zyS5r-1s-7q4tl-1c-7z=
+yAcS-lCAVBN4FUu-TnkV3&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs"=
+ style=3D"color:rgb(31,127,197);text-decoration:none;font:400 16px Arial;di=
+splay:inline-block" target=3D"_blank" rel=3D"noreferrer"> <img alt=3D"Renta=
+lia" title=3D"Rentalia" style=3D"height: auto; line-height: 100%; outline: =
+0px; text-decoration: none; border: 0px none; display: inline;"> =C2=A0 </a=
+></td></tr><tr><td style=3D"margin:0px;padding:0px 0px 0px 30px;border-coll=
+apse:collapse;text-align:left;font:400 14px/30px Arial;color:rgb(142,143,14=
+0)"> Follow us</td></tr><tr style=3D"border-bottom:15px solid rgb(244,245,2=
+42)"><td style=3D"margin:0px;padding:0px 0px 0px 30px;border-collapse:colla=
+pse;text-align:left;font:400 14px/18px Arial"> <a href=3D"https://l.mailing=
+.idealista.com/rts/go2.aspx?h=3D1994568&amp;tp=3Di-1NGB-Q2Q-UkP-7zyS5r-1s-7=
+q4tl-1c-7zyAcS-lCAVBN4FUu-TnkV3&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaL=
+fJgK0sMDs" style=3D"color:rgb(31,127,197);text-decoration:none;font:400 16p=
+x Arial;display:inline-block" target=3D"_blank" rel=3D"noreferrer"> <img al=
+t=3D"Facebook" title=3D"Facebook" style=3D"height: auto; line-height: 100%;=
+ outline: 0px; text-decoration: none; border: 0px none; display: inline;"><=
+/a> =C2=A0 <a href=3D"https://l.mailing.idealista.com/rts/go2.aspx?h=3D1994=
+569&amp;tp=3Di-1NGB-Q2Q-UkP-7zyS5r-1s-7q4tl-1c-7zyAcS-lCAVBN4FUu-TnkV3&amp;=
+pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs" style=3D"color:rgb(31,127=
+,197);text-decoration:none;font:400 16px Arial;display:inline-block" target=
+=3D"_blank" rel=3D"noreferrer"> <img alt=3D"Twitter" title=3D"Twitter" styl=
+e=3D"height: auto; line-height: 100%; outline: 0px; text-decoration: none; =
+border: 0px none; display: inline;"></a> =C2=A0 <a href=3D"https://l.mailin=
+g.idealista.com/rts/go2.aspx?h=3D1994570&amp;tp=3Di-1NGB-Q2Q-UkP-7zyS5r-1s-=
+7q4tl-1c-7zyAcS-lCAVBN4FUu-TnkV3&amp;pi=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBba=
+LfJgK0sMDs" style=3D"color:rgb(31,127,197);text-decoration:none;font:400 16=
+px Arial;display:inline-block" target=3D"_blank" rel=3D"noreferrer"> <img a=
+lt=3D"Youtube" title=3D"Youtube" style=3D"height: auto; line-height: 100%; =
+outline: 0px; text-decoration: none; border: 0px none; display: inline;"></=
+a> =C2=A0 <a href=3D"https://l.mailing.idealista.com/rts/go2.aspx?h=3D19945=
+71&amp;tp=3Di-1NGB-Q2Q-UkP-7zyS5r-1s-7q4tl-1c-7zyAcS-lCAVBN4FUu-TnkV3&amp;p=
+i=3D21OEK495jHqsDIz-DRvJKrCj7z5twwBbaLfJgK0sMDs" style=3D"color:rgb(31,127,=
+197);text-decoration:none;font:400 16px Arial;display:inline-block" target=
+=3D"_blank" rel=3D"noreferrer"> <img alt=3D"Instagram" title=3D"Instagram" =
+style=3D"height: auto; line-height: 100%; outline: 0px; text-decoration: no=
+ne; border: 0px none; display: inline;"></a> =C2=A0</td></tr></tbody></tabl=
+e></center></div></td></tr></tbody></table></td></tr></tbody></table></td><=
+/tr></tbody></table> </center></div></div><img width=3D"1" height=3D"1" alt=
+=3D""><div style=3D"display:none"><a href=3D"https://l.mailing.idealista.co=
+m/rts/un.aspx?tp=3Di-1NGB-Q2Q-UkP-7zyS5r-1s-7q4tl-1c-7zyAcS-lCAVBN4FUu-TnkV=
+3" style=3D"display:none" target=3D"_blank" rel=3D"noreferrer"></a></div></=
+div></div>
+
+--0000000000006c965c063ba9b882--

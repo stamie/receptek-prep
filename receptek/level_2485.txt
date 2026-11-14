@@ -1,0 +1,522 @@
+Delivered-To: estampel@gmail.com
+Received: by 2002:ac8:4597:0:b0:4f1:a216:d5ee with SMTP id l23csp291981qtn;
+        Wed, 17 Dec 2025 00:12:33 -0800 (PST)
+X-Received: by 2002:a05:7301:c08a:b0:2ac:14e1:c67f with SMTP id 5a478bee46e88-2ac301a480emr8016640eec.10.1765959152594;
+        Wed, 17 Dec 2025 00:12:32 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1765959152; cv=none;
+        d=google.com; s=arc-20240605;
+        b=Jl5dbfRkXDwppd23PVKE7a3Oo8pKUIRGm7UzxImvFNs/MtneHX8Qgbc9Wva3Z20HS1
+         FRKjzczFJWtBFZsVNX2LhFovKMea7qYsDzzYla5FY041n43N8eYlDWDYeJAQLfuu032D
+         PdBZ8JQF97rFyLw+RD1FKzqreNuYZRRAp+hfLIUnKrM2+NJMeWSQa0DzXUBcLZuo74gs
+         zifNCWlMz0706TPlVa2C03uppxDAgrm2eR7xH8aq/F9L0tn7YoW7ZQFyuL/pOo2Gu3Oq
+         U0ro+x6kOU0cgEG1svV+66d8hyYzrNvf+7X70BurcSfx5RrU5f6wlfQnpRb+3fIDMMHk
+         tFnw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=3P02JX4mERi22PjV7XovG8VxYV5OfE8xpr2U0fyawmQ=;
+        fh=wF/Yrd2E0xeKwPH74kML7cQSth+Fl4bwhVNrybJ4uh4=;
+        b=lQpnPA0HLG5Qp3U5uBA6/12bS963aVjXCVWqHBSGkeVmmiaGn8dI/6sIcRyyWEy4FG
+         e1gQnYal3WXqPoKv5oL7uCu4wR74Q6h6FkCS4ROxgzyOV7aanVMfvMIUOeUjvzaGR5HB
+         ZuNYZY+NL5Lar2MYKbz8zVLuqU9M1DnXjBu+AABA0EajpgIM21f68crzKi92GG4NDP3y
+         bDXQUbTlXIy2PixoP9vkdEXiYvxIMPrcbkSGwrZWF1BPbGSmgyzJ5nkmhKmdzQ0hxMXG
+         EuX+H0MB6LAvLyZw83YqCMJ1UVRt9+HJGr4gQol3nYSFRyP2ugkF6Czaq5mIAmIu9nlF
+         0ssA==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=dMKxiYEC;
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <banyus53@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id 5a478bee46e88-2ae6154e785sor90201eec.7.2025.12.17.00.12.32
+        for <estampel@gmail.com>
+        (Google Transport Security);
+        Wed, 17 Dec 2025 00:12:32 -0800 (PST)
+Received-SPF: pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=dMKxiYEC;
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1765959150; x=1766563950; dara=google.com;
+        h=to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=3P02JX4mERi22PjV7XovG8VxYV5OfE8xpr2U0fyawmQ=;
+        b=dMKxiYECkRj2KQ6peTUodT5yt0vt4TjUK23r2vi+gLMVBLJX+vu/BSQh5Jjq2oOhsL
+         3bsxVwVEKrZIMu1YE7Mv56cO0rSE7dCpqbtH88ze+q8Vb0tzU6EfoeTeuDur90tnHtic
+         NcOaUPoiOAlJVK7U/yN2Fk+eQqT0yT6Iyv0lpxDLBQbRvDUf9Gj4AZk52lwRecczq/Vs
+         5sc3iQh1vKkzSCVNSqWIs1hZQZ1DkkhyixozYGmPA0clhnSV3vnosK2Uu/E2sSyOY+hx
+         mr1XAvqDkkppJHAfEJa4tTSEwhOA0EgJm9IU+zeFvbpxnuWkzb9MSKVTnR6mOu3NxR12
+         6LKw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1765959150; x=1766563950;
+        h=to:subject:message-id:date:from:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=3P02JX4mERi22PjV7XovG8VxYV5OfE8xpr2U0fyawmQ=;
+        b=SVjg1SFWZTh5CXpBCh/ha+FNBjRXVeyHzXvN/roD+es8YlVNLf99HTdo1Zixlav6Ox
+         lUeNJI2SncxCW8zFMtXv7BVwZvokXeJwMGcuGbVQFo7ktAXGlHZBaX6EYkn4MBe61Fxh
+         uDI9ZmzaoiHVuTaO6yG768hS9KQcBDHk90tdr3ftQa+onmkWzZ9PpiUUCxjR/mfkPRNV
+         DcFJlwOF66z7gYIu7Kjt1pl2sZzdbHJQn5eOf4Sg2j9fvyaK8pvkQ44VcBAVe+M4J+yU
+         vUQSCDo3T7EXT7ScClrZuMFqLkYeXyLNmaTLCOjNL1PGsu5JfKRqpAsZZZmocx7Njod1
+         q2PQ==
+X-Gm-Message-State: AOJu0YxkcfBgwupjwmRok9hxkKAbDvSdE524Tqutmo+qZPZIrDlbAXev
+	vy+c5EZCluMfr5qoI7LiNuwkyomUMzYeWsQ2OiBOcM6Z7/wmqyqD8A4SYP84VkuG5JT4JMYCNq2
+	EOs+KTqn5N6R32zNvAZgHL5XigoxQsnnxf0mdWMk=
+X-Gm-Gg: AY/fxX4lebGHBpCYDM+h0Wbg8hTtEzvWowxgxklQJ4Usy0XtRtAVUnq0u2HOzppqcqD
+	aPCjRnmbcc+m3fw3YwzMTQHfP39ZvozXe9rhK9KBzfDptDDcodnzUhkPzZkvqioSVZBojFhAUho
+	rO//GqFwcshAuw4DEFAqB76hVMBlUdODuLTh/UiKle6ZyHK64VL2mvL8bAUYAStW2TxP8BzZqsU
+	zqp+o46dKd4vhAd2jwSjghSWPIcT6M4NqMSwxWt6knPbdvAP/oMXfnfMbLzOpVEsoKppNBgZ8nM
+	p/fRZg7xCWdb2SDN/FbEvF6HMMLulCtpsTg7Xlq3aA78E039Swg=
+X-Google-Smtp-Source: AGHT+IFxQb52XVEnt4MNTdAx28vwjYweEek3xSKqsv1k2dueKtbsXyWQttm62qMW4M088VtM5gzpsKNZ+3/yikQXFmk=
+X-Received: by 2002:a05:701b:2415:b0:11b:bf3f:5240 with SMTP id
+ a92af1059eb24-11f34ac3861mr9807530c88.9.1765959150232; Wed, 17 Dec 2025
+ 00:12:30 -0800 (PST)
+MIME-Version: 1.0
+From: =?UTF-8?B?w4FnbmVzIEJ1Z8Ohcg==?= <banyus53@gmail.com>
+Date: Wed, 17 Dec 2025 09:12:00 +0100
+X-Gm-Features: AQt7F2pDopOt0jDkQA3YQOuyFW2fvBoyZB9SsPzRD-9EInIkqjGzD7_TMITdmb0
+Message-ID: <CA+39czWJzDAjj7c0yB32cu9DuYrVKdKwDq+h3PwW-bAgXqUR2g@mail.gmail.com>
+Subject: =?UTF-8?Q?v=C3=B6r=C3=B6slencse_narancs_leves?=
+To: Emese Stampel <estampel@gmail.com>
+Content-Type: multipart/alternative; boundary="000000000000d668210646216732"
+
+--000000000000d668210646216732
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+[image: =F0=9F=8D=8A][image: =F0=9F=8E=84]Narancsos v=C3=B6r=C3=B6slencsele=
+ves[image: =F0=9F=8E=84][image: =F0=9F=8D=8A]
+*2 adag
+Hozz=C3=A1val=C3=B3k:
+- 250 g v=C3=B6r=C3=B6slencse
+- 1 fej hagyma
+- 1 ek. olaj
+- 1/2 db narancs
+- 1 tk. =C5=91r=C3=B6lt gy=C3=B6mb=C3=A9r vagy kis darab friss lereszelve
+- 1 k=C3=A9shegy fah=C3=A9j
+- 1 tk. curry por
+- 1,2 l v=C3=ADz
+- 200 g k=C3=B3kusztejsz=C3=ADn
+- s=C3=B3, bors: =C3=ADzl=C3=A9s szerint
+[image: =F0=9F=91=A9=F0=9F=8F=BB=E2=80=8D=F0=9F=8D=B3] Elk=C3=A9sz=C3=ADt=
+=C3=A9s:
+- Az apr=C3=B3ra v=C3=A1gott hagym=C3=A1t lepir=C3=ADtjuk kev=C3=A9s olajon=
+, hozz=C3=A1adjuk a
+f=C5=B1szereket, majd azokat is =C3=A1tpir=C3=ADtjuk.
+- Mehet hozz=C3=A1 az =C3=A1tmosott lencse, fel=C3=B6ntj=C3=BCk v=C3=ADzzel=
+ =C3=A9s puh=C3=A1ra f=C5=91zz=C3=BCk. Ha
+sz=C3=BCks=C3=A9ges p=C3=B3toljuk a vizet.
+- Amikor elk=C3=A9sz=C3=BClt, hozz=C3=A1adjuk a tejsz=C3=ADnt, belereszelj=
+=C3=BCk egy f=C3=A9l bio
+narancs h=C3=A9j=C3=A1t =C3=A9s belefacsarjuk a lev=C3=A9t =C3=A9s sz=C3=BC=
+ks=C3=A9g eset=C3=A9n ut=C3=B3=C3=ADzes=C3=ADtj=C3=BCk.
+- P=C3=A1r percig m=C3=A9g f=C5=91zz=C3=BCk =C3=A9s el is k=C3=A9sz=C3=BClt=
+.
+- T=C3=A1lal=C3=A1shoz egy kev=C3=A9s extra tejsz=C3=ADnt adunk hozz=C3=A1 =
+=C3=A9s feketeszez=C3=A1mmal vagy
+petrezselyemz=C3=B6lddel d=C3=ADsz=C3=ADtj=C3=BCk.
+[image: =F0=9F=8E=84] Tarts vel=C3=BCnk az adventi id=C5=91szakban is, hisz=
+en a h=C3=BCvelyesek az
+=C3=BCnnepi =C3=A9telekb=C5=91l sem maradhatnak ki!
+[image: =F0=9F=8C=B1]Tov=C3=A1bbi infok =C3=A9s receptek:
+www.okosfeherje.hu
+<https://l.facebook.com/l.php?u=3Dhttp%3A%2F%2Fwww.okosfeherje.hu%2F%3Ffbcl=
+id%3DIwZXh0bgNhZW0CMTAAYnJpZBEweGhDVVR0TzFVT1NCeGczRHNydGMGYXBwX2lkEDIyMjAz=
+OTE3ODgyMDA4OTIAAR43E27DRvkRid0oZ3S05bNb7N8Cw0MXZYPaDG4Jx7shyBa-Ufx5g5P9sKE=
+q8w_aem_6wfS3pxCy4mriqMcQRhQIA&h=3DAT273Fi12Mf10OBWjHWWRl2n4hPW56wafoTQcRti=
+-jSZHVFvDj-ZrZ9vFMLRRrcfhAwmvgB_YOBxQUFeNG2GuU4NxwNx1XerRHMxB39_OnIuAXQ39zo=
+Vsy52I7aExu4Gm2-KJFSuPK9gwHEfQHPheJqArNuj93Vq&__tn__=3D-UK-R&c[0]=3DAT3cQHt=
+USNhle6v2vXSjcHwR2A8kLpbzOJ1CEZ15msdfxgaejRxU2-3U_09NY_Qb7JbVYSUc6FsFSL8LUt=
+m6PDgOvDf7ReGtbsVvFqa5Bn_Ovk70RQBnqTlo2bT9CSldTVHcU4z7f9reSWdJd066yaS1N4LLj=
+NMsmpz0t1qGclEw-h-Y3ze7DGDUnlDMzNeITpKcbbaeov0tb65UTJcsx5Y_cu3JsRrBMt0>
+#okosfeh=C3=A9rje
+<https://www.facebook.com/watch/hashtag/okosfeh%C3%A9rje?__eep__=3D6%2F&__c=
+ft__[0]=3DAZZua0TDV9e-EH7NtDWyaMnORB0fP3BD-_rIMUlW2ngk-rWQzUO4bP9RQgBZCt9Ux=
+spMcgVo2JDGeQIoZZM4yMwaekV-pBdfPflCwzmeJcJDqSwq-NE4CWbz03U_iCCRhn4lnOx_3tMT=
+ps0Bv-z_nwxpn6E8SuLt0kZrKJZcdzJQ-pllsMyfxKYpL01BO4A77mMLBWVWEqlK0esxtCt6ggt=
+m&__tn__=3D*NK-R>
+#fenntarthat=C3=B3
+<https://www.facebook.com/watch/hashtag/fenntarthat%C3%B3?__eep__=3D6%2F&__=
+cft__[0]=3DAZZua0TDV9e-EH7NtDWyaMnORB0fP3BD-_rIMUlW2ngk-rWQzUO4bP9RQgBZCt9U=
+xspMcgVo2JDGeQIoZZM4yMwaekV-pBdfPflCwzmeJcJDqSwq-NE4CWbz03U_iCCRhn4lnOx_3tM=
+Tps0Bv-z_nwxpn6E8SuLt0kZrKJZcdzJQ-pllsMyfxKYpL01BO4A77mMLBWVWEqlK0esxtCt6gg=
+tm&__tn__=3D*NK-R>
+#plantbased
+<https://www.facebook.com/watch/hashtag/plantbased?__eep__=3D6%2F&__cft__[0=
+]=3DAZZua0TDV9e-EH7NtDWyaMnORB0fP3BD-_rIMUlW2ngk-rWQzUO4bP9RQgBZCt9UxspMcgV=
+o2JDGeQIoZZM4yMwaekV-pBdfPflCwzmeJcJDqSwq-NE4CWbz03U_iCCRhn4lnOx_3tMTps0Bv-=
+z_nwxpn6E8SuLt0kZrKJZcdzJQ-pllsMyfxKYpL01BO4A77mMLBWVWEqlK0esxtCt6ggtm&__tn=
+__=3D*NK-R>
+#karacsony
+<https://www.facebook.com/watch/hashtag/karacsony?__eep__=3D6%2F&__cft__[0]=
+=3DAZZua0TDV9e-EH7NtDWyaMnORB0fP3BD-_rIMUlW2ngk-rWQzUO4bP9RQgBZCt9UxspMcgVo=
+2JDGeQIoZZM4yMwaekV-pBdfPflCwzmeJcJDqSwq-NE4CWbz03U_iCCRhn4lnOx_3tMTps0Bv-z=
+_nwxpn6E8SuLt0kZrKJZcdzJQ-pllsMyfxKYpL01BO4A77mMLBWVWEqlK0esxtCt6ggtm&__tn_=
+_=3D*NK-R>
+#advent
+<https://www.facebook.com/watch/hashtag/advent?__eep__=3D6%2F&__cft__[0]=3D=
+AZZua0TDV9e-EH7NtDWyaMnORB0fP3BD-_rIMUlW2ngk-rWQzUO4bP9RQgBZCt9UxspMcgVo2JD=
+GeQIoZZM4yMwaekV-pBdfPflCwzmeJcJDqSwq-NE4CWbz03U_iCCRhn4lnOx_3tMTps0Bv-z_nw=
+xpn6E8SuLt0kZrKJZcdzJQ-pllsMyfxKYpL01BO4A77mMLBWVWEqlK0esxtCt6ggtm&__tn__=
+=3D*NK-R>
+
+--000000000000d668210646216732
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><div dir=3D"auto" class=3D"gmail-html-div gmail-xdj266r gm=
+ail-x14z9mp gmail-xat24cr gmail-x1lziwak gmail-xexx8yu gmail-xyri2b gmail-x=
+18d9i69 gmail-x1c1uobl" style=3D"padding-bottom:0px;margin-bottom:0px;margi=
+n-top:0px;padding-top:0px;font-family:inherit"><div class=3D"gmail-html-div=
+ gmail-xdj266r gmail-x14z9mp gmail-xat24cr gmail-x1lziwak gmail-xexx8yu gma=
+il-xyri2b gmail-x18d9i69 gmail-x1c1uobl" style=3D"padding-bottom:0px;margin=
+-bottom:0px;margin-top:0px;padding-top:0px;font-family:inherit"><div class=
+=3D"gmail-x1l90r2v gmail-x1iorvi4 gmail-x1g0dm76 gmail-xpdmqnj" id=3D"gmail=
+-_r_a29_" style=3D"padding-top:4px;padding-bottom:16px;font-family:inherit"=
+><div class=3D"gmail-x78zum5 gmail-xdt5ytf gmail-xz62fqu gmail-x16ldp7u" st=
+yle=3D"display:flex;font-family:inherit"><div class=3D"gmail-xu06os2 gmail-=
+x1ok221b" style=3D"margin-top:5px;margin-bottom:5px;font-family:inherit"><s=
+pan class=3D"gmail-x193iq5w gmail-xeuugli gmail-x13faqbe gmail-x1vvkbs gmai=
+l-x1xmvt09 gmail-x1lliihq gmail-x1s928wv gmail-xhkezso gmail-x1gmr53x gmail=
+-x1cpjm7i gmail-x1fgarty gmail-x1943h6x gmail-xudqn12 gmail-x3x7a5m gmail-x=
+6prxxf gmail-xvq8zen gmail-xo1l8bm gmail-xzsf02u gmail-x1yc453h" dir=3D"aut=
+o" style=3D"display:block;max-width:100%;min-width:0px;word-break:break-wor=
+d;font-family:inherit;font-size:0.9375rem;line-height:1.3333;color:rgb(8,8,=
+9)"><div class=3D"gmail-html-div gmail-xdj266r gmail-x14z9mp gmail-xat24cr =
+gmail-x1lziwak gmail-xexx8yu gmail-xyri2b gmail-x18d9i69 gmail-x1c1uobl" st=
+yle=3D"padding-bottom:0px;margin-bottom:0px;margin-top:0px;padding-top:0px;=
+font-family:inherit"><div class=3D"gmail-xdj266r gmail-x14z9mp gmail-xat24c=
+r gmail-x1lziwak gmail-x1vvkbs gmail-x126k92a" style=3D"margin-bottom:0px;m=
+argin-top:0px;font-family:inherit"><div dir=3D"auto" style=3D"font-family:i=
+nherit"><span class=3D"gmail-html-span gmail-xexx8yu gmail-xyri2b gmail-x18=
+d9i69 gmail-x1c1uobl gmail-x1hl2dhg gmail-x16tdsg8 gmail-x1vvkbs gmail-x3nf=
+vp2 gmail-x1j61x8r gmail-x1fcty0u gmail-xdj266r gmail-xat24cr gmail-xm2jcoa=
+ gmail-x1mpyi22 gmail-xxymvpz gmail-xlup9mm gmail-x1kky2od" style=3D"text-a=
+lign:inherit;display:inline-flex;vertical-align:middle;width:16px;height:16=
+px;padding-bottom:0px;margin-bottom:0px;margin-top:0px;padding-top:0px;font=
+-family:inherit"><img height=3D"16" width=3D"16" class=3D"gmail-xz74otr gma=
+il-x15mokao gmail-x1ga7v0g gmail-x16uus16 gmail-xbiv7yw" alt=3D"=F0=9F=8D=
+=8A" src=3D"https://static.xx.fbcdn.net/images/emoji.php/v9/t38/1/16/1f34a.=
+png" style=3D"border: 0px; border-start-start-radius: 0px; border-end-end-r=
+adius: 0px; border-start-end-radius: 0px; border-end-start-radius: 0px; obj=
+ect-fit: fill;"></span><span class=3D"gmail-html-span gmail-xexx8yu gmail-x=
+yri2b gmail-x18d9i69 gmail-x1c1uobl gmail-x1hl2dhg gmail-x16tdsg8 gmail-x1v=
+vkbs gmail-x3nfvp2 gmail-x1j61x8r gmail-x1fcty0u gmail-xdj266r gmail-xat24c=
+r gmail-xm2jcoa gmail-x1mpyi22 gmail-xxymvpz gmail-xlup9mm gmail-x1kky2od" =
+style=3D"text-align:inherit;display:inline-flex;vertical-align:middle;width=
+:16px;height:16px;padding-bottom:0px;margin-bottom:0px;margin-top:0px;paddi=
+ng-top:0px;font-family:inherit"><img height=3D"16" width=3D"16" class=3D"gm=
+ail-xz74otr gmail-x15mokao gmail-x1ga7v0g gmail-x16uus16 gmail-xbiv7yw" alt=
+=3D"=F0=9F=8E=84" src=3D"https://static.xx.fbcdn.net/images/emoji.php/v9/t7=
+/1/16/1f384.png" style=3D"border: 0px; border-start-start-radius: 0px; bord=
+er-end-end-radius: 0px; border-start-end-radius: 0px; border-end-start-radi=
+us: 0px; object-fit: fill;"></span>Narancsos v=C3=B6r=C3=B6slencseleves<spa=
+n class=3D"gmail-html-span gmail-xexx8yu gmail-xyri2b gmail-x18d9i69 gmail-=
+x1c1uobl gmail-x1hl2dhg gmail-x16tdsg8 gmail-x1vvkbs gmail-x3nfvp2 gmail-x1=
+j61x8r gmail-x1fcty0u gmail-xdj266r gmail-xat24cr gmail-xm2jcoa gmail-x1mpy=
+i22 gmail-xxymvpz gmail-xlup9mm gmail-x1kky2od" style=3D"text-align:inherit=
+;display:inline-flex;vertical-align:middle;width:16px;height:16px;padding-b=
+ottom:0px;margin-bottom:0px;margin-top:0px;padding-top:0px;font-family:inhe=
+rit"><img height=3D"16" width=3D"16" class=3D"gmail-xz74otr gmail-x15mokao =
+gmail-x1ga7v0g gmail-x16uus16 gmail-xbiv7yw" alt=3D"=F0=9F=8E=84" src=3D"ht=
+tps://static.xx.fbcdn.net/images/emoji.php/v9/t7/1/16/1f384.png" style=3D"b=
+order: 0px; border-start-start-radius: 0px; border-end-end-radius: 0px; bor=
+der-start-end-radius: 0px; border-end-start-radius: 0px; object-fit: fill;"=
+></span><span class=3D"gmail-html-span gmail-xexx8yu gmail-xyri2b gmail-x18=
+d9i69 gmail-x1c1uobl gmail-x1hl2dhg gmail-x16tdsg8 gmail-x1vvkbs gmail-x3nf=
+vp2 gmail-x1j61x8r gmail-x1fcty0u gmail-xdj266r gmail-xat24cr gmail-xm2jcoa=
+ gmail-x1mpyi22 gmail-xxymvpz gmail-xlup9mm gmail-x1kky2od" style=3D"text-a=
+lign:inherit;display:inline-flex;vertical-align:middle;width:16px;height:16=
+px;padding-bottom:0px;margin-bottom:0px;margin-top:0px;padding-top:0px;font=
+-family:inherit"><img height=3D"16" width=3D"16" class=3D"gmail-xz74otr gma=
+il-x15mokao gmail-x1ga7v0g gmail-x16uus16 gmail-xbiv7yw" alt=3D"=F0=9F=8D=
+=8A" src=3D"https://static.xx.fbcdn.net/images/emoji.php/v9/t38/1/16/1f34a.=
+png" style=3D"border: 0px; border-start-start-radius: 0px; border-end-end-r=
+adius: 0px; border-start-end-radius: 0px; border-end-start-radius: 0px; obj=
+ect-fit: fill;"></span></div><div dir=3D"auto" style=3D"font-family:inherit=
+">*2 adag</div></div><div class=3D"gmail-x14z9mp gmail-xat24cr gmail-x1lziw=
+ak gmail-x1vvkbs gmail-xtlvy1s gmail-x126k92a" style=3D"margin-top:0.5em;ma=
+rgin-bottom:0px;font-family:inherit"><div dir=3D"auto" style=3D"font-family=
+:inherit"><span class=3D"gmail-html-span gmail-xdj266r gmail-x14z9mp gmail-=
+xat24cr gmail-x1lziwak gmail-xexx8yu gmail-xyri2b gmail-x18d9i69 gmail-x1c1=
+uobl gmail-x1hl2dhg gmail-x16tdsg8 gmail-x1vvkbs" style=3D"text-align:inher=
+it;padding-bottom:0px;margin-bottom:0px;margin-top:0px;padding-top:0px;font=
+-family:inherit"><a tabindex=3D"-1" class=3D"gmail-html-a gmail-xdj266r gma=
+il-x14z9mp gmail-xat24cr gmail-x1lziwak gmail-xexx8yu gmail-xyri2b gmail-x1=
+8d9i69 gmail-x1c1uobl gmail-x1hl2dhg gmail-x16tdsg8 gmail-x1vvkbs" style=3D=
+"color:rgb(56,88,152);text-align:inherit;padding-bottom:0px;margin-bottom:0=
+px;margin-top:0px;padding-top:0px;font-family:inherit"></a></span>Hozz=C3=
+=A1val=C3=B3k:</div><div dir=3D"auto" style=3D"font-family:inherit">- 250 g=
+ v=C3=B6r=C3=B6slencse </div><div dir=3D"auto" style=3D"font-family:inherit=
+">- 1 fej hagyma</div><div dir=3D"auto" style=3D"font-family:inherit">- 1 e=
+k. olaj</div><div dir=3D"auto" style=3D"font-family:inherit">- 1/2 db naran=
+cs </div><div dir=3D"auto" style=3D"font-family:inherit">- 1 tk. =C5=91r=C3=
+=B6lt gy=C3=B6mb=C3=A9r vagy kis darab friss lereszelve</div><div dir=3D"au=
+to" style=3D"font-family:inherit">- 1 k=C3=A9shegy fah=C3=A9j</div><div dir=
+=3D"auto" style=3D"font-family:inherit">- 1 tk. curry por </div><div dir=3D=
+"auto" style=3D"font-family:inherit">- 1,2 l v=C3=ADz </div><div dir=3D"aut=
+o" style=3D"font-family:inherit">- 200 g k=C3=B3kusztejsz=C3=ADn</div><div =
+dir=3D"auto" style=3D"font-family:inherit">- s=C3=B3, bors: =C3=ADzl=C3=A9s=
+ szerint </div></div><div class=3D"gmail-x14z9mp gmail-xat24cr gmail-x1lziw=
+ak gmail-x1vvkbs gmail-xtlvy1s gmail-x126k92a" style=3D"margin-top:0.5em;ma=
+rgin-bottom:0px;font-family:inherit"><div dir=3D"auto" style=3D"font-family=
+:inherit"><span class=3D"gmail-html-span gmail-xexx8yu gmail-xyri2b gmail-x=
+18d9i69 gmail-x1c1uobl gmail-x1hl2dhg gmail-x16tdsg8 gmail-x1vvkbs gmail-x3=
+nfvp2 gmail-x1j61x8r gmail-x1fcty0u gmail-xdj266r gmail-xat24cr gmail-xm2jc=
+oa gmail-x1mpyi22 gmail-xxymvpz gmail-xlup9mm gmail-x1kky2od" style=3D"text=
+-align:inherit;display:inline-flex;vertical-align:middle;width:16px;height:=
+16px;padding-bottom:0px;margin-bottom:0px;margin-top:0px;padding-top:0px;fo=
+nt-family:inherit"><img height=3D"16" width=3D"16" class=3D"gmail-xz74otr g=
+mail-x15mokao gmail-x1ga7v0g gmail-x16uus16 gmail-xbiv7yw" alt=3D"=F0=9F=91=
+=A9=F0=9F=8F=BB=E2=80=8D=F0=9F=8D=B3" src=3D"https://static.xx.fbcdn.net/im=
+ages/emoji.php/v9/t38/1/16/1f469_1f3fb_200d_1f373.png" style=3D"border: 0px=
+; border-start-start-radius: 0px; border-end-end-radius: 0px; border-start-=
+end-radius: 0px; border-end-start-radius: 0px; object-fit: fill;"></span> E=
+lk=C3=A9sz=C3=ADt=C3=A9s:</div><div dir=3D"auto" style=3D"font-family:inher=
+it">- Az apr=C3=B3ra v=C3=A1gott hagym=C3=A1t lepir=C3=ADtjuk kev=C3=A9s ol=
+ajon, hozz=C3=A1adjuk a f=C5=B1szereket, majd azokat is =C3=A1tpir=C3=ADtju=
+k.</div><div dir=3D"auto" style=3D"font-family:inherit">- Mehet hozz=C3=A1 =
+az =C3=A1tmosott lencse, fel=C3=B6ntj=C3=BCk v=C3=ADzzel =C3=A9s puh=C3=A1r=
+a f=C5=91zz=C3=BCk. Ha sz=C3=BCks=C3=A9ges p=C3=B3toljuk a vizet. </div><di=
+v dir=3D"auto" style=3D"font-family:inherit">- Amikor elk=C3=A9sz=C3=BClt, =
+hozz=C3=A1adjuk a tejsz=C3=ADnt, belereszelj=C3=BCk egy f=C3=A9l bio naranc=
+s h=C3=A9j=C3=A1t =C3=A9s belefacsarjuk a lev=C3=A9t =C3=A9s sz=C3=BCks=C3=
+=A9g eset=C3=A9n ut=C3=B3=C3=ADzes=C3=ADtj=C3=BCk.</div><div dir=3D"auto" s=
+tyle=3D"font-family:inherit">- P=C3=A1r percig m=C3=A9g f=C5=91zz=C3=BCk =
+=C3=A9s el is k=C3=A9sz=C3=BClt.</div><div dir=3D"auto" style=3D"font-famil=
+y:inherit">- T=C3=A1lal=C3=A1shoz egy kev=C3=A9s extra tejsz=C3=ADnt adunk =
+hozz=C3=A1 =C3=A9s feketeszez=C3=A1mmal vagy petrezselyemz=C3=B6lddel d=C3=
+=ADsz=C3=ADtj=C3=BCk. </div></div><div class=3D"gmail-x14z9mp gmail-xat24cr=
+ gmail-x1lziwak gmail-x1vvkbs gmail-xtlvy1s gmail-x126k92a" style=3D"margin=
+-top:0.5em;margin-bottom:0px;font-family:inherit"><div dir=3D"auto" style=
+=3D"font-family:inherit"><span class=3D"gmail-html-span gmail-xexx8yu gmail=
+-xyri2b gmail-x18d9i69 gmail-x1c1uobl gmail-x1hl2dhg gmail-x16tdsg8 gmail-x=
+1vvkbs gmail-x3nfvp2 gmail-x1j61x8r gmail-x1fcty0u gmail-xdj266r gmail-xat2=
+4cr gmail-xm2jcoa gmail-x1mpyi22 gmail-xxymvpz gmail-xlup9mm gmail-x1kky2od=
+" style=3D"text-align:inherit;display:inline-flex;vertical-align:middle;wid=
+th:16px;height:16px;padding-bottom:0px;margin-bottom:0px;margin-top:0px;pad=
+ding-top:0px;font-family:inherit"><img height=3D"16" width=3D"16" class=3D"=
+gmail-xz74otr gmail-x15mokao gmail-x1ga7v0g gmail-x16uus16 gmail-xbiv7yw" a=
+lt=3D"=F0=9F=8E=84" src=3D"https://static.xx.fbcdn.net/images/emoji.php/v9/=
+t7/1/16/1f384.png" style=3D"border: 0px; border-start-start-radius: 0px; bo=
+rder-end-end-radius: 0px; border-start-end-radius: 0px; border-end-start-ra=
+dius: 0px; object-fit: fill;"></span> Tarts vel=C3=BCnk az adventi id=C5=91=
+szakban is, hiszen a h=C3=BCvelyesek az =C3=BCnnepi =C3=A9telekb=C5=91l sem=
+ maradhatnak ki!</div></div><div class=3D"gmail-x14z9mp gmail-xat24cr gmail=
+-x1lziwak gmail-x1vvkbs gmail-xtlvy1s gmail-x126k92a" style=3D"margin-top:0=
+.5em;margin-bottom:0px;font-family:inherit"><div dir=3D"auto" style=3D"font=
+-family:inherit"><span class=3D"gmail-html-span gmail-xexx8yu gmail-xyri2b =
+gmail-x18d9i69 gmail-x1c1uobl gmail-x1hl2dhg gmail-x16tdsg8 gmail-x1vvkbs g=
+mail-x3nfvp2 gmail-x1j61x8r gmail-x1fcty0u gmail-xdj266r gmail-xat24cr gmai=
+l-xm2jcoa gmail-x1mpyi22 gmail-xxymvpz gmail-xlup9mm gmail-x1kky2od" style=
+=3D"text-align:inherit;display:inline-flex;vertical-align:middle;width:16px=
+;height:16px;padding-bottom:0px;margin-bottom:0px;margin-top:0px;padding-to=
+p:0px;font-family:inherit"><img height=3D"16" width=3D"16" class=3D"gmail-x=
+z74otr gmail-x15mokao gmail-x1ga7v0g gmail-x16uus16 gmail-xbiv7yw" alt=3D"=
+=F0=9F=8C=B1" src=3D"https://static.xx.fbcdn.net/images/emoji.php/v9/t69/1/=
+16/1f331.png" style=3D"border: 0px; border-start-start-radius: 0px; border-=
+end-end-radius: 0px; border-start-end-radius: 0px; border-end-start-radius:=
+ 0px; object-fit: fill;"></span>Tov=C3=A1bbi infok =C3=A9s receptek:</div><=
+div dir=3D"auto" style=3D"font-family:inherit"><span class=3D"gmail-html-sp=
+an gmail-xdj266r gmail-x14z9mp gmail-xat24cr gmail-x1lziwak gmail-xexx8yu g=
+mail-xyri2b gmail-x18d9i69 gmail-x1c1uobl gmail-x1hl2dhg gmail-x16tdsg8 gma=
+il-x1vvkbs" style=3D"text-align:inherit;padding-bottom:0px;margin-bottom:0p=
+x;margin-top:0px;padding-top:0px;font-family:inherit"><a class=3D"gmail-x1i=
+10hfl gmail-xjbqb8w gmail-x1ejq31n gmail-x18oe1m7 gmail-x1sy0etr gmail-xstz=
+fhl gmail-x972fbf gmail-x10w94by gmail-x1qhh985 gmail-x14e42zd gmail-x9f619=
+ gmail-x1ypdohk gmail-xt0psk2 gmail-x3ct3a4 gmail-xdj266r gmail-x14z9mp gma=
+il-xat24cr gmail-x1lziwak gmail-xexx8yu gmail-xyri2b gmail-x18d9i69 gmail-x=
+1c1uobl gmail-x16tdsg8 gmail-x1hl2dhg gmail-xggy1nq gmail-x1a2a7pz gmail-xk=
+rqix3 gmail-x1sur9pj gmail-x1fey0fg gmail-x1s688f" href=3D"https://l.facebo=
+ok.com/l.php?u=3Dhttp%3A%2F%2Fwww.okosfeherje.hu%2F%3Ffbclid%3DIwZXh0bgNhZW=
+0CMTAAYnJpZBEweGhDVVR0TzFVT1NCeGczRHNydGMGYXBwX2lkEDIyMjAzOTE3ODgyMDA4OTIAA=
+R43E27DRvkRid0oZ3S05bNb7N8Cw0MXZYPaDG4Jx7shyBa-Ufx5g5P9sKEq8w_aem_6wfS3pxCy=
+4mriqMcQRhQIA&amp;h=3DAT273Fi12Mf10OBWjHWWRl2n4hPW56wafoTQcRti-jSZHVFvDj-Zr=
+Z9vFMLRRrcfhAwmvgB_YOBxQUFeNG2GuU4NxwNx1XerRHMxB39_OnIuAXQ39zoVsy52I7aExu4G=
+m2-KJFSuPK9gwHEfQHPheJqArNuj93Vq&amp;__tn__=3D-UK-R&amp;c[0]=3DAT3cQHtUSNhl=
+e6v2vXSjcHwR2A8kLpbzOJ1CEZ15msdfxgaejRxU2-3U_09NY_Qb7JbVYSUc6FsFSL8LUtm6PDg=
+OvDf7ReGtbsVvFqa5Bn_Ovk70RQBnqTlo2bT9CSldTVHcU4z7f9reSWdJd066yaS1N4LLjNMsmp=
+z0t1qGclEw-h-Y3ze7DGDUnlDMzNeITpKcbbaeov0tb65UTJcsx5Y_cu3JsRrBMt0" rel=3D"n=
+ofollow noreferrer" role=3D"link" tabindex=3D"0" target=3D"_blank" style=3D=
+"color:rgb(0,100,209);text-decoration-line:none;outline:none;text-align:inh=
+erit;font-weight:600;list-style-type:none;box-sizing:border-box;background-=
+color:transparent;display:inline;padding-bottom:0px;border-top-style:none;b=
+order-bottom-width:0px;border-bottom-style:none;border-top-width:0px;margin=
+-bottom:0px;margin-top:0px;padding-top:0px;font-family:inherit">www.okosfeh=
+erje.hu</a></span></div></div><div class=3D"gmail-x14z9mp gmail-xat24cr gma=
+il-x1lziwak gmail-x1vvkbs gmail-xtlvy1s gmail-x126k92a" style=3D"margin-top=
+:0.5em;margin-bottom:0px;font-family:inherit"><div dir=3D"auto" style=3D"fo=
+nt-family:inherit"><span class=3D"gmail-html-span gmail-xdj266r gmail-x14z9=
+mp gmail-xat24cr gmail-x1lziwak gmail-xexx8yu gmail-xyri2b gmail-x18d9i69 g=
+mail-x1c1uobl gmail-x1hl2dhg gmail-x16tdsg8 gmail-x1vvkbs" style=3D"text-al=
+ign:inherit;padding-bottom:0px;margin-bottom:0px;margin-top:0px;padding-top=
+:0px;font-family:inherit"><a class=3D"gmail-x1i10hfl gmail-xjbqb8w gmail-x1=
+ejq31n gmail-x18oe1m7 gmail-x1sy0etr gmail-xstzfhl gmail-x972fbf gmail-x10w=
+94by gmail-x1qhh985 gmail-x14e42zd gmail-x9f619 gmail-x1ypdohk gmail-xt0psk=
+2 gmail-x3ct3a4 gmail-xdj266r gmail-x14z9mp gmail-xat24cr gmail-x1lziwak gm=
+ail-xexx8yu gmail-xyri2b gmail-x18d9i69 gmail-x1c1uobl gmail-x16tdsg8 gmail=
+-x1hl2dhg gmail-xggy1nq gmail-x1a2a7pz gmail-xkrqix3 gmail-x1sur9pj gmail-x=
+1fey0fg gmail-x1s688f" href=3D"https://www.facebook.com/watch/hashtag/okosf=
+eh%C3%A9rje?__eep__=3D6%2F&amp;__cft__[0]=3DAZZua0TDV9e-EH7NtDWyaMnORB0fP3B=
+D-_rIMUlW2ngk-rWQzUO4bP9RQgBZCt9UxspMcgVo2JDGeQIoZZM4yMwaekV-pBdfPflCwzmeJc=
+JDqSwq-NE4CWbz03U_iCCRhn4lnOx_3tMTps0Bv-z_nwxpn6E8SuLt0kZrKJZcdzJQ-pllsMyfx=
+KYpL01BO4A77mMLBWVWEqlK0esxtCt6ggtm&amp;__tn__=3D*NK-R" role=3D"link" tabin=
+dex=3D"0" style=3D"color:rgb(0,100,209);text-decoration-line:none;outline:n=
+one;text-align:inherit;font-weight:600;list-style-type:none;box-sizing:bord=
+er-box;background-color:transparent;display:inline;padding-bottom:0px;borde=
+r-top-style:none;border-bottom-width:0px;border-bottom-style:none;border-to=
+p-width:0px;margin-bottom:0px;margin-top:0px;padding-top:0px;font-family:in=
+herit">#okosfeh=C3=A9rje</a></span> <span class=3D"gmail-html-span gmail-xd=
+j266r gmail-x14z9mp gmail-xat24cr gmail-x1lziwak gmail-xexx8yu gmail-xyri2b=
+ gmail-x18d9i69 gmail-x1c1uobl gmail-x1hl2dhg gmail-x16tdsg8 gmail-x1vvkbs"=
+ style=3D"text-align:inherit;padding-bottom:0px;margin-bottom:0px;margin-to=
+p:0px;padding-top:0px;font-family:inherit"><a class=3D"gmail-x1i10hfl gmail=
+-xjbqb8w gmail-x1ejq31n gmail-x18oe1m7 gmail-x1sy0etr gmail-xstzfhl gmail-x=
+972fbf gmail-x10w94by gmail-x1qhh985 gmail-x14e42zd gmail-x9f619 gmail-x1yp=
+dohk gmail-xt0psk2 gmail-x3ct3a4 gmail-xdj266r gmail-x14z9mp gmail-xat24cr =
+gmail-x1lziwak gmail-xexx8yu gmail-xyri2b gmail-x18d9i69 gmail-x1c1uobl gma=
+il-x16tdsg8 gmail-x1hl2dhg gmail-xggy1nq gmail-x1a2a7pz gmail-xkrqix3 gmail=
+-x1sur9pj gmail-x1fey0fg gmail-x1s688f" href=3D"https://www.facebook.com/wa=
+tch/hashtag/fenntarthat%C3%B3?__eep__=3D6%2F&amp;__cft__[0]=3DAZZua0TDV9e-E=
+H7NtDWyaMnORB0fP3BD-_rIMUlW2ngk-rWQzUO4bP9RQgBZCt9UxspMcgVo2JDGeQIoZZM4yMwa=
+ekV-pBdfPflCwzmeJcJDqSwq-NE4CWbz03U_iCCRhn4lnOx_3tMTps0Bv-z_nwxpn6E8SuLt0kZ=
+rKJZcdzJQ-pllsMyfxKYpL01BO4A77mMLBWVWEqlK0esxtCt6ggtm&amp;__tn__=3D*NK-R" r=
+ole=3D"link" tabindex=3D"0" style=3D"color:rgb(0,100,209);text-decoration-l=
+ine:none;outline:none;text-align:inherit;font-weight:600;list-style-type:no=
+ne;box-sizing:border-box;background-color:transparent;display:inline;paddin=
+g-bottom:0px;border-top-style:none;border-bottom-width:0px;border-bottom-st=
+yle:none;border-top-width:0px;margin-bottom:0px;margin-top:0px;padding-top:=
+0px;font-family:inherit">#fenntarthat=C3=B3</a></span> <span class=3D"gmail=
+-html-span gmail-xdj266r gmail-x14z9mp gmail-xat24cr gmail-x1lziwak gmail-x=
+exx8yu gmail-xyri2b gmail-x18d9i69 gmail-x1c1uobl gmail-x1hl2dhg gmail-x16t=
+dsg8 gmail-x1vvkbs" style=3D"text-align:inherit;padding-bottom:0px;margin-b=
+ottom:0px;margin-top:0px;padding-top:0px;font-family:inherit"><a class=3D"g=
+mail-x1i10hfl gmail-xjbqb8w gmail-x1ejq31n gmail-x18oe1m7 gmail-x1sy0etr gm=
+ail-xstzfhl gmail-x972fbf gmail-x10w94by gmail-x1qhh985 gmail-x14e42zd gmai=
+l-x9f619 gmail-x1ypdohk gmail-xt0psk2 gmail-x3ct3a4 gmail-xdj266r gmail-x14=
+z9mp gmail-xat24cr gmail-x1lziwak gmail-xexx8yu gmail-xyri2b gmail-x18d9i69=
+ gmail-x1c1uobl gmail-x16tdsg8 gmail-x1hl2dhg gmail-xggy1nq gmail-x1a2a7pz =
+gmail-xkrqix3 gmail-x1sur9pj gmail-x1fey0fg gmail-x1s688f" href=3D"https://=
+www.facebook.com/watch/hashtag/plantbased?__eep__=3D6%2F&amp;__cft__[0]=3DA=
+ZZua0TDV9e-EH7NtDWyaMnORB0fP3BD-_rIMUlW2ngk-rWQzUO4bP9RQgBZCt9UxspMcgVo2JDG=
+eQIoZZM4yMwaekV-pBdfPflCwzmeJcJDqSwq-NE4CWbz03U_iCCRhn4lnOx_3tMTps0Bv-z_nwx=
+pn6E8SuLt0kZrKJZcdzJQ-pllsMyfxKYpL01BO4A77mMLBWVWEqlK0esxtCt6ggtm&amp;__tn_=
+_=3D*NK-R" role=3D"link" tabindex=3D"0" style=3D"color:rgb(0,100,209);text-=
+decoration-line:none;outline:none;text-align:inherit;font-weight:600;list-s=
+tyle-type:none;box-sizing:border-box;background-color:transparent;display:i=
+nline;padding-bottom:0px;border-top-style:none;border-bottom-width:0px;bord=
+er-bottom-style:none;border-top-width:0px;margin-bottom:0px;margin-top:0px;=
+padding-top:0px;font-family:inherit">#plantbased</a></span> <span class=3D"=
+gmail-html-span gmail-xdj266r gmail-x14z9mp gmail-xat24cr gmail-x1lziwak gm=
+ail-xexx8yu gmail-xyri2b gmail-x18d9i69 gmail-x1c1uobl gmail-x1hl2dhg gmail=
+-x16tdsg8 gmail-x1vvkbs" style=3D"text-align:inherit;padding-bottom:0px;mar=
+gin-bottom:0px;margin-top:0px;padding-top:0px;font-family:inherit"><a class=
+=3D"gmail-x1i10hfl gmail-xjbqb8w gmail-x1ejq31n gmail-x18oe1m7 gmail-x1sy0e=
+tr gmail-xstzfhl gmail-x972fbf gmail-x10w94by gmail-x1qhh985 gmail-x14e42zd=
+ gmail-x9f619 gmail-x1ypdohk gmail-xt0psk2 gmail-x3ct3a4 gmail-xdj266r gmai=
+l-x14z9mp gmail-xat24cr gmail-x1lziwak gmail-xexx8yu gmail-xyri2b gmail-x18=
+d9i69 gmail-x1c1uobl gmail-x16tdsg8 gmail-x1hl2dhg gmail-xggy1nq gmail-x1a2=
+a7pz gmail-xkrqix3 gmail-x1sur9pj gmail-x1fey0fg gmail-x1s688f" href=3D"htt=
+ps://www.facebook.com/watch/hashtag/karacsony?__eep__=3D6%2F&amp;__cft__[0]=
+=3DAZZua0TDV9e-EH7NtDWyaMnORB0fP3BD-_rIMUlW2ngk-rWQzUO4bP9RQgBZCt9UxspMcgVo=
+2JDGeQIoZZM4yMwaekV-pBdfPflCwzmeJcJDqSwq-NE4CWbz03U_iCCRhn4lnOx_3tMTps0Bv-z=
+_nwxpn6E8SuLt0kZrKJZcdzJQ-pllsMyfxKYpL01BO4A77mMLBWVWEqlK0esxtCt6ggtm&amp;_=
+_tn__=3D*NK-R" role=3D"link" tabindex=3D"0" style=3D"color:rgb(0,100,209);t=
+ext-decoration-line:none;outline:none;text-align:inherit;font-weight:600;li=
+st-style-type:none;box-sizing:border-box;background-color:transparent;displ=
+ay:inline;padding-bottom:0px;border-top-style:none;border-bottom-width:0px;=
+border-bottom-style:none;border-top-width:0px;margin-bottom:0px;margin-top:=
+0px;padding-top:0px;font-family:inherit">#karacsony</a></span> <span class=
+=3D"gmail-html-span gmail-xdj266r gmail-x14z9mp gmail-xat24cr gmail-x1lziwa=
+k gmail-xexx8yu gmail-xyri2b gmail-x18d9i69 gmail-x1c1uobl gmail-x1hl2dhg g=
+mail-x16tdsg8 gmail-x1vvkbs" style=3D"text-align:inherit;padding-bottom:0px=
+;margin-bottom:0px;margin-top:0px;padding-top:0px;font-family:inherit"><a c=
+lass=3D"gmail-x1i10hfl gmail-xjbqb8w gmail-x1ejq31n gmail-x18oe1m7 gmail-x1=
+sy0etr gmail-xstzfhl gmail-x972fbf gmail-x10w94by gmail-x1qhh985 gmail-x14e=
+42zd gmail-x9f619 gmail-x1ypdohk gmail-xt0psk2 gmail-x3ct3a4 gmail-xdj266r =
+gmail-x14z9mp gmail-xat24cr gmail-x1lziwak gmail-xexx8yu gmail-xyri2b gmail=
+-x18d9i69 gmail-x1c1uobl gmail-x16tdsg8 gmail-x1hl2dhg gmail-xggy1nq gmail-=
+x1a2a7pz gmail-xkrqix3 gmail-x1sur9pj gmail-x1fey0fg gmail-x1s688f" href=3D=
+"https://www.facebook.com/watch/hashtag/advent?__eep__=3D6%2F&amp;__cft__[0=
+]=3DAZZua0TDV9e-EH7NtDWyaMnORB0fP3BD-_rIMUlW2ngk-rWQzUO4bP9RQgBZCt9UxspMcgV=
+o2JDGeQIoZZM4yMwaekV-pBdfPflCwzmeJcJDqSwq-NE4CWbz03U_iCCRhn4lnOx_3tMTps0Bv-=
+z_nwxpn6E8SuLt0kZrKJZcdzJQ-pllsMyfxKYpL01BO4A77mMLBWVWEqlK0esxtCt6ggtm&amp;=
+__tn__=3D*NK-R" role=3D"link" tabindex=3D"0" style=3D"color:rgb(0,100,209);=
+text-decoration-line:none;outline:none;text-align:inherit;font-weight:600;l=
+ist-style-type:none;box-sizing:border-box;background-color:transparent;disp=
+lay:inline;padding-bottom:0px;border-top-style:none;border-bottom-width:0px=
+;border-bottom-style:none;border-top-width:0px;margin-bottom:0px;margin-top=
+:0px;padding-top:0px;font-family:inherit">#advent</a></span></div></div></d=
+iv></span></div></div></div></div></div><div id=3D"gmail-_r_a2a_" class=3D"=
+gmail-html-div gmail-xdj266r gmail-x14z9mp gmail-xat24cr gmail-x1lziwak gma=
+il-xexx8yu gmail-xyri2b gmail-x18d9i69 gmail-x1c1uobl gmail-x1n2onr6" style=
+=3D"padding-bottom:0px;margin-bottom:0px;margin-top:0px;padding-top:0px;fon=
+t-family:inherit"><div class=3D"gmail-html-div gmail-xdj266r gmail-x14z9mp =
+gmail-xat24cr gmail-x1lziwak gmail-xexx8yu gmail-xyri2b gmail-x18d9i69 gmai=
+l-x1c1uobl gmail-x1n2onr6" style=3D"padding-bottom:0px;margin-bottom:0px;ma=
+rgin-top:0px;padding-top:0px;font-family:inherit"><div class=3D"gmail-x1ypd=
+ohk gmail-x78zum5 gmail-xl56j7k gmail-x1n2onr6" style=3D"display:flex;font-=
+family:inherit"><div class=3D"gmail-x1us6l5c gmail-x5yr21d gmail-x10l6tqk g=
+mail-xh8yej3" style=3D"opacity:0.8;height:500px;width:500.02px;font-family:=
+inherit"><div class=3D"gmail-x5yr21d gmail-xh8yej3" style=3D"height:500px;w=
+idth:500.02px;font-family:inherit;background-image:linear-gradient(rgb(74,7=
+1,72) 0%,rgb(53,43,42) 100%)"></div></div><div class=3D"gmail-x6s0dn4 gmail=
+-x18l40ae gmail-x5yr21d gmail-x6ikm8r gmail-x10wlt62 gmail-xh8yej3" style=
+=3D"overflow:hidden;height:500px;width:500.02px;background-color:rgba(0,0,0=
+,0.4);font-family:inherit"><div class=3D"gmail-x6s0dn4 gmail-x1jx94hy gmail=
+-x78zum5 gmail-xdt5ytf gmail-x6ikm8r gmail-x10wlt62 gmail-x1n2onr6 gmail-xh=
+8yej3" style=3D"background-color:rgb(0,0,0);display:flex;overflow:hidden;wi=
+dth:500.02px;font-family:inherit"><div style=3D"font-family:inherit;max-wid=
+th:100%;min-width:500px"><div class=3D"gmail-html-div gmail-xdj266r gmail-x=
+14z9mp gmail-xat24cr gmail-x1lziwak gmail-xyri2b gmail-x18d9i69 gmail-x1c1u=
+obl gmail-xqtp20y gmail-x1n2onr6 gmail-xh8yej3 gmail-x1jm3axb" style=3D"wid=
+th:500px;height:0px;padding-bottom:0px;padding-top:100%;margin-bottom:0px;m=
+argin-top:0px;font-family:inherit"><div class=3D"gmail-html-div gmail-x1qjc=
+9v5 gmail-x1q0q8m5 gmail-x1qhh985 gmail-x18b5jzi gmail-x10w94by gmail-x1t7y=
+tsu gmail-x14e42zd gmail-x13fuv20 gmail-x972fbf gmail-x1ey2m1c gmail-x9f619=
+ gmail-x78zum5 gmail-xdt5ytf gmail-x1iyjqo2 gmail-xs83m0k gmail-xtijo5x gma=
+il-x1o0tod gmail-x1qughib gmail-xat24cr gmail-x14z9mp gmail-x1lziwak gmail-=
+xdj266r gmail-x2lwn1j gmail-xeuugli gmail-x18d9i69 gmail-xyri2b gmail-x1c1u=
+obl gmail-xexx8yu gmail-x10l6tqk gmail-x13vifvy gmail-x1ja2u2z" style=3D"di=
+splay:flex;box-sizing:border-box;min-height:0px;min-width:0px;border-top-st=
+yle:solid;padding-bottom:0px;border-bottom-style:solid;border-bottom-width:=
+0px;border-top-width:0px;margin-bottom:0px;margin-top:0px;padding-top:0px;f=
+ont-family:inherit"><div class=3D"gmail-html-div gmail-xdj266r gmail-x14z9m=
+p gmail-xat24cr gmail-x1lziwak gmail-xexx8yu gmail-xyri2b gmail-x18d9i69 gm=
+ail-x1c1uobl gmail-xamitd3 gmail-x9f619 gmail-x1n2onr6 gmail-x5lhr3w" style=
+=3D"box-sizing:border-box;width:66.6667%;padding-bottom:0px;margin-bottom:0=
+px;margin-top:0px;padding-top:0px;font-family:inherit"><div class=3D"gmail-=
+xqtp20y gmail-x6ikm8r gmail-x10wlt62 gmail-x1n2onr6" style=3D"overflow:hidd=
+en;height:0px;font-family:inherit;padding-top:500px"><div class=3D"gmail-x1=
+0l6tqk gmail-x13vifvy" style=3D"font-family:inherit;height:592.588px;width:=
+333.333px"></div></div></div></div></div></div></div><div class=3D"gmail-x1=
+ey2m1c gmail-x5yr21d gmail-xtijo5x gmail-x1o0tod gmail-x10l6tqk gmail-x13vi=
+fvy gmail-xh8yej3" style=3D"height:500px;width:500.02px;font-family:inherit=
+"><div class=3D"gmail-x1lliihq gmail-x5yr21d gmail-x1n2onr6 gmail-xh8yej3 g=
+mail-x1ja2u2z" style=3D"height:500px;width:500.02px;font-family:inherit"><d=
+iv class=3D"gmail-x1lliihq gmail-x5yr21d gmail-x1n2onr6 gmail-xh8yej3 gmail=
+-x1ja2u2z" style=3D"height:500px;width:500.02px;font-family:inherit"><div c=
+lass=3D"gmail-x1lliihq gmail-x5yr21d gmail-x1n2onr6 gmail-xh8yej3 gmail-x1j=
+a2u2z" style=3D"height:500px;width:500.02px;font-family:inherit"><div class=
+=3D"gmail-x1lliihq gmail-x5yr21d gmail-x1n2onr6 gmail-xh8yej3 gmail-x1ja2u2=
+z" style=3D"height:500px;width:500.02px;font-family:inherit"><div class=3D"=
+gmail-x1lliihq gmail-x5yr21d gmail-x1n2onr6 gmail-xh8yej3 gmail-x1ja2u2z" s=
+tyle=3D"height:500px;width:500.02px;font-family:inherit"><div class=3D"gmai=
+l-x5yr21d gmail-x1n2onr6 gmail-xh8yej3" style=3D"height:500px;width:500.02p=
+x;font-family:inherit"><div class=3D"gmail-x5yr21d gmail-x1n2onr6 gmail-xh8=
+yej3" style=3D"height:500px;width:500.02px;font-family:inherit"><div class=
+=3D"gmail-x5yr21d gmail-x1uhb9sk gmail-xh8yej3" style=3D"height:500px;width=
+:500.02px;font-family:inherit"></div></div></div></div></div></div></div><d=
+iv style=3D"font-family:inherit"><div class=3D"gmail-x5yr21d gmail-x10l6tqk=
+ gmail-x13vifvy gmail-xh8yej3" style=3D"height:500px;width:500.02px;font-fa=
+mily:inherit"><div class=3D"gmail-xc9qbxq gmail-xbudbmw gmail-x10l6tqk gmai=
+l-xwa60dl gmail-x11lhmoz gmail-x14qfxbe gmail-xg01cxk gmail-x13dflua gmail-=
+x1jl3cmp gmail-xl405pv gmail-xlshs6z gmail-x1ahifba" style=3D"opacity:0;wid=
+th:36px;height:36px;font-family:&quot;Segoe UI Historic&quot;,&quot;Segoe U=
+I&quot;,Helvetica,Arial,sans-serif;color:rgb(28,30,33);font-size:12px"></di=
+v><br class=3D"gmail-Apple-interchange-newline"></div></div></div></div></d=
+iv></div></div></div></div>
+
+--000000000000d668210646216732--

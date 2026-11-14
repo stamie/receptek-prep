@@ -1,0 +1,832 @@
+Delivered-To: estampel@gmail.com
+Received: by 2002:a05:6359:8489:b0:1c5:f3c5:8b74 with SMTP id ah9csp1406350rwc;
+        Fri, 6 Dec 2024 02:33:30 -0800 (PST)
+X-Received: by 2002:a17:906:1da1:b0:aa6:1c6a:30a1 with SMTP id a640c23a62f3a-aa63a0accb1mr198551766b.32.1733481210484;
+        Fri, 06 Dec 2024 02:33:30 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1733481210; cv=none;
+        d=google.com; s=arc-20240605;
+        b=h4xhIClXYDirJnC98q1xjlotgGmm2NcUUb2kB9DPt6MhCppJTJhxbkGNUne370xpvz
+         el8JeCCmIHVUubQ5dGNg27oPFto5B2h/t2YEYLHZFpv6lIQPt2gBSGZNRPcw4sbR+pbh
+         A/wPTpObDL56UKuPmYrWt9pmszehyBSGynKbt4W68jOvkGPDFU8UXlVEoBChNAqju/jV
+         MxQ74R4Cd9NN6skDDkCmSGHa3MoB9jz8Aq3BxSpF0vMyef8K8q+6VHnNLe9S49yhMFeI
+         ug4iMKOQts29T61Dh4L/lLwG+5D+Zk0iuQOQcEn7d05lJHa2NLGL4JKGC0g5wJvk9lrz
+         ET4w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=LRcCGz9k4sb/yn5PeDJwLFb4FVei4FALyd1WPTh+bEw=;
+        fh=wF/Yrd2E0xeKwPH74kML7cQSth+Fl4bwhVNrybJ4uh4=;
+        b=EgVvb0eoqaAMJGqhsLGYrMWHdBR0HjAtODHJOApBtu9P3cMRYO7XD+evdoCiCF84WZ
+         mAXVlrGbJNTX3F+Q3D1niPMfJi8gEUpHJjQokWZK2VXn9oHbxs1Rx9pk174Hsrqan3q7
+         g1m1FQ7QuGGnGiqt6n6Ali1gz/hYstDAB2C4lBocOkjsbONP4ZdXSpxoLj05RusM70Oz
+         Q4oM+fzoywEuyzBRKyHvA9pEjmMGvH16E54+vBS6Vp0y/unCfMQVcrjH8wfMEOY1jSDf
+         amcd7hTEWTlQnoqkEGxvhWihgoCqprTLlywLub/yTfNZdFE8GYRCKEk67UpafRDgvInn
+         dIew==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b="PTBd1/AY";
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <banyus53@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id 4fb4d7f45d1cf-5d149a47e1dsor1368013a12.5.2024.12.06.02.33.30
+        for <estampel@gmail.com>
+        (Google Transport Security);
+        Fri, 06 Dec 2024 02:33:30 -0800 (PST)
+Received-SPF: pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b="PTBd1/AY";
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1733481209; x=1734086009; dara=google.com;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=LRcCGz9k4sb/yn5PeDJwLFb4FVei4FALyd1WPTh+bEw=;
+        b=PTBd1/AYmoq5LDjQl69jap0Hl+migoi6d2YlxmiRGLPgBngXpmEoM2c/bIK/8yOKZg
+         QsPYpAgPtc24kEDQF6bx2Mk7IR9SZ3K1ojM27EPRWZlZfnVOZ0z6zmEOsAxRajQeEbcX
+         3cQDXPQOznL4+ubKuUGGhvckTQfWwFgVDyJzRPdZs6eCh6VmD8w3a666qQMhDvg/ydWg
+         /6Iy/tzDaSrmuo4zg1T1CVs/lFyUECPBu63Ngj96HBN4/APvxiwSdL9PDxu9TGHbN4qd
+         UKkfPK9yn0EtKTWfihH9XpABMPluebsumpatw+DWA/qQqclwU1v3XCUd4EIjRNN0Pd1R
+         vBzw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733481209; x=1734086009;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=LRcCGz9k4sb/yn5PeDJwLFb4FVei4FALyd1WPTh+bEw=;
+        b=T9kV3BHUntNz1Nfio42h/SX+uo1+SzEfdAx774Ce1tIPhG2Rl1gXzHQHR1VrOxBJpT
+         O2679HXK1NGIhXxEKm4jKov9EI4XlNBhgBbVXR/5e6ZZ/2ErEeKrHdsAZ6xA/9miP0bd
+         hcJa4T8XiyC87fVkgeTKdFpe4wXfVKs+vMFhg0gPzLcZy17P+JXYXvvwNzf79CJrEtM6
+         fMA93IbuwXVNuwxUsv1B4hI+IwQUmX/iLGr9WbZRCTwzc1OvYRWUR3MLiFQA+B034esF
+         A+dERsxzaoldH2mM5qmdoYKhGYIGwFHcr0QKJe+9HA6MMriNdhkVEdduFDa2PbDdTy8l
+         W8Gg==
+X-Gm-Message-State: AOJu0YwuRcPCf3wU7kpSH+VN2ubN6PFjIIh2djWFUNfy2hZ6MhPZsWY0
+	MdlXs91ASDYsg5eK9A3WZfylQDu+b7UczUM3d2i8AoNTd4MJd009p6CZ8FBtZT2+XXjku6dxt/e
+	967ZJ4CySjLH5HHND953P6wnLt/77Sw==
+X-Gm-Gg: ASbGncuUzzl2or4oRL/8vPlA1hF3UKEveNwEMTZeKYSoJT7E1oRjQFBmK0wEXg9zESF
+	oGkuGExQudNhOwypxoUGq527Qe8SNlgM0sgJ/Tiyzov4FPU/CEc1yADA4UEjk5ZkyRQ==
+X-Google-Smtp-Source: AGHT+IEHNu7MEH5nSfJx95BqIkAVI3T/vmzH+So9JOGPDRntJsIm00WGKlm0tb9zc0jolpg5BuH44kUIUh/D4L1dqbI=
+X-Received: by 2002:a17:906:3cb1:b0:aa5:1a75:dcd5 with SMTP id
+ a640c23a62f3a-aa63a2144d2mr197169566b.44.1733481209132; Fri, 06 Dec 2024
+ 02:33:29 -0800 (PST)
+MIME-Version: 1.0
+References: <1733481096599.e982379b-19e1-4dce-9dcc-9acb93a5978d@bf03.eu1.hubspotemail.net>
+In-Reply-To: <1733481096599.e982379b-19e1-4dce-9dcc-9acb93a5978d@bf03.eu1.hubspotemail.net>
+From: =?UTF-8?B?w4FnbmVzIEJ1Z8Ohcg==?= <banyus53@gmail.com>
+Date: Fri, 6 Dec 2024 11:33:02 +0100
+Message-ID: <CA+39czX+AwJ_NsJdYcbyGr18LF3UQvQAs+B7CbbM1dKXDnLZrg@mail.gmail.com>
+Subject: =?UTF-8?B?RndkOiBFbGbDunJuw6FrIGEgasO2dsWRZGV0LCB0ZWd5w6lsIHZlbMO8bmsgZWxsZW5lIQ==?=
+To: Emese Stampel <estampel@gmail.com>
+Content-Type: multipart/alternative; boundary="000000000000b1ff3b0628978b06"
+
+--000000000000b1ff3b0628978b06
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+---------- Forwarded message ---------
+Felad=C3=B3: Perger Andr=C3=A1s, Greenpeace <kozosseg@hirek.greenpeace.hu>
+Date: 2024. dec. 6., P, 11:31
+Subject: Elf=C3=BArn=C3=A1k a j=C3=B6v=C5=91det, tegy=C3=A9l vel=C3=BCnk el=
+lene!
+To: <banyus53@gmail.com>
+
+
+[image: Greenpeace_Logo_Green_PNG]
+
+Kedves =C3=81gnes M=C3=A1ria!
+
+P=C3=A1r napja akci=C3=B3ban voltak a Greenpeace-aktivist=C3=A1k a f=C3=B6l=
+d=C3=B6n =C3=A9s a leveg=C5=91ben:
+egy 23 m=C3=A9ter hossz=C3=BA STOP FRACKING feliratot helyeztek el B=C3=A9k=
+=C3=A9sben a
+ny=C3=A9kpusztai g=C3=A1zmez=C5=91n =C3=A1ll=C3=B3 f=C3=BAr=C3=B3toronyra. =
+Emellett arra is figyelmeztettek,
+hogy a kl=C3=ADmav=C3=A1ls=C3=A1g miatt a f=C3=B6ldg=C3=A1zkitermel=C3=A9sn=
+ek =C3=A9s -felhaszn=C3=A1l=C3=A1snak a
+lehet=C5=91 leghamarabb v=C3=A9get kell vetni, ez=C3=A9rt a f=C3=BAr=C3=B3t=
+oronyhoz vezet=C5=91 utat =E2=80=9EA
+kl=C3=ADmav=C3=A1ls=C3=A1g =C3=BAtj=C3=A1nak=E2=80=9D nevezt=C3=A9k el. Az =
+akci=C3=B3r=C3=B3l vide=C3=B3t is k=C3=A9sz=C3=ADtett=C3=BCnk neked,
+amelyet v=C3=A9gign=C3=A9zve te is =C3=BAgy =C3=A9rezheted magad, mintha ot=
+t lett=C3=A9l volna a
+f=C3=BAr=C3=B3torony tetej=C3=A9n.
+[image: ec68840a-dji_0023_1920-yt]
+<https://d2YPcV04.eu1.hubspotlinks.com/Ctc/UB+113/d2YPcV04/VX8j5t5H1sHyW7yH=
+d9-7rHmw9W58c1_75pf2mZN5wYXRF3qn9gW7lCdLW6lZ3lsW98JCXH8MS5pfW6bCkRM18FHs3W4=
+NS7dh2BS02BW3c-tlg6JpHmFN8k2YwD1PLgJW6H7JS234CPCjVRfr1k2Rd8rnW6hwYpR4bY8QbW=
+5-wzKy8rxk7rW76c4KN1qYV9MW1jbgQy88KTlFW7tV8SP38hbS8W8qxbnD8MrYd2N63tJKRF_72=
+jW1W68Yb40Psb4W83DV1n2yLmvNW3cS23q6CxTZ9W360Fmv427mYcW31fdVX8rzJxXVprNr32Z3=
+HfpW2Qc1SX697hQCW80K-B-4vSwyKW3QDnKf8_tHwfW1F62Qy1fzyJXf828QLv04>
+
+Az aktivist=C3=A1k arra is figyelmeztettek, hogy az egyre s=C3=BAlyosbod=C3=
+=B3
+asz=C3=A1lyokkal, h=C5=91hull=C3=A1mokkal,  puszt=C3=ADt=C3=B3 es=C5=91z=C3=
+=A9sekkel =C3=A9s vill=C3=A1m=C3=A1rvizekkel
+k=C3=ADs=C3=A9rt kl=C3=ADmav=C3=A1ls=C3=A1g miatt nincs id=C5=91 tov=C3=A1b=
+b v=C3=A1rni a cselekv=C3=A9ssel. A
+f=C3=B6ldg=C3=A1zt=C3=B3l a sz=C3=A9nhez =C3=A9s a k=C5=91olajhoz hasonl=C3=
+=B3an mihamarabb, de legk=C3=A9s=C5=91bb
+2035-ig meg kell szabadulni, hogy elker=C3=BClhess=C3=BCk a kl=C3=ADmav=C3=
+=A1ltoz=C3=A1s legrosszabb
+forgat=C3=B3k=C3=B6nyveit.
+
+
+
+A Greenpeace aktivist=C3=A1i a f=C3=BAr=C3=B3tornyon k=C3=A9sz=C3=BClt k=C3=
+=A9ppel megalkott=C3=A1k a
+frackinggel, azaz a r=C3=A9tegrepeszt=C3=A9ses g=C3=A1zkitermel=C3=A9ssel s=
+zembeni ellen=C3=A1ll=C3=A1s
+hazai szimb=C3=B3lum=C3=A1t. Azonban ahhoz, hogy sikerre vihess=C3=BCk a fr=
+acking elleni
+harcunkat, r=C3=A1d is sz=C3=BCks=C3=A9g=C3=BCnk van!
+
+
+
+Ha egyet=C3=A9rtesz azzal, hogy be kell tiltani a frackinget Magyarorsz=C3=
+=A1gon, =C3=A9s
+a korm=C3=A1nynak fel kell hagynia a fosszilis energiahordoz=C3=B3k t=C3=A1=
+mogat=C3=A1s=C3=A1val, =C3=A9s
+ezek helyett energiatakar=C3=A9koss=C3=A1gba, energiahat=C3=A9konys=C3=A1gb=
+a =C3=A9s meg=C3=BAjul=C3=B3
+energi=C3=A1ba kell fektetnie, =C3=ADrd al=C3=A1 a pet=C3=ADci=C3=B3nkat!
+*T=C3=A1mogatom*
+<https://d2YPcV04.eu1.hubspotlinks.com/Ctc/UB+113/d2YPcV04/VX8j5t5H1sHyW7yH=
+d9-7rHmw9W58c1_75pf2mZN5wYXRl3qn9gW6N1vHY6lZ3pNW6xX2_y6yTLmfVkkPVy10K53bW9d=
+RN9277Rx2hW7q6Qhx3Shx3_W1bsYzT6ypVQKW3g6Z0_3W2-sgW7_Kzl_3Yl9wKW80DHYV1DCvd_=
+W1fm1466r4LTnW7nyZ__4cj-Y6W3D4g013cJg_zV3P3g058V9NcW6Hx79_1tX3KtW2tn0YQ5hCr=
+BYW3QN9W-5l5qh5W17CYB27TXtDNW2qBJrD6VpT58W4Z9GZ48hjDV6W1JYp6Y7Jh-9BW3Kl2S86=
+c-DggW4K1rvm5DXT28M71rNN-Z1Xzf4vppBP04>
+
+Nem hagyhatjuk, hogy elf=C3=BArj=C3=A1k a j=C3=B6v=C5=91nket! K=C3=B6sz=C3=
+=B6nj=C3=BCk, hogy te is mellett=C3=BCnk
+=C3=A1llsz!
+
+=C3=9Cdv=C3=B6zlettel:
+[image: perger_andras]
+
+Perger Andr=C3=A1s
+
+kl=C3=ADma- =C3=A9s energiakamp=C3=A1ny-felel=C5=91s
+
+Greenpeace Magyarorsz=C3=A1g
+[image: Facebook]
+<https://d2YPcV04.eu1.hubspotlinks.com/Ctc/UB+113/d2YPcV04/VX8j5t5H1sHyW7yH=
+d9-7rHmw9W58c1_75pf2mZN5wYXRF3qn9gW7lCdLW6lZ3llW7Zrmwb1nNTtlW3SJTHb6-67n_W6=
+Tz2Bs2bmv5wW6bkr7c1kx9YnVf-bZf3LnGkYW2t7W7L7FNF8fW3pXCMC2nv_v0W31P-ST20LGXs=
+W7XYsTs8g-6JjVB_JJ85H7yrNW89Phj18kwSVQW286sMB8rDj-DW7LpRZj5mNJvkW69Qj8f4sZL=
+NTW7QDpRD7W1Fs2W8-2Rlt961CKDW8c2DXy6z6R82W4P1kcL7_rr5QN5fMMkndscVjW71YCM468=
+9G8xW5NyTxQ19gsFhW1V8PX61NxYqdVdQ5FD5gSjHwV6FjpD3BB6Pbf3mRP0M04>
+[image: Instagram]
+<https://d2YPcV04.eu1.hubspotlinks.com/Ctc/UB+113/d2YPcV04/VX8j5t5H1sHyW7yH=
+d9-7rHmw9W58c1_75pf2mZN5wYXRF3qn9gW7lCdLW6lZ3ksW27Tk4f7PR1nyW80Z2_W53-vTbW7=
+0RzZ11_jGj3W8PfgHX98hFGBN3vB-yYLGJnrW35LgY-1CG6fHW3SKMmZ2hsLbgW507ZN_4GHMzx=
+W8fZNdj22RNr5W3d-4H82l92MLW6xz_mt7YPT75W1j78tD4LWWn3W2GtfJS7kyV1RW794wHx65P=
+jyhV94tLR7d3NSQN2Ypn20JHWS1W8yg6Cc5lz-gdV7B63d5ZHhkrW5jHvWk6ZglM8V7Qf9m4Dfc=
+BxW8qXx3Z5j8q3vW2Xn83h1brq17W16LP8f1kCKV1W4FsdVY5xTGC2f75B68C04>
+[image: Honlap]
+<https://d2YPcV04.eu1.hubspotlinks.com/Ctc/UB+113/d2YPcV04/VX8j5t5H1sHyW7yH=
+d9-7rHmw9W58c1_75pf2mZN5wYXRl3qn9gW6N1vHY6lZ3lWW7D0bfd26VYNvW3B398X8RF2G8W8=
+-7Ns75wp_nPW79MhRR446hSNW6nln7C44mnFgVfYSZK78PpLjW5lHR3W3Z2r6RW7fykPx5tQzqn=
+W1Tcw6d7WY7YpW3sBw2b7xMsB_W6KpY827QNRB0N7Ghj8mqxN3bW39GWd09gjFBZVNj8fk66m0Q=
+_W80xXyz1-JQ6BW38Xk7T84vB5TW38h9762zrCdWW4V618j4JsWfQW6PXJL18Rw2LDW76Wf2D7s=
+tDhvW7FVsG-6GYKd8N8s9YlhHBKGBf5MYF3604>
+
+---
+
+A Greenpeace Magyarorsz=C3=A1g anyagilag =C3=A9s politikailag f=C3=BCggetle=
+n k=C3=B6rnyezetv=C3=A9d=C5=91
+szervezet, mely a tiszt=C3=A1bb, =C3=A9lhet=C5=91bb k=C3=B6rnyezet=C3=A9rt =
+dolgozik itthon =C3=A9s
+a nagyvil=C3=A1gban. Ha teheted, t=C3=A1mogass minket
+<https://d2YPcV04.eu1.hubspotlinks.com/Ctc/UB+113/d2YPcV04/VX8j5t5H1sHyW7yH=
+d9-7rHmw9W58c1_75pf2mZN5wYXRF3qn9gW7lCdLW6lZ3pnW70-0_C8cp0q0W4PqHlW4X0ft_W4=
+qXY5w1h6v5gV8-4wf3jc5yXVwJPSz3ZfdKJW8fwlxb1C4DLbW1ScRln2cmx8nN2lwvGqw67ftW4=
+ZTvhl4nxVdRW7kQvRX58Y-TsW5Z-fVq6kSDRlW64D2T82Q0yxfVp9RnT6vVlpTW6ypgrq2Q4HBY=
+W5kkWs48VZDrRVVzPJn5BqxSwW223C564z04rLVXBqqJ3xNbC7W2Z5rMw40r68NW4S6bb15x5J1=
+CVf6gqV5C4s-LW7LLHQj4Vjk58W2VgXYD5jkcK1W7wSVS25-SqRwf1JqrQY04>,
+hogy a j=C3=B6v=C5=91ben is fel tudjunk l=C3=A9pni a k=C3=B6rnyezet v=C3=A9=
+delme =C3=A9rdek=C3=A9ben.
+
+*Kapcsolat:* info.hu@greenpeace.org | +36 1 392 7663
+
+*Adatv=C3=A9delem:* Adataidat a Greenpeace Magyarorsz=C3=A1g Egyes=C3=BClet=
+ az Adatkezel=C3=A9si
+t=C3=A1j=C3=A9koztat=C3=B3ban
+<https://d2YPcV04.eu1.hubspotlinks.com/Ctc/UB+113/d2YPcV04/VX8j5t5H1sHyW7yH=
+d9-7rHmw9W58c1_75pf2mZN5wYXRY3qn9gW7Y8-PT6lZ3kzVZy4GD6WYTNDW6VkFR33Ydd4sN6s=
+Ry_7z5M3cW5P76NM1Ls-88N37_60ZGCPC7VY-5Lx2dlmX8W1HRcw64qQvhtW5whtnd7NWfnVW7K=
+JzmJ9b4FL6W6bQnH-2gCs0ZW2PWWs25LfFfjW3gcD3H2b2kW4W2ycfGl7L5FNpW19hnHx6Ftz96=
+W3KVTst2JdD0-N2t9C9BhnjXMW3JgBcr3qb1JtW9h_vGK3RpG7xW7XRm8b84-WQ0W4sjGG7431K=
+9-W4rRz755XJGVvW44VYRK1-wPSKW8th33F7062lpW3PGH4x6ZHGdVW4sk8vP7b7jXyW8lRZ2D3=
+vnYRJf5KCy6M04>
+=C3=ADrtak szerint, a vonatkoz=C3=B3 jogszab=C3=A1lyoknak megfelel=C5=91en =
+kezeli. K=C3=A9rd=C3=A9sed,
+=C3=A9szrev=C3=A9teled van? =C3=8Drj a privacy.hu@greenpeace.org c=C3=ADmre=
+!
+
+*Leiratkoz=C3=A1s: *nem k=C3=A9rek t=C3=B6bb e-mailt
+<https://d2YPcV04.eu1.hubspotlinks.com/Ctc/UB+113/d2YPcV04/VX8j5t5H1sHyW7yH=
+d9-7rHmw9W58c1_75pf2mZN5wYXSd3qn9gW8wLKSR6lZ3lMW5mbsLq3nD70sW57PBgQ5GCqxmW7=
+bDfkM7xMkpPV4fzJ24PnD0dV6x6MN59gfWvW2nFjLb5khL9bW6rxC6Q3h-QDgW49ZX6s5HTnBNW=
+3QRvv32HQLg9W575zK71W43qWW5ZnY2c3v3R3SVznvn-7L3gPcW8_ZX7B5TKGk7W1tCxCQ2ZLfb=
+BW3ky2R48z3mhpMLzVG8ylpbwW3v9gVD77HVNcN3CNjKc72-LWW43nd1n9bF6F0W64tZKH1SqtM=
+GW4dYcBj1cQb_7N4rgKf0gClDDW16BYzC6X-d8jW1Lps_73Db2-1W4XMRCD7tbmM0W21Rc4J8Tr=
+hc-W32sWgq8X4-_SW6qMdfC6FQQMXf3lpkQl04>
+
+=C2=A9 Greenpeace Magyarorsz=C3=A1g Egyes=C3=BClet, 1143 Budapest, Z=C3=A1s=
+zl=C3=B3s utca 54.
+
+&zwsp;
+<https://d2YPcV04.eu1.hubspotlinks.com/Ctc/UB+113/d2YPcV04/VX8j5t5H1sHyW7yH=
+d9-7rHmw9W58c1_75pf2mZN5wYXRlfjNBKW6N3B346lZ3pXW2-x4NQ8kz91BW8HdB_W3vTTqKVt=
+pvbJ1CqQfTVwmPwg6wDnRZW2yslM74gyM6XW5lV-bk40h2g8N3-8cc5c2zP9W3g42302nYKnDW2=
+wwC6s3qjGhFW2rPxkf26NXbsW6jKGJw3YkvD8W1DC4mY8d6l-FV8mPXD3J4GsPW2CstyH6vSwQ7=
+W4f4l7x8R-vW_W21W_LR448p_dW2C0Zks6nhFmjW7NJzdZ4r-bFLW1G5htP6dcpDvW7v9bG-5zp=
+j9lW6R22Py1KD610W6sDxrB2mw6k1W76N6WP4n638_V6PgfG4Z1nySVTd0rH3TGKgMN8Tz7bRmy=
+F9cW6Vn7dl64bNV7W5WLQ7H5f32gHW60_2LJ3j1DFdW8S-ypn7XLK9QVqXmpH4hngL0W5WBYyg3=
+RS6xPN98zvR7qVgDwMVnLjMcnb1fW3Gl7Fn8cwm2LW1n4GvK7TBX-dN8JmpmMPZm5SVSLdZL6C6=
+WvRV7FRQf5nF1kMW3k_-tK48HnvKW4wTmt43dTpG3Vw_GXV6-72dXV2v8h36hXdyJW5l2m9q6kk=
+tFrW1dPQTN8CGgdtW5P4Bg-6NDlnrW4s3J4Y2Zssh2W3Q-2g16M7WMbW1jYYyd7363q9W3lZWCt=
+795JV-W6mRk1X7n-DyXW4Dr62Y5G8kR1VP_J4d22b6gnW4gc-mG5cQBmgN4GkFS6_3HB7Vk9tGl=
+6CqYnDW4SM51G1bzlVnW8WrD9K3lbD4XW97q1PJ1HCngDW1VslHM4dVVvdW7bkyW56qdKz6VTHl=
+zB5c9W7CW3bdjby73pYnrW5vWPvP5F4MNNW5WxP2g4wlhH-W64xk9s7gRM26W5KFwQS8_Hk17W7=
+fL0Zp5MB0CLN2mPpMFZVs4KW53CG6m2NvgkQW6THjBh6yZd3TW7n7Y2-8k3vMqVHKNXs82nS6fW=
+5Hbh4R30hhHZW8L3_zj9h68w0N1sry21Xx_q8W3SmmLQ7j_jFbW1628vl4dKLGTW3NB_3S5lvcV=
+HW1WzXdb4YlCLWW2vsv3621ryVYW2rctJ-2lhxhsW5-3hvp2DbnSRVVKCt_12LH0WW3B8SBT3N2=
+-0SW1_NKzL9jj66cW7qWrYY1d4X_qVcRSw323KgvcW3LfqnQ5jJ4wwW1t5CNQ6WtRkHW6vq1Lb1=
+DWjYwW5dTM8S3lQrmlW4N2HS66JppD4W5R4Vz888fyV5W8NV3QP8hCLBTW8qkhr41dFkkBW5zWH=
+SD2DpYnMV92M8j8rXRZ0W4QKD-f5C15_9N98bTJMKBlyyVMZRvt110kq0W3_1QWY34kRVgf3Fx-=
+8C04>
+
+--000000000000b1ff3b0628978b06
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><br><br><div class=3D"gmail_quote gmail_quote_container"><=
+div dir=3D"ltr" class=3D"gmail_attr">---------- Forwarded message ---------=
+<br>Felad=C3=B3: <strong class=3D"gmail_sendername" dir=3D"auto">Perger And=
+r=C3=A1s, Greenpeace</strong> <span dir=3D"auto">&lt;<a href=3D"mailto:kozo=
+sseg@hirek.greenpeace.hu">kozosseg@hirek.greenpeace.hu</a>&gt;</span><br>Da=
+te: 2024. dec. 6., P, 11:31<br>Subject: Elf=C3=BArn=C3=A1k a j=C3=B6v=C5=91=
+det, tegy=C3=A9l vel=C3=BCnk ellene!<br>To:  &lt;<a href=3D"mailto:banyus53=
+@gmail.com">banyus53@gmail.com</a>&gt;<br></div><br><br><div class=3D"msg17=
+70172884451427845"><u></u>
+   =20
+   =20
+   =20
+   =20
+   =20
+   =20
+
+
+
+
+   =20
+
+   =20
+     =20
+ =20
+   =20
+ =20
+  <div id=3D"m_1770172884451427845hs_body" bgcolor=3D"#ffffff" style=3D"mar=
+gin:0!important;padding:0!important;font-family:Arial,sans-serif;font-size:=
+15px;color:#000000;word-break:break-word">
+   =20
+   =20
+
+    <div lang=3D"hu" style=3D"background-color:#ffffff" bgcolor=3D"#ffffff"=
+>
+      <table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" styl=
+e=3D"margin:0;padding:0;width:100%!important;min-width:320px!important;heig=
+ht:100%!important" width=3D"100%" height=3D"100%">
+        <tbody><tr>
+          <td valign=3D"top" style=3D"font-family:Arial,sans-serif;font-siz=
+e:15px;color:#000000;word-break:break-word;padding-top:20px;padding-bottom:=
+20px">
+            <div id=3D"m_1770172884451427845hs_cos_wrapper_main" style=3D"c=
+olor:inherit;font-size:inherit;line-height:inherit">  <div id=3D"m_17701728=
+84451427845section-0" class=3D"m_1770172884451427845hse-section" style=3D"p=
+adding-left:10px;padding-right:10px">
+   =20
+   =20
+   =20
+      <div class=3D"m_1770172884451427845hse-column-container" style=3D"min=
+-width:280px;max-width:600px;Margin-left:auto;Margin-right:auto;background-=
+color:#ffffff" bgcolor=3D"#ffffff">
+   =20
+   =20
+   =20
+   =20
+
+<div id=3D"m_1770172884451427845column-0-0" class=3D"m_1770172884451427845h=
+se-column m_1770172884451427845hse-size-12">
+  <div id=3D"m_1770172884451427845hs_cos_wrapper_module-0-0-0" style=3D"col=
+or:inherit;font-size:inherit;line-height:inherit"><table role=3D"presentati=
+on" width=3D"100%" cellpadding=3D"0" cellspacing=3D"0">
+  <tbody>
+    <tr>
+      <td class=3D"m_1770172884451427845hs_padded" align=3D"center" valign=
+=3D"top" style=3D"font-family:Arial,sans-serif;color:#000000;word-break:bre=
+ak-word;text-align:center;padding:10px 20px;font-size:0px">
+        <img alt=3D"Greenpeace_Logo_Green_PNG" src=3D"https://act.greenpeac=
+e.hu/hs-fs/hubfs/Greenpeace_Logo_Green_PNG.png?width=3D296&amp;upscale=3Dtr=
+ue&amp;name=3DGreenpeace_Logo_Green_PNG.png" style=3D"outline:none;text-dec=
+oration:none;max-width:100%;font-size:16px" width=3D"148" align=3D"middle">
+      </td>
+    </tr>
+  </tbody>
+</table></div>
+</div>
+
+
+   =20
+    </div>
+  =20
+  </div>
+  <div id=3D"m_1770172884451427845section-1" class=3D"m_1770172884451427845=
+hse-section" style=3D"padding-left:10px;padding-right:10px">
+   =20
+   =20
+   =20
+      <div class=3D"m_1770172884451427845hse-column-container" style=3D"min=
+-width:280px;max-width:600px;Margin-left:auto;Margin-right:auto;background-=
+color:#ffffff" bgcolor=3D"#ffffff">
+   =20
+   =20
+   =20
+   =20
+
+<div id=3D"m_1770172884451427845column-1-0" class=3D"m_1770172884451427845h=
+se-column m_1770172884451427845hse-size-12">
+  <table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=3D=
+"100%"><tbody><tr><td class=3D"m_1770172884451427845hs_padded" style=3D"fon=
+t-family:Arial,sans-serif;font-size:15px;color:#000000;word-break:break-wor=
+d;padding:10px 20px"><div id=3D"m_1770172884451427845hs_cos_wrapper_module-=
+1-0-0" style=3D"color:inherit;font-size:inherit;line-height:inherit"><div i=
+d=3D"m_1770172884451427845hs_cos_wrapper_module-1-0-0_" style=3D"color:inhe=
+rit;font-size:inherit;line-height:inherit"><p style=3D"line-height:125%">Ke=
+dves =C3=81gnes M=C3=A1ria!</p></div></div></td></tr></tbody></table>
+</div>
+
+
+   =20
+    </div>
+  =20
+  </div>
+  <div id=3D"m_1770172884451427845section-2" class=3D"m_1770172884451427845=
+hse-section" style=3D"padding-left:10px;padding-right:10px">
+   =20
+   =20
+   =20
+      <div class=3D"m_1770172884451427845hse-column-container" style=3D"min=
+-width:280px;max-width:600px;Margin-left:auto;Margin-right:auto">
+   =20
+   =20
+   =20
+   =20
+
+<div id=3D"m_1770172884451427845column-2-0" class=3D"m_1770172884451427845h=
+se-column m_1770172884451427845hse-size-12">
+  <table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=3D=
+"100%"><tbody><tr><td class=3D"m_1770172884451427845hs_padded" style=3D"fon=
+t-family:Arial,sans-serif;font-size:15px;color:#000000;word-break:break-wor=
+d;padding:10px 20px"><div id=3D"m_1770172884451427845hs_cos_wrapper_module-=
+2-0-0" style=3D"color:inherit;font-size:inherit;line-height:inherit"><div i=
+d=3D"m_1770172884451427845hs_cos_wrapper_module-2-0-0_" style=3D"color:inhe=
+rit;font-size:inherit;line-height:inherit"><p style=3D"line-height:125%">P=
+=C3=A1r napja akci=C3=B3ban voltak a Greenpeace-aktivist=C3=A1k a f=C3=B6ld=
+=C3=B6n =C3=A9s a leveg=C5=91ben: egy 23 m=C3=A9ter hossz=C3=BA STOP FRACKI=
+NG feliratot helyeztek el B=C3=A9k=C3=A9sben a ny=C3=A9kpusztai g=C3=A1zmez=
+=C5=91n =C3=A1ll=C3=B3 f=C3=BAr=C3=B3toronyra. Emellett arra is figyelmezte=
+ttek, hogy a kl=C3=ADmav=C3=A1ls=C3=A1g miatt a f=C3=B6ldg=C3=A1zkitermel=
+=C3=A9snek =C3=A9s -felhaszn=C3=A1l=C3=A1snak a lehet=C5=91 leghamarabb v=
+=C3=A9get kell vetni, ez=C3=A9rt a f=C3=BAr=C3=B3toronyhoz vezet=C5=91 utat=
+ =E2=80=9EA kl=C3=ADmav=C3=A1ls=C3=A1g =C3=BAtj=C3=A1nak=E2=80=9D nevezt=C3=
+=A9k el. Az akci=C3=B3r=C3=B3l vide=C3=B3t is k=C3=A9sz=C3=ADtett=C3=BCnk n=
+eked, amelyet v=C3=A9gign=C3=A9zve te is =C3=BAgy =C3=A9rezheted magad, min=
+tha ott lett=C3=A9l volna a f=C3=BAr=C3=B3torony tetej=C3=A9n.=C2=A0</p></d=
+iv></div></td></tr></tbody></table>
+<div id=3D"m_1770172884451427845hs_cos_wrapper_module-2-0-1" style=3D"color=
+:inherit;font-size:inherit;line-height:inherit"><table role=3D"presentation=
+" width=3D"100%" cellpadding=3D"0" cellspacing=3D"0">
+  <tbody>
+    <tr>
+      <td class=3D"m_1770172884451427845hs_padded" align=3D"center" valign=
+=3D"top" style=3D"font-family:Arial,sans-serif;color:#000000;word-break:bre=
+ak-word;text-align:center;padding:10px 20px;font-size:0px">
+        <a href=3D"https://d2YPcV04.eu1.hubspotlinks.com/Ctc/UB+113/d2YPcV0=
+4/VX8j5t5H1sHyW7yHd9-7rHmw9W58c1_75pf2mZN5wYXRF3qn9gW7lCdLW6lZ3lsW98JCXH8MS=
+5pfW6bCkRM18FHs3W4NS7dh2BS02BW3c-tlg6JpHmFN8k2YwD1PLgJW6H7JS234CPCjVRfr1k2R=
+d8rnW6hwYpR4bY8QbW5-wzKy8rxk7rW76c4KN1qYV9MW1jbgQy88KTlFW7tV8SP38hbS8W8qxbn=
+D8MrYd2N63tJKRF_72jW1W68Yb40Psb4W83DV1n2yLmvNW3cS23q6CxTZ9W360Fmv427mYcW31f=
+dVX8rzJxXVprNr32Z3HfpW2Qc1SX697hQCW80K-B-4vSwyKW3QDnKf8_tHwfW1F62Qy1fzyJXf8=
+28QLv04" style=3D"color:#00a4bd" target=3D"_blank">
+        <img alt=3D"ec68840a-dji_0023_1920-yt" src=3D"https://act.greenpeac=
+e.hu/hs-fs/hubfs/ec68840a-dji_0023_1920-yt.jpg?width=3D1120&amp;upscale=3Dt=
+rue&amp;name=3Dec68840a-dji_0023_1920-yt.jpg" style=3D"outline:none;text-de=
+coration:none;border:none;max-width:100%;font-size:16px;border-radius:3%" w=
+idth=3D"560" align=3D"middle" class=3D"m_1770172884451427845stretch-on-mobi=
+le">
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table></div>
+<table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%"><tbody><tr><td class=3D"m_1770172884451427845hs_padded" style=3D"font-=
+family:Arial,sans-serif;font-size:15px;color:#000000;word-break:break-word;=
+padding:10px 20px"><div id=3D"m_1770172884451427845hs_cos_wrapper_module_17=
+334684731053" style=3D"color:inherit;font-size:inherit;line-height:inherit"=
+><table role=3D"none" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" styl=
+e=3D"vertical-align:top" width=3D"100%">
+  <tbody><tr>
+    <td align=3D"center" style=3D"font-family:Arial,sans-serif;color:#00000=
+0;font-size:0;word-break:break-word">
+      <p style=3D"font-size:1px;border-top:1px solid #eeeeee;width:75%;marg=
+in:0 auto"></p>
+     =20
+    </td>
+  </tr>
+</tbody></table></div></td></tr></tbody></table>
+<table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%"><tbody><tr><td class=3D"m_1770172884451427845hs_padded" style=3D"font-=
+family:Arial,sans-serif;font-size:15px;color:#000000;word-break:break-word;=
+padding:10px 20px"><div id=3D"m_1770172884451427845hs_cos_wrapper_module_17=
+334642316211" style=3D"color:inherit;font-size:inherit;line-height:inherit"=
+><div id=3D"m_1770172884451427845hs_cos_wrapper_module_17334642316211_" sty=
+le=3D"color:inherit;font-size:inherit;line-height:inherit"><p style=3D"line=
+-height:125%">Az aktivist=C3=A1k arra is figyelmeztettek, hogy az egyre s=
+=C3=BAlyosbod=C3=B3 asz=C3=A1lyokkal, h=C5=91hull=C3=A1mokkal,=C2=A0 puszt=
+=C3=ADt=C3=B3 es=C5=91z=C3=A9sekkel =C3=A9s vill=C3=A1m=C3=A1rvizekkel k=C3=
+=ADs=C3=A9rt kl=C3=ADmav=C3=A1ls=C3=A1g miatt nincs id=C5=91 tov=C3=A1bb v=
+=C3=A1rni a cselekv=C3=A9ssel. A f=C3=B6ldg=C3=A1zt=C3=B3l a sz=C3=A9nhez =
+=C3=A9s a k=C5=91olajhoz hasonl=C3=B3an mihamarabb, de legk=C3=A9s=C5=91bb =
+2035-ig meg kell szabadulni, hogy elker=C3=BClhess=C3=BCk a kl=C3=ADmav=C3=
+=A1ltoz=C3=A1s legrosszabb forgat=C3=B3k=C3=B6nyveit.</p>
+<p style=3D"line-height:125%">=C2=A0</p>
+<p style=3D"line-height:125%">A Greenpeace aktivist=C3=A1i a f=C3=BAr=C3=B3=
+tornyon k=C3=A9sz=C3=BClt k=C3=A9ppel megalkott=C3=A1k a frackinggel, azaz =
+a r=C3=A9tegrepeszt=C3=A9ses g=C3=A1zkitermel=C3=A9ssel szembeni ellen=C3=
+=A1ll=C3=A1s hazai szimb=C3=B3lum=C3=A1t. Azonban ahhoz, hogy sikerre vihes=
+s=C3=BCk a fracking elleni harcunkat, r=C3=A1d is sz=C3=BCks=C3=A9g=C3=BCnk=
+ van!=C2=A0</p>
+<p style=3D"line-height:125%">=C2=A0</p>
+<p style=3D"line-height:125%">Ha egyet=C3=A9rtesz azzal, hogy be kell tilta=
+ni a frackinget Magyarorsz=C3=A1gon, =C3=A9s a korm=C3=A1nynak fel kell hag=
+ynia a fosszilis energiahordoz=C3=B3k t=C3=A1mogat=C3=A1s=C3=A1val, =C3=A9s=
+ ezek helyett energiatakar=C3=A9koss=C3=A1gba, energiahat=C3=A9konys=C3=A1g=
+ba =C3=A9s meg=C3=BAjul=C3=B3 energi=C3=A1ba kell fektetnie, =C3=ADrd al=C3=
+=A1 a pet=C3=ADci=C3=B3nkat!</p></div></div></td></tr></tbody></table>
+<table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%"><tbody><tr><td class=3D"m_1770172884451427845hs_padded" style=3D"font-=
+family:Arial,sans-serif;font-size:15px;color:#000000;word-break:break-word;=
+padding:10px 20px"><div id=3D"m_1770172884451427845hs_cos_wrapper_module-2-=
+0-2" style=3D"color:inherit;font-size:inherit;line-height:inherit"><table a=
+lign=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pr=
+esentation" style=3D"border-collapse:separate!important">
+    <tbody><tr>
+      <td align=3D"center" valign=3D"middle" bgcolor=3D"#66cc00" style=3D"f=
+ont-family:Arial,sans-serif;font-size:15px;color:#000000;word-break:break-w=
+ord;border-radius:3px;background-color:#66cc00">
+        <a href=3D"https://d2YPcV04.eu1.hubspotlinks.com/Ctc/UB+113/d2YPcV0=
+4/VX8j5t5H1sHyW7yHd9-7rHmw9W58c1_75pf2mZN5wYXRl3qn9gW6N1vHY6lZ3pNW6xX2_y6yT=
+LmfVkkPVy10K53bW9dRN9277Rx2hW7q6Qhx3Shx3_W1bsYzT6ypVQKW3g6Z0_3W2-sgW7_Kzl_3=
+Yl9wKW80DHYV1DCvd_W1fm1466r4LTnW7nyZ__4cj-Y6W3D4g013cJg_zV3P3g058V9NcW6Hx79=
+_1tX3KtW2tn0YQ5hCrBYW3QN9W-5l5qh5W17CYB27TXtDNW2qBJrD6VpT58W4Z9GZ48hjDV6W1J=
+Yp6Y7Jh-9BW3Kl2S86c-DggW4K1rvm5DXT28M71rNN-Z1Xzf4vppBP04" style=3D"color:#0=
+0a4bd;font-size:16px;font-family:Arial,sans-serif;Margin:0;text-transform:n=
+one;text-decoration:none;padding:12px 18px;display:block" target=3D"_blank"=
+>
+          <strong style=3D"color:#ffffff;font-weight:normal;text-decoration=
+:none;font-style:normal">T=C3=A1mogatom</strong>
+        </a>
+      </td>
+    </tr>
+  </tbody></table></div></td></tr></tbody></table>
+<table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%"><tbody><tr><td class=3D"m_1770172884451427845hs_padded" style=3D"font-=
+family:Arial,sans-serif;font-size:15px;color:#000000;word-break:break-word;=
+padding:10px 20px"><div id=3D"m_1770172884451427845hs_cos_wrapper_module_17=
+334685402644" style=3D"color:inherit;font-size:inherit;line-height:inherit"=
+><table role=3D"none" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" styl=
+e=3D"vertical-align:top" width=3D"100%">
+  <tbody><tr>
+    <td align=3D"center" style=3D"font-family:Arial,sans-serif;color:#00000=
+0;font-size:0;word-break:break-word">
+      <p style=3D"font-size:1px;border-top:1px solid #eeeeee;width:75%;marg=
+in:0 auto"></p>
+     =20
+    </td>
+  </tr>
+</tbody></table></div></td></tr></tbody></table>
+</div>
+
+
+   =20
+    </div>
+  =20
+  </div>
+  <div id=3D"m_1770172884451427845section_1733464258518" class=3D"m_1770172=
+884451427845hse-section" style=3D"padding-left:10px;padding-right:10px">
+   =20
+   =20
+   =20
+      <div class=3D"m_1770172884451427845hse-column-container" style=3D"min=
+-width:280px;max-width:600px;Margin-left:auto;Margin-right:auto;background-=
+color:#ffffff" bgcolor=3D"#ffffff">
+   =20
+   =20
+   =20
+   =20
+
+<div id=3D"m_1770172884451427845column_1733464258518_0" class=3D"m_17701728=
+84451427845hse-column m_1770172884451427845hse-size-12">
+  <table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=3D=
+"100%"><tbody><tr><td class=3D"m_1770172884451427845hs_padded" style=3D"fon=
+t-family:Arial,sans-serif;font-size:15px;color:#000000;word-break:break-wor=
+d;padding:10px 20px"><div id=3D"m_1770172884451427845hs_cos_wrapper_module_=
+17334642584872" style=3D"color:inherit;font-size:inherit;line-height:inheri=
+t"><div id=3D"m_1770172884451427845hs_cos_wrapper_module_17334642584872_" s=
+tyle=3D"color:inherit;font-size:inherit;line-height:inherit"><p style=3D"li=
+ne-height:125%">Nem hagyhatjuk, hogy elf=C3=BArj=C3=A1k a j=C3=B6v=C5=91nke=
+t! K=C3=B6sz=C3=B6nj=C3=BCk, hogy te is mellett=C3=BCnk =C3=A1llsz!=C2=A0</=
+p></div></div></td></tr></tbody></table>
+</div>
+
+
+   =20
+    </div>
+  =20
+  </div>
+  <div id=3D"m_1770172884451427845section_17334642694285" class=3D"m_177017=
+2884451427845hse-section" style=3D"padding-left:10px;padding-right:10px">
+   =20
+   =20
+   =20
+      <div class=3D"m_1770172884451427845hse-column-container" style=3D"min=
+-width:280px;max-width:600px;Margin-left:auto;Margin-right:auto;background-=
+color:#ffffff" bgcolor=3D"#ffffff">
+   =20
+   =20
+   =20
+   =20
+
+<div id=3D"m_1770172884451427845column-1733464269428-0" class=3D"m_17701728=
+84451427845hse-column m_1770172884451427845hse-size-12">
+  <table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=3D=
+"100%"><tbody><tr><td class=3D"m_1770172884451427845hs_padded" style=3D"fon=
+t-family:Arial,sans-serif;font-size:15px;color:#000000;word-break:break-wor=
+d;padding:10px 20px"><div id=3D"m_1770172884451427845hs_cos_wrapper_module_=
+17334642694282" style=3D"color:inherit;font-size:inherit;line-height:inheri=
+t"><div id=3D"m_1770172884451427845hs_cos_wrapper_module_17334642694282_" s=
+tyle=3D"color:inherit;font-size:inherit;line-height:inherit"><p style=3D"li=
+ne-height:125%">=C3=9Cdv=C3=B6zlettel:</p></div></div></td></tr></tbody></t=
+able>
+<div id=3D"m_1770172884451427845hs_cos_wrapper_module_17334642694283" style=
+=3D"color:inherit;font-size:inherit;line-height:inherit"><table role=3D"pre=
+sentation" width=3D"100%" cellpadding=3D"0" cellspacing=3D"0">
+  <tbody>
+    <tr>
+      <td class=3D"m_1770172884451427845hs_padded" align=3D"left" valign=3D=
+"top" style=3D"font-family:Arial,sans-serif;color:#000000;word-break:break-=
+word;text-align:left;padding:10px 20px;font-size:0px">
+        <img alt=3D"perger_andras" src=3D"https://act.greenpeace.hu/hs-fs/h=
+ubfs/GPHU%20Staff/perger_andras.jpg?width=3D400&amp;upscale=3Dtrue&amp;name=
+=3Dperger_andras.jpg" style=3D"outline:none;text-decoration:none;max-width:=
+100%;font-size:16px" width=3D"200" align=3D"middle">
+      </td>
+    </tr>
+  </tbody>
+</table></div>
+<table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%"><tbody><tr><td class=3D"m_1770172884451427845hs_padded" style=3D"font-=
+family:Arial,sans-serif;font-size:15px;color:#000000;word-break:break-word;=
+padding:10px 20px"><div id=3D"m_1770172884451427845hs_cos_wrapper_module_17=
+334642694284" style=3D"color:inherit;font-size:inherit;line-height:inherit"=
+><div id=3D"m_1770172884451427845hs_cos_wrapper_module_17334642694284_" sty=
+le=3D"color:inherit;font-size:inherit;line-height:inherit"><p style=3D"line=
+-height:125%">Perger Andr=C3=A1s</p>
+<p style=3D"line-height:125%">kl=C3=ADma- =C3=A9s energiakamp=C3=A1ny-felel=
+=C5=91s</p>
+<p style=3D"line-height:125%">Greenpeace Magyarorsz=C3=A1g</p></div></div><=
+/td></tr></tbody></table>
+</div>
+
+
+   =20
+    </div>
+  =20
+  </div>
+  <div id=3D"m_1770172884451427845section-3" class=3D"m_1770172884451427845=
+hse-section" style=3D"padding-left:10px;padding-right:10px">
+   =20
+   =20
+   =20
+      <div class=3D"m_1770172884451427845hse-column-container" style=3D"min=
+-width:280px;max-width:600px;Margin-left:auto;Margin-right:auto;background-=
+color:#fafafa" bgcolor=3D"#fafafa">
+   =20
+   =20
+   =20
+   =20
+
+<div id=3D"m_1770172884451427845column-3-0" class=3D"m_1770172884451427845h=
+se-column m_1770172884451427845hse-size-12">
+  <table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=3D=
+"100%"><tbody><tr><td class=3D"m_1770172884451427845hs_padded" style=3D"fon=
+t-family:Arial,sans-serif;font-size:15px;color:#000000;word-break:break-wor=
+d;padding:10px 20px"><div id=3D"m_1770172884451427845hs_cos_wrapper_module-=
+3-0-0" style=3D"color:inherit;font-size:inherit;line-height:inherit"><table=
+ role=3D"presentation" align=3D"center" style=3D"width:auto;text-align:cent=
+er">
+  <tbody>
+    <tr align=3D"center">
+      <td class=3D"m_1770172884451427845social-network-cell" style=3D"font-=
+family:Arial,sans-serif;font-size:15px;color:#000000;word-break:break-word"=
+>
+        <table role=3D"presentation" align=3D"center" style=3D"width:auto;t=
+ext-align:center">
+          <tbody>
+            <tr align=3D"center">
+              <td class=3D"m_1770172884451427845display_block_on_small_scre=
+ens" style=3D"font-family:Arial,sans-serif;font-size:15px;color:#000000;wor=
+d-break:break-word;padding:8px 5px;line-height:1;vertical-align:middle" val=
+ign=3D"middle">
+                <a href=3D"https://d2YPcV04.eu1.hubspotlinks.com/Ctc/UB+113=
+/d2YPcV04/VX8j5t5H1sHyW7yHd9-7rHmw9W58c1_75pf2mZN5wYXRF3qn9gW7lCdLW6lZ3llW7=
+Zrmwb1nNTtlW3SJTHb6-67n_W6Tz2Bs2bmv5wW6bkr7c1kx9YnVf-bZf3LnGkYW2t7W7L7FNF8f=
+W3pXCMC2nv_v0W31P-ST20LGXsW7XYsTs8g-6JjVB_JJ85H7yrNW89Phj18kwSVQW286sMB8rDj=
+-DW7LpRZj5mNJvkW69Qj8f4sZLNTW7QDpRD7W1Fs2W8-2Rlt961CKDW8c2DXy6z6R82W4P1kcL7=
+_rr5QN5fMMkndscVjW71YCM4689G8xW5NyTxQ19gsFhW1V8PX61NxYqdVdQ5FD5gSjHwV6FjpD3=
+BB6Pbf3mRP0M04" style=3D"color:#00a4bd;text-decoration:none!important" targ=
+et=3D"_blank"><img src=3D"https://hs-25002425.f.hubspotemail-eu1.net/hs/hss=
+tatic/TemplateAssets/static-1.262/img/hs_default_template_images/modules/Fo=
+llow+Me+-+Email/facebook_circle_color.png" alt=3D"Facebook" height=3D"25" s=
+tyle=3D"outline:none;text-decoration:none;border:none;width:auto!important;=
+height:25px!important;vertical-align:middle" valign=3D"middle" width=3D"aut=
+o">
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </td><td class=3D"m_1770172884451427845social-network-cell" style=3D"=
+font-family:Arial,sans-serif;font-size:15px;color:#000000;word-break:break-=
+word">
+        <table role=3D"presentation" align=3D"center" style=3D"width:auto;t=
+ext-align:center">
+          <tbody>
+            <tr align=3D"center">
+              <td class=3D"m_1770172884451427845display_block_on_small_scre=
+ens" style=3D"font-family:Arial,sans-serif;font-size:15px;color:#000000;wor=
+d-break:break-word;padding:8px 5px;line-height:1;vertical-align:middle" val=
+ign=3D"middle">
+                <a href=3D"https://d2YPcV04.eu1.hubspotlinks.com/Ctc/UB+113=
+/d2YPcV04/VX8j5t5H1sHyW7yHd9-7rHmw9W58c1_75pf2mZN5wYXRF3qn9gW7lCdLW6lZ3ksW2=
+7Tk4f7PR1nyW80Z2_W53-vTbW70RzZ11_jGj3W8PfgHX98hFGBN3vB-yYLGJnrW35LgY-1CG6fH=
+W3SKMmZ2hsLbgW507ZN_4GHMzxW8fZNdj22RNr5W3d-4H82l92MLW6xz_mt7YPT75W1j78tD4LW=
+Wn3W2GtfJS7kyV1RW794wHx65PjyhV94tLR7d3NSQN2Ypn20JHWS1W8yg6Cc5lz-gdV7B63d5ZH=
+hkrW5jHvWk6ZglM8V7Qf9m4DfcBxW8qXx3Z5j8q3vW2Xn83h1brq17W16LP8f1kCKV1W4FsdVY5=
+xTGC2f75B68C04" style=3D"color:#00a4bd;text-decoration:none!important" targ=
+et=3D"_blank"><img src=3D"https://hs-25002425.f.hubspotemail-eu1.net/hs/hss=
+tatic/TemplateAssets/static-1.262/img/hs_default_template_images/modules/Fo=
+llow+Me+-+Email/instagram_circle_color.png" alt=3D"Instagram" height=3D"25"=
+ style=3D"outline:none;text-decoration:none;border:none;width:auto!importan=
+t;height:25px!important;vertical-align:middle" valign=3D"middle" width=3D"a=
+uto">
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </td><td class=3D"m_1770172884451427845social-network-cell" style=3D"=
+font-family:Arial,sans-serif;font-size:15px;color:#000000;word-break:break-=
+word">
+        <table role=3D"presentation" align=3D"center" style=3D"width:auto;t=
+ext-align:center">
+          <tbody>
+            <tr align=3D"center">
+              <td class=3D"m_1770172884451427845display_block_on_small_scre=
+ens" style=3D"font-family:Arial,sans-serif;font-size:15px;color:#000000;wor=
+d-break:break-word;padding:8px 5px;line-height:1;vertical-align:middle" val=
+ign=3D"middle">
+                <a href=3D"https://d2YPcV04.eu1.hubspotlinks.com/Ctc/UB+113=
+/d2YPcV04/VX8j5t5H1sHyW7yHd9-7rHmw9W58c1_75pf2mZN5wYXRl3qn9gW6N1vHY6lZ3lWW7=
+D0bfd26VYNvW3B398X8RF2G8W8-7Ns75wp_nPW79MhRR446hSNW6nln7C44mnFgVfYSZK78PpLj=
+W5lHR3W3Z2r6RW7fykPx5tQzqnW1Tcw6d7WY7YpW3sBw2b7xMsB_W6KpY827QNRB0N7Ghj8mqxN=
+3bW39GWd09gjFBZVNj8fk66m0Q_W80xXyz1-JQ6BW38Xk7T84vB5TW38h9762zrCdWW4V618j4J=
+sWfQW6PXJL18Rw2LDW76Wf2D7stDhvW7FVsG-6GYKd8N8s9YlhHBKGBf5MYF3604" style=3D"=
+color:#00a4bd;text-decoration:none!important" target=3D"_blank"><img src=3D=
+"https://hs-25002425.f.hubspotemail-eu1.net/hs/hsstatic/TemplateAssets/stat=
+ic-1.262/img/hs_default_template_images/modules/Follow+Me+-+Email/website_c=
+ircle_color.png" alt=3D"Honlap" height=3D"25" style=3D"outline:none;text-de=
+coration:none;border:none;width:auto!important;height:25px!important;vertic=
+al-align:middle" valign=3D"middle" width=3D"auto">
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div></td></tr></tbody></table>
+<table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%"><tbody><tr><td class=3D"m_1770172884451427845hs_padded" style=3D"font-=
+family:Arial,sans-serif;font-size:15px;color:#000000;word-break:break-word;=
+padding:10px 20px"><div id=3D"m_1770172884451427845hs_cos_wrapper_module-3-=
+0-1" style=3D"color:inherit;font-size:inherit;line-height:inherit"><p style=
+=3D"font-family:verdana,geneva;font-size:9px;color:grey;text-align:left;lin=
+e-height:1em"><span style=3D"color:#ffffff">---</span><br>
+<br>
+A Greenpeace Magyarorsz=C3=A1g anyagilag =C3=A9s politikailag f=C3=BCggetle=
+n k=C3=B6rnyezetv=C3=A9d=C5=91 szervezet, mely a=C2=A0tiszt=C3=A1bb, =C3=A9=
+lhet=C5=91bb k=C3=B6rnyezet=C3=A9rt dolgozik itthon =C3=A9s a=C2=A0nagyvil=
+=C3=A1gban. <span style=3D"color:rgb(128,128,128);font-family:verdana,genev=
+a;font-size:9px">Ha teheted, </span><a href=3D"https://d2YPcV04.eu1.hubspot=
+links.com/Ctc/UB+113/d2YPcV04/VX8j5t5H1sHyW7yHd9-7rHmw9W58c1_75pf2mZN5wYXRF=
+3qn9gW7lCdLW6lZ3pnW70-0_C8cp0q0W4PqHlW4X0ft_W4qXY5w1h6v5gV8-4wf3jc5yXVwJPSz=
+3ZfdKJW8fwlxb1C4DLbW1ScRln2cmx8nN2lwvGqw67ftW4ZTvhl4nxVdRW7kQvRX58Y-TsW5Z-f=
+Vq6kSDRlW64D2T82Q0yxfVp9RnT6vVlpTW6ypgrq2Q4HBYW5kkWs48VZDrRVVzPJn5BqxSwW223=
+C564z04rLVXBqqJ3xNbC7W2Z5rMw40r68NW4S6bb15x5J1CVf6gqV5C4s-LW7LLHQj4Vjk58W2V=
+gXYD5jkcK1W7wSVS25-SqRwf1JqrQY04" style=3D"color:#00a4bd;font-family:verdan=
+a,geneva;font-size:9px" target=3D"_blank">t=C3=A1mogass minket</a><span sty=
+le=3D"color:rgb(128,128,128);font-family:verdana,geneva;font-size:9px">, ho=
+gy a=C2=A0j=C3=B6v=C5=91ben is fel tudjunk l=C3=A9pni a=C2=A0k=C3=B6rnyezet=
+ v=C3=A9delme =C3=A9rdek=C3=A9ben.</span><br>
+<br>
+<strong>Kapcsolat:</strong> <a href=3D"mailto:info.hu@greenpeace.org" style=
+=3D"color:#00a4bd" target=3D"_blank">info.hu@greenpeace.org</a> | +36 1 392=
+ 7663<br>=20
+<br>
+<strong>Adatv=C3=A9delem:</strong> Adataidat a Greenpeace Magyarorsz=C3=A1g=
+ Egyes=C3=BClet az <a href=3D"https://d2YPcV04.eu1.hubspotlinks.com/Ctc/UB+=
+113/d2YPcV04/VX8j5t5H1sHyW7yHd9-7rHmw9W58c1_75pf2mZN5wYXRY3qn9gW7Y8-PT6lZ3k=
+zVZy4GD6WYTNDW6VkFR33Ydd4sN6sRy_7z5M3cW5P76NM1Ls-88N37_60ZGCPC7VY-5Lx2dlmX8=
+W1HRcw64qQvhtW5whtnd7NWfnVW7KJzmJ9b4FL6W6bQnH-2gCs0ZW2PWWs25LfFfjW3gcD3H2b2=
+kW4W2ycfGl7L5FNpW19hnHx6Ftz96W3KVTst2JdD0-N2t9C9BhnjXMW3JgBcr3qb1JtW9h_vGK3=
+RpG7xW7XRm8b84-WQ0W4sjGG7431K9-W4rRz755XJGVvW44VYRK1-wPSKW8th33F7062lpW3PGH=
+4x6ZHGdVW4sk8vP7b7jXyW8lRZ2D3vnYRJf5KCy6M04" style=3D"color:#00a4bd" target=
+=3D"_blank">Adatkezel=C3=A9si t=C3=A1j=C3=A9koztat=C3=B3ban</a> =C3=ADrtak =
+szerint, a=C2=A0vonatkoz=C3=B3 jogszab=C3=A1lyoknak megfelel=C5=91en=C2=A0k=
+ezeli. K=C3=A9rd=C3=A9sed, =C3=A9szrev=C3=A9teled van? =C3=8Drj a <a href=
+=3D"mailto:privacy.hu@greenpeace.org" style=3D"color:#00a4bd" target=3D"_bl=
+ank">privacy.hu@greenpeace.org</a> c=C3=ADmre!<br>
+<br>
+<strong>Leiratkoz=C3=A1s: </strong><a href=3D"https://d2YPcV04.eu1.hubspotl=
+inks.com/Ctc/UB+113/d2YPcV04/VX8j5t5H1sHyW7yHd9-7rHmw9W58c1_75pf2mZN5wYXSd3=
+qn9gW8wLKSR6lZ3lMW5mbsLq3nD70sW57PBgQ5GCqxmW7bDfkM7xMkpPV4fzJ24PnD0dV6x6MN5=
+9gfWvW2nFjLb5khL9bW6rxC6Q3h-QDgW49ZX6s5HTnBNW3QRvv32HQLg9W575zK71W43qWW5ZnY=
+2c3v3R3SVznvn-7L3gPcW8_ZX7B5TKGk7W1tCxCQ2ZLfbBW3ky2R48z3mhpMLzVG8ylpbwW3v9g=
+VD77HVNcN3CNjKc72-LWW43nd1n9bF6F0W64tZKH1SqtMGW4dYcBj1cQb_7N4rgKf0gClDDW16B=
+YzC6X-d8jW1Lps_73Db2-1W4XMRCD7tbmM0W21Rc4J8Trhc-W32sWgq8X4-_SW6qMdfC6FQQMXf=
+3lpkQl04" style=3D"color:#00a4bd" target=3D"_blank">nem k=C3=A9rek t=C3=B6b=
+b e-mailt</a><br>
+<br>=C2=A9 Greenpeace Magyarorsz=C3=A1g Egyes=C3=BClet, 1143 Budapest, Z=C3=
+=A1szl=C3=B3s utca 54.</p>
+<p style=3D"display:none!important;width:0!important;height:0!important"><a=
+ href=3D"https://d2YPcV04.eu1.hubspotlinks.com/Ctc/UB+113/d2YPcV04/VX8j5t5H=
+1sHyW7yHd9-7rHmw9W58c1_75pf2mZN5wYXRlfjNBKW6N3B346lZ3pXW2-x4NQ8kz91BW8HdB_W=
+3vTTqKVtpvbJ1CqQfTVwmPwg6wDnRZW2yslM74gyM6XW5lV-bk40h2g8N3-8cc5c2zP9W3g4230=
+2nYKnDW2wwC6s3qjGhFW2rPxkf26NXbsW6jKGJw3YkvD8W1DC4mY8d6l-FV8mPXD3J4GsPW2Cst=
+yH6vSwQ7W4f4l7x8R-vW_W21W_LR448p_dW2C0Zks6nhFmjW7NJzdZ4r-bFLW1G5htP6dcpDvW7=
+v9bG-5zpj9lW6R22Py1KD610W6sDxrB2mw6k1W76N6WP4n638_V6PgfG4Z1nySVTd0rH3TGKgMN=
+8Tz7bRmyF9cW6Vn7dl64bNV7W5WLQ7H5f32gHW60_2LJ3j1DFdW8S-ypn7XLK9QVqXmpH4hngL0=
+W5WBYyg3RS6xPN98zvR7qVgDwMVnLjMcnb1fW3Gl7Fn8cwm2LW1n4GvK7TBX-dN8JmpmMPZm5SV=
+SLdZL6C6WvRV7FRQf5nF1kMW3k_-tK48HnvKW4wTmt43dTpG3Vw_GXV6-72dXV2v8h36hXdyJW5=
+l2m9q6kktFrW1dPQTN8CGgdtW5P4Bg-6NDlnrW4s3J4Y2Zssh2W3Q-2g16M7WMbW1jYYyd7363q=
+9W3lZWCt795JV-W6mRk1X7n-DyXW4Dr62Y5G8kR1VP_J4d22b6gnW4gc-mG5cQBmgN4GkFS6_3H=
+B7Vk9tGl6CqYnDW4SM51G1bzlVnW8WrD9K3lbD4XW97q1PJ1HCngDW1VslHM4dVVvdW7bkyW56q=
+dKz6VTHlzB5c9W7CW3bdjby73pYnrW5vWPvP5F4MNNW5WxP2g4wlhH-W64xk9s7gRM26W5KFwQS=
+8_Hk17W7fL0Zp5MB0CLN2mPpMFZVs4KW53CG6m2NvgkQW6THjBh6yZd3TW7n7Y2-8k3vMqVHKNX=
+s82nS6fW5Hbh4R30hhHZW8L3_zj9h68w0N1sry21Xx_q8W3SmmLQ7j_jFbW1628vl4dKLGTW3NB=
+_3S5lvcVHW1WzXdb4YlCLWW2vsv3621ryVYW2rctJ-2lhxhsW5-3hvp2DbnSRVVKCt_12LH0WW3=
+B8SBT3N2-0SW1_NKzL9jj66cW7qWrYY1d4X_qVcRSw323KgvcW3LfqnQ5jJ4wwW1t5CNQ6WtRkH=
+W6vq1Lb1DWjYwW5dTM8S3lQrmlW4N2HS66JppD4W5R4Vz888fyV5W8NV3QP8hCLBTW8qkhr41dF=
+kkBW5zWHSD2DpYnMV92M8j8rXRZ0W4QKD-f5C15_9N98bTJMKBlyyVMZRvt110kq0W3_1QWY34k=
+RVgf3Fx-8C04" style=3D"color:#00a4bd" target=3D"_blank">&amp;zwsp;</a></p><=
+/div></td></tr></tbody></table>
+</div>
+
+
+   =20
+    </div>
+  =20
+  </div></div>
+          </td>
+        </tr>
+      </tbody></table>
+    </div>
+ =20
+<img src=3D"https://d2YPcV04.eu1.hubspotlinks.com/Cto/UB+113/d2YPcV04/VX8j5=
+t5H1sHyW7yHd9-7rHmw9W58c1_75pf2mZW5wYXBs8fYD0B312K1" alt=3D"" width=3D"1" h=
+eight=3D"1" border=3D"0" style=3D"display:none!important;min-height:1px!imp=
+ortant;width:1px!important;border-width:0!important;margin-top:0!important;=
+margin-bottom:0!important;margin-right:0!important;margin-left:0!important;=
+padding-top:0!important;padding-bottom:0!important;padding-right:0!importan=
+t;padding-left:0!important"></div></div></div></div>
+
+--000000000000b1ff3b0628978b06--

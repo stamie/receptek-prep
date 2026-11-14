@@ -1,0 +1,472 @@
+Delivered-To: estampel@gmail.com
+Received: by 2002:a05:622a:4fcc:b0:494:a61f:6730 with SMTP id ni12csp448115qtb;
+        Tue, 20 May 2025 04:28:45 -0700 (PDT)
+X-Received: by 2002:a17:907:97c6:b0:ad2:2d75:d7fb with SMTP id a640c23a62f3a-ad536f2817amr1370448566b.55.1747740525124;
+        Tue, 20 May 2025 04:28:45 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1747740525; cv=none;
+        d=google.com; s=arc-20240605;
+        b=QK9LIFCnChIm9ntS5lMt8XS//KqHGCD95K3+LzUjTmYwNtUmdNKjCl1jfE0xLhEx1g
+         3rbdMcyQ3TJYpZ78Wx9u0VmhOOy97+71XKulz5684wZ+Cg5Mh16yPeMvg0AXEa9nXO1b
+         LVSSuZEm7+3qqTvHF04/IQqzkU1ncDUISVY8VLZXFFh5HTnZth7xzS/KqYaQwIUQK3A9
+         /nyuzcfrXB2v4SYjyF2cuiqM3D6+dzYPoiuL2L66V98KG2kMUSY653WigIJRXbOubfsq
+         db0wXnUD+w3XDuL+wvKwqxP8KdRP7e4ffx3XHD6nWYqgaZ66bWcbVHbfe1LZKRBU1+kF
+         u/6A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=BEt0BHmdndGDWYeUmQ1q2D1OqENaFJp5hu9MUy0ewek=;
+        fh=wF/Yrd2E0xeKwPH74kML7cQSth+Fl4bwhVNrybJ4uh4=;
+        b=Nar3nHRgg24F+9Xc2CHSsGbINWbdaz1f83ODMrCbIfJym+76azez20AxrZzw+aG9/z
+         Yrr3LmDkTJArdh0FaXjAjAfbF9DuReGdplfhKipIsv1j0F97Bh8LWjw7DLlKM8ipOncm
+         W5HkhXFI3FzpN//VweU45ULnvPv1phah0sUTtSO8yYb7N/zRGX+Gm9BEUv5DceXVdT43
+         o457c/bfPB7oAKmarNfnLiOg7Gg98/C7iboKn71yNjLSbEelHmjchk9x3a9MQKX58GJ1
+         c4Bp+H+VWBcB9BUK+CKno33nXkAkvAdb5tshW1BlxaXjRp83Z5WpCjKEX4F9Jrv3aaFT
+         EWsA==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=Oml95W7w;
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <banyus53@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id a640c23a62f3a-ad56439d9e1sor183704166b.1.2025.05.20.04.28.44
+        for <estampel@gmail.com>
+        (Google Transport Security);
+        Tue, 20 May 2025 04:28:45 -0700 (PDT)
+Received-SPF: pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=Oml95W7w;
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1747740524; x=1748345324; dara=google.com;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=BEt0BHmdndGDWYeUmQ1q2D1OqENaFJp5hu9MUy0ewek=;
+        b=Oml95W7woPvsH3SoafZrxjoLkd+y/oI+AzifHQUkeIYJh0jEejyvcj2dUXjU9Gng23
+         kLodUscPcRcCS6vBfkEh2ucLCmizi09aqyTlWTOmLvCbu3cmm6209/IC2hGoAT7g7GCq
+         eLAEaZtEoeZ2K4FN2iQpvKBo9KrRIALP/dlfljmM/NogyDc7HeqMtGbakZN0rpxkVA0G
+         nTn/oNLylraFD2ksR8DTG9Cm+/Evs53rsU5w8VoCNs4vcSKX4lDbFNXCRNBV6N6I8QG+
+         hh+mnqXRiEB2M8MIu86zd1vQe3HOhEW5uu7g5p+S1TAIf15omdxoEr3RbuBFMAM35MJ7
+         +u4A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747740524; x=1748345324;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=BEt0BHmdndGDWYeUmQ1q2D1OqENaFJp5hu9MUy0ewek=;
+        b=KqXDbAJfGQTUMpmmGlG4vDi9VfTGsOkf2YGzSLN1tS5VmiX/fTBBK9rT4KNWIAY0i2
+         3Wj4vnitM115et32SVTwpiaZH5cHxj5YWhSW2Q7IzmpXilFw505LeyqOtzBh47sEws03
+         nu/CNDm6bjGR1ndi3LEy7G3swCY+OI0kvFfdJiCIVbLzVjt9o4a9UPmgwbEOr1wh340U
+         geEh1FmiYh1fDu6BCILo238/ins4Oragruc3SsexfBRXh825+uyaG4405gMPQ+1Yg4jt
+         iNg+K7naOeMz7HU3ErNDmTC9G/KAXQxn6yNd3Vk3fwUCVVbNuf/7aaumZ5ppaaM0Ps1v
+         +DSA==
+X-Gm-Message-State: AOJu0Yy93Rih42YR36Vv2WH7UnjTrjEvecriT3NAHaN/XODlzSbz0nbr
+	Fv7EETJZwcDUIbtLCWTq0D7Qrujowj0IL3xU6x2sE5MqlJvsAts/9HTFlDdV/y/RMzJVLiI89hc
+	bZMoncc3aMGK2AKX2vwN9rCLjJlzHD0Oeaw==
+X-Gm-Gg: ASbGnctAo+4Tux1eeMRDlCHdfFPBmQWbsY4BMjzlxej5ayuHVp8251hGahRjbdAb8Ly
+	iNtKeLKA7CBNCG8vaw/k4SNxt3Q3LTKk5t/CoXLR5l8zanTtJTcqvGqSARhIscxcFCCNHJ3N1PC
+	1muBjUxQopEA3QA8viVRhvKrM1r3aJjJkIjQ==
+X-Google-Smtp-Source: AGHT+IFRLxsI3on7cWMKWZbwUrcazRfguBMHLAAs+ox9d+JNaVf3D5LfQAnfhsEYGAdxtAB3Z+akWjh/ZF5rM1PRZAk=
+X-Received: by 2002:a17:907:2d1f:b0:ad2:23b6:149c with SMTP id
+ a640c23a62f3a-ad536dcd710mr1221486366b.43.1747740524083; Tue, 20 May 2025
+ 04:28:44 -0700 (PDT)
+MIME-Version: 1.0
+References: <682c547c67ae4_59d45307a5d88a7b8416491455@id.ahang.hu.mail>
+In-Reply-To: <682c547c67ae4_59d45307a5d88a7b8416491455@id.ahang.hu.mail>
+From: =?UTF-8?B?w4FnbmVzIEJ1Z8Ohcg==?= <banyus53@gmail.com>
+Date: Tue, 20 May 2025 13:26:49 +0200
+X-Gm-Features: AX0GCFuavaQS582OwoTK4W427cOqo41PwFo-Rrdqjohag3Y0Rboyl1UMBBoEo5g
+Message-ID: <CA+39czWKhuQ4g6maiQqKebuzj4djShbRUgpZQs2KqfbwFW2Zmg@mail.gmail.com>
+Subject: =?UTF-8?B?RndkOiBOZW0gZm9ndW5rIGZlbHRldHQga8OpenplbCBsZXZvbnVsbmkgYSBww6FsecOhcg==?=
+	=?UTF-8?B?w7NsIQ==?=
+To: Emese Stampel <estampel@gmail.com>
+Content-Type: multipart/alternative; boundary="00000000000019012406358f8dc5"
+
+--00000000000019012406358f8dc5
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+---------- Forwarded message ---------
+Felad=C3=B3: Varga M=C3=A1t=C3=A9 | aHang <posta@ahang.hu>
+Date: 2025. m=C3=A1j. 20., K, 12:07
+Subject: Nem fogunk feltett k=C3=A9zzel levonulni a p=C3=A1ly=C3=A1r=C3=B3l=
+!
+To: <banyus53@gmail.com>
+
+
+Kedves Bug=C3=A1r =C3=81gnes M=C3=A1ria!
+
+*Ha ma csak egy emailt olvasol el, k=C3=A9rj=C3=BCk, ez legyen az! *
+
+*Most, amikor a hatalom =C3=BAjra t=C3=A1mad, vil=C3=A1gosan kijelentj=C3=
+=BCk: nem fogunk
+feltett k=C3=A9zzel levonulni a p=C3=A1ly=C3=A1r=C3=B3l.*
+
+Az aHang k=C3=B6z=C3=B6ss=C3=A9ge ma m=C3=A1r t=C3=B6bb mint f=C3=A9lmilli=
+=C3=B3 embert jelent. Ez nem csak
+egy sz=C3=A1m =E2=80=93 ez er=C5=91, b=C3=A1tors=C3=A1g =C3=A9s k=C3=B6z=C3=
+=B6s akarat. Az elm=C3=BAlt =C3=A9vekben egy=C3=BCtt
+emelt=C3=BCk fel a hangunkat az igazs=C3=A1gtalans=C3=A1g ellen, a kisemmiz=
+ettek, a
+kiszolg=C3=A1ltatottak, a n=C3=A9ma t=C3=B6bbs=C3=A9g nev=C3=A9ben.
+
+Mik=C3=B6zben mi a dolgunkat v=C3=A9gezz=C3=BCk =E2=80=93 t=C3=A1mogatjuk a=
+z elesetteket, k=C3=B6z=C3=B6ss=C3=A9geket
+=C3=A9p=C3=ADt=C3=BCnk, sz=C3=B3t adunk azoknak, akiket m=C3=A1sok elhallga=
+ttatn=C3=A1nak =E2=80=93 a hatalom
+h=C3=A1bor=C3=BAt ind=C3=ADtott a f=C3=BCggetlen civil t=C3=A1rsadalom =C3=
+=A9s a szabad sajt=C3=B3 ellen. Nem
+v=C3=A9letlen=C3=BCl. =C3=89rzik a veszt=C3=BCket, a v=C3=A1ltoz=C3=A1s sze=
+l=C3=A9t, =C3=A9s most minden eszk=C3=B6zzel
+pr=C3=B3b=C3=A1lj=C3=A1k bebetonozni a saj=C3=A1t hatalmukat. De mi tudjuk,=
+ hogy nem a hatalom
+az =C3=B6r=C3=B6k, hanem az emberek ereje.
+
+*Most kell cselekedn=C3=BCnk! N=C3=A9h=C3=A1ny nap, jobb esetben is csak h=
+=C3=A1rom h=C3=A9t van
+h=C3=A1tra a t=C3=B6rv=C3=A9ny szavaz=C3=A1s=C3=A1ig. Addig adjunk min=C3=
+=A9l nagyobb hangot a
+tiltakoz=C3=A1sunknak! =C3=8Drd al=C3=A1 most a pet=C3=ADci=C3=B3t, mi pedi=
+g akci=C3=B3kat szervez=C3=BCnk
+orsz=C3=A1gszerte:*
+
+Kattints ide, =C3=A9s =C3=ADrd al=C3=A1 a pet=C3=ADci=C3=B3t!
+<https://id.ahang.hu//clicks/link/3007/55368f5c-ad7f-4e11-91e0-8ddad5275606=
+?url=3Dhttps%3A%2F%2Fszabad.ahang.hu%2Fpetitions%2Ftiltakozunk-a-civil-tars=
+adalom-es-fuggetlen-sajto-felszamolasa-ellen%3Futm_source%3Dahang%26utm_med=
+ium%3Demail%26utm_campaign%3Dblast2025-05-20&member_guid=3D88a62eb4b5dcac98=
+10b289cd94cf43b21da67c13302ba6dade9c66944a7efc34cdda09d8fc189000cf0efc385f8=
+43fe4a3f0b0c0992d522217f596756a2ca812>
+
+A mi munk=C3=A1nk nem felforgat=C3=A1s, hanem =C3=A9p=C3=ADt=C3=A9s. Nem t=
+=C3=A1mad=C3=A1s, hanem v=C3=A9delem. Nem
+=C3=A1rul=C3=A1s, hanem szolg=C3=A1lat =E2=80=93 a k=C3=B6z=C3=B6ss=C3=A9ge=
+k szolg=C3=A1lata, a j=C3=B6v=C5=91be vetett hit
+szolg=C3=A1lata. Aki ezt vesz=C3=A9lynek l=C3=A1tja, az nem az orsz=C3=A1go=
+t, hanem saj=C3=A1t
+hatalmi =C3=A9rdekeit f=C3=A9lti. =C3=89s pontosan ez=C3=A9rt *nem fognak t=
+udni meg=C3=A1ll=C3=ADtani
+benn=C3=BCnket.*
+
+Nek=C3=BCnk, akik hisz=C3=BCnk a k=C3=B6z=C3=B6ss=C3=A9g erej=C3=A9ben, mos=
+t nem a f=C3=A9lelem, hanem a
+rem=C3=A9ny ideje van. Nek=C3=BCnk kell meggy=C3=BAjtani a l=C3=A1ngokat =
+=E2=80=93 minden kis faluban,
+minden v=C3=A1rosban, minden besz=C3=A9lget=C3=A9sben. Mert a f=C3=A9lelem =
+s=C3=B6t=C3=A9tj=C3=A9t csak az
+emberek =C3=B6sszefog=C3=A1sa k=C3=A9pes eloszlatni.
+
+Ez=C3=A9rt vagyunk itt. Ez=C3=A9rt =C3=A9p=C3=ADtj=C3=BCk tov=C3=A1bb az aH=
+ang k=C3=B6z=C3=B6ss=C3=A9g=C3=A9t. Mert hissz=C3=BCk,
+hogy Magyarorsz=C3=A1g lehet igazs=C3=A1gosabb, tisztess=C3=A9gesebb, szaba=
+dabb. =C3=89s ha
+egy=C3=BCtt maradunk, akkor nemcsak t=C3=BAl=C3=A9lni fogjuk ezt a korszako=
+t =E2=80=93 hanem
+megv=C3=A1ltoztatjuk.
+
+*K=C3=A9r=C3=BCnk, hogy =C3=A1llj ki vel=C3=BCnk a t=C3=B6rv=C3=A9nyterveze=
+t ellen! Kattints a piros
+gombra, =C3=A9s =C3=ADrd al=C3=A1 a ki=C3=A1ltv=C3=A1nyunkat! *
+
+=C3=89n is csatlakozom az al=C3=A1=C3=ADr=C3=B3khoz!
+<https://id.ahang.hu//clicks/link/3007/55368f5c-ad7f-4e11-91e0-8ddad5275606=
+?url=3Dhttps%3A%2F%2Fszabad.ahang.hu%2Fpetitions%2Ftiltakozunk-a-civil-tars=
+adalom-es-fuggetlen-sajto-felszamolasa-ellen%3Futm_source%3Dahang%26utm_med=
+ium%3Demail%26utm_campaign%3Dblast2025-05-20&member_guid=3D88a62eb4b5dcac98=
+10b289cd94cf43b21da67c13302ba6dade9c66944a7efc34cdda09d8fc189000cf0efc385f8=
+43fe4a3f0b0c0992d522217f596756a2ca812>
+
+K=C3=B6sz=C3=B6nettel,
+
+Varga M=C3=A1t=C3=A9, az aHang =C3=BCgyvezet=C5=91 igazgat=C3=B3ja
+
+Ui.: Mi egy =C3=BAj korszakra k=C3=A9sz=C3=BCl=C3=BCnk, amit a b=C3=A9ke ha=
+t=C3=A1roz meg. Nem k=C3=A9r=C3=BCnk a
+h=C3=A1bor=C3=BAs usz=C3=ADt=C3=A1sokb=C3=B3l, a harcosok klubj=C3=A1b=C3=
+=B3l =C3=A9s az emberek megoszt=C3=A1s=C3=A1b=C3=B3l. Az
+=C3=BCgyeinkkel =C3=A9p=C3=ADteni akarjuk =C3=A9s fogjuk az orsz=C3=A1got =
+=C3=A9s Eur=C3=B3pa fel=C3=A9 tekinteni.
+Nem a f=C3=A9lelem, hanem a rem=C3=A9ny ideje van, nem tessz=C3=BCk fel a k=
+ez=C3=BCnket, hanem
+ellen=C3=A1llunk. Mindent megtesz=C3=BCnk, akci=C3=B3zunk a t=C3=B6rv=C3=A9=
+nyjavaslat ellen =C3=A9s a
+k=C3=A9s=C5=91bbi visszavon=C3=A1s=C3=A1=C3=A9rt! K=C3=B6sz=C3=B6nj=C3=BCk,=
+ hogy vel=C3=BCnk vagy ebben!
+
+Al=C3=A1=C3=ADrom!
+<https://id.ahang.hu//clicks/link/3007/55368f5c-ad7f-4e11-91e0-8ddad5275606=
+?url=3Dhttps%3A%2F%2Fszabad.ahang.hu%2Fpetitions%2Ftiltakozunk-a-civil-tars=
+adalom-es-fuggetlen-sajto-felszamolasa-ellen%3Futm_source%3Dahang%26utm_med=
+ium%3Demail%26utm_campaign%3Dblast2025-05-20&member_guid=3D88a62eb4b5dcac98=
+10b289cd94cf43b21da67c13302ba6dade9c66944a7efc34cdda09d8fc189000cf0efc385f8=
+43fe4a3f0b0c0992d522217f596756a2ca812>
+
+Ha b=C3=A1rmi k=C3=A9rd=C3=A9sed van, v=C3=A1laszolj k=C3=B6zvetlen=C3=BCl =
+erre az email-re, vagy =C3=ADrj a
+mienk@ahang.hu email c=C3=ADmre.
+
+K=C3=B6vess minket a Facebookon, hogy a naprak=C3=A9sz inform=C3=A1ci=C3=B3=
+k hozz=C3=A1d is
+eljuthassanak:
+<https://id.ahang.hu//clicks/link/3007/55368f5c-ad7f-4e11-91e0-8ddad5275606=
+?url=3Dhttps%3A%2F%2Fwww.facebook.com%2Fszabadahang%3Futm_source%3Dahang%26=
+utm_medium%3Demail%26utm_campaign%3Dblast2025-05-20&member_guid=3D88a62eb4b=
+5dcac9810b289cd94cf43b21da67c13302ba6dade9c66944a7efc34cdda09d8fc189000cf0e=
+fc385f843fe4a3f0b0c0992d522217f596756a2ca812>
+
+A lev=C3=A9l k=C3=BCld=C5=91je:
+Magyarhang Nonprofit Kft.
+
+Ezt az =C3=BCzenetet banyus53@gmail.com c=C3=ADmre k=C3=BCldt=C3=BCk. Leira=
+tkozni ide kattintva
+tudsz.
+<https://id.ahang.hu//subscriptions/unsubscribe?subscription=3D1&email=3Dba=
+nyus53%40gmail.com&mailing_id=3D3007>
+
+--00000000000019012406358f8dc5
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><br><br><div class=3D"gmail_quote gmail_quote_container"><=
+div dir=3D"ltr" class=3D"gmail_attr">---------- Forwarded message ---------=
+<br>Felad=C3=B3: <strong class=3D"gmail_sendername" dir=3D"auto">Varga M=C3=
+=A1t=C3=A9 | aHang</strong> <span dir=3D"auto">&lt;<a href=3D"mailto:posta@=
+ahang.hu">posta@ahang.hu</a>&gt;</span><br>Date: 2025. m=C3=A1j. 20., K, 12=
+:07<br>Subject: Nem fogunk feltett k=C3=A9zzel levonulni a p=C3=A1ly=C3=A1r=
+=C3=B3l!<br>To:  &lt;<a href=3D"mailto:banyus53@gmail.com">banyus53@gmail.c=
+om</a>&gt;<br></div><br><br><div style=3D"background:#ffffff;background-col=
+or:#ffffff;margin:0px auto;max-width:560px;text-align:center;font-family:sa=
+ns-serif;font-size:17px;line-height:25px;text-align:center;color:#000000">
+
+<p><img height=3D"34" src=3D"https://ahang-static.s3.eu-central-1.amazonaws=
+.com/mail/ahangikon-sm.jpg" style=3D"display:inline-block;border:0;border-r=
+adius:0;outline:none;text-decoration:none;height:34px;font-size:17px" width=
+=3D"34"></p>
+
+<p>Kedves Bug=C3=A1r =C3=81gnes M=C3=A1ria!</p>
+
+<div style=3D"text-align:left">
+
+<p>
+
+  <i>Ha ma csak egy emailt olvasol el, k=C3=A9rj=C3=BCk, ez legyen az!=C2=
+=A0</i>
+
+</p>
+
+<p>
+
+  <b>Most, amikor a hatalom =C3=BAjra t=C3=A1mad, vil=C3=A1gosan kijelentj=
+=C3=BCk: nem fogunk feltett k=C3=A9zzel levonulni a p=C3=A1ly=C3=A1r=C3=B3l=
+.</b>
+
+</p>
+
+<p>
+
+  Az aHang k=C3=B6z=C3=B6ss=C3=A9ge ma m=C3=A1r t=C3=B6bb mint f=C3=A9lmill=
+i=C3=B3 embert jelent. Ez nem csak egy sz=C3=A1m =E2=80=93 ez er=C5=91, b=
+=C3=A1tors=C3=A1g =C3=A9s k=C3=B6z=C3=B6s akarat. Az elm=C3=BAlt =C3=A9vekb=
+en egy=C3=BCtt emelt=C3=BCk fel a hangunkat az igazs=C3=A1gtalans=C3=A1g el=
+len, a kisemmizettek, a kiszolg=C3=A1ltatottak, a n=C3=A9ma t=C3=B6bbs=C3=
+=A9g nev=C3=A9ben.=C2=A0
+
+</p>
+
+<p>
+
+  Mik=C3=B6zben mi a dolgunkat v=C3=A9gezz=C3=BCk =E2=80=93 t=C3=A1mogatjuk=
+ az elesetteket, k=C3=B6z=C3=B6ss=C3=A9geket =C3=A9p=C3=ADt=C3=BCnk, sz=C3=
+=B3t adunk azoknak, akiket m=C3=A1sok elhallgattatn=C3=A1nak =E2=80=93 a ha=
+talom h=C3=A1bor=C3=BAt ind=C3=ADtott a f=C3=BCggetlen civil t=C3=A1rsadalo=
+m =C3=A9s a szabad sajt=C3=B3 ellen. Nem v=C3=A9letlen=C3=BCl. =C3=89rzik a=
+ veszt=C3=BCket, a v=C3=A1ltoz=C3=A1s szel=C3=A9t, =C3=A9s most minden eszk=
+=C3=B6zzel pr=C3=B3b=C3=A1lj=C3=A1k bebetonozni a saj=C3=A1t hatalmukat. De=
+ mi tudjuk, hogy nem a hatalom az =C3=B6r=C3=B6k, hanem az emberek ereje.
+
+</p>
+
+<p>
+
+  <b>Most kell cselekedn=C3=BCnk! N=C3=A9h=C3=A1ny nap, jobb esetben is csa=
+k h=C3=A1rom h=C3=A9t van h=C3=A1tra a t=C3=B6rv=C3=A9ny szavaz=C3=A1s=C3=
+=A1ig. Addig adjunk min=C3=A9l nagyobb hangot a tiltakoz=C3=A1sunknak! =C3=
+=8Drd al=C3=A1 most a pet=C3=ADci=C3=B3t, mi pedig akci=C3=B3kat szervez=C3=
+=BCnk orsz=C3=A1gszerte:</b>
+
+</p>
+
+<p>
+
+</p>
+
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"border-collapse:separate;width:100%;line-height:100%"><tbody><t=
+r><td align=3D"center" bgcolor=3D"#ff2400" role=3D"presentation" style=3D"b=
+order:none;border-radius:4px;background:#ff2400" valign=3D"middle"><a href=
+=3D"https://id.ahang.hu//clicks/link/3007/55368f5c-ad7f-4e11-91e0-8ddad5275=
+606?url=3Dhttps%3A%2F%2Fszabad.ahang.hu%2Fpetitions%2Ftiltakozunk-a-civil-t=
+arsadalom-es-fuggetlen-sajto-felszamolasa-ellen%3Futm_source%3Dahang%26utm_=
+medium%3Demail%26utm_campaign%3Dblast2025-05-20&amp;member_guid=3D88a62eb4b=
+5dcac9810b289cd94cf43b21da67c13302ba6dade9c66944a7efc34cdda09d8fc189000cf0e=
+fc385f843fe4a3f0b0c0992d522217f596756a2ca812" style=3D"display:block;backgr=
+ound:#ff2400;color:#ffffff;font-family:sans-serif;font-size:17px;font-weigh=
+t:bold;line-height:25px;margin:0;text-decoration:none;text-transform:none;p=
+adding:10px 25px;border-radius:4px;word-break:break-word;max-width:100%" ta=
+rget=3D"_blank">Kattints ide, =C3=A9s =C3=ADrd al=C3=A1 a pet=C3=ADci=C3=B3=
+t!</a></td></tr></tbody></table>
+
+<p></p>
+
+<p>
+
+  A mi munk=C3=A1nk nem felforgat=C3=A1s, hanem =C3=A9p=C3=ADt=C3=A9s. Nem =
+t=C3=A1mad=C3=A1s, hanem v=C3=A9delem. Nem =C3=A1rul=C3=A1s, hanem szolg=C3=
+=A1lat =E2=80=93 a k=C3=B6z=C3=B6ss=C3=A9gek szolg=C3=A1lata, a j=C3=B6v=C5=
+=91be vetett hit szolg=C3=A1lata. Aki ezt vesz=C3=A9lynek l=C3=A1tja, az ne=
+m az orsz=C3=A1got, hanem saj=C3=A1t hatalmi =C3=A9rdekeit f=C3=A9lti. =C3=
+=89s pontosan ez=C3=A9rt <b>nem fognak tudni meg=C3=A1ll=C3=ADtani benn=C3=
+=BCnket.</b>
+
+</p>
+
+<p>
+
+  Nek=C3=BCnk, akik hisz=C3=BCnk a k=C3=B6z=C3=B6ss=C3=A9g erej=C3=A9ben, m=
+ost nem a f=C3=A9lelem, hanem a rem=C3=A9ny ideje van. Nek=C3=BCnk kell meg=
+gy=C3=BAjtani a l=C3=A1ngokat =E2=80=93 minden kis faluban, minden v=C3=A1r=
+osban, minden besz=C3=A9lget=C3=A9sben. Mert a f=C3=A9lelem s=C3=B6t=C3=A9t=
+j=C3=A9t csak az emberek =C3=B6sszefog=C3=A1sa k=C3=A9pes eloszlatni.=C2=A0
+
+</p>
+
+<p>
+
+  Ez=C3=A9rt vagyunk itt. Ez=C3=A9rt =C3=A9p=C3=ADtj=C3=BCk tov=C3=A1bb az =
+aHang k=C3=B6z=C3=B6ss=C3=A9g=C3=A9t. Mert hissz=C3=BCk, hogy Magyarorsz=C3=
+=A1g lehet igazs=C3=A1gosabb, tisztess=C3=A9gesebb, szabadabb. =C3=89s ha e=
+gy=C3=BCtt maradunk, akkor nemcsak t=C3=BAl=C3=A9lni fogjuk ezt a korszakot=
+ =E2=80=93 hanem megv=C3=A1ltoztatjuk.
+
+</p>
+
+<p>
+
+  <b>K=C3=A9r=C3=BCnk, hogy =C3=A1llj ki vel=C3=BCnk a t=C3=B6rv=C3=A9nyter=
+vezet ellen! Kattints a piros gombra, =C3=A9s =C3=ADrd al=C3=A1 a ki=C3=A1l=
+tv=C3=A1nyunkat!=C2=A0</b>
+
+</p>
+
+<p>
+
+</p>
+
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"border-collapse:separate;width:100%;line-height:100%"><tbody><t=
+r><td align=3D"center" bgcolor=3D"#ff2400" role=3D"presentation" style=3D"b=
+order:none;border-radius:4px;background:#ff2400" valign=3D"middle"><a href=
+=3D"https://id.ahang.hu//clicks/link/3007/55368f5c-ad7f-4e11-91e0-8ddad5275=
+606?url=3Dhttps%3A%2F%2Fszabad.ahang.hu%2Fpetitions%2Ftiltakozunk-a-civil-t=
+arsadalom-es-fuggetlen-sajto-felszamolasa-ellen%3Futm_source%3Dahang%26utm_=
+medium%3Demail%26utm_campaign%3Dblast2025-05-20&amp;member_guid=3D88a62eb4b=
+5dcac9810b289cd94cf43b21da67c13302ba6dade9c66944a7efc34cdda09d8fc189000cf0e=
+fc385f843fe4a3f0b0c0992d522217f596756a2ca812" style=3D"display:block;backgr=
+ound:#ff2400;color:#ffffff;font-family:sans-serif;font-size:17px;font-weigh=
+t:bold;line-height:25px;margin:0;text-decoration:none;text-transform:none;p=
+adding:10px 25px;border-radius:4px;word-break:break-word;max-width:100%" ta=
+rget=3D"_blank">=C3=89n is csatlakozom az al=C3=A1=C3=ADr=C3=B3khoz!</a></t=
+d></tr></tbody></table>
+
+<p></p>
+
+<p>
+
+  K=C3=B6sz=C3=B6nettel,
+
+</p>
+
+<p>
+
+  Varga M=C3=A1t=C3=A9, az aHang =C3=BCgyvezet=C5=91 igazgat=C3=B3ja
+
+</p>
+
+<p>
+
+  Ui.: Mi egy =C3=BAj korszakra k=C3=A9sz=C3=BCl=C3=BCnk, amit a b=C3=A9ke =
+hat=C3=A1roz meg. Nem k=C3=A9r=C3=BCnk a h=C3=A1bor=C3=BAs usz=C3=ADt=C3=A1=
+sokb=C3=B3l, a harcosok klubj=C3=A1b=C3=B3l =C3=A9s az emberek megoszt=C3=
+=A1s=C3=A1b=C3=B3l. Az =C3=BCgyeinkkel =C3=A9p=C3=ADteni akarjuk =C3=A9s fo=
+gjuk az orsz=C3=A1got =C3=A9s Eur=C3=B3pa fel=C3=A9 tekinteni. Nem a f=C3=
+=A9lelem, hanem a rem=C3=A9ny ideje van, nem tessz=C3=BCk fel a kez=C3=BCnk=
+et, hanem ellen=C3=A1llunk. Mindent megtesz=C3=BCnk, akci=C3=B3zunk a t=C3=
+=B6rv=C3=A9nyjavaslat ellen =C3=A9s a k=C3=A9s=C5=91bbi visszavon=C3=A1s=C3=
+=A1=C3=A9rt! K=C3=B6sz=C3=B6nj=C3=BCk, hogy vel=C3=BCnk vagy ebben!
+
+</p>
+
+<p>
+
+</p>
+
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"border-collapse:separate;width:100%;line-height:100%"><tbody><t=
+r><td align=3D"center" bgcolor=3D"#ff2400" role=3D"presentation" style=3D"b=
+order:none;border-radius:4px;background:#ff2400" valign=3D"middle"><a href=
+=3D"https://id.ahang.hu//clicks/link/3007/55368f5c-ad7f-4e11-91e0-8ddad5275=
+606?url=3Dhttps%3A%2F%2Fszabad.ahang.hu%2Fpetitions%2Ftiltakozunk-a-civil-t=
+arsadalom-es-fuggetlen-sajto-felszamolasa-ellen%3Futm_source%3Dahang%26utm_=
+medium%3Demail%26utm_campaign%3Dblast2025-05-20&amp;member_guid=3D88a62eb4b=
+5dcac9810b289cd94cf43b21da67c13302ba6dade9c66944a7efc34cdda09d8fc189000cf0e=
+fc385f843fe4a3f0b0c0992d522217f596756a2ca812" style=3D"display:block;backgr=
+ound:#ff2400;color:#ffffff;font-family:sans-serif;font-size:17px;font-weigh=
+t:bold;line-height:25px;margin:0;text-decoration:none;text-transform:none;p=
+adding:10px 25px;border-radius:4px;word-break:break-word;max-width:100%" ta=
+rget=3D"_blank">Al=C3=A1=C3=ADrom!</a></td></tr></tbody></table>
+
+<p></p>
+
+</div>
+
+<p></p>
+
+<p style=3D"border-top:solid 1px #cccccc;font-size:1;margin:0px auto;width:=
+100%"> </p>
+
+<p style=3D"color:#999999">Ha b=C3=A1rmi k=C3=A9rd=C3=A9sed van, v=C3=A1las=
+zolj k=C3=B6zvetlen=C3=BCl erre az email-re, vagy =C3=ADrj a <a href=3D"mai=
+lto:mienk@ahang.hu" target=3D"_blank">mienk@ahang.hu</a> email c=C3=ADmre.<=
+/p>
+
+<p style=3D"color:#999999">K=C3=B6vess minket a Facebookon, hogy a naprak=
+=C3=A9sz inform=C3=A1ci=C3=B3k hozz=C3=A1d is eljuthassanak:<br><a href=3D"=
+https://id.ahang.hu//clicks/link/3007/55368f5c-ad7f-4e11-91e0-8ddad5275606?=
+url=3Dhttps%3A%2F%2Fwww.facebook.com%2Fszabadahang%3Futm_source%3Dahang%26u=
+tm_medium%3Demail%26utm_campaign%3Dblast2025-05-20&amp;member_guid=3D88a62e=
+b4b5dcac9810b289cd94cf43b21da67c13302ba6dade9c66944a7efc34cdda09d8fc189000c=
+f0efc385f843fe4a3f0b0c0992d522217f596756a2ca812" style=3D"display:inline-bl=
+ock" rel=3D"noreferrer nofollow noopener" target=3D"_blank"><img src=3D"htt=
+ps://ahang-static.s3.eu-central-1.amazonaws.com/mail/facebook_sm.png" style=
+=3D"border-radius:0;display:inline-block" width=3D"34" height=3D"34"></a></=
+p>
+
+<p style=3D"color:#999999">A lev=C3=A9l k=C3=BCld=C5=91je:<br>Magyarhang No=
+nprofit Kft.<br></p>
+
+<p><img height=3D"34" src=3D"https://ahang-static.s3.eu-central-1.amazonaws=
+.com/mail/ahang_sm.jpg" style=3D"width:88.7px;display:inline-block"></p>
+
+<p style=3D"color:#999999">Ezt az =C3=BCzenetet  <a href=3D"mailto:banyus53=
+@gmail.com" target=3D"_blank">banyus53@gmail.com</a> c=C3=ADmre k=C3=BCldt=
+=C3=BCk. <a href=3D"https://id.ahang.hu//subscriptions/unsubscribe?subscrip=
+tion=3D1&amp;email=3Dbanyus53%40gmail.com&amp;mailing_id=3D3007" style=3D"f=
+ont-weight:normal;text-decoration:none;color:#999999" target=3D"_blank">Lei=
+ratkozni ide kattintva tudsz.</a></p>
+
+</div><img src=3D"https://id.ahang.hu//opens/3007/55368f5c-ad7f-4e11-91e0-8=
+ddad5275606"></div></div>
+
+--00000000000019012406358f8dc5--

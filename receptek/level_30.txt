@@ -1,0 +1,916 @@
+Delivered-To: estampel@gmail.com
+Received: by 2002:a05:6808:23c5:0:0:0:0 with SMTP id bq5csp402323oib;
+        Fri, 7 Oct 2022 07:07:17 -0700 (PDT)
+X-Google-Smtp-Source: AMsMyM7tR/aziTC59fA7YL6V90rTnr+zDJVWKwb2GMett14cRtYqcoqa7PAMLyuY3i2YN6K3/Szg
+X-Received: by 2002:a05:6a00:3392:b0:547:f861:1fc9 with SMTP id cm18-20020a056a00339200b00547f8611fc9mr5121882pfb.17.1665151637025;
+        Fri, 07 Oct 2022 07:07:17 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1665151637; cv=none;
+        d=google.com; s=arc-20160816;
+        b=BA2+bRxPuo9YcWo92sCLslDt8JZveM+D09TABepe5xuo7lZEZDbUaO2I/+m2AP4pG6
+         pPoScoJtNq3ovml4VMlScMYFzdN1M1Wj3DljBsYmIX9seCrwo7Nd6gIb0Fms+UkvHUbk
+         /qdXF7+fPLoapK9iSBBeJZtJ8F2S60bDZe7Xvf+SATvE4+sWCRJqjabc4g2ZxwRLmeuU
+         RptQcuqeu9XKh/rJOBIsvbUU/Sj0QrKl0M4d3aRD/kK/TR7FgjzCvP57hLEcKYqi8KuE
+         iGZm3W9V4DORaGksqq+7nBbpNZipxkHjj/mmvEwJ2bX+KN8/23CO1zgkIeb1pknFG6Sl
+         5sGw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:reply-to:list-unsubscribe:content-transfer-encoding:mime-version
+         :subject:message-id:from:date:dkim-signature:dkim-signature;
+        bh=zLDVkWO29I8W0dnw2p6dPiPQKQWOVMQaEDKwwJtk4a4=;
+        b=mW9jH86WA1/iN0cJGFRHfscF57qXLklBJPMz6UVr575/Fq3RoftV6Sh0nNVCP2qQFE
+         nJ0dcWnh+9kBIpcVxAb1axXTeFzzkJH0HalfMOylCE2RDVaQbbdnfv7FdJMnny+ZInfN
+         V8/W/0fckVLik8obkyC46oJ3wLLFUIkqCTX7oYmh1GgbzcOyWrsjFt5/jW/tlkPr3Qtb
+         74ejqjV2pF0/Q6hhg7syW2fMc3T8Q9XunN/6BfiFlLkwYXWTIcGCzEiKp5U/dxFQBPx0
+         uGaXu35PZqep8oPcOflLNMDmMnC45iOFylA7OLqxtTb+pnv1l7R5+rlBsx8kPWOrTCM9
+         aZWg==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=fail header.i=@szikramozgalom.hu header.s=s1 header.b=UnPiC4xT;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=z4lyVsIj;
+       spf=pass (google.com: domain of bounces+1584542-b6c4-estampel=gmail.com@em2176.szikramozgalom.hu designates 167.89.39.118 as permitted sender) smtp.mailfrom="bounces+1584542-b6c4-estampel=gmail.com@em2176.szikramozgalom.hu";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=szikramozgalom.hu
+Return-Path: <bounces+1584542-b6c4-estampel=gmail.com@em2176.szikramozgalom.hu>
+Received: from o11.mailings.actionnetwork.org (o11.mailings.actionnetwork.org. [167.89.39.118])
+        by mx.google.com with ESMTPS id u38-20020a634726000000b00430622d4f41si2486828pga.256.2022.10.07.07.07.16
+        for <estampel@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 07 Oct 2022 07:07:17 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounces+1584542-b6c4-estampel=gmail.com@em2176.szikramozgalom.hu designates 167.89.39.118 as permitted sender) client-ip=167.89.39.118;
+Authentication-Results: mx.google.com;
+       dkim=fail header.i=@szikramozgalom.hu header.s=s1 header.b=UnPiC4xT;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=z4lyVsIj;
+       spf=pass (google.com: domain of bounces+1584542-b6c4-estampel=gmail.com@em2176.szikramozgalom.hu designates 167.89.39.118 as permitted sender) smtp.mailfrom="bounces+1584542-b6c4-estampel=gmail.com@em2176.szikramozgalom.hu";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=szikramozgalom.hu
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=szikramozgalom.hu;
+	h=from:subject:mime-version:content-type:content-transfer-encoding:
+	list-unsubscribe:reply-to:x-feedback-id:to:cc;
+	s=s1; bh=zLDVkWO29I8W0dnw2p6dPiPQKQWOVMQaEDKwwJtk4a4=;
+	b=UnPiC4xTQImlGftWFm8mURif5udEcJK3FCUrPCIKEqOe2UvRGFtNZAeyj9hfSbTvOGeZ
+	vWG+PsZPjgu41u4eiDF+P2JYil8LKJpRKxnOIl4j+HhDjuibSC+KojtSve4BUoKtQ74J7p
+	zNgmr1BPvcsW0tim10QkU3oXhfpYu5ih8+hWCchjAzhky5ZFCNoUOk9FFNYxD5YUsid4gn
+	n68AHnHDNcwywGzsxfyIuqAH3n2qum73tOale/nsQ36ZOGXCjg8fo77ycoX9Bxs9e0GnDF
+	1PDngtWM6/OaP75QVdcsF+zl4utIDZxLW4rwsbzrbvnh0MduJTisWaV+g+KbpZyg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sendgrid.info;
+	h=from:subject:mime-version:content-type:content-transfer-encoding:
+	list-unsubscribe:reply-to:x-feedback-id:to:cc;
+	s=smtpapi; bh=zLDVkWO29I8W0dnw2p6dPiPQKQWOVMQaEDKwwJtk4a4=;
+	b=z4lyVsIjyYqMfSe1e4YzeqT7GH97sYVti9hNDHRLSCUUPQ9Z1tZqsgK/LI6YcwtxCOi4
+	YVjFbhihgAnn/DjzMYuOPGp9M0sTVxkP6vflATp6c8XxxOuUHeCS+8l8jorLbXbQXn9BfN
+	ESFD6Ew4yWm9uU6a2mXSZV4/ybv/kll6A=
+Received: by filterdrecv-5bfbb68f45-lvlls with SMTP id filterdrecv-5bfbb68f45-lvlls-1-63403293-FA
+        2022-10-07 14:07:15.631152225 +0000 UTC m=+836312.232181364
+Received: from actionnetwork.org (unknown)
+	by geopod-ismtpd-6-6 (SG)
+	with ESMTP id ME55QrqoRzuYNteHzZ0XOw
+	for <estampel@gmail.com>;
+	Fri, 07 Oct 2022 14:07:15.427 +0000 (UTC)
+Date: Fri, 07 Oct 2022 14:07:15 +0000 (UTC)
+From: =?utf-8?q?J=C3=A1mbor_Andr=C3=A1s_-_Szikra_Mozgalom?=
+	<szikra@szikramozgalom.hu>
+Message-ID: <6340329360639_869e3fbedb274bf42709b0@ip-10-0-0-213.mail>
+Subject: =?UTF-8?B?VMOhbW9nYXNkIGEgZmlkZXN6ZXMgdsOpZ3JlaGFqdMOzaQ==?= maffia
+ elleni =?UTF-8?B?a8O8emRlbG3DvG5rIQ==?=
+Mime-Version: 1.0
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+List-Unsubscribe: <mailto:email_1693735.840e843626c28028413575836b6dda26@inbound-parse.actionnetwork.org>
+Reply-To: szikra@szikramozgalom.hu
+X-Feedback-ID: 1584542:SG
+X-SG-EID: 
+ =?us-ascii?Q?SlM6Jb1tqdFk67W+uDUfBCZbzUBtFEWBxvNK608KD7hUGBl1EX88onLKKfzRGn?=
+ =?us-ascii?Q?ay0hjdSC2gPIR8FN6=2FRS9jYhelZcR7AYGbx7L5o?=
+ =?us-ascii?Q?XkRfP4aiEeaU5kspE10u5DNbE++ReWZN9Rb7M0J?=
+ =?us-ascii?Q?mZCbZZANP13FWCfau7+IxPJhfHKdFZcd2957Y88?=
+ =?us-ascii?Q?GuMXW9IzXdwcBrAI2qxNtT+=2FMOdpWX9Wem8eTci?=
+ =?us-ascii?Q?vMp59ucQV3i7NfxV4bkR4HHB8xlSVrwzat4eJxB?=
+ =?us-ascii?Q?LaMbS7aKOpahQ0VX100dA=3D=3D?=
+X-SG-ID: 
+ =?us-ascii?Q?N2C25iY2uzGMFz6rgvQsb1pRk7Wx5MdFdqWMpQOC45LhKSjcqtY+Q9YFYTfaEE?=
+ =?us-ascii?Q?Km2eabs53eja8yDdaATtDJ4w=3D=3D?=
+To: estampel@gmail.com
+X-Entity-ID: MLyRGzg0goutU4S6nhGmsA==
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www=
+.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns=3D"http://www.w3.org/1999/xhtml" xmlns:v=3D"urn:schemas-microso=
+ft-com:vml" xmlns:o=3D"urn:schemas-microsoft-com:office:office">
+<head>
+<!--[if gte mso 9]>
+<xml>
+  <o:OfficeDocumentSettings>
+    <o:AllowPNG/>
+    <o:PixelsPerInch>96</o:PixelsPerInch>
+  </o:OfficeDocumentSettings>
+</xml>
+<![endif]-->
+  <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8">
+  <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D=
+1.0">
+  <meta name=3D"x-apple-disable-message-reformatting">
+  <!--[if !mso]><!--><meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3De=
+dge"><!--<![endif]-->
+  <title></title>
+ =20
+    <style type=3D"text/css">
+      @media only screen and (min-width: 620px) {
+  .u-row {
+    width: 600px !important;
+  }
+  .u-row .u-col {
+    vertical-align: top;
+  }
+
+  .u-row .u-col-100 {
+    width: 600px !important;
+  }
+
+}
+
+@media (max-width: 620px) {
+  .u-row-container {
+    max-width: 100% !important;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+  .u-row .u-col {
+    min-width: 320px !important;
+    max-width: 100% !important;
+    display: block !important;
+  }
+  .u-row {
+    width: calc(100% - 40px) !important;
+  }
+  .u-col {
+    width: 100% !important;
+  }
+  .u-col > div {
+    margin: 0 auto;
+  }
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+
+table,
+tr,
+td {
+  vertical-align: top;
+  border-collapse: collapse;
+}
+
+p {
+  margin: 0;
+}
+
+.ie-container table,
+.mso-container table {
+  table-layout: fixed;
+}
+
+* {
+  line-height: inherit;
+}
+
+a[x-apple-data-detectors=3D'true'] {
+  color: inherit !important;
+  text-decoration: none !important;
+}
+
+@media (max-width: 480px) {
+  .hide-mobile {
+    max-height: 0px;
+    overflow: hidden;
+    display: none !important;
+  }
+}
+
+table, td { color: #000000; } #u_body a { color: #ff1800; text-decoration: =
+underline; }
+    </style>
+ =20
+ =20
+
+</head>
+
+<body class=3D"clean-body u_body" style=3D"margin: 0;padding: 0;-webkit-tex=
+t-size-adjust: 100%;background-color: #ffffff;color: #000000"><span style=
+=3D'font-size: 1px; display: none;'>Hosszabb=C3=ADts=C3=A1k meg a kilakolta=
+t=C3=A1si morat=C3=B3riumot, vizsg=C3=A1lj=C3=A1k ki a v=C3=A9grehajt=C3=A1=
+sok k=C3=B6r=C3=BCli vissza=C3=A9l=C3=A9seket! IRD AL=C3=81 A PET=C3=8DCI=
+=C3=93NKAT!</span>
+  <!--[if IE]><div class=3D"ie-container"><![endif]-->
+  <!--[if mso]><div class=3D"mso-container"><![endif]-->
+  <table id=3D"u_body" style=3D"border-collapse: collapse;table-layout: fix=
+ed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-a=
+lign: top;min-width: 320px;Margin: 0 auto;background-color: #ffffff;width:1=
+00%" cellpadding=3D"0" cellspacing=3D"0">
+  <tbody>
+  <tr style=3D"vertical-align: top">
+    <td style=3D"word-break: break-word;border-collapse: collapse !importan=
+t;vertical-align: top">
+    <!--[if (mso)|(IE)]><table width=3D"100%" cellpadding=3D"0" cellspacing=
+=3D"0" border=3D"0"><tr><td align=3D"center" style=3D"background-color: #ff=
+ffff;"><![endif]-->
+   =20
+
+<div class=3D"u-row-container hide-mobile" style=3D"padding: 0px;background=
+-color: #ffe35f">
+  <div class=3D"u-row" style=3D"Margin: 0 auto;min-width: 320px;max-width: =
+600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-wor=
+d;background-color: transparent;">
+    <div style=3D"border-collapse: collapse;display: table;width: 100%;heig=
+ht: 100%;background-color: transparent;">
+      <!--[if (mso)|(IE)]><table width=3D"100%" cellpadding=3D"0" cellspaci=
+ng=3D"0" border=3D"0"><tr><td style=3D"padding: 0px;background-color: #ffe3=
+5f;" align=3D"center"><table cellpadding=3D"0" cellspacing=3D"0" border=3D"=
+0" style=3D"width:600px;"><tr style=3D"background-color: transparent;"><![e=
+ndif]-->
+     =20
+<!--[if (mso)|(IE)]><td align=3D"center" width=3D"600" style=3D"width: 600p=
+x;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid tra=
+nsparent;border-right: 0px solid transparent;border-bottom: 0px solid trans=
+parent;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0=
+px;" valign=3D"top"><![endif]-->
+<div class=3D"u-col u-col-100" style=3D"max-width: 320px;min-width: 600px;d=
+isplay: table-cell;vertical-align: top;">
+  <div style=3D"height: 100%;width: 100% !important;border-radius: 0px;-web=
+kit-border-radius: 0px; -moz-border-radius: 0px;">
+  <!--[if (!mso)&(!IE)]><!--><div style=3D"height: 100%; padding: 0px;borde=
+r-top: 0px solid transparent;border-left: 0px solid transparent;border-righ=
+t: 0px solid transparent;border-bottom: 0px solid transparent;border-radius=
+: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;"><!--<![endif]--=
+>
+ =20
+<table style=3D"font-family:arial,helvetica,sans-serif;" role=3D"presentati=
+on" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0">
+  <tbody>
+    <tr>
+      <td style=3D"overflow-wrap:break-word;word-break:break-word;padding:1=
+0px;font-family:arial,helvetica,sans-serif;" align=3D"left">
+       =20
+  <div>
+    <table width=3D"600" cellpadding=3D"0" cellspacing=3D"0" border=3D"0">
+  <tr>
+    <td>
+      <img style=3D"display: block;"
+ src=3D"https://actionnetwork.org/unlayer_files/1636755587240-ja.png" alt=
+=3D"JA!">
+    </td>
+
+    <td>
+      <img style=3D"display: block; margin: auto;"
+ src=3D"https://actionnetwork.org/unlayer_files/1636755595919-jambor.png" a=
+lt=3D"J=C3=A1mbor Andr=C3=A1s orsz=C3=A1ggy=C5=B1l=C3=A9si k=C3=A9pvisel=C5=
+=91-jel=C3=B6lt">
+    </td>
+
+    <td>
+      <img style=3D"display: block;"
+ src=3D"https://actionnetwork.org/unlayer_files/1636755599962-szikra.png" a=
+lt=3D"Szikra Mozgalom">
+    </td>
+
+  </tr>
+</table>
+
+  </div>
+
+
+      </td>
+
+    </tr>
+  </tbody>
+</table>
+
+  <!--[if (!mso)&(!IE)]><!--></div>
+<!--<![endif]-->
+  </div>
+
+</div>
+
+<!--[if (mso)|(IE)]></td>
+<![endif]-->
+      <!--[if (mso)|(IE)]></tr></table></td>
+</tr></table><![endif]-->
+    </div>
+
+  </div>
+
+</div>
+
+
+
+
+<div class=3D"u-row-container" style=3D"padding: 30px 0px 15px;background-i=
+mage: url('https://actionnetwork.org/unlayer_files/1636759033808-bg.jpg');b=
+ackground-repeat: repeat;background-position: center top;background-color: =
+transparent">
+  <div class=3D"u-row" style=3D"Margin: 0 auto;min-width: 320px;max-width: =
+600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-wor=
+d;background-color: transparent;">
+    <div style=3D"border-collapse: collapse;display: table;width: 100%;heig=
+ht: 100%;background-color: transparent;">
+      <!--[if (mso)|(IE)]><table width=3D"100%" cellpadding=3D"0" cellspaci=
+ng=3D"0" border=3D"0"><tr><td style=3D"padding: 30px 0px 15px;background-im=
+age: url('https://actionnetwork.org/unlayer_files/1636759033808-bg.jpg');ba=
+ckground-repeat: repeat;background-position: center top;background-color: t=
+ransparent;" align=3D"center"><table cellpadding=3D"0" cellspacing=3D"0" bo=
+rder=3D"0" style=3D"width:600px;"><tr style=3D"background-color: transparen=
+t;"><![endif]-->
+     =20
+<!--[if (mso)|(IE)]><td align=3D"center" width=3D"600" style=3D"background-=
+color: #ffffff;width: 600px;padding: 0px;border-top: 0px solid transparent;=
+border-left: 0px solid transparent;border-right: 0px solid transparent;bord=
+er-bottom: 0px solid transparent;border-radius: 0px;-webkit-border-radius: =
+0px; -moz-border-radius: 0px;" valign=3D"top"><![endif]-->
+<div class=3D"u-col u-col-100" style=3D"max-width: 320px;min-width: 600px;d=
+isplay: table-cell;vertical-align: top;">
+  <div style=3D"background-color: #ffffff;height: 100%;width: 100% !importa=
+nt;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;"=
+>
+  <!--[if (!mso)&(!IE)]><!--><div style=3D"height: 100%; padding: 0px;borde=
+r-top: 0px solid transparent;border-left: 0px solid transparent;border-righ=
+t: 0px solid transparent;border-bottom: 0px solid transparent;border-radius=
+: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;"><!--<![endif]--=
+>
+ =20
+<table style=3D"font-family:arial,helvetica,sans-serif;" role=3D"presentati=
+on" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0">
+  <tbody>
+    <tr>
+      <td style=3D"overflow-wrap:break-word;word-break:break-word;padding:1=
+0px;font-family:arial,helvetica,sans-serif;" align=3D"left">
+       =20
+  <div style=3D"color: #505050; line-height: 140%; text-align: left; word-w=
+rap: break-word;">
+    <p style=3D"font-size: 14px; line-height: 140%;">Kedves Emese!</p>
+
+  </div>
+
+
+      </td>
+
+    </tr>
+  </tbody>
+</table>
+
+<table style=3D"font-family:arial,helvetica,sans-serif;" role=3D"presentati=
+on" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0">
+  <tbody>
+    <tr>
+      <td style=3D"overflow-wrap:break-word;word-break:break-word;padding:1=
+0px;font-family:arial,helvetica,sans-serif;" align=3D"left">
+       =20
+  <div style=3D"color: #505050; line-height: 140%; text-align: left; word-w=
+rap: break-word;">
+    <p style=3D"line-height: 140%; margin-bottom: 16px; padding: 0px; borde=
+r: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; fo=
+nt-stretch: inherit; vertical-align: baseline; position: relative; overflow=
+-wrap: break-word; font-size: 14px;">Tegnap reggel a Szikr=C3=A1sokkal, Cs=
+=C3=A1rdi Antal =C3=A9s Tordai Bence k=C3=A9pvisel=C5=91t=C3=A1rsaimmal =C3=
+=A9s a V=C3=A1ros Mindenki=C3=A9 aktivist=C3=A1ival egy=C3=BCtt <strong>meg=
+pr=C3=B3b=C3=A1ltam megakad=C3=A1lyozni egy kilakoltat=C3=A1st</strong> az =
+V. ker=C3=BCletben.</p>
+
+<p style=3D"line-height: 140%; margin-bottom: 16px; padding: 0px; border: 0=
+px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-s=
+tretch: inherit; vertical-align: baseline; position: relative; overflow-wra=
+p: break-word; font-size: 14px;">Ez=C3=BAttal sajnos <strong>nem j=C3=A1rtu=
+nk sikerrel</strong>.</p>
+
+<p style=3D"line-height: 140%; margin-bottom: 16px; padding: 0px; border: 0=
+px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-s=
+tretch: inherit; vertical-align: baseline; position: relative; overflow-wra=
+p: break-word; font-size: 14px;">Kov=C3=A1cs Zsuzsa alacsony nyugd=C3=ADja =
+miatt 300.000 forintos tartoz=C3=A1st halmozott fel, erre hivatkozva rendel=
+te el az V. ker=C3=BCleti =C3=B6nkorm=C3=A1nyzat a kilakoltat=C3=A1st. Ez m=
+=C3=A1r =C3=B6nmag=C3=A1ban is felh=C3=A1bor=C3=ADt=C3=B3, azzal a t=C3=A9n=
+nyel egy=C3=BCtt pedig f=C5=91leg, hogy a fideszes polg=C3=A1rmester, Szent=
+gy=C3=B6rgyv=C3=B6lgyi P=C3=A9ter szeptember v=C3=A9g=C3=A9n amellett szava=
+zott, hogy meghosszabb=C3=ADts=C3=A1k a kilakoltat=C3=A1si morat=C3=B3riumo=
+t Budapesten. Ezt k=C3=B6vet=C5=91en rendelte el a kilakoltat=C3=A1st.</p>
+
+<p style=3D"line-height: 140%; font-size: 14px;">A jelenlegi szab=C3=A1lyoz=
+=C3=A1s mellett az igazs=C3=A1gtalan kilakoltat=C3=A1sok eg=C3=A9szen novem=
+ber 15-ig folytat=C3=B3dhatnak, hiszen csak akkor l=C3=A9p =C3=A9letbe a ki=
+lakoltat=C3=A1si morat=C3=B3rium. K=C3=B6vetelj=C3=BCk egy=C3=BCtt, hogy a =
+<strong>korm=C3=A1ny hosszabb=C3=ADtsa meg a kilakoltat=C3=A1si morat=C3=B3=
+riumot</strong>, addig, am=C3=ADg egy parlamenti eseti bizotts=C3=A1g ki ne=
+m vizsg=C3=A1lja az elm=C3=BAlt =C3=A9vek v=C3=A9grehajt=C3=A1sai =C3=A9s k=
+ilakoltat=C3=A1sai sor=C3=A1n t=C3=B6rt=C3=A9nt vissza=C3=A9l=C3=A9seket, =
+=C3=A9s ameddig nem =C3=A9r v=C3=A9get a vesz=C3=A9lyhelyzet!</p>
+
+<p style=3D"font-size: 14px; line-height: 140%;">=C2=A0</p>
+
+<p style=3D"font-size: 14px; line-height: 140%;">Emese, ha egyet=C3=A9rtesz=
+ azzal, hogy a<span style=3D"font-size: 14px; line-height: 19.6px;">=C2=A0m=
+agyar</span><span style=3D"font-size: 14px; line-height: 19.6px;">=C2=A0</s=
+pan><strong style=3D"font-size: 1rem;">embereknek fed=C3=A9lre van sz=C3=BC=
+ks=C3=A9g=C3=BCk a fej=C3=BCk f=C3=B6l=C3=A9</strong><span style=3D"font-si=
+ze: 14px; line-height: 19.6px;">, nem pedig arra, hogy a hatalom fenyegesse=
+ =C3=A9s otthontalann=C3=A1 tegye =C5=91ket!</span>=C2=A0akkor <strong><a r=
+el=3D"noopener"
+ href=3D"https://click.actionnetwork.org/ss/c/atcYNHk4Eh2YdGnwBh-YDHR3faCyR=
+ksTQdZmJ9nytK6wKNvlt6tLUI1zdU27V3TOzvu9niTybe4cMN04ArbH5godtqNg3BFz5J5IvlOI=
+kkFlrGmGoRtPKJ8QA2gdJWhAqSiHm64gYsJ2z2mXl5_34BBHmMYG8Ddc5r6lX0jpQp3dE-p4Ajw=
+0I6adKHmqcQFoX9wL3G3RuQcSDcDQIf2qlZpEf2_PdjGdzy5gzYbP5hxqhvfkJSqiK3yKvZUyED=
+5eb_GZt6K11hZ2wgx0Z2ITSviPnlEVWiiJhjwNBmAnt4203RaFVWNyUkbSfVYX3djEWYpeV-vXM=
+w1X5ObwT4i_Zvdqyn-rfQ8cmvafhi-zLU8/3q3/Cpa0Qu3dSe2tAbNCc4ci5w/h0/5EtPDZb8Jj=
+jdaX1ohNASTdxF6yh4kpoSj7SMZiFczpo" target=3D"_blank">=C3=ADrd al=C3=A1 a Sz=
+ikra Mozgalom pet=C3=ADci=C3=B3j=C3=A1t!</a></strong></p>
+
+  </div>
+
+
+      </td>
+
+    </tr>
+  </tbody>
+</table>
+
+<table style=3D"font-family:arial,helvetica,sans-serif;" role=3D"presentati=
+on" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0">
+  <tbody>
+    <tr>
+      <td style=3D"overflow-wrap:break-word;word-break:break-word;padding:1=
+0px;font-family:arial,helvetica,sans-serif;" align=3D"left">
+       =20
+  <div style=3D"color: #505050; line-height: 140%; text-align: left; word-w=
+rap: break-word;">
+    <p style=3D"font-size: 14px; line-height: 140%;">Fontos, hogy hat=C3=A1=
+rozott =C3=BCzenet k=C3=BCldj=C3=BCnk a korm=C3=A1nynak, ehhez pedig m=C3=
+=A9g a h=C3=A9ten <strong>el kell =C3=A9rn=C3=BCnk legal=C3=A1bb <span styl=
+e=3D"font-size: 20px; line-height: 28px; color: #e03e2d;">1000 </span>al=C3=
+=A1=C3=ADr=C3=A1st</strong>!=C2=A0</p>
+
+<p style=3D"font-size: 14px; line-height: 140%;">=C2=A0</p>
+
+<p style=3D"font-size: 14px; line-height: 140%;">Mutassuk meg a <strong>fid=
+eszes v=C3=A9grehajt=C3=B3i maffi=C3=A1nak</strong>, hogy itt vagyunk =C3=
+=A9s ki=C3=A1llunk az igazs=C3=A1gtalans=C3=A1g ellen!</p>
+
+  </div>
+
+
+      </td>
+
+    </tr>
+  </tbody>
+</table>
+
+<table style=3D"font-family:arial,helvetica,sans-serif;" role=3D"presentati=
+on" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0">
+  <tbody>
+    <tr>
+      <td style=3D"overflow-wrap:break-word;word-break:break-word;padding:1=
+0px;font-family:arial,helvetica,sans-serif;" align=3D"left">
+       =20
+  <!--[if mso]><style>.v-button {background: transparent !important;}</styl=
+e><![endif]-->
+<div align=3D"center">
+  <!--[if mso]><v:roundrect xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns=
+:w=3D"urn:schemas-microsoft-com:office:word"
+ href=3D"https://www.szikramozgalom.hu/vegrehajtasok?link_id=3D1&can_id=3D8=
+40e843626c28028413575836b6dda26&source=3Demail-tamogasd-a-kilakoltatasi-maf=
+fia-elleni-kuzdelmemet&email_referrer=3Demail_1693735&email_subject=3Dt_mog=
+asd-a-fideszes-v_grehajt_i-maffia-elleni-k_zdelm_nk" style=3D"height:37px; =
+v-text-anchor:middle; width:366px;" arcsize=3D"11%"  stroke=3D"f" fillcolor=
+=3D"#e03a3a"><w:anchorlock/><center style=3D"color:#ffffff;font-family:aria=
+l,helvetica,sans-serif;"><![endif]--> =20
+    <a
+ href=3D"https://click.actionnetwork.org/ss/c/atcYNHk4Eh2YdGnwBh-YDHR3faCyR=
+ksTQdZmJ9nytK6wKNvlt6tLUI1zdU27V3TOZo1SR1CBkwuxxsPKxRphwVxHd9cB4UkHMlCYn9ed=
+U_FdBQNW8VN-Dx6bNhrUVp-niphzU83ACLkURDfGmOpsGv6NNyHFl9m2pBYKQMaFjT7ravjkf83=
+Z-GGpipMdk-FqnFWvjeuFRmDLELQQb2ipoyLnEAzn6RznwS7yin6wWkvP1jtUzlp87BqlfqzjbF=
+b7TWGEEESqeXrCD34YErg8y1JGxJ0yv4LiKrLNBZo8fId0FYm1yw7u_wxpXckVJwj7wy25n9KP_=
+0ss2TRNRDzkQfry_enH_sN7ph0ZovL4i6k/3q3/Cpa0Qu3dSe2tAbNCc4ci5w/h1/mm4ktGSDMD=
+u4ow0Wh_bB_41_xmDJVs6-dfstpw1VfxY" target=3D"_blank" class=3D"v-button" sty=
+le=3D"box-sizing: border-box;display: inline-block;font-family:arial,helvet=
+ica,sans-serif;text-decoration: none;-webkit-text-size-adjust: none;text-al=
+ign: center;color: #ffffff; background-color: #e03a3a; border-radius: 4px;-=
+webkit-border-radius: 4px; -moz-border-radius: 4px; width:auto; max-width:1=
+00%; overflow-wrap: break-word; word-break: break-word; word-wrap:break-wor=
+d; mso-border-alt: none;border-top-width: 0px; border-top-style: solid; bor=
+der-top-color: #CCC; border-left-width: 0px; border-left-style: solid; bord=
+er-left-color: #CCC; border-right-width: 0px; border-right-style: solid; bo=
+rder-right-color: #CCC; border-bottom-width: 0px; border-bottom-style: soli=
+d; border-bottom-color: #CCC;">
+      <span style=3D"display:block;padding:10px 20px;line-height:120%;"><st=
+rong><span style=3D"font-size: 14px; line-height: 16.8px;">Hosszabb=C3=ADts=
+=C3=A1k meg a kilakoltat=C3=A1si morat=C3=B3riumot!</span></strong></span>
+    </a>
+  <!--[if mso]></center></v:roundrect><![endif]-->
+</div>
+
+
+      </td>
+
+    </tr>
+  </tbody>
+</table>
+
+<table style=3D"font-family:arial,helvetica,sans-serif;" role=3D"presentati=
+on" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0">
+  <tbody>
+    <tr>
+      <td style=3D"overflow-wrap:break-word;word-break:break-word;padding:1=
+0px;font-family:arial,helvetica,sans-serif;" align=3D"left">
+       =20
+  <div style=3D"color: #505050; line-height: 140%; text-align: left; word-w=
+rap: break-word;">
+    <p style=3D"font-size: 14px; line-height: 140%;"><strong>R=C3=A1d is sz=
+=C3=A1m=C3=ADtunk</strong> a kilakoltat=C3=A1sok =C3=A9s a fideszes v=C3=A9=
+grehajt=C3=B3i maffia elleni harcunkban!=C2=A0</p>
+
+  </div>
+
+
+      </td>
+
+    </tr>
+  </tbody>
+</table>
+
+<table style=3D"font-family:arial,helvetica,sans-serif;" role=3D"presentati=
+on" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0">
+  <tbody>
+    <tr>
+      <td style=3D"overflow-wrap:break-word;word-break:break-word;padding:1=
+0px;font-family:arial,helvetica,sans-serif;" align=3D"left">
+       =20
+  <div style=3D"color: #505050; line-height: 140%; text-align: left; word-w=
+rap: break-word;">
+    <p style=3D"font-size: 14px; line-height: 140%;">Nem fogom ezt annyiban=
+ hagyni. =C3=89lni fogok a k=C3=A9pvisel=C5=91i jogaimmal =C3=A9s ott lesze=
+k,<strong> ott lesz=C3=BCnk a k=C3=B6vetkez=C5=91 kilakoltat=C3=A1sn=C3=A1l=
+ is.=C2=A0</strong></p>
+
+  </div>
+
+
+      </td>
+
+    </tr>
+  </tbody>
+</table>
+
+<table style=3D"font-family:arial,helvetica,sans-serif;" role=3D"presentati=
+on" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0">
+  <tbody>
+    <tr>
+      <td style=3D"overflow-wrap:break-word;word-break:break-word;padding:1=
+0px;font-family:arial,helvetica,sans-serif;" align=3D"left">
+       =20
+  <!--[if mso]><style>.v-button {background: transparent !important;}</styl=
+e><![endif]-->
+<div align=3D"center">
+  <!--[if mso]><v:roundrect xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns=
+:w=3D"urn:schemas-microsoft-com:office:word"
+ href=3D"https://www.szikramozgalom.hu/vegrehajtasok?link_id=3D3&can_id=3D8=
+40e843626c28028413575836b6dda26&source=3Demail-tamogasd-a-kilakoltatasi-maf=
+fia-elleni-kuzdelmemet&email_referrer=3Demail_1693735&email_subject=3Dt_mog=
+asd-a-fideszes-v_grehajt_i-maffia-elleni-k_zdelm_nk" style=3D"height:37px; =
+v-text-anchor:middle; width:274px;" arcsize=3D"11%"  stroke=3D"f" fillcolor=
+=3D"#e03a3a"><w:anchorlock/><center style=3D"color:#ffffff;font-family:aria=
+l,helvetica,sans-serif;"><![endif]--> =20
+    <a
+ href=3D"https://click.actionnetwork.org/ss/c/atcYNHk4Eh2YdGnwBh-YDHR3faCyR=
+ksTQdZmJ9nytK6wKNvlt6tLUI1zdU27V3TOfqAid6w8pjmA_i-0em9VHBUNWEW_oFs8xX0EkkDG=
+wjezgXCpBGd3TRQXl8jhOLsb588C6CXajpF1FBR9qaqXWeefzHrCkzFP7ZTjDBqtca4LPcCiaT1=
+NFZIDWubLaWreiz7kYjbTokvYHhnJ5Wgloj8q7BDRaFUAfIS-HFN8CtIgH4Ze-v2W-9P1j36WK4=
+0_3-DtheiossE3GhAPqPgwe30zfRU8Idwbi7QQ4NTrJ3GV_XASyjze8yEpvSvlL1czsUY33AQcl=
+HtFf9o9MAsA8sTjKBDFbRcu9_fbDn9QNLk/3q3/Cpa0Qu3dSe2tAbNCc4ci5w/h2/fYlc2wBc2R=
+UJOvJTOqGlK5okGk-UT9I03cIGXTA_rMw" target=3D"_blank" class=3D"v-button" sty=
+le=3D"box-sizing: border-box;display: inline-block;font-family:arial,helvet=
+ica,sans-serif;text-decoration: none;-webkit-text-size-adjust: none;text-al=
+ign: center;color: #ffffff; background-color: #e03a3a; border-radius: 4px;-=
+webkit-border-radius: 4px; -moz-border-radius: 4px; width:auto; max-width:1=
+00%; overflow-wrap: break-word; word-break: break-word; word-wrap:break-wor=
+d; mso-border-alt: none;border-top-width: 0px; border-top-style: solid; bor=
+der-top-color: #CCC; border-left-width: 0px; border-left-style: solid; bord=
+er-left-color: #CCC; border-right-width: 0px; border-right-style: solid; bo=
+rder-right-color: #CCC; border-bottom-width: 0px; border-bottom-style: soli=
+d; border-bottom-color: #CCC;">
+      <span style=3D"display:block;padding:10px 20px;line-height:120%;"><st=
+rong>Al=C3=A1=C3=ADr=C3=A1ssal t=C3=A1mogatom a k=C3=BCzdelmet!</strong></s=
+pan>
+    </a>
+  <!--[if mso]></center></v:roundrect><![endif]-->
+</div>
+
+
+      </td>
+
+    </tr>
+  </tbody>
+</table>
+
+<table style=3D"font-family:arial,helvetica,sans-serif;" role=3D"presentati=
+on" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0">
+  <tbody>
+    <tr>
+      <td style=3D"overflow-wrap:break-word;word-break:break-word;padding:1=
+0px;font-family:arial,helvetica,sans-serif;" align=3D"left">
+       =20
+  <div style=3D"color: #505050; line-height: 140%; text-align: left; word-w=
+rap: break-word;">
+    <p style=3D"font-size: 14px; line-height: 140%; text-align: center;"><a=
+ rel=3D"noopener"
+ href=3D"https://click.actionnetwork.org/ss/c/atcYNHk4Eh2YdGnwBh-YDHR3faCyR=
+ksTQdZmJ9nytK79_UD46BTn_MmJuinSckWcgo6dmFjqFqInmunNaRTeAzndeACmk4p-8yYgGRY5=
+HL1Z4mUjE3W9pXs2lGg-8Gq3wDFRV_ySXr9L3MdHmwR-1SW3eMgwauCILcz6c3u94izPYkBL5G_=
+aVQjdF7a0LnAirj4VGgcKsLlRxHXDcsATm2Voy29IHEpEqivcAJhjjIoRcta5XDUeSWoI3TaltG=
+6Ha7lhZv-B3i026R8okJlzHMmTwUI9PSdMGvPGdZ3pD0rg5YGUn1rYZ_FIqFrkOPwOoPLinXVE_=
+6y9zTjJf3p3a1WBBsyn_20jQlmwpunwwfs/3q3/Cpa0Qu3dSe2tAbNCc4ci5w/h3/4AqNGeolDy=
+NogUop9K4Px6gXiPvQCjsck8rLK45w1mc" target=3D"_blank">Adom=C3=A1nnyal t=C3=
+=A1mogatom a Szikr=C3=A1t</a></p>
+
+  </div>
+
+
+      </td>
+
+    </tr>
+  </tbody>
+</table>
+
+<table style=3D"font-family:arial,helvetica,sans-serif;" role=3D"presentati=
+on" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0">
+  <tbody>
+    <tr>
+      <td style=3D"overflow-wrap:break-word;word-break:break-word;padding:1=
+0px;font-family:arial,helvetica,sans-serif;" align=3D"left">
+       =20
+  <div style=3D"color: #505050; line-height: 140%; text-align: left; word-w=
+rap: break-word;">
+    <p style=3D"line-height: 140%; font-size: 14px;">=C3=9Cdv=C3=B6zlettel,=
+</p>
+
+<p style=3D"line-height: 140%; font-size: 14px;">=C2=A0</p>
+
+<p style=3D"line-height: 140%; margin-bottom: 16px; padding: 0px; border: 0=
+px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-s=
+tretch: inherit; vertical-align: baseline; position: relative; overflow-wra=
+p: break-word; font-size: 14px;">J=C3=A1mbor Andr=C3=A1s,<br />a Szikra Moz=
+galom orsz=C3=A1ggy=C5=B1l=C3=A9si k=C3=A9pvisel=C5=91je, a P=C3=A1rbesz=C3=
+=A9d frakci=C3=B3 tagja</p>
+
+  </div>
+
+
+      </td>
+
+    </tr>
+  </tbody>
+</table>
+
+<table style=3D"font-family:arial,helvetica,sans-serif;" role=3D"presentati=
+on" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0">
+  <tbody>
+    <tr>
+      <td style=3D"overflow-wrap:break-word;word-break:break-word;padding:1=
+0px;font-family:arial,helvetica,sans-serif;" align=3D"left">
+       =20
+  <div style=3D"color: #505050; line-height: 140%; text-align: left; word-w=
+rap: break-word;">
+    <p style=3D"font-size: 14px; line-height: 140%;"><em>U.i.: a mai nap on=
+line sajt=C3=B3t=C3=A1j=C3=A9koztat=C3=B3t is tartottam a t=C3=A9m=C3=A1ban=
+, amelyet <a rel=3D"noopener"
+ href=3D"https://click.actionnetwork.org/ss/c/atcYNHk4Eh2YdGnwBh-YDPAZiEt8w=
+wS6hp5wOIb3CiKduBZPzTK63nruY-xA2jFGaRhWzaVnAZ32X4UZfpSJjc9SbaT-eJmLVtbgnX61=
+Rerd10UhPaxkVDqxR9aTVM1fwZV8j34crUQ07ifjLQr43LBUCfZc_b50Jvb3SJ0VRuZxQet9h9C=
+OI6-b7NY6_mrCNX0GGtXyAlpXybmTsCkGjs8cLzB1ru2xM2CfouC_K7BsCKCl7BMjyJS6gezvrg=
+6cI1r25BpB8eIYQmZz7pKmqTAVefuyt1hBQGyQW3_j7m6KgctG7SViQXClBn1_qpd3W9FVUhS-s=
+w8lcQpxLAakdOn7xUkdnM62EBSLEh-EVTPgdnX3Pyiwwa2j9TL9JB-t6cEfK3bKpm6cwatEuupl=
+SA/3q3/Cpa0Qu3dSe2tAbNCc4ci5w/h4/T9oiMjAXadwLDmiAD5Mo9Qk5C6Ygssg5SmDDyy5A2A=
+k" target=3D"_blank">itt tudsz megtekinteni</a>.</em></p>
+
+  </div>
+
+
+      </td>
+
+    </tr>
+  </tbody>
+</table>
+
+  <!--[if (!mso)&(!IE)]><!--></div>
+<!--<![endif]-->
+  </div>
+
+</div>
+
+<!--[if (mso)|(IE)]></td>
+<![endif]-->
+      <!--[if (mso)|(IE)]></tr></table></td>
+</tr></table><![endif]-->
+    </div>
+
+  </div>
+
+</div>
+
+
+
+
+<div class=3D"u-row-container" style=3D"padding: 15px 0px 30px;background-i=
+mage: url('https://actionnetwork.org/unlayer_files/1636759033808-bg.jpg');b=
+ackground-repeat: repeat;background-position: center top;background-color: =
+transparent">
+  <div class=3D"u-row" style=3D"Margin: 0 auto;min-width: 320px;max-width: =
+600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-wor=
+d;background-color: transparent;">
+    <div style=3D"border-collapse: collapse;display: table;width: 100%;heig=
+ht: 100%;background-color: transparent;">
+      <!--[if (mso)|(IE)]><table width=3D"100%" cellpadding=3D"0" cellspaci=
+ng=3D"0" border=3D"0"><tr><td style=3D"padding: 15px 0px 30px;background-im=
+age: url('https://actionnetwork.org/unlayer_files/1636759033808-bg.jpg');ba=
+ckground-repeat: repeat;background-position: center top;background-color: t=
+ransparent;" align=3D"center"><table cellpadding=3D"0" cellspacing=3D"0" bo=
+rder=3D"0" style=3D"width:600px;"><tr style=3D"background-color: transparen=
+t;"><![endif]-->
+     =20
+<!--[if (mso)|(IE)]><td align=3D"center" width=3D"600" style=3D"background-=
+color: #ffffff;width: 600px;padding: 0px;border-top: 0px solid transparent;=
+border-left: 0px solid transparent;border-right: 0px solid transparent;bord=
+er-bottom: 0px solid transparent;border-radius: 0px;-webkit-border-radius: =
+0px; -moz-border-radius: 0px;" valign=3D"top"><![endif]-->
+<div class=3D"u-col u-col-100" style=3D"max-width: 320px;min-width: 600px;d=
+isplay: table-cell;vertical-align: top;">
+  <div style=3D"background-color: #ffffff;height: 100%;width: 100% !importa=
+nt;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;"=
+>
+  <!--[if (!mso)&(!IE)]><!--><div style=3D"height: 100%; padding: 0px;borde=
+r-top: 0px solid transparent;border-left: 0px solid transparent;border-righ=
+t: 0px solid transparent;border-bottom: 0px solid transparent;border-radius=
+: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;"><!--<![endif]--=
+>
+ =20
+<table style=3D"font-family:arial,helvetica,sans-serif;" role=3D"presentati=
+on" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0">
+  <tbody>
+    <tr>
+      <td style=3D"overflow-wrap:break-word;word-break:break-word;padding:1=
+0px;font-family:arial,helvetica,sans-serif;" align=3D"left">
+       =20
+  <div style=3D"color: #505050; line-height: 140%; text-align: left; word-w=
+rap: break-word;">
+    <p style=3D"line-height: 140%; font-size: 14px; text-align: center;"><s=
+trong>=C2=A9 2022 Szikra Mozgalom Egyes=C3=BClet</strong></p>
+
+<p style=3D"line-height: 140%; font-size: 14px; text-align: center;">=C2=A0=
+</p>
+
+<p style=3D"line-height: 140%; font-size: 14px; text-align: center;"><stron=
+g>1084 Budapest, Fecske utca 41-43. V/1</strong></p>
+
+<p style=3D"line-height: 140%; font-size: 14px; text-align: center;">=C2=A0=
+</p>
+
+<p style=3D"line-height: 140%; font-size: 14px; text-align: center;"><stron=
+g>szikra@szikramozgalom.hu</strong></p>
+
+<p style=3D"line-height: 140%; font-size: 14px; text-align: center;">=C2=A0=
+</p>
+
+<p style=3D"line-height: 140%; font-size: 14px; text-align: center;"><stron=
+g>www.szikramozgalom.hu</strong></p>
+
+  </div>
+
+
+      </td>
+
+    </tr>
+  </tbody>
+</table>
+
+<table style=3D"font-family:arial,helvetica,sans-serif;" role=3D"presentati=
+on" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0">
+  <tbody>
+    <tr>
+      <td style=3D"overflow-wrap:break-word;word-break:break-word;padding:1=
+0px;font-family:arial,helvetica,sans-serif;" align=3D"left">
+       =20
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0">
+  <tr>
+    <td style=3D"padding-right: 0px;padding-left: 0px;" align=3D"center">
+      <a
+ href=3D"https://click.actionnetwork.org/ss/c/atcYNHk4Eh2YdGnwBh-YDHR3faCyR=
+ksTQdZmJ9nytK4pYoHh81KqTBouqFqvbvOczQgsyeyPgNSOheRne3wKs0HFVU1i4KH0C3fT2OVW=
+tuDVvuMgmdsG6aro-hOULN1L8CTnpJEiq5HMqChLPZC5SmArcXXRvA00UJ19xsEcH6V3k2xJ-Cq=
+KpM0ywO7yl-jvd5853N0MSnh1iG4lOfNMyqwMVd5GW3b_AbzP_a82fxdBuv1dHI4-5E0yQmtMtb=
+xhpsEG54UNpc44H4_wuRuCJNqPUgqaeh0jhyckhIIiKSeBoNG2hAhoRn1YWaG03FFQe6PtRmTuL=
+ZfAreE1bAkfMg/3q3/Cpa0Qu3dSe2tAbNCc4ci5w/h5/TZJH-2huUKv99SsTqd2rALFJihpr9Nr=
+oG-5LY1vUXmQ" target=3D"_blank">
+      <img align=3D"center" border=3D"0"
+ src=3D"https://actionnetwork.org/unlayer_files/1665149936798-1646651331787=
+-logo_egyszerusitett.png" alt=3D"" title=3D"" style=3D"outline: none;text-d=
+ecoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline=
+-block !important;border: none;height: auto;float: none;width: 13%;max-widt=
+h: 75.4px;" width=3D"75.4"/>
+      </a>
+    </td>
+
+  </tr>
+</table>
+
+      </td>
+
+    </tr>
+  </tbody>
+</table>
+
+  <!--[if (!mso)&(!IE)]><!--></div>
+<!--<![endif]-->
+  </div>
+
+</div>
+
+<!--[if (mso)|(IE)]></td>
+<![endif]-->
+      <!--[if (mso)|(IE)]></tr></table></td>
+</tr></table><![endif]-->
+    </div>
+
+  </div>
+
+</div>
+
+
+
+    <!--[if (mso)|(IE)]></td>
+</tr></table><![endif]-->
+    </td>
+
+  </tr>
+  </tbody>
+  </table>
+  <!--[if mso]></div>
+<![endif]-->
+  <!--[if IE]></div>
+<![endif]-->
+<center>
+  <table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" align=3D"center" =
+id=3D"backgroundTable" style=3D"margin: 0;padding: 0;height: 100% !importan=
+t;width: 100% !important; line-height: 100% !important; border-collapse:col=
+lapse; mso-table-lspace:0pt; mso-table-rspace:0pt;" role=3D"presentation">
+    <tr>
+      <td align=3D"center" valign=3D"top" style=3D"border-collapse: collaps=
+e;">
+		<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-t=
+op: 2px solid #909090; border-collapse:collapse; mso-table-lspace:0pt; mso-=
+table-rspace:0pt;" role=3D"presentation">
+		  <tr>
+		    <td valign=3D"top" style=3D"border-collapse: collapse;">
+		      <table border=3D"0" cellpadding=3D"10" cellspacing=3D"0" style=3D"b=
+order-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;" role=
+=3D"presentation">
+		        <tr>
+		          <td colspan=3D"2" valign=3D"middle" style=3D"border-collapse: c=
+ollapse;border-top: 0;">
+		            <div style=3D"color: #333333;font-family: Arial;font-size: 11=
+px;line-height: 125%;text-align: left;">
+		                K=C3=BCldve <a
+ href=3D"https://click.actionnetwork.org/ss/c/O93kI8o-kT9cRvZ9zJLPP23W7H9qp=
+HR7DTBpQ546uYbRhSEFiMku9yOuz0XBZ9jxwPwAwK6yUSCOlEpwUizMfxlxVBHC0lW01EVZSaJT=
+xUeSLhpZXiqpPYLBXeo3vkmW9Mdu0f7Dka8VNeMs0rlf655tAneg9hzKkH8gp4BWfvYjeJqLBn7=
+eAa8GUQlGgF1iqPCywoPVCpWcnYoWwWuQTvcEmeRuV5ZkwWLKZWO-DYpO_fMnB8TP3X3rwI32t7=
+UgHpxX3GK5Ls8fXUJbDluAHzus0261NYJ0PD4GuCKtrUGUuLS3O8_BXel0YuCI1kfe1mr5y5pCa=
+raAAhxsikmzWw/3q3/Cpa0Qu3dSe2tAbNCc4ci5w/h6/T-zxG8Yb6rdcYyMFCczix_KzNGmf2qP=
+e1EAiGT37ytY" style=3D"color: #004a6d;">ActionNetwork.org</a>.
+		              Emailc=C3=ADmed friss=C3=ADt=C3=A9s=C3=A9hez, neved vagy c=
+=C3=ADmed megv=C3=A1ltoztat=C3=A1s=C3=A1hoz, vagy az emailekr=C5=91l val=C3=
+=B3 leiratkoz=C3=A1shoz: J=C3=A1mbor Andr=C3=A1s <a
+ href=3D"https://click.actionnetwork.org/ss/c/P8Elou2Rvc0qoMPEUZrMXcOpy_XqN=
+4R2ZGjoK-5zZnl7NBjmTZL5F5oqdT0MFW4GFB9vmdJ-MFTAt_VSFm4CZn7N-RRAznrBxKDboJTV=
+xD6BJcJKEOHwMPoRSckaXhwWmpOP9WsDcSAxBNVyGlukdgNNPZCcINqWw-8ZFFaZAJ3IbV9oKF7=
+KKQcDn-3u3utobaERoW4e3DHVPZUwELsag2-KdfuoznQRctiPvo9NfLK84GQibdOMLiFhaQt3H5=
+h8VN6kqnzKJo0ffkPzqrcU22KMsYqoGeeMnU4x8P1ysBzpiVZ1TcOyu6ct1LWCvUGk_mMJRSWMj=
+2OEPtuhtjfK1qqqKaVQM-GQc07jPgUYkuxjq1NvG4HOBC50_A6sLTXzT5dLOF_LlR9j2mieOUTu=
+ienNgwDHtQVFHgRymYd-gafWSBdD3gLztidYlIPPdcPKTA6P3iLiQtIAx1AB8hFCv5Hk7Q142b_=
+qJ7rJDTNN1c0NoHJr93w25kgUrtYrK2Id/3q3/Cpa0Qu3dSe2tAbNCc4ci5w/h7/7okgXPkP0Vz=
+2sLjQM8NIdy8rFtqmn-8sM1K90_jlM2w" style=3D"color: #004a6d;font-weight: norm=
+al;text-decoration: underline;">Kattints ide</a>.
+		            </div>
+
+		          </td>
+
+		        </tr>
+		      </table>
+		    </td>
+
+		  </tr>
+		</table>
+      </td>
+
+    </tr>
+  </table>
+</center>
+<img src=3D"https://click.actionnetwork.org/ss/o/sKxQ9Tusut-gXiwfMaIEaQ/3q3=
+/Cpa0Qu3dSe2tAbNCc4ci5w/ho.gif" alt=3D"" width=3D"1" height=3D"1" border=3D=
+"0" style=3D"height:1px !important;width:1px !important;border-width:0 !imp=
+ortant;margin-top:0 !important;margin-bottom:0 !important;margin-right:0 !i=
+mportant;margin-left:0 !important;padding-top:0 !important;padding-bottom:0=
+ !important;padding-right:0 !important;padding-left:0 !important;"/></body>
+
+</html>

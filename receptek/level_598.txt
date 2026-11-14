@@ -1,0 +1,375 @@
+Delivered-To: estampel@gmail.com
+Received: by 2002:a05:6358:5e02:b0:1b7:f76c:4c82 with SMTP id q2csp2677774rwn;
+        Fri, 6 Sep 2024 03:27:54 -0700 (PDT)
+X-Received: by 2002:a05:6512:3b1e:b0:52e:be1f:bf7f with SMTP id 2adb3069b0e04-536587b49c4mr1278234e87.27.1725618474164;
+        Fri, 06 Sep 2024 03:27:54 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1725618474; cv=none;
+        d=google.com; s=arc-20160816;
+        b=WvRaFJvoy4Oy54fhqG8E+RzZfpgDXVA3jzh6ZDr5LL61P0WfyqSgo6FFrR0i+PxtJp
+         vjIzfnoCwaateiSG3xyCka1BJjQrAe9YBafDYefDJ08otawiQWkx7XjS+V2cjjaxiGNZ
+         FFWqtRCVl8z4M5VKxSYSSDOnDpBevDNsEI/6rkd77e375Yc3DTdHwDreLRFtkBGKoJys
+         WQH+J6buM3k/eLP5sXVb2uJcbzj4YFsND6qwdHAU8CBhiQYQsp9Db9aYetLB+MLVmeRP
+         FxiiYQVUDnILCgfuuRllwcrdh21/Vc9Rqcc9A1wD9dllF7rB0HUnpIYnpMTQDKzt/xcf
+         G0YQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=WoPrXGo7Mx25887xCDFulpiTl4x1MMav2TFkBP4TmuY=;
+        fh=wF/Yrd2E0xeKwPH74kML7cQSth+Fl4bwhVNrybJ4uh4=;
+        b=TIlzzrr6EYP/1dEEsjSriFGzgzSdBaT7FbW7SW9rOyaziuedBdrL0KLNWTuuSFnXso
+         q5jKfkM0yjj5Q5nNmExeQ/+9W+MDuofvJl2BRa06GG3c5mJ6mZfVG1bjPmMlFXcqU7yo
+         kVkRRCW/eSwrr7safSnxkAt3b3X2PQ7XI4plWlFzS9FKGMCJXZxSoMKepI3WOV30oxdH
+         yH996wPcIaXh9wliOU4pxQFQyPt6HRmXYnTc5WH5Ste5VOn6dms9FMaT7iRIJfhmxjbh
+         vL9Re41OSmWU9ZyYhgaWkfPzyhJFxOOQRcXiXyeT7Ole4dSc1xZe5epDRD3374HmSKO/
+         CaAg==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=a48sGI9S;
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <banyus53@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id 2adb3069b0e04-535407c2955sor6119905e87.12.2024.09.06.03.27.53
+        for <estampel@gmail.com>
+        (Google Transport Security);
+        Fri, 06 Sep 2024 03:27:54 -0700 (PDT)
+Received-SPF: pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=a48sGI9S;
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1725618473; x=1726223273; dara=google.com;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=WoPrXGo7Mx25887xCDFulpiTl4x1MMav2TFkBP4TmuY=;
+        b=a48sGI9SXs3LrFySQCnZXIo4HwyaZkdhqANW2GhNIeUVMfQF4+hLUSwF+ch3SF5/ir
+         2bu4rV7i1e3TDcXftctjRyoQ2dIuaY9E3hod9c5gxh+Qk1whyHdndY+tqzBS1oDq8K8E
+         HTJv3yD1Wvig6mygZdC9u2TjTGHLKuRtPpjkBkqnBoikwubnLWRwCU9TJ6ViXi9dJGzG
+         JPYWiqURQKJ9SVkwsORwn9tX7RfT+Rfiizt0wkO5XzDXkdVS9Aj+CmCRqn8307dYMH/a
+         sXSjyeVLt0ePvtA5MaQ0Gc3rebGWkoZ7iwxvP3liP9cgKkyeUgd2gPHFW1UHFNHldh5w
+         p5Rg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1725618473; x=1726223273;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=WoPrXGo7Mx25887xCDFulpiTl4x1MMav2TFkBP4TmuY=;
+        b=PBWZwTG+JGEOE1FcxgGECOErbYzw0Cxhgp76kLJRi138Uh0nn6cIZTIONZYFjo+2jy
+         THoga84bF0ts2Uxv6C14DGykk1Yf6PwJHfChB5OPW98Z17TLxiE4QXShIp4/7sHf6cwT
+         E5g1KisuXVsITDP8T3+5Mpvp6J6R4mRycw6c2NgnMmS1fhejcgORD1l1vLjq3KyllbK4
+         afti2eCofrt+8GR4LeYgWwdZsbEwXOdfmIYk/tsIkm35yCR/q5scp3PNyC5//L79yFct
+         KJAt8XtHsDalOcrAZufA8KfE+QKlJuJTPNSx1vjAsqoGhDibVJP1IYJ5X1fE1BVcgy1F
+         umZw==
+X-Gm-Message-State: AOJu0YwjIenmj5/8x4AiVgH7+3Q7st3c72saK0V6X47gtTo9bvUsd4ZP
+	zVHGVdmkrkWq3oxIF5o4hY5VUlSI4bkgwvHjXgSLvIsIIGTBV2plPE+pAXDyUybWXcKdysZCvBX
+	wBooJD0pYWcvM6Btai9d6vW5ly0U5Ng==
+X-Google-Smtp-Source: AGHT+IFDoUxxrv6Q8G4XS0w4Hf7R/gK1rkcNesSS9ZixUsIrKcdUguTfy9Z3r4+a++PIK9YRK9xAxHXoLiLYGHO5bAc=
+X-Received: by 2002:a05:6512:b03:b0:536:55cc:9642 with SMTP id
+ 2adb3069b0e04-536587b44d3mr1512420e87.26.1725618472805; Fri, 06 Sep 2024
+ 03:27:52 -0700 (PDT)
+MIME-Version: 1.0
+References: <66dad798deda4_1982ef2e76f38e0769784d1@id.ahang.hu.mail>
+In-Reply-To: <66dad798deda4_1982ef2e76f38e0769784d1@id.ahang.hu.mail>
+From: =?UTF-8?B?w4FnbmVzIEJ1Z8Ohcg==?= <banyus53@gmail.com>
+Date: Fri, 6 Sep 2024 12:27:26 +0200
+Message-ID: <CA+39czU+OVCRTAWQxZOKhuaY61pkeBkuHASx-doPHHge2OC+8A@mail.gmail.com>
+Subject: =?UTF-8?B?RndkOiBWYXPDoXJuYXAgdsOpZ2V0IMOpciBhIHBhcmFsaW1waWEgLSDDoXRhZGp1ayBhIA==?=
+	=?UTF-8?B?cGV0w61jacOzbmthdCE=?=
+To: Emese Stampel <estampel@gmail.com>
+Content-Type: multipart/alternative; boundary="00000000000016eec4062170dcbd"
+
+--00000000000016eec4062170dcbd
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+---------- Forwarded message ---------
+Felad=C3=B3: Szal=C3=B3ki Viktor | aHang <posta@ahang.hu>
+Date: 2024. szept. 6., P, 12:21
+Subject: Vas=C3=A1rnap v=C3=A9get =C3=A9r a paralimpia - =C3=A1tadjuk a pet=
+=C3=ADci=C3=B3nkat!
+To: <banyus53@gmail.com>
+
+
+Kedves =C3=81gnes M=C3=A1ria Bug=C3=A1r!
+
+M=C3=A9g k=C3=A9t nap van vissza a paralimpi=C3=A1b=C3=B3l, vas=C3=A1rnap b=
+efejez=C5=91dnek a p=C3=A1rizsi
+j=C3=A1t=C3=A9kok. Megannyi sz=C3=A9p pillanatot szereznek nek=C3=BCnk ez=
+=C3=BAttal is a
+parasportol=C3=B3k, akikre m=C3=A9lt=C3=B3k=C3=A9ppen lehet=C3=BCnk b=C3=BC=
+szk=C3=A9k! *=C5=90k az elsz=C3=A1nts=C3=A1g, az
+elhivatotts=C3=A1g =C3=A9s a kitart=C3=A1s mintak=C3=A9pei! *
+
+M=C3=A9gis van, ami miatt szomor=C3=BAan gondolunk a paralimpikonjaink sike=
+reire. *A
+korm=C3=A1ny szerint ugyanis az =C5=91 eredm=C3=A9nyeik nem =C3=A9rnek anny=
+it, mint az
+olimpikonok=C3=A9. Legal=C3=A1bbis ami a p=C3=A9nzjutalmat illeti, biztosan=
+ nem.* A
+paralimpikonok az olimpikonoknak j=C3=A1r=C3=B3 =C3=B6sszegnek kevesebb min=
+t a fel=C3=A9t
+kapj=C3=A1k csak meg, ha dobog=C3=B3s vagy pontszerz=C5=91 helyez=C3=A9st =
+=C3=A9rnek el.
+
+A paralimpia kezdete el=C5=91tt ind=C3=ADtottuk a kamp=C3=A1nyunkat, amelyb=
+en m=C3=A1r 4
+ezern=C3=A9l is t=C3=B6bben k=C3=A9rj=C3=BCk, hogy legy=C3=BCnk =C3=BAtt=C3=
+=B6r=C5=91k, =C3=A9s Magyarorsz=C3=A1g adjon
+egyenl=C5=91 p=C3=A9nzjutalmat a paralimpikonoknak =C3=A9s olimpikonoknak!
+
+Kattints ide, =C3=A9s =C3=ADrd al=C3=A1 a pet=C3=ADci=C3=B3t!
+<https://id.ahang.hu//clicks/link/2605/fa38ab52-c490-4140-8968-2e0ceb03d6d4=
+?url=3Dhttps%3A%2F%2Fszabad.ahang.hu%2Fpetitions%2Flegyunk-uttorok-magyaror=
+szag-adjon-egyenlo-penzjutalmat-a-paralimpikonoknak-es-olimpikonoknak%3Futm=
+_source%3Dahang%26utm_medium%3Demail%26utm_campaign%3Dblast2024-09-06&membe=
+r_guid=3D88a62eb4b5dcac9810b289cd94cf43b21da67c13302ba6dade9c66944a7efc34cd=
+da09d8fc189000cf0efc385f843fe4a3f0b0c0992d522217f596756a2ca812>
+
+* Pet=C3=ADci=C3=B3nkat a paralimpia v=C3=A9gezt=C3=A9vel =C3=A1tadjuk Schm=
+idt =C3=81d=C3=A1m sport=C3=A9rt felel=C5=91s
+=C3=A1llamtitk=C3=A1rnak, b=C3=ADzva abban, hogy meg=C3=A9rti az =C3=BCgy f=
+ontoss=C3=A1g=C3=A1t, =C3=A9s
+v=C3=A1ltoztatnak a jelenlegi rendszeren!  *
+
+Seg=C3=ADts te is abban, hogy min=C3=A9l nagyobb al=C3=A1=C3=ADr=C3=A1ssz=
+=C3=A1m=C3=BA pet=C3=ADci=C3=B3t juttathassunk
+el az =C3=A1llamtitk=C3=A1rnak. =C3=8Drd al=C3=A1 a k=C3=B6vetel=C3=A9s=C3=
+=BCnket, =C3=A9s csatlakozz az =C3=BCgyh=C3=B6z!
+
+Egyet=C3=A9rtek, al=C3=A1=C3=ADrom!
+<https://id.ahang.hu//clicks/link/2605/fa38ab52-c490-4140-8968-2e0ceb03d6d4=
+?url=3Dhttps%3A%2F%2Fszabad.ahang.hu%2Fpetitions%2Flegyunk-uttorok-magyaror=
+szag-adjon-egyenlo-penzjutalmat-a-paralimpikonoknak-es-olimpikonoknak%3Futm=
+_source%3Dahang%26utm_medium%3Demail%26utm_campaign%3Dblast2024-09-06&membe=
+r_guid=3D88a62eb4b5dcac9810b289cd94cf43b21da67c13302ba6dade9c66944a7efc34cd=
+da09d8fc189000cf0efc385f843fe4a3f0b0c0992d522217f596756a2ca812>
+
+A paralimpikonok is ugyanaz=C3=A9rt az orsz=C3=A1g=C3=A9rt k=C3=BCzdenek, u=
+gyanazzal az
+elsz=C3=A1nts=C3=A1ggal =C3=A9s odaad=C3=A1ssal, mint olimpikon t=C3=A1rsai=
+k. Al=C3=A1=C3=ADr=C3=A1sunkkal
+t=C3=A1mogatjuk azt, hogy a magyar paralimpikonok ugyanazt az anyagi elisme=
+r=C3=A9st
+kapj=C3=A1k. Ezzel is kifejezve azt, hogy *minden sportol=C3=B3nkra ugyan=
+=C3=BAgy b=C3=BCszk=C3=A9k
+vagyunk,* meg=C3=A9rdemlik az egyenl=C5=91 b=C3=A1n=C3=A1sm=C3=B3dot!
+
+K=C3=B6sz=C3=B6nettel,
+
+Szal=C3=B3ki Viktor
+aHang
+
+Ha b=C3=A1rmi k=C3=A9rd=C3=A9sed van, v=C3=A1laszolj k=C3=B6zvetlen=C3=BCl =
+erre az email-re, vagy =C3=ADrj a
+mienk@ahang.hu email c=C3=ADmre.
+
+K=C3=B6vess minket a Facebookon, hogy a naprak=C3=A9sz inform=C3=A1ci=C3=B3=
+k hozz=C3=A1d is
+eljuthassanak:
+<https://id.ahang.hu//clicks/link/2605/fa38ab52-c490-4140-8968-2e0ceb03d6d4=
+?url=3Dhttps%3A%2F%2Fwww.facebook.com%2Fszabadahang%3Futm_source%3Dahang%26=
+utm_medium%3Demail%26utm_campaign%3Dblast2024-09-06&member_guid=3D88a62eb4b=
+5dcac9810b289cd94cf43b21da67c13302ba6dade9c66944a7efc34cdda09d8fc189000cf0e=
+fc385f843fe4a3f0b0c0992d522217f596756a2ca812>
+
+A lev=C3=A9l k=C3=BCld=C5=91je:
+Magyarhang Nonprofit Kft.
+
+Ezt az =C3=BCzenetet banyus53@gmail.com c=C3=ADmre k=C3=BCldt=C3=BCk. Leira=
+tkozni ide kattintva
+tudsz.
+<https://id.ahang.hu//subscriptions/unsubscribe?subscription=3D1&email=3Dba=
+nyus53%40gmail.com&mailing_id=3D2605>
+
+--00000000000016eec4062170dcbd
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><br><br><div class=3D"gmail_quote"><div dir=3D"ltr" class=
+=3D"gmail_attr">---------- Forwarded message ---------<br>Felad=C3=B3: <str=
+ong class=3D"gmail_sendername" dir=3D"auto">Szal=C3=B3ki Viktor | aHang</st=
+rong> <span dir=3D"auto">&lt;<a href=3D"mailto:posta@ahang.hu">posta@ahang.=
+hu</a>&gt;</span><br>Date: 2024. szept. 6., P, 12:21<br>Subject: Vas=C3=A1r=
+nap v=C3=A9get =C3=A9r a paralimpia - =C3=A1tadjuk a pet=C3=ADci=C3=B3nkat!=
+<br>To:  &lt;<a href=3D"mailto:banyus53@gmail.com">banyus53@gmail.com</a>&g=
+t;<br></div><br><br><div style=3D"background:#ffffff;background-color:#ffff=
+ff;margin:0px auto;max-width:560px;text-align:center;font-family:sans-serif=
+;font-size:17px;line-height:25px;text-align:center;color:#000000">
+
+<p><img height=3D"34" src=3D"https://ahang-static.s3.eu-central-1.amazonaws=
+.com/mail/ahangikon-sm.jpg" style=3D"display:inline-block;border:0;border-r=
+adius:0;outline:none;text-decoration:none;height:34px;font-size:17px" width=
+=3D"34"></p>
+
+<p>Kedves =C3=81gnes M=C3=A1ria Bug=C3=A1r!</p>
+
+<div style=3D"text-align:left">
+
+<p>
+
+  M=C3=A9g k=C3=A9t nap van vissza a paralimpi=C3=A1b=C3=B3l, vas=C3=A1rnap=
+ befejez=C5=91dnek a p=C3=A1rizsi j=C3=A1t=C3=A9kok. Megannyi sz=C3=A9p pil=
+lanatot szereznek nek=C3=BCnk ez=C3=BAttal is a parasportol=C3=B3k, akikre =
+m=C3=A9lt=C3=B3k=C3=A9ppen lehet=C3=BCnk b=C3=BCszk=C3=A9k! <b>=C5=90k az e=
+lsz=C3=A1nts=C3=A1g, az elhivatotts=C3=A1g =C3=A9s a kitart=C3=A1s mintak=
+=C3=A9pei!
+
+</b></p>
+
+<p>
+
+  M=C3=A9gis van, ami miatt szomor=C3=BAan gondolunk a paralimpikonjaink si=
+kereire. <b>A korm=C3=A1ny szerint ugyanis az =C5=91 eredm=C3=A9nyeik nem =
+=C3=A9rnek annyit, mint az olimpikonok=C3=A9. Legal=C3=A1bbis ami a p=C3=A9=
+nzjutalmat illeti, biztosan nem.</b> A paralimpikonok az olimpikonoknak j=
+=C3=A1r=C3=B3 =C3=B6sszegnek kevesebb mint a fel=C3=A9t kapj=C3=A1k csak me=
+g, ha dobog=C3=B3s vagy pontszerz=C5=91 helyez=C3=A9st =C3=A9rnek el.=C2=A0
+
+</p>
+
+<p>
+
+  A paralimpia kezdete el=C5=91tt ind=C3=ADtottuk a kamp=C3=A1nyunkat, amel=
+yben m=C3=A1r 4 ezern=C3=A9l is t=C3=B6bben k=C3=A9rj=C3=BCk, hogy legy=C3=
+=BCnk =C3=BAtt=C3=B6r=C5=91k, =C3=A9s Magyarorsz=C3=A1g adjon egyenl=C5=91 =
+p=C3=A9nzjutalmat a paralimpikonoknak =C3=A9s olimpikonoknak!
+
+</p>
+
+<p>
+
+</p>
+
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"border-collapse:separate;width:100%;line-height:100%"><tbody><t=
+r><td align=3D"center" bgcolor=3D"#ff2400" role=3D"presentation" style=3D"b=
+order:none;border-radius:4px;background:#ff2400" valign=3D"middle"><a href=
+=3D"https://id.ahang.hu//clicks/link/2605/fa38ab52-c490-4140-8968-2e0ceb03d=
+6d4?url=3Dhttps%3A%2F%2Fszabad.ahang.hu%2Fpetitions%2Flegyunk-uttorok-magya=
+rorszag-adjon-egyenlo-penzjutalmat-a-paralimpikonoknak-es-olimpikonoknak%3F=
+utm_source%3Dahang%26utm_medium%3Demail%26utm_campaign%3Dblast2024-09-06&am=
+p;member_guid=3D88a62eb4b5dcac9810b289cd94cf43b21da67c13302ba6dade9c66944a7=
+efc34cdda09d8fc189000cf0efc385f843fe4a3f0b0c0992d522217f596756a2ca812" styl=
+e=3D"display:block;background:#ff2400;color:#ffffff;font-family:sans-serif;=
+font-size:17px;font-weight:bold;line-height:25px;margin:0;text-decoration:n=
+one;text-transform:none;padding:10px 25px;border-radius:4px;word-break:brea=
+k-word;max-width:100%" target=3D"_blank">Kattints ide, =C3=A9s =C3=ADrd al=
+=C3=A1 a pet=C3=ADci=C3=B3t!</a></td></tr></tbody></table>
+
+<p></p>
+
+<p><b>
+
+  Pet=C3=ADci=C3=B3nkat a paralimpia v=C3=A9gezt=C3=A9vel =C3=A1tadjuk Schm=
+idt =C3=81d=C3=A1m sport=C3=A9rt felel=C5=91s =C3=A1llamtitk=C3=A1rnak, b=
+=C3=ADzva abban, hogy meg=C3=A9rti az =C3=BCgy fontoss=C3=A1g=C3=A1t, =C3=
+=A9s v=C3=A1ltoztatnak a jelenlegi rendszeren!=C2=A0
+
+</b></p>
+
+<p>
+
+  Seg=C3=ADts te is abban, hogy min=C3=A9l nagyobb al=C3=A1=C3=ADr=C3=A1ssz=
+=C3=A1m=C3=BA pet=C3=ADci=C3=B3t juttathassunk el az =C3=A1llamtitk=C3=A1rn=
+ak. =C3=8Drd al=C3=A1 a k=C3=B6vetel=C3=A9s=C3=BCnket, =C3=A9s csatlakozz a=
+z =C3=BCgyh=C3=B6z!
+
+</p>
+
+<p>
+
+</p>
+
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"border-collapse:separate;width:100%;line-height:100%"><tbody><t=
+r><td align=3D"center" bgcolor=3D"#ff2400" role=3D"presentation" style=3D"b=
+order:none;border-radius:4px;background:#ff2400" valign=3D"middle"><a href=
+=3D"https://id.ahang.hu//clicks/link/2605/fa38ab52-c490-4140-8968-2e0ceb03d=
+6d4?url=3Dhttps%3A%2F%2Fszabad.ahang.hu%2Fpetitions%2Flegyunk-uttorok-magya=
+rorszag-adjon-egyenlo-penzjutalmat-a-paralimpikonoknak-es-olimpikonoknak%3F=
+utm_source%3Dahang%26utm_medium%3Demail%26utm_campaign%3Dblast2024-09-06&am=
+p;member_guid=3D88a62eb4b5dcac9810b289cd94cf43b21da67c13302ba6dade9c66944a7=
+efc34cdda09d8fc189000cf0efc385f843fe4a3f0b0c0992d522217f596756a2ca812" styl=
+e=3D"display:block;background:#ff2400;color:#ffffff;font-family:sans-serif;=
+font-size:17px;font-weight:bold;line-height:25px;margin:0;text-decoration:n=
+one;text-transform:none;padding:10px 25px;border-radius:4px;word-break:brea=
+k-word;max-width:100%" target=3D"_blank">Egyet=C3=A9rtek, al=C3=A1=C3=ADrom=
+!</a></td></tr></tbody></table>
+
+<p></p>
+
+<p>
+
+  A paralimpikonok is ugyanaz=C3=A9rt az orsz=C3=A1g=C3=A9rt k=C3=BCzdenek,=
+ ugyanazzal az elsz=C3=A1nts=C3=A1ggal =C3=A9s odaad=C3=A1ssal, mint olimpi=
+kon t=C3=A1rsaik. Al=C3=A1=C3=ADr=C3=A1sunkkal t=C3=A1mogatjuk azt, hogy a =
+magyar paralimpikonok ugyanazt az anyagi elismer=C3=A9st kapj=C3=A1k. Ezzel=
+ is kifejezve azt, hogy <b>minden sportol=C3=B3nkra ugyan=C3=BAgy b=C3=BCsz=
+k=C3=A9k vagyunk,</b>=C2=A0meg=C3=A9rdemlik az egyenl=C5=91 b=C3=A1n=C3=A1s=
+m=C3=B3dot!
+
+</p>
+
+<p>
+
+  K=C3=B6sz=C3=B6nettel,
+
+</p>
+
+<p>
+
+  Szal=C3=B3ki Viktor<br>aHang
+
+</p>
+
+<p>
+
+</p>
+
+<p>
+
+</p>
+
+</div>
+
+<p></p>
+
+<p style=3D"border-top:solid 1px #cccccc;font-size:1;margin:0px auto;width:=
+100%"> </p>
+
+<p style=3D"color:#999999">Ha b=C3=A1rmi k=C3=A9rd=C3=A9sed van, v=C3=A1las=
+zolj k=C3=B6zvetlen=C3=BCl erre az email-re, vagy =C3=ADrj a <a href=3D"mai=
+lto:mienk@ahang.hu" target=3D"_blank">mienk@ahang.hu</a> email c=C3=ADmre.<=
+/p>
+
+<p style=3D"color:#999999">K=C3=B6vess minket a Facebookon, hogy a naprak=
+=C3=A9sz inform=C3=A1ci=C3=B3k hozz=C3=A1d is eljuthassanak:<br><a href=3D"=
+https://id.ahang.hu//clicks/link/2605/fa38ab52-c490-4140-8968-2e0ceb03d6d4?=
+url=3Dhttps%3A%2F%2Fwww.facebook.com%2Fszabadahang%3Futm_source%3Dahang%26u=
+tm_medium%3Demail%26utm_campaign%3Dblast2024-09-06&amp;member_guid=3D88a62e=
+b4b5dcac9810b289cd94cf43b21da67c13302ba6dade9c66944a7efc34cdda09d8fc189000c=
+f0efc385f843fe4a3f0b0c0992d522217f596756a2ca812" style=3D"display:inline-bl=
+ock" rel=3D"noreferrer nofollow noopener" target=3D"_blank"><img src=3D"htt=
+ps://ahang-static.s3.eu-central-1.amazonaws.com/mail/facebook_sm.png" style=
+=3D"border-radius:0;display:inline-block" width=3D"34" height=3D"34"></a></=
+p>
+
+<p style=3D"color:#999999">A lev=C3=A9l k=C3=BCld=C5=91je:<br>Magyarhang No=
+nprofit Kft.<br></p>
+
+<p><img height=3D"34" src=3D"https://ahang-static.s3.eu-central-1.amazonaws=
+.com/mail/ahang_sm.jpg" style=3D"width:88.7px;display:inline-block"></p>
+
+<p style=3D"color:#999999">Ezt az =C3=BCzenetet  <a href=3D"mailto:banyus53=
+@gmail.com" target=3D"_blank">banyus53@gmail.com</a> c=C3=ADmre k=C3=BCldt=
+=C3=BCk. <a href=3D"https://id.ahang.hu//subscriptions/unsubscribe?subscrip=
+tion=3D1&amp;email=3Dbanyus53%40gmail.com&amp;mailing_id=3D2605" style=3D"f=
+ont-weight:normal;text-decoration:none;color:#999999" target=3D"_blank">Lei=
+ratkozni ide kattintva tudsz.</a></p>
+
+</div><img src=3D"https://id.ahang.hu//opens/2605/fa38ab52-c490-4140-8968-2=
+e0ceb03d6d4"></div></div>
+
+--00000000000016eec4062170dcbd--

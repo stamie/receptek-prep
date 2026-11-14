@@ -1,0 +1,774 @@
+Delivered-To: estampel@gmail.com
+Received: by 2002:a05:6358:7f15:b0:1c5:f3c5:8b74 with SMTP id p21csp5516080rwn;
+        Tue, 5 Nov 2024 04:14:45 -0800 (PST)
+X-Received: by 2002:a2e:b88e:0:b0:2fb:3960:9671 with SMTP id 38308e7fff4ca-2fedb7a2aaemr130572291fa.15.1730808885555;
+        Tue, 05 Nov 2024 04:14:45 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1730808885; cv=none;
+        d=google.com; s=arc-20240605;
+        b=j2rvFWxUDLjoizOhxBtFNvFh2LOzRrL0TpfBAW61IMUX7Kpp1L8BdbuM+U6msR0T2J
+         TjW4CIJomme7cEoAWHY6GrkR2oPjbXL8jdSYtAim3lrdCfrC+UHSkYMkhX67AzhXBhJ8
+         V6rrYUXX5pGLJiwfO+SkFw94wkrO391hXX0dYJfMCVawSgQalLgeNH0uuLdWBhutvjsu
+         JT48dQxDy5Blyy+hzfyoDI/vU9H8xaI1o7q+kogg1mPh6qhshC1nYIb0eenGUd0qG5Fy
+         I3eZE0GKCVISODK5EhKobCY4nridPTmesMQqGDwTjA4cdgwHjVVR5hWqgsLTqg+LoMHv
+         n4Uw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=Zk+o0nmpaWQmP6xqFwsIMX7VWGTLIDcPrN5sE0XeeRg=;
+        fh=wF/Yrd2E0xeKwPH74kML7cQSth+Fl4bwhVNrybJ4uh4=;
+        b=BMSmBZZFzgQMuqdTTwBAQTGqPUloQ3fU0f5PhuJZyElsGH0Nyti6WEqNF6EKvvOdFx
+         mVqua9h+5vd5Qp2NMwuYIh/aqbOhEcwv/oSlDTFPXVsjEysjKo02h4cazoztEL3O/1o/
+         RzK+Gb6T7eyTjQCZfVI3Vo818Ga0rhTUgpsBxypVzWJXAOvLIb8k4MrfK6mo73Bd8v6E
+         SnZJImuHi3d6z6yzUjlf4eIWTo9TMNpr+QUe9EcGprSrF1Et4b7RLnoPfWzdGx5tSuAX
+         KqMUp3LNpMN3AsvVnwSSEJrCuBubTUFg4FfTNQHVyoI8z7OTw66gTvJxHdAWx+itklKG
+         cfpw==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=iM4r31BG;
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <banyus53@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id 38308e7fff4ca-2fee5e2cc48sor25205841fa.8.2024.11.05.04.14.45
+        for <estampel@gmail.com>
+        (Google Transport Security);
+        Tue, 05 Nov 2024 04:14:45 -0800 (PST)
+Received-SPF: pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=iM4r31BG;
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1730808884; x=1731413684; dara=google.com;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=Zk+o0nmpaWQmP6xqFwsIMX7VWGTLIDcPrN5sE0XeeRg=;
+        b=iM4r31BGqRNx24v1ZuIgr8wOEtL1fTQS/F4a77UTliMR0I7Tjoa3of6zpCwYwPlcDY
+         KmX6x6axPZIBiSQgfi1bD5QsVz2OYeJRtgJz4Fjou93VeJrMN3qu9rUJSAe2YfBKTaai
+         ExnOs7SjgCyDYDat5CfGw19OUqXxI9fJzcYjfNc1jsJsHmATnJHa7bldeh6iJarwpkK9
+         UqStCkUtRRoHs6yvW7YWY7/T0SRq57LaWhW8ateb6v9Ia5nafisQO/VGnR8ICwbqATYR
+         Rw0Rav76pDgMiRklcZ0tXUC5dlfE3CfZ9R7frKZ1ccCti/NPexDg4frOEtVdkk9esYgP
+         0XXQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730808884; x=1731413684;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Zk+o0nmpaWQmP6xqFwsIMX7VWGTLIDcPrN5sE0XeeRg=;
+        b=ppYIku+PIEV2fZep3zt54i838Vx8djf9YwAfrtCYVYWaOHfe9cLqXR2X74tmbtIQvy
+         39VVb3Y0iQy4UOCtbQFHk7MWnA7v+drP1EurQ2rilmBrRgsdE2msIv5uCBjshTVMZLTJ
+         M3rst4Ggtp3wyn1t0GulZqDdhFYSJhUcwTPeljpHuZUKMu+R5lGfNBnqs1rdPiAHdM9Y
+         6GNVS0MA6ELBrM9DFBC0b7aOtfHaGN37OOnQMBKqQlUNoyYCsHsidt7RBfrM2KevkBND
+         u74HZB2dTGut8a+jKkZWNYg1ZQF75K3qqdOYv7p5nbrhCyEuCOUtw/UyJjRllItArfSs
+         KMaw==
+X-Gm-Message-State: AOJu0YxAkpTZNzB9ofa07r5CFb/1fy3uupuO5irY3lZyeFSsXwN7TiKd
+	3NiMtLahxyTbI8yAZmWUg6LFOepYxf0z5LKz5qHq2avQIJCNvLVINJBYtqewoTcFsL2cAWyQti7
+	YtkPBX9F2Q7Dp6qIddgU1mGxdU3zQUQ==
+X-Google-Smtp-Source: AGHT+IEFhZf8JkeJlRm9Yh92keRuKowNi/5JLcukMIUZammvuVcEgbL6Det4iE75dklabdzZ/vJnvPhFC8FPdZkvldI=
+X-Received: by 2002:a05:651c:550:b0:2fb:3881:35d5 with SMTP id
+ 38308e7fff4ca-2fedb813966mr116116341fa.35.1730808884109; Tue, 05 Nov 2024
+ 04:14:44 -0800 (PST)
+MIME-Version: 1.0
+References: <6728aa9d2a52b_1982ef2e678de50525332195@id.ahang.hu.mail>
+In-Reply-To: <6728aa9d2a52b_1982ef2e678de50525332195@id.ahang.hu.mail>
+From: =?UTF-8?B?w4FnbmVzIEJ1Z8Ohcg==?= <banyus53@gmail.com>
+Date: Tue, 5 Nov 2024 13:14:17 +0100
+Message-ID: <CA+39czV9oFbVwCjNfgDfZpvqMgQ6i85Y12i46vCNh5e+mRyQuA@mail.gmail.com>
+Subject: =?UTF-8?B?RndkOiBTVE9QIGF6IGVyZMWRcHVzenTDrXTDoXNuYWsgTWFneWFyb3JzesOhZ29uIQ==?=
+To: Emese Stampel <estampel@gmail.com>
+Content-Type: multipart/alternative; boundary="000000000000b6311e06262958fe"
+
+--000000000000b6311e06262958fe
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+---------- Forwarded message ---------
+Felad=C3=B3: aHang <posta@ahang.hu>
+Date: 2024. nov. 4., H, 12:06
+Subject: STOP az erd=C5=91puszt=C3=ADt=C3=A1snak Magyarorsz=C3=A1gon!
+To: <banyus53@gmail.com>
+
+
+Kedves Bug=C3=A1r =C3=81gnes M=C3=A1ria!
+
+"Az al=C3=A1bbi k=C3=A9p a B=C3=B6rzs=C3=B6ny sz=C3=ADv=C3=A9ben k=C3=A9sz=
+=C3=BClt 2024 j=C3=BAnius=C3=A1ban. A s=C3=A1rg=C3=A1n jel=C3=B6lt
+r=C3=A9szek az =C3=BAn. v=C3=A9gv=C3=A1g=C3=A1snak h=C3=ADvott erd=C5=91pus=
+zt=C3=ADt=C3=A1s helyeit jel=C3=B6lik. Hasonl=C3=B3 a
+helyzet szinte mindenhol az orsz=C3=A1gban. Nagy a baj? Bizony nagy, =C3=A9=
+s
+mindannyiunk =C3=A9let=C3=A9t vesz=C3=A9lyezteti.
+
+
+*De akkor hol itt a j=C3=B3 h=C3=ADr?* Megmutatom:
+
+Egyre t=C3=B6bben =C3=A9bred=C3=BCnk r=C3=A1 arra, hogy az erd=C5=91 hatalm=
+as =C3=A9rt=C3=A9k, j=C3=B3val t=C3=B6bbet
+=C3=A9r, mint a kitermelend=C5=91 faanyag. B=C5=91r=C3=BCnk=C3=B6n =C3=A9re=
+zz=C3=BCk ezt, amikor egy v=C3=A1rosi
+h=C5=91hull=C3=A1m k=C3=B6zep=C3=A9n csak azokban az utc=C3=A1kban lehet me=
+gmaradni, ahol el=C3=A9g fa
+biztos=C3=ADtja a kellemes, h=C5=B1v=C3=B6sebb leveg=C5=91t, vagy amikor eg=
+y vil=C3=A1gj=C3=A1rv=C3=A1nyban az
+egyik legink=C3=A1bb k=C3=A9zenfekv=C5=91 menek=C3=BCl=C3=A9si =C3=BAtvonal=
+ az erd=C5=91ben s=C3=A9t=C3=A1lni egyet.
+
+A j=C3=B3 h=C3=ADr az, hogy =C3=B6sszefogva most le=C3=A1ll=C3=ADthatjuk az=
+ erd=C5=91puszt=C3=ADt=C3=A1st! Ez most
+=C3=A9pp id=C5=91szer=C5=B1, =C3=B6sszhangban van ugyanis az EU 2024. j=C3=
+=BAnius 24-i
+term=C3=A9szet-helyre=C3=A1ll=C3=ADt=C3=A1si rendelet=C3=A9vel, mely szerin=
+t 2030-ra az erd=C5=91ink
+30%-=C3=A1t, 2050-re a 90%-=C3=A1t kell rehabilit=C3=A1lnunk. Teh=C3=A1t ha=
+ valamikor, akkor
+most kell l=C3=A9pn=C3=BCnk.
+
+Egyet=C3=A9rtesz?
+=C3=8Drd al=C3=A1 a pet=C3=ADci=C3=B3t!
+<https://id.ahang.hu//clicks/link/2703/48711007-0f27-4648-a854-1790fbea54ed=
+?url=3Dhttps%3A%2F%2Fszabad.ahang.hu%2Fpetitions%2Ferdoszeretet-eletigen-al=
+litsuk-le-egyutt-az-erdopusztitast-magyarorszagon%3Futm_source%3Dahang%26ut=
+m_medium%3Demail%26utm_campaign%3Dblast2024-11-04%26source%3Demail_2&member=
+_guid=3D88a62eb4b5dcac9810b289cd94cf43b21da67c13302ba6dade9c66944a7efc34cdd=
+a09d8fc189000cf0efc385f843fe4a3f0b0c0992d522217f596756a2ca812>
+
+*Egy perces projektfilm: *https://youtu.be/mDnKh9pHIMY
+
+*T=C3=A9nyleg vesz=C3=A9lyben vannak az erd=C5=91ink? Igen!*
+
+=C3=89s nemcsak az erd=C5=91k, hanem mi magunk is, ugyanis a *jelenlegi v=
+=C3=A1g=C3=A1sos
+erd=C3=A9szeti fakitermel=C3=A9s az emberi =C3=A9s =C3=A9l=C5=91k=C3=B6z=C3=
+=B6ss=C3=A9gek t=C3=BAl=C3=A9l=C3=A9s=C3=A9t vesz=C3=A9lyezteti:*
+
+   - Az erdei =C3=A9letk=C3=B6z=C3=B6ss=C3=A9gek drasztikus pusztul=C3=A1s=
+=C3=A1val j=C3=A1r egy=C3=BCtt, =C3=A9s a
+   bioszf=C3=A9ra r=C3=A9sze az ember is.
+   - A kiv=C3=A1gott faanyag t=C3=B6bbs=C3=A9g=C3=A9t elt=C3=BCzelj=C3=BCk,=
+ ami m=C3=A9g ink=C3=A1bb m=C3=A9ly=C3=ADti a
+   kl=C3=ADmav=C3=A1ls=C3=A1got: n=C3=B6veli a l=C3=A9gk=C3=B6r sz=C3=A9n-d=
+ioxid tartalm=C3=A1t, =C3=A9s cs=C3=B6kkenti az
+   erd=C5=91kben megk=C3=B6t=C3=B6tt sz=C3=A9n mennyis=C3=A9g=C3=A9t (amit =
+kiv=C3=A1gtak, nem tud t=C3=B6bb
+   sz=C3=A9n-dioxidot megk=C3=B6tni).
+   - A kl=C3=ADmav=C3=A1ls=C3=A1g t=C3=BCnetek=C3=A9nt fell=C3=A9p=C5=91 fo=
+rr=C3=B3, asz=C3=A1lyos ny=C3=A1ri h=C3=B3napok miatt a
+   lepuszt=C3=ADtott erd=C5=91ter=C3=BCletek nem =E2=80=93 vagy csak igen n=
+ehezen =E2=80=93 tudnak meg=C3=BAjulni.
+
+Az al=C3=A1bbi k=C3=A9pen egy v=C3=A9gv=C3=A1gott ter=C3=BClet l=C3=A1that=
+=C3=B3. A ter=C3=BCletet a munkag=C3=A9pek
+teljesen letarolt=C3=A1k, a talajt =C3=B6sszet=C3=B6m=C3=B6r=C3=ADtett=C3=
+=A9k. Az =C3=A1rny=C3=A9k n=C3=A9lk=C3=BCl hagyott
+ter=C3=BCleten a helyi =C3=B6kosziszt=C3=A9ma =C3=B6sszeroppan, a csapad=C3=
+=A9k =E2=80=93 a lomb n=C3=A9lk=C3=BCli,
+ker=C3=A9knyomokkal =C3=A1tszelt ter=C3=BCletr=C5=91l =E2=80=93 gyorsan lef=
+olyik.
+
+
+*Ma Magyarorsz=C3=A1gon a megmaradt erd=C5=91k nagy r=C3=A9sz=C3=A9t v=C3=
+=A9gv=C3=A1g=C3=A1sra =C3=ADt=C3=A9lt=C3=A9k.* Az
+al=C3=A1bbi t=C3=A9rk=C3=A9p a b=C3=B6rzs=C3=B6nyi erd=C5=91ter=C3=BClet k=
+=C3=B6z=C3=A9ps=C5=91 r=C3=A9sz=C3=A9t mutatja. *A
+r=C3=B3zsasz=C3=ADnnel jel=C3=B6lt ter=C3=BClet v=C3=A9gv=C3=A1g=C3=A1sra, =
+azaz lepuszt=C3=ADt=C3=A1sra =C3=ADt=C3=A9lt
+ter=C3=BClet. *Hasonl=C3=B3
+a helyzet a B=C3=BCkkben, a M=C3=A1tr=C3=A1ban, a Mecsekben, a Soproni- =C3=
+=A9s
+K=C5=91szegi-hegys=C3=A9gben, az Alf=C3=B6ld=C3=B6n, orsz=C3=A1gosan szinte=
+ mindenhol.
+
+
+A z=C3=B6lddel jel=C3=B6lt r=C3=A9sz az =C3=BAn. =C3=B6r=C3=B6kerd=C5=91 va=
+gy sz=C3=A1lal=C3=B3erd=C5=91, amely egy
+tudom=C3=A1nyosan igazolt, m=C5=B1k=C3=B6d=C5=91 fakitermel=C3=A9si megold=
+=C3=A1s. Az =C3=B6r=C3=B6kerd=C5=91, illetve a
+sz=C3=A1lal=C3=A1s biztos=C3=ADthatn=C3=A1 a t=C3=A1rsadalom m=C5=B1k=C3=B6=
+d=C3=A9s=C3=A9hez sz=C3=BCks=C3=A9ges faanyagot,
+ugyanakkor nem j=C3=A1rna egy=C3=BCtt az erd=C5=91k kifoszt=C3=A1s=C3=A1val=
+ =C3=A9s az =C3=A9let
+vesz=C3=A9lyeztet=C3=A9s=C3=A9vel.
+
+Az erd=C5=91ink gyors kirabl=C3=A1s=C3=A1b=C3=B3l egy maroknyi ember gazdag=
+odik csup=C3=A1n, de
+ezzel egy=C3=BCtt vesz=C3=A9lybe sodor mindannyiunkat.
+
+Mivel a v=C3=A9gv=C3=A1g=C3=A1sos fakitermel=C3=A9s mindannyiunk =C3=A9let=
+=C3=A9t vesz=C3=A9lyezteti, ennek
+le=C3=A1ll=C3=ADt=C3=A1sa =C3=A9s az erd=C5=91t=C3=B6rv=C3=A9ny azonnali m=
+=C3=B3dos=C3=ADt=C3=A1sa sz=C3=BCks=C3=A9ges =E2=80=93 =C3=B6sszhangban az
+EU 2024. j=C3=BAnius 24-i term=C3=A9szet-helyre=C3=A1ll=C3=ADt=C3=A1si rend=
+elet=C3=A9vel!
+
+R=C3=B6viden erre van sz=C3=BCks=C3=A9g:
+
+   1. A v=C3=A9gv=C3=A1g=C3=A1sos erd=C5=91puszt=C3=ADt=C3=A1st azonnal le =
+kell =C3=A1ll=C3=ADtani Magyarorsz=C3=A1gon!
+   2. A korm=C3=A1ny vonja be a term=C3=A9szetv=C3=A9d=C5=91ket, =C3=B6kol=
+=C3=B3gusokat a magyar erd=C5=91k
+   helyre=C3=A1ll=C3=ADt=C3=A1si terv=C3=A9nek elk=C3=A9sz=C3=ADt=C3=A9s=C3=
+=A9be!
+   3. A 10 =C3=A9ves erd=C5=91gazd=C3=A1lkod=C3=A1si terveket le kell =C3=
+=A1ll=C3=ADtani =C3=A9s =C3=BAjra kell
+   alkotni!
+   4. 2030-ig Magyarorsz=C3=A1gon 70 milli=C3=B3 f=C3=A1t kell el=C3=BCltet=
+ni, a term=C3=A9szetes
+   =C3=BAjulaton fel=C3=BCl!
+   5. Meg kell sz=C3=BCntetni azt a helyzetet, hogy az =C3=A1llami erd=C3=
+=A9szetek a
+   term=C3=A9szet rombol=C3=A1s=C3=A1ban =C3=A9rdekeltek!
+
+*Ha te is r=C3=A9szt szeretn=C3=A9l venni a v=C3=A1ltoz=C3=A1sban, =C3=ADrd=
+ al=C3=A1 a pet=C3=ADci=C3=B3t: *
+
+Al=C3=A1=C3=ADrom!
+<https://id.ahang.hu//clicks/link/2703/48711007-0f27-4648-a854-1790fbea54ed=
+?url=3Dhttps%3A%2F%2Fszabad.ahang.hu%2Fpetitions%2Ferdoszeretet-eletigen-al=
+litsuk-le-egyutt-az-erdopusztitast-magyarorszagon%3Futm_source%3Demail_2%26=
+utm_medium%3Demail%26utm_campaign%3Dblast2024-11-04&member_guid=3D88a62eb4b=
+5dcac9810b289cd94cf43b21da67c13302ba6dade9c66944a7efc34cdda09d8fc189000cf0e=
+fc385f843fe4a3f0b0c0992d522217f596756a2ca812>
+
+Nagy Istv=C3=A1n agr=C3=A1rminiszternek =C3=A9s Zamb=C3=B3 P=C3=A9ter erd=
+=C5=91k=C3=A9rt felel=C5=91s
+=C3=A1llamtitk=C3=A1rnak =C3=ADrt t=C3=B6rv=C3=A9nym=C3=B3dos=C3=ADt=C3=A1s=
+i javaslatunkat egy 33 f=C5=91s operat=C3=ADv
+csapattal dolgoztunk ki. Ebben a csoportban voltak erd=C3=A9szek,
+erd=C5=91=C3=B6kol=C3=B3gusok, term=C3=A9szetv=C3=A9delmi szakemberek, jog=
+=C3=A1szok, k=C3=B6zgazd=C3=A1szok =C3=A9s
+kl=C3=ADmakommunik=C3=A1ci=C3=B3s szakemberek. A r=C3=A9szleteket megtal=C3=
+=A1lod a kamp=C3=A1nyn=C3=A1l.
+<https://id.ahang.hu//clicks/link/2703/48711007-0f27-4648-a854-1790fbea54ed=
+?url=3Dhttps%3A%2F%2Fszabad.ahang.hu%2Fpetitions%2Ferdoszeretet-eletigen-al=
+litsuk-le-egyutt-az-erdopusztitast-magyarorszagon%3Futm_source%3Dahang%26ut=
+m_medium%3Demail%26utm_campaign%3Dblast2024-11-04%26source%3Demail_2&member=
+_guid=3D88a62eb4b5dcac9810b289cd94cf43b21da67c13302ba6dade9c66944a7efc34cdd=
+a09d8fc189000cf0efc385f843fe4a3f0b0c0992d522217f596756a2ca812>
+
+H=C3=A1l=C3=A1s k=C3=B6sz=C3=B6nettel:
+
+Dr. B=C3=BCkki Tam=C3=A1s, civil term=C3=A9szetv=C3=A9d=C5=91"
+
+=C3=A9s az aHang csapata
+
+Fakiv=C3=A1g=C3=A1sokat, n=C3=A1dirt=C3=A1st, term=C3=A9szetpuszt=C3=ADt=C3=
+=B3 beruh=C3=A1z=C3=A1sokat akad=C3=A1lyoztunk m=C3=A1r
+meg k=C3=B6z=C3=B6sen. A t=C3=A1mogat=C3=A1sod seg=C3=ADts=C3=A9g=C3=A9vel =
+most =C3=A9s a j=C3=B6v=C5=91ben is fel tudunk
+l=C3=A9pni az =C3=A9l=C5=91vil=C3=A1g=C3=A9rt, a tiszta leveg=C5=91=C3=A9rt=
+, a F=C3=B6ld=C3=A9rt. Seg=C3=ADtesz?
+Kattints ide!
+<https://id.ahang.hu//clicks/link/2703/48711007-0f27-4648-a854-1790fbea54ed=
+?url=3Dhttps%3A%2F%2Ftamogass.ahang.hu%2Fkornyezetvedelem%3Futm_source%3Dah=
+ang%26utm_medium%3Demail%26utm_campaign%3Dblast2024-11-04&member_guid=3D88a=
+62eb4b5dcac9810b289cd94cf43b21da67c13302ba6dade9c66944a7efc34cdda09d8fc1890=
+00cf0efc385f843fe4a3f0b0c0992d522217f596756a2ca812>
+
+Banksz=C3=A1mla:
+Magyarhang Nonprofit Kft.
+Magnet Bank: 16200223-10077582
+
+Ha b=C3=A1rmi k=C3=A9rd=C3=A9sed van, v=C3=A1laszolj k=C3=B6zvetlen=C3=BCl =
+erre az email-re, vagy =C3=ADrj a
+mienk@ahang.hu email c=C3=ADmre.
+
+<https://id.ahang.hu//clicks/link/2703/48711007-0f27-4648-a854-1790fbea54ed=
+?url=3Dhttps%3A%2F%2Fwww.facebook.com%2Fszabadahang%2F%3Futm_source%3Dahang=
+%26utm_medium%3Demail%26utm_campaign%3Dblast2024-11-04&member_guid=3D88a62e=
+b4b5dcac9810b289cd94cf43b21da67c13302ba6dade9c66944a7efc34cdda09d8fc189000c=
+f0efc385f843fe4a3f0b0c0992d522217f596756a2ca812>
+<https://id.ahang.hu//clicks/link/2703/48711007-0f27-4648-a854-1790fbea54ed=
+?url=3Dhttp%3A%2F%2Fm.me%2Fszabadahang%2F%3Futm_source%3Dahang%26utm_medium=
+%3Demail%26utm_campaign%3Dblast2024-11-04&member_guid=3D88a62eb4b5dcac9810b=
+289cd94cf43b21da67c13302ba6dade9c66944a7efc34cdda09d8fc189000cf0efc385f843f=
+e4a3f0b0c0992d522217f596756a2ca812>
+
+A lev=C3=A9l k=C3=BCld=C5=91je:
+Magyarhang Nonprofit Kft.
+
+Ezt az =C3=BCzenetet banyus53@gmail.com c=C3=ADmre k=C3=BCldt=C3=BCk. Leira=
+tkozni ide kattintva
+tudsz.
+<https://id.ahang.hu//subscriptions/unsubscribe?subscription=3D1&email=3Dba=
+nyus53%40gmail.com&mailing_id=3D2703>
+
+--000000000000b6311e06262958fe
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><br><br><div class=3D"gmail_quote"><div dir=3D"ltr" class=
+=3D"gmail_attr">---------- Forwarded message ---------<br>Felad=C3=B3: <str=
+ong class=3D"gmail_sendername" dir=3D"auto">aHang</strong> <span dir=3D"aut=
+o">&lt;<a href=3D"mailto:posta@ahang.hu">posta@ahang.hu</a>&gt;</span><br>D=
+ate: 2024. nov. 4., H, 12:06<br>Subject: STOP az erd=C5=91puszt=C3=ADt=C3=
+=A1snak Magyarorsz=C3=A1gon!<br>To:  &lt;<a href=3D"mailto:banyus53@gmail.c=
+om">banyus53@gmail.com</a>&gt;<br></div><br><br><div style=3D"background:#f=
+fffff;background-color:#ffffff;margin:0px auto;max-width:560px;text-align:c=
+enter;font-family:sans-serif;font-size:17px;line-height:25px;text-align:cen=
+ter;color:#000000">
+
+<p><img height=3D"34" src=3D"https://ahang-static.s3.eu-central-1.amazonaws=
+.com/mail/ahangikon-sm.jpg" style=3D"display:inline-block;border:0;border-r=
+adius:0;outline:none;text-decoration:none;height:34px;font-size:17px" width=
+=3D"34"></p>
+
+<p>Kedves Bug=C3=A1r =C3=81gnes M=C3=A1ria!</p>
+
+<div style=3D"text-align:left">
+
+<p>
+
+</p>
+
+<p>
+
+  &quot;Az al=C3=A1bbi k=C3=A9p a B=C3=B6rzs=C3=B6ny sz=C3=ADv=C3=A9ben k=
+=C3=A9sz=C3=BClt 2024 j=C3=BAnius=C3=A1ban. A s=C3=A1rg=C3=A1n jel=C3=B6lt =
+r=C3=A9szek az =C3=BAn. v=C3=A9gv=C3=A1g=C3=A1snak h=C3=ADvott erd=C5=91pus=
+zt=C3=ADt=C3=A1s helyeit jel=C3=B6lik. Hasonl=C3=B3 a helyzet szinte minden=
+hol az orsz=C3=A1gban. Nagy a baj? Bizony nagy, =C3=A9s mindannyiunk =C3=A9=
+let=C3=A9t vesz=C3=A9lyezteti.
+
+</p>
+
+<p style=3D"text-align:center">
+
+  <img src=3D"https://ahang-static.s3-eu-central-1.amazonaws.com/uploads%2F=
+c2afab8d-17fb-40c3-8bb0-412a5e64a2c9%2FK%C3%A9p1+%C3%A9letigen.jpg"><br>
+
+</p>
+
+<p>
+
+  <b>De akkor hol itt a j=C3=B3 h=C3=ADr?</b> Megmutatom:
+
+</p>
+
+<p>
+
+  Egyre t=C3=B6bben =C3=A9bred=C3=BCnk r=C3=A1 arra, hogy az erd=C5=91 hata=
+lmas =C3=A9rt=C3=A9k, j=C3=B3val t=C3=B6bbet =C3=A9r, mint a kitermelend=C5=
+=91 faanyag. B=C5=91r=C3=BCnk=C3=B6n =C3=A9rezz=C3=BCk ezt, amikor egy v=C3=
+=A1rosi h=C5=91hull=C3=A1m k=C3=B6zep=C3=A9n csak azokban az utc=C3=A1kban =
+lehet megmaradni, ahol el=C3=A9g fa biztos=C3=ADtja a kellemes, h=C5=B1v=C3=
+=B6sebb leveg=C5=91t, vagy amikor egy vil=C3=A1gj=C3=A1rv=C3=A1nyban az egy=
+ik legink=C3=A1bb k=C3=A9zenfekv=C5=91 menek=C3=BCl=C3=A9si =C3=BAtvonal az=
+ erd=C5=91ben s=C3=A9t=C3=A1lni egyet.
+
+</p>
+
+<p>
+
+  <span style=3D"font-weight:bold">A j=C3=B3 h=C3=ADr az, hogy =C3=B6sszefo=
+gva most le=C3=A1ll=C3=ADthatjuk az erd=C5=91puszt=C3=ADt=C3=A1st! </span>E=
+z most =C3=A9pp id=C5=91szer=C5=B1, =C3=B6sszhangban van ugyanis az EU 2024=
+. j=C3=BAnius 24-i term=C3=A9szet-helyre=C3=A1ll=C3=ADt=C3=A1si rendelet=C3=
+=A9vel, mely szerint 2030-ra az erd=C5=91ink 30%-=C3=A1t, 2050-re a 90%-=C3=
+=A1t kell rehabilit=C3=A1lnunk. Teh=C3=A1t ha valamikor, akkor most kell l=
+=C3=A9pn=C3=BCnk.
+
+</p>
+
+<p>
+
+  Egyet=C3=A9rtesz?=C2=A0
+
+</p>
+
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"border-collapse:separate;width:100%;line-height:100%">
+
+  <tbody>
+
+    <tr>
+
+      <td align=3D"center" bgcolor=3D"#ff2400" role=3D"presentation" style=
+=3D"border:none;border-radius:4px;background:#ff2400" valign=3D"middle">
+
+        <a href=3D"https://id.ahang.hu//clicks/link/2703/48711007-0f27-4648=
+-a854-1790fbea54ed?url=3Dhttps%3A%2F%2Fszabad.ahang.hu%2Fpetitions%2Ferdosz=
+eretet-eletigen-allitsuk-le-egyutt-az-erdopusztitast-magyarorszagon%3Futm_s=
+ource%3Dahang%26utm_medium%3Demail%26utm_campaign%3Dblast2024-11-04%26sourc=
+e%3Demail_2&amp;member_guid=3D88a62eb4b5dcac9810b289cd94cf43b21da67c13302ba=
+6dade9c66944a7efc34cdda09d8fc189000cf0efc385f843fe4a3f0b0c0992d522217f59675=
+6a2ca812" style=3D"display:block;background:#ff2400;color:#ffffff;font-fami=
+ly:sans-serif;font-size:17px;font-weight:bold;line-height:25px;margin:0;tex=
+t-decoration:none;text-transform:none;padding:10px 25px;border-radius:4px;w=
+ord-break:break-word;max-width:100%" target=3D"_blank">=C3=8Drd al=C3=A1 a =
+pet=C3=ADci=C3=B3t!</a>
+
+      </td>
+
+    </tr>
+
+  </tbody>
+
+</table>
+
+<p>
+
+</p>
+
+<p>
+
+</p>
+
+<b>Egy perces projektfilm: </b><a href=3D"https://youtu.be/mDnKh9pHIMY" sty=
+le=3D"color:rgb(255,0,255)" target=3D"_blank">https://youtu.be/mDnKh9pHIMY<=
+/a><b>=C2=A0 </b>
+
+<p>
+
+</p>
+
+<p>
+
+  <b>T=C3=A9nyleg vesz=C3=A9lyben vannak az erd=C5=91ink? Igen!</b>
+
+</p>
+
+<p>
+
+  =C3=89s nemcsak az erd=C5=91k, hanem mi magunk is, ugyanis a <b>jelenlegi=
+ v=C3=A1g=C3=A1sos erd=C3=A9szeti fakitermel=C3=A9s az emberi =C3=A9s =C3=
+=A9l=C5=91k=C3=B6z=C3=B6ss=C3=A9gek t=C3=BAl=C3=A9l=C3=A9s=C3=A9t vesz=C3=
+=A9lyezteti:</b>
+
+</p>
+
+<ul>
+
+  <li>
+
+    Az erdei =C3=A9letk=C3=B6z=C3=B6ss=C3=A9gek drasztikus pusztul=C3=A1s=
+=C3=A1val j=C3=A1r egy=C3=BCtt, =C3=A9s a bioszf=C3=A9ra r=C3=A9sze az embe=
+r is.
+
+  </li>
+
+  <li>
+
+    A kiv=C3=A1gott faanyag t=C3=B6bbs=C3=A9g=C3=A9t elt=C3=BCzelj=C3=BCk, =
+ami m=C3=A9g ink=C3=A1bb m=C3=A9ly=C3=ADti a kl=C3=ADmav=C3=A1ls=C3=A1got: =
+n=C3=B6veli a l=C3=A9gk=C3=B6r sz=C3=A9n-dioxid tartalm=C3=A1t, =C3=A9s cs=
+=C3=B6kkenti az erd=C5=91kben megk=C3=B6t=C3=B6tt sz=C3=A9n mennyis=C3=A9g=
+=C3=A9t (amit kiv=C3=A1gtak, nem tud t=C3=B6bb sz=C3=A9n-dioxidot megk=C3=
+=B6tni).
+
+  </li>
+
+  <li>
+
+    A kl=C3=ADmav=C3=A1ls=C3=A1g t=C3=BCnetek=C3=A9nt fell=C3=A9p=C5=91 for=
+r=C3=B3, asz=C3=A1lyos ny=C3=A1ri h=C3=B3napok miatt a lepuszt=C3=ADtott er=
+d=C5=91ter=C3=BCletek nem =E2=80=93=C2=A0vagy csak igen nehezen =E2=80=93 t=
+udnak meg=C3=BAjulni.
+
+  </li>
+
+</ul>
+
+<p>
+
+  Az al=C3=A1bbi k=C3=A9pen egy v=C3=A9gv=C3=A1gott ter=C3=BClet l=C3=A1tha=
+t=C3=B3. A ter=C3=BCletet a munkag=C3=A9pek teljesen letarolt=C3=A1k, a tal=
+ajt =C3=B6sszet=C3=B6m=C3=B6r=C3=ADtett=C3=A9k. Az =C3=A1rny=C3=A9k n=C3=A9=
+lk=C3=BCl hagyott ter=C3=BCleten a helyi =C3=B6kosziszt=C3=A9ma =C3=B6sszer=
+oppan, a csapad=C3=A9k =E2=80=93 a lomb n=C3=A9lk=C3=BCli, ker=C3=A9knyomok=
+kal =C3=A1tszelt ter=C3=BCletr=C5=91l =E2=80=93 gyorsan lefolyik.<br>
+
+</p>
+
+<p>
+
+</p>
+
+<p style=3D"text-align:center">
+
+  <img src=3D"https://ahang-static.s3-eu-central-1.amazonaws.com/uploads%2F=
+c2afab8d-17fb-40c3-8bb0-412a5e64a2c9%2FK%C3%A9p2+%C3%A9letigen.jpg"><span l=
+ang=3D"hu"><b><br></b></span>
+
+</p>
+
+<p>
+
+  <b>Ma Magyarorsz=C3=A1gon a megmaradt erd=C5=91k nagy r=C3=A9sz=C3=A9t v=
+=C3=A9gv=C3=A1g=C3=A1sra =C3=ADt=C3=A9lt=C3=A9k.</b> Az al=C3=A1bbi t=C3=A9=
+rk=C3=A9p a b=C3=B6rzs=C3=B6nyi erd=C5=91ter=C3=BClet k=C3=B6z=C3=A9ps=C5=
+=91 r=C3=A9sz=C3=A9t mutatja. <b>A r=C3=B3zsasz=C3=ADnnel jel=C3=B6lt ter=
+=C3=BClet v=C3=A9gv=C3=A1g=C3=A1sra, azaz lepuszt=C3=ADt=C3=A1sra =C3=ADt=
+=C3=A9lt ter=C3=BClet. </b>Hasonl=C3=B3 a helyzet a B=C3=BCkkben, a M=C3=A1=
+tr=C3=A1ban, a Mecsekben, a Soproni- =C3=A9s K=C5=91szegi-hegys=C3=A9gben, =
+az Alf=C3=B6ld=C3=B6n, orsz=C3=A1gosan szinte mindenhol.
+
+</p>
+
+<p>
+
+</p>
+
+<p>
+
+</p>
+
+<p style=3D"text-align:center">
+
+  <img style=3D"width:50%" src=3D"https://ahang-static.s3-eu-central-1.amaz=
+onaws.com/uploads%2Fc2afab8d-17fb-40c3-8bb0-412a5e64a2c9%2FK%C3%A9p4+%C3%A9=
+letigen.jpg"><br>
+
+</p>
+
+<p>
+
+</p>
+
+A z=C3=B6lddel jel=C3=B6lt r=C3=A9sz az =C3=BAn. <span style=3D"font-style:=
+italic">=C3=B6r=C3=B6kerd=C5=91 vagy sz=C3=A1lal=C3=B3erd=C5=91, </span>ame=
+ly egy tudom=C3=A1nyosan igazolt, m=C5=B1k=C3=B6d=C5=91 fakitermel=C3=A9si =
+megold=C3=A1s. Az =C3=B6r=C3=B6kerd=C5=91, illetve a sz=C3=A1lal=C3=A1s biz=
+tos=C3=ADthatn=C3=A1 a t=C3=A1rsadalom m=C5=B1k=C3=B6d=C3=A9s=C3=A9hez sz=
+=C3=BCks=C3=A9ges faanyagot, ugyanakkor nem j=C3=A1rna egy=C3=BCtt az erd=
+=C5=91k kifoszt=C3=A1s=C3=A1val =C3=A9s az =C3=A9let vesz=C3=A9lyeztet=C3=
+=A9s=C3=A9vel.
+
+<p>
+
+</p>
+
+<p>
+
+  <span style=3D"font-weight:bold">Az erd=C5=91ink gyors kirabl=C3=A1s=C3=
+=A1b=C3=B3l egy maroknyi ember gazdagodik csup=C3=A1n, de ezzel egy=C3=BCtt=
+ vesz=C3=A9lybe sodor mindannyiunkat.</span>
+
+</p>
+
+<p>
+
+  <span style=3D"font-weight:bold">Mivel a v=C3=A9gv=C3=A1g=C3=A1sos fakite=
+rmel=C3=A9s mindannyiunk =C3=A9let=C3=A9t vesz=C3=A9lyezteti, ennek le=C3=
+=A1ll=C3=ADt=C3=A1sa =C3=A9s az erd=C5=91t=C3=B6rv=C3=A9ny azonnali m=C3=B3=
+dos=C3=ADt=C3=A1sa sz=C3=BCks=C3=A9ges =E2=80=93 =C3=B6sszhangban az EU 202=
+4. j=C3=BAnius 24-i term=C3=A9szet-helyre=C3=A1ll=C3=ADt=C3=A1si rendelet=
+=C3=A9vel!=C2=A0</span>
+
+</p>
+
+<p>
+
+</p>
+
+<p>
+
+  <span style=3D"font-weight:bold">R=C3=B6viden erre van sz=C3=BCks=C3=A9g:
+
+  </span>
+
+</p>
+
+<ol>
+
+  <li>
+
+    A v=C3=A9gv=C3=A1g=C3=A1sos erd=C5=91puszt=C3=ADt=C3=A1st azonnal le ke=
+ll =C3=A1ll=C3=ADtani Magyarorsz=C3=A1gon!
+
+  </li>
+
+  <li>
+
+    A korm=C3=A1ny vonja be a term=C3=A9szetv=C3=A9d=C5=91ket, =C3=B6kol=C3=
+=B3gusokat a magyar erd=C5=91k helyre=C3=A1ll=C3=ADt=C3=A1si terv=C3=A9nek =
+elk=C3=A9sz=C3=ADt=C3=A9s=C3=A9be!
+
+  </li>
+
+  <li>
+
+    A 10 =C3=A9ves erd=C5=91gazd=C3=A1lkod=C3=A1si terveket le kell =C3=A1l=
+l=C3=ADtani =C3=A9s =C3=BAjra kell alkotni!
+
+  </li>
+
+  <li>
+
+    2030-ig Magyarorsz=C3=A1gon 70 milli=C3=B3 f=C3=A1t kell el=C3=BCltetni=
+, a term=C3=A9szetes =C3=BAjulaton fel=C3=BCl!
+
+  </li>
+
+  <li>
+
+    Meg kell sz=C3=BCntetni azt a helyzetet, hogy az =C3=A1llami erd=C3=A9s=
+zetek a term=C3=A9szet rombol=C3=A1s=C3=A1ban =C3=A9rdekeltek!
+
+  </li>
+
+</ol>
+
+<p>
+
+  <b>Ha te is r=C3=A9szt szeretn=C3=A9l venni a v=C3=A1ltoz=C3=A1sban, =C3=
+=ADrd al=C3=A1 a pet=C3=ADci=C3=B3t:=20
+
+  </b>
+
+</p>
+
+<p>
+
+</p>
+
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"border-collapse:separate;width:100%;line-height:100%">
+
+  <tbody>
+
+    <tr>
+
+      <td align=3D"center" bgcolor=3D"#ff2400" role=3D"presentation" style=
+=3D"border:none;border-radius:4px;background:#ff2400" valign=3D"middle">
+
+        <a href=3D"https://id.ahang.hu//clicks/link/2703/48711007-0f27-4648=
+-a854-1790fbea54ed?url=3Dhttps%3A%2F%2Fszabad.ahang.hu%2Fpetitions%2Ferdosz=
+eretet-eletigen-allitsuk-le-egyutt-az-erdopusztitast-magyarorszagon%3Futm_s=
+ource%3Demail_2%26utm_medium%3Demail%26utm_campaign%3Dblast2024-11-04&amp;m=
+ember_guid=3D88a62eb4b5dcac9810b289cd94cf43b21da67c13302ba6dade9c66944a7efc=
+34cdda09d8fc189000cf0efc385f843fe4a3f0b0c0992d522217f596756a2ca812" style=
+=3D"display:block;background:#ff2400;color:#ffffff;font-family:sans-serif;f=
+ont-size:17px;font-weight:bold;line-height:25px;margin:0;text-decoration:no=
+ne;text-transform:none;padding:10px 25px;border-radius:4px;word-break:break=
+-word;max-width:100%" target=3D"_blank">Al=C3=A1=C3=ADrom!</a>
+
+      </td>
+
+    </tr>
+
+  </tbody>
+
+</table>
+
+<p>
+
+</p>
+
+<p>
+
+  Nagy Istv=C3=A1n agr=C3=A1rminiszternek =C3=A9s Zamb=C3=B3 P=C3=A9ter erd=
+=C5=91k=C3=A9rt felel=C5=91s =C3=A1llamtitk=C3=A1rnak =C3=ADrt t=C3=B6rv=C3=
+=A9nym=C3=B3dos=C3=ADt=C3=A1si javaslatunkat egy <span style=3D"font-weight=
+:bold">33 f=C5=91s operat=C3=ADv csapattal</span> dolgoztunk ki. Ebben a cs=
+oportban voltak erd=C3=A9szek, erd=C5=91=C3=B6kol=C3=B3gusok, term=C3=A9sze=
+tv=C3=A9delmi szakemberek, jog=C3=A1szok, k=C3=B6zgazd=C3=A1szok =C3=A9s kl=
+=C3=ADmakommunik=C3=A1ci=C3=B3s szakemberek. A r=C3=A9szleteket megtal=C3=
+=A1lod <a href=3D"https://id.ahang.hu//clicks/link/2703/48711007-0f27-4648-=
+a854-1790fbea54ed?url=3Dhttps%3A%2F%2Fszabad.ahang.hu%2Fpetitions%2Ferdosze=
+retet-eletigen-allitsuk-le-egyutt-az-erdopusztitast-magyarorszagon%3Futm_so=
+urce%3Dahang%26utm_medium%3Demail%26utm_campaign%3Dblast2024-11-04%26source=
+%3Demail_2&amp;member_guid=3D88a62eb4b5dcac9810b289cd94cf43b21da67c13302ba6=
+dade9c66944a7efc34cdda09d8fc189000cf0efc385f843fe4a3f0b0c0992d522217f596756=
+a2ca812" target=3D"_blank"><span style=3D"color:rgb(255,0,255)">a kamp=C3=
+=A1nyn=C3=A1l. </span></a><span style=3D"color:rgb(255,0,255)"><br></span>
+
+</p>
+
+<p>
+
+</p>
+
+H=C3=A1l=C3=A1s k=C3=B6sz=C3=B6nettel:=20
+
+<p>
+
+</p>
+
+<p>
+
+  Dr. B=C3=BCkki Tam=C3=A1s, civil term=C3=A9szetv=C3=A9d=C5=91&quot;=20
+
+</p>
+
+<p>
+
+  =C3=A9s az aHang csapata
+
+</p>
+
+<p>
+
+</p>
+
+<p>
+
+</p>
+
+</div>
+
+<p></p>
+
+<p style=3D"border-top:solid 1px #cccccc;font-size:1;margin:0px auto;width:=
+100%"> </p>
+
+<p style=3D"color:#545454">Fakiv=C3=A1g=C3=A1sokat, n=C3=A1dirt=C3=A1st, te=
+rm=C3=A9szetpuszt=C3=ADt=C3=B3 beruh=C3=A1z=C3=A1sokat akad=C3=A1lyoztunk m=
+=C3=A1r meg k=C3=B6z=C3=B6sen. A t=C3=A1mogat=C3=A1sod seg=C3=ADts=C3=A9g=
+=C3=A9vel most =C3=A9s a j=C3=B6v=C5=91ben is fel tudunk l=C3=A9pni az =C3=
+=A9l=C5=91vil=C3=A1g=C3=A9rt, a tiszta leveg=C5=91=C3=A9rt, a F=C3=B6ld=C3=
+=A9rt. Seg=C3=ADtesz?</p>
+
+<div><a href=3D"https://id.ahang.hu//clicks/link/2703/48711007-0f27-4648-a8=
+54-1790fbea54ed?url=3Dhttps%3A%2F%2Ftamogass.ahang.hu%2Fkornyezetvedelem%3F=
+utm_source%3Dahang%26utm_medium%3Demail%26utm_campaign%3Dblast2024-11-04&am=
+p;member_guid=3D88a62eb4b5dcac9810b289cd94cf43b21da67c13302ba6dade9c66944a7=
+efc34cdda09d8fc189000cf0efc385f843fe4a3f0b0c0992d522217f596756a2ca812" styl=
+e=3D"text-decoration:none;font-family:Barlow,-apple-system,BlinkMacSystemFo=
+nt,Roboto,Oxygen,Oxygen-Sans,Ubuntu,Cantarell,Helvetica,Arial,sans-serif;fo=
+nt-weight:400;font-size:18px;line-height:28px;border-radius:5px;background-=
+color:rgb(255,36,0);color:rgb(255,255,255);padding:11px;margin:0px;text-ali=
+gn:center" target=3D"_blank">Kattints ide!</a></div>
+
+<p style=3D"color:#545454">Banksz=C3=A1mla:<br><span style=3D"font-weight:b=
+old">Magyarhang Nonprofit Kft.</span><br>Magnet Bank: 16200223-10077582</p>
+
+<p style=3D"color:#999999">Ha b=C3=A1rmi k=C3=A9rd=C3=A9sed van, v=C3=A1las=
+zolj k=C3=B6zvetlen=C3=BCl erre az email-re, vagy =C3=ADrj a <a href=3D"mai=
+lto:mienk@ahang.hu" target=3D"_blank">mienk@ahang.hu</a> email c=C3=ADmre.<=
+/p>
+
+<p><a href=3D"https://id.ahang.hu//clicks/link/2703/48711007-0f27-4648-a854=
+-1790fbea54ed?url=3Dhttps%3A%2F%2Fwww.facebook.com%2Fszabadahang%2F%3Futm_s=
+ource%3Dahang%26utm_medium%3Demail%26utm_campaign%3Dblast2024-11-04&amp;mem=
+ber_guid=3D88a62eb4b5dcac9810b289cd94cf43b21da67c13302ba6dade9c66944a7efc34=
+cdda09d8fc189000cf0efc385f843fe4a3f0b0c0992d522217f596756a2ca812" style=3D"=
+display:inline-block" target=3D"_blank"><img height=3D"34" src=3D"https://a=
+hang-static.s3.eu-central-1.amazonaws.com/mail/facebook_sm.png" style=3D"bo=
+rder-radius:0;display:inline-block" width=3D"34"></a><a href=3D"https://id.=
+ahang.hu//clicks/link/2703/48711007-0f27-4648-a854-1790fbea54ed?url=3Dhttp%=
+3A%2F%2Fm.me%2Fszabadahang%2F%3Futm_source%3Dahang%26utm_medium%3Demail%26u=
+tm_campaign%3Dblast2024-11-04&amp;member_guid=3D88a62eb4b5dcac9810b289cd94c=
+f43b21da67c13302ba6dade9c66944a7efc34cdda09d8fc189000cf0efc385f843fe4a3f0b0=
+c0992d522217f596756a2ca812" style=3D"display:inline-block;padding-left:20px=
+" target=3D"_blank"><img height=3D"34" src=3D"https://ahang-static.s3.eu-ce=
+ntral-1.amazonaws.com/mail/messenger-sm.jpg" style=3D"border-radius:0;displ=
+ay:inline-block" width=3D"34"></a></p>
+
+<p style=3D"color:#999999">A lev=C3=A9l k=C3=BCld=C5=91je:<br>Magyarhang No=
+nprofit Kft.<br></p>
+
+<p><img height=3D"34" src=3D"https://ahang-static.s3.eu-central-1.amazonaws=
+.com/mail/ahang_sm.jpg" style=3D"width:88.7px;display:inline-block"></p>
+
+<p style=3D"color:#999999">Ezt az =C3=BCzenetet  <a href=3D"mailto:banyus53=
+@gmail.com" target=3D"_blank">banyus53@gmail.com</a> c=C3=ADmre k=C3=BCldt=
+=C3=BCk. <a href=3D"https://id.ahang.hu//subscriptions/unsubscribe?subscrip=
+tion=3D1&amp;email=3Dbanyus53%40gmail.com&amp;mailing_id=3D2703" style=3D"f=
+ont-weight:normal;text-decoration:none;color:#999999" target=3D"_blank">Lei=
+ratkozni ide kattintva tudsz.</a></p>
+
+</div><img src=3D"https://id.ahang.hu//opens/2703/48711007-0f27-4648-a854-1=
+790fbea54ed"></div></div>
+
+--000000000000b6311e06262958fe--

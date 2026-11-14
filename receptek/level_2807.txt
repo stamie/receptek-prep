@@ -1,0 +1,368 @@
+Delivered-To: estampel@gmail.com
+Received: by 2002:ac8:4259:0:b0:510:18ca:c5c9 with SMTP id r25csp296952qtm;
+        Wed, 29 Apr 2026 09:28:20 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AFNElJ9pAlyLF10lZf4qYAN1h+SbFSwj9Kj2z2yfzNmquicn1e2MNGp6Lf/IuxL2rAuDR/Fj705wMAvt9g==@gmail.com
+X-Received: by 2002:a05:600c:1d05:b0:48a:5363:8cac with SMTP id 5b1f17b1804b1-48a7b5447aamr80774295e9.22.1777480100599;
+        Wed, 29 Apr 2026 09:28:20 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1777480100; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=KSCc5NW0bzVjL0ztlhoEFdfhNVAh0a3cmTndCcLp4BoZhgrdjHMZRijlT9l9zGJLf5
+         oa5Nyg3fe4LbflwaHhPxt2F90W4jh+WV2Ipr9GegczdK0QV6G7jE42dYTKkylHs5PiQx
+         DfCYbtTNir3gxGdYHKrPcJolnswN8q7LNkiV70Yau1Xvgw1eKcioITz9yhTgohz3DfQY
+         dyKzosYxY451ehDIAjIs4esdFysKG7VB/Gg8akinywm3WJ3G0XeKYSrhRkq8mUDklaVI
+         Avf2mSZ0Fk5pf/nrHHNAvENI8qstngrZTwoMI7U6eGOQ56s97NCTmx4proyesfvHYyJ2
+         l7Fg==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=OVX9MQw/eUBB4xGNiubjDIFhrx4q20CTutonNc8wm7Y=;
+        fh=LmitbDXkd4GdhEnBxICc3BGJz8C1I33FcpE1b2Ss1pM=;
+        b=htoaxkdeBCsu2HQXsnzcGKIlHpXGSP/dBovEd2Hznv3H6r5tZoIlRwYekm4/b2XAyW
+         fzko5WHXjmUtRywnYA0iT1iFO80Ev99sbgaGihcfp06mztofIgIOHIZI9d7ye0DJ1bpW
+         Ow973iqTjkt4JfZxHAJJn09n5riB8yH+roU4pC4ouU4K+xdCoscv7DnPN564KYgKuMu3
+         anQtWv5JBhYpyVp693xp9Dnmm2FUL1IMFLcYdpF7DiPgpHDXAxKNrM6rcRaurmxD8vtF
+         FWPHGCX+sw0MHlISYVZj+Wzybj6rBDeR3cWFj4DLJ5lohWpbseRfTKl8KwNcypUpnQca
+         U+mQ==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20251104 header.b=O6CskyIX;
+       arc=pass (i=1);
+       spf=pass (google.com: domain of ribaegyorru62@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=ribaegyorru62@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <ribaegyorru62@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id ffacd0b85a97d-447b47d93c4sor460231f8f.4.2026.04.29.09.28.20
+        for <estampel@gmail.com>
+        (Google Transport Security);
+        Wed, 29 Apr 2026 09:28:20 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ribaegyorru62@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20251104 header.b=O6CskyIX;
+       arc=pass (i=1);
+       spf=pass (google.com: domain of ribaegyorru62@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=ribaegyorru62@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+ARC-Seal: i=1; a=rsa-sha256; t=1777480100; cv=none;
+        d=google.com; s=arc-20240605;
+        b=KstOWkHIx8DkjLCFzw/sbK9JEKcu05PhxjP5eiBHeV5ODtfVDtDPc3ofFQbnal7uvM
+         zfCe9/XFSYRZXSei8ra1dypbrUClodNl7Gwk9iZ7wnmfLBk+BQqZbPU0hhCOHMZTgA8k
+         +Epu9KVyTl5yFNDCTVHYMXSG58c5g5iEgjVoipdPxGeMzePR3S5pLYVIUxHUj+CP89RU
+         gaGgqcMxxMpW9gMN6OnngVn9meNzVbYX23cy9RB0tfdaiXeXBO7lBXj+ECu0ebE+mTY2
+         z1oIcA/wIzalBKIYHQK67JvpRi4Ppu9gUWjIqx7WQmfwH490zxMXLxUw3ImJXATGXZuj
+         2Jmw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=OVX9MQw/eUBB4xGNiubjDIFhrx4q20CTutonNc8wm7Y=;
+        fh=LmitbDXkd4GdhEnBxICc3BGJz8C1I33FcpE1b2Ss1pM=;
+        b=S5q4pzs5raAtgmd8y5BAUjBrU+VbXwHdg0JthokddQ4hZ2/ZEiNW6D02+ad6/93TYl
+         8CpPUoMsRFQv8cydFkiA/O0bxwLyo7Muv/h+YyTbYwJ6JPFqk9Wf2T4fFGDCH5vHgODB
+         3ZKXiAzixJAjN56OMhXAldlSQoEqoetp/QTNWWjdkQ3P1T92l0jpTcNzuMp7lfism3VH
+         /LGBRywqD1Kiq5SQl9KmCmVYqxY1KNlvZBN+uXbemziP68oru/k3HPWD/iq5MhD/HeCu
+         IeCrlWq2x9lc2rQgaTdhTXGbxxt/IOJ/SXYdv0cCKHivbP4WyhJIRwjUTRI1F0YpHvKj
+         7EBQ==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1777480100; x=1778084900; dara=google.com;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=OVX9MQw/eUBB4xGNiubjDIFhrx4q20CTutonNc8wm7Y=;
+        b=O6CskyIXpU86O1V5u5okzoW9C1p1MCE4eHtxoVdDMJxaWLH3o1abuxPUCr9MA5Z/OU
+         IPlqjUnNMWyqabwv70BkYb/+RO/vnzKQ9okcYdI8TLyoFaFpSQWY28y293N1ZnWXq0GE
+         yMFDma+K2bmPeE5YObcZf05m2xd/+I9XMUZPUEfg3ajwLwiVe1bVYQZBXVzKvuuEY1rI
+         mDgv4PA47wP8yq+3FNApXAb5X/9V6V1Ojd4ezsTobdqrSZLs7EfQzRam35/eMRT+CnnO
+         3Jpr8IazTvG6815mh9Sk2gmLl+wmEvnDDHR5sBGhzczRi5cBPSqpi9PagrRXSB2Yq6b9
+         Xa4g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1777480100; x=1778084900;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=OVX9MQw/eUBB4xGNiubjDIFhrx4q20CTutonNc8wm7Y=;
+        b=gRklg459hv0WAe3P9myMCRRBhKknVbUzQ4gSzNr4//lEPgHuAlu2bUfssivTAZ4fHk
+         Z2XbsZ4XebBinWeSOLlmuZTsxwfk4MfQLt4jxhey8PLlmastXMrW+GMJoDphp2ne6rVd
+         +VSOpax8eBY4YL5IFYPd85WW52Qmlr11ZB4//nY+1uba8IcYg9p1Xz/uCLDcRD9qVMM7
+         xNy/P+ibcKn3uU6xOuHC+sVp5jQn/w4mNXh5a4Tx7nHqxs9OSb0gwQbqrq/icIApQbuH
+         vae5RMYqXRHU204JvK9uDDBNVL5uqDdAbO+3kzKbyuBXWLWMDAlXWizn5UvoUviWB0T7
+         K3vQ==
+X-Forwarded-Encrypted: i=1; AFNElJ9UfnoVQpkI0ERpdYPtIxkvYHAeHtRWtAlB4QDcAdul93sxcH/OJS81LBB+pAWisf8DtxMZ+gx4FA==@gmail.com
+X-Gm-Message-State: AOJu0YzfyWv2whriVQq+l4VgJYUFYED5R+DzpH4J7GGPgVp0x6IWjoQM
+	wt/1Hbiehg7tiy8srn90z7EjU2EHN4Ht5iSKAqaAm1AeuCfcC/SthYttbYVdRewKTHuOBgZ/pR2
+	GKo6ZLJGoSw/M/Xn4ZoYT/PdnogzoAA==
+X-Gm-Gg: AeBDievDI0hMHrIKTwPoA6Sj7BgRRm0OZQJVfPDIcpOBmZ2iscw+9uIdq73si74jM07
+	45GXcLQL6ehXyM1bZyAEr71jw7Pc3CoGYdzNedueiNTd+DJz1SNYDz9DlgGN/DWbJoP9+yHAtLJ
+	CEcDVYgygwulr2v0CnINUHJr6GU9NZByFAgvt4wQQ3HhgsS7cucBnkT7ah9IxUVLZFqw5ku9L0U
+	vboJ5ihd1P0aO1OiA/cckJjgFC7+Vw5CdGdKAPTe72+CN6j1ZsdJSFtXpE7I4sXCLHGrR4kdXZM
+	VbD/9GUolD4v8tcqQPkBO8Uar2uIRaQ9vWHfBsLKvBQ=
+X-Received: by 2002:a05:6000:2311:b0:43f:e791:a347 with SMTP id
+ ffacd0b85a97d-44790191cfamr7722564f8f.26.1777480099505; Wed, 29 Apr 2026
+ 09:28:19 -0700 (PDT)
+MIME-Version: 1.0
+References: <CAPsO78cC-0acN0jpGGygZJ5n53py8d8k87q4ztPnHV_=r6K+jQ@mail.gmail.com>
+In-Reply-To: <CAPsO78cC-0acN0jpGGygZJ5n53py8d8k87q4ztPnHV_=r6K+jQ@mail.gmail.com>
+From: =?UTF-8?B?Wm9sdMOhbiBSaWJh?= <ribaegyorru62@gmail.com>
+Date: Wed, 29 Apr 2026 18:28:05 +0200
+X-Gm-Features: AVHnY4IB2l4jJmNtlhFecL_wPBcMvQjzp_poObSYOgLJ-mSrs82zMf526W_0qSE
+Message-ID: <CADktoymktG6JayXP=ngy-K3sZGAtWTaMdLwoJSGFpt_gP-XenQ@mail.gmail.com>
+Subject: =?UTF-8?B?UmU6IFouS8OhcnDDoXQgRMOhbmllbCB0w6Fqw6lrb3p0YXTDs2phIMOpcyBrw6lyw6lzZQ==?=
+To: =?UTF-8?Q?Eszter_Erzs=C3=A9bet_J=C3=B3zsa?= <jozsaee@gmail.com>
+Cc: biropiroska76@gmail.com, jatima2@freemail.hu, bacsij2@gmail.com, 
+	bngy59@gmail.com, =?UTF-8?B?QmFsw6FzeW7DqSBDc8OhdmljcyBNYWdkb2xuYQ==?= <balasynem@gmail.com>, 
+	braunbarna1@gmail.com, banelli@gmail.hu, bank.csaba1@gmail.com, 
+	=?UTF-8?Q?Tibor_Andr=C3=A1s_Barab=C3=A1s?= <tiborandrasb@gmail.com>, 
+	bocskailaszlone681@gmail.com, patek61@gmail.com, 
+	=?UTF-8?B?w4FnbmVzIEJ1Z8Ohcg==?= <banyus53@gmail.com>, vica_50@freemail.hu, 
+	csonkamargit5@gmail.com, csordaseni@gmail.com, dublinszki.tibor@gmail.com, 
+	dublinszkine.szabina@gmail.com, fabosgyorgyne177@gmail.com, 
+	farkasszabi1973@freemail.hu, farkastibor55@freemail.hu, 
+	farkastiborne@freemail.hu, gyulai0412@gmail.com, fenyvesipeter66@gmail.com, 
+	ifilone@freemail.hu, =?UTF-8?B?w4l2YSBBbm5hIFDDoWxmeQ==?= <pevanna@gmail.com>, 
+	frankferenc52@gmail.com, istvangadanecz70@gmail.com, guricza@freemail.hu, 
+	eva650820@freemail.hu, hegedus.terez@gmail.com, hegeduseva52@gmail.com, 
+	hbence2005@gmail.com, sikeresibolya@gmail.com, tiborhorvath610@gmail.com, 
+	agnes19699@gmail.com, timko7008@gmail.com, illa.l@freemail.hu, 
+	ametiszt1414@gmail.com, jeneijulianna1960@gmail.com, kamona7102@gmail.com, 
+	kadaranette@gmail.com, kalamarbeata1973@gmail.com, kkmary621202@gmail.com, 
+	ombre64@citromail.hu, kesztyus.ati.bankos@gmail.com, kisszabo123@gmail.com, 
+	kocsisjanosne5@gmail.com, joekolonyi@gmail.com, kosa.miklos55@gmail.com, 
+	kcsemese5@gmail.com, kovacs.jany50@freemail.hu, kovacs.marika5406@gmail.com, 
+	=?UTF-8?B?TMOhc3psw7Nuw6kgS292w6Fjcw==?= <kovacsnebjucus@gmail.com>, 
+	kovacstibi66@gmail.com, terezia.skobrak@gmail.com, feri.lenho@gmail.com, 
+	l.salamoneva@gmail.com, eniko.1.lukacs@gmail.com, magyarne1965@gmail.com, 
+	attila.major1966@gmail.com, makacs2012@gmail.com, matraiattilane20@gmail.com, 
+	matuczarobert@gmail.com, skrinyar.bobe@gmail.com, mozil@t-online.hu, 
+	=?UTF-8?B?R8OhYm9ybsOpIE5hZ3k=?= <ngsomodisoma@gmail.com>, 
+	vinczeerzso54@gmail.com, nagymaria.maria69@gmail.com, paszko1981@gmail.com, 
+	sandornagy54@gmail.com, molnaryuli@gmail.com, zsee78@gmail.com, 
+	=?UTF-8?B?TsOpbWV0aCBCw6lsw6Fuw6k=?= <nemethbelane@freemail.hu>, 
+	saba00003@gmail.com, szabolcs.novotny@gmail.com, olahnevali@gmail.com, 
+	palfiroli@gmail.com, naviki80@gmail.com, papptibi2@freemail.hu, 
+	pappkriszti0313@gmail.com, jozsefpecsi1949@gmail.com, pek.istvan63@gmail.com, 
+	=?UTF-8?Q?P=C3=A9terfai_Ferenc?= <peterfaiferi@hotmail.com>, 
+	pinczes61@kapos-net.hu, pitzjanos@gmail.com, pitz.janosne@gmail.com, 
+	plecsko.istvan@freemail.hu, portikeszter@freemail.hu, biro.anna53@gmail.com, 
+	sudika1962@gmail.com, =?UTF-8?B?VMO8bmRlIFLDoGN6?= <racztunde64@gmail.com>, 
+	rozner.csilla@gmail.com, jucuka66@gmail.com, simongeza1950@gmail.com, 
+	stibi70@gmail.com, Emese Stampel <estampel@gmail.com>, sudar.szilard80@gmail.com, 
+	szaszagyu@gmail.com, szabo1014@gmail.com, szabo.lajos228@gmail.com, 
+	ibolya5151@gmail.com, zolcsi1107@gmail.com, barcsa57@gmail.com, 
+	=?UTF-8?B?RmVyZW5jbsOpIFN6xZFsw7ZzaQ==?= <nimrod170206@gmail.com>, 
+	tarnaijudit75@gmail.com, tarrildiko59@gmail.com, istvantatai53@gmail.com, 
+	tepevi@gmail.com, tobiasattila60@gmail.com, tobiasjoci79@gmail.com, 
+	torekes56@gmail.com, =?UTF-8?B?R3nDtm5neWkgVMO2cnRlaQ==?= <torteigyongyi@gmail.com>, 
+	ladyica@gmail.com, =?UTF-8?B?SWxkaWvDsyBUw7N0aA==?= <ildiko.toth1967@gmail.com>, 
+	tothj58041@gmail.com, tratnyeki@t-online.hu, trafo72@gmail.com, 
+	bozse71@gmail.com, urbanf1974@gmail.com, norbivaradi74@gmail.com, 
+	vatinora@gmail.com, veresscsalad@gmail.com, vsonaj48@gmail.com, 
+	mosoly0420@freemail.hu, winklerferi@gmail.com, sisman81@freemail.hu, 
+	Feri Lehoczki <ferileocki@gmail.com>, fuzojo@freemail.hu, vajay.tibor68@gmail.com, 
+	roland791112@gmail.com
+Content-Type: multipart/alternative; boundary="000000000000ed2ab606509bd58f"
+
+--000000000000ed2ab606509bd58f
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+K=C3=B6sz=C3=B6n=C3=B6m sz=C3=A9pen a t=C3=A1j=C3=A9koztat=C3=B3t.
+
+Eszter Erzs=C3=A9bet J=C3=B3zsa <jozsaee@gmail.com> ezt =C3=ADrta (id=C5=91=
+pont: 2026. =C3=A1pr.
+29., Sze 10:53):
+
+> Kedves Tagt=C3=A1rsak!
+> Aj=C3=A1nlom megtekint=C3=A9sre az al=C3=A1bbi linkeket:
+> (1) Facebook
+> <https://www.facebook.com/zkarpatdaniel/videos/836950699453538>
+> (1) Facebook
+> <https://www.facebook.com/zkarpatdaniel/videos/2024576931749499>
+>
+> Az ut=C3=B3bbi egy elektronikusan al=C3=A1=C3=ADrhat=C3=B3 nyomtatv=C3=A1=
+ny a kilakoltat=C3=A1sok ellen.
+> Fontos! Pap=C3=ADr alap=C3=BA =C3=A9s k=C3=A9sz=C3=BCl, ezt majd kiviszem=
+ azoknak a tagoknak, akik
+> nem az elektronikus al=C3=A1=C3=ADr=C3=A1st v=C3=A1lasztj=C3=A1k.
+>
+> K=C3=A9rlek Benneteket, hogy figyelmesen k=C3=B6vess=C3=A9tek a korm=C3=
+=A1nynak  a
+> devizahiteleseket =C3=A9rint=C5=91 bejelent=C3=A9seit, illetve Z.K=C3=A1r=
+p=C3=A1t D=C3=A1niel a Dr.
+> Marczing=C3=B3s oldalait!
+>
+> Tov=C3=A1bb=C3=A1:
+> Megh=C3=ADv=C3=B3 a BKFSZ K=C3=B6zgy=C5=B1l=C3=A9s=C3=A9re
+> A Banki K=C3=A1rosultak Fogyaszt=C3=B3v=C3=A9delmi Sz=C3=B6vets=C3=A9ge E=
+gyes=C3=BClet (a tov=C3=A1bbiakban:
+> Egyes=C3=BClet) ez=C3=BAton tisztelettel megh=C3=ADvja tagjait a k=C3=B6z=
+gy=C5=B1l=C3=A9s=C3=A9re.
+> A k=C3=B6zgy=C5=B1l=C3=A9s id=C5=91pontja: 2026. m=C3=A1jus 8. 17:15
+> A k=C3=B6zgy=C5=B1l=C3=A9s helysz=C3=ADne: =C3=93budai Kultur=C3=A1lis K=
+=C3=B6zpont Csillaghegyi K=C3=B6z=C3=B6ss=C3=A9gi
+> H=C3=A1za, 1039 Budapest, M=C3=A1ty=C3=A1s kir=C3=A1ly =C3=BAt 13-15
+> <https://www.google.com/maps/search/1039+Budapest,+M%C3%A1ty%C3%A1s+kir%C=
+3%A1ly+%C3%BAt+13-15?entry=3Dgmail&source=3Dg>
+> .
+>
+> A megism=C3=A9telt k=C3=B6zgy=C5=B1l=C3=A9s id=C5=91pontja: 2026. m=C3=A1=
+jus 16. 14:00
+> A megism=C3=A9telt k=C3=B6zgy=C5=B1l=C3=A9s helysz=C3=ADne: =C3=93budai K=
+ultur=C3=A1lis K=C3=B6zpont Csillaghegyi
+> K=C3=B6z=C3=B6ss=C3=A9gi H=C3=A1za, 1039 Budapest, M=C3=A1ty=C3=A1s kir=
+=C3=A1ly =C3=BAt 13-15
+> <https://www.google.com/maps/search/1039+Budapest,+M%C3%A1ty%C3%A1s+kir%C=
+3%A1ly+%C3%BAt+13-15?entry=3Dgmail&source=3Dg>
+> .
+> Napirendi pontok:
+> 1. Besz=C3=A1mol=C3=B3 az Egyes=C3=BClet tev=C3=A9kenys=C3=A9g=C3=A9r=C5=
+=91l
+> Az elm=C3=BAlt id=C5=91szak szakmai =C3=A9s szervezeti munk=C3=A1j=C3=A1n=
+ak ismertet=C3=A9se.
+> 2. R=C3=A9szleges vezet=C5=91s=C3=A9gi tiszt=C3=BAj=C3=ADt=C3=A1s
+> Eln=C3=B6ks=C3=A9gi tag v=C3=A1laszt=C3=A1sa. A jel=C3=B6l=C3=A9s a k=C3=
+=B6zgy=C5=B1l=C3=A9sen t=C3=B6rt=C3=A9nik.
+> 3. Alapszab=C3=A1ly m=C3=B3dos=C3=ADt=C3=A1sa
+> a telep=C3=BCl=C3=A9si csoportok alak=C3=ADt=C3=A1s=C3=A1nak felt=C3=A9te=
+lei (5/10 f=C5=91s k=C3=BCsz=C3=B6b)
+> elektronikus =C3=A9s hibrid k=C3=B6zgy=C5=B1l=C3=A9s lehet=C5=91s=C3=A9g=
+=C3=A9nek bevezet=C3=A9se
+> k=C3=BCld=C3=B6ttrendszer bevezet=C3=A9se, a tagd=C3=ADjfizet=C3=A9s m=C3=
+=B3dj=C3=A1nak m=C3=B3dos=C3=ADt=C3=A1sa
+> (k=C3=A9szp=C3=A9nzes befizet=C3=A9s lehet=C5=91s=C3=A9ge)
+> Az alapszab=C3=A1ly m=C3=B3dos=C3=ADt=C3=A1s=C3=A1nak r=C3=A9szletes sz=
+=C3=B6vege a k=C3=B6zgy=C5=B1l=C3=A9s el=C5=91tt
+> megismerhet=C5=91.
+> 4. P=C3=A9nz=C3=BCgyi besz=C3=A1mol=C3=B3 elfogad=C3=A1sa
+> Az Egyes=C3=BClet gazd=C3=A1lkod=C3=A1s=C3=A1r=C3=B3l sz=C3=B3l=C3=B3 bes=
+z=C3=A1mol=C3=B3 ismertet=C3=A9se =C3=A9s elfogad=C3=A1sa.
+> A k=C3=B6zgy=C5=B1l=C3=A9s hat=C3=A1rozatk=C3=A9pes, ha a tagok t=C3=B6bb=
+ mint fele jelen van.
+>
+> Hat=C3=A1rozatk=C3=A9ptelens=C3=A9g eset=C3=A9n a megism=C3=A9telt k=C3=
+=B6zgy=C5=B1l=C3=A9s azonos napirendi
+> pontokkal ker=C3=BCl megtart=C3=A1sra, =C3=A9s a megjelentek sz=C3=A1m=C3=
+=A1ra tekintet n=C3=A9lk=C3=BCl
+> hat=C3=A1rozatk=C3=A9pes.
+> A tagok a k=C3=B6zgy=C5=B1l=C3=A9sen szem=C3=A9lyesen vagy meghatalmazott=
+ =C3=BAtj=C3=A1n is r=C3=A9szt
+> vehetnek.
+> K=C3=A9rj=C3=BCk a tisztelt tagokat, hogy r=C3=A9szv=C3=A9teli sz=C3=A1nd=
+=C3=A9kukat (n=C3=A9v, c=C3=ADm,
+> telefonsz=C3=A1m felt=C3=BCntet=C3=A9s=C3=A9vel) a bkfsz.ugykezelo@gmail.=
+com e-mail c=C3=ADmen
+> jelezz=C3=A9k.
+> Kelt: 2026. =C3=A1prilis 22.
+> Banki K=C3=A1rosultak Fogyaszt=C3=B3v=C3=A9delmi Sz=C3=B6vets=C3=A9ge Egy=
+es=C3=BClet eln=C3=B6ks=C3=A9ge
+>
+> =C3=9Cdv: Eszter
+>
+>
+
+--000000000000ed2ab606509bd58f
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"auto">K=C3=B6sz=C3=B6n=C3=B6m sz=C3=A9pen a t=C3=A1j=C3=A9kozta=
+t=C3=B3t.=C2=A0</div><br><div class=3D"gmail_quote gmail_quote_container"><=
+div dir=3D"ltr" class=3D"gmail_attr">Eszter Erzs=C3=A9bet J=C3=B3zsa &lt;<a=
+ href=3D"mailto:jozsaee@gmail.com">jozsaee@gmail.com</a>&gt; ezt =C3=ADrta =
+(id=C5=91pont: 2026. =C3=A1pr. 29., Sze 10:53):<br></div><blockquote class=
+=3D"gmail_quote" style=3D"margin:0 0 0 .8ex;border-left:1px #ccc solid;padd=
+ing-left:1ex"><div dir=3D"ltr"><div dir=3D"ltr"><div class=3D"gmail_default=
+" style=3D"font-size:large">Kedves Tagt=C3=A1rsak!</div><div class=3D"gmail=
+_default" style=3D"font-size:large">Aj=C3=A1nlom megtekint=C3=A9sre az al=
+=C3=A1bbi linkeket:</div><div class=3D"gmail_default" style=3D"font-size:la=
+rge"><a href=3D"https://www.facebook.com/zkarpatdaniel/videos/8369506994535=
+38" target=3D"_blank" rel=3D"noreferrer">(1) Facebook</a></div><div class=
+=3D"gmail_default" style=3D"font-size:large"><a href=3D"https://www.faceboo=
+k.com/zkarpatdaniel/videos/2024576931749499" target=3D"_blank" rel=3D"noref=
+errer">(1) Facebook</a></div><div class=3D"gmail_default" style=3D"font-siz=
+e:large"><br></div><div class=3D"gmail_default" style=3D"font-size:large">A=
+z ut=C3=B3bbi egy elektronikusan al=C3=A1=C3=ADrhat=C3=B3 nyomtatv=C3=A1ny =
+a kilakoltat=C3=A1sok ellen. Fontos! Pap=C3=ADr alap=C3=BA =C3=A9s k=C3=A9s=
+z=C3=BCl, ezt majd kiviszem azoknak a tagoknak, akik nem az elektronikus al=
+=C3=A1=C3=ADr=C3=A1st v=C3=A1lasztj=C3=A1k.</div><div class=3D"gmail_defaul=
+t" style=3D"font-size:large"><br></div><div class=3D"gmail_default" style=
+=3D"font-size:large">K=C3=A9rlek Benneteket, hogy figyelmesen k=C3=B6vess=
+=C3=A9tek a korm=C3=A1nynak=C2=A0 a devizahiteleseket =C3=A9rint=C5=91 beje=
+lent=C3=A9seit, illetve Z.K=C3=A1rp=C3=A1t D=C3=A1niel a Dr. Marczing=C3=B3=
+s oldalait!</div><div class=3D"gmail_default" style=3D"font-size:large"><br=
+></div><div class=3D"gmail_default" style=3D"font-size:large">Tov=C3=A1bb=
+=C3=A1:</div><div class=3D"gmail_default"><font face=3D"arial, sans-serif" =
+size=3D"4">Megh=C3=ADv=C3=B3 a BKFSZ K=C3=B6zgy=C5=B1l=C3=A9s=C3=A9re</font=
+></div><div class=3D"gmail_default"><div dir=3D"auto"><font face=3D"arial, =
+sans-serif" size=3D"4">A Banki K=C3=A1rosultak Fogyaszt=C3=B3v=C3=A9delmi S=
+z=C3=B6vets=C3=A9ge Egyes=C3=BClet (a tov=C3=A1bbiakban: Egyes=C3=BClet) ez=
+=C3=BAton tisztelettel megh=C3=ADvja tagjait a k=C3=B6zgy=C5=B1l=C3=A9s=C3=
+=A9re.</font></div><div dir=3D"auto"><font face=3D"arial, sans-serif" size=
+=3D"4">A k=C3=B6zgy=C5=B1l=C3=A9s id=C5=91pontja: 2026. m=C3=A1jus 8. 17:15=
+</font></div><div dir=3D"auto"><font face=3D"arial, sans-serif" size=3D"4">=
+A k=C3=B6zgy=C5=B1l=C3=A9s helysz=C3=ADne: =C3=93budai Kultur=C3=A1lis K=C3=
+=B6zpont Csillaghegyi K=C3=B6z=C3=B6ss=C3=A9gi H=C3=A1za, <a href=3D"https:=
+//www.google.com/maps/search/1039+Budapest,+M%C3%A1ty%C3%A1s+kir%C3%A1ly+%C=
+3%BAt+13-15?entry=3Dgmail&amp;source=3Dg">1039 Budapest, M=C3=A1ty=C3=A1s k=
+ir=C3=A1ly =C3=BAt 13-15</a>.</font></div><div dir=3D"auto"><font face=3D"a=
+rial, sans-serif" size=3D"4"><br></font></div><div dir=3D"auto"><font face=
+=3D"arial, sans-serif" size=3D"4">A megism=C3=A9telt k=C3=B6zgy=C5=B1l=C3=
+=A9s id=C5=91pontja: 2026. m=C3=A1jus 16. 14:00</font></div><div dir=3D"aut=
+o"><font face=3D"arial, sans-serif" size=3D"4">A megism=C3=A9telt k=C3=B6zg=
+y=C5=B1l=C3=A9s helysz=C3=ADne: =C3=93budai Kultur=C3=A1lis K=C3=B6zpont Cs=
+illaghegyi K=C3=B6z=C3=B6ss=C3=A9gi H=C3=A1za, <a href=3D"https://www.googl=
+e.com/maps/search/1039+Budapest,+M%C3%A1ty%C3%A1s+kir%C3%A1ly+%C3%BAt+13-15=
+?entry=3Dgmail&amp;source=3Dg">1039 Budapest, M=C3=A1ty=C3=A1s kir=C3=A1ly =
+=C3=BAt 13-15</a>.</font></div><div dir=3D"auto"><font face=3D"arial, sans-=
+serif" size=3D"4">Napirendi pontok:</font></div><div dir=3D"auto"><font fac=
+e=3D"arial, sans-serif" size=3D"4">1. Besz=C3=A1mol=C3=B3 az Egyes=C3=BClet=
+ tev=C3=A9kenys=C3=A9g=C3=A9r=C5=91l</font></div><div dir=3D"auto"><font fa=
+ce=3D"arial, sans-serif" size=3D"4">Az elm=C3=BAlt id=C5=91szak szakmai =C3=
+=A9s szervezeti munk=C3=A1j=C3=A1nak ismertet=C3=A9se.</font></div><div dir=
+=3D"auto"><font face=3D"arial, sans-serif" size=3D"4">2. R=C3=A9szleges vez=
+et=C5=91s=C3=A9gi tiszt=C3=BAj=C3=ADt=C3=A1s</font></div><div dir=3D"auto">=
+<font face=3D"arial, sans-serif" size=3D"4">Eln=C3=B6ks=C3=A9gi tag v=C3=A1=
+laszt=C3=A1sa. A jel=C3=B6l=C3=A9s a k=C3=B6zgy=C5=B1l=C3=A9sen t=C3=B6rt=
+=C3=A9nik.</font></div><div dir=3D"auto"><font face=3D"arial, sans-serif" s=
+ize=3D"4">3. Alapszab=C3=A1ly m=C3=B3dos=C3=ADt=C3=A1sa</font></div><div di=
+r=3D"auto"><font face=3D"arial, sans-serif" size=3D"4">a telep=C3=BCl=C3=A9=
+si csoportok alak=C3=ADt=C3=A1s=C3=A1nak felt=C3=A9telei (5/10 f=C5=91s k=
+=C3=BCsz=C3=B6b)</font></div><div dir=3D"auto"><font face=3D"arial, sans-se=
+rif" size=3D"4">elektronikus =C3=A9s hibrid k=C3=B6zgy=C5=B1l=C3=A9s lehet=
+=C5=91s=C3=A9g=C3=A9nek bevezet=C3=A9se</font></div><div dir=3D"auto"><font=
+ face=3D"arial, sans-serif" size=3D"4">k=C3=BCld=C3=B6ttrendszer bevezet=C3=
+=A9se,=C2=A0</font><span style=3D"font-family:arial,sans-serif;font-size:la=
+rge">a </span>tagd=C3=ADjfizet=C3=A9s<span style=3D"font-family:arial,sans-=
+serif;font-size:large"> m=C3=B3dj=C3=A1nak m=C3=B3dos=C3=ADt=C3=A1sa (k=C3=
+=A9szp=C3=A9nzes befizet=C3=A9s lehet=C5=91s=C3=A9ge)</span></div><div dir=
+=3D"auto"><font face=3D"arial, sans-serif" size=3D"4">Az alapszab=C3=A1ly m=
+=C3=B3dos=C3=ADt=C3=A1s=C3=A1nak r=C3=A9szletes sz=C3=B6vege a k=C3=B6zgy=
+=C5=B1l=C3=A9s el=C5=91tt megismerhet=C5=91.</font></div><div dir=3D"auto">=
+<font face=3D"arial, sans-serif" size=3D"4">4. P=C3=A9nz=C3=BCgyi besz=C3=
+=A1mol=C3=B3 elfogad=C3=A1sa</font></div><div dir=3D"auto"><font face=3D"ar=
+ial, sans-serif" size=3D"4">Az Egyes=C3=BClet gazd=C3=A1lkod=C3=A1s=C3=A1r=
+=C3=B3l sz=C3=B3l=C3=B3 besz=C3=A1mol=C3=B3 ismertet=C3=A9se =C3=A9s elfoga=
+d=C3=A1sa.</font></div><div dir=3D"auto"><font face=3D"arial, sans-serif" s=
+ize=3D"4">A k=C3=B6zgy=C5=B1l=C3=A9s hat=C3=A1rozatk=C3=A9pes, ha a tagok t=
+=C3=B6bb mint fele jelen van.</font></div><div dir=3D"auto"><br></div><div =
+dir=3D"auto"><font face=3D"arial, sans-serif" size=3D"4">Hat=C3=A1rozatk=C3=
+=A9ptelens=C3=A9g eset=C3=A9n a megism=C3=A9telt k=C3=B6zgy=C5=B1l=C3=A9s a=
+zonos napirendi pontokkal ker=C3=BCl megtart=C3=A1sra, =C3=A9s a megjelente=
+k sz=C3=A1m=C3=A1ra tekintet n=C3=A9lk=C3=BCl hat=C3=A1rozatk=C3=A9pes.</fo=
+nt></div><div dir=3D"auto"><font face=3D"arial, sans-serif" size=3D"4">A ta=
+gok a k=C3=B6zgy=C5=B1l=C3=A9sen szem=C3=A9lyesen vagy meghatalmazott =C3=
+=BAtj=C3=A1n is r=C3=A9szt vehetnek.</font></div><div dir=3D"auto"><font fa=
+ce=3D"arial, sans-serif" size=3D"4">K=C3=A9rj=C3=BCk a tisztelt tagokat, ho=
+gy r=C3=A9szv=C3=A9teli sz=C3=A1nd=C3=A9kukat (n=C3=A9v, c=C3=ADm, telefons=
+z=C3=A1m felt=C3=BCntet=C3=A9s=C3=A9vel) a=C2=A0<a href=3D"mailto:bkfsz.ugy=
+kezelo@gmail.com" target=3D"_blank" rel=3D"noreferrer">bkfsz.ugykezelo@gmai=
+l.com</a>=C2=A0e-mail c=C3=ADmen jelezz=C3=A9k.</font></div><div dir=3D"aut=
+o"><span style=3D"font-family:arial,sans-serif;font-size:large">Kelt: 2026.=
+ =C3=A1prilis 22.</span></div><div dir=3D"auto"><font face=3D"arial, sans-s=
+erif" size=3D"4">Banki K=C3=A1rosultak Fogyaszt=C3=B3v=C3=A9delmi Sz=C3=B6v=
+ets=C3=A9ge Egyes=C3=BClet eln=C3=B6ks=C3=A9ge</font></div><div dir=3D"auto=
+"><font face=3D"arial, sans-serif" size=3D"4"><br></font></div><div><font f=
+ace=3D"arial, sans-serif" size=3D"4">=C3=9Cdv: Eszter</font></div></div><di=
+v class=3D"gmail_default" style=3D"font-size:large"><br></div></div>
+</div>
+</blockquote></div>
+
+--000000000000ed2ab606509bd58f--

@@ -1,0 +1,613 @@
+Delivered-To: estampel@gmail.com
+Received: by 2002:a05:6358:7e0c:b0:1da:229f:2e17 with SMTP id o12csp967636rwm;
+        Tue, 18 Feb 2025 09:00:14 -0800 (PST)
+X-Forwarded-Encrypted: i=2; AJvYcCV6Je3lx47ulH1/W/qFrMreVHnyCVg9WdcEigvEhWpJDxDHeJWhzejyKqBX/G8J9gOwtimwekIHDw==@gmail.com
+X-Received: by 2002:a05:690c:6109:b0:6ee:66d2:e738 with SMTP id 00721157ae682-6fba563971fmr4666697b3.2.1739898014401;
+        Tue, 18 Feb 2025 09:00:14 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1739898014; cv=none;
+        d=google.com; s=arc-20240605;
+        b=AFH/9OAUdkjxAcSIy+J5eKL+oUM+ubCB0Vfo1kYq4o+R+xLyUwONfVPX9duTyMVWx8
+         OFVaV8YTfKculm5q40mvg316l3f4uZbRJVMVxDPZli8ynq2LRoKIZlYPgacTgFmz2aaa
+         P8HAWqFQFUhbzmQYeCVuojcla/xbjcYIZ/nhne0Ac7nzdgo3rEfotYIdJNZRe0VufEzc
+         fHQb9CrDCl7F3O/nOUE4YLFDrd2z8xMhwqM0T8No66cxam1FOX5j6IjNuuXVVB53icCh
+         z4PxyGrLf2oWe1ls/Ye3lxrwSPwBEDaKFaQgrIqI3FFIMCpOE86s7mvgKOB595SgaAoW
+         Mxmw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=ibxI1Vol4YgGA3v/1CvtWVPa2PLRUH/eg2qlSsmwx10=;
+        fh=Ltw5PYTQFbOdhB9eu57kLxMRFMhHa+0w4/tt6J2PDsU=;
+        b=aHfs2bC6GKNX0/KMyujmrSugNhPvylSdFSsP7V+lW//ymYFu2txvDdaAw4TTlavQbH
+         uOaXO1+edDhnl/a8HEp7DLEuz/6jufT7llLShI7ROqgUED1xm37xx8z/yV8GcgSDGlDW
+         Hp0yUsZj27Y+j02ClK8HkLi+cVQfOLybqcOgZXcJI3cN1vKSEGUy7gMjL1R8Gg6N6Jv4
+         WCMMotHMCMq+vFLhWLlFwIAk1GL96G447rgvS79juwimULzlqGe4s/zbWI9PbsHPGJK3
+         w7SM2oCVvSqyZmYiXe4ldKJJd8392hNE7D+zl5kfwbMd8NbKcU/Wl0KAhOhjgGjc4UwH
+         973w==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=bBEdcgCe;
+       spf=pass (google.com: domain of laszlo.junior@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=laszlo.junior@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <laszlo.junior@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id 00721157ae682-6fba63c9047sor460337b3.6.2025.02.18.09.00.13
+        (Google Transport Security);
+        Tue, 18 Feb 2025 09:00:14 -0800 (PST)
+Received-SPF: pass (google.com: domain of laszlo.junior@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=bBEdcgCe;
+       spf=pass (google.com: domain of laszlo.junior@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=laszlo.junior@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1739898013; x=1740502813; dara=google.com;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=ibxI1Vol4YgGA3v/1CvtWVPa2PLRUH/eg2qlSsmwx10=;
+        b=bBEdcgCe1xeZTpc5Z5cpFfxofq4Ss69fhM00aaRD7jOe2diCkuo70yOEztzmkMrz6C
+         RJWMEeeeFhAmDG/tckH0sHruubsWG//eDK0Vn6nPPogkOIfM8WfUF/Z/eg16ekch4ISY
+         s3IEVEPWsvOcwnjd7RzQqZRDbjK5wpeIBAD2YVlvpnhvdF7/h8kmzYWscvvQH6pXZVnF
+         Y7sddTb/bWDAentSlWrXK/e0TTimlr0vlDDgzPhZGkcuK3TqzsQtSpFKn4vuwO5pDcB8
+         Mh/SktvBgH+lnlUbzPWTQ+PRIqSVHw69pZcHVqNoHzPH6BWADbL5+iW1UGRRTrRYpFol
+         OruA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739898013; x=1740502813;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=ibxI1Vol4YgGA3v/1CvtWVPa2PLRUH/eg2qlSsmwx10=;
+        b=LvDbbkvuWEqTo5Cp7IK0Ynz34qi9gcrI8ki07+UhM+Y8FsGCf3q+uhgDytTdYKUyGv
+         7KVcsCv/+q1ts6vpjoA24eCOoR1c9A2yVr6vR63m3u742e7o3THFwdJIUisUnJqNMW3G
+         BmgwEhqoqm5Az5/2Sw0uyliTGU91/msOaa+sV+Ru4KVbPXSdPFeyf+gE0v5MnzZcHETh
+         lN1lIJUUaCpYSf1Z1QyXtqxF21lzXIL10uh6F73q9BOTuAJoLRBhSceopzO70JLLz4G/
+         krOjKO7mHINwcMhch1XWYLBR3DAr9t8H9bm8ImEk/sgcORj9ilMj1vYtgv7WMyiOv11I
+         cirQ==
+X-Forwarded-Encrypted: i=1; AJvYcCU5eZfihuOkPJ6/0nrPykAHfxUxyJUfXq6HN2UmEf2rhOuOpM8lRcnQsPDMwjikMLA3/k1HCA46xj3yrw==@gmail.com, AJvYcCUx5RL9/ztdeUjs4R9RUE+LDWeHaYSyDNYGVzeh/doQlZ2f01Le6J+ZPVAYx1ZICe3F2QL3rxi3C85bbF8=@gmail.com, AJvYcCV9hbpLf5w/0jL9cKCvWe0TB/iB3XFdmPzABxH213wXLv90S7r1yFAKWIOiFW1BVdMIc9SDO3fNBw==@gmail.com, AJvYcCVs+CYrYKUCvCwYJZ4kn7rqeYu1oDbsQWpO36j08oPLiIoTJGNZPg3hQplYVKqim1hL05yl/HzM9O1AO246kY5BcjJovw==@gmail.com, AJvYcCW0kXmqF/fvXnwNJOH8y6dwtgOpTQNWoNwsqiLWpVUNDtjep1JGU6/r69p9WwM9yT8lvK6D9l8DFmHZ6YNaiQ==@gmail.com, AJvYcCWFkO8hSzH/Emrnj2aIFvwHvTKvRXbtZwyrv5iSrFshqB7X1FAUsaXZnhwi8E8tNth1fFbZ0CwDRi8=@gmail.com, AJvYcCWlzeK+U2VY8I9KhOJlTWFlw8pzTcKhDKzQvFfHsnbLtOnzrnaLZ8ZdXyNrFykXxHAQfpRRHKP8q66dnwY/AOUFLS/o@gmail.com, AJvYcCXwWDCYXyXcDBKVIMOPqQcrz751BdDs4el5Wsr84VFEkHzU15HsHL4lesaBQBBm7XmAnHzSDgE0vNxEzW99AA==@gmail.com
+X-Gm-Message-State: AOJu0YwwdCp46xtfrHy5zpqQON6SCDn22l3vAvglAK4mtv4sHCmotSKk
+	9NIze1Kuus6Ry3Gxm+0DvGQ1S1fKhiK8fvLZe2aS6RPHwxznNhA243pVTe+/jcQuSSM+PTTGox0
+	tWLSdJXPcUkPeE6WtrtP7YF8LQoTVQN18
+X-Gm-Gg: ASbGncuw8v3q6cNfOGFlPFp9rIo+EFH7Eey9S+eYSeYSqQVUZtUBQfxWAaP4WUs7DFy
+	ct+hnWquOMxtuvv2LFZk5RcT4HdqLRo6/k7UR+vdplsfLRFkAJQBXI1yUV2DiQub+uf6AD9Zv3G
+	E=
+X-Google-Smtp-Source: AGHT+IHnS6AT0Mj4FOeVPPeyOwo2zlv/KjmMpymCbgGmGaq0XWYATKIIQwH8CUoKERYaz7ulSHZrz7Y0LVMBY3YPFnw=
+X-Received: by 2002:a05:6902:1084:b0:e5a:cece:f38d with SMTP id
+ 3f1490d57ef6-e5e0a09df40mr227255276.13.1739898012784; Tue, 18 Feb 2025
+ 09:00:12 -0800 (PST)
+MIME-Version: 1.0
+References: <CALi7w6syuu1GtwNcyN2t666Yq-UFa4+awiJieUbv3JN4K5-Kuw@mail.gmail.com>
+ <CAEd_JDf7jEsnyijT-2GVogAM0CrYVT3-Z8VJEghzdAcJtvTTmw@mail.gmail.com>
+ <CALi7w6tnU-uxi+y87=e+a4VSqVyLNkfHWiPavkAo=Qut3OP+Ew@mail.gmail.com>
+ <CAH=Fn8QneMTp=vmu6kQnr1Egkj-_pB-1sz2TorfrZCPZw6f1xA@mail.gmail.com>
+ <CALi7w6txGO+ycK04jzeR_vbfJ9j_nVrspfcm-tsYgB8yrbGmmw@mail.gmail.com>
+ <CAHvQ8VLTYOFTe7tabPCDD+_i-DQXZC=04GyoLYYtywRR6zJ63w@mail.gmail.com>
+ <CALi7w6tQG6xKeyDF-m3au9BDaPdBZ8X47pwMjaPRiRK2me1RKA@mail.gmail.com>
+ <CAHvQ8VL6q_p+_KP50MU24V09x-Fy3wycMuKeXxOeN4iTRu2Otw@mail.gmail.com>
+ <CALi7w6vasQqOAb-7=Li+DemPQhN3C676u1Z=WOH=U9xeV0d-Aw@mail.gmail.com>
+ <CAH=Fn8RorEeLB9s7WshC5N7NY432gg+eQqu3MgMKnA+tGazK7A@mail.gmail.com>
+ <CALi7w6sdA6VEoZ5XEAAPUSCS7OAj3VOsAu0KYN0_3kggR-91wA@mail.gmail.com>
+ <CAHvQ8V++cMVgTXEap0guDuYWS0iTT19SZR938fE6UxBhuT8WKw@mail.gmail.com> <CALi7w6vp-7RZNOczpj8ffJ_3WBhYnqzH36Yf0nYwr1OjGo1hcA@mail.gmail.com>
+In-Reply-To: <CALi7w6vp-7RZNOczpj8ffJ_3WBhYnqzH36Yf0nYwr1OjGo1hcA@mail.gmail.com>
+From: =?UTF-8?B?TMOhc3psw7MgTW9sbsOhcg==?= <laszlo.junior@gmail.com>
+Date: Tue, 18 Feb 2025 18:00:01 +0100
+X-Gm-Features: AWEUYZmQ4gkEZa0HVGsDIAOc0Ja-GOe8VKvesDbWVBbCMT_A4JkvXVJ5PVYCCX8
+Message-ID: <CALi7w6tzTFJZ0VgOKetOyg+wiZ8-tRncp4vMuNa3PkDLmaV2FA@mail.gmail.com>
+Subject: =?UTF-8?B?UmU6IEvDtnZldGtlesWRIHRhbMOhbGtvesOz?=
+To: =?UTF-8?B?TMOhc3psw7MgU3RlaW5lcg==?= <steiner@slp.hu>
+Cc: Orsi Wigand <wigand.orsi@balatonboglar.org>, 
+	=?UTF-8?Q?Plat=C3=A1n_Balatonbogl=C3=A1r?= <platanbalatonboglar@gmail.com>, 
+	orsitiszabb@gmail.com, istvansolti53@gmail.com, tiszabalatonboglar@gmail.com, 
+	=?UTF-8?B?w4FnbmVzIEJ1Z8Ohcg==?= <banyus53@gmail.com>, estampel@gmail.com, 
+	Soltine Marta <soltine.marta@gmail.com>, pegazus650@gmail.com
+Content-Type: multipart/alternative; boundary="000000000000ff634c062e6d92b5"
+
+--000000000000ff634c062e6d92b5
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Sziasztok,
+
+El=C5=91sz=C3=B6r is bocs az er=C3=A9lyes fell=C3=A9p=C3=A9s=C3=A9rt a v=C3=
+=A9g=C3=A9n, de fontos volt amit
+akartam... nem magyar=C3=A1zkodom, rem=C3=A9lem =C3=A9rtitek.
+
++ Jani hozz=C3=A1adva a levelez=C3=A9shez.
+Melinda nem tudom bel=C3=A9pett-e hivatalosan illetve nincs meg a mailc=C3=
+=ADme,
+Emm=C3=A1nak sincs, majd k=C3=A9s=C5=91bb hozz=C3=A1adjuk =C5=91ket.
+
+- F=C3=A9szen bejel=C3=B6lni, csoportba bel=C3=A9ptetni Emm=C3=A1t, Melind=
+=C3=A1t, Janit *-
+folyamatban, Laci Jr.*
+- K=C3=A9rd=C3=A9sekre v=C3=A1laszokra k=C3=A9sz=C3=BClni, QR k=C3=B3ddal, =
+p=C3=A9lda *- Laci Jr./Emese*
+- =C3=96sszeszedni a M=C3=B3ring (meg nem val=C3=B3sult) =C3=ADg=C3=A9retei=
+t minden faluban *-
+folyamatos projekt lesz*
+- Tal=C3=A1lkoz=C3=A1sok gyakoris=C3=A1ga, helysz=C3=ADne: *Orsi=C3=A9kn=C3=
+=A1l m=C3=A1jusig (GYAKORIS=C3=81G?)
+Mikor legyen a k=C3=B6vetkez=C5=91?*
+- A k=C3=B6rny=C3=A9kbeli falvakb=C3=B3l (Csehi, Gy=C3=B6r=C3=B6k, Gyugy) j=
+utott nek=C3=BCnk hogy
+terjeszkedj=C3=BCnk. Gy=C5=B1jts=C3=BCk ki a jel=C3=B6lteket! Facebook hozz=
+=C3=A1sz=C3=B3l=C3=A1sok alapj=C3=A1n
+(M=C3=B3ring posztok =C3=A9s helyi v=C3=A1rosi csoportokba hozz=C3=A1sz=C3=
+=B3lni) *- Emese megn=C3=A9zi
+M=C3=B3ring posztjait, Laci Jr. Ordacsehit, Sz=C5=91l=C5=91sgy=C3=B6rk=C3=
+=B6t, Balatonbogl=C3=A1r (sima
+csopit), Kellene valaki a mosolyg=C3=B3s Bgol=C3=A1rra, mert ott nem vagyok=
+ bent, a
+polgi =C3=A9s a helyi k=C3=A9pvisel=C5=91k profiljait is meg lehetne n=C3=
+=A9zni, ha lenne r=C3=A1
+valaki... k=C3=B6vetkez=C5=91 alkalomra legyenek linkek a jel=C3=B6ltek pro=
+filj=C3=A1r=C3=B3l.*
+- Talpra Magyarok bolg=C3=A1ri csopit n=C3=A9zz=C3=BCk meg egy=C3=BCtt, kit=
+ pingelhetn=C3=A9nk meg!? *-
+mindenki n=C3=A9zze meg hogy =C5=91 kit h=C3=ADvna be =C3=A9s k=C3=B6vetkez=
+=C5=91 alkalommal besz=C3=A9lj=C3=BCk
+meg*
+- kifel=C3=A9 kommunik=C3=A1ljuk-e a megalakul=C3=A1st?
+- Szeri Gabinak mit mondjunk?
+
+Ha valamit kihagytam sz=C3=B3ljatok l=C3=A9gyszi.
+
+=C3=9Cdv.
+Laci
+
+L=C3=A1szl=C3=B3 Moln=C3=A1r <laszlo.junior@gmail.com> ezt =C3=ADrta (id=C5=
+=91pont: 2025. febr. 18.,
+K, 13:28):
+
+> Sziasztok,
+>
+> M=C3=A9g egyszer k=C3=BClden=C3=A9m a tervezett megbesz=C3=A9lni val=C3=
+=B3kat (friss=C3=ADtve):
+> - K=C3=A9sz van v=C3=A9gre a Tisz=C3=A1s f=C3=A9sz profil, jel=C3=B6ltem =
+ismer=C5=91snek =C3=A9s megh=C3=ADvtam a
+> z=C3=A1rt csopiba. *Az =C3=BAjakat kell majd beh=C3=ADvni, esetleg a csev=
+eg=C5=91s
+> besz=C3=A9lget=C3=A9seket oda =C3=A1trakni. (Discord)*
+> *Adminok jel=C3=B6l=C3=A9se*
+> - *Fenyvesi Melinda megh=C3=ADvva, j=C3=B6n.*
+> *- D=C3=A1vid J=C3=A1nos =C3=BAton lesz, v=C3=A9lhet=C5=91en nem =C3=A9r =
+oda, de h=C3=ADv ahogy k=C3=B6zeledik.*
+> - A k=C3=B6rny=C3=A9kbeli falvakb=C3=B3l (Csehi, Gy=C3=B6r=C3=B6k) jutott=
+ nek=C3=BCnk hogy
+> terjeszkedj=C3=BCnk, meg kellene besz=C3=A9lni, hogyan.
+> - Talpra Magyarok bolg=C3=A1ri csopit n=C3=A9zz=C3=BCk meg egy=C3=BCtt, k=
+it pingelhetn=C3=A9nk meg!?
+> - Sziget regisztr=C3=A1ci=C3=B3 v=C3=A9gbe ment - Aur=C3=A9l (mikori d=C3=
+=A1tummal)
+> - Esetleg kell-e k=C3=A9sz=C3=BCln=C3=BCnk z=C3=A1szl=C3=B3kkal, hangosbe=
+sz=C3=A9l=C5=91vel, t=C3=A1bl=C3=A1kkal,
+> standdal, stb.
+> - Gondoljuk =C3=A1t hogy az el=C5=91bbiekhez kital=C3=A1ljunk valami fina=
+nsz=C3=ADroz=C3=A1st...
+> (pl. Lell=C3=A9n havi 3.000Ft-ot dobnak be erre a c=C3=A9lra) *EZ =C3=96N=
+K=C3=89NTES ALAPON,
+> NEM K=C3=96TELEZ=C5=90 LENNE!*
+> - *=C3=9AJ! *=C3=89n szeretn=C3=A9k besz=C3=A9lni a tal=C3=A1lkoz=C3=B3 s=
+zervez=C3=A9sr=C5=91l, a j=C3=B6v=C5=91beni
+> kommunik=C3=A1ci=C3=B3r=C3=B3l, mert ezt a mostanit magamra n=C3=A9zve m=
+=C3=A1r k=C3=ADnosnak =C3=A9rzem. A
+> hol k=C3=A9rd=C3=A9se is fontos.
+> - *=C3=9AJ! *A BVE =C3=A9s a sziget (=C3=BCgyeinek) sz=C3=A9tv=C3=A1laszt=
+=C3=A1sa hogyan t=C3=B6rt=C3=A9njen,
+> szerintem kell egy =C3=A9les vonal.
+> - *=C3=9AJ! *=C3=9Aj bel=C3=A9p=C5=91k bemutat=C3=A1sa, bemutatkoz=C3=A1s=
+a.
+> - Egy=C3=A9b
+>
+> =C3=9Cdv.
+> Laci
+>
+> L=C3=A1szl=C3=B3 Steiner <steiner@slp.hu> ezt =C3=ADrta (id=C5=91pont: 20=
+25. febr. 17., H,
+> 16:36):
+>
+>> Sziasztok,
+>> kedd 15-16-ig j=C3=B3 n=C3=A1lunk, de ut=C3=A1na itt m=C3=A1sik tal=C3=
+=A1lkoz=C3=B3 lesz.
+>> Felaj=C3=A1nlom az online r=C3=A9szv=C3=A9telt, aki =C3=BAgy szeretne be=
+l=C3=A9pni, zoom-on tudom
+>> biztos=C3=ADtani.
+>> L.
+>>
+>> On Mon, 17 Feb 2025 at 13:41, L=C3=A1szl=C3=B3 Moln=C3=A1r <laszlo.junio=
+r@gmail.com>
+>> wrote:
+>>
+>>> M=C3=A1rti n=C3=A9ni=C3=A9k nem lesznek, Lacinak =C3=ADrt=C3=A1k.
+>>> =C3=8Dgy akkor r=C3=A1k=C3=A9rdezek kedd 15:00 Laci=C3=A9kn=C3=A1l eset=
+leg?
+>>>
+>>> K=C3=A9rlek benneteket miel=C5=91bb jussunk d=C5=B1l=C5=91re, hogy a 2-=
+3 =C3=BAj embernek is
+>>> tudjuk mondani m=C3=A9g ma!
+>>>
+>>> K=C3=B6szi
+>>> Laci
+>>>
+>>> Orsi Wigand <wigand.orsi@balatonboglar.org> ezt =C3=ADrta (id=C5=91pont=
+: 2025.
+>>> febr. 17., H 13:18):
+>>>
+>>>> Nekem kedden mindkett=C5=91 j=C3=B3.
+>>>>
+>>>>
+>>>> L=C3=A1szl=C3=B3 Moln=C3=A1r <laszlo.junior@gmail.com> (id=C5=91pont: =
+2025. febr. 17., H,
+>>>> 10:11) ezt =C3=ADrta:
+>>>>
+>>>>> Mindk=C3=A9t id=C5=91pontot...
+>>>>> Nekem mindegy melyik id=C5=91pontban lesz.
+>>>>> Csak mondjunk valamit v=C3=A9gre, mert alig akar =C3=B6sszej=C3=B6nni=
+ =C3=BAgy l=C3=A1tom
+>>>>> ;)
+>>>>>
+>>>>> L=C3=A1szl=C3=B3 Steiner <steiner@slp.hu> ezt =C3=ADrta (id=C5=91pont=
+: 2025. febr. 17., H
+>>>>> 8:36):
+>>>>>
+>>>>>> ??? nem =C3=A9rtem, mi az a mindkett=C5=91, amit megoldasz? L.
+>>>>>>
+>>>>>> On Mon, 17 Feb 2025 at 08:12, L=C3=A1szl=C3=B3 Moln=C3=A1r <laszlo.j=
+unior@gmail.com>
+>>>>>> wrote:
+>>>>>>
+>>>>>>> Sziasztok,
+>>>>>>>
+>>>>>>> =C3=89n mindkett=C5=91t megoldom.
+>>>>>>>
+>>>>>>> HOL?
+>>>>>>>
+>>>>>>> =C3=9Cdv.
+>>>>>>> Laci
+>>>>>>>
+>>>>>>>
+>>>>>>> L=C3=A1szl=C3=B3 Steiner <steiner@slp.hu> ezt =C3=ADrta (id=C5=91po=
+nt: 2025. febr. 15.,
+>>>>>>> Szo 20:17):
+>>>>>>>
+>>>>>>>> Szia Laci, kedd 16.15-ig =C3=A9s ut=C3=A1na 17.45-t=C5=91l j=C3=B3=
+ nekem. Emes=C3=A9=C3=A9ket
+>>>>>>>> tudjuk Szabival hozni-vinni. L.
+>>>>>>>>
+>>>>>>>> On Thu, 13 Feb 2025 at 15:46, L=C3=A1szl=C3=B3 Moln=C3=A1r <
+>>>>>>>> laszlo.junior@gmail.com> wrote:
+>>>>>>>>
+>>>>>>>>> Sziasztok,
+>>>>>>>>>
+>>>>>>>>> Akkor a kedd marad az eddigi jelz=C3=A9sek alapj=C3=A1n...
+>>>>>>>>> Valahol 16-18 =C3=B3ra k=C3=B6z=C3=B6tt lenne j=C3=B3 megtartani.
+>>>>>>>>> K=C3=A9rd=C3=A9s hogy hol?
+>>>>>>>>> 3 =C3=BAj jelentkez=C5=91nk van =C3=B6sszesen, Aur=C3=A9l is tal=
+=C3=A1lt valakit.
+>>>>>>>>>
+>>>>>>>>> =C3=9Cdv.
+>>>>>>>>> Laci
+>>>>>>>>>
+>>>>>>>>> Orsi Wigand <wigand.orsi@balatonboglar.org> ezt =C3=ADrta (id=C5=
+=91pont:
+>>>>>>>>> 2025. febr. 11., K, 23:43):
+>>>>>>>>>
+>>>>>>>>>> J=C3=B6v=C5=91 h=C3=AAt kedd, szerda , cs=C3=BCt d=C3=A8lut=C3=
+=A1n j=C3=B3 nekem .
+>>>>>>>>>> =C3=9Cdv Orsi
+>>>>>>>>>>
+>>>>>>>>>> L=C3=A1szl=C3=B3 Moln=C3=A1r <laszlo.junior@gmail.com> (id=C5=91=
+pont: 2025. febr.
+>>>>>>>>>> 11., K, 19:19) ezt =C3=ADrta:
+>>>>>>>>>>
+>>>>>>>>>>> Sziasztok,
+>>>>>>>>>>>
+>>>>>>>>>>> K=C3=B6zben leker=C3=BClt a lev=C3=A9lr=C5=91l Ica, nem fog bel=
+=C3=A9pni, =C3=A9s Zita is
+>>>>>>>>>>> egyel=C5=91re, mert szint=C3=A9n nem tag.
+>>>>>>>>>>> Most kaptam egy ilyet, majd besz=C3=A9lj=C3=BCk meg mit reag=C3=
+=A1lunk.
+>>>>>>>>>>>
+>>>>>>>>>>> [image: image.png]
+>>>>>>>>>>>
+>>>>>>>>>>> =C3=9Cdv.
+>>>>>>>>>>> Laci
+>>>>>>>>>>>
+>>>>>>>>>>> Plat=C3=A1n Balatonbogl=C3=A1r <platanbalatonboglar@gmail.com> =
+ezt =C3=ADrta
+>>>>>>>>>>> (id=C5=91pont: 2025. febr. 11., K, 15:03):
+>>>>>>>>>>>
+>>>>>>>>>>>> Sziasztok!
+>>>>>>>>>>>> A csoportunk hivatalosan is elfogad=C3=A1sra ker=C3=BClt.
+>>>>>>>>>>>> Tal=C3=A1lkoznunk kell!
+>>>>>>>>>>>> =C3=9Agy t=C5=B1nik, a mai map m=C3=A1r okafogyott lett, de a =
+szombat m=C3=A9g j=C3=B3
+>>>>>>>>>>>> lehet, de k=C3=A9rek mindenkit, hogy =C3=ADrja le a neki j=C3=
+=B3 id=C5=91pontokat, mert =C3=BAgy
+>>>>>>>>>>>> tal=C3=A1n l=C3=A9phet=C3=BCnk el=C5=91re. =C3=89n most 1 h=C3=
+=A9tig b=C3=A1rmely nap d=C3=A9lut=C3=A1nj=C3=A1n tudok id=C5=91t
+>>>>>>>>>>>> szak=C3=ADtani.
+>>>>>>>>>>>> Vannak =C3=BAj jelentkez=C5=91ink.
+>>>>>>>>>>>> Tiszt=C3=A1zni kellene, hogy kire miben, mikor tudunk sz=C3=A1=
+m=C3=ADtani, =C3=A9s
+>>>>>>>>>>>> hogy ki =C3=A9rzi mag=C3=A1t ink=C3=A1bb kispadosnak egyenl=C5=
+=91re.
+>>>>>>>>>>>> Gyors v=C3=A1laszokat k=C3=A9rek a tal=C3=A1lkoz=C3=B3val kapc=
+solatban.
+>>>>>>>>>>>> Aur=C3=A9l
+>>>>>>>>>>>>
+>>>>>>>>>>>>
+>>>>>>>>>>>> L=C3=A1szl=C3=B3 Moln=C3=A1r <laszlo.junior@gmail.com> ezt =C3=
+=ADrta (id=C5=91pont:
+>>>>>>>>>>>> 2025. febr. 10., H, 18:48):
+>>>>>>>>>>>>
+>>>>>>>>>>>>> Sziasztok,
+>>>>>>>>>>>>>
+>>>>>>>>>>>>> Aur=C3=A9llal ker=C3=BClgetj=C3=BCk egym=C3=A1st egy ideje, h=
+ogy kellene egy
+>>>>>>>>>>>>> k=C3=B6vetkez=C5=91 tal=C3=A1lkoz=C3=B3.
+>>>>>>>>>>>>>
+>>>>>>>>>>>>> - K=C3=A9sz van v=C3=A9gre a Tisz=C3=A1s f=C3=A9sz profil, je=
+l=C3=B6ltem ismer=C5=91snek =C3=A9s
+>>>>>>>>>>>>> megh=C3=ADvtam a z=C3=A1rt csopiba. *K=C3=A9rlek jel=C3=B6lje=
+tek vissza, hogy
+>>>>>>>>>>>>> beh=C3=ADvhassalak benneteket a csoportba*, ott nyitunk egy c=
+hatet
+>>>>>>>>>>>>> amin tudunk kommunik=C3=A1lni.
+>>>>>>>>>>>>> - Ha megvan az id=C5=91pont megh=C3=ADvjuk Fenyvesi Melind=C3=
+=A1t, aki a
+>>>>>>>>>>>>> neten jelentkezett =C3=A9s keres szigetet, telefonon besz=C3=
+=A9ltem vele, nagyon j=C3=B3
+>>>>>>>>>>>>> lesz. :)
+>>>>>>>>>>>>> - A k=C3=B6rny=C3=A9kbeli falvakb=C3=B3l (Csehi, Gy=C3=B6r=C3=
+=B6k) jutott nek=C3=BCnk hogy
+>>>>>>>>>>>>> terjeszkedj=C3=BCnk, meg kellene besz=C3=A9lni, hogyan.
+>>>>>>>>>>>>> - Talpra Magyarok bolg=C3=A1ri csopit n=C3=A9zz=C3=BCk meg eg=
+y=C3=BCtt, kit
+>>>>>>>>>>>>> pingelhetn=C3=A9nk meg!?
+>>>>>>>>>>>>> - Egy=C3=A9b
+>>>>>>>>>>>>> - Arra k=C3=A9sz=C3=BClni kell, hogy =C3=BAjra kell d=C3=A1tu=
+moznunk az
+>>>>>>>>>>>>> alakul=C3=A1sunkat, a sziget admin-nak h=C3=ADvott webes fel=
+=C3=BClet miatt.
+>>>>>>>>>>>>> - Esetleg kell-e k=C3=A9sz=C3=BCln=C3=BCnk z=C3=A1szl=C3=B3kk=
+al, hangosbesz=C3=A9l=C5=91vel,
+>>>>>>>>>>>>> t=C3=A1bl=C3=A1kkal, standdal, stb.
+>>>>>>>>>>>>> - Gondoljuk =C3=A1t hogy az el=C5=91bbiekhez kital=C3=A1ljunk=
+ valami
+>>>>>>>>>>>>> finansz=C3=ADroz=C3=A1st... (pl. Lell=C3=A9n havi 3.000Ft-ot =
+dobnak be erre a c=C3=A9lra)
+>>>>>>>>>>>>>
+>>>>>>>>>>>>> Hol legyen =C3=A9s mikor?
+>>>>>>>>>>>>> Nekem a h=C3=A9ten a holnapi nap (02.11) =C3=A9s a szombat (0=
+2.15) lenne
+>>>>>>>>>>>>> alkalmas.
+>>>>>>>>>>>>> B=C3=A1r szombaton Si=C3=B3fokon is lesz valami sze=C3=A1nsz.
+>>>>>>>>>>>>>
+>>>>>>>>>>>>> =C3=9Cdv.
+>>>>>>>>>>>>> Laci & Aur=C3=A9l
+>>>>>>>>>>>>>
+>>>>>>>>>>>>>
+
+--000000000000ff634c062e6d92b5
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><div>Sziasztok,</div><div><br></div><div>El=C5=91sz=C3=B6r=
+ is bocs az er=C3=A9lyes fell=C3=A9p=C3=A9s=C3=A9rt a v=C3=A9g=C3=A9n, de f=
+ontos volt amit akartam... nem magyar=C3=A1zkodom, rem=C3=A9lem =C3=A9rtite=
+k.</div><div><br></div><div>+ Jani hozz=C3=A1adva a levelez=C3=A9shez.</div=
+><div>Melinda nem tudom bel=C3=A9pett-e hivatalosan illetve nincs meg a mai=
+lc=C3=ADme, Emm=C3=A1nak sincs, majd k=C3=A9s=C5=91bb hozz=C3=A1adjuk =C5=
+=91ket.</div><div><br></div>- F=C3=A9szen bejel=C3=B6lni, csoportba bel=C3=
+=A9ptetni Emm=C3=A1t, Melind=C3=A1t, Janit <b>- folyamatban, Laci Jr.</b><d=
+iv>- K=C3=A9rd=C3=A9sekre v=C3=A1laszokra k=C3=A9sz=C3=BClni, QR k=C3=B3dda=
+l, p=C3=A9lda <b>- Laci Jr./Emese</b></div><div>- =C3=96sszeszedni a M=C3=
+=B3ring (meg nem val=C3=B3sult) =C3=ADg=C3=A9reteit minden faluban <b>- fol=
+yamatos projekt lesz</b></div><div>- Tal=C3=A1lkoz=C3=A1sok gyakoris=C3=A1g=
+a, helysz=C3=ADne: <b>Orsi=C3=A9kn=C3=A1l m=C3=A1jusig <font color=3D"#ff00=
+00">(GYAKORIS=C3=81G?) Mikor legyen a k=C3=B6vetkez=C5=91?</font></b></div>=
+<div><div style=3D"color:rgb(80,0,80)">- A k=C3=B6rny=C3=A9kbeli falvakb=C3=
+=B3l (Csehi, Gy=C3=B6r=C3=B6k, Gyugy) jutott nek=C3=BCnk hogy terjeszkedj=
+=C3=BCnk. Gy=C5=B1jts=C3=BCk ki a jel=C3=B6lteket! Facebook hozz=C3=A1sz=C3=
+=B3l=C3=A1sok alapj=C3=A1n (M=C3=B3ring posztok =C3=A9s helyi v=C3=A1rosi c=
+soportokba hozz=C3=A1sz=C3=B3lni) <b>- Emese megn=C3=A9zi M=C3=B3ring poszt=
+jait, Laci Jr. Ordacsehit, Sz=C5=91l=C5=91sgy=C3=B6rk=C3=B6t, Balatonbogl=
+=C3=A1r (sima csopit), Kellene valaki a mosolyg=C3=B3s Bgol=C3=A1rra, mert =
+ott nem vagyok bent, a polgi =C3=A9s a helyi k=C3=A9pvisel=C5=91k profiljai=
+t is meg lehetne n=C3=A9zni, ha lenne r=C3=A1 valaki... k=C3=B6vetkez=C5=91=
+ alkalomra legyenek linkek a jel=C3=B6ltek profilj=C3=A1r=C3=B3l.</b></div>=
+<div style=3D"color:rgb(80,0,80)">- Talpra Magyarok bolg=C3=A1ri csopit n=
+=C3=A9zz=C3=BCk meg egy=C3=BCtt, kit pingelhetn=C3=A9nk meg!? <b>- mindenki=
+ n=C3=A9zze meg hogy =C5=91 kit h=C3=ADvna be =C3=A9s k=C3=B6vetkez=C5=91 a=
+lkalommal besz=C3=A9lj=C3=BCk meg</b></div></div><div>- kifel=C3=A9 kommuni=
+k=C3=A1ljuk-e a megalakul=C3=A1st?</div><div>- Szeri Gabinak mit mondjunk?<=
+/div><div><br></div><div>Ha valamit kihagytam sz=C3=B3ljatok l=C3=A9gyszi.<=
+/div><div><br></div><div>=C3=9Cdv.</div><div>Laci</div></div><br><div class=
+=3D"gmail_quote"><div dir=3D"ltr" class=3D"gmail_attr">L=C3=A1szl=C3=B3 Mol=
+n=C3=A1r &lt;<a href=3D"mailto:laszlo.junior@gmail.com" target=3D"_blank">l=
+aszlo.junior@gmail.com</a>&gt; ezt =C3=ADrta (id=C5=91pont: 2025. febr. 18.=
+, K, 13:28):<br></div><blockquote class=3D"gmail_quote" style=3D"margin:0px=
+ 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204);padding-left:1ex"><di=
+v dir=3D"auto"><div dir=3D"ltr">Sziasztok,<div><br></div><div>M=C3=A9g egys=
+zer k=C3=BClden=C3=A9m a tervezett megbesz=C3=A9lni val=C3=B3kat=C2=A0(fris=
+s=C3=ADtve):</div><div><div>- K=C3=A9sz van v=C3=A9gre a Tisz=C3=A1s=C2=A0f=
+=C3=A9sz profil, jel=C3=B6ltem ismer=C5=91snek =C3=A9s megh=C3=ADvtam a z=
+=C3=A1rt csopiba. <b>Az =C3=BAjakat kell majd beh=C3=ADvni, esetleg a cseve=
+g=C5=91s besz=C3=A9lget=C3=A9seket=C2=A0oda =C3=A1trakni. (Discord)</b></di=
+v><div><b>Adminok jel=C3=B6l=C3=A9se</b></div><div>- <b>Fenyvesi Melinda me=
+gh=C3=ADvva, j=C3=B6n.</b></div><div dir=3D"auto"><b>- D=C3=A1vid J=C3=A1no=
+s =C3=BAton lesz, v=C3=A9lhet=C5=91en nem =C3=A9r oda, de h=C3=ADv ahogy k=
+=C3=B6zeledik.</b></div><div>- A k=C3=B6rny=C3=A9kbeli falvakb=C3=B3l (Cseh=
+i, Gy=C3=B6r=C3=B6k) jutott nek=C3=BCnk hogy terjeszkedj=C3=BCnk, meg kelle=
+ne besz=C3=A9lni, hogyan.</div><div>- Talpra Magyarok bolg=C3=A1ri csopit n=
+=C3=A9zz=C3=BCk meg egy=C3=BCtt, kit pingelhetn=C3=A9nk meg!?</div><div>- S=
+ziget regisztr=C3=A1ci=C3=B3 v=C3=A9gbe ment=C2=A0- Aur=C3=A9l (mikori d=C3=
+=A1tummal)</div><div>- Esetleg kell-e k=C3=A9sz=C3=BCln=C3=BCnk z=C3=A1szl=
+=C3=B3kkal, hangosbesz=C3=A9l=C5=91vel, t=C3=A1bl=C3=A1kkal, standdal, stb.=
+</div><div>- Gondoljuk =C3=A1t hogy az el=C5=91bbiekhez=C2=A0kital=C3=A1lju=
+nk valami finansz=C3=ADroz=C3=A1st... (pl. Lell=C3=A9n havi 3.000Ft-ot dobn=
+ak be erre a c=C3=A9lra) <b>EZ =C3=96NK=C3=89NTES ALAPON, NEM K=C3=96TELEZ=
+=C5=90 LENNE!</b></div></div><div>- <b>=C3=9AJ! </b>=C3=89n szeretn=C3=A9k =
+besz=C3=A9lni a tal=C3=A1lkoz=C3=B3 szervez=C3=A9sr=C5=91l, a j=C3=B6v=C5=
+=91beni kommunik=C3=A1ci=C3=B3r=C3=B3l, mert ezt a mostanit magamra n=C3=A9=
+zve m=C3=A1r k=C3=ADnosnak =C3=A9rzem. A hol k=C3=A9rd=C3=A9se is fontos.</=
+div><div>- <b>=C3=9AJ! </b>A BVE =C3=A9s a sziget (=C3=BCgyeinek) sz=C3=A9t=
+v=C3=A1laszt=C3=A1sa hogyan t=C3=B6rt=C3=A9njen, szerintem kell egy =C3=A9l=
+es vonal.</div><div>- <b>=C3=9AJ! </b>=C3=9Aj bel=C3=A9p=C5=91k bemutat=C3=
+=A1sa, bemutatkoz=C3=A1sa.</div><div>- Egy=C3=A9b</div><div><br></div><div>=
+=C3=9Cdv.</div><div>Laci</div></div><br><div class=3D"gmail_quote"><div dir=
+=3D"ltr" class=3D"gmail_attr">L=C3=A1szl=C3=B3 Steiner &lt;<a href=3D"mailt=
+o:steiner@slp.hu" rel=3D"noreferrer" target=3D"_blank">steiner@slp.hu</a>&g=
+t; ezt =C3=ADrta (id=C5=91pont: 2025. febr. 17., H, 16:36):<br></div><block=
+quote class=3D"gmail_quote" style=3D"margin:0px 0px 0px 0.8ex;border-left:1=
+px solid rgb(204,204,204);padding-left:1ex"><div dir=3D"ltr">Sziasztok,<div=
+>kedd 15-16-ig j=C3=B3 n=C3=A1lunk, de ut=C3=A1na itt m=C3=A1sik tal=C3=A1l=
+koz=C3=B3 lesz.</div><div>Felaj=C3=A1nlom=C2=A0az online r=C3=A9szv=C3=A9te=
+lt, aki =C3=BAgy szeretne bel=C3=A9pni, zoom-on tudom biztos=C3=ADtani.=C2=
+=A0</div><div>L.</div></div><br><div class=3D"gmail_quote"><div dir=3D"ltr"=
+ class=3D"gmail_attr">On Mon, 17 Feb 2025 at 13:41, L=C3=A1szl=C3=B3 Moln=
+=C3=A1r &lt;<a href=3D"mailto:laszlo.junior@gmail.com" rel=3D"noreferrer" t=
+arget=3D"_blank">laszlo.junior@gmail.com</a>&gt; wrote:<br></div><blockquot=
+e class=3D"gmail_quote" style=3D"margin:0px 0px 0px 0.8ex;border-left:1px s=
+olid rgb(204,204,204);padding-left:1ex"><div dir=3D"auto">M=C3=A1rti n=C3=
+=A9ni=C3=A9k nem lesznek, Lacinak =C3=ADrt=C3=A1k.<div dir=3D"auto">=C3=8Dg=
+y akkor r=C3=A1k=C3=A9rdezek kedd 15:00 Laci=C3=A9kn=C3=A1l esetleg?</div><=
+div dir=3D"auto"><br></div><div dir=3D"auto">K=C3=A9rlek benneteket miel=C5=
+=91bb jussunk d=C5=B1l=C5=91re, hogy a 2-3 =C3=BAj embernek is tudjuk monda=
+ni m=C3=A9g ma!</div><div dir=3D"auto"><br></div><div dir=3D"auto">K=C3=B6s=
+zi</div><div dir=3D"auto">Laci</div></div><br><div class=3D"gmail_quote"><d=
+iv dir=3D"ltr" class=3D"gmail_attr">Orsi Wigand &lt;<a href=3D"mailto:wigan=
+d.orsi@balatonboglar.org" rel=3D"noreferrer" target=3D"_blank">wigand.orsi@=
+balatonboglar.org</a>&gt; ezt =C3=ADrta (id=C5=91pont: 2025. febr. 17., H 1=
+3:18):<br></div><blockquote class=3D"gmail_quote" style=3D"margin:0px 0px 0=
+px 0.8ex;border-left:1px solid rgb(204,204,204);padding-left:1ex"><div dir=
+=3D"auto">Nekem kedden mindkett=C5=91 j=C3=B3.</div><div dir=3D"auto"><br><=
+/div><div dir=3D"auto"><br><div class=3D"gmail_quote" dir=3D"auto"><div dir=
+=3D"ltr" class=3D"gmail_attr">L=C3=A1szl=C3=B3 Moln=C3=A1r &lt;<a href=3D"m=
+ailto:laszlo.junior@gmail.com" rel=3D"noreferrer noreferrer" target=3D"_bla=
+nk">laszlo.junior@gmail.com</a>&gt; (id=C5=91pont: 2025. febr. 17., H, 10:1=
+1) ezt =C3=ADrta:<br></div><blockquote class=3D"gmail_quote" style=3D"margi=
+n:0px 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204);padding-left:1ex=
+"><div dir=3D"auto">Mindk=C3=A9t id=C5=91pontot...<div dir=3D"auto">Nekem m=
+indegy melyik id=C5=91pontban lesz.</div><div dir=3D"auto">Csak mondjunk va=
+lamit v=C3=A9gre, mert alig akar =C3=B6sszej=C3=B6nni =C3=BAgy l=C3=A1tom</=
+div><div dir=3D"auto">;)</div></div><br><div class=3D"gmail_quote"><div dir=
+=3D"ltr" class=3D"gmail_attr">L=C3=A1szl=C3=B3 Steiner &lt;<a href=3D"mailt=
+o:steiner@slp.hu" rel=3D"noreferrer noreferrer" target=3D"_blank">steiner@s=
+lp.hu</a>&gt; ezt =C3=ADrta (id=C5=91pont: 2025. febr. 17., H 8:36):<br></d=
+iv><blockquote class=3D"gmail_quote" style=3D"margin:0px 0px 0px 0.8ex;bord=
+er-left:1px solid rgb(204,204,204);padding-left:1ex"><div dir=3D"ltr">??? n=
+em =C3=A9rtem, mi az a mindkett=C5=91, amit megoldasz? L.</div><br><div cla=
+ss=3D"gmail_quote"><div dir=3D"ltr" class=3D"gmail_attr">On Mon, 17 Feb 202=
+5 at 08:12, L=C3=A1szl=C3=B3 Moln=C3=A1r &lt;<a href=3D"mailto:laszlo.junio=
+r@gmail.com" rel=3D"noreferrer noreferrer noreferrer" target=3D"_blank">las=
+zlo.junior@gmail.com</a>&gt; wrote:<br></div><blockquote class=3D"gmail_quo=
+te" style=3D"margin:0px 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204=
+);padding-left:1ex"><div dir=3D"auto">Sziasztok,<div dir=3D"auto"><br></div=
+><div dir=3D"auto">=C3=89n mindkett=C5=91t megoldom.</div><div dir=3D"auto"=
+><br></div><div dir=3D"auto">HOL?</div><div dir=3D"auto"><br></div><div dir=
+=3D"auto">=C3=9Cdv.</div><div dir=3D"auto">Laci</div><br><br><div class=3D"=
+gmail_quote" dir=3D"auto"><div dir=3D"ltr" class=3D"gmail_attr">L=C3=A1szl=
+=C3=B3 Steiner &lt;<a href=3D"mailto:steiner@slp.hu" rel=3D"noreferrer nore=
+ferrer noreferrer" target=3D"_blank">steiner@slp.hu</a>&gt; ezt =C3=ADrta (=
+id=C5=91pont: 2025. febr. 15., Szo 20:17):<br></div><blockquote class=3D"gm=
+ail_quote" style=3D"margin:0px 0px 0px 0.8ex;border-left:1px solid rgb(204,=
+204,204);padding-left:1ex"><div dir=3D"ltr">Szia Laci, kedd 16.15-ig =C3=A9=
+s ut=C3=A1na 17.45-t=C5=91l j=C3=B3 nekem. Emes=C3=A9=C3=A9ket tudjuk Szabi=
+val hozni-vinni. L.</div><br><div class=3D"gmail_quote"><div dir=3D"ltr" cl=
+ass=3D"gmail_attr">On Thu, 13 Feb 2025 at 15:46, L=C3=A1szl=C3=B3 Moln=C3=
+=A1r &lt;<a href=3D"mailto:laszlo.junior@gmail.com" rel=3D"noreferrer noref=
+errer noreferrer noreferrer" target=3D"_blank">laszlo.junior@gmail.com</a>&=
+gt; wrote:<br></div><blockquote class=3D"gmail_quote" style=3D"margin:0px 0=
+px 0px 0.8ex;border-left:1px solid rgb(204,204,204);padding-left:1ex"><div =
+dir=3D"ltr">Sziasztok,<div><br></div><div>Akkor a kedd marad az eddigi jelz=
+=C3=A9sek alapj=C3=A1n...</div><div>Valahol 16-18 =C3=B3ra k=C3=B6z=C3=B6tt=
+ lenne j=C3=B3 megtartani.</div><div>K=C3=A9rd=C3=A9s hogy hol?</div><div>3=
+ =C3=BAj jelentkez=C5=91nk van =C3=B6sszesen, Aur=C3=A9l is tal=C3=A1lt val=
+akit.</div><div><br></div><div>=C3=9Cdv.</div><div>Laci</div></div><br><div=
+ class=3D"gmail_quote"><div dir=3D"ltr" class=3D"gmail_attr">Orsi Wigand &l=
+t;<a href=3D"mailto:wigand.orsi@balatonboglar.org" rel=3D"noreferrer norefe=
+rrer noreferrer noreferrer" target=3D"_blank">wigand.orsi@balatonboglar.org=
+</a>&gt; ezt =C3=ADrta (id=C5=91pont: 2025. febr. 11., K, 23:43):<br></div>=
+<blockquote class=3D"gmail_quote" style=3D"margin:0px 0px 0px 0.8ex;border-=
+left:1px solid rgb(204,204,204);padding-left:1ex"><div dir=3D"auto">J=C3=B6=
+v=C5=91 h=C3=AAt kedd, szerda , cs=C3=BCt d=C3=A8lut=C3=A1n j=C3=B3 nekem .=
+</div><div dir=3D"auto">=C3=9Cdv Orsi</div><div dir=3D"auto"><br><div class=
+=3D"gmail_quote" dir=3D"auto"><div dir=3D"ltr" class=3D"gmail_attr">L=C3=A1=
+szl=C3=B3 Moln=C3=A1r &lt;<a href=3D"mailto:laszlo.junior@gmail.com" rel=3D=
+"noreferrer noreferrer noreferrer noreferrer" target=3D"_blank">laszlo.juni=
+or@gmail.com</a>&gt; (id=C5=91pont: 2025. febr. 11., K, 19:19) ezt =C3=ADrt=
+a:<br></div><blockquote class=3D"gmail_quote" style=3D"margin:0px 0px 0px 0=
+.8ex;border-left:1px solid rgb(204,204,204);padding-left:1ex"><div dir=3D"l=
+tr">Sziasztok,<div><br></div><div>K=C3=B6zben leker=C3=BClt a lev=C3=A9lr=
+=C5=91l Ica, nem fog bel=C3=A9pni, =C3=A9s Zita is egyel=C5=91re, mert szin=
+t=C3=A9n nem tag.</div><div>Most kaptam egy ilyet, majd besz=C3=A9lj=C3=BCk=
+ meg mit reag=C3=A1lunk.</div><div><br></div><div><img src=3D"https://mail.=
+google.com/mail/?ui=3D2&amp;ik=3D6833141f87&amp;attid=3D0.1&amp;th=3D195188=
+f02a998d2a&amp;view=3Dfimg&amp;fur=3Dip&amp;rm=3D195188f02a998d2a&amp;sz=3D=
+w1600-h1000&amp;attbid=3DANGjdJ-Iof1m2q0AUJo-fkVzPpcuZTkUB3lWunlV1aRFnmrblu=
+osQyipjetAXjX0kIOPdbimZlHL600CjrjtDUOFbWJq4nyqX4ZAwEtDQ23OFpNOSKSErECluZz4w=
+Lc&amp;disp=3Demb&amp;realattid=3Dii_m70t37280&amp;zw" alt=3D"image.png" st=
+yle=3D"width: 283px; max-width: 100%;"><br></div><div><br></div><div>=C3=9C=
+dv.</div><div>Laci</div></div><br><div class=3D"gmail_quote"><div dir=3D"lt=
+r" class=3D"gmail_attr">Plat=C3=A1n Balatonbogl=C3=A1r &lt;<a href=3D"mailt=
+o:platanbalatonboglar@gmail.com" rel=3D"noreferrer noreferrer noreferrer no=
+referrer" target=3D"_blank">platanbalatonboglar@gmail.com</a>&gt; ezt =C3=
+=ADrta (id=C5=91pont: 2025. febr. 11., K, 15:03):<br></div><blockquote clas=
+s=3D"gmail_quote" style=3D"margin:0px 0px 0px 0.8ex;border-left:1px solid r=
+gb(204,204,204);padding-left:1ex"><div dir=3D"ltr">Sziasztok!<div>A csoport=
+unk hivatalosan is elfogad=C3=A1sra ker=C3=BClt.<br><div>Tal=C3=A1lkoznunk =
+kell!</div><div>=C3=9Agy t=C5=B1nik, a mai map m=C3=A1r okafogyott lett, de=
+ a szombat m=C3=A9g j=C3=B3 lehet, de k=C3=A9rek mindenkit, hogy =C3=ADrja =
+le a neki j=C3=B3 id=C5=91pontokat, mert =C3=BAgy tal=C3=A1n l=C3=A9phet=C3=
+=BCnk el=C5=91re. =C3=89n most 1 h=C3=A9tig b=C3=A1rmely=C2=A0nap d=C3=A9lu=
+t=C3=A1nj=C3=A1n tudok id=C5=91t szak=C3=ADtani.</div><div>Vannak =C3=BAj j=
+elentkez=C5=91ink.=C2=A0</div><div>Tiszt=C3=A1zni kellene, hogy kire miben,=
+ mikor tudunk sz=C3=A1m=C3=ADtani, =C3=A9s hogy ki =C3=A9rzi mag=C3=A1t ink=
+=C3=A1bb kispadosnak egyenl=C5=91re.</div><div>Gyors v=C3=A1laszokat k=C3=
+=A9rek a tal=C3=A1lkoz=C3=B3val kapcsolatban.</div><div>Aur=C3=A9l</div><di=
+v><br></div></div></div><br><div class=3D"gmail_quote"><div dir=3D"ltr" cla=
+ss=3D"gmail_attr">L=C3=A1szl=C3=B3 Moln=C3=A1r &lt;<a href=3D"mailto:laszlo=
+.junior@gmail.com" rel=3D"noreferrer noreferrer noreferrer noreferrer" targ=
+et=3D"_blank">laszlo.junior@gmail.com</a>&gt; ezt =C3=ADrta (id=C5=91pont: =
+2025. febr. 10., H, 18:48):<br></div><blockquote class=3D"gmail_quote" styl=
+e=3D"margin:0px 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204);paddin=
+g-left:1ex"><div dir=3D"ltr">Sziasztok,<div><br></div><div>Aur=C3=A9llal ke=
+r=C3=BClgetj=C3=BCk egym=C3=A1st egy ideje, hogy kellene egy k=C3=B6vetkez=
+=C5=91 tal=C3=A1lkoz=C3=B3.</div><div><br></div><div>- K=C3=A9sz van v=C3=
+=A9gre a Tisz=C3=A1s=C2=A0f=C3=A9sz profil, jel=C3=B6ltem ismer=C5=91snek =
+=C3=A9s megh=C3=ADvtam a z=C3=A1rt csopiba. <b>K=C3=A9rlek jel=C3=B6ljetek =
+vissza, hogy beh=C3=ADvhassalak=C2=A0benneteket a csoportba</b>, ott nyitun=
+k egy chatet amin tudunk kommunik=C3=A1lni.</div><div>- Ha megvan az id=C5=
+=91pont megh=C3=ADvjuk Fenyvesi Melind=C3=A1t, aki a neten jelentkezett =C3=
+=A9s keres szigetet, telefonon besz=C3=A9ltem vele, nagyon j=C3=B3 lesz. :)=
+</div><div>- A k=C3=B6rny=C3=A9kbeli falvakb=C3=B3l (Csehi, Gy=C3=B6r=C3=B6=
+k) jutott nek=C3=BCnk hogy terjeszkedj=C3=BCnk, meg kellene besz=C3=A9lni, =
+hogyan.</div><div>- Talpra Magyarok bolg=C3=A1ri csopit n=C3=A9zz=C3=BCk me=
+g egy=C3=BCtt, kit pingelhetn=C3=A9nk meg!?</div><div>- Egy=C3=A9b</div><di=
+v>- Arra k=C3=A9sz=C3=BClni kell, hogy =C3=BAjra kell d=C3=A1tumoznunk=C2=
+=A0az alakul=C3=A1sunkat, a sziget admin-nak h=C3=ADvott webes fel=C3=BClet=
+ miatt.</div><div>- Esetleg kell-e k=C3=A9sz=C3=BCln=C3=BCnk z=C3=A1szl=C3=
+=B3kkal, hangosbesz=C3=A9l=C5=91vel, t=C3=A1bl=C3=A1kkal, standdal, stb.</d=
+iv><div>- Gondoljuk =C3=A1t hogy az el=C5=91bbiekhez=C2=A0kital=C3=A1ljunk =
+valami finansz=C3=ADroz=C3=A1st... (pl. Lell=C3=A9n havi 3.000Ft-ot dobnak =
+be erre a c=C3=A9lra)</div><div><br></div><div>Hol legyen =C3=A9s mikor?</d=
+iv><div>Nekem a h=C3=A9ten a holnapi nap (02.11) =C3=A9s a szombat (02.15) =
+lenne alkalmas.</div><div>B=C3=A1r szombaton Si=C3=B3fokon is lesz valami s=
+ze=C3=A1nsz.</div><div><br></div><div>=C3=9Cdv.</div><div>Laci &amp; Aur=C3=
+=A9l</div><div><br></div></div>
+</blockquote></div>
+</blockquote></div>
+</blockquote></div></div>
+</blockquote></div>
+</blockquote></div>
+</blockquote></div></div>
+</blockquote></div>
+</blockquote></div>
+</blockquote></div></div>
+</blockquote></div>
+</blockquote></div>
+</blockquote></div></div>
+</blockquote></div>
+
+--000000000000ff634c062e6d92b5--

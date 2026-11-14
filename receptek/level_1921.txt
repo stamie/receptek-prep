@@ -1,0 +1,98 @@
+Delivered-To: estampel@gmail.com
+Received: by 2002:a05:622a:548d:b0:4a6:f56e:4e30 with SMTP id ep13csp1275270qtb;
+        Mon, 9 Jun 2025 08:50:43 -0700 (PDT)
+X-Received: by 2002:a17:907:6d22:b0:ad5:78ca:2126 with SMTP id a640c23a62f3a-ade1aa109c2mr1283995866b.59.1749484243130;
+        Mon, 09 Jun 2025 08:50:43 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1749484243; cv=none;
+        d=google.com; s=arc-20240605;
+        b=UTOFiVpqqVctl0zQ0WcwOdqsIWI2G/9wFLHN7L6VYHtdFdFt1E+SGGDK6AQTcZ/18U
+         zhE2FFMbhjOmH4Rg4juMo9qvR66sZATDeyFDMBXFwKQ+TO+CgHnEhG0FCxA1hdi1cuHR
+         jMiPtzkWN9QMJi8AS+RNY9FH/zST6ZidtDYe2GxXbZqdUkb8Ft50/K4hwEsgK4oJjLAF
+         1ctT/ZoZodOuoJcelCPqqSMgml1CiuW16gDale6oKFWqLSdhgjoD2ERKZSqEb2eyZ9Xu
+         6T6AnSxdzRhwgYe+MQxVCcV3zUFPQ5eztJzZg/87P3XMqq6IoF8yfQZIZJShAtDGi5aG
+         RKYg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=MFTf19bEFe+89/yHq7MlF72ZDpaZRmh5FW+UmdNgO0Q=;
+        fh=wF/Yrd2E0xeKwPH74kML7cQSth+Fl4bwhVNrybJ4uh4=;
+        b=J230Hv36B+58lkc4JZV4T8IMseANT7u5DLzKJe5rimhYzAEC+wmixVXrxAca5ry9hs
+         JSE9KpR2OjY5JzbQTfWpMDMxUq/cD5JF0XZyppexD2EvZzvFZE1qDlStIbIRLzwUb0wc
+         8npbYwVo1g7KxUlIt0JW9wMCVASz8xVr+5HBj0Xr/PE57J0zI63/9areCTnkEU+EDSsk
+         w+q6pmgfZ0nmc4q//D4WhzAWRvGHkC3oqzhavlOMKoe5CuE+fZk12/Kuow8cTvFDtEVl
+         4i2wz2clD3t8o4nNh8bcXWrkhaLqBoPARerRvO1whnc6DXTjpM/SRZ0064ITwCfiYQrg
+         CSvg==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=my20b+AH;
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <banyus53@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id a640c23a62f3a-ade1db5b0f8sor323399866b.5.2025.06.09.08.50.42
+        for <estampel@gmail.com>
+        (Google Transport Security);
+        Mon, 09 Jun 2025 08:50:43 -0700 (PDT)
+Received-SPF: pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=my20b+AH;
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1749484242; x=1750089042; dara=google.com;
+        h=to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=MFTf19bEFe+89/yHq7MlF72ZDpaZRmh5FW+UmdNgO0Q=;
+        b=my20b+AHpmaBh/sd7WuOWQJNzxQnGvXJHjMw68TqHnanJZjuRUQfA0VMLvvsqjKYsC
+         EC1hx6UGXe0dI3bkCkxtA6C8GuZgNkSwzWzM8zIIGt1v0AEC5iHs/13ah/mYTq5bcUif
+         wUQe3lAUiGlj55Hxzs1CNGC9onBEN7Lmgv1e0KDclpnxNGC1Ytn86FogvbtJrxAbsoHt
+         ypM1hTp55daYzrDSrL+ijCmeTNTnwhDHSRf3PHQro2NbW3pilC27Aa/BJfo+zruTKB1Y
+         7K7glMwDw3+a+Wk5A5rQPjUseJw/l772IZ/zlMhwmS1isxx/ejvgkmHEJ817edQzyYQO
+         CMGg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749484242; x=1750089042;
+        h=to:subject:message-id:date:from:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=MFTf19bEFe+89/yHq7MlF72ZDpaZRmh5FW+UmdNgO0Q=;
+        b=bagAGBETY0ApV9R/AS6EDdUQv+9tWhjkLKDHAsGkL9hCOh+yCQRiEyfBSJjpmMgBlQ
+         epjxCmP+K8DOneEpDPVRFtmCxvsOK7E98hW2BgE/Xex23bUwpjZy9g2/NFQU7/12FWFR
+         6MLaPo0RTxcwJs8m8gLtxmu+ng1xQSh5Y6GuJ9LYP8B50ZGfggU7FrPd/oNygPl2MDS+
+         MZe66Ajd+9klAHZp+9ko32ACvQJqtCOcHlFXD4xi3lU/jA1Y4hRMKfXX2Ve16bo44ZO3
+         QT8lL2xLZBGqgDK0zCc2jh5k7/Q4duQJFhg/K3TphOkXF7TtiYsW4ih+9afMXmPcE6Ca
+         ap6Q==
+X-Gm-Message-State: AOJu0YyYU7SSCdK11BqvzmwY4bqK22JYa3coVjU6R1fKF471Za97myCO
+	yoVTiUh+WaS3PyxaLN7uPilbs+5D22EAAH9JL4ZgkdtUhDDAucMDjm8MFtyZivtEy0is/1CyJF8
+	rT3ME02BjFwCSRgbT8DGNi70R5J9IKjRBcA==
+X-Gm-Gg: ASbGnculxnWr4tZ3yyvL3wE5w0Cx3c+m8yJ8uZlkCavdSvyImqaguayEqJo4n6N4Vn2
+	GAHBVZcWiOBkzDsarkaHNfmoGSE3L+iRKvPXuHZXHs1HvBz2jV+UAjujXOq+RGdqbTtZH2HN5iJ
+	pAJGDpAZjtFJ8vhRoeRmUymNffeo6SOC8=
+X-Google-Smtp-Source: AGHT+IGXGnzIFXYLRI1vT8uuaDqKIcn4Dbq2fOkPj7dHkb6AVl9QP/228bdPQN3RrN4S5LLhjqLO7Gehx+hiBvCUxws=
+X-Received: by 2002:a17:907:2d92:b0:ad2:4b0c:ee8c with SMTP id
+ a640c23a62f3a-ade1a92d206mr1220977566b.35.1749484242211; Mon, 09 Jun 2025
+ 08:50:42 -0700 (PDT)
+MIME-Version: 1.0
+From: =?UTF-8?B?w4FnbmVzIEJ1Z8Ohcg==?= <banyus53@gmail.com>
+Date: Mon, 9 Jun 2025 17:50:30 +0200
+X-Gm-Features: AX0GCFv0UrL8G-_D6tLam-DCP-J2kFy1rr0Mj2WKy8TTxoCuoIMVUBfZb7g0xS0
+Message-ID: <CA+39czWJFuYcXRSr+tLvwMPStkc69z_Ue6+jVPEGWTtNdpk_MA@mail.gmail.com>
+Subject: =?UTF-8?Q?S=C3=A1rgabors=C3=B3_Fas=C3=ADrt_=7C_Mona_Teiszler_receptje_=2D_Cook?=
+	=?UTF-8?Q?pad_receptek?=
+To: Emese Stampel <estampel@gmail.com>
+Content-Type: multipart/alternative; boundary="000000000000cc19280637258ab2"
+
+--000000000000cc19280637258ab2
+Content-Type: text/plain; charset="UTF-8"
+
+https://cookpad.com/hu/receptek/11613808-sargaborso-fasirt?ref=search&search_term=s%C3%A1rgabors%C3%B3+fas%C3%ADrt
+
+--000000000000cc19280637258ab2
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"auto"><a href=3D"https://cookpad.com/hu/receptek/11613808-sarga=
+borso-fasirt?ref=3Dsearch&amp;search_term=3Ds%C3%A1rgabors%C3%B3+fas%C3%ADr=
+t">https://cookpad.com/hu/receptek/11613808-sargaborso-fasirt?ref=3Dsearch&=
+amp;search_term=3Ds%C3%A1rgabors%C3%B3+fas%C3%ADrt</a>=C2=A0</div>
+
+--000000000000cc19280637258ab2--

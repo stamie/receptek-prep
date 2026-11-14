@@ -1,0 +1,129 @@
+Delivered-To: estampel@gmail.com
+Received: by 2002:a05:6359:5195:b0:1d2:9cb:7268 with SMTP id od21csp1739916rwb;
+        Fri, 31 Jan 2025 13:22:03 -0800 (PST)
+X-Forwarded-Encrypted: i=2; AJvYcCXo4b61RFxAmISrifFeujQFtcZnYb3IpySPuPIs+JwFqb15D5AVp39JkfvquXAdEYkGMIyL++1mTQ==@gmail.com
+X-Received: by 2002:a05:6902:1a44:b0:e5a:cece:f371 with SMTP id 3f1490d57ef6-e5acecef6b6mr6119589276.11.1738358523634;
+        Fri, 31 Jan 2025 13:22:03 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1738358523; cv=none;
+        d=google.com; s=arc-20240605;
+        b=XYjbQtb1bz4XhZUMXUukiIHUWm1vUPHksi4sMvl26d6+ZOTVZQr+RhPJ1UiXfTRsQX
+         sluWp7x+dTdD6pb+dXRGle+jAIVRxUBD/tUNBXytAuY5RFQN2bpzjwovHFOElrpx+lSb
+         6uGN3AGW0o6BCWFE7iKCDeqZyYiorNWFGre2gHkC12kexs09n3PinNNkfPx2RjXactYo
+         oCrR0q9IrprmsxfYhxbHze+mHjHls66+mwj487/QBjulDIyJnd25uGSBpduZDJxsyfKT
+         lpnhQgLFy0eWsa5vgCV4GgEHWwgaOU3G9Obc6+phEN65B0g4trR7/iZA1P4KY9oZDPYJ
+         e5MQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=nxlpEV++f/fNLWkHBvBcg+C6+A9k5YbJ4Oi2ufw6qqU=;
+        fh=jxxXxO0IbEzUy+hDvmls+eFwFRX12ncyRyW5dhhHxIE=;
+        b=hvZA1NQDaiojcnAO50S8ARWGA5dGkH/TDusu8NQK3S6cPDUJyLeO6nnyegW3sAWNEO
+         YBwSfQpwT4plnsfyHhy44tyCbyfueZvZC78n8Iax/RiRmHMnWUqtTCWKR9UrdGUo5w3A
+         +WgUgqWzotPcR1mHq/MsCf14B5QQoE0+1ryOHN/j5cIy5LXwa2e3f2Hbma8djsXGJYf+
+         sHj0PayzDUs8WrGN+veanULtBSCqZ4cdlQnRSorPG/7+lBTqzlOalvb5+X4+8xffs0aY
+         PvtI4s2CcyNH7o6Iw07weC5340GrHpLb8ce8W3KbfzPomY6e/TdxMi2wqOsbZuNHVigW
+         WIKw==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=XqupgZ23;
+       spf=pass (google.com: domain of laszlo.junior@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=laszlo.junior@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <laszlo.junior@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id 3f1490d57ef6-e5acb3fa6c8sor2430833276.11.2025.01.31.13.22.03
+        (Google Transport Security);
+        Fri, 31 Jan 2025 13:22:03 -0800 (PST)
+Received-SPF: pass (google.com: domain of laszlo.junior@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=XqupgZ23;
+       spf=pass (google.com: domain of laszlo.junior@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=laszlo.junior@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1738358523; x=1738963323; dara=google.com;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=nxlpEV++f/fNLWkHBvBcg+C6+A9k5YbJ4Oi2ufw6qqU=;
+        b=XqupgZ23LRGFr9+cTFhGrc9JVvjqgMKQrItSeuneOFkEQvSMJY1o6UgOm1B1zh712l
+         I5vwqOh7lUn/PjNJG87Vmr+4winBNh1jMT2YPSY55a3YfD0KOjOq3yIzKUeCX9kMKA0x
+         bQRtdZsppXpSrqrH/Vl9DnXWGjjyXPOtH6Va49BXEMbpmfxfegDljSaw70FdtCp6YmGA
+         5dgKxrNOcWFMekHeailffm0mxb5IfQNUSJDvoV7FY7zeZzQxhOxhs5ayzhUShazklYUY
+         DRf5P0LPps9zEok0nkDSIgzFywmE8/qBjJbvrZSDiG8z6K0+qY4WYt0CcX+sxzncNJF0
+         HzUQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738358523; x=1738963323;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=nxlpEV++f/fNLWkHBvBcg+C6+A9k5YbJ4Oi2ufw6qqU=;
+        b=MHGnPtbSV3v7voEHa7EdCaQ2FUY5QfbSdACGIc/8/IQyf02lZdjHi6tYWEUXPYn0Oi
+         BjXyA76725FYDGeRwMMtYlOsbBZUoHKJIlSVbc8BZH9FXfaSePJlaC4+ydUkRa8izWd2
+         tUPM116bsESAaBdZolnIHhN8DNst5FE7RvW6eDarU6g4uzc5LOkGev+WtuyzG5up8rxt
+         RK9hF+rTS4SUp8hklCSigbP5JhIUJCUDHN7ADwZHmOlKrlGpoCpOsdHYqoVRW1ObmSxf
+         vJ3sWToYU1x4YxBqLpfnQH4BMNHk5drKBFpPaF0e8LA5iGJKcrTdORLXKerS+G94IN8J
+         qhMQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVHsLeqOj4hIJ1pF1PT/Qes2PuTo2/14PxKiyx9j6NGRkTVgOaOW/Ae4kkq1+zgRLyklJt4UIg5QJrMdMdJHw==@gmail.com, AJvYcCVasMCIbe+qZqx2JIRYNv5QAHDZi2q/aWrKPwlFuFYE1SVp5l7z6JHbeBGpxy2mFo5iJbFI9TIVMlDS23MOnj0=@gmail.com, AJvYcCVpY7uKi/f2lV5o89sNqy+ARwXTCIgPUzZUxddMYS/6mcdAfj4J+UCBAkFKRZqrsuvjYe6LkoMl4zO7/857zw==@gmail.com, AJvYcCXLkxVyFZ9AHpn39XFJJyWmISJnDNaqdrKveFISeCztyu7V4cez/ffQ70y8PLHEpx2gYpj+H8zHfA==@gmail.com, AJvYcCXW24nCMfIXheohnfM8FYU1QKoyy+lFhch3VPTWB+xT8/OJIrm6Xxfmi4mxJkUWMXaSkgPFl1/+eYHkWWQ=@gmail.com
+X-Gm-Message-State: AOJu0Yw7+qegMTk/7bL7pNJ7Jz0Lb9YtRxHCwziivhBF2JYRm7rEam26
+	/twOtykk4AGOpN/0hAo7Z4M0Y9HT2P5Hce52kF5BeG+MdqKS8eI7+XiYD0929r1iAVZzWI9cGRu
+	czgySXJ/Q8xG6jfmVTOg6jGa+J17HQDGB
+X-Gm-Gg: ASbGncv7Wn1nfutFpq20P0kJDhYUh9rbfgi7F/XAgkRlR9IiuPaZHEVTzupEwUWsRDG
+	+xvrF1vH4zZGeMMgy4XCTlRnOSk0Iug4dcmzngPidncb1GUTfjEf9Xmzc39qoC/KC+1UQq3ioIj
+	8=
+X-Google-Smtp-Source: AGHT+IGgmnpJVtvqNy9ZYCu1KCEfYqYAEtHA46htLqdAJzZySqtVkqqaWpKQ9elfEHtuvCPfuhMTz8FQQuP9rGUgYDI=
+X-Received: by 2002:a05:6902:20c2:b0:e58:7aa:7de4 with SMTP id
+ 3f1490d57ef6-e58a4bf6003mr9776103276.45.1738358523091; Fri, 31 Jan 2025
+ 13:22:03 -0800 (PST)
+MIME-Version: 1.0
+References: <CAHvQ8VK-NvHmkY=gJTpbYA+S5gz1qU58dcCjLmRf4asLU8n8fw@mail.gmail.com>
+In-Reply-To: <CAHvQ8VK-NvHmkY=gJTpbYA+S5gz1qU58dcCjLmRf4asLU8n8fw@mail.gmail.com>
+From: =?UTF-8?B?TMOhc3psw7MgTW9sbsOhcg==?= <laszlo.junior@gmail.com>
+Date: Fri, 31 Jan 2025 22:21:52 +0100
+X-Gm-Features: AWEUYZl0l4jggSYPybOEA3-Pib82LYLHBX1I2o4WlwIk6zU8cNbqdri4YT6ztbI
+Message-ID: <CALi7w6uppZC3bUzVr1-CC8dMOXGDzHZcffn1k4eyQJAEf3-6Ug@mail.gmail.com>
+Subject: Re: Jkv
+To: =?UTF-8?B?TMOhc3psw7MgU3RlaW5lcg==?= <steiner@slp.hu>
+Cc: "banyus53@gmail.com" <banyus53@gmail.com>, EStampel@gmail.com, 
+	Soltine Marta <soltine.marta@gmail.com>, 
+	"istvansolti53@gmail.com" <istvansolti53@gmail.com>, polnik.aurel66@gmail.com, 
+	"orsitiszabb@gmail.com" <orsitiszabb@gmail.com>
+Content-Type: multipart/alternative; boundary="00000000000042e495062d07220d"
+
+--00000000000042e495062d07220d
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Sziasztok,
+
+Majd mindig feldobok mindent a drive-ra is...
+
+=C3=9Cdv.
+Laci
+
+L=C3=A1szl=C3=B3 Steiner <steiner@slp.hu> ezt =C3=ADrta (id=C5=91pont: 2025=
+. jan. 31., P,
+22:17):
+
+> Sziasztok, itt k=C3=BCld=C3=B6m a mai alakul=C3=B3 =C3=BCl=C3=A9s jegyz=
+=C5=91k=C3=B6nyv=C3=A9t.
+> =C3=9Cdv, Laci
+>
+>
+
+--00000000000042e495062d07220d
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr">Sziasztok,<div><br></div><div>Majd mindig feldobok mindent=
+ a drive-ra is...</div><div><br></div><div>=C3=9Cdv.</div><div>Laci</div></=
+div><br><div class=3D"gmail_quote gmail_quote_container"><div dir=3D"ltr" c=
+lass=3D"gmail_attr">L=C3=A1szl=C3=B3 Steiner &lt;<a href=3D"mailto:steiner@=
+slp.hu">steiner@slp.hu</a>&gt; ezt =C3=ADrta (id=C5=91pont: 2025. jan. 31.,=
+ P, 22:17):<br></div><blockquote class=3D"gmail_quote" style=3D"margin:0px =
+0px 0px 0.8ex;border-left:1px solid rgb(204,204,204);padding-left:1ex"><div=
+ dir=3D"ltr">Sziasztok, itt k=C3=BCld=C3=B6m a mai alakul=C3=B3 =C3=BCl=C3=
+=A9s=C2=A0jegyz=C5=91k=C3=B6nyv=C3=A9t.<div>=C3=9Cdv, Laci</div><div><br></=
+div></div>
+</blockquote></div>
+
+--00000000000042e495062d07220d--

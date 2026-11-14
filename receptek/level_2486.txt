@@ -1,0 +1,387 @@
+Delivered-To: estampel@gmail.com
+Received: by 2002:ac8:4597:0:b0:4f1:a216:d5ee with SMTP id l23csp303977qtn;
+        Wed, 17 Dec 2025 00:44:42 -0800 (PST)
+X-Received: by 2002:a17:907:1c01:b0:b72:70e7:5b62 with SMTP id a640c23a62f3a-b7d23663a2fmr1565604166b.23.1765961082389;
+        Wed, 17 Dec 2025 00:44:42 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1765961082; cv=none;
+        d=google.com; s=arc-20240605;
+        b=NDdt+BRC3ZmQAg7ueC9+DWRy9lQS7h3z4re7V4iDzR+Ph7bt6YEiMBWMofDhcmILfh
+         Uurwq5Gp7WY6QQAfbhlL6DsMug/8je/7vEn3xdpc9fdBQAmlomdNkviQd4afsGd3ntX2
+         fL8BsyCE4PbNv0n5a5Y5XWdQfw+SwtXJaay8rjRIUZdtQwjf9yXGsW4BTcsqDcQRxyyN
+         Ze7g3RNlHUok5x3weThxHz7kH6ILb4+yjDxU3vUPltdcKzOmXCmIJaZgXDkmlbSnILqX
+         Ih3LxMzDWoKc74BMu3KpTtqrtorfrI5PkUrVCv+olCDrdh4s+B0lZMHEMCzlu/aCXg5Q
+         NIAA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=2ENRLw+CxpxGTy5BfOOuBcZ0ORgs2XZMQUKNk3e9OCU=;
+        fh=wF/Yrd2E0xeKwPH74kML7cQSth+Fl4bwhVNrybJ4uh4=;
+        b=IHqLqIF/1rDA/ppgJ3Avrq6sySw9KeEMrXM5TWEMWjdBpIr02drPdz2Q880jzSBgUm
+         POaGnCPwlCWbTorlFGwMj2fIYoxl1syFmEPPHygix8k5Qa62sMLEX1STTmwA+dfdsGWO
+         evHtX3wfOMdn0TTIwOhVP9sTNK1RTBLJP9Ahdt2JweDBOz9oDv9XjVEXAYSdv22A2KpH
+         za3VpxhaGLpylbJZ728E4UlrHWxD2vRbHWVXmcSuR7C9oWp8Q0tkHvWvxCfOiIqbuP9V
+         S/7HoWB6BlGPwofnujPP0BBHlCgyeJG5/wjM9nJCL2UURr8rotV2G49cpsErP6cy4JeQ
+         LJ1g==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=XEziU8t0;
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <banyus53@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id a640c23a62f3a-b7ff9ee8fe1sor134203066b.19.2025.12.17.00.44.42
+        for <estampel@gmail.com>
+        (Google Transport Security);
+        Wed, 17 Dec 2025 00:44:42 -0800 (PST)
+Received-SPF: pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=XEziU8t0;
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1765961081; x=1766565881; dara=google.com;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=2ENRLw+CxpxGTy5BfOOuBcZ0ORgs2XZMQUKNk3e9OCU=;
+        b=XEziU8t02PPOqZGRRpfUKerdJtzFe1VVpDwZ9RrhMp99SuwHgx+81+jHqpQk9eG4Aq
+         NJ1Bp8FBWYDTnn+j5Wmh0DK0nReuIKvXeiZtwsgoFJ1cH7ZteMBjth50xnBxTb2l4AcG
+         HYEQS1pmsVF/+YVHD1EM9q6eyFfxywgp5Gp090XknPDQU1WcP5rP5oD17OWjxGOJwv08
+         gLhEqRHhsBctZ0sXdsOBJhybs24Km/duOZuVOtWGqB9aoUqYZyS3lfA3uFUIIJtNiiaF
+         JQduB767iVWawqX2N7FFeWBVwu82+vrVvy0iLQaaWNr6286De8kpoQFZ+3kCBrc8MwKh
+         3A8w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1765961081; x=1766565881;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=2ENRLw+CxpxGTy5BfOOuBcZ0ORgs2XZMQUKNk3e9OCU=;
+        b=wugbeAGLCQwosHXjODazzPXsQWDUagJbdmPJy8chQ7bQj8MCT1NNF+hYEgzZCG935b
+         TIZN7oPzgkT8PddWgF/YerPmzjBKJvuyqgtc/+sZy+dfZ4c2IrI58QoReKI0nhMtaB0E
+         TtTJT4HRyv3Weone1+yxNNuQnCOt+dU63T2jhBpz1pwmhwkfyH0VHI4/8vxU110O5Pel
+         FnWtElZp51RwvEcLlnEfzEAYSWtJuEVSXKVasYYrNR+h0McNOOMU3iSByYuDJyyTEs8v
+         +3yb4/r+CVlohDN/2pk+YA27roXqv9mh4RAx7M50NN0m8178xku9KJbUPUbEsLRBE3hj
+         frlQ==
+X-Gm-Message-State: AOJu0YyM8GdmjtBEhwklvU7docNBuBSV4lah343WgZFl7Fry8YWLitPQ
+	fVj1GX0/Z6ZrQuDtkwPN7mVCoSMQP0Llu/nOBwBOTOB1BHCF+JRCQtvK4OXTOF6R+z/yZ5BfUSm
+	yVdneNA1x+PcaZTYw0gBfmB0HFrf3HgX8p748
+X-Gm-Gg: AY/fxX7/soUutksqPucq4llnKAUEvaiVvuBeuRGNQvjpnKDdXvFmCTnI1ByTDEjrsgh
+	zEBhY8kWbsZe4ONJIMKn/qZogXHSepHQwPcNrrocku21vcIUn4/wpJdiUc8MLMq8oPaBwql0JtA
+	sP5btGKLgfPCOOCXF0WJuKY+MWgEWQ0i2fB8kcIIvx+J2TyYSQb9MW73sB76v16TZjN+QSCl8l1
+	GVsSqFnlGCe8tZARqFvbCm3OZTkWVD/1elJ/1DtL2ulAG0j3FVBnq3KE5KIzZlmdTogUV10Bp+W
+	fB4M55I1cCkVRSZXJWH97yEfC8gw6lBUqo5rOgYo
+X-Google-Smtp-Source: AGHT+IGOM6oBVlNi3MZe2Zk7m6Jhslpwu5FMQ0THjeCGR73lVW1jPF/5BRFOM9g485zxEunCfgjS23xHnqQYsPlr/VI=
+X-Received: by 2002:a17:907:1ca1:b0:b73:75ea:febf with SMTP id
+ a640c23a62f3a-b7d23a7581dmr1680674766b.55.1765961081278; Wed, 17 Dec 2025
+ 00:44:41 -0800 (PST)
+MIME-Version: 1.0
+References: <CA+39czWJzDAjj7c0yB32cu9DuYrVKdKwDq+h3PwW-bAgXqUR2g@mail.gmail.com>
+In-Reply-To: <CA+39czWJzDAjj7c0yB32cu9DuYrVKdKwDq+h3PwW-bAgXqUR2g@mail.gmail.com>
+From: =?UTF-8?B?w4FnbmVzIEJ1Z8Ohcg==?= <banyus53@gmail.com>
+Date: Wed, 17 Dec 2025 09:44:13 +0100
+X-Gm-Features: AQt7F2qUN1e1ixVjnEybS3eLa66mOmulOXHEeFgDmhOCazx7bt-4S0yB7FPgcf0
+Message-ID: <CA+39czVALG8+rGFB5fpwv5S20s+8C-Omi31ZB99XfaKrmXX0mA@mail.gmail.com>
+Subject: =?UTF-8?Q?Fwd=3A_v=C3=B6r=C3=B6slencse_narancs_leves?=
+To: Emese Stampel <estampel@gmail.com>
+Content-Type: multipart/alternative; boundary="000000000000efd447064621da75"
+
+--000000000000efd447064621da75
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+---------- Forwarded message ---------
+Felad=C3=B3: =C3=81gnes Bug=C3=A1r <banyus53@gmail.com>
+Date: 2025. dec. 17., Sze, 9:12
+Subject: v=C3=B6r=C3=B6slencse narancs leves
+To: Emese Stampel <estampel@gmail.com>
+
+
+[image: =F0=9F=8D=8A][image: =F0=9F=8E=84]Narancsos v=C3=B6r=C3=B6slencsele=
+ves[image: =F0=9F=8E=84][image: =F0=9F=8D=8A]
+*2 adag
+Hozz=C3=A1val=C3=B3k:
+- 250 g v=C3=B6r=C3=B6slencse
+- 1 fej hagyma
+- 1 ek. olaj
+- 1/2 db narancs
+- 1 tk. =C5=91r=C3=B6lt gy=C3=B6mb=C3=A9r vagy kis darab friss lereszelve
+- 1 k=C3=A9shegy fah=C3=A9j
+- 1 tk. curry por
+- 1,2 l v=C3=ADz
+- 200 g k=C3=B3kusztejsz=C3=ADn
+- s=C3=B3, bors: =C3=ADzl=C3=A9s szerint
+[image: =F0=9F=91=A9=F0=9F=8F=BB=E2=80=8D=F0=9F=8D=B3] Elk=C3=A9sz=C3=ADt=
+=C3=A9s:
+- Az apr=C3=B3ra v=C3=A1gott hagym=C3=A1t lepir=C3=ADtjuk kev=C3=A9s olajon=
+, hozz=C3=A1adjuk a
+f=C5=B1szereket, majd azokat is =C3=A1tpir=C3=ADtjuk.
+- Mehet hozz=C3=A1 az =C3=A1tmosott lencse, fel=C3=B6ntj=C3=BCk v=C3=ADzzel=
+ =C3=A9s puh=C3=A1ra f=C5=91zz=C3=BCk. Ha
+sz=C3=BCks=C3=A9ges p=C3=B3toljuk a vizet.
+- Amikor elk=C3=A9sz=C3=BClt, hozz=C3=A1adjuk a tejsz=C3=ADnt, belereszelj=
+=C3=BCk egy f=C3=A9l bio
+narancs h=C3=A9j=C3=A1t =C3=A9s belefacsarjuk a lev=C3=A9t =C3=A9s sz=C3=BC=
+ks=C3=A9g eset=C3=A9n ut=C3=B3=C3=ADzes=C3=ADtj=C3=BCk.
+- P=C3=A1r percig m=C3=A9g f=C5=91zz=C3=BCk =C3=A9s el is k=C3=A9sz=C3=BClt=
+.
+- T=C3=A1lal=C3=A1shoz egy kev=C3=A9s extra tejsz=C3=ADnt adunk hozz=C3=A1 =
+=C3=A9s feketeszez=C3=A1mmal vagy
+petrezselyemz=C3=B6lddel d=C3=ADsz=C3=ADtj=C3=BCk.
+[image: =F0=9F=8E=84] Tarts vel=C3=BCnk az adventi id=C5=91szakban is, hisz=
+en a h=C3=BCvelyesek az
+=C3=BCnnepi =C3=A9telekb=C5=91l sem maradhatnak ki!
+[image: =F0=9F=8C=B1]Tov=C3=A1bbi infok =C3=A9s receptek:
+www.okosfeherje.hu
+<https://l.facebook.com/l.php?u=3Dhttp%3A%2F%2Fwww.okosfeherje.hu%2F%3Ffbcl=
+id%3DIwZXh0bgNhZW0CMTAAYnJpZBEweGhDVVR0TzFVT1NCeGczRHNydGMGYXBwX2lkEDIyMjAz=
+OTE3ODgyMDA4OTIAAR43E27DRvkRid0oZ3S05bNb7N8Cw0MXZYPaDG4Jx7shyBa-Ufx5g5P9sKE=
+q8w_aem_6wfS3pxCy4mriqMcQRhQIA&h=3DAT273Fi12Mf10OBWjHWWRl2n4hPW56wafoTQcRti=
+-jSZHVFvDj-ZrZ9vFMLRRrcfhAwmvgB_YOBxQUFeNG2GuU4NxwNx1XerRHMxB39_OnIuAXQ39zo=
+Vsy52I7aExu4Gm2-KJFSuPK9gwHEfQHPheJqArNuj93Vq&__tn__=3D-UK-R&c[0]=3DAT3cQHt=
+USNhle6v2vXSjcHwR2A8kLpbzOJ1CEZ15msdfxgaejRxU2-3U_09NY_Qb7JbVYSUc6FsFSL8LUt=
+m6PDgOvDf7ReGtbsVvFqa5Bn_Ovk70RQBnqTlo2bT9CSldTVHcU4z7f9reSWdJd066yaS1N4LLj=
+NMsmpz0t1qGclEw-h-Y3ze7DGDUnlDMzNeITpKcbbaeov0tb65UTJcsx5Y_cu3JsRrBMt0>
+#okosfeh=C3=A9rje
+<https://www.facebook.com/watch/hashtag/okosfeh%C3%A9rje?__eep__=3D6%2F&__c=
+ft__[0]=3DAZZua0TDV9e-EH7NtDWyaMnORB0fP3BD-_rIMUlW2ngk-rWQzUO4bP9RQgBZCt9Ux=
+spMcgVo2JDGeQIoZZM4yMwaekV-pBdfPflCwzmeJcJDqSwq-NE4CWbz03U_iCCRhn4lnOx_3tMT=
+ps0Bv-z_nwxpn6E8SuLt0kZrKJZcdzJQ-pllsMyfxKYpL01BO4A77mMLBWVWEqlK0esxtCt6ggt=
+m&__tn__=3D*NK-R>
+#fenntarthat=C3=B3
+<https://www.facebook.com/watch/hashtag/fenntarthat%C3%B3?__eep__=3D6%2F&__=
+cft__[0]=3DAZZua0TDV9e-EH7NtDWyaMnORB0fP3BD-_rIMUlW2ngk-rWQzUO4bP9RQgBZCt9U=
+xspMcgVo2JDGeQIoZZM4yMwaekV-pBdfPflCwzmeJcJDqSwq-NE4CWbz03U_iCCRhn4lnOx_3tM=
+Tps0Bv-z_nwxpn6E8SuLt0kZrKJZcdzJQ-pllsMyfxKYpL01BO4A77mMLBWVWEqlK0esxtCt6gg=
+tm&__tn__=3D*NK-R>
+#plantbased
+<https://www.facebook.com/watch/hashtag/plantbased?__eep__=3D6%2F&__cft__[0=
+]=3DAZZua0TDV9e-EH7NtDWyaMnORB0fP3BD-_rIMUlW2ngk-rWQzUO4bP9RQgBZCt9UxspMcgV=
+o2JDGeQIoZZM4yMwaekV-pBdfPflCwzmeJcJDqSwq-NE4CWbz03U_iCCRhn4lnOx_3tMTps0Bv-=
+z_nwxpn6E8SuLt0kZrKJZcdzJQ-pllsMyfxKYpL01BO4A77mMLBWVWEqlK0esxtCt6ggtm&__tn=
+__=3D*NK-R>
+#karacsony
+<https://www.facebook.com/watch/hashtag/karacsony?__eep__=3D6%2F&__cft__[0]=
+=3DAZZua0TDV9e-EH7NtDWyaMnORB0fP3BD-_rIMUlW2ngk-rWQzUO4bP9RQgBZCt9UxspMcgVo=
+2JDGeQIoZZM4yMwaekV-pBdfPflCwzmeJcJDqSwq-NE4CWbz03U_iCCRhn4lnOx_3tMTps0Bv-z=
+_nwxpn6E8SuLt0kZrKJZcdzJQ-pllsMyfxKYpL01BO4A77mMLBWVWEqlK0esxtCt6ggtm&__tn_=
+_=3D*NK-R>
+#advent
+<https://www.facebook.com/watch/hashtag/advent?__eep__=3D6%2F&__cft__[0]=3D=
+AZZua0TDV9e-EH7NtDWyaMnORB0fP3BD-_rIMUlW2ngk-rWQzUO4bP9RQgBZCt9UxspMcgVo2JD=
+GeQIoZZM4yMwaekV-pBdfPflCwzmeJcJDqSwq-NE4CWbz03U_iCCRhn4lnOx_3tMTps0Bv-z_nw=
+xpn6E8SuLt0kZrKJZcdzJQ-pllsMyfxKYpL01BO4A77mMLBWVWEqlK0esxtCt6ggtm&__tn__=
+=3D*NK-R>
+
+--000000000000efd447064621da75
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><br><br><div class=3D"gmail_quote gmail_quote_container"><=
+div dir=3D"ltr" class=3D"gmail_attr">---------- Forwarded message ---------=
+<br>Felad=C3=B3: <strong class=3D"gmail_sendername" dir=3D"auto">=C3=81gnes=
+ Bug=C3=A1r</strong> <span dir=3D"auto">&lt;<a href=3D"mailto:banyus53@gmai=
+l.com">banyus53@gmail.com</a>&gt;</span><br>Date: 2025. dec. 17., Sze, 9:12=
+<br>Subject: v=C3=B6r=C3=B6slencse narancs  leves <br>To: Emese Stampel &lt=
+;<a href=3D"mailto:estampel@gmail.com">estampel@gmail.com</a>&gt;<br></div>=
+<br><br><div dir=3D"ltr"><div dir=3D"auto" style=3D"padding-bottom:0px;marg=
+in-bottom:0px;margin-top:0px;padding-top:0px;font-family:inherit"><div styl=
+e=3D"padding-bottom:0px;margin-bottom:0px;margin-top:0px;padding-top:0px;fo=
+nt-family:inherit"><div id=3D"m_1061776907863372090gmail-_r_a29_" style=3D"=
+padding-top:4px;padding-bottom:16px;font-family:inherit"><div style=3D"disp=
+lay:flex;font-family:inherit"><div style=3D"margin-top:5px;margin-bottom:5p=
+x;font-family:inherit"><span dir=3D"auto" style=3D"display:block;max-width:=
+100%;min-width:0px;word-break:break-word;font-family:inherit;font-size:0.93=
+75rem;line-height:1.3333;color:rgb(8,8,9)"><div style=3D"padding-bottom:0px=
+;margin-bottom:0px;margin-top:0px;padding-top:0px;font-family:inherit"><div=
+ style=3D"margin-bottom:0px;margin-top:0px;font-family:inherit"><div dir=3D=
+"auto" style=3D"font-family:inherit"><span style=3D"text-align:inherit;disp=
+lay:inline-flex;vertical-align:middle;width:16px;height:16px;padding-bottom=
+:0px;margin-bottom:0px;margin-top:0px;padding-top:0px;font-family:inherit">=
+<img height=3D"16" width=3D"16" alt=3D"=F0=9F=8D=8A" src=3D"https://static.=
+xx.fbcdn.net/images/emoji.php/v9/t38/1/16/1f34a.png" style=3D"border:0px;ob=
+ject-fit:fill"></span><span style=3D"text-align:inherit;display:inline-flex=
+;vertical-align:middle;width:16px;height:16px;padding-bottom:0px;margin-bot=
+tom:0px;margin-top:0px;padding-top:0px;font-family:inherit"><img height=3D"=
+16" width=3D"16" alt=3D"=F0=9F=8E=84" src=3D"https://static.xx.fbcdn.net/im=
+ages/emoji.php/v9/t7/1/16/1f384.png" style=3D"border:0px;object-fit:fill"><=
+/span>Narancsos v=C3=B6r=C3=B6slencseleves<span style=3D"text-align:inherit=
+;display:inline-flex;vertical-align:middle;width:16px;height:16px;padding-b=
+ottom:0px;margin-bottom:0px;margin-top:0px;padding-top:0px;font-family:inhe=
+rit"><img height=3D"16" width=3D"16" alt=3D"=F0=9F=8E=84" src=3D"https://st=
+atic.xx.fbcdn.net/images/emoji.php/v9/t7/1/16/1f384.png" style=3D"border:0p=
+x;object-fit:fill"></span><span style=3D"text-align:inherit;display:inline-=
+flex;vertical-align:middle;width:16px;height:16px;padding-bottom:0px;margin=
+-bottom:0px;margin-top:0px;padding-top:0px;font-family:inherit"><img height=
+=3D"16" width=3D"16" alt=3D"=F0=9F=8D=8A" src=3D"https://static.xx.fbcdn.ne=
+t/images/emoji.php/v9/t38/1/16/1f34a.png" style=3D"border:0px;object-fit:fi=
+ll"></span></div><div dir=3D"auto" style=3D"font-family:inherit">*2 adag</d=
+iv></div><div style=3D"margin-top:0.5em;margin-bottom:0px;font-family:inher=
+it"><div dir=3D"auto" style=3D"font-family:inherit"><span style=3D"text-ali=
+gn:inherit;padding-bottom:0px;margin-bottom:0px;margin-top:0px;padding-top:=
+0px;font-family:inherit"><a style=3D"color:rgb(56,88,152);text-align:inheri=
+t;padding-bottom:0px;margin-bottom:0px;margin-top:0px;padding-top:0px;font-=
+family:inherit"></a></span>Hozz=C3=A1val=C3=B3k:</div><div dir=3D"auto" sty=
+le=3D"font-family:inherit">- 250 g v=C3=B6r=C3=B6slencse </div><div dir=3D"=
+auto" style=3D"font-family:inherit">- 1 fej hagyma</div><div dir=3D"auto" s=
+tyle=3D"font-family:inherit">- 1 ek. olaj</div><div dir=3D"auto" style=3D"f=
+ont-family:inherit">- 1/2 db narancs </div><div dir=3D"auto" style=3D"font-=
+family:inherit">- 1 tk. =C5=91r=C3=B6lt gy=C3=B6mb=C3=A9r vagy kis darab fr=
+iss lereszelve</div><div dir=3D"auto" style=3D"font-family:inherit">- 1 k=
+=C3=A9shegy fah=C3=A9j</div><div dir=3D"auto" style=3D"font-family:inherit"=
+>- 1 tk. curry por </div><div dir=3D"auto" style=3D"font-family:inherit">- =
+1,2 l v=C3=ADz </div><div dir=3D"auto" style=3D"font-family:inherit">- 200 =
+g k=C3=B3kusztejsz=C3=ADn</div><div dir=3D"auto" style=3D"font-family:inher=
+it">- s=C3=B3, bors: =C3=ADzl=C3=A9s szerint </div></div><div style=3D"marg=
+in-top:0.5em;margin-bottom:0px;font-family:inherit"><div dir=3D"auto" style=
+=3D"font-family:inherit"><span style=3D"text-align:inherit;display:inline-f=
+lex;vertical-align:middle;width:16px;height:16px;padding-bottom:0px;margin-=
+bottom:0px;margin-top:0px;padding-top:0px;font-family:inherit"><img height=
+=3D"16" width=3D"16" alt=3D"=F0=9F=91=A9=F0=9F=8F=BB=E2=80=8D=F0=9F=8D=B3" =
+src=3D"https://static.xx.fbcdn.net/images/emoji.php/v9/t38/1/16/1f469_1f3fb=
+_200d_1f373.png" style=3D"border:0px;object-fit:fill"></span> Elk=C3=A9sz=
+=C3=ADt=C3=A9s:</div><div dir=3D"auto" style=3D"font-family:inherit">- Az a=
+pr=C3=B3ra v=C3=A1gott hagym=C3=A1t lepir=C3=ADtjuk kev=C3=A9s olajon, hozz=
+=C3=A1adjuk a f=C5=B1szereket, majd azokat is =C3=A1tpir=C3=ADtjuk.</div><d=
+iv dir=3D"auto" style=3D"font-family:inherit">- Mehet hozz=C3=A1 az =C3=A1t=
+mosott lencse, fel=C3=B6ntj=C3=BCk v=C3=ADzzel =C3=A9s puh=C3=A1ra f=C5=91z=
+z=C3=BCk. Ha sz=C3=BCks=C3=A9ges p=C3=B3toljuk a vizet. </div><div dir=3D"a=
+uto" style=3D"font-family:inherit">- Amikor elk=C3=A9sz=C3=BClt, hozz=C3=A1=
+adjuk a tejsz=C3=ADnt, belereszelj=C3=BCk egy f=C3=A9l bio narancs h=C3=A9j=
+=C3=A1t =C3=A9s belefacsarjuk a lev=C3=A9t =C3=A9s sz=C3=BCks=C3=A9g eset=
+=C3=A9n ut=C3=B3=C3=ADzes=C3=ADtj=C3=BCk.</div><div dir=3D"auto" style=3D"f=
+ont-family:inherit">- P=C3=A1r percig m=C3=A9g f=C5=91zz=C3=BCk =C3=A9s el =
+is k=C3=A9sz=C3=BClt.</div><div dir=3D"auto" style=3D"font-family:inherit">=
+- T=C3=A1lal=C3=A1shoz egy kev=C3=A9s extra tejsz=C3=ADnt adunk hozz=C3=A1 =
+=C3=A9s feketeszez=C3=A1mmal vagy petrezselyemz=C3=B6lddel d=C3=ADsz=C3=ADt=
+j=C3=BCk. </div></div><div style=3D"margin-top:0.5em;margin-bottom:0px;font=
+-family:inherit"><div dir=3D"auto" style=3D"font-family:inherit"><span styl=
+e=3D"text-align:inherit;display:inline-flex;vertical-align:middle;width:16p=
+x;height:16px;padding-bottom:0px;margin-bottom:0px;margin-top:0px;padding-t=
+op:0px;font-family:inherit"><img height=3D"16" width=3D"16" alt=3D"=F0=9F=
+=8E=84" src=3D"https://static.xx.fbcdn.net/images/emoji.php/v9/t7/1/16/1f38=
+4.png" style=3D"border:0px;object-fit:fill"></span> Tarts vel=C3=BCnk az ad=
+venti id=C5=91szakban is, hiszen a h=C3=BCvelyesek az =C3=BCnnepi =C3=A9tel=
+ekb=C5=91l sem maradhatnak ki!</div></div><div style=3D"margin-top:0.5em;ma=
+rgin-bottom:0px;font-family:inherit"><div dir=3D"auto" style=3D"font-family=
+:inherit"><span style=3D"text-align:inherit;display:inline-flex;vertical-al=
+ign:middle;width:16px;height:16px;padding-bottom:0px;margin-bottom:0px;marg=
+in-top:0px;padding-top:0px;font-family:inherit"><img height=3D"16" width=3D=
+"16" alt=3D"=F0=9F=8C=B1" src=3D"https://static.xx.fbcdn.net/images/emoji.p=
+hp/v9/t69/1/16/1f331.png" style=3D"border:0px;object-fit:fill"></span>Tov=
+=C3=A1bbi infok =C3=A9s receptek:</div><div dir=3D"auto" style=3D"font-fami=
+ly:inherit"><span style=3D"text-align:inherit;padding-bottom:0px;margin-bot=
+tom:0px;margin-top:0px;padding-top:0px;font-family:inherit"><a href=3D"http=
+s://l.facebook.com/l.php?u=3Dhttp%3A%2F%2Fwww.okosfeherje.hu%2F%3Ffbclid%3D=
+IwZXh0bgNhZW0CMTAAYnJpZBEweGhDVVR0TzFVT1NCeGczRHNydGMGYXBwX2lkEDIyMjAzOTE3O=
+DgyMDA4OTIAAR43E27DRvkRid0oZ3S05bNb7N8Cw0MXZYPaDG4Jx7shyBa-Ufx5g5P9sKEq8w_a=
+em_6wfS3pxCy4mriqMcQRhQIA&amp;h=3DAT273Fi12Mf10OBWjHWWRl2n4hPW56wafoTQcRti-=
+jSZHVFvDj-ZrZ9vFMLRRrcfhAwmvgB_YOBxQUFeNG2GuU4NxwNx1XerRHMxB39_OnIuAXQ39zoV=
+sy52I7aExu4Gm2-KJFSuPK9gwHEfQHPheJqArNuj93Vq&amp;__tn__=3D-UK-R&amp;c[0]=3D=
+AT3cQHtUSNhle6v2vXSjcHwR2A8kLpbzOJ1CEZ15msdfxgaejRxU2-3U_09NY_Qb7JbVYSUc6Fs=
+FSL8LUtm6PDgOvDf7ReGtbsVvFqa5Bn_Ovk70RQBnqTlo2bT9CSldTVHcU4z7f9reSWdJd066ya=
+S1N4LLjNMsmpz0t1qGclEw-h-Y3ze7DGDUnlDMzNeITpKcbbaeov0tb65UTJcsx5Y_cu3JsRrBM=
+t0" rel=3D"nofollow noreferrer" role=3D"link" style=3D"color:rgb(0,100,209)=
+;text-decoration-line:none;outline:none;text-align:inherit;font-weight:600;=
+list-style-type:none;box-sizing:border-box;background-color:transparent;dis=
+play:inline;padding-bottom:0px;border-top-style:none;border-bottom-width:0p=
+x;border-bottom-style:none;border-top-width:0px;margin-bottom:0px;margin-to=
+p:0px;padding-top:0px;font-family:inherit" target=3D"_blank">www.okosfeherj=
+e.hu</a></span></div></div><div style=3D"margin-top:0.5em;margin-bottom:0px=
+;font-family:inherit"><div dir=3D"auto" style=3D"font-family:inherit"><span=
+ style=3D"text-align:inherit;padding-bottom:0px;margin-bottom:0px;margin-to=
+p:0px;padding-top:0px;font-family:inherit"><a href=3D"https://www.facebook.=
+com/watch/hashtag/okosfeh%C3%A9rje?__eep__=3D6%2F&amp;__cft__[0]=3DAZZua0TD=
+V9e-EH7NtDWyaMnORB0fP3BD-_rIMUlW2ngk-rWQzUO4bP9RQgBZCt9UxspMcgVo2JDGeQIoZZM=
+4yMwaekV-pBdfPflCwzmeJcJDqSwq-NE4CWbz03U_iCCRhn4lnOx_3tMTps0Bv-z_nwxpn6E8Su=
+Lt0kZrKJZcdzJQ-pllsMyfxKYpL01BO4A77mMLBWVWEqlK0esxtCt6ggtm&amp;__tn__=3D*NK=
+-R" role=3D"link" style=3D"color:rgb(0,100,209);text-decoration-line:none;o=
+utline:none;text-align:inherit;font-weight:600;list-style-type:none;box-siz=
+ing:border-box;background-color:transparent;display:inline;padding-bottom:0=
+px;border-top-style:none;border-bottom-width:0px;border-bottom-style:none;b=
+order-top-width:0px;margin-bottom:0px;margin-top:0px;padding-top:0px;font-f=
+amily:inherit" target=3D"_blank">#okosfeh=C3=A9rje</a></span> <span style=
+=3D"text-align:inherit;padding-bottom:0px;margin-bottom:0px;margin-top:0px;=
+padding-top:0px;font-family:inherit"><a href=3D"https://www.facebook.com/wa=
+tch/hashtag/fenntarthat%C3%B3?__eep__=3D6%2F&amp;__cft__[0]=3DAZZua0TDV9e-E=
+H7NtDWyaMnORB0fP3BD-_rIMUlW2ngk-rWQzUO4bP9RQgBZCt9UxspMcgVo2JDGeQIoZZM4yMwa=
+ekV-pBdfPflCwzmeJcJDqSwq-NE4CWbz03U_iCCRhn4lnOx_3tMTps0Bv-z_nwxpn6E8SuLt0kZ=
+rKJZcdzJQ-pllsMyfxKYpL01BO4A77mMLBWVWEqlK0esxtCt6ggtm&amp;__tn__=3D*NK-R" r=
+ole=3D"link" style=3D"color:rgb(0,100,209);text-decoration-line:none;outlin=
+e:none;text-align:inherit;font-weight:600;list-style-type:none;box-sizing:b=
+order-box;background-color:transparent;display:inline;padding-bottom:0px;bo=
+rder-top-style:none;border-bottom-width:0px;border-bottom-style:none;border=
+-top-width:0px;margin-bottom:0px;margin-top:0px;padding-top:0px;font-family=
+:inherit" target=3D"_blank">#fenntarthat=C3=B3</a></span> <span style=3D"te=
+xt-align:inherit;padding-bottom:0px;margin-bottom:0px;margin-top:0px;paddin=
+g-top:0px;font-family:inherit"><a href=3D"https://www.facebook.com/watch/ha=
+shtag/plantbased?__eep__=3D6%2F&amp;__cft__[0]=3DAZZua0TDV9e-EH7NtDWyaMnORB=
+0fP3BD-_rIMUlW2ngk-rWQzUO4bP9RQgBZCt9UxspMcgVo2JDGeQIoZZM4yMwaekV-pBdfPflCw=
+zmeJcJDqSwq-NE4CWbz03U_iCCRhn4lnOx_3tMTps0Bv-z_nwxpn6E8SuLt0kZrKJZcdzJQ-pll=
+sMyfxKYpL01BO4A77mMLBWVWEqlK0esxtCt6ggtm&amp;__tn__=3D*NK-R" role=3D"link" =
+style=3D"color:rgb(0,100,209);text-decoration-line:none;outline:none;text-a=
+lign:inherit;font-weight:600;list-style-type:none;box-sizing:border-box;bac=
+kground-color:transparent;display:inline;padding-bottom:0px;border-top-styl=
+e:none;border-bottom-width:0px;border-bottom-style:none;border-top-width:0p=
+x;margin-bottom:0px;margin-top:0px;padding-top:0px;font-family:inherit" tar=
+get=3D"_blank">#plantbased</a></span> <span style=3D"text-align:inherit;pad=
+ding-bottom:0px;margin-bottom:0px;margin-top:0px;padding-top:0px;font-famil=
+y:inherit"><a href=3D"https://www.facebook.com/watch/hashtag/karacsony?__ee=
+p__=3D6%2F&amp;__cft__[0]=3DAZZua0TDV9e-EH7NtDWyaMnORB0fP3BD-_rIMUlW2ngk-rW=
+QzUO4bP9RQgBZCt9UxspMcgVo2JDGeQIoZZM4yMwaekV-pBdfPflCwzmeJcJDqSwq-NE4CWbz03=
+U_iCCRhn4lnOx_3tMTps0Bv-z_nwxpn6E8SuLt0kZrKJZcdzJQ-pllsMyfxKYpL01BO4A77mMLB=
+WVWEqlK0esxtCt6ggtm&amp;__tn__=3D*NK-R" role=3D"link" style=3D"color:rgb(0,=
+100,209);text-decoration-line:none;outline:none;text-align:inherit;font-wei=
+ght:600;list-style-type:none;box-sizing:border-box;background-color:transpa=
+rent;display:inline;padding-bottom:0px;border-top-style:none;border-bottom-=
+width:0px;border-bottom-style:none;border-top-width:0px;margin-bottom:0px;m=
+argin-top:0px;padding-top:0px;font-family:inherit" target=3D"_blank">#karac=
+sony</a></span> <span style=3D"text-align:inherit;padding-bottom:0px;margin=
+-bottom:0px;margin-top:0px;padding-top:0px;font-family:inherit"><a href=3D"=
+https://www.facebook.com/watch/hashtag/advent?__eep__=3D6%2F&amp;__cft__[0]=
+=3DAZZua0TDV9e-EH7NtDWyaMnORB0fP3BD-_rIMUlW2ngk-rWQzUO4bP9RQgBZCt9UxspMcgVo=
+2JDGeQIoZZM4yMwaekV-pBdfPflCwzmeJcJDqSwq-NE4CWbz03U_iCCRhn4lnOx_3tMTps0Bv-z=
+_nwxpn6E8SuLt0kZrKJZcdzJQ-pllsMyfxKYpL01BO4A77mMLBWVWEqlK0esxtCt6ggtm&amp;_=
+_tn__=3D*NK-R" role=3D"link" style=3D"color:rgb(0,100,209);text-decoration-=
+line:none;outline:none;text-align:inherit;font-weight:600;list-style-type:n=
+one;box-sizing:border-box;background-color:transparent;display:inline;paddi=
+ng-bottom:0px;border-top-style:none;border-bottom-width:0px;border-bottom-s=
+tyle:none;border-top-width:0px;margin-bottom:0px;margin-top:0px;padding-top=
+:0px;font-family:inherit" target=3D"_blank">#advent</a></span></div></div><=
+/div></span></div></div></div></div></div><div id=3D"m_1061776907863372090g=
+mail-_r_a2a_" style=3D"padding-bottom:0px;margin-bottom:0px;margin-top:0px;=
+padding-top:0px;font-family:inherit"><div style=3D"padding-bottom:0px;margi=
+n-bottom:0px;margin-top:0px;padding-top:0px;font-family:inherit"><div style=
+=3D"display:flex;font-family:inherit"><div style=3D"opacity:0.8;height:500p=
+x;width:500.02px;font-family:inherit"><div style=3D"height:500px;width:500.=
+02px;font-family:inherit;background-image:linear-gradient(rgb(74,71,72) 0%,=
+rgb(53,43,42) 100%)"></div></div><div style=3D"overflow:hidden;height:500px=
+;width:500.02px;background-color:rgba(0,0,0,0.4);font-family:inherit"><div =
+style=3D"background-color:rgb(0,0,0);display:flex;overflow:hidden;width:500=
+.02px;font-family:inherit"><div style=3D"font-family:inherit;max-width:100%=
+;min-width:500px"><div style=3D"width:500px;height:0px;padding-bottom:0px;p=
+adding-top:100%;margin-bottom:0px;margin-top:0px;font-family:inherit"><div =
+style=3D"display:flex;box-sizing:border-box;min-height:0px;min-width:0px;bo=
+rder-top-style:solid;padding-bottom:0px;border-bottom-style:solid;border-bo=
+ttom-width:0px;border-top-width:0px;margin-bottom:0px;margin-top:0px;paddin=
+g-top:0px;font-family:inherit"><div style=3D"box-sizing:border-box;width:66=
+.6667%;padding-bottom:0px;margin-bottom:0px;margin-top:0px;padding-top:0px;=
+font-family:inherit"><div style=3D"overflow:hidden;height:0px;font-family:i=
+nherit;padding-top:500px"><div style=3D"font-family:inherit;height:592.588p=
+x;width:333.333px"></div></div></div></div></div></div></div><div style=3D"=
+height:500px;width:500.02px;font-family:inherit"><div style=3D"height:500px=
+;width:500.02px;font-family:inherit"><div style=3D"height:500px;width:500.0=
+2px;font-family:inherit"><div style=3D"height:500px;width:500.02px;font-fam=
+ily:inherit"><div style=3D"height:500px;width:500.02px;font-family:inherit"=
+><div style=3D"height:500px;width:500.02px;font-family:inherit"><div style=
+=3D"height:500px;width:500.02px;font-family:inherit"><div style=3D"height:5=
+00px;width:500.02px;font-family:inherit"><div style=3D"height:500px;width:5=
+00.02px;font-family:inherit"></div></div></div></div></div></div></div><div=
+ style=3D"font-family:inherit"><div style=3D"height:500px;width:500.02px;fo=
+nt-family:inherit"><div style=3D"opacity:0;width:36px;height:36px;font-fami=
+ly:&quot;Segoe UI Historic&quot;,&quot;Segoe UI&quot;,Helvetica,Arial,sans-=
+serif;color:rgb(28,30,33);font-size:12px"></div><br></div></div></div></div=
+></div></div></div></div></div>
+</div></div>
+
+--000000000000efd447064621da75--

@@ -1,0 +1,738 @@
+Delivered-To: estampel@gmail.com
+Received: by 2002:a05:622a:4417:b0:4a4:31ef:c226 with SMTP id ka23csp709852qtb;
+        Thu, 5 Jun 2025 22:11:16 -0700 (PDT)
+X-Received: by 2002:a17:907:7284:b0:add:fa4e:8a7e with SMTP id a640c23a62f3a-ade1aa15a0dmr154990366b.32.1749186672721;
+        Thu, 05 Jun 2025 22:11:12 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1749186672; cv=none;
+        d=google.com; s=arc-20240605;
+        b=haZ8eCayosKFm5qdBfMt2ZgR+UOwFy6gaUQ/HlfS9cnd2nD904InpQzZ1DWLREkmcp
+         5ts8p/nEA1DRPhB5uAtTOVcapqTjl2mDGkv2xELh2w0nb0UASiDe1G6nWSgGAmawRCbI
+         HTHTFhs4T0mOIT19hLNqzuCqpnTidQHFIOv7y80XKYtIJE3jeWHPBEjxYq+lbI0epcTv
+         rlmJFB9F44frbK2vcIdwb7LplpQyk5ZTjBo5VErUk3Cf8YGfI6iWIPggb1IlWGYbVzbq
+         NPijrDqFFeA8U+IjkZEsfE6IytfVrWKZwSzbb0OSaoDB/vx+8dVJMXKn2iLE1VfnSmnt
+         AgTQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=nSd27hcKbLYO4N5uqhkiY/QY8w4flKkv1LwZcSe5oEI=;
+        fh=wF/Yrd2E0xeKwPH74kML7cQSth+Fl4bwhVNrybJ4uh4=;
+        b=dW+xPdD4LNXZI0792l+xNPfsjkKE0bGeuBDFHrNrX2CgksDHQXtoNNdq8nKmdtMz36
+         h5BljBh5OICVM0keHKFzrzxnZ9i0QS6Mb3yDWZ29tRrWK7KwajcVv2m8iEZjCqFv4Uum
+         nMpZCu7X+L48aq7pSWbJubNB9LelpjqoV8XOmkECFOUXOejTDuxRZfPz9Xj+LawkpcBW
+         oFVWf83MNrWSZo2DkFCmRcJ1rK54tr+wsjwKJMXGrMVXcjKVHSViDb3B36htHHhjLzsR
+         MweRzQATq120jAriFPDO0fNx28F1BppIxcVtAAx72YIPKk+sGF4CjoXcmzNaXhC3DZMQ
+         7lcA==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=KGQuQriB;
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <banyus53@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id a640c23a62f3a-ade1dc271f2sor33040866b.13.2025.06.05.22.11.12
+        for <estampel@gmail.com>
+        (Google Transport Security);
+        Thu, 05 Jun 2025 22:11:12 -0700 (PDT)
+Received-SPF: pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=KGQuQriB;
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1749186671; x=1749791471; dara=google.com;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=nSd27hcKbLYO4N5uqhkiY/QY8w4flKkv1LwZcSe5oEI=;
+        b=KGQuQriBZezc8uEUJFW3XqAnStn85Jopg5I6GCUec2Evu0XqG5AAOEPgxAeh8d5sbp
+         jGdlYkgl9u15nBzr8GNUZ7SUECOF7ER++L/NHN7aaRv43CMlq0F9jsoLyn626jS6hxZb
+         A1/G3t86AUPivgsttTS/jxr//tkRli8ytMHhrNW7zA0Zgc02fYwM3QGownbY8G0MPapu
+         mmnW1UA+SVo7PMqmE7TR/XuL0ak92MA6pcaTDJrOdpDbxFqgroAU/ldITwuT6pL9OlnV
+         mQKBWme0NsOyHK4kvMJ7G35oRBxFz9bujpYfu8RFw/i//Qq7LAbKVLNOvm9/gft92Jch
+         FJdg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749186671; x=1749791471;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=nSd27hcKbLYO4N5uqhkiY/QY8w4flKkv1LwZcSe5oEI=;
+        b=W1giHVqFCgjcLS+hEpZk7fcX6GDFG5PBaSjoEQ/+KpUIJzUnbuAOLjCwjOgeA3DRWW
+         3hQuUmKomZQgunFY5+8HDWD/IzNTOK7Ey2E3RJXy23AsP+oexWd9wYJ8WThYnH8MQE25
+         T9zhTVVo/xfdgVfVSpe91rvawCyBHto2dODYZQuE24LKgVaD7H6ZgmmcRfL8+R4VxIm3
+         J8puwrtel7MnR1NOjGf8LmvmqmDmDHlQXOopCi6K13JKxFpvjhinheeV9ygknh4I28np
+         rKON+1i4VdbkdXqxK/XU9DsuSx7oKda4ON8iwYiIMKN7dmVkNTve5UZWlRVSL8vnKZdA
+         SLEw==
+X-Gm-Message-State: AOJu0Yz+qgH+Cb39iuOMnzFrU9kLhCeQZkLVjKIuBr+47080p3St0wIw
+	tJosgaQWTGuFO80+34LACJJxEMZP5NI0rOUzYxPZDcYEXCeirqvFJX5wmmfWPpCKj63jNTMTuTX
+	++VkNvyZENjnT8ALAVU9Gr78CfKz+N95lFQ==
+X-Gm-Gg: ASbGncuNNtm9acwRGJT4l/FcD+aTp9RTDhoNfBnImjhTsSbhubOXukuGWZpBNLDsY+Z
+	smxpN2J+nXx19R14QstvLFd7UtUnVDoP1w7I+lJdhc38Zvwer/mDapbtW17sy7iWcq2Oi7LOZoo
+	16CS5t1Mf9VQgCGvcniPZcOdDpD0Cf57bm8xr005JQfLBWj01ZcmZNf7PMXJ08AKffGwXb6g2hP
+	7pfYg==
+X-Google-Smtp-Source: AGHT+IEkqMtgxbvOLGQDZz8lcWKcIcx5yJx/8+8jrT/eJGx3o5IivA2BUmzXntMMCLtksSMZFnVO17BLAhj6FLlwlkM=
+X-Received: by 2002:a17:906:7315:b0:adb:4917:3c10 with SMTP id
+ a640c23a62f3a-ade1aaff6ecmr151673166b.60.1749186670980; Thu, 05 Jun 2025
+ 22:11:10 -0700 (PDT)
+MIME-Version: 1.0
+References: <20250605154309.2533B1D80188@mx3s.idealista.com>
+In-Reply-To: <20250605154309.2533B1D80188@mx3s.idealista.com>
+From: =?UTF-8?B?w4FnbmVzIEJ1Z8Ohcg==?= <banyus53@gmail.com>
+Date: Fri, 6 Jun 2025 07:10:39 +0200
+X-Gm-Features: AX0GCFvA5hK4z6GO34yzWsZglKeu5-d0MmvfFAdTxxjjU6jw0NK6yusoRKdzw1k
+Message-ID: <CA+39czUfUxZ_vMYQEdowdqy--X-QRnx-qHXXV8YzVCnYUT2gew@mail.gmail.com>
+Subject: Fwd: Listings recommended for you
+To: Emese Stampel <estampel@gmail.com>
+Content-Type: multipart/alternative; boundary="0000000000002b72500636e04222"
+
+--0000000000002b72500636e04222
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+----------- Tov=C3=A1bb=C3=ADtott =C3=BCzenet ----------
+Felad=C3=B3: idealista <noresponder@idealista.com>
+D=C3=A1tum: 2025. j=C3=BAn. 5., Cs, 17:43
+T=C3=A1rgy: Aj=C3=A1nlott hirdet=C3=A9sek C=C3=ADmzett
+: <banyus53@gmail.com>
+
+
+A keres=C3=A9se alapj=C3=A1n ingatlanaj=C3=A1nl=C3=A1sokat k=C3=BCld=C3=BCn=
+k =C3=96nnek.
+<https://www.idealista.com/?utm_medium=3Demail&utm_campaign=3Ddaily_suggest=
+ions_oneSearch&utm_campaigntype=3Dretention&utm_project=3DadNotification&ut=
+m_source=3Dalerts-id&utm_date_send=3D2025-06-05T174309&utm_link=3Dlogo&utm_=
+recipient_id=3Dich/L95N3qlY20lHKSe70OieU6nHQRF6lg7NtduNjH4=3D>
+Hello =C3=81gnes,
+A keres=C3=A9se alapj=C3=A1n ingatlanaj=C3=A1nl=C3=A1sokat k=C3=BCld=C3=BCn=
+k =C3=96nnek.
+Aj=C3=A1nl=C3=A1sok *az egy=C3=A9ni keres=C3=A9si ter=C3=BCleten tal=C3=A1l=
+hat=C3=B3 otthonokra*
+Minden =C3=A1r
+Nincsenek m=C3=A1s sz=C5=B1r=C5=91k
+
+[image: Vid=C3=A9ki h=C3=A1z Sandes-ben, Ned=C3=A1ban]
+<https://www.idealista.com/en/inmueble/108359745/?utm_medium=3Demail&utm_ca=
+mpaign=3Ddaily_suggestions_oneSearch&utm_campaigntype=3Dretention&utm_proje=
+ct=3DadNotification&utm_source=3Dalerts-id&utm_date_send=3D2025-06-05T17430=
+9&utm_link=3DpropertyRecommendedPhoto&utm_recipient_id=3Dich/L95N3qlY20lHKS=
+e70OieU6nHQRF6lg7NtduNjH4=3D&origin=3DalertSuggestionsOneSearch&savedSearch=
+AlertId=3D102755581&genericSearch=3Dfalse>
+Vid=C3=A9ki h=C3=A1z Sandes-ben, Ned=C3=A1ban
+<https://www.idealista.com/en/inmueble/108359745/?utm_medium=3Demail&utm_ca=
+mpaign=3Ddaily_suggestions_oneSearch&utm_campaigntype=3Dretention&utm_proje=
+ct=3DadNotification&utm_source=3Dalerts-id&utm_date_send=3D2025-06-05T17430=
+9&utm_link=3DpropertyRecommendedLink&utm_recipient_id=3Dich/L95N3qlY20lHKSe=
+70OieU6nHQRF6lg7NtduNjH4=3D&origin=3DalertSuggestionsOneSearch&savedSearchA=
+lertId=3D102755581&genericSearch=3Dfalse>
+39 000 =E2=82=AC
+
+160 m=C2=B2 3 =C3=A1gyas
+
+A VIPKEL-t=C5=91l elhozzuk =C3=96nnek ezt a B=C3=81JOS H=C3=81ZAT fel=C3=BA=
+j=C3=ADt=C3=A1sra, KIV=C3=81L=C3=93 6000
+m=C2=B2-es birtokkal...
+27 fot=C3=B3 megtekint=C3=A9se
+<https://www.idealista.com/en/inmueble/108359745/?utm_medium=3Demail&utm_ca=
+mpaign=3Ddaily_suggestions_oneSearch&utm_campaigntype=3Dretention&utm_proje=
+ct=3DadNotification&utm_source=3Dalerts-id&utm_date_send=3D2025-06-05T17430=
+9&utm_link=3DpropertyRecommendedPhoto&utm_recipient_id=3Dich/L95N3qlY20lHKS=
+e70OieU6nHQRF6lg7NtduNjH4=3D&origin=3DalertSuggestionsOneSearch&savedSearch=
+AlertId=3D102755581&genericSearch=3Dfalse>
+
+
+[image: Farm itt: Aldea Carballo, Sedes-Pedroso-Doso, Nar=C3=B3n]
+<https://www.idealista.com/en/inmueble/108381665/?utm_medium=3Demail&utm_ca=
+mpaign=3Ddaily_suggestions_oneSearch&utm_campaigntype=3Dretention&utm_proje=
+ct=3DadNotification&utm_source=3Dalerts-id&utm_date_send=3D2025-06-05T17430=
+9&utm_link=3DpropertyRecommendedPhoto&utm_recipient_id=3Dich/L95N3qlY20lHKS=
+e70OieU6nHQRF6lg7NtduNjH4=3D&origin=3DalertSuggestionsOneSearch&savedSearch=
+AlertId=3D102755581&genericSearch=3Dfalse>
+Farm itt: Aldea Carballo, Sedes-Pedroso-Doso, Nar=C3=B3n
+<https://www.idealista.com/en/inmueble/108381665/?utm_medium=3Demail&utm_ca=
+mpaign=3Ddaily_suggestions_oneSearch&utm_campaigntype=3Dretention&utm_proje=
+ct=3DadNotification&utm_source=3Dalerts-id&utm_date_send=3D2025-06-05T17430=
+9&utm_link=3DpropertyRecommendedLink&utm_recipient_id=3Dich/L95N3qlY20lHKSe=
+70OieU6nHQRF6lg7NtduNjH4=3D&origin=3DalertSuggestionsOneSearch&savedSearchA=
+lertId=3D102755581&genericSearch=3Dfalse>
+60 000 eur=C3=B3
+
+190 m=C2=B2 1 =C3=A1gy
+
+K=C3=A9t fel=C3=BAj=C3=ADtand=C3=B3 k=C5=91h=C3=A1z + fejleszthet=C5=91 f=
+=C3=B6ldter=C3=BClet exkluz=C3=ADv vid=C3=A9ki
+k=C3=B6rnyezetben K=C3=A9t kapcsol=C3=B3d=C3=B3...
+22 fot=C3=B3 megtekint=C3=A9se
+<https://www.idealista.com/en/inmueble/108381665/?utm_medium=3Demail&utm_ca=
+mpaign=3Ddaily_suggestions_oneSearch&utm_campaigntype=3Dretention&utm_proje=
+ct=3DadNotification&utm_source=3Dalerts-id&utm_date_send=3D2025-06-05T17430=
+9&utm_link=3DpropertyRecommendedPhoto&utm_recipient_id=3Dich/L95N3qlY20lHKS=
+e70OieU6nHQRF6lg7NtduNjH4=3D&origin=3DalertSuggestionsOneSearch&savedSearch=
+AlertId=3D102755581&genericSearch=3Dfalse>
+
+
+Az e-mailben szerepl=C5=91 list=C3=A1kr=C3=B3l
+
+Ebben az e-mailben olyan aj=C3=A1nlott hirdet=C3=A9seket k=C3=BCld=C3=BCnk,=
+ amelyek
+=C3=A9rdekelhetik =C3=96nt, ha nincsenek =C3=BAj hirdet=C3=A9sek a mentett =
+keres=C3=A9sei k=C3=B6z=C3=B6tt. Az
+aj=C3=A1nlott hirdet=C3=A9seket a keres=C3=A9si krit=C3=A9riumai =C3=A9s/va=
+gy az idealista oldal=C3=A1n
+v=C3=A9gzett tev=C3=A9kenys=C3=A9ge alapj=C3=A1n v=C3=A1lasztjuk ki. El=C5=
+=91fordulhat, hogy az aj=C3=A1nlott
+hirdet=C3=A9sek nem felelnek meg pontosan az =C3=B6sszes keres=C3=A9si krit=
+=C3=A9riumnak.
+
+Ellen=C5=91rizheti a keres=C3=A9si felt=C3=A9teleket
+<https://www.idealista.com/en/usuario/tus-alertas?utm_medium=3Demail&utm_ca=
+mpaign=3Ddaily_suggestions_oneSearch&utm_campaigntype=3Dretention&utm_proje=
+ct=3DadNotification&utm_source=3Dalerts-id&utm_date_send=3D2025-06-05T17430=
+9&utm_link=3DtusBusquedas&utm_recipient_id=3Dich/L95N3qlY20lHKSe70OieU6nHQR=
+F6lg7NtduNjH4=3D>
+Az idealista alkalmaz=C3=A1ssal azonnal =C3=A9rtes=C3=ADt=C3=A9seket kaphat=
+sz az =C3=BAj
+hirdet=C3=A9sekr=C5=91l, vagy megtekintheted a megkeresett hirdet=C5=91k v=
+=C3=A1laszait.
+T=C3=B6ltsd le az idealista alkalmaz=C3=A1st
+<https://idealista.onelink.me/3139118072/i38rtpc3?af_adset=3Ddaily_suggesti=
+ons_oneSearch>
+Probl=C3=A9m=C3=A1k? L=C3=A9pjen kapcsolatba az idealist=C3=A1val a webolda=
+lon kereszt=C3=BCl
+<https://www.idealista.com/en/info/contacto?utm_medium=3Demail&utm_campaign=
+=3Ddaily_suggestions_oneSearch&utm_campaigntype=3Dretention&utm_project=3Da=
+dNotification&utm_source=3Dalerts-id&utm_date_send=3D2025-06-05T174309&utm_=
+link=3Dcontacta&utm_recipient_id=3Dich/L95N3qlY20lHKSe70OieU6nHQRF6lg7NtduN=
+jH4=3D>
+Szolg=C3=A1ltat=C3=A1saink haszn=C3=A1lat=C3=A1val =C3=96n elfogadja az ada=
+tv=C3=A9delmi ir=C3=A1nyelveket
+<https://www.idealista.com/en/info/proteccion-datos?utm_medium=3Demail&utm_=
+campaign=3Ddaily_suggestions_oneSearch&utm_campaigntype=3Dretention&utm_pro=
+ject=3DadNotification&utm_source=3Dalerts-id&utm_date_send=3D2025-06-05T174=
+309&utm_link=3DproteccionDatos&utm_recipient_id=3Dich/L95N3qlY20lHKSe70OieU=
+6nHQRF6lg7NtduNjH4=3D>
+=C3=A9s a felhaszn=C3=A1l=C3=A1si felt=C3=A9teleket
+<https://www.idealista.com/en/info/nota-legal?utm_medium=3Demail&utm_campai=
+gn=3Ddaily_suggestions_oneSearch&utm_campaigntype=3Dretention&utm_project=
+=3DadNotification&utm_source=3Dalerts-id&utm_date_send=3D2025-06-05T174309&=
+utm_link=3DnotaLegal&utm_recipient_id=3Dich/L95N3qlY20lHKSe70OieU6nHQRF6lg7=
+NtduNjH4=3D>
+.
+=C2=A9 2000 - 2025
+
+--0000000000002b72500636e04222
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><br><br><div class=3D"gmail_quote gmail_quote_container"><=
+div dir=3D"ltr" class=3D"gmail_attr"><font style=3D"vertical-align:inherit"=
+><font style=3D"vertical-align:inherit">----------- Tov=C3=A1bb=C3=ADtott =
+=C3=BCzenet ---------- </font></font><br><font style=3D"vertical-align:inhe=
+rit"><font style=3D"vertical-align:inherit">Felad=C3=B3: </font></font><str=
+ong class=3D"gmail_sendername" dir=3D"auto"><font style=3D"vertical-align:i=
+nherit"><font style=3D"vertical-align:inherit">idealista </font></font></st=
+rong> <span dir=3D"auto"><font style=3D"vertical-align:inherit"><font style=
+=3D"vertical-align:inherit">&lt;<a href=3D"mailto:noresponder@idealista.com=
+">noresponder@idealista.com</a>&gt;</font></font></span><br><font style=3D"=
+vertical-align:inherit"><font style=3D"vertical-align:inherit"> D=C3=A1tum:=
+ 2025. j=C3=BAn. 5., Cs, 17:43 </font></font><br><font style=3D"vertical-al=
+ign:inherit"><font style=3D"vertical-align:inherit">T=C3=A1rgy: Aj=C3=A1nlo=
+tt hirdet=C3=A9sek C=C3=ADmzett </font></font><br><font style=3D"vertical-a=
+lign:inherit"><font style=3D"vertical-align:inherit">: &lt;<a href=3D"mailt=
+o:banyus53@gmail.com">banyus53@gmail.com</a>&gt;</font></font><br></div><br=
+><br><div class=3D"msg-6675184600642162608">
+<u></u><div style=3D"background-color:#f0f0ee"><div style=3D"background-col=
+or:#f0f0ee"><span style=3D"display:none;opacity:0;color:transparent;height:=
+0;width:0"><font style=3D"vertical-align:inherit"><font style=3D"vertical-a=
+lign:inherit">A keres=C3=A9se alapj=C3=A1n ingatlanaj=C3=A1nl=C3=A1sokat k=
+=C3=BCld=C3=BCnk =C3=96nnek.</font></font></span><div style=3D"background:#=
+dffa45;background-color:#dffa45;Margin:0px auto;max-width:600px"><table ali=
+gn=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pres=
+entation" style=3D"background:#dffa45;background-color:#dffa45;width:100%">=
+<tbody><tr><td style=3D"direction:ltr;font-size:0px;padding:18px 24px;text-=
+align:center;vertical-align:top"><div class=3D"m_-6675184600642162608mj-col=
+umn-per-100" style=3D"font-size:13px;text-align:left;direction:ltr;display:=
+inline-block;vertical-align:top;width:100%"><table border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"vertical-align:top"=
+ width=3D"100%"><tbody><tr><td align=3D"left" style=3D"font-size:0px;paddin=
+g:0;word-break:break-word"><table border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" role=3D"presentation" style=3D"border-collapse:collapse;border-spac=
+ing:0px"><tbody><tr><td style=3D"width:111px"><a href=3D"https://www.ideali=
+sta.com/?utm_medium=3Demail&amp;utm_campaign=3Ddaily_suggestions_oneSearch&=
+amp;utm_campaigntype=3Dretention&amp;utm_project=3DadNotification&amp;utm_s=
+ource=3Dalerts-id&amp;utm_date_send=3D2025-06-05T174309&amp;utm_link=3Dlogo=
+&amp;utm_recipient_id=3Dich/L95N3qlY20lHKSe70OieU6nHQRF6lg7NtduNjH4=3D" tar=
+get=3D"_blank"><img height=3D"auto" src=3D"https://st3.idealista.com/static=
+/common/release/home/resources/img/logo-small.png" style=3D"border:0;displa=
+y:block;outline:none;text-decoration:none;height:auto;width:100%" width=3D"=
+111"></a></td></tr></tbody></table></td></tr></tbody></table></div></td></t=
+r></tbody></table></div><div style=3D"background:#ffffff;background-color:#=
+ffffff;Margin:0px auto;max-width:600px"><table align=3D"center" border=3D"0=
+" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"backgr=
+ound:#ffffff;background-color:#ffffff;width:100%"><tbody><tr><td style=3D"d=
+irection:ltr;font-size:0px;padding:24px 24px 0;text-align:center;vertical-a=
+lign:top"><div style=3D"Margin:0px auto;max-width:552px"><table align=3D"ce=
+nter" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation=
+" style=3D"width:100%"><tbody><tr><td style=3D"direction:ltr;font-size:0px;=
+padding:0 0 8px;text-align:center;vertical-align:top"><div class=3D"m_-6675=
+184600642162608mj-column-per-100" style=3D"font-size:13px;text-align:left;d=
+irection:ltr;display:inline-block;vertical-align:top;width:100%"><table bor=
+der=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" width=
+=3D"100%"><tbody><tr><td style=3D"vertical-align:top;padding:0"><table bord=
+er=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D=
+"100%"><tbody><tr><td align=3D"left" style=3D"font-size:0px;padding:0;word-=
+break:break-word"><div style=3D"font-family:Arial;font-size:20px;font-weigh=
+t:700;line-height:24px;text-align:left;color:#141414"><font style=3D"vertic=
+al-align:inherit"><font style=3D"vertical-align:inherit">Hello =C3=81gnes,<=
+/font></font></div></td></tr></tbody></table></td></tr></tbody></table></di=
+v></td></tr></tbody></table></div><div style=3D"Margin:0px auto;max-width:5=
+52px"><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0" role=3D"presentation" style=3D"width:100%"><tbody><tr><td style=3D"dire=
+ction:ltr;font-size:0px;padding:0;text-align:center;vertical-align:top"><di=
+v class=3D"m_-6675184600642162608mj-column-per-100" style=3D"font-size:13px=
+;text-align:left;direction:ltr;display:inline-block;vertical-align:top;widt=
+h:100%"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation" width=3D"100%"><tbody><tr><td style=3D"vertical-align:top;paddin=
+g:0"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presen=
+tation" width=3D"100%"><tbody><tr><td align=3D"left" style=3D"font-size:0px=
+;padding:0;word-break:break-word"><div style=3D"font-family:Arial;font-size=
+:16px;line-height:24px;text-align:left;color:#141414"><font style=3D"vertic=
+al-align:inherit"><font style=3D"vertical-align:inherit">A keres=C3=A9se al=
+apj=C3=A1n ingatlanaj=C3=A1nl=C3=A1sokat k=C3=BCld=C3=BCnk =C3=96nnek.</fon=
+t></font></div></td></tr></tbody></table></td></tr></tbody></table></div></=
+td></tr></tbody></table></div></td></tr></tbody></table></div>            <=
+div style=3D"background:#ffffff;background-color:#ffffff;Margin:0px auto;ma=
+x-width:600px"><table align=3D"center" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" role=3D"presentation" style=3D"background:#ffffff;background-c=
+olor:#ffffff;width:100%"><tbody><tr><td style=3D"direction:ltr;font-size:0p=
+x;padding:0 24px;text-align:center;vertical-align:top"><div style=3D"Margin=
+:0px auto;max-width:552px"><table align=3D"center" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"width:100%"><tbody>=
+<tr><td style=3D"direction:ltr;font-size:0px;padding:0;text-align:center;ve=
+rtical-align:top"><div class=3D"m_-6675184600642162608mj-column-per-100" st=
+yle=3D"font-size:13px;text-align:left;direction:ltr;display:inline-block;ve=
+rtical-align:top;width:100%"><table border=3D"0" cellpadding=3D"0" cellspac=
+ing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"vert=
+ical-align:top;padding:24px 0 4px"><table border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td align=
+=3D"left" style=3D"font-size:0px;padding:0;word-break:break-word"><div styl=
+e=3D"font-family:Arial;font-size:20px;line-height:24px;text-align:left;colo=
+r:#141414"><font style=3D"vertical-align:inherit"><font style=3D"vertical-a=
+lign:inherit">Aj=C3=A1nl=C3=A1sok </font></font><b><font style=3D"vertical-=
+align:inherit"><font style=3D"vertical-align:inherit">az egy=C3=A9ni keres=
+=C3=A9si ter=C3=BCleten tal=C3=A1lhat=C3=B3 otthonokra</font></font></b></d=
+iv></td></tr></tbody></table></td></tr></tbody></table></div></td></tr></tb=
+ody></table></div><div style=3D"Margin:0px auto;max-width:552px"><table ali=
+gn=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pres=
+entation" style=3D"width:100%"><tbody><tr><td style=3D"direction:ltr;font-s=
+ize:0px;padding:0 0 10px;text-align:center;vertical-align:top"><div class=
+=3D"m_-6675184600642162608mj-column-per-100" style=3D"font-size:13px;text-a=
+lign:left;direction:ltr;display:inline-block;vertical-align:top;width:100%"=
+><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"vertical-align:top" width=3D"100%"><tbody><tr><td align=3D"lef=
+t" style=3D"font-size:0px;padding:0;word-break:break-word"><table cellpaddi=
+ng=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0" style=3D"color:#0000=
+00;font-family:Arial;font-size:13px;line-height:22px;table-layout:auto;widt=
+h:100%"><tbody><tr><td><u></u></td><td width=3D"100" valign=3D"top" style=
+=3D"padding-top:8px;line-height:0"><img src=3D"https://maps.googleapis.com/=
+maps/api/staticmap?path=3Dweight%3A2%7Ccolor%3A0x666664ff%7Cfillcolor%3A0x8=
+e8f8c44%7Cenc%3AachiGze%7Bp%40waF%3FkuEyq%40wtAmGw%7CDyq%40%7B%60Bki%40onAy=
+q%40wzAsdBuc%40wbAqtAwsA%7Do%40amBihAijE%7Bo%40yaEsqCurNsc%40iyDcEe%7CAsc%4=
+0elFcE_nGfKovGrc%40%7B%60Izo%40kxHn%5D_oChhA%7DnLvwCy%60Rb%7C%40ijE%60v%40e=
+%7BEx%60BstFfbAucFvc%40mhDvbEqdThbAwrE%7Eo%40a%7EB%7E%60By%60IlyB_nP%7CzAcm=
+K%60aBmgHrjDsdKfgBekJ%3FusAtyB%3FlmB%7DOdlC%3Fbp%40%7COjrC%3F%7Ei%40lXzyB%3=
+FvcEdkAdp%40%3FrrChz%40buA%7COxxCtsAlv%40%7COlfCd%7CAzmBrdBxbAz%60%40vbA%3F=
+raBvbAb%7EDvrEpv%40nGzgBvrEvkD%60mKfj%40tcFdj%40hyDtWf%7BE%3FtbJoQz%60IiKfz=
+IkKrdB%3FnwCoQhi%40%3F%60%7EBqv%40z_MqQbmBoQtcF%3FjxQjKxqIpv%40%7EmPnQrtFtW=
+jX%3FhiIeEruBuWxpD%7BbArtFwaBhjEq%60ClwC%7BvEzpDayCpuBsaBd%7CAofCtsAoaBd%7C=
+Ai%60CxaBsgBhiCmaB%7E%7EG%7DiEtsA%7B%7ECxq%40qnFbmBw%5Dfz%40e%7EHbmBigBlXen=
+Fhi%40&amp;size=3D100x100&amp;format=3Dpng&amp;maptype=3Droadmap&amp;langua=
+ge=3Des&amp;key=3DAIzaSyBvWPgYmrRwIkojymtF7I60mxoB8n56onQ&amp;signature=3Dz=
+GWpUtTVkCCnVSpeXCFFt7QDUGg=3D"></td><td><u></u></td><td valign=3D"top" alig=
+n=3D"left" style=3D"padding-left:16px;padding-top:6px"><u></u><div><span st=
+yle=3D"font-size:16px;display:inline-block;line-height:24px"><font style=3D=
+"vertical-align:inherit"><font style=3D"vertical-align:inherit">Minden =C3=
+=A1r</font></font></span></div><u></u><u></u><div><span style=3D"font-size:=
+16px;display:block;line-height:24px"><font style=3D"vertical-align:inherit"=
+><font style=3D"vertical-align:inherit">Nincsenek m=C3=A1s sz=C5=B1r=C5=91k=
+</font></font></span></div><u></u></td></tr></tbody></table></td></tr></tbo=
+dy></table></div></td></tr></tbody></table></div> <div style=3D"Margin:0px =
+auto;max-width:552px"><table align=3D"center" border=3D"0" cellpadding=3D"0=
+" cellspacing=3D"0" role=3D"presentation" style=3D"width:100%"><tbody><tr><=
+td style=3D"direction:ltr;font-size:0px;padding:0;text-align:center;vertica=
+l-align:top"><div class=3D"m_-6675184600642162608mj-column-per-100" style=
+=3D"font-size:13px;text-align:left;direction:ltr;display:inline-block;verti=
+cal-align:top;width:100%"><table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" style=3D"vertical-align:top" width=3D"100%"><t=
+body><tr><td style=3D"font-size:0px;word-break:break-word"><div style=3D"he=
+ight:12px">=C2=A0</div></td></tr></tbody></table></div></td></tr></tbody></=
+table></div><div style=3D"background:#ffffff;background-color:#ffffff;Margi=
+n:0px auto;max-width:552px"><table align=3D"center" border=3D"0" cellpaddin=
+g=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"background:#ffffff=
+;background-color:#ffffff;width:100%"><tbody><tr><td style=3D"border-bottom=
+:1px solid #e5e6e1;border-left:1px solid #e5e6e1;border-right:1px solid #e5=
+e6e1;border-top:1px solid #e5e6e1;direction:ltr;font-size:0px;padding:0;tex=
+t-align:center;vertical-align:top"><div class=3D"m_-6675184600642162608mj-c=
+olumn-per-55" style=3D"font-size:13px;text-align:left;direction:ltr;display=
+:inline-block;vertical-align:top;width:100%"><table border=3D"0" cellpaddin=
+g=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"vertical-align:top=
+" width=3D"100%">      <tbody><tr><td><a href=3D"https://www.idealista.com/=
+en/inmueble/108359745/?utm_medium=3Demail&amp;utm_campaign=3Ddaily_suggesti=
+ons_oneSearch&amp;utm_campaigntype=3Dretention&amp;utm_project=3DadNotifica=
+tion&amp;utm_source=3Dalerts-id&amp;utm_date_send=3D2025-06-05T174309&amp;u=
+tm_link=3DpropertyRecommendedPhoto&amp;utm_recipient_id=3Dich/L95N3qlY20lHK=
+Se70OieU6nHQRF6lg7NtduNjH4=3D&amp;origin=3DalertSuggestionsOneSearch&amp;sa=
+vedSearchAlertId=3D102755581&amp;genericSearch=3Dfalse" title=3D"Vid=C3=A9k=
+i h=C3=A1z Sandes-ben, Ned=C3=A1ban" target=3D"_blank"><img alt=3D"Vid=C3=
+=A9ki h=C3=A1z Sandes-ben, Ned=C3=A1ban" src=3D"https://img4.idealista.com/=
+blur/500_375_mq/0/id.pro.es.image.master/c3/6f/4b/1341770604.jpg" class=3D"=
+m_-6675184600642162608imagen-inmueble" width=3D"277" style=3D"width:277px;d=
+isplay:block"></a></td></tr></tbody></table></div><div class=3D"m_-66751846=
+00642162608mj-column-per-44" style=3D"font-size:13px;text-align:left;direct=
+ion:ltr;display:inline-block;vertical-align:top;width:100%"><table border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"1=
+00%"><tbody><tr><td style=3D"vertical-align:top;padding:16px 14px"><table b=
+order=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" width=
+=3D"100%"><tbody><tr><td align=3D"left" style=3D"font-size:0px;padding:0;wo=
+rd-break:break-word"><div style=3D"font-family:Arial;font-size:14px;line-he=
+ight:16px;text-align:left;color:#000000"><a style=3D"color:#2172b2;text-dec=
+oration:none" href=3D"https://www.idealista.com/en/inmueble/108359745/?utm_=
+medium=3Demail&amp;utm_campaign=3Ddaily_suggestions_oneSearch&amp;utm_campa=
+igntype=3Dretention&amp;utm_project=3DadNotification&amp;utm_source=3Dalert=
+s-id&amp;utm_date_send=3D2025-06-05T174309&amp;utm_link=3DpropertyRecommend=
+edLink&amp;utm_recipient_id=3Dich/L95N3qlY20lHKSe70OieU6nHQRF6lg7NtduNjH4=
+=3D&amp;origin=3DalertSuggestionsOneSearch&amp;savedSearchAlertId=3D1027555=
+81&amp;genericSearch=3Dfalse" title=3D"Vid=C3=A9ki h=C3=A1z Sandes-ben, Ned=
+=C3=A1ban" target=3D"_blank"><font style=3D"vertical-align:inherit"><font s=
+tyle=3D"vertical-align:inherit">Vid=C3=A9ki h=C3=A1z Sandes-ben, Ned=C3=A1b=
+an</font></font></a></div></td></tr><tr><td align=3D"left" style=3D"font-si=
+ze:0px;padding:0;word-break:break-word"><table cellpadding=3D"0" cellspacin=
+g=3D"0" width=3D"100%" border=3D"0" style=3D"color:#000000;font-family:Aria=
+l;font-size:13px;line-height:22px;table-layout:auto;width:100%"><tbody><tr>=
+<td valign=3D"middle" align=3D"left" height=3D"38"> <span> <span style=3D"c=
+olor:#333;font-weight:bold;font-size:22px;line-height:16px"><font style=3D"=
+vertical-align:inherit"><font style=3D"vertical-align:inherit">39 000 =E2=
+=82=AC</font></font></span></span></td></tr></tbody></table></td></tr><tr><=
+td align=3D"left" style=3D"font-size:0px;padding:0 0 4px;word-break:break-w=
+ord"><div style=3D"font-family:Arial;font-size:14px;line-height:16px;text-a=
+lign:left;color:#141414"><u></u>  <u></u><font style=3D"vertical-align:inhe=
+rit"><font style=3D"vertical-align:inherit">160 m=C2=B2</font></font><u></u=
+>  <u></u><font style=3D"vertical-align:inherit"><font style=3D"vertical-al=
+ign:inherit">3 =C3=A1gyas</font></font><u></u>  <u></u></div></td></tr><tr>=
+<td align=3D"left" style=3D"font-size:0px;padding:0 0 11px;word-break:break=
+-word"><div style=3D"font-family:Arial;font-size:14px;line-height:16px;text=
+-align:left;color:#8e8f8c"><p style=3D"height:34px;overflow:hidden;margin-t=
+op:0;margin-bottom:0"><u></u><u></u><u></u><u></u><font style=3D"vertical-a=
+lign:inherit"><font style=3D"vertical-align:inherit">A VIPKEL-t=C5=91l elho=
+zzuk =C3=96nnek ezt a B=C3=81JOS H=C3=81ZAT fel=C3=BAj=C3=ADt=C3=A1sra, KIV=
+=C3=81L=C3=93 6000 m=C2=B2-es birtokkal...</font></font><u></u><u></u></p><=
+/div></td></tr><tr><td align=3D"center" style=3D"font-size:0px;padding:0;wo=
+rd-break:break-word"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0=
+" role=3D"presentation" style=3D"border-collapse:separate;width:100%;line-h=
+eight:100%"><tbody><tr><td align=3D"center" bgcolor=3D"#e5e6e1" role=3D"pre=
+sentation" style=3D"border:solid 1px #cbccc7;border-radius:2px;padding:4px =
+16px;background:#e5e6e1" valign=3D"middle"><a href=3D"https://www.idealista=
+.com/en/inmueble/108359745/?utm_medium=3Demail&amp;utm_campaign=3Ddaily_sug=
+gestions_oneSearch&amp;utm_campaigntype=3Dretention&amp;utm_project=3DadNot=
+ification&amp;utm_source=3Dalerts-id&amp;utm_date_send=3D2025-06-05T174309&=
+amp;utm_link=3DpropertyRecommendedPhoto&amp;utm_recipient_id=3Dich/L95N3qlY=
+20lHKSe70OieU6nHQRF6lg7NtduNjH4=3D&amp;origin=3DalertSuggestionsOneSearch&a=
+mp;savedSearchAlertId=3D102755581&amp;genericSearch=3Dfalse" style=3D"backg=
+round:#e5e6e1;color:#141414;font-family:Arial;font-size:16px;font-weight:70=
+0;line-height:24px;Margin:0;text-decoration:none;text-transform:none" targe=
+t=3D"_blank"><span style=3D"display:block"><font style=3D"vertical-align:in=
+herit"><font style=3D"vertical-align:inherit">27 fot=C3=B3 megtekint=C3=A9s=
+e</font></font></span></a></td></tr></tbody></table></td></tr></tbody></tab=
+le></td></tr></tbody></table></div></td></tr></tbody></table></div> <div st=
+yle=3D"Margin:0px auto;max-width:552px"><table align=3D"center" border=3D"0=
+" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"width:=
+100%"><tbody><tr><td style=3D"direction:ltr;font-size:0px;padding:0;text-al=
+ign:center;vertical-align:top"><div class=3D"m_-6675184600642162608mj-colum=
+n-per-100" style=3D"font-size:13px;text-align:left;direction:ltr;display:in=
+line-block;vertical-align:top;width:100%"><table border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"vertical-align:top"=
+ width=3D"100%"><tbody><tr><td style=3D"font-size:0px;word-break:break-word=
+"><div style=3D"height:12px">=C2=A0</div></td></tr></tbody></table></div></=
+td></tr></tbody></table></div> <div style=3D"Margin:0px auto;max-width:552p=
+x"><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+ role=3D"presentation" style=3D"width:100%"><tbody><tr><td style=3D"directi=
+on:ltr;font-size:0px;padding:0;text-align:center;vertical-align:top"><div c=
+lass=3D"m_-6675184600642162608mj-column-per-100" style=3D"font-size:13px;te=
+xt-align:left;direction:ltr;display:inline-block;vertical-align:top;width:1=
+00%"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presen=
+tation" style=3D"vertical-align:top" width=3D"100%"><tbody><tr><td style=3D=
+"font-size:0px;word-break:break-word"><div style=3D"height:12px">=C2=A0</di=
+v></td></tr></tbody></table></div></td></tr></tbody></table></div><div styl=
+e=3D"background:#ffffff;background-color:#ffffff;Margin:0px auto;max-width:=
+552px"><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" style=3D"background:#ffffff;background-color:#=
+ffffff;width:100%"><tbody><tr><td style=3D"border-bottom:1px solid #e5e6e1;=
+border-left:1px solid #e5e6e1;border-right:1px solid #e5e6e1;border-top:1px=
+ solid #e5e6e1;direction:ltr;font-size:0px;padding:0;text-align:center;vert=
+ical-align:top"><div class=3D"m_-6675184600642162608mj-column-per-55" style=
+=3D"font-size:13px;text-align:left;direction:ltr;display:inline-block;verti=
+cal-align:top;width:100%"><table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" style=3D"vertical-align:top" width=3D"100%">  =
+    <tbody><tr><td><a href=3D"https://www.idealista.com/en/inmueble/1083816=
+65/?utm_medium=3Demail&amp;utm_campaign=3Ddaily_suggestions_oneSearch&amp;u=
+tm_campaigntype=3Dretention&amp;utm_project=3DadNotification&amp;utm_source=
+=3Dalerts-id&amp;utm_date_send=3D2025-06-05T174309&amp;utm_link=3DpropertyR=
+ecommendedPhoto&amp;utm_recipient_id=3Dich/L95N3qlY20lHKSe70OieU6nHQRF6lg7N=
+tduNjH4=3D&amp;origin=3DalertSuggestionsOneSearch&amp;savedSearchAlertId=3D=
+102755581&amp;genericSearch=3Dfalse" title=3D"Farm itt: Aldea Carballo, Sed=
+es-Pedroso-Doso, Nar=C3=B3n" target=3D"_blank"><img alt=3D"Farm itt: Aldea =
+Carballo, Sedes-Pedroso-Doso, Nar=C3=B3n" src=3D"https://img4.idealista.com=
+/blur/500_375_mq/0/id.pro.es.image.master/ce/91/d0/1342429159.jpg" class=3D=
+"m_-6675184600642162608imagen-inmueble" width=3D"277" style=3D"width:277px;=
+display:block"></a></td></tr></tbody></table></div><div class=3D"m_-6675184=
+600642162608mj-column-per-44" style=3D"font-size:13px;text-align:left;direc=
+tion:ltr;display:inline-block;vertical-align:top;width:100%"><table border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"1=
+00%"><tbody><tr><td style=3D"vertical-align:top;padding:16px 14px"><table b=
+order=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" width=
+=3D"100%"><tbody><tr><td align=3D"left" style=3D"font-size:0px;padding:0;wo=
+rd-break:break-word"><div style=3D"font-family:Arial;font-size:14px;line-he=
+ight:16px;text-align:left;color:#000000"><a style=3D"color:#2172b2;text-dec=
+oration:none" href=3D"https://www.idealista.com/en/inmueble/108381665/?utm_=
+medium=3Demail&amp;utm_campaign=3Ddaily_suggestions_oneSearch&amp;utm_campa=
+igntype=3Dretention&amp;utm_project=3DadNotification&amp;utm_source=3Dalert=
+s-id&amp;utm_date_send=3D2025-06-05T174309&amp;utm_link=3DpropertyRecommend=
+edLink&amp;utm_recipient_id=3Dich/L95N3qlY20lHKSe70OieU6nHQRF6lg7NtduNjH4=
+=3D&amp;origin=3DalertSuggestionsOneSearch&amp;savedSearchAlertId=3D1027555=
+81&amp;genericSearch=3Dfalse" title=3D"Farm itt: Aldea Carballo, Sedes-Pedr=
+oso-Doso, Nar=C3=B3n" target=3D"_blank"><font style=3D"vertical-align:inher=
+it"><font style=3D"vertical-align:inherit">Farm itt: Aldea Carballo, Sedes-=
+Pedroso-Doso, Nar=C3=B3n</font></font></a></div></td></tr><tr><td align=3D"=
+left" style=3D"font-size:0px;padding:0;word-break:break-word"><table cellpa=
+dding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0" style=3D"color:#0=
+00000;font-family:Arial;font-size:13px;line-height:22px;table-layout:auto;w=
+idth:100%"><tbody><tr><td valign=3D"middle" align=3D"left" height=3D"38"> <=
+span> <span style=3D"color:#333;font-weight:bold;font-size:22px;line-height=
+:16px"><font style=3D"vertical-align:inherit"><font style=3D"vertical-align=
+:inherit">60 000 eur=C3=B3</font></font></span></span></td></tr></tbody></t=
+able></td></tr><tr><td align=3D"left" style=3D"font-size:0px;padding:0 0 4p=
+x;word-break:break-word"><div style=3D"font-family:Arial;font-size:14px;lin=
+e-height:16px;text-align:left;color:#141414"><u></u>  <u></u><font style=3D=
+"vertical-align:inherit"><font style=3D"vertical-align:inherit">190 m=C2=B2=
+</font></font><u></u>  <u></u><font style=3D"vertical-align:inherit"><font =
+style=3D"vertical-align:inherit">1 =C3=A1gy</font></font><u></u>  <u></u></=
+div></td></tr><tr><td align=3D"left" style=3D"font-size:0px;padding:0 0 11p=
+x;word-break:break-word"><div style=3D"font-family:Arial;font-size:14px;lin=
+e-height:16px;text-align:left;color:#8e8f8c"><p style=3D"height:34px;overfl=
+ow:hidden;margin-top:0;margin-bottom:0"><u></u><u></u><u></u><u></u><font s=
+tyle=3D"vertical-align:inherit"><font style=3D"vertical-align:inherit">K=C3=
+=A9t fel=C3=BAj=C3=ADtand=C3=B3 k=C5=91h=C3=A1z + fejleszthet=C5=91 f=C3=B6=
+ldter=C3=BClet exkluz=C3=ADv vid=C3=A9ki k=C3=B6rnyezetben K=C3=A9t kapcsol=
+=C3=B3d=C3=B3...</font></font><u></u><u></u></p></div></td></tr><tr><td ali=
+gn=3D"center" style=3D"font-size:0px;padding:0;word-break:break-word"><tabl=
+e border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" st=
+yle=3D"border-collapse:separate;width:100%;line-height:100%"><tbody><tr><td=
+ align=3D"center" bgcolor=3D"#e5e6e1" role=3D"presentation" style=3D"border=
+:solid 1px #cbccc7;border-radius:2px;padding:4px 16px;background:#e5e6e1" v=
+align=3D"middle"><a href=3D"https://www.idealista.com/en/inmueble/108381665=
+/?utm_medium=3Demail&amp;utm_campaign=3Ddaily_suggestions_oneSearch&amp;utm=
+_campaigntype=3Dretention&amp;utm_project=3DadNotification&amp;utm_source=
+=3Dalerts-id&amp;utm_date_send=3D2025-06-05T174309&amp;utm_link=3DpropertyR=
+ecommendedPhoto&amp;utm_recipient_id=3Dich/L95N3qlY20lHKSe70OieU6nHQRF6lg7N=
+tduNjH4=3D&amp;origin=3DalertSuggestionsOneSearch&amp;savedSearchAlertId=3D=
+102755581&amp;genericSearch=3Dfalse" style=3D"background:#e5e6e1;color:#141=
+414;font-family:Arial;font-size:16px;font-weight:700;line-height:24px;Margi=
+n:0;text-decoration:none;text-transform:none" target=3D"_blank"><span style=
+=3D"display:block"><font style=3D"vertical-align:inherit"><font style=3D"ve=
+rtical-align:inherit">22 fot=C3=B3 megtekint=C3=A9se</font></font></span></=
+a></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></t=
+able></div></td></tr></tbody></table></div> <div style=3D"Margin:0px auto;m=
+ax-width:552px"><table align=3D"center" border=3D"0" cellpadding=3D"0" cell=
+spacing=3D"0" role=3D"presentation" style=3D"width:100%"><tbody><tr><td sty=
+le=3D"direction:ltr;font-size:0px;padding:0;text-align:center;vertical-alig=
+n:top"><div class=3D"m_-6675184600642162608mj-column-per-100" style=3D"font=
+-size:13px;text-align:left;direction:ltr;display:inline-block;vertical-alig=
+n:top;width:100%"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" r=
+ole=3D"presentation" style=3D"vertical-align:top" width=3D"100%"><tbody><tr=
+><td style=3D"font-size:0px;word-break:break-word"><div style=3D"height:12p=
+x">=C2=A0</div></td></tr></tbody></table></div></td></tr></tbody></table></=
+div>  </td></tr></tbody></table></div><div style=3D"Margin:0px auto;max-wid=
+th:600px"><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" role=3D"presentation" style=3D"width:100%"><tbody><tr><td style=3D"=
+direction:ltr;font-size:0px;padding:0;text-align:center;vertical-align:top"=
+><div class=3D"m_-6675184600642162608mj-column-per-100" style=3D"font-size:=
+13px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;=
+width:100%"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D=
+"presentation" width=3D"100%"><tbody><tr><td style=3D"vertical-align:top;pa=
+dding:0"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pr=
+esentation" width=3D"100%"><tbody><tr><td style=3D"font-size:0px;padding:0;=
+word-break:break-word"><p style=3D"border-top:solid 6px #f0f0ee;font-size:1=
+;margin:0px auto;width:100%"></p></td></tr></tbody></table></td></tr></tbod=
+y></table></div></td></tr></tbody></table></div> <div style=3D"background:#=
+ffffff;background-color:#ffffff;Margin:0px auto;max-width:600px"><table ali=
+gn=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pres=
+entation" style=3D"background:#ffffff;background-color:#ffffff;width:100%">=
+<tbody><tr><td style=3D"direction:ltr;font-size:0px;padding:0;text-align:ce=
+nter;vertical-align:top"> <div style=3D"Margin:0px auto;max-width:600px"><t=
+able align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=
+=3D"presentation" style=3D"width:100%"><tbody><tr><td style=3D"direction:lt=
+r;font-size:0px;padding:24px 24px 0;text-align:center;vertical-align:top"><=
+div class=3D"m_-6675184600642162608mj-column-per-100" style=3D"font-size:13=
+px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;wi=
+dth:100%"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"p=
+resentation" style=3D"vertical-align:top" width=3D"100%"><tbody><tr><td ali=
+gn=3D"left" style=3D"font-size:0px;padding:0;word-break:break-word"><div st=
+yle=3D"font-family:Arial;font-size:16px;font-weight:700;line-height:24px;te=
+xt-align:left;color:#666664"><font style=3D"vertical-align:inherit"><font s=
+tyle=3D"vertical-align:inherit">Az e-mailben szerepl=C5=91 list=C3=A1kr=C3=
+=B3l</font></font></div></td></tr></tbody></table></div></td></tr></tbody><=
+/table></div><div style=3D"Margin:0px auto;max-width:600px"><table align=3D=
+"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentat=
+ion" style=3D"width:100%"><tbody><tr><td style=3D"direction:ltr;font-size:0=
+px;padding:0 24px 24px;text-align:center;vertical-align:top"><div class=3D"=
+m_-6675184600642162608mj-column-per-100" style=3D"font-size:13px;text-align=
+:left;direction:ltr;display:inline-block;vertical-align:top;width:100%"><ta=
+ble border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" =
+style=3D"vertical-align:top" width=3D"100%"><tbody><tr><td align=3D"left" s=
+tyle=3D"font-size:0px;padding:0;word-break:break-word"><div style=3D"font-f=
+amily:Arial;font-size:16px;line-height:24px;text-align:left;color:#666664">=
+<u></u><p><font style=3D"vertical-align:inherit"><font style=3D"vertical-al=
+ign:inherit">Ebben az e-mailben olyan aj=C3=A1nlott hirdet=C3=A9seket k=C3=
+=BCld=C3=BCnk, amelyek =C3=A9rdekelhetik =C3=96nt, ha nincsenek =C3=BAj hir=
+det=C3=A9sek a mentett keres=C3=A9sei k=C3=B6z=C3=B6tt. Az aj=C3=A1nlott hi=
+rdet=C3=A9seket a keres=C3=A9si krit=C3=A9riumai =C3=A9s/vagy az idealista =
+oldal=C3=A1n v=C3=A9gzett tev=C3=A9kenys=C3=A9ge alapj=C3=A1n v=C3=A1lasztj=
+uk ki. El=C5=91fordulhat, hogy az aj=C3=A1nlott hirdet=C3=A9sek nem felelne=
+k meg pontosan az =C3=B6sszes keres=C3=A9si krit=C3=A9riumnak.</font></font=
+></p><p><font style=3D"vertical-align:inherit"><font style=3D"vertical-alig=
+n:inherit">Ellen=C5=91rizheti a </font></font><a style=3D"color:#2172b2;tex=
+t-decoration:none" href=3D"https://www.idealista.com/en/usuario/tus-alertas=
+?utm_medium=3Demail&amp;utm_campaign=3Ddaily_suggestions_oneSearch&amp;utm_=
+campaigntype=3Dretention&amp;utm_project=3DadNotification&amp;utm_source=3D=
+alerts-id&amp;utm_date_send=3D2025-06-05T174309&amp;utm_link=3DtusBusquedas=
+&amp;utm_recipient_id=3Dich/L95N3qlY20lHKSe70OieU6nHQRF6lg7NtduNjH4=3D" tar=
+get=3D"_blank"><font style=3D"vertical-align:inherit"><font style=3D"vertic=
+al-align:inherit">keres=C3=A9si felt=C3=A9teleket</font></font></a></p><u><=
+/u></div></td></tr></tbody></table></div></td></tr></tbody></table></div> <=
+div style=3D"background:#e1f56e;background-color:#e1f56e;Margin:0px auto;ma=
+x-width:600px"><table align=3D"center" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" role=3D"presentation" style=3D"background:#e1f56e;background-c=
+olor:#e1f56e;width:100%"><tbody><tr><td style=3D"direction:ltr;font-size:0p=
+x;padding:24px 24px 16px;text-align:center;vertical-align:top"><div class=
+=3D"m_-6675184600642162608mj-column-per-100" style=3D"font-size:13px;text-a=
+lign:left;direction:ltr;display:inline-block;vertical-align:top;width:100%"=
+><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"vertical-align:top" width=3D"100%"><tbody><tr><td align=3D"lef=
+t" style=3D"font-size:0px;padding:0;word-break:break-word"><div style=3D"fo=
+nt-family:Arial;font-size:16px;line-height:24px;text-align:left;color:#6666=
+64"><font style=3D"vertical-align:inherit"><font style=3D"vertical-align:in=
+herit">Az idealista alkalmaz=C3=A1ssal azonnal =C3=A9rtes=C3=ADt=C3=A9seket=
+ kaphatsz az =C3=BAj hirdet=C3=A9sekr=C5=91l, vagy megtekintheted a megkere=
+sett hirdet=C5=91k v=C3=A1laszait.</font></font></div></td></tr></tbody></t=
+able></div></td></tr></tbody></table></div><div style=3D"background:#e1f56e=
+;background-color:#e1f56e;Margin:0px auto;max-width:600px"><table align=3D"=
+center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" style=3D"background:#e1f56e;background-color:#e1f56e;width:100%"><tbody=
+><tr><td style=3D"direction:ltr;font-size:0px;padding:0 24px 24px;text-alig=
+n:center;vertical-align:top"><div class=3D"m_-6675184600642162608mj-column-=
+per-100" style=3D"font-size:13px;text-align:left;direction:ltr;display:inli=
+ne-block;vertical-align:top;width:100%"><table border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0" role=3D"presentation" style=3D"vertical-align:top" wid=
+th=3D"100%"><tbody><tr><td align=3D"left" style=3D"font-size:0px;padding:0;=
+word-break:break-word"><div style=3D"font-family:Arial;font-size:16px;font-=
+weight:700;line-height:1;text-align:left;color:#000000"><a style=3D"color:#=
+2172b2;text-decoration:none" href=3D"https://idealista.onelink.me/313911807=
+2/i38rtpc3?af_adset=3Ddaily_suggestions_oneSearch" target=3D"_blank"><font =
+style=3D"vertical-align:inherit"><font style=3D"vertical-align:inherit">T=
+=C3=B6ltsd le az idealista alkalmaz=C3=A1st</font></font></a></div></td></t=
+r></tbody></table></div></td></tr></tbody></table></div><div style=3D"backg=
+round:#e7e7e4;background-color:#e7e7e4;Margin:0px auto;max-width:600px"><ta=
+ble align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=
+=3D"presentation" style=3D"background:#e7e7e4;background-color:#e7e7e4;widt=
+h:100%"><tbody><tr><td style=3D"direction:ltr;font-size:0px;padding:24px 24=
+px 16px;text-align:center;vertical-align:top"><div class=3D"m_-667518460064=
+2162608mj-column-per-100" style=3D"font-size:13px;text-align:left;direction=
+:ltr;display:inline-block;vertical-align:top;width:100%"><table border=3D"0=
+" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"vertic=
+al-align:top" width=3D"100%"><tbody><tr><td align=3D"left" style=3D"font-si=
+ze:0px;padding:0;word-break:break-word"><div style=3D"font-family:Arial;fon=
+t-size:12px;line-height:20px;text-align:left;color:#666664"><font style=3D"=
+vertical-align:inherit"><font style=3D"vertical-align:inherit">Probl=C3=A9m=
+=C3=A1k? L=C3=A9pjen kapcsolatba az idealist=C3=A1val </font></font><a styl=
+e=3D"margin:0;padding:0;font-family:Arial,sans-serif;font-size:15px;color:r=
+gb(0,102,204);color:rgb(102,102,102);font-family:Arial,sans-serif!important=
+;font-size:12px" href=3D"https://www.idealista.com/en/info/contacto?utm_med=
+ium=3Demail&amp;utm_campaign=3Ddaily_suggestions_oneSearch&amp;utm_campaign=
+type=3Dretention&amp;utm_project=3DadNotification&amp;utm_source=3Dalerts-i=
+d&amp;utm_date_send=3D2025-06-05T174309&amp;utm_link=3Dcontacta&amp;utm_rec=
+ipient_id=3Dich/L95N3qlY20lHKSe70OieU6nHQRF6lg7NtduNjH4=3D" target=3D"_blan=
+k"><font style=3D"vertical-align:inherit"><font style=3D"vertical-align:inh=
+erit">a weboldalon kereszt=C3=BCl</font></font></a></div></td></tr></tbody>=
+</table></div></td></tr></tbody></table></div><div style=3D"background:#e7e=
+7e4;background-color:#e7e7e4;Margin:0px auto;max-width:600px"><table align=
+=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presen=
+tation" style=3D"background:#e7e7e4;background-color:#e7e7e4;width:100%"><t=
+body><tr><td style=3D"direction:ltr;font-size:0px;padding:0 24px;text-align=
+:center;vertical-align:top"><div class=3D"m_-6675184600642162608mj-column-p=
+er-100" style=3D"font-size:13px;text-align:left;direction:ltr;display:inlin=
+e-block;vertical-align:top;width:100%"><table border=3D"0" cellpadding=3D"0=
+" cellspacing=3D"0" role=3D"presentation" style=3D"vertical-align:top" widt=
+h=3D"100%"><tbody><tr><td align=3D"left" style=3D"font-size:0px;padding:0;w=
+ord-break:break-word"><div style=3D"font-family:Arial;font-size:12px;line-h=
+eight:20px;text-align:left;color:#666664"><font style=3D"vertical-align:inh=
+erit"><font style=3D"vertical-align:inherit">Szolg=C3=A1ltat=C3=A1saink has=
+zn=C3=A1lat=C3=A1val =C3=96n elfogadja az </font></font><a style=3D"margin:=
+0;padding:0;font-family:Arial,sans-serif;font-size:15px;color:rgb(0,102,204=
+);color:rgb(102,102,102);font-family:Arial,sans-serif!important;font-size:1=
+2px" href=3D"https://www.idealista.com/en/info/proteccion-datos?utm_medium=
+=3Demail&amp;utm_campaign=3Ddaily_suggestions_oneSearch&amp;utm_campaigntyp=
+e=3Dretention&amp;utm_project=3DadNotification&amp;utm_source=3Dalerts-id&a=
+mp;utm_date_send=3D2025-06-05T174309&amp;utm_link=3DproteccionDatos&amp;utm=
+_recipient_id=3Dich/L95N3qlY20lHKSe70OieU6nHQRF6lg7NtduNjH4=3D" target=3D"_=
+blank"><font style=3D"vertical-align:inherit"><font style=3D"vertical-align=
+:inherit">adatv=C3=A9delmi ir=C3=A1nyelveket</font></font></a><font style=
+=3D"vertical-align:inherit"><font style=3D"vertical-align:inherit"> =C3=A9s=
+ a </font></font><a style=3D"margin:0;padding:0;font-family:Arial,sans-seri=
+f;font-size:15px;color:rgb(0,102,204);color:rgb(102,102,102);font-family:Ar=
+ial,sans-serif!important;font-size:12px" href=3D"https://www.idealista.com/=
+en/info/nota-legal?utm_medium=3Demail&amp;utm_campaign=3Ddaily_suggestions_=
+oneSearch&amp;utm_campaigntype=3Dretention&amp;utm_project=3DadNotification=
+&amp;utm_source=3Dalerts-id&amp;utm_date_send=3D2025-06-05T174309&amp;utm_l=
+ink=3DnotaLegal&amp;utm_recipient_id=3Dich/L95N3qlY20lHKSe70OieU6nHQRF6lg7N=
+tduNjH4=3D" target=3D"_blank"><font style=3D"vertical-align:inherit"><font =
+style=3D"vertical-align:inherit">felhaszn=C3=A1l=C3=A1si felt=C3=A9teleket<=
+/font></font></a><font style=3D"vertical-align:inherit"><font style=3D"vert=
+ical-align:inherit"> .</font></font></div></td></tr></tbody></table></div><=
+/td></tr></tbody></table></div><div style=3D"background:#e7e7e4;background-=
+color:#e7e7e4;Margin:0px auto;max-width:600px"><table align=3D"center" bord=
+er=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D=
+"background:#e7e7e4;background-color:#e7e7e4;width:100%"><tbody><tr><td sty=
+le=3D"direction:ltr;font-size:0px;padding:24px 24px 0;text-align:left;verti=
+cal-align:top"><div class=3D"m_-6675184600642162608mj-column-px-121" style=
+=3D"font-size:13px;text-align:left;direction:ltr;display:inline-block;verti=
+cal-align:top;width:100%"><table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"vertica=
+l-align:top;padding-bottom:16px"><table border=3D"0" cellpadding=3D"0" cell=
+spacing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td align=3D"=
+left" style=3D"font-size:0px;padding:0 10px 0 0;word-break:break-word"><tab=
+le border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" s=
+tyle=3D"border-collapse:collapse;border-spacing:0px"><tbody><tr><td style=
+=3D"width:111px"><img height=3D"auto" src=3D"https://st3.idealista.com/stat=
+ic/common/release/home/resources/img/logo-small.png" style=3D"border:0;disp=
+lay:block;outline:none;text-decoration:none;height:auto;width:100%" width=
+=3D"111"></td></tr></tbody></table></td></tr></tbody></table></td></tr></tb=
+ody></table></div><div class=3D"m_-6675184600642162608mj-column-px-393" sty=
+le=3D"font-size:13px;text-align:left;direction:ltr;display:inline-block;ver=
+tical-align:bottom;width:100%"><table border=3D"0" cellpadding=3D"0" cellsp=
+acing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"ve=
+rtical-align:bottom;padding-bottom:16px"><table border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td a=
+lign=3D"left" style=3D"font-size:0px;padding:0;word-break:break-word"><div =
+style=3D"font-family:Arial;font-size:14px;line-height:1;text-align:left;col=
+or:#717164"><font style=3D"vertical-align:inherit"><font style=3D"vertical-=
+align:inherit">=C2=A9 2000 - 2025</font></font></div></td></tr></tbody></ta=
+ble></td></tr></tbody></table></div></td></tr></tbody></table></div></td></=
+tr></tbody></table></div> <img border=3D"0" width=3D"1" height=3D"1" src=3D=
+"http://col.idealista.com/toto?s=3D582065&amp;events=3D[%7B%22name%22:+%22e=
+mail.display.offsite%22,+%22data%22:+%7B%22src_medium%22:+%22email%22,+%22s=
+rc_campaign%22:+%22daily_suggestions_oneSearch%22,+%22src_campaigntype%22:+=
+%22retention%22,+%22src_project%22:+%22adNotification%22,+%22src_source%22:=
++%22alerts-id%22,+%22src_date_send%22:+%222025-06-05T174309%22,+%22src_reci=
+pient_id%22:+%22ich/L95N3qlY20lHKSe70OieU6nHQRF6lg7NtduNjH4=3D%22%7D%7D]"><=
+/div></div>
+</div></div></div>
+
+--0000000000002b72500636e04222--

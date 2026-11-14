@@ -1,0 +1,480 @@
+Delivered-To: estampel@gmail.com
+Received: by 2002:a05:6358:4301:b0:1ae:f888:927f with SMTP id r1csp510308rwc;
+        Fri, 23 Aug 2024 04:25:49 -0700 (PDT)
+X-Received: by 2002:a05:6512:4015:b0:530:aba8:d37a with SMTP id 2adb3069b0e04-534387be446mr1364576e87.37.1724412349058;
+        Fri, 23 Aug 2024 04:25:49 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1724412349; cv=none;
+        d=google.com; s=arc-20160816;
+        b=xZ51rPtTLEsSfwdI9m0VvuhJv8ico4qOt9Fg4WDqmfxF8yEojHdSYkG4jSsz8vXvko
+         kHpH7/Cbi8VuslGMleLuYBbWcdRbNLEdBbTVR2N7HoZyjzPEZeGlci6BYIu5cg7AGrVK
+         mwC3UswYZf8+q3+EOrAvLItkOBCL3o9sAoeFO6z8uxskrCcRYHDymfr+Omd8BxW4T0nU
+         iE//IwIHx2zrr9Eay0DMt5slKFpi43TAqQSJFKNlwqhxDBn0TZ5M+OqEsoPQYjbuHhC/
+         +blNdk5UiSm8nMBswN55ESUNLJnIdOrNJy2MnkWvAZ+QGzX962toE5v3/msmpQAQgMg8
+         LTEg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=tnvmDmYqYDhv7ohFricCdRXiw9HXO38bizEXLU6LQFI=;
+        fh=wF/Yrd2E0xeKwPH74kML7cQSth+Fl4bwhVNrybJ4uh4=;
+        b=L/YHi9C+Z9cFkOMg9Vwgdb6YR+UAcvy8iXe42NiGnsni1qULx5xCJ2+fvwFDSUN6j9
+         Fsw6XDFz8s7j+svVMJ2HwP7sGfDxVzzQrdbfHNNzO6ntjhB7aQQA4uH0Bmt4M+gALlNu
+         0761Ri0tx2iqycJOwnNA1tIZuzWsciyqAVInlM2LUqBmJSHU+kndsWXQFkN2x0Yllpzp
+         AiqHbHvRhtb6wq69ahSzq8ekJtygJ9PdWrmGen1Sa0255+WrLuZfSpjmocN8qmqK8WSF
+         D4XtJ85I9kg9Kayx1yZKp5ovzB06eMz9H+2UZJEcFaqVsX6B7+3R10WPM5yFjbavVc/i
+         HbaQ==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=fqPensd4;
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <banyus53@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id a640c23a62f3a-a868f34a631sor121386666b.11.2024.08.23.04.25.48
+        for <estampel@gmail.com>
+        (Google Transport Security);
+        Fri, 23 Aug 2024 04:25:49 -0700 (PDT)
+Received-SPF: pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=fqPensd4;
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1724412348; x=1725017148; dara=google.com;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=tnvmDmYqYDhv7ohFricCdRXiw9HXO38bizEXLU6LQFI=;
+        b=fqPensd4jR4YkubhYXWwQR3+kLv3OPmObOTurYgFefgYexwYWXGsD3urtDpW1FVqi5
+         AXR5jY5CXPJEoGyaxmgSE/KN4MB3MAB7jJVjCBjPMIiPNBXUN2qjQMrlUdz5on5DruHu
+         t+V1q7sjUF8JXtfa2N0uO3sxpzJ8HGy+f6jDQ266fh3AJfxbTP1np4iI8mXr6wtaHCwS
+         yQIjU3yEuE+IUUQTgxlWEgNu03KICJla+jA16G1ZXpjaZSKP0wfG6s31++Es2MGSQu4M
+         U/gGLOOAJ2UITCYmSssjdeCE6Rd0WS0eho6xAslUhQ1Z0JgLpjQQftGc6x+BiZC7UK3b
+         ISdA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1724412348; x=1725017148;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=tnvmDmYqYDhv7ohFricCdRXiw9HXO38bizEXLU6LQFI=;
+        b=U52H3EDZjLoZIgyvvbkEwlO4BnyAlpZw0BjyLJpoavf6p79v7xXsAYbSlnYa28qd74
+         DNozB2gv4xL1q7CXxdPqudzgmbHgvjiEAaQGFDmPOmsc0ouaGj7HTUy46BZsCirQxa7s
+         fMCAmHPcvn3oYstTralM65bb2pZJRfURam9nKuyIFzkhyjhN9RhFRv7NuLt2LdfX27Eh
+         Gs3R+gfDqTFcZ2iZd4Y3JdGIT1bmkRa6tk6ggXyY+iyA9wc/qJEUOjBYK245qNeyibO3
+         Gx99nP2ldoJZkXrjo6+5Skp4V91xgZryH8ysbRI48K+VVS2G6Y8Eig+QX1k49V53CGNJ
+         5Nhw==
+X-Gm-Message-State: AOJu0Yyk4FQKVTYF6ZehvuKQK1t51S2TXoHus7d/bxzYp5da//wgngAG
+	mWxvmXf5oLk/TOfJTbmYjfXf+X+9x9ScGymX2jOueRHuznp5wjkyKUJuoGOdzwgAAsZAyzcU/gZ
+	HlCRhS+6X0CWYYoC/MpGLBmBqN5br/w==
+X-Google-Smtp-Source: AGHT+IGVDFEs5hpaqWs75RV5ZG4JeP1LvI7HfNSa1Qc11j1d+2MeEeNANelFRKjgXfvsWQDrOqcCVl6DkreRuAPw7S4=
+X-Received: by 2002:a17:907:9724:b0:a77:b4e3:4fca with SMTP id
+ a640c23a62f3a-a86a518b8f0mr111901366b.9.1724412347888; Fri, 23 Aug 2024
+ 04:25:47 -0700 (PDT)
+MIME-Version: 1.0
+References: <3cd8b48e55bb81ac238d05b76.b539621def.20240823112410.d1a9f6843b.bc278b30@mail52.suw11.mcdlv.net>
+In-Reply-To: <3cd8b48e55bb81ac238d05b76.b539621def.20240823112410.d1a9f6843b.bc278b30@mail52.suw11.mcdlv.net>
+From: =?UTF-8?B?w4FnbmVzIEJ1Z8Ohcg==?= <banyus53@gmail.com>
+Date: Fri, 23 Aug 2024 13:25:21 +0200
+Message-ID: <CA+39czW0gh7bbvq+X999VOu8CJgJD2zAb3+5e7tcDFHHG6FxEw@mail.gmail.com>
+Subject: =?UTF-8?Q?Fwd=3A_A_300_kal=C3=B3ri=C3=A1s_reggeli_tippek_meg=C3=A9rkeztek=21?=
+To: Emese Stampel <estampel@gmail.com>
+Content-Type: multipart/alternative; boundary="000000000000713b4706205809c9"
+
+--000000000000713b4706205809c9
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+---------- Forwarded message ---------
+Felad=C3=B3: Szafi Dietetikai Team <info@dietas-termekek-webshop.hu>
+Date: 2024. aug. 23., P, 13:24
+Subject: A 300 kal=C3=B3ri=C3=A1s reggeli tippek meg=C3=A9rkeztek!
+To: <banyus53@gmail.com>
+
+
+*Kedves =C3=81gnes*
+
+
+=C3=96r=C3=B6mmel =C3=A9rtes=C3=ADt=C3=BCnk, hogy sikeresen feliratkozt=C3=
+=A1l a *300 kal=C3=B3ri=C3=A1s reggeli
+tippek*et tartalmaz=C3=B3 ingyenes *receptgy=C5=B1jtem=C3=A9ny*=C3=BCnkre!
+
+
+Rendk=C3=ADv=C3=BCl izgatottak vagyunk, hogy megoszthatjuk Veled ezeket az =
+eg=C3=A9szs=C3=A9ges
+=C3=A9s =C3=ADzletes reggeli =C3=B6tleteket, melyek nemcsak *alacsony kal=
+=C3=B3riatartalm=C3=BA*ak,
+hanem *t=C3=A1panyagokban gazdag*ok is.
+
+
+Rem=C3=A9lj=C3=BCk, hogy =C3=A9lvezni fogod a recepteket, =C3=A9s hogy sike=
+r=C3=BCl v=C3=A1ltozatoss=C3=A1 =C3=A9s
+eg=C3=A9szs=C3=A9gess=C3=A9 tenni a reggeleidet.
+
+
+Ne felejtsd el, hogy az eg=C3=A9szs=C3=A9ges t=C3=A1pl=C3=A1lkoz=C3=A1s a n=
+apind=C3=ADt=C3=A1s egyik kulcsa,
+=C3=A9s ezek a receptek seg=C3=ADteni fognak abban, hogy energikusan =C3=A9=
+s j=C3=B3kedv=C5=B1en
+induljon a napod!
+
+
+Tov=C3=A1bbi inspir=C3=A1ci=C3=B3=C3=A9rt =C3=A9s tippek=C3=A9rt l=C3=A1tog=
+ass el weboldalunkra =C3=A9s k=C3=B6vess
+minket a k=C3=B6z=C3=B6ss=C3=A9gi m=C3=A9di=C3=A1ban is.
+
+
+
+*=C3=9Cdv=C3=B6zlettel, *
+
+*A Szafi csapata*
+
+
+LET=C3=96LT=C3=96M A 300 KAL=C3=93RI=C3=81S REGGELIKET
+<https://szafi-products.us18.list-manage.com/track/click?u=3D3cd8b48e55bb81=
+ac238d05b76&id=3D0c639ecec6&e=3Db539621def&i=3Dd0c4c0fe2f>
+
+Ha b=C3=A1rmilyen technikai probl=C3=A9m=C3=A1t =C3=A9szlelsz a let=C3=B6lt=
+=C3=A9ssel kapcsolatban,
+k=C3=A9rj=C3=BCk, jelezd emailben vagy telefonon =C3=BCgyf=C3=A9lszolg=C3=
+=A1latunknak, hogy miel=C5=91bb
+seg=C3=ADthess=C3=BCnk. Az el=C3=A9rhet=C5=91s=C3=A9geinket megtal=C3=A1lod=
+ weboldalunkon.
+Ez is =C3=A9rdekelhet:
+35 kg fogy=C3=A1s 7 h=C3=B3nap alatt =C3=A9hez=C3=A9s n=C3=A9lk=C3=BCl
+
+
+Mes=C3=A9ld el a t=C3=B6rt=C3=A9neted, =C3=A9s motiv=C3=A1lj m=C3=A1sokat!
+
+Oszd meg vel=C3=BCnk a t=C3=B6rt=C3=A9neted! Hogyan j=C3=A1rultak hozz=C3=
+=A1 a Szafi term=C3=A9kek az
+=C3=A9letm=C3=B3dod =C3=A1talak=C3=ADt=C3=A1s=C3=A1hoz, az ide=C3=A1lis tes=
+ts=C3=BAlyod, v=C3=A9rcukorszinted,
+hormonszinted, stb. el=C3=A9r=C3=A9s=C3=A9hez?
+
+=C3=8Drd le, honnan indult=C3=A1l =C3=A9s hogy most hol tartasz! Mennyi id=
+=C5=91 alatt siker=C3=BClt
+mindezt el=C3=A9rned?
+
+
+Eszter t=C3=B6rt=C3=A9nete is megmutatja, hogy lehet eg=C3=A9szs=C3=A9gesen=
+ is fogyni, =C3=A9hez=C3=A9s
+n=C3=A9lk=C3=BCl.
+<https://szafi-products.us18.list-manage.com/track/click?u=3D3cd8b48e55bb81=
+ac238d05b76&id=3D4df504c1d3&e=3Db539621def&i=3Dd0c4c0fe2f>
+Elolvasom
+<https://szafi-products.us18.list-manage.com/track/click?u=3D3cd8b48e55bb81=
+ac238d05b76&id=3Ddc4da02d7d&e=3Db539621def&i=3Dd0c4c0fe2f>
+[image: Facebook icon]
+<https://szafi-products.us18.list-manage.com/track/click?u=3D3cd8b48e55bb81=
+ac238d05b76&id=3Deb6f325a08&e=3Db539621def&i=3Dd0c4c0fe2f>
+[image:
+Instagram icon]
+<https://szafi-products.us18.list-manage.com/track/click?u=3D3cd8b48e55bb81=
+ac238d05b76&id=3De7d2c21866&e=3Db539621def&i=3Dd0c4c0fe2f>
+[image:
+Website icon]
+<https://szafi-products.us18.list-manage.com/track/click?u=3D3cd8b48e55bb81=
+ac238d05b76&id=3D90b7eb7c72&e=3Db539621def&i=3Dd0c4c0fe2f>
+[image:
+TikTok icon]
+<https://szafi-products.us18.list-manage.com/track/click?u=3D3cd8b48e55bb81=
+ac238d05b76&id=3De931f5c44f&e=3Db539621def&i=3Dd0c4c0fe2f>
+[image:
+YouTube icon]
+<https://szafi-products.us18.list-manage.com/track/click?u=3D3cd8b48e55bb81=
+ac238d05b76&id=3D4bf5d91f75&e=3Db539621def&i=3Dd0c4c0fe2f>
+
+Ha nem szeretn=C3=A9l t=C3=B6bb ilyen emailt kapni t=C5=91l=C3=BCnk, k=C3=
+=A9rlek a
+leiratkoz=C3=A1shoz kattints
+ide!
+<https://szafi-products.us18.list-manage.com/unsubscribe?u=3D3cd8b48e55bb81=
+ac238d05b76&id=3Db95ca4e766&t=3Db&e=3Db539621def&c=3Dd1a9f6843b>
+
+--000000000000713b4706205809c9
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><br><br><div class=3D"gmail_quote"><div dir=3D"ltr" class=
+=3D"gmail_attr">---------- Forwarded message ---------<br>Felad=C3=B3: <str=
+ong class=3D"gmail_sendername" dir=3D"auto">Szafi Dietetikai Team</strong> =
+<span dir=3D"auto">&lt;<a href=3D"mailto:info@dietas-termekek-webshop.hu">i=
+nfo@dietas-termekek-webshop.hu</a>&gt;</span><br>Date: 2024. aug. 23., P, 1=
+3:24<br>Subject: A 300 kal=C3=B3ri=C3=A1s reggeli tippek meg=C3=A9rkeztek!<=
+br>To:  &lt;<a href=3D"mailto:banyus53@gmail.com">banyus53@gmail.com</a>&gt=
+;<br></div><br><br><div class=3D"msg8204726943213749108"><u></u>
+
+
+
+
+
+
+<div>
+
+<center>
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" height=3D"100%" wid=
+th=3D"100%" id=3D"m_8204726943213749108bodyTable" style=3D"background-color=
+:rgb(255,255,255)">
+<tbody><tr>
+<td class=3D"m_8204726943213749108bodyCell" align=3D"center" valign=3D"top"=
+>
+<table id=3D"m_8204726943213749108root" border=3D"0" cellpadding=3D"0" cell=
+spacing=3D"0" width=3D"100%"><tbody><tr><td align=3D"center" valign=3D"top"=
+><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" sty=
+le=3D"max-width:660px" role=3D"presentation"><tbody><tr><td style=3D"backgr=
+ound-color:#ffffff;background-position:center;background-repeat:no-repeat;b=
+ackground-size:cover" valign=3D"top"><table align=3D"center" border=3D"0" c=
+ellpadding=3D"0" cellspacing=3D"0" width=3D"100%" role=3D"presentation"><tb=
+ody><tr><td style=3D"background-position:center;background-repeat:no-repeat=
+;background-size:cover" valign=3D"top"><table border=3D"0" cellpadding=3D"0=
+" cellspacing=3D"0" width=3D"100%" role=3D"presentation"><tbody><tr><td sty=
+le=3D"padding-top:0;padding-bottom:0" class=3D"m_8204726943213749108mceColu=
+mn" valign=3D"top" colspan=3D"12" width=3D"100%"><table border=3D"0" cellpa=
+dding=3D"0" cellspacing=3D"0" width=3D"100%" role=3D"presentation"><tbody><=
+tr><td style=3D"padding-top:0;padding-bottom:0;padding-right:0;padding-left=
+:0" valign=3D"top"><table width=3D"100%" style=3D"border:0;border-collapse:=
+separate"><tbody><tr><td style=3D"padding-left:10px;padding-right:10px;padd=
+ing-top:20px;padding-bottom:20px" class=3D"m_8204726943213749108mceTextBloc=
+kContainer"><div class=3D"m_8204726943213749108mceText" id=3D"m_82047269432=
+13749108dataBlockId-126" style=3D"width:100%"><p><strong>Kedves =C3=81gnes<=
+/strong></p><p><br></p><p>=C3=96r=C3=B6mmel =C3=A9rtes=C3=ADt=C3=BCnk, hogy=
+ sikeresen feliratkozt=C3=A1l a <strong>300 kal=C3=B3ri=C3=A1s reggeli tipp=
+ek</strong>et tartalmaz=C3=B3 ingyenes <strong>receptgy=C5=B1jtem=C3=A9ny</=
+strong>=C3=BCnkre! </p><p><br></p><p>Rendk=C3=ADv=C3=BCl izgatottak vagyunk=
+, hogy megoszthatjuk Veled ezeket az eg=C3=A9szs=C3=A9ges =C3=A9s =C3=ADzle=
+tes reggeli =C3=B6tleteket, melyek nemcsak <strong>alacsony kal=C3=B3riatar=
+talm=C3=BA</strong>ak, hanem <strong>t=C3=A1panyagokban gazdag</strong>ok i=
+s.</p><p><br></p><p>Rem=C3=A9lj=C3=BCk, hogy =C3=A9lvezni fogod a recepteke=
+t, =C3=A9s hogy siker=C3=BCl v=C3=A1ltozatoss=C3=A1 =C3=A9s eg=C3=A9szs=C3=
+=A9gess=C3=A9 tenni a reggeleidet. </p><p><br></p><p>Ne felejtsd el, hogy a=
+z eg=C3=A9szs=C3=A9ges t=C3=A1pl=C3=A1lkoz=C3=A1s a napind=C3=ADt=C3=A1s eg=
+yik kulcsa, =C3=A9s ezek a receptek seg=C3=ADteni fognak abban, hogy energi=
+kusan =C3=A9s j=C3=B3kedv=C5=B1en induljon a napod!</p><p><br></p><p>Tov=C3=
+=A1bbi inspir=C3=A1ci=C3=B3=C3=A9rt =C3=A9s tippek=C3=A9rt l=C3=A1togass el=
+ weboldalunkra =C3=A9s k=C3=B6vess minket a k=C3=B6z=C3=B6ss=C3=A9gi m=C3=
+=A9di=C3=A1ban is.</p><p><br></p><p><br></p><p><strong>=C3=9Cdv=C3=B6zlette=
+l, </strong></p><p><strong>A Szafi csapata</strong></p><p><br></p></div></t=
+d></tr></tbody></table></td></tr><tr><td style=3D"padding-top:12px;padding-=
+bottom:12px;padding-right:24px;padding-left:24px" class=3D"m_82047269432137=
+49108mceBlockContainer" align=3D"center" valign=3D"top"><table align=3D"cen=
+ter" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" style=
+=3D"max-width:564px" role=3D"presentation" class=3D"m_8204726943213749108mc=
+eButtonContainer"><tbody><tr></tr><tr class=3D"m_8204726943213749108mceStan=
+dardButton"><td style=3D"background-color:#e2567e;border-radius:8px;text-al=
+ign:center" class=3D"m_8204726943213749108mceButton" valign=3D"top"><a href=
+=3D"https://szafi-products.us18.list-manage.com/track/click?u=3D3cd8b48e55b=
+b81ac238d05b76&amp;id=3D0c639ecec6&amp;e=3Db539621def&amp;i=3Dd0c4c0fe2f" c=
+lass=3D"m_8204726943213749108mceButtonLink" style=3D"background-color:#e256=
+7e;border-radius:8px;border:2px solid #e2567e;color:#ffffff;display:block;f=
+ont-family:&#39;Open Sans&#39;,&#39;Helvetica Neue&#39;,Helvetica,Arial,san=
+s-serif;font-size:18px;font-weight:normal;font-style:normal;padding:16px 28=
+px;text-decoration:none;min-width:30px;text-align:center;direction:ltr;lett=
+er-spacing:0px" target=3D"_blank">LET=C3=96LT=C3=96M A 300 KAL=C3=93RI=C3=
+=81S REGGELIKET</a></td></tr><tr></tr><tr>
+
+</tr></tbody></table></td></tr><tr><td style=3D"padding-top:0;padding-botto=
+m:0;padding-right:0;padding-left:0" valign=3D"top"><table width=3D"100%" st=
+yle=3D"border:0;border-collapse:separate"><tbody><tr><td style=3D"padding-l=
+eft:24px;padding-right:24px;padding-top:12px;padding-bottom:12px" class=3D"=
+m_8204726943213749108mceTextBlockContainer"><div class=3D"m_820472694321374=
+9108mceText" id=3D"m_8204726943213749108dataBlockId-748" style=3D"width:100=
+%"><p><span style=3D"font-size:12px">Ha b=C3=A1rmilyen technikai probl=C3=
+=A9m=C3=A1t =C3=A9szlelsz a let=C3=B6lt=C3=A9ssel kapcsolatban, k=C3=A9rj=
+=C3=BCk, jelezd emailben vagy telefonon =C3=BCgyf=C3=A9lszolg=C3=A1latunkna=
+k, hogy miel=C5=91bb seg=C3=ADthess=C3=BCnk. Az el=C3=A9rhet=C5=91s=C3=A9ge=
+inket megtal=C3=A1lod weboldalunkon.</span></p></div></td></tr></tbody></ta=
+ble></td></tr><tr><td style=3D"background-color:transparent;padding-top:0;p=
+adding-bottom:0;padding-right:0;padding-left:0" valign=3D"top"><table align=
+=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%"=
+ role=3D"presentation"><tbody><tr><td style=3D"background-color:transparent=
+;background-position:center;background-repeat:no-repeat;background-size:cov=
+er" height=3D"30" valign=3D"top"><table border=3D"0" cellpadding=3D"0" cell=
+spacing=3D"24" width=3D"100%" role=3D"presentation"><tbody></tbody></table>=
+</td></tr></tbody></table></td></tr><tr><td style=3D"background-color:trans=
+parent;padding-top:20px;padding-bottom:20px;padding-right:24px;padding-left=
+:24px" class=3D"m_8204726943213749108mceBlockContainer" valign=3D"top"><tab=
+le align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=
+=3D"100%" style=3D"background-color:transparent;width:100%" role=3D"present=
+ation" class=3D"m_8204726943213749108mceDividerContainer"><tbody><tr><td st=
+yle=3D"min-width:100%;border-top:2px solid #000000" valign=3D"top"></td></t=
+r></tbody></table></td></tr><tr><td style=3D"padding-top:0;padding-bottom:0=
+;padding-right:0;padding-left:0" valign=3D"top"><table width=3D"100%" style=
+=3D"border:0;border-collapse:separate"><tbody><tr><td style=3D"padding-left=
+:24px;padding-right:24px;padding-top:12px;padding-bottom:12px" class=3D"m_8=
+204726943213749108mceTextBlockContainer"><div class=3D"m_820472694321374910=
+8mceText" id=3D"m_8204726943213749108dataBlockId-732" style=3D"width:100%">=
+<h2><span style=3D"color:#8dcfaf"><span style=3D"font-size:30px"><span styl=
+e=3D"font-family:&#39;Helvetica Neue&#39;,Helvetica,Arial,Verdana,sans-seri=
+f">Ez is =C3=A9rdekelhet:</span></span></span></h2></div></td></tr></tbody>=
+</table></td></tr><tr><td style=3D"padding-top:0;padding-bottom:0;padding-r=
+ight:0;padding-left:0" valign=3D"top"><table width=3D"100%" style=3D"border=
+:0;border-collapse:separate"><tbody><tr><td style=3D"padding-left:24px;padd=
+ing-right:24px;padding-top:12px;padding-bottom:12px" class=3D"m_82047269432=
+13749108mceTextBlockContainer"><div class=3D"m_8204726943213749108mceText" =
+id=3D"m_8204726943213749108dataBlockId-733" style=3D"width:100%"><h2>35 kg =
+fogy=C3=A1s 7 h=C3=B3nap alatt =C3=A9hez=C3=A9s n=C3=A9lk=C3=BCl</h2></div>=
+</td></tr></tbody></table></td></tr><tr><td style=3D"padding-top:0;padding-=
+bottom:0;padding-right:0;padding-left:0" valign=3D"top"><table width=3D"100=
+%" style=3D"border:0;border-collapse:separate"><tbody><tr><td style=3D"padd=
+ing-left:24px;padding-right:24px;padding-top:12px;padding-bottom:12px" clas=
+s=3D"m_8204726943213749108mceTextBlockContainer"><div class=3D"m_8204726943=
+213749108mceText" id=3D"m_8204726943213749108dataBlockId-734" style=3D"widt=
+h:100%"><p><br></p><h2>Mes=C3=A9ld el a t=C3=B6rt=C3=A9neted, =C3=A9s motiv=
+=C3=A1lj m=C3=A1sokat!</h2><p>Oszd meg vel=C3=BCnk a t=C3=B6rt=C3=A9neted! =
+Hogyan j=C3=A1rultak hozz=C3=A1 a Szafi term=C3=A9kek az =C3=A9letm=C3=B3do=
+d =C3=A1talak=C3=ADt=C3=A1s=C3=A1hoz, az ide=C3=A1lis tests=C3=BAlyod, v=C3=
+=A9rcukorszinted, hormonszinted, stb. el=C3=A9r=C3=A9s=C3=A9hez?=C2=A0</p><=
+p>=C3=8Drd le,=C2=A0honnan indult=C3=A1l =C3=A9s hogy most hol tartasz! Men=
+nyi id=C5=91 alatt siker=C3=BClt mindezt el=C3=A9rned?</p><p><br></p><p>Esz=
+ter t=C3=B6rt=C3=A9nete is megmutatja, hogy lehet eg=C3=A9szs=C3=A9gesen is=
+ fogyni, =C3=A9hez=C3=A9s n=C3=A9lk=C3=BCl.</p></div></td></tr></tbody></ta=
+ble></td></tr><tr><td style=3D"padding-top:12px;padding-bottom:12px;padding=
+-right:0;padding-left:0" class=3D"m_8204726943213749108mceBlockContainer" a=
+lign=3D"center" valign=3D"top"><a href=3D"https://szafi-products.us18.list-=
+manage.com/track/click?u=3D3cd8b48e55bb81ac238d05b76&amp;id=3D4df504c1d3&am=
+p;e=3Db539621def&amp;i=3Dd0c4c0fe2f" style=3D"display:block" target=3D"_bla=
+nk"><span class=3D"m_8204726943213749108mceImageBorder" style=3D"border:0;v=
+ertical-align:top;margin:0"><img width=3D"564" height=3D"auto" style=3D"wid=
+th:564px;height:auto;max-width:1080px!important;display:block" alt=3D"" src=
+=3D"https://mcusercontent.com/3cd8b48e55bb81ac238d05b76/images/b9cabc8a-f7e=
+9-7ff3-96cd-df1ca2581ffd.png" role=3D"presentation" class=3D"m_820472694321=
+3749108mceImage"></span></a></td></tr><tr><td style=3D"padding-top:12px;pad=
+ding-bottom:12px;padding-right:24px;padding-left:24px" class=3D"m_820472694=
+3213749108mceBlockContainer" align=3D"center" valign=3D"top"><table align=
+=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presen=
+tation" class=3D"m_8204726943213749108mceButtonContainer"><tbody><tr></tr><=
+tr class=3D"m_8204726943213749108mceStandardButton"><td style=3D"background=
+-color:#e2567e;border-radius:8px;text-align:center" class=3D"m_820472694321=
+3749108mceButton" valign=3D"top"><a href=3D"https://szafi-products.us18.lis=
+t-manage.com/track/click?u=3D3cd8b48e55bb81ac238d05b76&amp;id=3Ddc4da02d7d&=
+amp;e=3Db539621def&amp;i=3Dd0c4c0fe2f" class=3D"m_8204726943213749108mceBut=
+tonLink" style=3D"background-color:#e2567e;border-radius:8px;border:2px sol=
+id #e2567e;color:#ffffff;display:block;font-family:&#39;Open Sans&#39;,&#39=
+;Helvetica Neue&#39;,Helvetica,Arial,sans-serif;font-size:18px;font-weight:=
+normal;font-style:normal;padding:16px 28px;text-decoration:none;min-width:3=
+0px;text-align:center;direction:ltr;letter-spacing:0px" target=3D"_blank">E=
+lolvasom</a></td></tr><tr></tr><tr>
+
+</tr></tbody></table></td></tr><tr><td style=3D"background-color:transparen=
+t;padding-top:0;padding-bottom:0;padding-right:0;padding-left:0" valign=3D"=
+top"><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"=
+0" width=3D"100%" role=3D"presentation"><tbody><tr><td style=3D"background-=
+color:transparent;background-position:center;background-repeat:no-repeat;ba=
+ckground-size:cover" height=3D"55" valign=3D"top"><table border=3D"0" cellp=
+adding=3D"0" cellspacing=3D"24" width=3D"100%" role=3D"presentation"><tbody=
+></tbody></table></td></tr></tbody></table></td></tr><tr><td style=3D"backg=
+round-color:transparent;padding-top:12px;padding-bottom:12px;padding-right:=
+0;padding-left:0" class=3D"m_8204726943213749108mceBlockContainer" align=3D=
+"center" valign=3D"top"><span class=3D"m_8204726943213749108mceImageBorder"=
+ style=3D"border:0;vertical-align:top;margin:0"><img width=3D"222" height=
+=3D"auto" style=3D"width:222px;height:auto;max-width:1500px!important;displ=
+ay:block" alt=3D"" src=3D"https://mcusercontent.com/3cd8b48e55bb81ac238d05b=
+76/images/6bdfc4fb-0690-3a4d-407b-08392672e3a0.png" role=3D"presentation" c=
+lass=3D"m_8204726943213749108mceImage"></span></td></tr><tr><td style=3D"ba=
+ckground-color:#ffffff;padding-top:20px;padding-bottom:20px;padding-right:0=
+;padding-left:0" valign=3D"top"><table align=3D"center" border=3D"0" cellpa=
+dding=3D"0" cellspacing=3D"0" width=3D"100%" role=3D"presentation"><tbody><=
+tr><td style=3D"background-color:#ffffff;background-position:center;backgro=
+und-repeat:no-repeat;background-size:cover;padding-top:0px;padding-bottom:0=
+px" valign=3D"top"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"24"=
+ width=3D"100%" role=3D"presentation"><tbody><tr><td style=3D"margin-bottom=
+:24px" class=3D"m_8204726943213749108mceColumn" valign=3D"top" colspan=3D"1=
+2" width=3D"100%"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" w=
+idth=3D"100%" role=3D"presentation"><tbody><tr><td align=3D"center" valign=
+=3D"top"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D""=
+ role=3D"presentation" class=3D"m_8204726943213749108mceClusterLayout"><tbo=
+dy><tr><td style=3D"padding-left:12px;padding-top:0;padding-right:12px" val=
+ign=3D"top" class=3D"m_8204726943213749108mobileClass-108"><a href=3D"https=
+://szafi-products.us18.list-manage.com/track/click?u=3D3cd8b48e55bb81ac238d=
+05b76&amp;id=3Deb6f325a08&amp;e=3Db539621def&amp;i=3Dd0c4c0fe2f" style=3D"d=
+isplay:block" target=3D"_blank"><span class=3D"m_8204726943213749108mceImag=
+eBorder" style=3D"border:0;vertical-align:top;margin:0"><img width=3D"40" h=
+eight=3D"auto" style=3D"width:40px;height:auto;max-width:40px!important;dis=
+play:block" alt=3D"Facebook icon" src=3D"https://cdn-images.mailchimp.com/i=
+cons/social-block-v3/block-icons-v3/facebook-filled-dark-40.png"></span></a=
+></td><td style=3D"padding-left:12px;padding-top:0;padding-right:12px" vali=
+gn=3D"top" class=3D"m_8204726943213749108mobileClass-108"><a href=3D"https:=
+//szafi-products.us18.list-manage.com/track/click?u=3D3cd8b48e55bb81ac238d0=
+5b76&amp;id=3De7d2c21866&amp;e=3Db539621def&amp;i=3Dd0c4c0fe2f" style=3D"di=
+splay:block" target=3D"_blank"><span class=3D"m_8204726943213749108mceImage=
+Border" style=3D"border:0;vertical-align:top;margin:0"><img width=3D"40" he=
+ight=3D"auto" style=3D"width:40px;height:auto;max-width:40px!important;disp=
+lay:block" alt=3D"Instagram icon" src=3D"https://cdn-images.mailchimp.com/i=
+cons/social-block-v3/block-icons-v3/instagram-filled-dark-40.png"></span></=
+a></td><td style=3D"padding-left:12px;padding-top:0;padding-right:12px" val=
+ign=3D"top" class=3D"m_8204726943213749108mobileClass-108"><a href=3D"https=
+://szafi-products.us18.list-manage.com/track/click?u=3D3cd8b48e55bb81ac238d=
+05b76&amp;id=3D90b7eb7c72&amp;e=3Db539621def&amp;i=3Dd0c4c0fe2f" style=3D"d=
+isplay:block" target=3D"_blank"><span class=3D"m_8204726943213749108mceImag=
+eBorder" style=3D"border:0;vertical-align:top;margin:0"><img width=3D"40" h=
+eight=3D"auto" style=3D"width:40px;height:auto;max-width:40px!important;dis=
+play:block" alt=3D"Website icon" src=3D"https://cdn-images.mailchimp.com/ic=
+ons/social-block-v3/block-icons-v3/website-filled-dark-40.png"></span></a><=
+/td><td style=3D"padding-left:12px;padding-top:0;padding-right:12px" valign=
+=3D"top" class=3D"m_8204726943213749108mobileClass-108"><a href=3D"https://=
+szafi-products.us18.list-manage.com/track/click?u=3D3cd8b48e55bb81ac238d05b=
+76&amp;id=3De931f5c44f&amp;e=3Db539621def&amp;i=3Dd0c4c0fe2f" style=3D"disp=
+lay:block" target=3D"_blank"><span class=3D"m_8204726943213749108mceImageBo=
+rder" style=3D"border:0;vertical-align:top;margin:0"><img width=3D"40" heig=
+ht=3D"auto" style=3D"width:40px;height:auto;max-width:40px!important;displa=
+y:block" alt=3D"TikTok icon" src=3D"https://cdn-images.mailchimp.com/icons/=
+social-block-v3/block-icons-v3/tiktok-filled-dark-40.png"></span></a></td><=
+td style=3D"padding-left:12px;padding-top:0;padding-right:12px" valign=3D"t=
+op" class=3D"m_8204726943213749108mobileClass-108"><a href=3D"https://szafi=
+-products.us18.list-manage.com/track/click?u=3D3cd8b48e55bb81ac238d05b76&am=
+p;id=3D4bf5d91f75&amp;e=3Db539621def&amp;i=3Dd0c4c0fe2f" style=3D"display:b=
+lock" target=3D"_blank"><span class=3D"m_8204726943213749108mceImageBorder"=
+ style=3D"border:0;vertical-align:top;margin:0"><img width=3D"40" height=3D=
+"auto" style=3D"width:40px;height:auto;max-width:40px!important;display:blo=
+ck" alt=3D"YouTube icon" src=3D"https://cdn-images.mailchimp.com/icons/soci=
+al-block-v3/block-icons-v3/youtube-filled-dark-40.png"></span></a></td></tr=
+></tbody></table></td></tr></tbody></table></td></tr></tbody></table></td><=
+/tr></tbody></table></td></tr><tr><td style=3D"background-color:#d0d0d0;pad=
+ding-top:0;padding-bottom:0;padding-right:0;padding-left:0" valign=3D"top">=
+<table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" wi=
+dth=3D"100%" role=3D"presentation" id=3D"m_8204726943213749108section_c7fe6=
+7841c4a888e9d271f2251f88c44" class=3D"m_8204726943213749108mceFooterSection=
+"><tbody><tr><td style=3D"background-color:#d0d0d0;background-position:cent=
+er;background-repeat:no-repeat;background-size:cover;padding-top:0px;paddin=
+g-bottom:0px" valign=3D"top"><table border=3D"0" cellpadding=3D"0" cellspac=
+ing=3D"12" width=3D"100%" role=3D"presentation"><tbody><tr><td style=3D"pad=
+ding-top:0;padding-bottom:0;margin-bottom:12px" class=3D"m_8204726943213749=
+108mceColumn" valign=3D"top" colspan=3D"12" width=3D"100%"><table border=3D=
+"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" role=3D"presentation=
+"><tbody><tr><td style=3D"padding-top:0;padding-bottom:0;padding-right:0;pa=
+dding-left:0" align=3D"center" valign=3D"top"><table width=3D"100%" style=
+=3D"border:0;border-collapse:separate"><tbody><tr><td style=3D"padding-left=
+:16px;padding-right:16px;padding-top:12px;padding-bottom:12px" class=3D"m_8=
+204726943213749108mceTextBlockContainer"><div class=3D"m_820472694321374910=
+8mceText" id=3D"m_8204726943213749108dataBlockId-32" style=3D"display:inlin=
+e-block;width:100%"><p><span style=3D"font-size:9px">Ha nem szeretn=C3=A9l =
+t=C3=B6bb ilyen emailt kapni t=C5=91l=C3=BCnk, k=C3=A9rlek a leiratkoz=C3=
+=A1shoz </span><a href=3D"https://szafi-products.us18.list-manage.com/unsub=
+scribe?u=3D3cd8b48e55bb81ac238d05b76&amp;id=3Db95ca4e766&amp;t=3Db&amp;e=3D=
+b539621def&amp;c=3Dd1a9f6843b" target=3D"_blank"><span style=3D"color:#ffff=
+ff"><span style=3D"text-decoration:underline"><span style=3D"font-size:9px"=
+>kattints ide!</span></span></span></a></p></div></td></tr></tbody></table>=
+</td></tr><tr><td align=3D"center" valign=3D"top"><table align=3D"center" b=
+order=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" role=3D"pres=
+entation"><tbody><tr><td style=3D"background-position:center;background-rep=
+eat:no-repeat;background-size:cover;padding-top:0px;padding-bottom:0px" val=
+ign=3D"top"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"24" width=
+=3D"100%" role=3D"presentation"><tbody></tbody></table></td></tr></tbody></=
+table></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody=
+></table></td></tr><tr><td style=3D"background-color:transparent;padding-to=
+p:20px;padding-bottom:20px;padding-right:24px;padding-left:24px" class=3D"m=
+_8204726943213749108mceBlockContainer" valign=3D"top"><table align=3D"cente=
+r" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" style=3D=
+"background-color:transparent;width:100%" role=3D"presentation" class=3D"m_=
+8204726943213749108mceDividerContainer"><tbody><tr><td style=3D"min-width:1=
+00%;border-top:2px solid #000000" valign=3D"top"></td></tr></tbody></table>=
+</td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></tab=
+le></td></tr></tbody></table></td></tr></tbody></table>
+</td>
+</tr>
+</tbody></table>
+</center>
+<img src=3D"https://szafi-products.us18.list-manage.com/track/open.php?u=3D=
+3cd8b48e55bb81ac238d05b76&amp;id=3Dd1a9f6843b&amp;i=3Dd0c4c0fe2f&amp;e=3Db5=
+39621def" height=3D"1" width=3D"1" alt=3D""></div></div></div></div>
+
+--000000000000713b4706205809c9--

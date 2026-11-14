@@ -1,0 +1,734 @@
+Delivered-To: estampel@gmail.com
+Received: by 2002:ac8:4597:0:b0:4f1:a216:d5ee with SMTP id l23csp256606qtn;
+        Tue, 16 Dec 2025 22:35:21 -0800 (PST)
+X-Received: by 2002:a17:907:3e12:b0:b79:cef7:6574 with SMTP id a640c23a62f3a-b7d235c7f0dmr1875878766b.4.1765953321304;
+        Tue, 16 Dec 2025 22:35:21 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1765953321; cv=none;
+        d=google.com; s=arc-20240605;
+        b=eo5o0rLwEoWxYBKOe662gXjOwZr526McGEoQR9EbdWDKbbmIDlTKOBp1m1nVWGtHSo
+         TCziaiKPfbpwc6frfaFSPml1KC3u8P59Ywav2WCM4KiM4l9epxH0RANNSVDGkca6S3nX
+         cvdT3LsvfK7mdqxkYXPUWzy31dbtUA5WiAIz0YevBOWsTV2UjHd6X6k54q8jTbFZHKdv
+         J+F+gZvZVuLKfd7n2L89ABaMFZ+ouwv+7CLVgYI1o8OD1xvXH9xMuRrzLfEMrbBalHzW
+         7FFIfXct9jB/3H6MmONjLAn7bW5/+js+88c6/LWOWup2adC1aqFi2QZTRxv/t++HQsyu
+         RkCg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=/tXnC+0TlnvgNB1c4uPsg8QPe/0NndfsspTHzVQAPvg=;
+        fh=wF/Yrd2E0xeKwPH74kML7cQSth+Fl4bwhVNrybJ4uh4=;
+        b=LQO4uWilmIbTAnU3pHRb11agm7cbZjmEI1zttPJolNeR4GKNKmha6jaAYiaSjBJwDy
+         SMwMxfpfkct8xS1p7sLInBRbwtKp5BapcFdDcYmbSNRiB9a85NL51o2wXc6c4j6N5oIs
+         gzoogOZhR3JpTq8SgrrU465BSNecHIf5KfD3Y5XQX7BEpRde6laabXAklcn0bSw7yfRv
+         4Y6AgjWe9U0a0B9iL7Ie2vW57xhm/JWxZSsZrYbPas57PoyifEPamIlLWH3uoJgK/1Rv
+         6Extab9LPLLbn6nOe2HrBeYtb9W56B6ATg45xMLrfnabQbAOyMhFVSV+EFwubrn+28V/
+         LbVA==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=gs5uQAnv;
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <banyus53@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id a640c23a62f3a-b7d3af4f3adsor286304766b.6.2025.12.16.22.35.21
+        for <estampel@gmail.com>
+        (Google Transport Security);
+        Tue, 16 Dec 2025 22:35:21 -0800 (PST)
+Received-SPF: pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=gs5uQAnv;
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1765953320; x=1766558120; dara=google.com;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=/tXnC+0TlnvgNB1c4uPsg8QPe/0NndfsspTHzVQAPvg=;
+        b=gs5uQAnvXAT81CjSWpdwAAY2cH3sMhO7qkNg2qfVBMVXabTzKVT3aNnG0DHTkxjOPk
+         UNB0KiKIhAS96h3H3iCas/QvX1rE6gKeVDrFv9zbv/R2cYvhwyZMz6IAEk06AJZTFoOg
+         jd5dr+R5tHS53E+17LELpogdqRSafoxaiQ5Za4ArAny9NdBtXTvSMF2F1puR4YTceZRz
+         Gm7xqsEeYO02RIQXuS7fhvse9pvALBcwFkhZWq0XQKhsGDE9SF2qgbmxhlcpSEJZsONQ
+         zlsiGdhZTctevLeJj8N/M0Wqp1hZ7SWpW+94O69lrj8cfOy/Ufqw3rvlxXDjLNnzomnD
+         eHGA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1765953320; x=1766558120;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=/tXnC+0TlnvgNB1c4uPsg8QPe/0NndfsspTHzVQAPvg=;
+        b=amJBsHl4qNODP+tgUmf3Iub9PwmA8JXmuoMkyBQKE5YZTYyIpv+oipBJex/2jXL5ga
+         bgjpZ2TrhvgiI5l++5QutoEvOIwqt8MstRLC4mRq4k/DWN67mil117hFgWY2v5asGB0R
+         m7bkH87akzL4gFAO0B6H0X/jE1EveoqNsAFxXDKcO9rQiSJ5+wsKg6MjYWDl9K0pxo7R
+         kwSwIIChA1r9/qJnSH1uwcSxQplJnh0YFgrCLpY84kVfn8IVvePqhD9LX0WbjDf9mzdG
+         vRt7U1MtaPMNHvllWEtJVWAqR95VWDx8ePhiVaFEpSmddTSWYk6i8sW2IqMd2YEW/y0t
+         aS7w==
+X-Gm-Message-State: AOJu0YwCnj5ARE0JlCCgW0wzXAOlxk6fhQNW38BqH1zHOp4MgRqhuCwb
+	+QJaV9lpddDdaTSxI0JnMzZVO94SDj8r1tN46/itc/7NApYrrFWC5O7PXhSa9dU0NA7Mi+m8xXQ
+	vxpRL784CpILRMMZFaGPtRyG4FHwWtCkgB6sY
+X-Gm-Gg: AY/fxX6WtYFxx3llM5gNhycVFzoj1RJBt5xHKPIYoyzwHt2sn2iQLQTuMQXnMJrdIGQ
+	HaXjTJBJgYQnVWiCpBGxoAp3uCE/UmMIRjsJBOYtY0kGqrzJCthL3PpzlfHc+iiKCTiWgJkWrtg
+	uW60J6TgPxLBn21V42zQv1jnpKV4SgStb9IpKOCrmxgdgJp3vWqlL+z0mpiix0r8Aatnwnp8Sns
+	mXAoYGbKS3eV2vwPiAJ66HRtqFcz5JmCyBQ5cF/OT7ZSb6Wc0pSn91QRpI8PZqZRpGtepiJYKbq
+	I4V7wGkvbUiSh9f3GwSQSXjEvonCVazMBw3vLkFg
+X-Google-Smtp-Source: AGHT+IFzedNw/yfYQYcMRSN43RkJ+DWWRfFJoFhuGkAUbEMQGCIm3Pc6eSiKf8+zUryqze2f53GfoYsTcbXuqKbRcrg=
+X-Received: by 2002:a17:907:1c01:b0:b72:70e7:5b62 with SMTP id
+ a640c23a62f3a-b7d23663a2fmr1539229866b.23.1765953320250; Tue, 16 Dec 2025
+ 22:35:20 -0800 (PST)
+MIME-Version: 1.0
+References: <4iuxh8.v90wp5.mj46ij6b@lm>
+In-Reply-To: <4iuxh8.v90wp5.mj46ij6b@lm>
+From: =?UTF-8?B?w4FnbmVzIEJ1Z8Ohcg==?= <banyus53@gmail.com>
+Date: Wed, 17 Dec 2025 07:34:51 +0100
+X-Gm-Features: AQt7F2rtydbXdaUbzc_gfv-Wuh63Vi-r_BmdKb2WB-aO1-QX5gkq_QNZR4L3yd8
+Message-ID: <CA+39czVLX5WFQrV_kEVtbnp7P=F=a=aBv4yBi7uAKrG6fZ9Rpg@mail.gmail.com>
+Subject: =?UTF-8?B?RndkOiDwn5+iIE1pbmRlbm1lbnRlcyAvIFTDiU7DiSBrYXLDoWNzb255aSDDtnRsZXR0?=
+	=?UTF-8?B?w6FyIPCfjoE=?=
+To: Emese Stampel <estampel@gmail.com>
+Content-Type: multipart/alternative; boundary="00000000000057f0520646200c7b"
+
+--00000000000057f0520646200c7b
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+---------- Forwarded message ---------
+Felad=C3=B3: Andr=C3=A1si N=C3=B3ra <nora@mindenmentes.hu>
+Date: 2025. dec. 13., Szo, 11:54
+Subject: =F0=9F=9F=A2 Mindenmentes / T=C3=89N=C3=89 kar=C3=A1csonyi =C3=B6t=
+lett=C3=A1r =F0=9F=8E=81
+To: <banyus53@gmail.com>
+
+
+*Kedves =C3=81gnes ,*
+
+
+
+Csokorba v=C3=A1logattam az oldalamr=C3=B3l azokat a recepteket, amelyek j=
+=C3=B3l j=C3=B6nnek
+k=C3=A9sz=C3=BCl=C5=91d=C3=A9s k=C3=B6zben, vagy j=C3=B3l mutatn=C3=A1nak a=
+z =C3=BCnnepi asztalodon. Ezek szinte
+mind teljes =C3=A9rt=C3=A9k=C5=B1 n=C3=B6v=C3=A9nyi =C3=A9trend szerint k=
+=C3=A9sz=C3=BClt, vagy kis =C3=A1talak=C3=ADt=C3=A1ssal
+beilleszthet=C5=91 =C3=A9telek - ezeket jelzem is. A csokis recepteket nem =
+tudom
+teljesen "t=C3=A9n=C3=A9s=C3=ADteni", de ilyenkor szerintem ennyi belef=C3=
+=A9r =F0=9F=98=89
+*(A list=C3=A1t a k=C3=A9p alatt tal=C3=A1lod!)*
+
+
+
+A legfontosabb =C3=BCzenetem a kar=C3=A1csonyi id=C5=91szakra: ne feledd, h=
+ogy a gyomrunk
+t=C3=A9rfogta =C3=A9s a t=C3=A1panyag sz=C3=BCks=C3=A9glet=C3=BCnk =C3=BCnn=
+epnapokon is pont ugyanakkora, mint
+az =C3=A9v t=C3=B6bbi napj=C3=A1n! T=C3=B6lts min=C3=A9l kevesebb id=C5=91t=
+ a konyh=C3=A1ban =C3=A9s min=C3=A9l t=C3=B6bbet
+pihen=C3=A9ssel =C3=A9s a szeretteiddel. =F0=9F=92=9A
+
+
+*K=C3=B6sz=C3=B6n=C3=B6m az eg=C3=A9sz =C3=A9ves figyelmed, =C3=A9s kelleme=
+s =C3=BCnnepeket k=C3=ADv=C3=A1nok!*
+
+
+
+Szeretettel,
+
+N=C3=B3ra
+*El=C5=91k=C3=A9sz=C3=BCletek*
+
+
+
+Az =C3=BCnnepi k=C3=A9sz=C3=BCl=C5=91d=C3=A9s a konyh=C3=A1ban n=C3=A1lunk =
+is m=C3=A9zeskal=C3=A1cs s=C3=BCt=C3=A9ssel kezd=C5=91dik: =C3=ADgy
+s=C3=BCthetsz glut=C3=A9nmentes, veg=C3=A1n, T=C3=89N=C3=89 m=C3=A9zeskal=
+=C3=A1csot
+<https://listamester.hu/lmui/faces/mails/Link.jsp?m=3Dfaz3ca9a9tbb9sfqpb&l=
+=3Dkza1uhr9i2nl5hpi&st=3Dcampaign>
+.
+
+
+
+Kar=C3=A1csonyhoz k=C3=B6zeledve beindul a szaloncukor m=C5=B1hely: ez egy =
+10+ =C3=A9ves
+bejegyz=C3=A9s, de n=C3=A1lunk az=C3=B3ta is =C3=ADgy k=C3=A9sz=C3=BCl a h=
+=C3=A1zi marcip=C3=A1nos szaloncukor
+<https://listamester.hu/lmui/faces/mails/Link.jsp?m=3D8n33paaautgbkshjs4&l=
+=3D3441ahh9220mhh9r&st=3Dcampaign>.
+(Cukormentes, xilittel k=C3=A9sz=C3=BCl, =C3=A9s a csokol=C3=A1d=C3=A9bevon=
+at miatt nem T=C3=89N=C3=89 -
+forgathatod kaka=C3=B3porba is.)
+
+
+
+Gasztroaj=C3=A1nd=C3=A9knak aj=C3=A1nlom ezt a granol=C3=A1t
+<https://listamester.hu/lmui/faces/mails/Link.jsp?m=3Dzei3rasa5tgbis8wdk&l=
+=3D9z51thl9d2nnfazc&st=3Dcampaign>
+vagy
+a kurkuma latte f=C5=B1szerkever=C3=A9kem
+<https://listamester.hu/lmui/faces/mails/Link.jsp?m=3D1ko3oaia5tobrsf55r&l=
+=3Ds481vhd9c3qo52kd&st=3Dcampaign>
+egy csinos kis =C3=BCvegben!
+
+
+
+K=C3=A9sz=C3=BCl=C5=91d=C3=A9s k=C3=B6zben j=C3=B3lesik egy cs=C3=A9sze m=
+=C3=A9zeskal=C3=A1cs latte
+<https://listamester.hu/lmui/faces/mails/Link.jsp?m=3Dmr83caba6thbwso26e&l=
+=3Df0v1fhc9e2pot16e&st=3Dcampaign>
+vagy habos-babos kaka=C3=B3
+<https://listamester.hu/lmui/faces/mails/Link.jsp?m=3Dsyf3baya3thbxs3uq1&l=
+=3Dbav1ehs982up7564&st=3Dcampaign>
+.
+
+
+*Vend=C3=A9gv=C3=A1r=C3=B3k*
+
+
+
+S=C3=B3s vend=C3=A9gv=C3=A1r=C3=B3nak j=C3=B3l j=C3=B6het ez a lusta hagym=
+=C3=A1s pog=C3=A1csa
+<https://listamester.hu/lmui/faces/mails/Link.jsp?m=3D0fz3vasaftcb5s72xz&l=
+=3Dp0x19h79a2fqm3y5&st=3Dcampaign>
+vagy ez a f=C3=BCst=C3=B6s-"sajtos" pir=C3=ADtott csicseribors=C3=B3
+<https://listamester.hu/lmui/faces/mails/Link.jsp?m=3Dr613tapaitublsxzd9&l=
+=3Dapb1uhr9n29rzfek&st=3Dcampaign>
+.
+
+
+
+=C3=89des falatk=C3=A1knak aj=C3=A1nlom a zabos k=C3=B3kuszgoly=C3=B3t
+<https://listamester.hu/lmui/faces/mails/Link.jsp?m=3D5123ma5abt9bfssq23&l=
+=3Dwic1ghh9t2lsyh4o&st=3Dcampaign>
+=C3=A9s ezt a tahinis =C3=A9tcsokol=C3=A1d=C3=A9 tr=C3=BCffelt
+<https://listamester.hu/lmui/faces/mails/Link.jsp?m=3Dvec3talajt6bcswhaa&l=
+=3Dp0v1cht9f2xtb6lo&st=3Dcampaign>.
+(A tr=C3=BCffelben van egy kis kaka=C3=B3vaj, ami nem T=C3=89N=C3=89 - az =
+=C3=A1llag=C3=A1n seg=C3=ADt, ha
+tudod igaz=C3=A1n kem=C3=A9ny tahinivel k=C3=A9sz=C3=ADteni, akkor elhagyha=
+t=C3=B3 - az =C3=BCveg alj=C3=A1n
+=C3=B6sszegy=C5=B1lt tahini mindig s=C5=B1r=C5=B1bb.)
+
+
+*El=C5=91=C3=A9telek*
+
+
+
+N=C3=A1lunk az =C3=A9v v=C3=A9gi =C3=BCnnepk=C3=B6rben fogy a let=C3=B6bb m=
+ajon=C3=A9z - ilyenkor a
+legegyszer=C5=B1bb tejf=C5=91z=C5=91ben k=C3=A9sz=C3=ADtenem egy nagy adag =
+olajmentes majon=C3=A9zt
+<https://listamester.hu/lmui/faces/mails/Link.jsp?m=3Dnks38apa5tjbrshlbu&l=
+=3Djfx18he9x2nu3p2q&st=3Dcampaign>,
+majd ezzel k=C3=A9sz=C3=BCl a francia sal=C3=A1ta, a majon=C3=A9zes padlizs=
+=C3=A1n sal=C3=A1ta =C3=A9s a
+majon=C3=A9zes krumpli is...
+
+
+
+Ha szeretn=C3=A9l valami k=C3=BCl=C3=B6nlegessel k=C3=A9sz=C3=BClni az =C3=
+=BCnnepre, pr=C3=B3b=C3=A1ld ki a r=C3=A9palazac
+receptem
+<https://listamester.hu/lmui/faces/mails/Link.jsp?m=3D4n13eaaa9tebls9qj0&l=
+=3Dy8e1nh19d2yv4ka0&st=3Dcampaign>
+- nem, nem lesz pont ugyanolyan, mint az eredeti, de hasonl=C3=B3 lesz =C3=
+=A9s nagyon
+finom!
+
+
+*F=C5=91=C3=A9telek*
+
+
+
+Az =C3=A9n csal=C3=A1domban a marhah=C3=BAsleves volt hagyom=C3=A1nyos kar=
+=C3=A1csonykor - ehelyett
+most "Riska =C3=B6r=C3=B6me" leves k=C3=A9sz=C3=BCl minden =C3=A9vben: a z=
+=C3=B6lds=C3=A9gek mell=C3=A9 egy darabka
+s=C3=BCt=C5=91t=C3=B6k=C3=B6t teszek, ami sz=C3=A9p sz=C3=ADnt ad a levesne=
+k =C3=A9s teljesen meglep=C5=91 m=C3=B3don
+egy marhah=C3=BAsleves jelleg=C5=B1 =C3=ADzvil=C3=A1got. T=C3=A9nyleg! K=C3=
+=B3stold csak meg. =F0=9F=99=82
+
+
+
+Ha n=C3=A1latok ilyenkor hal=C3=A1szl=C3=A9 duk=C3=A1l, akkor itt tal=C3=A1=
+lsz egy haltalanl=C3=A9
+receptet
+<https://listamester.hu/lmui/faces/mails/Link.jsp?m=3Dvh83zaba0t3b6sk6pn&l=
+=3Dyhb1jha9w2awtsmn&st=3Dcampaign>
+.
+
+
+
+Ha m=C3=A1r hal =C3=A9s f=C5=91=C3=A9tel, ak=C3=A1r T=C3=89N=C3=89 r=C3=A1n=
+tott halat
+<https://listamester.hu/lmui/faces/mails/Link.jsp?m=3D4c53narayt5b5sl3vd&l=
+=3D0i510h39324xsuxp&st=3Dcampaign>
+is k=C3=A9sz=C3=ADthetsz.
+
+
+
+N=C3=A1lunk kar=C3=A1csonykor a k=C3=A1poszt=C3=A1s =C3=A9telek=C3=A9 a f=
+=C5=91szerep - kedvencem a
+sz=C3=A9kelyk=C3=A1poszta
+<https://listamester.hu/lmui/faces/mails/Link.jsp?m=3Dsnq3japact0bds3ib3&l=
+=3Dbou15hu9h2oybo6w&st=3Dcampaign>,
+most m=C3=A1r T=C3=89N=C3=89 v=C3=A1ltozatban. =F0=9F=98=89 (Az ol=C3=ADvao=
+lajat nyugodtan hagyd el, gomba
+helyett pedig haszn=C3=A1lhatsz f=C3=BCst=C3=B6lt tofut vagy v=C3=B6r=C3=B6=
+s lencs=C3=A9t is.)
+
+
+
+Id=C3=A9n tervezem =C3=BAjra el=C5=91venni ezt a zelleres, di=C3=B3s lencse=
+vagdaltat
+<https://listamester.hu/lmui/faces/mails/Link.jsp?m=3Dvoz3aamavt8basl2xn&l=
+=3Dng61vha9q2pz9rmu&st=3Dcampaign>
+- isteni lesz majon=C3=A9zes krumpli sal=C3=A1tval. (Olaj helyett egy ev=C5=
+=91kan=C3=A1l
+magvajat teszek majd bele.)
+
+
+
+Aj=C3=A1nlom figyelmedbe ezt a komplett kar=C3=A1csonyi men=C3=BCt
+<https://listamester.hu/lmui/faces/mails/Link.jsp?m=3Dui031ayaftgb5sc4lm&l=
+=3D2jz1gh59t3s0dzg8&st=3Dcampaign>
+is - ha a karfiolhoz tahinit haszn=C3=A1lsz ol=C3=ADvaolaj helyett, a s=C3=
+=BClt z=C3=B6lds=C3=A9ghez
+pedig csicserilevet, akkor 100%-ban T=C3=89N=C3=89 lesz.
+
+
+*Desszert*
+
+
+
+Mindenki kedvenc r=C3=A9sze a desszert... kar=C3=A1csonykor is. =F0=9F=99=
+=82 Mindenmentes
+bejgli receptet itt tal=C3=A1lsz
+<https://listamester.hu/lmui/faces/mails/Link.jsp?m=3Dvrj3taya6t5bbsr2sp&l=
+=3Dof61ah89q3b17utp&st=3Dcampaign>:
+cukormentes =C3=A9s veg=C3=A1n, pici kem=C3=A9ny=C3=ADt=C5=91 miatt nem tel=
+jesen T=C3=89N=C3=89.
+
+
+
+Ha kevesebb munk=C3=A1val szeretn=C3=A9l finom desszertet tenni az asztalra=
+, akkor
+n=C3=A9zd meg ezt az =C3=A9desburgony=C3=A1s brownie
+<https://listamester.hu/lmui/faces/mails/Link.jsp?m=3D6nl37aqaptqb7skzvh&l=
+=3Doho1jhm9c3q2fdis&st=3Dcampaign>-t
+(T=C3=89N=C3=89 =C3=A9s s=C3=BCt=C5=91t=C3=B6kkel is m=C5=B1k=C3=B6dik) vag=
+y ezt a v=C3=B6r=C3=B6sboros =C3=A9tcsokol=C3=A1d=C3=A9 mousse
+<https://listamester.hu/lmui/faces/mails/Link.jsp?m=3D8dh3ea7aetdbwsdt81&l=
+=3Db7317hw9p39311hc&st=3Dcampaign>-t
+(a mousse az =C3=A9tcsoki miatt nem T=C3=89N=C3=89).
+
+
+
+
+*K=C3=B6nyv aj=C3=A1nd=C3=A9ba*
+
+
+
+Enni mindenki szeret, =C3=ADgy a gasztro k=C3=B6nyv mindig j=C3=B3 aj=C3=A1=
+nd=C3=A9k. Ha van olyan
+szeretted, aki =C3=A9rdekl=C5=91dik a mentes / n=C3=B6v=C3=A9nyi alap=C3=BA=
+ =C3=A9tkez=C3=A9s ir=C3=A1nt, lepd meg
+az egyik k=C3=B6nyvemmel: itt tudod megrendelni =C5=91ket a kiad=C3=B3t=C3=
+=B3l
+<https://listamester.hu/lmui/faces/mails/Link.jsp?m=3Dxw03la6aitsb7stsjp&l=
+=3D6ic1cht983g6k0sm&st=3Dcampaign>
+kedvem=C3=A9nyes =C3=A1ron. (Itt tudsz t=C3=A1j=C3=A9koz=C3=B3dni r=C3=B3lu=
+k.
+<https://listamester.hu/lmui/faces/mails/Link.jsp?m=3D3ha3ramapt5bqspkaa&l=
+=3Dern1ihc9c347ayab&st=3Dcampaign>
+)
+
+
+
+Rem=C3=A9lem, hasznosnak tal=C3=A1ltad ezt az =C3=B6ssze=C3=A1ll=C3=ADt=C3=
+=A1st, =C3=A9s m=C3=A9g egyszer: nyugodt
+adventet, =C3=A9s meghitt =C3=BCnnepl=C3=A9st k=C3=ADv=C3=A1nok!
+
+
+
+N=C3=B3ra
+
+*Erre a h=C3=ADrlev=C3=A9lre a mindenmentes.hu
+<https://listamester.hu/lmui/faces/mails/Link.jsp?m=3Dwf83ga3aqtzbkssbcq&l=
+=3Dcl919hh923m8p0jg&st=3Dcampaign>
+oldalon iratkozt=C3=A1l fel. Itt
+<https://listamester.hu/lmui/faces/mails/Link.jsp?m=3Dz3z3bajaxtfb8sobs4&l=
+=3D5js1xhb9x3o9boax&st=3Dcampaign>
+tal=C3=A1lod az adatkezel=C3=A9si t=C3=A1j=C3=A9koztat=C3=B3t, =C3=A9s ide =
+kattintva
+<https://listamester.hu/lmui/faces/forms/UnsubscribeLink.jsp?m=3Dv2o3pavaut=
+vb0sojgn&e=3D9t3ct449q0sdmv&g=3Dfzu1xnpn3vazez&p=3D8mquet328ytsu6>
+tudsz leiratkozni.*
+
+<https://listamester.hu/lmui/faces/StartPage.jsp?f=3DLMlablecKep>
+
+--00000000000057f0520646200c7b
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><br><br><div class=3D"gmail_quote gmail_quote_container"><=
+div dir=3D"ltr" class=3D"gmail_attr">---------- Forwarded message ---------=
+<br>Felad=C3=B3: <strong class=3D"gmail_sendername" dir=3D"auto">Andr=C3=A1=
+si N=C3=B3ra</strong> <span dir=3D"auto">&lt;<a href=3D"mailto:nora@mindenm=
+entes.hu">nora@mindenmentes.hu</a>&gt;</span><br>Date: 2025. dec. 13., Szo,=
+ 11:54<br>Subject: =F0=9F=9F=A2 Mindenmentes / T=C3=89N=C3=89 kar=C3=A1cson=
+yi =C3=B6tlett=C3=A1r =F0=9F=8E=81<br>To:  &lt;<a href=3D"mailto:banyus53@g=
+mail.com">banyus53@gmail.com</a>&gt;<br></div><br><br><div class=3D"msg-335=
+3060204040653034"><u></u>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id=3D"m_-3353060204040653034body" marginwidth=3D"0" marginheight=3D"0"=
+ style=3D"font-family:Arial,sans-serif;font-size:0px;margin:0;padding:0">
+
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%">
+<tbody><tr>
+<td width=3D"100%">
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%">
+<tbody><tr>
+<td align=3D"center" width=3D"100%">
+
+<table class=3D"m_-3353060204040653034width600 m_-3353060204040653034main-c=
+ontainer" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%" s=
+tyle=3D"max-width:600px">
+<tbody><tr>
+<td width=3D"100%">
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%">
+<tbody><tr>
+<td valign=3D"top" align=3D"center">
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" class=3D"m_-3353060=
+204040653034fluid-on-mobile" style=3D"max-width:100%">
+<tbody><tr>
+<td valign=3D"top" align=3D"center" style=3D"padding:10px"><img src=3D"http=
+s://listamester.hu/imgGallery/12256/ltx5o94t1oiomctm2n2o4.png" width=3D"463=
+" height=3D"191" alt=3D"" border=3D"0" style=3D"display:block;font-size:14p=
+x;max-width:100%;height:auto">
+</td>
+</tr>
+</tbody></table>
+
+</td>
+</tr>
+</tbody></table>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%">
+<tbody><tr>
+<td valign=3D"top" style=3D"padding:13px"><div style=3D"font-family:Georgia=
+,Times,Times New Roman,serif;font-size:16px;color:#555555;font-weight:norma=
+l;line-height:21px;letter-spacing:0.01em;text-align:left"><p style=3D"text-=
+align:justify;padding:0;margin:0"><strong><span style=3D"font-family:Georgi=
+a">Kedves =C3=81gnes ,</span></strong></p>
+<p style=3D"text-align:justify;padding:0;margin:0">=C2=A0</p>
+<p style=3D"text-align:justify;padding:0;margin:0">Csokorba v=C3=A1logattam=
+ az oldalamr=C3=B3l azokat a recepteket, amelyek j=C3=B3l j=C3=B6nnek k=C3=
+=A9sz=C3=BCl=C5=91d=C3=A9s k=C3=B6zben, vagy j=C3=B3l mutatn=C3=A1nak az =
+=C3=BCnnepi asztalodon. Ezek szinte mind teljes =C3=A9rt=C3=A9k=C5=B1 n=C3=
+=B6v=C3=A9nyi =C3=A9trend szerint k=C3=A9sz=C3=BClt, vagy kis =C3=A1talak=
+=C3=ADt=C3=A1ssal beilleszthet=C5=91 =C3=A9telek - ezeket jelzem is. A csok=
+is recepteket nem tudom teljesen &quot;t=C3=A9n=C3=A9s=C3=ADteni&quot;, de =
+ilyenkor szerintem ennyi belef=C3=A9r =F0=9F=98=89<br>
+<em>(A list=C3=A1t a k=C3=A9p alatt tal=C3=A1lod!)</em></p>
+<p style=3D"padding:0;margin:0">=C2=A0</p>
+<p style=3D"text-align:justify;padding:0;margin:0"><span style=3D"backgroun=
+d-color:#ffff99">A legfontosabb =C3=BCzenetem a kar=C3=A1csonyi id=C5=91sza=
+kra</span>: ne feledd, hogy a gyomrunk t=C3=A9rfogta =C3=A9s a t=C3=A1panya=
+g sz=C3=BCks=C3=A9glet=C3=BCnk =C3=BCnnepnapokon is pont ugyanakkora, mint =
+az =C3=A9v t=C3=B6bbi napj=C3=A1n! T=C3=B6lts min=C3=A9l kevesebb id=C5=91t=
+ a konyh=C3=A1ban =C3=A9s min=C3=A9l t=C3=B6bbet pihen=C3=A9ssel =C3=A9s a =
+szeretteiddel.=C2=A0=F0=9F=92=9A</p>
+<p style=3D"padding:0;margin:0">=C2=A0</p>
+<h3 style=3D"font-family:Arial,Helvetica Neue,Helvetica,sans-serif;font-siz=
+e:22px;color:#9db838;font-weight:normal;line-height:22px;letter-spacing:nor=
+mal;padding:0;margin:0"><strong>K=C3=B6sz=C3=B6n=C3=B6m az eg=C3=A9sz =C3=
+=A9ves figyelmed, =C3=A9s kellemes =C3=BCnnepeket k=C3=ADv=C3=A1nok!</stron=
+g></h3>
+<p style=3D"padding:0;margin:0">=C2=A0</p>
+<p style=3D"padding:0;margin:0">Szeretettel,</p>
+<p style=3D"padding:0;margin:0">N=C3=B3ra</p></div>
+</td>
+</tr>
+</tbody></table>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%">
+<tbody><tr>
+<td valign=3D"top" align=3D"center">
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" class=3D"m_-3353060=
+204040653034fluid-on-mobile" style=3D"max-width:100%">
+<tbody><tr>
+<td valign=3D"top" align=3D"center"><img src=3D"https://listamester.hu/edm/=
+data/12256/img_23910320.png" width=3D"600" height=3D"502" alt=3D"" border=
+=3D"0" style=3D"display:block;font-size:14px;max-width:100%;height:auto" cl=
+ass=3D"m_-3353060204040653034width600">
+</td>
+</tr>
+</tbody></table>
+
+</td>
+</tr>
+</tbody></table>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%">
+<tbody><tr>
+<td valign=3D"top" style=3D"padding:13px"><div style=3D"font-family:Georgia=
+,Times,Times New Roman,serif;font-size:16px;color:#555555;font-weight:norma=
+l;line-height:21px;letter-spacing:0.01em;text-align:left"><h3 style=3D"text=
+-align:justify;font-family:Arial,Helvetica Neue,Helvetica,sans-serif;font-s=
+ize:22px;color:#9db838;font-weight:normal;line-height:22px;letter-spacing:n=
+ormal;padding:0;margin:0"><strong>El=C5=91k=C3=A9sz=C3=BCletek</strong></h3=
+>
+<p style=3D"text-align:justify;padding:0;margin:0">=C2=A0</p>
+<p style=3D"padding:0;margin:0">Az =C3=BCnnepi k=C3=A9sz=C3=BCl=C5=91d=C3=
+=A9s a konyh=C3=A1ban n=C3=A1lunk is m=C3=A9zeskal=C3=A1cs s=C3=BCt=C3=A9ss=
+el kezd=C5=91dik: <a href=3D"https://listamester.hu/lmui/faces/mails/Link.j=
+sp?m=3Dfaz3ca9a9tbb9sfqpb&amp;l=3Dkza1uhr9i2nl5hpi&amp;st=3Dcampaign" style=
+=3D"text-decoration:underline!important;color:#9db838!important" target=3D"=
+_blank"><font style=3D"color:#9db838">=C3=ADgy s=C3=BCthetsz glut=C3=A9nmen=
+tes, veg=C3=A1n, T=C3=89N=C3=89 m=C3=A9zeskal=C3=A1csot</font></a>.</p>
+<p style=3D"padding:0;margin:0">=C2=A0</p>
+<p style=3D"padding:0;margin:0">Kar=C3=A1csonyhoz k=C3=B6zeledve beindul a =
+szaloncukor m=C5=B1hely: ez egy 10+ =C3=A9ves bejegyz=C3=A9s, de n=C3=A1lun=
+k az=C3=B3ta is <a href=3D"https://listamester.hu/lmui/faces/mails/Link.jsp=
+?m=3D8n33paaautgbkshjs4&amp;l=3D3441ahh9220mhh9r&amp;st=3Dcampaign" style=
+=3D"text-decoration:underline!important;color:#9db838!important" target=3D"=
+_blank"><font style=3D"color:#9db838">=C3=ADgy k=C3=A9sz=C3=BCl a h=C3=A1zi=
+ marcip=C3=A1nos szaloncukor</font></a>. (Cukormentes, xilittel k=C3=A9sz=
+=C3=BCl, =C3=A9s a csokol=C3=A1d=C3=A9bevonat miatt nem T=C3=89N=C3=89 - fo=
+rgathatod kaka=C3=B3porba is.)</p>
+<p style=3D"padding:0;margin:0">=C2=A0</p>
+<p style=3D"padding:0;margin:0">Gasztroaj=C3=A1nd=C3=A9knak aj=C3=A1nlom <a=
+ href=3D"https://listamester.hu/lmui/faces/mails/Link.jsp?m=3Dzei3rasa5tgbi=
+s8wdk&amp;l=3D9z51thl9d2nnfazc&amp;st=3Dcampaign" style=3D"text-decoration:=
+underline!important;color:#9db838!important" target=3D"_blank"><font style=
+=3D"color:#9db838">ezt a granol=C3=A1t</font></a>=C2=A0vagy a <a href=3D"ht=
+tps://listamester.hu/lmui/faces/mails/Link.jsp?m=3D1ko3oaia5tobrsf55r&amp;l=
+=3Ds481vhd9c3qo52kd&amp;st=3Dcampaign" style=3D"text-decoration:underline!i=
+mportant;color:#9db838!important" target=3D"_blank"><font style=3D"color:#9=
+db838">kurkuma latte f=C5=B1szerkever=C3=A9kem</font></a> egy csinos kis =
+=C3=BCvegben!</p>
+<p style=3D"padding:0;margin:0">=C2=A0</p>
+<p style=3D"padding:0;margin:0">K=C3=A9sz=C3=BCl=C5=91d=C3=A9s k=C3=B6zben =
+j=C3=B3lesik egy cs=C3=A9sze <a href=3D"https://listamester.hu/lmui/faces/m=
+ails/Link.jsp?m=3Dmr83caba6thbwso26e&amp;l=3Df0v1fhc9e2pot16e&amp;st=3Dcamp=
+aign" style=3D"text-decoration:underline!important;color:#9db838!important"=
+ target=3D"_blank"><font style=3D"color:#9db838">m=C3=A9zeskal=C3=A1cs latt=
+e</font></a> vagy <a href=3D"https://listamester.hu/lmui/faces/mails/Link.j=
+sp?m=3Dsyf3baya3thbxs3uq1&amp;l=3Dbav1ehs982up7564&amp;st=3Dcampaign" style=
+=3D"text-decoration:underline!important;color:#9db838!important" target=3D"=
+_blank"><font style=3D"color:#9db838">habos-babos kaka=C3=B3</font></a>.</p=
+>
+<p style=3D"padding:0;margin:0">=C2=A0</p>
+<h3 style=3D"font-family:Arial,Helvetica Neue,Helvetica,sans-serif;font-siz=
+e:22px;color:#9db838;font-weight:normal;line-height:22px;letter-spacing:nor=
+mal;padding:0;margin:0"><strong>Vend=C3=A9gv=C3=A1r=C3=B3k</strong></h3>
+<p style=3D"padding:0;margin:0">=C2=A0</p>
+<p style=3D"padding:0;margin:0">S=C3=B3s vend=C3=A9gv=C3=A1r=C3=B3nak j=C3=
+=B3l j=C3=B6het ez a <a href=3D"https://listamester.hu/lmui/faces/mails/Lin=
+k.jsp?m=3D0fz3vasaftcb5s72xz&amp;l=3Dp0x19h79a2fqm3y5&amp;st=3Dcampaign" st=
+yle=3D"text-decoration:underline!important;color:#9db838!important" target=
+=3D"_blank"><font style=3D"color:#9db838">lusta hagym=C3=A1s pog=C3=A1csa</=
+font></a> vagy ez a <a href=3D"https://listamester.hu/lmui/faces/mails/Link=
+.jsp?m=3Dr613tapaitublsxzd9&amp;l=3Dapb1uhr9n29rzfek&amp;st=3Dcampaign" sty=
+le=3D"text-decoration:underline!important;color:#9db838!important" target=
+=3D"_blank"><font style=3D"color:#9db838">f=C3=BCst=C3=B6s-&quot;sajtos&quo=
+t; pir=C3=ADtott csicseribors=C3=B3</font></a>.</p>
+<p style=3D"padding:0;margin:0">=C2=A0</p>
+<p style=3D"padding:0;margin:0">=C3=89des falatk=C3=A1knak aj=C3=A1nlom a <=
+a href=3D"https://listamester.hu/lmui/faces/mails/Link.jsp?m=3D5123ma5abt9b=
+fssq23&amp;l=3Dwic1ghh9t2lsyh4o&amp;st=3Dcampaign" style=3D"text-decoration=
+:underline!important;color:#9db838!important" target=3D"_blank"><font style=
+=3D"color:#9db838">zabos k=C3=B3kuszgoly=C3=B3t</font></a> =C3=A9s ezt a <a=
+ href=3D"https://listamester.hu/lmui/faces/mails/Link.jsp?m=3Dvec3talajt6bc=
+swhaa&amp;l=3Dp0v1cht9f2xtb6lo&amp;st=3Dcampaign" style=3D"text-decoration:=
+underline!important;color:#9db838!important" target=3D"_blank"><font style=
+=3D"color:#9db838">tahinis =C3=A9tcsokol=C3=A1d=C3=A9 tr=C3=BCffelt</font><=
+/a>. (A tr=C3=BCffelben van egy kis kaka=C3=B3vaj, ami nem T=C3=89N=C3=89 -=
+ az =C3=A1llag=C3=A1n seg=C3=ADt, ha tudod igaz=C3=A1n kem=C3=A9ny tahinive=
+l k=C3=A9sz=C3=ADteni, akkor elhagyhat=C3=B3 - az =C3=BCveg alj=C3=A1n =C3=
+=B6sszegy=C5=B1lt tahini mindig s=C5=B1r=C5=B1bb.)</p>
+<p style=3D"padding:0;margin:0">=C2=A0</p>
+<h3 style=3D"font-family:Arial,Helvetica Neue,Helvetica,sans-serif;font-siz=
+e:22px;color:#9db838;font-weight:normal;line-height:22px;letter-spacing:nor=
+mal;padding:0;margin:0"><strong>El=C5=91=C3=A9telek</strong></h3>
+<p style=3D"padding:0;margin:0">=C2=A0</p>
+<p style=3D"padding:0;margin:0">N=C3=A1lunk az =C3=A9v v=C3=A9gi =C3=BCnnep=
+k=C3=B6rben fogy a let=C3=B6bb majon=C3=A9z - ilyenkor a legegyszer=C5=B1bb=
+ tejf=C5=91z=C5=91ben k=C3=A9sz=C3=ADtenem egy nagy adag <a href=3D"https:/=
+/listamester.hu/lmui/faces/mails/Link.jsp?m=3Dnks38apa5tjbrshlbu&amp;l=3Djf=
+x18he9x2nu3p2q&amp;st=3Dcampaign" style=3D"text-decoration:underline!import=
+ant;color:#9db838!important" target=3D"_blank"><font style=3D"color:#9db838=
+">olajmentes majon=C3=A9zt</font></a>, majd ezzel k=C3=A9sz=C3=BCl a franci=
+a sal=C3=A1ta, a majon=C3=A9zes padlizs=C3=A1n sal=C3=A1ta =C3=A9s a majon=
+=C3=A9zes krumpli is...</p>
+<p style=3D"padding:0;margin:0">=C2=A0</p>
+<p style=3D"padding:0;margin:0">Ha szeretn=C3=A9l valami k=C3=BCl=C3=B6nleg=
+essel k=C3=A9sz=C3=BClni az =C3=BCnnepre, pr=C3=B3b=C3=A1ld ki a <a href=3D=
+"https://listamester.hu/lmui/faces/mails/Link.jsp?m=3D4n13eaaa9tebls9qj0&am=
+p;l=3Dy8e1nh19d2yv4ka0&amp;st=3Dcampaign" style=3D"text-decoration:underlin=
+e!important;color:#9db838!important" target=3D"_blank"><font style=3D"color=
+:#9db838">r=C3=A9palazac receptem</font></a> - nem, nem lesz pont ugyanolya=
+n, mint az eredeti, de hasonl=C3=B3 lesz =C3=A9s nagyon finom!</p>
+<p style=3D"padding:0;margin:0">=C2=A0</p>
+<h3 style=3D"font-family:Arial,Helvetica Neue,Helvetica,sans-serif;font-siz=
+e:22px;color:#9db838;font-weight:normal;line-height:22px;letter-spacing:nor=
+mal;padding:0;margin:0"><strong>F=C5=91=C3=A9telek</strong></h3>
+<p style=3D"padding:0;margin:0">=C2=A0</p>
+<p style=3D"padding:0;margin:0">Az =C3=A9n csal=C3=A1domban a marhah=C3=BAs=
+leves volt hagyom=C3=A1nyos kar=C3=A1csonykor - ehelyett most &quot;Riska =
+=C3=B6r=C3=B6me&quot; leves k=C3=A9sz=C3=BCl minden =C3=A9vben: a z=C3=B6ld=
+s=C3=A9gek mell=C3=A9 egy darabka s=C3=BCt=C5=91t=C3=B6k=C3=B6t teszek, ami=
+ sz=C3=A9p sz=C3=ADnt ad a levesnek =C3=A9s teljesen meglep=C5=91 m=C3=B3do=
+n egy marhah=C3=BAsleves jelleg=C5=B1 =C3=ADzvil=C3=A1got. T=C3=A9nyleg! K=
+=C3=B3stold csak meg. =F0=9F=99=82</p>
+<p style=3D"padding:0;margin:0">=C2=A0</p>
+<p style=3D"padding:0;margin:0">Ha n=C3=A1latok ilyenkor hal=C3=A1szl=C3=A9=
+ duk=C3=A1l, akkor <a href=3D"https://listamester.hu/lmui/faces/mails/Link.=
+jsp?m=3Dvh83zaba0t3b6sk6pn&amp;l=3Dyhb1jha9w2awtsmn&amp;st=3Dcampaign" styl=
+e=3D"text-decoration:underline!important;color:#9db838!important" target=3D=
+"_blank"><font style=3D"color:#9db838">itt tal=C3=A1lsz egy haltalanl=C3=A9=
+ receptet</font></a>.</p>
+<p style=3D"padding:0;margin:0">=C2=A0</p>
+<p style=3D"padding:0;margin:0">Ha m=C3=A1r hal =C3=A9s f=C5=91=C3=A9tel, a=
+k=C3=A1r <a href=3D"https://listamester.hu/lmui/faces/mails/Link.jsp?m=3D4c=
+53narayt5b5sl3vd&amp;l=3D0i510h39324xsuxp&amp;st=3Dcampaign" style=3D"text-=
+decoration:underline!important;color:#9db838!important" target=3D"_blank"><=
+font style=3D"color:#9db838">T=C3=89N=C3=89 r=C3=A1ntott halat</font></a> i=
+s k=C3=A9sz=C3=ADthetsz.</p>
+<p style=3D"padding:0;margin:0">=C2=A0</p>
+<p style=3D"padding:0;margin:0">N=C3=A1lunk kar=C3=A1csonykor a k=C3=A1posz=
+t=C3=A1s =C3=A9telek=C3=A9 a f=C5=91szerep - kedvencem a <a href=3D"https:/=
+/listamester.hu/lmui/faces/mails/Link.jsp?m=3Dsnq3japact0bds3ib3&amp;l=3Dbo=
+u15hu9h2oybo6w&amp;st=3Dcampaign" style=3D"text-decoration:underline!import=
+ant;color:#9db838!important" target=3D"_blank"><font style=3D"color:#9db838=
+">sz=C3=A9kelyk=C3=A1poszta</font></a>, most m=C3=A1r T=C3=89N=C3=89 v=C3=
+=A1ltozatban. =F0=9F=98=89 (Az ol=C3=ADvaolajat nyugodtan hagyd el, gomba h=
+elyett pedig haszn=C3=A1lhatsz f=C3=BCst=C3=B6lt tofut vagy v=C3=B6r=C3=B6s=
+ lencs=C3=A9t is.)</p>
+<p style=3D"padding:0;margin:0">=C2=A0</p>
+<p style=3D"padding:0;margin:0">Id=C3=A9n tervezem =C3=BAjra el=C5=91venni =
+ezt a zelleres, di=C3=B3s <a href=3D"https://listamester.hu/lmui/faces/mail=
+s/Link.jsp?m=3Dvoz3aamavt8basl2xn&amp;l=3Dng61vha9q2pz9rmu&amp;st=3Dcampaig=
+n" style=3D"text-decoration:underline!important;color:#9db838!important" ta=
+rget=3D"_blank"><font style=3D"color:#9db838">lencsevagdaltat</font></a> - =
+isteni lesz majon=C3=A9zes krumpli sal=C3=A1tval. (Olaj helyett egy ev=C5=
+=91kan=C3=A1l magvajat teszek majd bele.)</p>
+<p style=3D"padding:0;margin:0">=C2=A0</p>
+<p style=3D"padding:0;margin:0">Aj=C3=A1nlom figyelmedbe ezt a <a href=3D"h=
+ttps://listamester.hu/lmui/faces/mails/Link.jsp?m=3Dui031ayaftgb5sc4lm&amp;=
+l=3D2jz1gh59t3s0dzg8&amp;st=3Dcampaign" style=3D"text-decoration:underline!=
+important;color:#9db838!important" target=3D"_blank"><font style=3D"color:#=
+9db838">komplett kar=C3=A1csonyi men=C3=BCt</font></a> is - ha a karfiolhoz=
+ tahinit haszn=C3=A1lsz ol=C3=ADvaolaj helyett, a s=C3=BClt z=C3=B6lds=C3=
+=A9ghez pedig csicserilevet, akkor 100%-ban T=C3=89N=C3=89 lesz.</p>
+<p style=3D"padding:0;margin:0">=C2=A0</p>
+<h3 style=3D"font-family:Arial,Helvetica Neue,Helvetica,sans-serif;font-siz=
+e:22px;color:#9db838;font-weight:normal;line-height:22px;letter-spacing:nor=
+mal;padding:0;margin:0"><strong>Desszert</strong></h3>
+<p style=3D"padding:0;margin:0">=C2=A0</p>
+<p style=3D"padding:0;margin:0">Mindenki kedvenc r=C3=A9sze a desszert... k=
+ar=C3=A1csonykor is.=C2=A0=F0=9F=99=82 <a href=3D"https://listamester.hu/lm=
+ui/faces/mails/Link.jsp?m=3Dvrj3taya6t5bbsr2sp&amp;l=3Dof61ah89q3b17utp&amp=
+;st=3Dcampaign" style=3D"text-decoration:underline!important;color:#9db838!=
+important" target=3D"_blank"><font style=3D"color:#9db838">Mindenmentes bej=
+gli receptet itt tal=C3=A1lsz</font></a>: cukormentes =C3=A9s veg=C3=A1n, p=
+ici kem=C3=A9ny=C3=ADt=C5=91 miatt nem teljesen T=C3=89N=C3=89.</p>
+<p style=3D"padding:0;margin:0">=C2=A0</p>
+<p style=3D"padding:0;margin:0">Ha kevesebb munk=C3=A1val szeretn=C3=A9l fi=
+nom desszertet tenni az asztalra, akkor n=C3=A9zd meg ezt az <a href=3D"htt=
+ps://listamester.hu/lmui/faces/mails/Link.jsp?m=3D6nl37aqaptqb7skzvh&amp;l=
+=3Doho1jhm9c3q2fdis&amp;st=3Dcampaign" style=3D"text-decoration:underline!i=
+mportant;color:#9db838!important" target=3D"_blank"><font style=3D"color:#9=
+db838">=C3=A9desburgony=C3=A1s brownie</font></a>-t (T=C3=89N=C3=89 =C3=A9s=
+ s=C3=BCt=C5=91t=C3=B6kkel is m=C5=B1k=C3=B6dik) vagy ezt a <a href=3D"http=
+s://listamester.hu/lmui/faces/mails/Link.jsp?m=3D8dh3ea7aetdbwsdt81&amp;l=
+=3Db7317hw9p39311hc&amp;st=3Dcampaign" style=3D"text-decoration:underline!i=
+mportant;color:#9db838!important" target=3D"_blank"><font style=3D"color:#9=
+db838">v=C3=B6r=C3=B6sboros =C3=A9tcsokol=C3=A1d=C3=A9 mousse</font></a>-t =
+(a mousse az =C3=A9tcsoki miatt nem T=C3=89N=C3=89).</p>
+<p style=3D"padding:0;margin:0">=C2=A0</p>
+<p style=3D"padding:0;margin:0">=C2=A0</p>
+<h3 style=3D"font-family:Arial,Helvetica Neue,Helvetica,sans-serif;font-siz=
+e:22px;color:#9db838;font-weight:normal;line-height:22px;letter-spacing:nor=
+mal;padding:0;margin:0"><strong>K=C3=B6nyv aj=C3=A1nd=C3=A9ba</strong></h3>
+<p style=3D"padding:0;margin:0">=C2=A0</p>
+<p style=3D"padding:0;margin:0">Enni mindenki szeret, =C3=ADgy a gasztro k=
+=C3=B6nyv mindig j=C3=B3 aj=C3=A1nd=C3=A9k. Ha van olyan szeretted, aki =C3=
+=A9rdekl=C5=91dik a mentes / n=C3=B6v=C3=A9nyi alap=C3=BA =C3=A9tkez=C3=A9s=
+ ir=C3=A1nt, lepd meg az egyik k=C3=B6nyvemmel: <a href=3D"https://listames=
+ter.hu/lmui/faces/mails/Link.jsp?m=3Dxw03la6aitsb7stsjp&amp;l=3D6ic1cht983g=
+6k0sm&amp;st=3Dcampaign" style=3D"text-decoration:underline!important;color=
+:#9db838!important" target=3D"_blank"><font style=3D"color:#9db838">itt tud=
+od megrendelni =C5=91ket a kiad=C3=B3t=C3=B3l</font></a> kedvem=C3=A9nyes =
+=C3=A1ron. (<a href=3D"https://listamester.hu/lmui/faces/mails/Link.jsp?m=
+=3D3ha3ramapt5bqspkaa&amp;l=3Dern1ihc9c347ayab&amp;st=3Dcampaign" style=3D"=
+text-decoration:underline!important;color:#9db838!important" target=3D"_bla=
+nk"><font style=3D"color:#9db838">Itt tudsz t=C3=A1j=C3=A9koz=C3=B3dni r=C3=
+=B3luk.</font></a>)</p>
+<p style=3D"padding:0;margin:0">=C2=A0</p>
+<p style=3D"padding:0;margin:0">Rem=C3=A9lem, hasznosnak tal=C3=A1ltad ezt =
+az =C3=B6ssze=C3=A1ll=C3=ADt=C3=A1st, =C3=A9s m=C3=A9g egyszer: nyugodt adv=
+entet, =C3=A9s meghitt =C3=BCnnepl=C3=A9st k=C3=ADv=C3=A1nok!</p>
+<p style=3D"padding:0;margin:0">=C2=A0</p>
+<p style=3D"padding:0;margin:0">N=C3=B3ra</p></div>
+</td>
+</tr>
+</tbody></table>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%">
+<tbody><tr>
+<td valign=3D"top" style=3D"padding:13px"><div style=3D"font-family:Georgia=
+,Times,Times New Roman,serif;font-size:14px;color:#555555;font-weight:norma=
+l;line-height:21px;letter-spacing:normal;text-align:left"><p style=3D"text-=
+align:justify;padding:0;margin:0"><em>Erre a h=C3=ADrlev=C3=A9lre a <a href=
+=3D"https://listamester.hu/lmui/faces/mails/Link.jsp?m=3Dwf83ga3aqtzbkssbcq=
+&amp;l=3Dcl919hh923m8p0jg&amp;st=3Dcampaign" style=3D"text-decoration:under=
+line!important;color:#9db838!important" target=3D"_blank"><font style=3D"co=
+lor:#9db838">mindenmentes.hu</font></a> oldalon iratkozt=C3=A1l fel. <a hre=
+f=3D"https://listamester.hu/lmui/faces/mails/Link.jsp?m=3Dz3z3bajaxtfb8sobs=
+4&amp;l=3D5js1xhb9x3o9boax&amp;st=3Dcampaign" style=3D"text-decoration:unde=
+rline!important;color:#9db838!important" target=3D"_blank"><font style=3D"c=
+olor:#9db838">Itt</font></a> tal=C3=A1lod az adatkezel=C3=A9si t=C3=A1j=C3=
+=A9koztat=C3=B3t, =C3=A9s <a href=3D"https://listamester.hu/lmui/faces/form=
+s/UnsubscribeLink.jsp?m=3Dv2o3pavautvb0sojgn&amp;e=3D9t3ct449q0sdmv&amp;g=
+=3Dfzu1xnpn3vazez&amp;p=3D8mquet328ytsu6" target=3D"_blank"><span style=3D"=
+color:#2980b9"><u>ide kattintva</u></span></a> tudsz leiratkozni.</em></p><=
+/div>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+
+<p><a href=3D"https://listamester.hu/lmui/faces/StartPage.jsp?f=3DLMlablecK=
+ep" target=3D"_blank"><img src=3D"https://listamester.hu/lmui/faces/misc/Ma=
+ilOpened.jsp?m=3D0123cakajt2blsx13e&amp;e=3Dfh1c44g9u0nk5g&amp;st=3Dcampaig=
+n" alt=3D"" border=3D"0"></a></p>
+</div>
+</div></div></div>
+
+--00000000000057f0520646200c7b--

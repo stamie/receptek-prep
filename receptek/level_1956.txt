@@ -1,0 +1,524 @@
+Delivered-To: estampel@gmail.com
+Received: by 2002:a05:622a:5b8c:b0:4a6:f56e:4e30 with SMTP id ec12csp2982042qtb;
+        Mon, 23 Jun 2025 21:15:39 -0700 (PDT)
+X-Received: by 2002:a17:907:3e8d:b0:ade:4121:8d32 with SMTP id a640c23a62f3a-ae0579533b3mr1378327766b.3.1750738539508;
+        Mon, 23 Jun 2025 21:15:39 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1750738539; cv=none;
+        d=google.com; s=arc-20240605;
+        b=fM/Oq0heHx4z0nbfx6uAqRqq3K6jhI3hdEkCJ3vs8I5qGjQuy7MRJuOVnrEI4efeSx
+         4XsRmykLX7oltgF2zjLtil+f4FRkg5L0QPUVlqeVXww3GGu3GC/4kz1lSljnwT+WfmEX
+         ceo4a+0LkGHyhh+ul3/siejLSlgpIBowE751a/auyLKPCucdw9WX/PJ0MbzqyFbk/WJw
+         pvG249HdbVCAdagmY5ddPksTlejMaflMc/VLDrIW0ob7NGeTd1A9Lxxk3H0cjN0M1YZS
+         laokW69jMtdXKp7HFh48uzcTMIjqSrwqvKBE+S2MMQsLCoRd8Qw5+iizK0NJA7Uw+AOC
+         /cRw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=M5XIGFi1v4u/sPoBr7ozEve93LrIMcfUDyFTlq0fUVY=;
+        fh=wF/Yrd2E0xeKwPH74kML7cQSth+Fl4bwhVNrybJ4uh4=;
+        b=bzNkpOFmVIed0q0dkEpQVg3v+X8oJocQOxB+G3yU8TI1XWF24gsyWv6nmPs3FJdssA
+         uFUebWM3RxjS7zMfgOgaFH5WRDKeFEKooJX8o2Q2yYrZYDNu4lkVyrIxxjbmYkxGEjQI
+         ntrj+tWVKu+40bB6xRRGUFglfVMXIv5iYQQL8FkGPrpfv0LenL0FbyGvhYOYGsIZyvRZ
+         ZrbvYrirAJIdWQvPW9RK1WEXWGVRTxY08M3q9BWRYE+O6FWGPwe450p7tpdNNz6SrAPK
+         8wt7epN96w347MAoZzzFjRtHdXlhFmmB4OJlHiv2Uu9tAJ1gYFO5Jjpqr4UJNh2in/e6
+         d7ew==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=Lie3ueW8;
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <banyus53@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id a640c23a62f3a-ae0acc188a8sor33104766b.3.2025.06.23.21.15.39
+        for <estampel@gmail.com>
+        (Google Transport Security);
+        Mon, 23 Jun 2025 21:15:39 -0700 (PDT)
+Received-SPF: pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=Lie3ueW8;
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1750738539; x=1751343339; dara=google.com;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=M5XIGFi1v4u/sPoBr7ozEve93LrIMcfUDyFTlq0fUVY=;
+        b=Lie3ueW8WCwhCEJdXccuoIbDmKvm9e8PLgU2/6sf/D/EsC4Q7Rw22jx9wiUvSNGmhv
+         x56kvibrMcJKpWlSDuZJJ9zPmnUpSs56YLuiAFdoDHz0/ecUqmQKNOwhmRzhDHI8Vogv
+         VcABs01fQtGlZ3tHhjhdQUhFjD2MWuGxtyB8ZyR5IHnkoULC4+yanyHx/G98kYHLcVQN
+         5vAMy9RW/eh/8Zk7JpfcUq41INA9R1Chq/0NBpXbPTF0sX88nxfi1PRjxGzdkPQ59WxW
+         O5kQXGfvekrchvdl/65fZw35SVEEL+1IG9kw/7Pzf9w/jhxyXkMbm78WbFMbsSMgnuH9
+         MRVw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750738539; x=1751343339;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=M5XIGFi1v4u/sPoBr7ozEve93LrIMcfUDyFTlq0fUVY=;
+        b=moPXbsJoneYq2WqUiMAaFnD9S5Jkj9Q5nWWywtIOQ0Asljkk9UosbM20nbCnpuDj9H
+         yCeog5Ik8K1nyfw1yarfAaG1ysLEL8lHoX6F2qqOQBFL1Y+q4Jz+5dO+IaGUpUrWMr0h
+         abL+qNkWUWvDOaBxC0iYb/rrJyc24KnBu73hCOBE5crWNxbQBcuv4z1RQF3QCeBS2mQX
+         vOY6nm7uIScjNQH+c376LmwlOuwTL58UtwnQv3AZb83OeMlCIyJBjLNhPLEOdjSRD22I
+         9DGCpcdOGdZJ97XIHmhhNqW45BuHMlcyBDa1pwt4ACBinJVLXqnU6UHw9VvT/XwQT/03
+         cbEQ==
+X-Gm-Message-State: AOJu0Yx1wJ9Z9aPmBH7eoCKOAzlYnT774z/VO6YIyA1sHGbWNk9PgFDH
+	DPxSO/y7vGwzJ7woj6vmNUx5j1WfJ6vwdLqurCN7RwsTLTTba0ZKdfBUKdlKd8F8x22Dvv4yPVf
+	RLnwmRWua0wu+hF0gfHqK+bTpBWolnXLr2Rzt
+X-Gm-Gg: ASbGnct5Qxe8IkLAy8EpvyG/BXUHlmXG/pot7DH6klqXJNoQl4duSeUaBGeFJlfEEm5
+	eJjZsjrPfSMAFtR7HsSjKBp6Wli142iNdGOvlvb5EOWd4G191FHbKQ/Fx84OnvaNBfLkCw91oz3
+	T61KswsxcYNYgJmfIBFHvw4h55CjN/hoWWnvmmzDLG6GAlsjZdcilnxhmFgYgN+q24KynsmfWrP
+	RIm
+X-Google-Smtp-Source: AGHT+IEuo6op16jMKH2qjKm1vc8SuGiDMTl3U1DG/lEEvRewhbNHyp3QsPeXscPeqUJ7QcnrQoaDl7wDArMLE6SuNqA=
+X-Received: by 2002:a17:906:c14b:b0:ade:3bec:ea40 with SMTP id
+ a640c23a62f3a-ae057953a0fmr1554236466b.10.1750738538507; Mon, 23 Jun 2025
+ 21:15:38 -0700 (PDT)
+MIME-Version: 1.0
+References: <68593ecea9697_59d45307a55ffaf50731080447@id.ahang.hu.mail>
+In-Reply-To: <68593ecea9697_59d45307a55ffaf50731080447@id.ahang.hu.mail>
+From: =?UTF-8?B?w4FnbmVzIEJ1Z8Ohcg==?= <banyus53@gmail.com>
+Date: Tue, 24 Jun 2025 06:15:11 +0200
+X-Gm-Features: AX0GCFvCRaoEw__elOVFXgIsX7dfRmiMJBZOEMxJuyrk5SBb36EcU5uWfM4OJBo
+Message-ID: <CA+39czUJVXs=up0L31DxoNZzs3mJDUVRczOcv6RdKqnXDuHoGQ@mail.gmail.com>
+Subject: =?UTF-8?B?RndkOiBMZXbDqWwgYXogdWtyw6FuIG7DqXBuZWs=?=
+To: Emese Stampel <estampel@gmail.com>
+Content-Type: multipart/alternative; boundary="000000000000aeb258063849942d"
+
+--000000000000aeb258063849942d
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+---------- Forwarded message ---------
+Felad=C3=B3: aHang <posta@ahang.hu>
+Date: 2025. j=C3=BAn. 23., H, 13:47
+Subject: Lev=C3=A9l az ukr=C3=A1n n=C3=A9pnek
+To: <banyus53@gmail.com>
+
+
+Kedves Bug=C3=A1r =C3=81gnes M=C3=A1ria!
+
+"Mi, magyar =C3=A1llampolg=C3=A1rok, e lev=C3=A9l al=C3=A1=C3=ADr=C3=B3i, s=
+zembes=C3=BClve az Orb=C3=A1n-korm=C3=A1ny
+egyre sz=C3=A9gyenletesebb Ukrajna-ellenes propagand=C3=A1j=C3=A1val szolid=
+arit=C3=A1sunkat
+fejezz=C3=BCk ki az ukr=C3=A1n n=C3=A9p ir=C3=A1nt =C3=A9s tisztelettel ad=
+=C3=B3zunk a haz=C3=A1juk v=C3=A9delm=C3=A9ben
+h=C5=91siesen helyt=C3=A1ll=C3=B3 ukr=C3=A1n hadsereg katon=C3=A1inak.
+
+* =C3=9Czenj=C3=BCk: l=C3=A9tezik egy m=C3=A1sik Magyarorsz=C3=A1g, amely n=
+em =C3=A1rul=C3=A1sb=C3=B3l, nem idegen
+=C3=A9rdekek szolg=C3=A1lat=C3=A1b=C3=B3l rem=C3=A9l hasznot mag=C3=A1nak. =
+*
+
+Fenntart=C3=A1s n=C3=A9lk=C3=BCl el=C3=ADt=C3=A9lj=C3=BCk a 2014 =C3=B3ta t=
+art=C3=B3, =C3=A9s 2022-ben ny=C3=ADlt h=C3=A1bor=C3=BAv=C3=A1
+sz=C3=A9les=C3=ADtett orosz katonai agresszi=C3=B3t, elutas=C3=ADtjuk Ukraj=
+na ter=C3=BCleti
+integrit=C3=A1s=C3=A1nak megk=C3=A9rd=C5=91jelez=C3=A9s=C3=A9t =C3=A9s az o=
+rsz=C3=A1g bel=C3=BCgyeibe t=C3=B6rt=C3=A9n=C5=91 er=C5=91szakos
+k=C3=BCls=C5=91 beavatkoz=C3=A1st.
+
+Al=C3=A1=C3=ADrom a ny=C3=ADlt levelet!
+<https://id.ahang.hu//clicks/link/3073/8a7b2ec0-83e6-49b1-981d-eaabca830757=
+?url=3Dhttps%3A%2F%2Fszabad.ahang.hu%2Fpetitions%2Flevel-az-ukran-nepnek-1%=
+3Futm_source%3Dahang%26utm_medium%3Demail%26utm_campaign%3Dblast2025-06-23&=
+member_guid=3D88a62eb4b5dcac9810b289cd94cf43b21da67c13302ba6dade9c66944a7ef=
+c34cdda09d8fc189000cf0efc385f843fe4a3f0b0c0992d522217f596756a2ca812>
+
+Az 1956-os szabads=C3=A1gharc =C3=B6r=C3=B6k=C3=B6seik=C3=A9nt nagyra =C3=
+=A9rt=C3=A9kelj=C3=BCk azt a szolg=C3=A1latot,
+amelyet az orosz imperialista terjeszked=C3=A9s megf=C3=A9kez=C3=A9s=C3=A9v=
+el Ukrajna tesz
+nek=C3=BCnk magyaroknak =C3=A9s eg=C3=A9sz Eur=C3=B3p=C3=A1nak. A h=C3=A1bo=
+r=C3=BA =C3=A1ldozatainak, akik
+haz=C3=A1nkban keresnek mened=C3=A9ket, igyeksz=C3=BCnk megadni minden t=C5=
+=91l=C3=BCnk telhet=C5=91
+humanit=C3=A1rius seg=C3=ADts=C3=A9get.
+
+Azt k=C3=ADv=C3=A1njuk, hogy a fegyveres er=C5=91szak min=C3=A9l hamarabb =
+=C3=A9rjen v=C3=A9get,
+kezd=C5=91djenek el a b=C3=A9ket=C3=A1rgyal=C3=A1sok, =C3=A9s sz=C3=BClesse=
+n olyan meg=C3=A1llapod=C3=A1s, amely a
+tart=C3=B3s b=C3=A9ke =C3=A9rdek=C3=A9ben er=C5=91s biztons=C3=A1gi garanci=
+=C3=A1kat tartalmaz =C3=A9s a
+j=C3=B3v=C3=A1t=C3=A9telr=C5=91l, valamint a h=C3=A1bor=C3=BAs b=C5=B1n=C3=
+=B6s=C3=B6k felel=C5=91ss=C3=A9gre von=C3=A1s=C3=A1r=C3=B3l is
+rendelkezik. K=C3=ADv=C3=A1njuk tov=C3=A1bb=C3=A1, hogy min=C3=A9l hamarabb=
+ kezd=C5=91dj=C3=B6n meg Ukrajna
+=C3=BAjj=C3=A1=C3=A9p=C3=ADt=C3=A9se. Az eur=C3=B3pai nemzetek tegyenek meg=
+ mindent az=C3=A9rt, hogy ehhez
+hasonl=C3=B3 h=C3=A1bor=C3=BA t=C3=B6bb=C3=A9 ne t=C3=B6rhessen ki kontinen=
+s=C3=BCnk=C3=B6n!
+
+* Elemi =C3=A9rdek=C3=BCnk, hogy a szomsz=C3=A9dunk ne a putyini Oroszorsz=
+=C3=A1g vazallusa
+legyen, hanem egy f=C3=BCggetlen demokr=C3=A1cia, melynek polg=C3=A1rai nem=
+zetis=C3=A9gi
+jogaikat is szabadon gyakorolhatj=C3=A1k. *
+
+Level=C3=BCnket azzal a rem=C3=A9nnyel bocs=C3=A1tjuk =C3=BAtj=C3=A1ra, hog=
+y az ukrajnai magyar
+kisebbs=C3=A9g, amelynek tagjai k=C3=B6z=C3=BCl sokan =C3=A9let=C3=BCket ad=
+t=C3=A1k Ukrajna
+szabads=C3=A1g=C3=A1=C3=A9rt, nem esik =C3=A1ldozatul a magyar korm=C3=A1ny=
+ politikai ind=C3=ADttat=C3=A1s=C3=BA
+gyal=C3=A1zatos kommunik=C3=A1ci=C3=B3j=C3=A1nak, =C3=A9s sem az ukr=C3=A1n=
+ n=C3=A9p, sem vezet=C5=91i nem vonj=C3=A1k
+k=C3=A9ts=C3=A9gbe lojalit=C3=A1sukat, hanem m=C3=A9lt=C3=A1nyolj=C3=A1k =
+=C3=A1ldozataikat."
+
+Kibocs=C3=A1t=C3=B3k: *Beck Zolt=C3=A1n, Bod P=C3=A9ter =C3=81kos, D=C3=A9n=
+es G=C3=A1bor, Elek Istv=C3=A1n,
+Ferenczi Attila, Fleck Zolt=C3=A1n, Fodor Tam=C3=A1s, Gerzson J=C3=A1nos, H=
+er=C3=A9nyi K=C3=A1roly,
+Het=C3=A9nyi Zsuzsa, Hodos=C3=A1n R=C3=B3za, Horgas P=C3=A9ter, Iv=C3=A1nyi=
+ G=C3=A1bor, Jeszenszky G=C3=A9za,
+Kajdi J=C3=B3zsef, Karsai P=C3=A9ter, Kincses Gyula, Kis J=C3=A1nos, Kiss G=
+erg=C5=91, L. Rit=C3=B3k
+N=C3=B3ra, Lakatos Gy=C3=B6rgy, L=C3=A1ng Bal=C3=A1zs, L=C3=A1nyi Andr=C3=
+=A1s, L=C3=A1z=C3=A1r J=C3=BAlia, Ludassy
+M=C3=A1ria, Magyar B=C3=A1lint, Magyar Fruzsina, Moln=C3=A1r =C3=81ron, Nos=
+zkai G=C3=A1bor, Nyerges
+Tibor, Ol=C3=A1h J=C3=B3zsef, Perlaki-Borsos Noel, Poly=C3=A1k G=C3=A1bor, =
+Pottyondy Edina,
+Puzs=C3=A9r R=C3=B3bert, P=C3=A1link=C3=A1s J=C3=B3zsef, Remport Katalin, R=
+osz=C3=ADk G=C3=A1bor, Sp=C3=A1nyik
+Andr=C3=A1s, Stark Tibor, Stefano Bottoni, Sz. B=C3=ADr=C3=B3 Zolt=C3=A1n, =
+Szent-Iv=C3=A1nyi Istv=C3=A1n,
+Szepesh=C3=A1zi P=C3=A9ter, Sz=C3=A9l Bernadett, T=C3=B6rzs=C3=B6k Erika, U=
+ngv=C3=A1ry Kriszti=C3=A1n, V=C3=A1g=C3=B3
+Csaba, V=C3=A1rkonyi Tibor, V=C3=B6r=C3=B6s Imre.*
+Csatlakozom!
+<https://id.ahang.hu//clicks/link/3073/8a7b2ec0-83e6-49b1-981d-eaabca830757=
+?url=3Dhttps%3A%2F%2Fszabad.ahang.hu%2Fpetitions%2Flevel-az-ukran-nepnek-1%=
+3Futm_source%3Dahang%26utm_medium%3Demail%26utm_campaign%3Dblast2025-06-23&=
+member_guid=3D88a62eb4b5dcac9810b289cd94cf43b21da67c13302ba6dade9c66944a7ef=
+c34cdda09d8fc189000cf0efc385f843fe4a3f0b0c0992d522217f596756a2ca812>
+
+=C3=9Cdv=C3=B6zlettel,
+
+aHang
+
+Az aHang tev=C3=A9kenys=C3=A9geit olyan felel=C5=91s =C3=A1llampolg=C3=A1ro=
+k t=C3=A1mogatj=C3=A1k, akik
+hisznek az =C3=A1ltalunk felv=C3=A1llalt =C3=BCgyekben, azonosulni tudnak a=
+ k=C3=B6z=C3=B6ss=C3=A9g=C3=BCnk
+=C3=A1ltal k=C3=A9pviselt =C3=A9rt=C3=A9krenddel. Csatlakozz hozz=C3=A1juk,=
+ ha teheted, t=C3=A1mogasd
+anyagilag is az aHangot m=C3=A9g ma!
+T=C3=A1mogatom!
+<https://id.ahang.hu//clicks/link/3073/8a7b2ec0-83e6-49b1-981d-eaabca830757=
+?url=3Dhttps%3A%2F%2Ftamogass.ahang.hu%2F%3Futm_source%3Dahang%26utm_medium=
+%3Demail%26utm_campaign%3Dblast2025-06-23&member_guid=3D88a62eb4b5dcac9810b=
+289cd94cf43b21da67c13302ba6dade9c66944a7efc34cdda09d8fc189000cf0efc385f843f=
+e4a3f0b0c0992d522217f596756a2ca812>
+
+Ha b=C3=A1rmi k=C3=A9rd=C3=A9sed van, v=C3=A1laszolj k=C3=B6zvetlen=C3=BCl =
+erre az email-re, vagy =C3=ADrj a
+mienk@ahang.hu email c=C3=ADmre.
+
+<https://id.ahang.hu//clicks/link/3073/8a7b2ec0-83e6-49b1-981d-eaabca830757=
+?url=3Dhttps%3A%2F%2Fwww.facebook.com%2Fszabadahang%2F%3Futm_source%3Dahang=
+%26utm_medium%3Demail%26utm_campaign%3Dblast2025-06-23&member_guid=3D88a62e=
+b4b5dcac9810b289cd94cf43b21da67c13302ba6dade9c66944a7efc34cdda09d8fc189000c=
+f0efc385f843fe4a3f0b0c0992d522217f596756a2ca812>
+<https://id.ahang.hu//clicks/link/3073/8a7b2ec0-83e6-49b1-981d-eaabca830757=
+?url=3Dhttp%3A%2F%2Fm.me%2Fszabadahang%2F%3Futm_source%3Dahang%26utm_medium=
+%3Demail%26utm_campaign%3Dblast2025-06-23&member_guid=3D88a62eb4b5dcac9810b=
+289cd94cf43b21da67c13302ba6dade9c66944a7efc34cdda09d8fc189000cf0efc385f843f=
+e4a3f0b0c0992d522217f596756a2ca812>
+
+A lev=C3=A9l k=C3=BCld=C5=91je:
+Magyarhang Nonprofit Kft.
+
+Ezt az =C3=BCzenetet banyus53@gmail.com c=C3=ADmre k=C3=BCldt=C3=BCk. Leira=
+tkozni ide kattintva
+tudsz.
+<https://id.ahang.hu//subscriptions/unsubscribe?subscription=3D1&email=3Dba=
+nyus53%40gmail.com&mailing_id=3D3073>
+
+--000000000000aeb258063849942d
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><br><br><div class=3D"gmail_quote gmail_quote_container"><=
+div dir=3D"ltr" class=3D"gmail_attr">---------- Forwarded message ---------=
+<br>Felad=C3=B3: <strong class=3D"gmail_sendername" dir=3D"auto">aHang</str=
+ong> <span dir=3D"auto">&lt;<a href=3D"mailto:posta@ahang.hu">posta@ahang.h=
+u</a>&gt;</span><br>Date: 2025. j=C3=BAn. 23., H, 13:47<br>Subject: Lev=C3=
+=A9l az ukr=C3=A1n n=C3=A9pnek<br>To:  &lt;<a href=3D"mailto:banyus53@gmail=
+.com">banyus53@gmail.com</a>&gt;<br></div><br><br><div style=3D"background:=
+#ffffff;background-color:#ffffff;margin:0px auto;max-width:560px;text-align=
+:center;font-family:sans-serif;font-size:17px;line-height:25px;text-align:c=
+enter;color:#000000">
+
+<p><img height=3D"34" src=3D"https://ahang-static.s3.eu-central-1.amazonaws=
+.com/mail/ahangikon-sm.jpg" style=3D"display:inline-block;border:0;border-r=
+adius:0;outline:none;text-decoration:none;height:34px;font-size:17px" width=
+=3D"34"></p>
+
+<p>Kedves Bug=C3=A1r =C3=81gnes M=C3=A1ria!</p>
+
+<div style=3D"text-align:left">
+
+<p>
+
+  &quot;Mi, magyar =C3=A1llampolg=C3=A1rok, e lev=C3=A9l al=C3=A1=C3=ADr=C3=
+=B3i, szembes=C3=BClve az Orb=C3=A1n-korm=C3=A1ny egyre sz=C3=A9gyenleteseb=
+b Ukrajna-ellenes propagand=C3=A1j=C3=A1val szolidarit=C3=A1sunkat fejezz=
+=C3=BCk ki az ukr=C3=A1n n=C3=A9p ir=C3=A1nt =C3=A9s tisztelettel ad=C3=B3z=
+unk a haz=C3=A1juk v=C3=A9delm=C3=A9ben h=C5=91siesen helyt=C3=A1ll=C3=B3 u=
+kr=C3=A1n hadsereg katon=C3=A1inak.
+
+</p>
+
+<p>
+
+  <b>  =C3=9Czenj=C3=BCk: l=C3=A9tezik egy m=C3=A1sik Magyarorsz=C3=A1g, am=
+ely nem =C3=A1rul=C3=A1sb=C3=B3l, nem idegen =C3=A9rdekek szolg=C3=A1lat=C3=
+=A1b=C3=B3l rem=C3=A9l hasznot mag=C3=A1nak.
+
+  </b>
+
+</p>
+
+<p>
+
+  Fenntart=C3=A1s n=C3=A9lk=C3=BCl el=C3=ADt=C3=A9lj=C3=BCk a 2014 =C3=B3ta=
+ tart=C3=B3, =C3=A9s 2022-ben ny=C3=ADlt h=C3=A1bor=C3=BAv=C3=A1 sz=C3=A9le=
+s=C3=ADtett orosz katonai agresszi=C3=B3t, elutas=C3=ADtjuk Ukrajna ter=C3=
+=BCleti integrit=C3=A1s=C3=A1nak megk=C3=A9rd=C5=91jelez=C3=A9s=C3=A9t =C3=
+=A9s az orsz=C3=A1g bel=C3=BCgyeibe t=C3=B6rt=C3=A9n=C5=91 er=C5=91szakos k=
+=C3=BCls=C5=91 beavatkoz=C3=A1st.
+
+</p>
+
+<p>
+
+</p>
+
+<p>
+
+</p>
+
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"border-collapse:separate;width:100%;line-height:100%">
+
+  <tbody>
+
+    <tr>
+
+      <td align=3D"center" bgcolor=3D"#ff2400" role=3D"presentation" style=
+=3D"border:none;border-radius:4px;background:#ff2400" valign=3D"middle">
+
+        <a href=3D"https://id.ahang.hu//clicks/link/3073/8a7b2ec0-83e6-49b1=
+-981d-eaabca830757?url=3Dhttps%3A%2F%2Fszabad.ahang.hu%2Fpetitions%2Flevel-=
+az-ukran-nepnek-1%3Futm_source%3Dahang%26utm_medium%3Demail%26utm_campaign%=
+3Dblast2025-06-23&amp;member_guid=3D88a62eb4b5dcac9810b289cd94cf43b21da67c1=
+3302ba6dade9c66944a7efc34cdda09d8fc189000cf0efc385f843fe4a3f0b0c0992d522217=
+f596756a2ca812" style=3D"display:block;background:#ff2400;color:#ffffff;fon=
+t-family:sans-serif;font-size:17px;font-weight:bold;line-height:25px;margin=
+:0;text-decoration:none;text-transform:none;padding:10px 25px;border-radius=
+:4px;word-break:break-word;max-width:100%" target=3D"_blank">Al=C3=A1=C3=AD=
+rom a ny=C3=ADlt levelet!</a>
+
+      </td>
+
+    </tr>
+
+  </tbody>
+
+</table>
+
+<p>
+
+</p>
+
+<p>
+
+</p>
+
+<p>
+
+</p>
+
+<p>
+
+  Az 1956-os szabads=C3=A1gharc =C3=B6r=C3=B6k=C3=B6seik=C3=A9nt nagyra =C3=
+=A9rt=C3=A9kelj=C3=BCk azt a szolg=C3=A1latot, amelyet az orosz imperialist=
+a terjeszked=C3=A9s megf=C3=A9kez=C3=A9s=C3=A9vel Ukrajna tesz nek=C3=BCnk =
+magyaroknak =C3=A9s eg=C3=A9sz Eur=C3=B3p=C3=A1nak. A h=C3=A1bor=C3=BA =C3=
+=A1ldozatainak, akik haz=C3=A1nkban keresnek mened=C3=A9ket, igyeksz=C3=BCn=
+k megadni minden t=C5=91l=C3=BCnk telhet=C5=91 humanit=C3=A1rius seg=C3=ADt=
+s=C3=A9get.
+
+</p>
+
+<p>
+
+  Azt k=C3=ADv=C3=A1njuk, hogy a fegyveres er=C5=91szak min=C3=A9l hamarabb=
+ =C3=A9rjen v=C3=A9get, kezd=C5=91djenek el a b=C3=A9ket=C3=A1rgyal=C3=A1so=
+k, =C3=A9s sz=C3=BClessen olyan meg=C3=A1llapod=C3=A1s, amely a tart=C3=B3s=
+ b=C3=A9ke =C3=A9rdek=C3=A9ben er=C5=91s biztons=C3=A1gi garanci=C3=A1kat t=
+artalmaz =C3=A9s a j=C3=B3v=C3=A1t=C3=A9telr=C5=91l, valamint a h=C3=A1bor=
+=C3=BAs b=C5=B1n=C3=B6s=C3=B6k felel=C5=91ss=C3=A9gre von=C3=A1s=C3=A1r=C3=
+=B3l is rendelkezik. K=C3=ADv=C3=A1njuk tov=C3=A1bb=C3=A1, hogy min=C3=A9l =
+hamarabb kezd=C5=91dj=C3=B6n meg Ukrajna =C3=BAjj=C3=A1=C3=A9p=C3=ADt=C3=A9=
+se. Az eur=C3=B3pai nemzetek tegyenek meg mindent az=C3=A9rt, hogy ehhez ha=
+sonl=C3=B3 h=C3=A1bor=C3=BA t=C3=B6bb=C3=A9 ne t=C3=B6rhessen ki kontinens=
+=C3=BCnk=C3=B6n!
+
+</p>
+
+<p>
+
+  <b>  Elemi =C3=A9rdek=C3=BCnk, hogy a szomsz=C3=A9dunk ne a putyini Orosz=
+orsz=C3=A1g vazallusa legyen, hanem egy f=C3=BCggetlen demokr=C3=A1cia, mel=
+ynek polg=C3=A1rai nemzetis=C3=A9gi jogaikat is szabadon gyakorolhatj=C3=A1=
+k.
+
+  </b>
+
+</p>
+
+<p>
+
+  Level=C3=BCnket azzal a rem=C3=A9nnyel bocs=C3=A1tjuk =C3=BAtj=C3=A1ra, h=
+ogy az ukrajnai magyar kisebbs=C3=A9g, amelynek tagjai k=C3=B6z=C3=BCl soka=
+n =C3=A9let=C3=BCket adt=C3=A1k Ukrajna szabads=C3=A1g=C3=A1=C3=A9rt, nem e=
+sik =C3=A1ldozatul a magyar korm=C3=A1ny politikai ind=C3=ADttat=C3=A1s=C3=
+=BA gyal=C3=A1zatos kommunik=C3=A1ci=C3=B3j=C3=A1nak, =C3=A9s sem az ukr=C3=
+=A1n n=C3=A9p, sem vezet=C5=91i nem vonj=C3=A1k k=C3=A9ts=C3=A9gbe lojalit=
+=C3=A1sukat, hanem m=C3=A9lt=C3=A1nyolj=C3=A1k =C3=A1ldozataikat.&quot;
+
+</p>
+
+<p>
+
+  Kibocs=C3=A1t=C3=B3k:=C2=A0<i>Beck Zolt=C3=A1n, Bod P=C3=A9ter =C3=81kos,=
+ D=C3=A9nes G=C3=A1bor, Elek Istv=C3=A1n, Ferenczi Attila, Fleck Zolt=C3=A1=
+n, Fodor Tam=C3=A1s, Gerzson J=C3=A1nos, Her=C3=A9nyi K=C3=A1roly, Het=C3=
+=A9nyi Zsuzsa, Hodos=C3=A1n R=C3=B3za, Horgas P=C3=A9ter, Iv=C3=A1nyi G=C3=
+=A1bor, Jeszenszky G=C3=A9za, Kajdi J=C3=B3zsef, Karsai P=C3=A9ter, Kincses=
+ Gyula, Kis J=C3=A1nos, Kiss Gerg=C5=91, L. Rit=C3=B3k N=C3=B3ra, Lakatos G=
+y=C3=B6rgy, L=C3=A1ng Bal=C3=A1zs, L=C3=A1nyi Andr=C3=A1s, L=C3=A1z=C3=A1r =
+J=C3=BAlia, Ludassy M=C3=A1ria, Magyar B=C3=A1lint, Magyar Fruzsina, Moln=
+=C3=A1r =C3=81ron, Noszkai G=C3=A1bor, Nyerges Tibor, Ol=C3=A1h J=C3=B3zsef=
+, Perlaki-Borsos Noel, Poly=C3=A1k G=C3=A1bor, Pottyondy Edina, Puzs=C3=A9r=
+ R=C3=B3bert, P=C3=A1link=C3=A1s J=C3=B3zsef, Remport Katalin, Rosz=C3=ADk =
+G=C3=A1bor, Sp=C3=A1nyik Andr=C3=A1s, Stark Tibor, Stefano Bottoni, Sz. B=
+=C3=ADr=C3=B3 Zolt=C3=A1n, Szent-Iv=C3=A1nyi Istv=C3=A1n, Szepesh=C3=A1zi P=
+=C3=A9ter, Sz=C3=A9l Bernadett, T=C3=B6rzs=C3=B6k Erika, Ungv=C3=A1ry Krisz=
+ti=C3=A1n, V=C3=A1g=C3=B3 Csaba, V=C3=A1rkonyi Tibor, V=C3=B6r=C3=B6s Imre.=
+</i></p>
+
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"border-collapse:separate;width:100%;line-height:100%">
+
+  <tbody>
+
+    <tr>
+
+      <td align=3D"center" bgcolor=3D"#0000FF" role=3D"presentation" style=
+=3D"border:none;border-radius:4px;background:linear-gradient(to bottom,#005=
+7b7,#ffd700)" valign=3D"middle">
+
+        <a href=3D"https://id.ahang.hu//clicks/link/3073/8a7b2ec0-83e6-49b1=
+-981d-eaabca830757?url=3Dhttps%3A%2F%2Fszabad.ahang.hu%2Fpetitions%2Flevel-=
+az-ukran-nepnek-1%3Futm_source%3Dahang%26utm_medium%3Demail%26utm_campaign%=
+3Dblast2025-06-23&amp;member_guid=3D88a62eb4b5dcac9810b289cd94cf43b21da67c1=
+3302ba6dade9c66944a7efc34cdda09d8fc189000cf0efc385f843fe4a3f0b0c0992d522217=
+f596756a2ca812" style=3D"display:block;background:transparent;color:#ffffff=
+;font-family:sans-serif;font-size:17px;font-weight:bold;line-height:25px;ma=
+rgin:0;text-decoration:none;text-transform:none;padding:10px 25px;border-ra=
+dius:4px;word-break:break-word;max-width:100%" target=3D"_blank">Csatlakozo=
+m!</a>
+
+      </td>
+
+    </tr>
+
+  </tbody>
+
+</table>
+
+<p>
+
+</p>
+
+<p>
+
+  =C3=9Cdv=C3=B6zlettel,
+
+</p>
+
+<p>
+
+  aHang
+
+</p>
+
+</div>
+
+<p></p>
+
+<p style=3D"border-top:solid 1px #cccccc;font-size:1;margin:0px auto;width:=
+100%"> </p>
+
+<p style=3D"color:#545454">Az aHang tev=C3=A9kenys=C3=A9geit olyan felel=C5=
+=91s =C3=A1llampolg=C3=A1rok t=C3=A1mogatj=C3=A1k, akik hisznek az =C3=A1lt=
+alunk felv=C3=A1llalt =C3=BCgyekben, azonosulni tudnak a k=C3=B6z=C3=B6ss=
+=C3=A9g=C3=BCnk =C3=A1ltal k=C3=A9pviselt =C3=A9rt=C3=A9krenddel. Csatlakoz=
+z hozz=C3=A1juk, ha teheted, t=C3=A1mogasd anyagilag is az aHangot m=C3=A9g=
+ ma!</p>
+
+<div><a href=3D"https://id.ahang.hu//clicks/link/3073/8a7b2ec0-83e6-49b1-98=
+1d-eaabca830757?url=3Dhttps%3A%2F%2Ftamogass.ahang.hu%2F%3Futm_source%3Daha=
+ng%26utm_medium%3Demail%26utm_campaign%3Dblast2025-06-23&amp;member_guid=3D=
+88a62eb4b5dcac9810b289cd94cf43b21da67c13302ba6dade9c66944a7efc34cdda09d8fc1=
+89000cf0efc385f843fe4a3f0b0c0992d522217f596756a2ca812" style=3D"text-decora=
+tion:none;font-family:Barlow,-apple-system,BlinkMacSystemFont,Roboto,Oxygen=
+,Oxygen-Sans,Ubuntu,Cantarell,Helvetica,Arial,sans-serif;font-weight:400;fo=
+nt-size:18px;line-height:28px;border-radius:5px;background-color:rgb(255,36=
+,0);color:rgb(255,255,255);padding:11px;margin:0px;text-align:center" targe=
+t=3D"_blank">T=C3=A1mogatom!</a></div>
+
+<p style=3D"color:#999999">Ha b=C3=A1rmi k=C3=A9rd=C3=A9sed van, v=C3=A1las=
+zolj k=C3=B6zvetlen=C3=BCl erre az email-re, vagy =C3=ADrj a <a href=3D"mai=
+lto:mienk@ahang.hu" target=3D"_blank">mienk@ahang.hu</a> email c=C3=ADmre.<=
+/p>
+
+<p><a href=3D"https://id.ahang.hu//clicks/link/3073/8a7b2ec0-83e6-49b1-981d=
+-eaabca830757?url=3Dhttps%3A%2F%2Fwww.facebook.com%2Fszabadahang%2F%3Futm_s=
+ource%3Dahang%26utm_medium%3Demail%26utm_campaign%3Dblast2025-06-23&amp;mem=
+ber_guid=3D88a62eb4b5dcac9810b289cd94cf43b21da67c13302ba6dade9c66944a7efc34=
+cdda09d8fc189000cf0efc385f843fe4a3f0b0c0992d522217f596756a2ca812" style=3D"=
+display:inline-block" target=3D"_blank"><img height=3D"34" src=3D"https://a=
+hang-static.s3.eu-central-1.amazonaws.com/mail/facebook_sm.png" style=3D"bo=
+rder-radius:0;display:inline-block" width=3D"34"></a><a href=3D"https://id.=
+ahang.hu//clicks/link/3073/8a7b2ec0-83e6-49b1-981d-eaabca830757?url=3Dhttp%=
+3A%2F%2Fm.me%2Fszabadahang%2F%3Futm_source%3Dahang%26utm_medium%3Demail%26u=
+tm_campaign%3Dblast2025-06-23&amp;member_guid=3D88a62eb4b5dcac9810b289cd94c=
+f43b21da67c13302ba6dade9c66944a7efc34cdda09d8fc189000cf0efc385f843fe4a3f0b0=
+c0992d522217f596756a2ca812" style=3D"display:inline-block;padding-left:20px=
+" target=3D"_blank"><img height=3D"34" src=3D"https://ahang-static.s3.eu-ce=
+ntral-1.amazonaws.com/mail/messenger-sm.jpg" style=3D"border-radius:0;displ=
+ay:inline-block" width=3D"34"></a></p>
+
+<p style=3D"color:#999999">A lev=C3=A9l k=C3=BCld=C5=91je:<br>Magyarhang No=
+nprofit Kft.<br></p>
+
+<p><img height=3D"34" src=3D"https://ahang-static.s3.eu-central-1.amazonaws=
+.com/mail/ahang_sm.jpg" style=3D"width:88.7px;display:inline-block"></p>
+
+<p style=3D"color:#999999">Ezt az =C3=BCzenetet  <a href=3D"mailto:banyus53=
+@gmail.com" target=3D"_blank">banyus53@gmail.com</a> c=C3=ADmre k=C3=BCldt=
+=C3=BCk. <a href=3D"https://id.ahang.hu//subscriptions/unsubscribe?subscrip=
+tion=3D1&amp;email=3Dbanyus53%40gmail.com&amp;mailing_id=3D3073" style=3D"f=
+ont-weight:normal;text-decoration:none;color:#999999" target=3D"_blank">Lei=
+ratkozni ide kattintva tudsz.</a></p>
+
+</div><img src=3D"https://id.ahang.hu//opens/3073/8a7b2ec0-83e6-49b1-981d-e=
+aabca830757"></div></div>
+
+--000000000000aeb258063849942d--

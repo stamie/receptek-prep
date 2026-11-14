@@ -1,0 +1,447 @@
+Delivered-To: estampel@gmail.com
+Received: by 2002:ac8:4e2a:0:b0:501:4c4a:635a with SMTP id d10csp415651qtw;
+        Wed, 14 Jan 2026 10:50:55 -0800 (PST)
+X-Received: by 2002:a17:907:c12:b0:b80:3fb3:bdf6 with SMTP id a640c23a62f3a-b8761139c81mr329439466b.40.1768416655087;
+        Wed, 14 Jan 2026 10:50:55 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1768416655; cv=none;
+        d=google.com; s=arc-20240605;
+        b=Pr//GGyCB9dVDTbkQbo5ImTyQ4aonYyLzFf9Q5DuIUYbZmjO6QEprQgbuyoBElnhnd
+         4iRdRIFbqllzYyuH/yDO6nw+RiUjm8JBuYGcg9RDZyj/jhtnFrC9o/hajM240mU4O4lQ
+         F0iMlzsEHI9QHNblWy01YhzhoS7U4HAK0K6EbPFtkvVB/euIiKXZwhH1MimifsmnIDyk
+         923WFItBN7muXCu5PepJkim7IeBVesanvOCjwUa2VnCe8X2QdoT/gnq6j2X8uz+CqcJv
+         c2TYa7SBcCKcZZ8RTJ8r/esejjR183jEu8/RWgnF4fR0vquPA2aJHp7clSUWoa2nUCeS
+         IMYA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=Y2SU0uUs2Q9aJK+x6p1qI6nJtAw5VOTMoRFKaZXtwxo=;
+        fh=wF/Yrd2E0xeKwPH74kML7cQSth+Fl4bwhVNrybJ4uh4=;
+        b=hrtmOocC+cgJAD0MkUc374pb9PG07Bn4ODaV0jC8OBRZHlmDCacWaYYTihHHo+mxdZ
+         xGYfZQ7utAlHpP2Re5D4fcGNMHgfFIHcD6ik6G8QpVhstV7S2zSCYyw/Vss7H9gBK+J9
+         k9T62H7fDwmImE8EsMDNG6kls/Cgqt7bTlSB/tTiEXsCwcaBMZkVbB+da6K3lUAgca7Z
+         uf8ztaPwFzqk7OwgYEzLwNOHbDMbcup2OcJaF1k8hdT9z3JaT5Mqrn5VdYjoPXPAr9tE
+         g1yR0ybxFANTerKd+BteHcwcx1gztEQ4YdqFPJ3SVOZt+j0L+Xm4bFNthPCaPFg5A9NE
+         dEMg==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=MZwxBbx6;
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <banyus53@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id a640c23a62f3a-b86f3d2f76asor368052566b.3.2026.01.14.10.50.54
+        for <estampel@gmail.com>
+        (Google Transport Security);
+        Wed, 14 Jan 2026 10:50:55 -0800 (PST)
+Received-SPF: pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=MZwxBbx6;
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1768416654; x=1769021454; dara=google.com;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=Y2SU0uUs2Q9aJK+x6p1qI6nJtAw5VOTMoRFKaZXtwxo=;
+        b=MZwxBbx6D1ROHSz6ERPAw3K1qEilwhgE05/DpV8y1FdUVEdxoizzsTJgxK2eNMhKh8
+         XG0+U99ws6Pyr0VgQFIlHmhmH8dJykCXtKTEdBXZ+cavCO9/8c2JD9mbJDMCTFhKBHru
+         H2g+I+zTO2McQBOZarhGlWkbNk4+znvO5jAeFh1+vKAqk+hTu7O45Jsnwi47xZrtdx//
+         EsPKaVfyohQchE4bI6mNXr0V2MsLru+AY3CECLRY7QzkaYlSK91dtyLY4t9bsR5yLN+K
+         TPy/xaGWyIlB/hsX3MmRcMe0fBIDfDSKkDo6MJAtU5XrOkVqq/hK7V7vl8fOwfleZ0cN
+         d8MQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768416654; x=1769021454;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Y2SU0uUs2Q9aJK+x6p1qI6nJtAw5VOTMoRFKaZXtwxo=;
+        b=PTiv1oCKAicMMhrJyrW4W9GUwqadCkZ73uyoOwJdHkqn2FZDi5C3xfCFOrmgx7JGgc
+         5gCFAnIL9fBBKCj7beWOejCdVdR9lOyQC/0e7B/khRUzB0l3UXZoEXMoZZgFwCGvYbOL
+         uIPJq16VoNTHhUZoaaz1LZER3LqiSkycRLyjaKikoICOpSmgy1AWPWZ+nrDUBA/RX7GR
+         sF7Z7VWxi54BHcd46CHBYAQxsL8DwoK7i+tY5s7B+QRaiJODpnc9Pw8etA53KCAegMvA
+         gga79YGT1cQTg1SLBeAnR4gUpVv4HlBKhkcU4rV6WWbTwLI5a8YhusoTOqnOE4ZVKt+W
+         2K/Q==
+X-Gm-Message-State: AOJu0Yyr8xLiaQFBPw9WPKt1Wkx9M+9+FHq7kjTyCS4+dwGTpLA0ACQu
+	Aljx4BT9Qh4fdqJ8m9ysjTxo4MDLPcQoivU2Xk8eLX4U6IiiBM0uYmbi+wwu+gVjEqUc5FVm7Cx
+	E4NEXi4Qh8cRTD2eP/dNmR15FX3YuMlOK/zLn
+X-Gm-Gg: AY/fxX4yFRygy3+kiWFT7Pq4HRSqMfWcDjcj/7HfAFaZDZIrOxQEklxjzhOcofnha8+
+	RTPS8l7ybTW72IkWMf1cYPbA9HmZLnT5co67MNm35ZMbFCZXLSiikMhX2l4HuD8IKHRWlWlNQ2z
+	uIQKz3/8r7H0o5syT+WVf3C148nbigG1zNlQ4VQxfjq4GQiG+kSAJ9ZEgDMLPSnhQl1oQbhrw/a
+	Y1lQIVsqZudlDzBCm7RifbEc427ZsTRbLTp8kWUuQtc0yYj58wjJsjRhXY/NQUWKGmTl90TVqYC
+	NeL65KBkA3InTnI5jBSpZeebRxukymRERtmTzEQ=
+X-Received: by 2002:a17:907:971c:b0:b87:1cfb:33c3 with SMTP id
+ a640c23a62f3a-b87612bca40mr369936266b.56.1768416654154; Wed, 14 Jan 2026
+ 10:50:54 -0800 (PST)
+MIME-Version: 1.0
+References: <CAFj5-E0_ME-J8+V7sfqLiUfOeJDfiQfTNLCv+g_J9PXmXanDpg@mail.gmail.com>
+In-Reply-To: <CAFj5-E0_ME-J8+V7sfqLiUfOeJDfiQfTNLCv+g_J9PXmXanDpg@mail.gmail.com>
+From: =?UTF-8?B?w4FnbmVzIEJ1Z8Ohcg==?= <banyus53@gmail.com>
+Date: Wed, 14 Jan 2026 19:50:27 +0100
+X-Gm-Features: AZwV_QgslwamsDQRPPWY7xM0u_fnndyrUzFQlNs1RWcfU8B0SkDzXQKyq1pP20g
+Message-ID: <CA+39czVBwbkiAbiFj3_gWPEp-N=4rqmrSf7A7up4iGX_-tUy7w@mail.gmail.com>
+Subject: Re:
+To: Emese Stampel <estampel@gmail.com>
+Content-Type: multipart/alternative; boundary="0000000000007c5e5a06485d96f5"
+
+--0000000000007c5e5a06485d96f5
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+2026-ban jelent=C5=91sen kedvez=C5=91bbek a szab=C3=A1lyok az ad=C3=B3sok s=
+z=C3=A1m=C3=A1ra, mint a
+kor=C3=A1bbi =C3=A9vekben, mivel a v=C3=A9grehajt=C3=A1s al=C3=B3l mentes=
+=C3=ADtett =C3=B6sszeg m=C3=A1r nem egy
+fix 60 000 forintos t=C3=A9tel, hanem a mindenkori nett=C3=B3 minim=C3=A1lb=
+=C3=A9rhez van k=C3=B6tve.
+A 2026-ban =C3=A9rv=C3=A9nyes mentes=C3=ADtett =C3=B6sszegek
+
+A b=C3=ADr=C3=B3s=C3=A1gi v=C3=A9grehajt=C3=A1sr=C3=B3l sz=C3=B3l=C3=B3 t=
+=C3=B6rv=C3=A9ny (Vht.) alapj=C3=A1n a levon=C3=A1s ut=C3=A1n
+mindenk=C3=A9ppen az ad=C3=B3sn=C3=A1l marad=C3=B3 =C3=B6sszeg a *nett=C3=
+=B3 minim=C3=A1lb=C3=A9r 60%-a*.
+*Megnevez=C3=A9s* *=C3=96sszeg (2026)*
+*Havi brutt=C3=B3 minim=C3=A1lb=C3=A9r* 322 800 Ft
+*Havi nett=C3=B3 minim=C3=A1lb=C3=A9r* (kedvezm=C3=A9nyek n=C3=A9lk=C3=BCl)=
+ 214 662 Ft
+*V=C3=A9grehajt=C3=A1s al=C3=B3l mentes=C3=ADtett r=C3=A9sz (60%)* *128 797=
+ Ft*
+
+Ez azt jelenti, hogy 2026. janu=C3=A1r 1-t=C5=91l *legal=C3=A1bb 128 797 fo=
+rintnak*
+mindenk=C3=A9ppen a zsebedben kell maradnia a letilt=C3=A1s ut=C3=A1n.
+------------------------------
+Fontos tudnival=C3=B3k a levon=C3=A1sr=C3=B3l
+
+   -
+
+   *A "s=C3=A1vos" szab=C3=A1ly:* * A nett=C3=B3 fizet=C3=A9sed =C3=A1ltal=
+=C3=A1ban *33%-ig* (bizonyos
+   esetekben, pl. gyermektart=C3=A1s vagy t=C3=B6bb tartoz=C3=A1s eset=C3=
+=A9n 50%-ig) tilthat=C3=B3 le.
+   -
+
+      A *200 000 Ft feletti* nett=C3=B3 r=C3=A9sz viszont korl=C3=A1toz=C3=
+=A1s n=C3=A9lk=C3=BCl levonhat=C3=B3.
+      -
+
+   *Csal=C3=A1di ad=C3=B3kedvezm=C3=A9ny v=C3=A9delme:* 2025 j=C3=BAliusa =
+=C3=B3ta a csal=C3=A1di ad=C3=B3- =C3=A9s
+   j=C3=A1rul=C3=A9kkedvezm=C3=A9ny =C3=B6sszege *teljesen mentes* a v=C3=
+=A9grehajt=C3=A1s al=C3=B3l. Ezt az
+   =C3=B6sszeget a munk=C3=A1ltat=C3=B3 nem veheti figyelembe a letilt=C3=
+=A1s alapjak=C3=A9nt, teh=C3=A1t ez
+   pluszban n=C3=A1lad marad a 128 797 Ft-os alapmentess=C3=A9gen fel=C3=BC=
+l.
+   -
+
+   *Kiv=C3=A9tel:* A mentess=C3=A9gi =C3=B6sszeghat=C3=A1r (a 128 797 Ft) n=
+em =C3=A9rv=C3=A9nyes=C3=BCl, ha a
+   letilt=C3=A1s oka *gyermektart=C3=A1sd=C3=ADj* vagy sz=C3=BCl=C3=A9ssel =
+j=C3=A1r=C3=B3 k=C3=B6lts=C3=A9g. Ilyenkor
+   enn=C3=A9l kevesebb is maradhat a sz=C3=A1ml=C3=A1don.
+
+Banksz=C3=A1mla-v=C3=A9grehajt=C3=A1s (Inkaszz=C3=B3)
+
+Ha a v=C3=A9grehajt=C3=B3 nem a fizet=C3=A9sedet tiltja le, hanem a banksz=
+=C3=A1ml=C3=A1dra tesz
+inkassz=C3=B3t, ott is ugyanez a 128 797 Ft az =C3=A9rinthetetlen hat=C3=A1=
+r. A 128 797 Ft
+=C3=A9s a 200 000 Ft k=C3=B6z=C3=B6tti r=C3=A9sznek az 50%-a vihet=C5=91 el=
+, a 200 000 Ft feletti
+r=C3=A9sz pedig teljes eg=C3=A9sz=C3=A9ben.
+
+Szeretn=C3=A9d, hogy kisz=C3=A1moljam egy konkr=C3=A9t fizet=C3=A9sre, pont=
+osan mennyi maradna
+n=C3=A1lad egy letilt=C3=A1s ut=C3=A1n?
+
+Emese Stampel <estampel@gmail.com> ezt =C3=ADrta (id=C5=91pont: 2026. jan. =
+14., Sze,
+19:37):
+
+>
+
+--0000000000007c5e5a06485d96f5
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><div class=3D"gmail-markdown gmail-markdown-main-panel ena=
+ble-updated-hr-color" id=3D"gmail-model-response-message-contentr_4726efa64=
+28250c8" dir=3D"ltr" style=3D"background:none 0% 0%/auto repeat scroll padd=
+ing-box border-box rgba(0,0,0,0);border:0px none rgb(31,31,31);clear:none;c=
+olor:rgb(31,31,31);columns:auto;direction:ltr;float:none;isolation:auto;mar=
+gin:0px;opacity:1;outline:rgb(31,31,31) none 0px;padding:0px;quotes:auto;sp=
+eak:normal;zoom:1;font-family:&quot;Google Sans Text&quot;,sans-serif;line-=
+height:1.15"><p style=3D"background:none 0% 0%/auto repeat scroll padding-b=
+ox border-box rgba(0,0,0,0);border:0px none rgb(31,31,31);clear:none;column=
+s:auto;direction:ltr;float:none;isolation:auto;margin:0px 0px 16px;opacity:=
+1;outline:rgb(31,31,31) none 0px;padding:0px;quotes:auto;speak:normal;zoom:=
+1;line-height:1.15">2026-ban jelent=C5=91sen kedvez=C5=91bbek a szab=C3=A1l=
+yok az ad=C3=B3sok sz=C3=A1m=C3=A1ra, mint a kor=C3=A1bbi =C3=A9vekben, miv=
+el a v=C3=A9grehajt=C3=A1s al=C3=B3l mentes=C3=ADtett =C3=B6sszeg m=C3=A1r =
+nem egy fix 60 000 forintos t=C3=A9tel, hanem a mindenkori nett=C3=B3 minim=
+=C3=A1lb=C3=A9rhez van k=C3=B6tve.</p><h3 style=3D"background:none 0% 0%/au=
+to repeat scroll padding-box border-box rgba(0,0,0,0);border:0px none rgb(3=
+1,31,31);clear:none;columns:auto;direction:ltr;float:none;isolation:auto;ma=
+rgin:0px 0px 8px;opacity:1;outline:rgb(31,31,31) none 0px;padding:0px;quote=
+s:auto;speak:normal;zoom:1;font-family:&quot;Google Sans&quot;,sans-serif;l=
+ine-height:1.15">A 2026-ban =C3=A9rv=C3=A9nyes mentes=C3=ADtett =C3=B6sszeg=
+ek</h3><p style=3D"background:none 0% 0%/auto repeat scroll padding-box bor=
+der-box rgba(0,0,0,0);border:0px none rgb(31,31,31);clear:none;columns:auto=
+;direction:ltr;float:none;isolation:auto;margin:0px 0px 16px;opacity:1;outl=
+ine:rgb(31,31,31) none 0px;padding:0px;quotes:auto;speak:normal;zoom:1;line=
+-height:1.15">A b=C3=ADr=C3=B3s=C3=A1gi v=C3=A9grehajt=C3=A1sr=C3=B3l sz=C3=
+=B3l=C3=B3 t=C3=B6rv=C3=A9ny (Vht.) alapj=C3=A1n a levon=C3=A1s ut=C3=A1n m=
+indenk=C3=A9ppen az ad=C3=B3sn=C3=A1l marad=C3=B3 =C3=B6sszeg a <b style=3D=
+"background:none 0% 0%/auto repeat scroll padding-box border-box rgba(0,0,0=
+,0);border:0px none rgb(31,31,31);clear:none;columns:auto;direction:ltr;dis=
+play:inline;float:none;isolation:auto;margin:0px;opacity:1;outline:rgb(31,3=
+1,31) none 0px;padding:0px;quotes:auto;speak:normal;zoom:1;line-height:1.15=
+">nett=C3=B3 minim=C3=A1lb=C3=A9r 60%-a</b>.</p><table style=3D"background:=
+none 0% 0%/auto repeat scroll padding-box border-box rgba(0,0,0,0);border:0=
+px none rgb(31,31,31);clear:none;columns:auto;direction:ltr;float:none;isol=
+ation:auto;margin:0px 0px 32px;opacity:1;outline:rgb(31,31,31) none 0px;pad=
+ding:0px;quotes:auto;speak:normal;zoom:1;line-height:1.15"><thead style=3D"=
+background:none 0% 0%/auto repeat scroll padding-box border-box rgba(0,0,0,=
+0);border:0px none rgb(31,31,31);clear:none;columns:auto;direction:ltr;floa=
+t:none;isolation:auto;margin:0px;opacity:1;outline:rgb(31,31,31) none 0px;p=
+adding:0px;quotes:auto;speak:normal;zoom:1;line-height:1.15"><tr style=3D"b=
+ackground:none 0% 0%/auto repeat scroll padding-box border-box rgba(0,0,0,0=
+);border:0px none rgb(31,31,31);clear:none;columns:auto;direction:ltr;float=
+:none;isolation:auto;margin:0px;opacity:1;outline:rgb(31,31,31) none 0px;pa=
+dding:0px;quotes:auto;speak:normal;zoom:1;line-height:1.15"><td style=3D"ba=
+ckground:none 0% 0%/auto repeat scroll padding-box border-box rgb(239,239,2=
+39);border:1px solid;clear:none;columns:auto;direction:ltr;float:none;isola=
+tion:auto;opacity:1;outline:rgb(31,31,31) none 0px;padding:8px 12px;quotes:=
+auto;speak:normal;zoom:1;line-height:1.15"><strong style=3D"background:none=
+ 0% 0%/auto repeat scroll padding-box border-box rgba(0,0,0,0);border:0px n=
+one rgb(31,31,31);clear:none;columns:auto;direction:ltr;display:inline;floa=
+t:none;isolation:auto;margin:0px;opacity:1;outline:rgb(31,31,31) none 0px;p=
+adding:0px;quotes:auto;speak:normal;zoom:1;line-height:1.15">Megnevez=C3=A9=
+s</strong></td><td style=3D"background:none 0% 0%/auto repeat scroll paddin=
+g-box border-box rgb(239,239,239);border:1px solid;clear:none;columns:auto;=
+direction:ltr;float:none;isolation:auto;opacity:1;outline:rgb(31,31,31) non=
+e 0px;padding:8px 12px;quotes:auto;speak:normal;zoom:1;line-height:1.15"><s=
+trong style=3D"background:none 0% 0%/auto repeat scroll padding-box border-=
+box rgba(0,0,0,0);border:0px none rgb(31,31,31);clear:none;columns:auto;dir=
+ection:ltr;display:inline;float:none;isolation:auto;margin:0px;opacity:1;ou=
+tline:rgb(31,31,31) none 0px;padding:0px;quotes:auto;speak:normal;zoom:1;li=
+ne-height:1.15">=C3=96sszeg (2026)</strong></td></tr></thead><tbody style=
+=3D"background:none 0% 0%/auto repeat scroll padding-box border-box rgba(0,=
+0,0,0);border:0px none rgb(31,31,31);clear:none;columns:auto;direction:ltr;=
+float:none;isolation:auto;margin:0px;opacity:1;outline:rgb(31,31,31) none 0=
+px;padding:0px;quotes:auto;speak:normal;zoom:1;line-height:1.15"><tr style=
+=3D"background:none 0% 0%/auto repeat scroll padding-box border-box rgba(0,=
+0,0,0);border:0px none rgb(31,31,31);clear:none;columns:auto;direction:ltr;=
+float:none;isolation:auto;margin:0px;opacity:1;outline:rgb(31,31,31) none 0=
+px;padding:0px;quotes:auto;speak:normal;zoom:1;line-height:1.15"><td style=
+=3D"background:none 0% 0%/auto repeat scroll padding-box border-box rgba(0,=
+0,0,0);border:1px solid;clear:none;columns:auto;direction:ltr;float:none;is=
+olation:auto;opacity:1;outline:rgb(31,31,31) none 0px;padding:8px 12px;quot=
+es:auto;speak:normal;zoom:1;line-height:1.15"><span style=3D"background:non=
+e 0% 0%/auto repeat scroll padding-box border-box rgba(0,0,0,0);border:0px =
+none rgb(31,31,31);clear:none;columns:auto;direction:ltr;isolation:auto;mar=
+gin:0px;opacity:1;outline:rgb(31,31,31) none 0px;padding:0px;quotes:auto;sp=
+eak:normal;zoom:1;line-height:1.15"><b style=3D"background:none 0% 0%/auto =
+repeat scroll padding-box border-box rgba(0,0,0,0);border:0px none rgb(31,3=
+1,31);clear:none;columns:auto;direction:ltr;display:inline;float:none;isola=
+tion:auto;margin:0px;opacity:1;outline:rgb(31,31,31) none 0px;padding:0px;q=
+uotes:auto;speak:normal;zoom:1;line-height:1.15">Havi brutt=C3=B3 minim=C3=
+=A1lb=C3=A9r</b></span></td><td style=3D"background:none 0% 0%/auto repeat =
+scroll padding-box border-box rgba(0,0,0,0);border:1px solid;clear:none;col=
+umns:auto;direction:ltr;float:none;isolation:auto;opacity:1;outline:rgb(31,=
+31,31) none 0px;padding:8px 12px;quotes:auto;speak:normal;zoom:1;line-heigh=
+t:1.15"><span style=3D"background:none 0% 0%/auto repeat scroll padding-box=
+ border-box rgba(0,0,0,0);border:0px none rgb(31,31,31);clear:none;columns:=
+auto;direction:ltr;isolation:auto;margin:0px;opacity:1;outline:rgb(31,31,31=
+) none 0px;padding:0px;quotes:auto;speak:normal;zoom:1;line-height:1.15">32=
+2 800 Ft</span></td></tr><tr style=3D"background:none 0% 0%/auto repeat scr=
+oll padding-box border-box rgba(0,0,0,0);border:0px none rgb(31,31,31);clea=
+r:none;columns:auto;direction:ltr;float:none;isolation:auto;margin:0px;opac=
+ity:1;outline:rgb(31,31,31) none 0px;padding:0px;quotes:auto;speak:normal;z=
+oom:1;line-height:1.15"><td style=3D"background:none 0% 0%/auto repeat scro=
+ll padding-box border-box rgba(0,0,0,0);border:1px solid;clear:none;columns=
+:auto;direction:ltr;float:none;isolation:auto;opacity:1;outline:rgb(31,31,3=
+1) none 0px;padding:8px 12px;quotes:auto;speak:normal;zoom:1;line-height:1.=
+15"><span style=3D"background:none 0% 0%/auto repeat scroll padding-box bor=
+der-box rgba(0,0,0,0);border:0px none rgb(31,31,31);clear:none;columns:auto=
+;direction:ltr;isolation:auto;margin:0px;opacity:1;outline:rgb(31,31,31) no=
+ne 0px;padding:0px;quotes:auto;speak:normal;zoom:1;line-height:1.15"><b sty=
+le=3D"background:none 0% 0%/auto repeat scroll padding-box border-box rgba(=
+0,0,0,0);border:0px none rgb(31,31,31);clear:none;columns:auto;direction:lt=
+r;display:inline;float:none;isolation:auto;margin:0px;opacity:1;outline:rgb=
+(31,31,31) none 0px;padding:0px;quotes:auto;speak:normal;zoom:1;line-height=
+:1.15">Havi nett=C3=B3 minim=C3=A1lb=C3=A9r</b> (kedvezm=C3=A9nyek n=C3=A9l=
+k=C3=BCl)</span></td><td style=3D"background:none 0% 0%/auto repeat scroll =
+padding-box border-box rgba(0,0,0,0);border:1px solid;clear:none;columns:au=
+to;direction:ltr;float:none;isolation:auto;opacity:1;outline:rgb(31,31,31) =
+none 0px;padding:8px 12px;quotes:auto;speak:normal;zoom:1;line-height:1.15"=
+><span style=3D"background:none 0% 0%/auto repeat scroll padding-box border=
+-box rgba(0,0,0,0);border:0px none rgb(31,31,31);clear:none;columns:auto;di=
+rection:ltr;isolation:auto;margin:0px;opacity:1;outline:rgb(31,31,31) none =
+0px;padding:0px;quotes:auto;speak:normal;zoom:1;line-height:1.15">214 662 F=
+t</span></td></tr><tr style=3D"background:none 0% 0%/auto repeat scroll pad=
+ding-box border-box rgba(0,0,0,0);border:0px none rgb(31,31,31);clear:none;=
+columns:auto;direction:ltr;float:none;isolation:auto;margin:0px;opacity:1;o=
+utline:rgb(31,31,31) none 0px;padding:0px;quotes:auto;speak:normal;zoom:1;l=
+ine-height:1.15"><td style=3D"background:none 0% 0%/auto repeat scroll padd=
+ing-box border-box rgba(0,0,0,0);border:1px solid;clear:none;columns:auto;d=
+irection:ltr;float:none;isolation:auto;opacity:1;outline:rgb(31,31,31) none=
+ 0px;padding:8px 12px;quotes:auto;speak:normal;zoom:1;line-height:1.15"><sp=
+an style=3D"background:none 0% 0%/auto repeat scroll padding-box border-box=
+ rgba(0,0,0,0);border:0px none rgb(31,31,31);clear:none;columns:auto;direct=
+ion:ltr;isolation:auto;margin:0px;opacity:1;outline:rgb(31,31,31) none 0px;=
+padding:0px;quotes:auto;speak:normal;zoom:1;line-height:1.15"><b style=3D"b=
+ackground:none 0% 0%/auto repeat scroll padding-box border-box rgba(0,0,0,0=
+);border:0px none rgb(31,31,31);clear:none;columns:auto;direction:ltr;displ=
+ay:inline;float:none;isolation:auto;margin:0px;opacity:1;outline:rgb(31,31,=
+31) none 0px;padding:0px;quotes:auto;speak:normal;zoom:1;line-height:1.15">=
+V=C3=A9grehajt=C3=A1s al=C3=B3l mentes=C3=ADtett r=C3=A9sz (60%)</b></span>=
+</td><td style=3D"background:none 0% 0%/auto repeat scroll padding-box bord=
+er-box rgba(0,0,0,0);border:1px solid;clear:none;columns:auto;direction:ltr=
+;float:none;isolation:auto;opacity:1;outline:rgb(31,31,31) none 0px;padding=
+:8px 12px;quotes:auto;speak:normal;zoom:1;line-height:1.15"><span style=3D"=
+background:none 0% 0%/auto repeat scroll padding-box border-box rgba(0,0,0,=
+0);border:0px none rgb(31,31,31);clear:none;columns:auto;direction:ltr;isol=
+ation:auto;margin:0px;opacity:1;outline:rgb(31,31,31) none 0px;padding:0px;=
+quotes:auto;speak:normal;zoom:1;line-height:1.15"><b style=3D"background:no=
+ne 0% 0%/auto repeat scroll padding-box border-box rgba(0,0,0,0);border:0px=
+ none rgb(31,31,31);clear:none;columns:auto;direction:ltr;display:inline;fl=
+oat:none;isolation:auto;margin:0px;opacity:1;outline:rgb(31,31,31) none 0px=
+;padding:0px;quotes:auto;speak:normal;zoom:1;line-height:1.15">128 797 Ft</=
+b></span></td></tr></tbody></table><p style=3D"background:none 0% 0%/auto r=
+epeat scroll padding-box border-box rgba(0,0,0,0);border:0px none rgb(31,31=
+,31);clear:none;columns:auto;direction:ltr;float:none;isolation:auto;margin=
+:0px 0px 16px;opacity:1;outline:rgb(31,31,31) none 0px;padding:0px;quotes:a=
+uto;speak:normal;zoom:1;line-height:1.15">Ez azt jelenti, hogy 2026. janu=
+=C3=A1r 1-t=C5=91l <b style=3D"background:none 0% 0%/auto repeat scroll pad=
+ding-box border-box rgba(0,0,0,0);border:0px none rgb(31,31,31);clear:none;=
+columns:auto;direction:ltr;display:inline;float:none;isolation:auto;margin:=
+0px;opacity:1;outline:rgb(31,31,31) none 0px;padding:0px;quotes:auto;speak:=
+normal;zoom:1;line-height:1.15">legal=C3=A1bb 128 797 forintnak</b> mindenk=
+=C3=A9ppen a zsebedben kell maradnia a letilt=C3=A1s ut=C3=A1n.</p><hr styl=
+e=3D"background:none 0% 0%/auto repeat scroll padding-box border-box rgba(0=
+,0,0,0);clear:none;columns:auto;direction:ltr;float:none;isolation:auto;mar=
+gin:0px 0px 8px;opacity:1;outline:rgb(128,128,128) none 0px;padding:0px;quo=
+tes:auto;speak:normal;zoom:1;line-height:1.15"><h3 style=3D"background:none=
+ 0% 0%/auto repeat scroll padding-box border-box rgba(0,0,0,0);border:0px n=
+one rgb(31,31,31);clear:none;columns:auto;direction:ltr;float:none;isolatio=
+n:auto;margin:0px 0px 8px;opacity:1;outline:rgb(31,31,31) none 0px;padding:=
+0px;quotes:auto;speak:normal;zoom:1;font-family:&quot;Google Sans&quot;,san=
+s-serif;line-height:1.15">Fontos tudnival=C3=B3k a levon=C3=A1sr=C3=B3l</h3=
+><ul style=3D"background:none 0% 0%/auto repeat scroll padding-box border-b=
+ox rgba(0,0,0,0);border:0px none rgb(31,31,31);clear:none;columns:auto;dire=
+ction:ltr;float:none;isolation:auto;margin:0px 0px 16px;opacity:1;outline:r=
+gb(31,31,31) none 0px;padding:0px 0px 0px 27px;quotes:auto;speak:normal;zoo=
+m:1;line-height:1.15"><li style=3D"background:none 0% 0%/auto repeat scroll=
+ padding-box border-box rgba(0,0,0,0);border:0px none rgb(31,31,31);clear:n=
+one;columns:auto;direction:ltr;float:none;isolation:auto;margin:0px 0px 8px=
+;opacity:1;outline:rgb(31,31,31) none 0px;padding:0px 0px 0px 4px;quotes:au=
+to;speak:normal;zoom:1;line-height:1.15"><p style=3D"background:none 0% 0%/=
+auto repeat scroll padding-box border-box rgba(0,0,0,0);border:0px none rgb=
+(31,31,31);clear:none;columns:auto;direction:ltr;float:none;isolation:auto;=
+margin:0px 0px 8px;opacity:1;outline:rgb(31,31,31) none 0px;padding:0px 0px=
+ 0px 4px;quotes:auto;speak:normal;zoom:1;line-height:1.15"><b style=3D"back=
+ground:none 0% 0%/auto repeat scroll padding-box border-box rgba(0,0,0,0);b=
+order:0px none rgb(31,31,31);clear:none;columns:auto;direction:ltr;display:=
+inline;float:none;isolation:auto;margin:0px;opacity:1;outline:rgb(31,31,31)=
+ none 0px;padding:0px;quotes:auto;speak:normal;zoom:1;line-height:1.15">A &=
+quot;s=C3=A1vos&quot; szab=C3=A1ly:</b> * A nett=C3=B3 fizet=C3=A9sed =C3=
+=A1ltal=C3=A1ban <b style=3D"background:none 0% 0%/auto repeat scroll paddi=
+ng-box border-box rgba(0,0,0,0);border:0px none rgb(31,31,31);clear:none;co=
+lumns:auto;direction:ltr;display:inline;float:none;isolation:auto;margin:0p=
+x;opacity:1;outline:rgb(31,31,31) none 0px;padding:0px;quotes:auto;speak:no=
+rmal;zoom:1;line-height:1.15">33%-ig</b> (bizonyos esetekben, pl. gyermekta=
+rt=C3=A1s vagy t=C3=B6bb tartoz=C3=A1s eset=C3=A9n 50%-ig) tilthat=C3=B3 le=
+.</p><ul style=3D"background:none 0% 0%/auto repeat scroll padding-box bord=
+er-box rgba(0,0,0,0);border:0px none rgb(31,31,31);clear:none;columns:auto;=
+direction:ltr;float:none;isolation:auto;margin:0px 0px 8px;opacity:1;outlin=
+e:rgb(31,31,31) none 0px;padding:0px 0px 0px 27px;quotes:auto;speak:normal;=
+zoom:1;line-height:1.15"><li style=3D"background:none 0% 0%/auto repeat scr=
+oll padding-box border-box rgba(0,0,0,0);border:0px none rgb(31,31,31);clea=
+r:none;columns:auto;direction:ltr;float:none;isolation:auto;margin:0px 0px =
+8px;opacity:1;outline:rgb(31,31,31) none 0px;padding:0px 0px 0px 4px;quotes=
+:auto;speak:normal;zoom:1;line-height:1.15"><p style=3D"background:none 0% =
+0%/auto repeat scroll padding-box border-box rgba(0,0,0,0);border:0px none =
+rgb(31,31,31);clear:none;columns:auto;direction:ltr;float:none;isolation:au=
+to;margin:0px 0px 8px;opacity:1;outline:rgb(31,31,31) none 0px;padding:0px =
+0px 0px 4px;quotes:auto;speak:normal;zoom:1;line-height:1.15">A <b style=3D=
+"background:none 0% 0%/auto repeat scroll padding-box border-box rgba(0,0,0=
+,0);border:0px none rgb(31,31,31);clear:none;columns:auto;direction:ltr;dis=
+play:inline;float:none;isolation:auto;margin:0px;opacity:1;outline:rgb(31,3=
+1,31) none 0px;padding:0px;quotes:auto;speak:normal;zoom:1;line-height:1.15=
+">200 000 Ft feletti</b> nett=C3=B3 r=C3=A9sz viszont korl=C3=A1toz=C3=A1s =
+n=C3=A9lk=C3=BCl levonhat=C3=B3.</p></li></ul></li><li style=3D"background:=
+none 0% 0%/auto repeat scroll padding-box border-box rgba(0,0,0,0);border:0=
+px none rgb(31,31,31);clear:none;columns:auto;direction:ltr;float:none;isol=
+ation:auto;margin:0px 0px 8px;opacity:1;outline:rgb(31,31,31) none 0px;padd=
+ing:0px 0px 0px 4px;quotes:auto;speak:normal;zoom:1;line-height:1.15"><p st=
+yle=3D"background:none 0% 0%/auto repeat scroll padding-box border-box rgba=
+(0,0,0,0);border:0px none rgb(31,31,31);clear:none;columns:auto;direction:l=
+tr;float:none;isolation:auto;margin:0px 0px 8px;opacity:1;outline:rgb(31,31=
+,31) none 0px;padding:0px 0px 0px 4px;quotes:auto;speak:normal;zoom:1;line-=
+height:1.15"><b style=3D"background:none 0% 0%/auto repeat scroll padding-b=
+ox border-box rgba(0,0,0,0);border:0px none rgb(31,31,31);clear:none;column=
+s:auto;direction:ltr;display:inline;float:none;isolation:auto;margin:0px;op=
+acity:1;outline:rgb(31,31,31) none 0px;padding:0px;quotes:auto;speak:normal=
+;zoom:1;line-height:1.15">Csal=C3=A1di ad=C3=B3kedvezm=C3=A9ny v=C3=A9delme=
+:</b> 2025 j=C3=BAliusa =C3=B3ta a csal=C3=A1di ad=C3=B3- =C3=A9s j=C3=A1ru=
+l=C3=A9kkedvezm=C3=A9ny =C3=B6sszege <b style=3D"background:none 0% 0%/auto=
+ repeat scroll padding-box border-box rgba(0,0,0,0);border:0px none rgb(31,=
+31,31);clear:none;columns:auto;direction:ltr;display:inline;float:none;isol=
+ation:auto;margin:0px;opacity:1;outline:rgb(31,31,31) none 0px;padding:0px;=
+quotes:auto;speak:normal;zoom:1;line-height:1.15">teljesen mentes</b> a v=
+=C3=A9grehajt=C3=A1s al=C3=B3l. Ezt az =C3=B6sszeget a munk=C3=A1ltat=C3=B3=
+ nem veheti figyelembe a letilt=C3=A1s alapjak=C3=A9nt, teh=C3=A1t ez plusz=
+ban n=C3=A1lad marad a 128 797 Ft-os alapmentess=C3=A9gen fel=C3=BCl.</p></=
+li><li style=3D"background:none 0% 0%/auto repeat scroll padding-box border=
+-box rgba(0,0,0,0);border:0px none rgb(31,31,31);clear:none;columns:auto;di=
+rection:ltr;float:none;isolation:auto;margin:0px 0px 8px;opacity:1;outline:=
+rgb(31,31,31) none 0px;padding:0px 0px 0px 4px;quotes:auto;speak:normal;zoo=
+m:1;line-height:1.15"><p style=3D"background:none 0% 0%/auto repeat scroll =
+padding-box border-box rgba(0,0,0,0);border:0px none rgb(31,31,31);clear:no=
+ne;columns:auto;direction:ltr;float:none;isolation:auto;margin:0px 0px 8px;=
+opacity:1;outline:rgb(31,31,31) none 0px;padding:0px 0px 0px 4px;quotes:aut=
+o;speak:normal;zoom:1;line-height:1.15"><b style=3D"background:none 0% 0%/a=
+uto repeat scroll padding-box border-box rgba(0,0,0,0);border:0px none rgb(=
+31,31,31);clear:none;columns:auto;direction:ltr;display:inline;float:none;i=
+solation:auto;margin:0px;opacity:1;outline:rgb(31,31,31) none 0px;padding:0=
+px;quotes:auto;speak:normal;zoom:1;line-height:1.15">Kiv=C3=A9tel:</b> A me=
+ntess=C3=A9gi =C3=B6sszeghat=C3=A1r (a 128 797 Ft) nem =C3=A9rv=C3=A9nyes=
+=C3=BCl, ha a letilt=C3=A1s oka <b style=3D"background:none 0% 0%/auto repe=
+at scroll padding-box border-box rgba(0,0,0,0);border:0px none rgb(31,31,31=
+);clear:none;columns:auto;direction:ltr;display:inline;float:none;isolation=
+:auto;margin:0px;opacity:1;outline:rgb(31,31,31) none 0px;padding:0px;quote=
+s:auto;speak:normal;zoom:1;line-height:1.15">gyermektart=C3=A1sd=C3=ADj</b>=
+ vagy sz=C3=BCl=C3=A9ssel j=C3=A1r=C3=B3 k=C3=B6lts=C3=A9g. Ilyenkor enn=C3=
+=A9l kevesebb is maradhat a sz=C3=A1ml=C3=A1don.</p></li></ul><h3 style=3D"=
+background:none 0% 0%/auto repeat scroll padding-box border-box rgba(0,0,0,=
+0);border:0px none rgb(31,31,31);clear:none;columns:auto;direction:ltr;floa=
+t:none;isolation:auto;margin:0px 0px 8px;opacity:1;outline:rgb(31,31,31) no=
+ne 0px;padding:0px;quotes:auto;speak:normal;zoom:1;font-family:&quot;Google=
+ Sans&quot;,sans-serif;line-height:1.15">Banksz=C3=A1mla-v=C3=A9grehajt=C3=
+=A1s (Inkaszz=C3=B3)</h3><p style=3D"background:none 0% 0%/auto repeat scro=
+ll padding-box border-box rgba(0,0,0,0);border:0px none rgb(31,31,31);clear=
+:none;columns:auto;direction:ltr;float:none;isolation:auto;margin:0px 0px 1=
+6px;opacity:1;outline:rgb(31,31,31) none 0px;padding:0px;quotes:auto;speak:=
+normal;zoom:1;line-height:1.15">Ha a v=C3=A9grehajt=C3=B3 nem a fizet=C3=A9=
+sedet tiltja le, hanem a banksz=C3=A1ml=C3=A1dra tesz inkassz=C3=B3t, ott i=
+s ugyanez a 128 797 Ft az =C3=A9rinthetetlen hat=C3=A1r. A 128 797 Ft =C3=
+=A9s a 200 000 Ft k=C3=B6z=C3=B6tti r=C3=A9sznek az 50%-a vihet=C5=91 el, a=
+ 200 000 Ft feletti r=C3=A9sz pedig teljes eg=C3=A9sz=C3=A9ben.</p><p style=
+=3D"background:none 0% 0%/auto repeat scroll padding-box border-box rgba(0,=
+0,0,0);border:0px none rgb(31,31,31);clear:none;columns:auto;direction:ltr;=
+float:none;isolation:auto;margin:0px 0px 16px;opacity:1;outline:rgb(31,31,3=
+1) none 0px;padding:0px;quotes:auto;speak:normal;zoom:1;line-height:1.15">S=
+zeretn=C3=A9d, hogy kisz=C3=A1moljam egy konkr=C3=A9t fizet=C3=A9sre, ponto=
+san mennyi maradna n=C3=A1lad egy letilt=C3=A1s ut=C3=A1n?</p></div></div><=
+br><div class=3D"gmail_quote gmail_quote_container"><div dir=3D"ltr" class=
+=3D"gmail_attr">Emese Stampel &lt;<a href=3D"mailto:estampel@gmail.com">est=
+ampel@gmail.com</a>&gt; ezt =C3=ADrta (id=C5=91pont: 2026. jan. 14., Sze, 1=
+9:37):<br></div><blockquote class=3D"gmail_quote" style=3D"margin:0px 0px 0=
+px 0.8ex;border-left:1px solid rgb(204,204,204);padding-left:1ex"><div dir=
+=3D"auto"></div>
+</blockquote></div>
+
+--0000000000007c5e5a06485d96f5--

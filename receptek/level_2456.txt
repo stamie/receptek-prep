@@ -1,0 +1,1488 @@
+Delivered-To: estampel@gmail.com
+Received: by 2002:a05:622a:608a:b0:4ed:1da1:8f85 with SMTP id hf10csp8295322qtb;
+        Tue, 2 Dec 2025 08:21:08 -0800 (PST)
+X-Received: by 2002:a17:907:86a7:b0:b73:51f3:a806 with SMTP id a640c23a62f3a-b7671af7159mr4606895566b.51.1764692467949;
+        Tue, 02 Dec 2025 08:21:07 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1764692467; cv=none;
+        d=google.com; s=arc-20240605;
+        b=IcvGkoEaUStMERdCdBruw+fKCXDM7xHsCk59DMyHN5I7OifUPHxbpSX6tVRRmwj0t4
+         0fugqGwKok9SyP8NaZ0lKrcPSCYH7IhvQCuU4aRLZU9ioo6v8MzcJyLNhkEzAqWlsaRJ
+         YmRbjThwrqRxrCuuf9hLaq8NUtRjm/cI45Fcp5COWPqRwOqc9LZCTxoWvAeaJ26Ca/ic
+         vBIrHAVpyXZElL7oKI/DVTp+O4xgCbpUx9XMGCvVWxH5nU/RwHwvn2VH9e+dvYdDuYKx
+         zUk7HidqDKNUdE6c7aw8GpWDvuvyg+oZMT7PLZIrt+HmyyrBRMEBa2nNdI78OpPJNwiK
+         s8Rg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=SdXKr+Cpr+6Cp0ECjSQF6UaX/JpCF9EkDwH6xJUwNbw=;
+        fh=wF/Yrd2E0xeKwPH74kML7cQSth+Fl4bwhVNrybJ4uh4=;
+        b=cTk7QNIxDNPlv1ZcaLfx7v5eay1RQ4aGsLvQsaAgoFp3RKlrWtVooNx/hMeCODv9y9
+         AtB7w/BimY+EPLMECibO1GlKzFvUzvNRxLyIN1WJvhzjw3XkVISdP0uh91s6Ly8SIpM8
+         9nehJu+ixJaotuzXusp6AKziyh4/T2UKfd0wMQWaRrl9hRdF4D+8hkOizkvuKgZsXo2q
+         gNcR9YTjUi88P66H8QBGw1C+mC79KzGBkN3DyMQLWd2eguRNWRr25OHjjSDxOvsmqyFq
+         09tTYgFnR33kE6Lq+U4id3h5HeffKrWyc9JZ0YVwyiJ3RJcigV6xs6uoQbWUmNGAt29V
+         G5Kw==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=hjhCDBwD;
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <banyus53@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id a640c23a62f3a-b76f5a44862sor482492666b.22.2025.12.02.08.21.07
+        for <estampel@gmail.com>
+        (Google Transport Security);
+        Tue, 02 Dec 2025 08:21:07 -0800 (PST)
+Received-SPF: pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=hjhCDBwD;
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1764692467; x=1765297267; dara=google.com;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=SdXKr+Cpr+6Cp0ECjSQF6UaX/JpCF9EkDwH6xJUwNbw=;
+        b=hjhCDBwDeZKo/aX3oDjFl2smopdzePMyVhzifQ9UrEdFwSYY2vp5caX6EmZIXJSOjq
+         L5iE5C1Kbldaf4fYct4APmWpxJsXB9i+9DnvxS1wxlvatQB5SE5UKgPz8YGq3BBUrUsG
+         oWQNKwn1hM+2iyazjJIkVlSsLTnIj8177Fgv/epUx0Ig9+XR3R7nr2MX7hwXg7EB2zzj
+         CX9Gq6Mt1OplGMsZWYrsX16tPiuK9Yrs+S6J5rXiE0Ux6otAUHzYB1v5L0Qa7Yct92Vi
+         V6qSkroVeI6blCAxE9ksOfFFfjP9vYss5vO0kXXU1cS/tKEQfyRHFQa4sLo3RDf24RWQ
+         DfEA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764692467; x=1765297267;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=SdXKr+Cpr+6Cp0ECjSQF6UaX/JpCF9EkDwH6xJUwNbw=;
+        b=WBaH3ed7VmPUziQyWoTD4lDaZXPUu545I6arVzawLdQlXzMaJJ3JtDKJRIlXT/ZYRe
+         T6vIo9xY1+GQ9un/ytQfz5DMp1K8X6fWRtM0eLa5obZ6Uh+YaiMvTwKFcNLy/UN5Bn/7
+         vLkAlPtgpqOGd5x2UEvdgm2vS8lJ98ny8Q/KEB3ZoxK3OkdCiX/5W8H9x+3h13Nu116G
+         aO0P4Eysgpyac7q41L9pcEMiaJ53XW3jFrTOpdUAM4Eo8hkFZd1WzaYw045DCm7u8MlK
+         2QeJAoZma24lj+9JpbtcQaRWC4XOpf9a1+1jgunr7eRIWln2Weee/sRkXXoa8/gj/ROj
+         2amQ==
+X-Gm-Message-State: AOJu0YwfvdPQGEoJb13t82OCmuEj/0u/Emmv0WGGDfcTx6RQ3BlRLaDh
+	Ae4ivRcfYnMoLgegF7DD9CZ1HQdSMr8KP3DvDXzsrDkvtNG95HWva1BSC3eByUeU8OZu203+Ez5
+	4/zYBuEb0fXTaqOqpHQf9NOkCCGhJ9S9hLA==
+X-Gm-Gg: ASbGncuM9eRbFrYe0Ny6iBM3qrMnsAbvwAllhtKBfYW53BIdKsJCaQNwjPLEtVDm6Lk
+	9CoDZqHZ/8/7x/dmIjgYImWlbNEJ69Ib7qe4MlMOhbPbOwXBS3sGpkGLsZrc7XeEws+Jyu7DsGB
+	5uALLs7PcTA9qXxxt1lB7OS/rDDg9nGQpojcKyu1mEBJK1CDAcxOUp4zsQ1uR6oajcUSfMcXIiQ
+	XfR6RBQhkz2+RnLeLBjAsOp0FaAEmDy5l2AUS156lYYsj4ZMu6HJqUntK2loijgX8B3PhfaoDF1
+	zPHn0pI4jNTmsrGHmWv7S2y4uVxDf2xV
+X-Google-Smtp-Source: AGHT+IHSXkG2ol87pqmhUxpXUUtNCaqItO5RIYBBU+CDar1ViBWpP5cPg2D95UTQ3gCJ9CKU++5Nvo0lPhaGYLV11Lc=
+X-Received: by 2002:a17:907:3ea9:b0:b70:4377:4d2c with SMTP id
+ a640c23a62f3a-b76716888a4mr4347223166b.1.1764692466630; Tue, 02 Dec 2025
+ 08:21:06 -0800 (PST)
+MIME-Version: 1.0
+References: <692f0e5b77fc_1b2042d694c8c00e022711a5@ip-10-1-8-97.mail>
+In-Reply-To: <692f0e5b77fc_1b2042d694c8c00e022711a5@ip-10-1-8-97.mail>
+From: =?UTF-8?B?w4FnbmVzIEJ1Z8Ohcg==?= <banyus53@gmail.com>
+Date: Tue, 2 Dec 2025 17:20:54 +0100
+X-Gm-Features: AWmQ_blalrE6TLf55qycmzl6wNu2YE371rAmZtErxPb37W5lH911IA-mXw-c_M8
+Message-ID: <CA+39czWdNQKU8w3uXALLTuBTnx1oboJ0D-RYbruz6q1ZvPC=uA@mail.gmail.com>
+Subject: =?UTF-8?B?RndkOiDwn6SdIEFkb23DoW55c3plcnZlesWRIG11bmthdMOhcnNhdCBrZXJlcyBhIFBBVA==?=
+	=?UTF-8?B?RU5UIQ==?=
+To: Emese Stampel <estampel@gmail.com>
+Content-Type: multipart/alternative; boundary="0000000000009c83cc0644fa7b42"
+
+--0000000000009c83cc0644fa7b42
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+---------- Forwarded message ---------
+Felad=C3=B3: Fanny | PATENT Egyes=C3=BClet <hirlevel@patent.org.hu>
+Date: 2025. dec. 2., K 17:05
+Subject: =F0=9F=A4=9D Adom=C3=A1nyszervez=C5=91 munkat=C3=A1rsat keres a PA=
+TENT!
+To: <banyus53@gmail.com>
+
+
+Dolgozz vel=C3=BCnk!
+
+*Adom=C3=A1nyszervez=C5=91 munkat=C3=A1rsat keres a PATENT Egyes=C3=BClet!*
+
+A PATENT Egyes=C3=BClet 2026 janu=C3=A1rj=C3=A1t=C3=B3l heti *20 =C3=B3r=C3=
+=A1s* =E2=9C=A8adom=C3=A1nyszervez=C5=91t=E2=9C=A8 keres
+kommunik=C3=A1ci=C3=B3s csapat=C3=A1ba, hat=C3=A1rozatlan id=C5=91re.
+
+*=F0=9F=A4=9D Az adom=C3=A1nyszervez=C5=91 feladatai:*
+
+*=F0=9F=93=A2 Kommunik=C3=A1ci=C3=B3 =C3=A9s mag=C3=A1nadom=C3=A1nygy=C5=B1=
+jt=C3=A9s - 60%*
+
+   - h=C3=ADrlev=C3=A9l-lista=C3=A9p=C3=ADt=C5=91 kamp=C3=A1nyok tervez=C3=
+=A9se =C3=A9s megval=C3=B3s=C3=ADt=C3=A1sa,
+   h=C3=ADrlev=C3=A9l-feliratkoz=C3=B3i adatb=C3=A1zisunk karbantart=C3=A1s=
+a
+   - online adom=C3=A1nygy=C5=B1jt=C5=91 kamp=C3=A1nyaink tervez=C3=A9se =
+=C3=A9s megval=C3=B3s=C3=ADt=C3=A1sa
+   - rendszeres adom=C3=A1nyoz=C3=B3k toborz=C3=A1sa, kapcsolattart=C3=A1s =
+a t=C3=A1mogat=C3=B3inkkal
+   - h=C3=ADrleveles kommunik=C3=A1ci=C3=B3nk tervez=C3=A9se, h=C3=ADrlevel=
+ek szerkeszt=C3=A9se, =C3=ADr=C3=A1sa
+   - r=C3=A9szv=C3=A9tel egy=C3=A9b kommunik=C3=A1ci=C3=B3s kamp=C3=A1nyain=
+k, tev=C3=A9kenys=C3=A9geink
+   megval=C3=B3s=C3=ADt=C3=A1s=C3=A1ban
+   - a munk=C3=A1hoz k=C3=B6t=C5=91d=C5=91 adminisztr=C3=A1ci=C3=B3s felada=
+tok, besz=C3=A1mol=C3=B3k elk=C3=A9sz=C3=ADt=C3=A9se
+
+*=F0=9F=8C=87 V=C3=A1llalati adom=C3=A1nyszervez=C3=A9s - 40%*
+
+   - v=C3=A1llalati adom=C3=A1nygy=C5=B1jt=C5=91 strat=C3=A9gia kidolgoz=C3=
+=A1sa a PATENT csapat=C3=A1val
+   k=C3=B6z=C3=B6sen
+   - megl=C3=A9v=C5=91 =C3=A9s potenci=C3=A1lis v=C3=A1llalati partnerek ny=
+ilv=C3=A1ntart=C3=A1sa
+   - v=C3=A1llalatokat c=C3=A9lz=C3=B3 kommunik=C3=A1ci=C3=B3 kidolgoz=C3=
+=A1sa
+   - kapcsolat=C3=A9p=C3=ADt=C3=A9s =C3=A9s kapcsolattart=C3=A1s v=C3=A1lla=
+lati partnerekkel
+
+*Munkaid=C5=91:* heti 20 =C3=B3ra (rugalmasan, kiv=C3=A9ve a heti st=C3=A1b=
+-=C3=BCl=C3=A9sek)
+*Munkav=C3=A9gz=C3=A9s helye:* otthoni munkav=C3=A9gz=C3=A9s, heti online m=
+egbesz=C3=A9l=C3=A9sekkel =C3=A9s
+havi egy szem=C3=A9lyes st=C3=A1btal=C3=A1lkoz=C3=B3val Budapesten.
+*Fizet=C3=A9s:* havi brutt=C3=B3 301.000 Ft (munkaviszonyban vagy egy=C3=A9=
+ni
+v=C3=A1llalkoz=C3=B3k=C3=A9nt)
+*Kezd=C3=A9s:* 2026. janu=C3=A1r k=C3=B6zepe
+*Pr=C3=B3baid=C5=91:* 3 h=C3=B3nap
+
+=F0=9F=92=98 *T=C3=A9ged keres=C3=BCnk, ha=E2=80=A6*
+
+   - Az egyes=C3=BClet =C3=A9rt=C3=A9keivel azonosulsz, tev=C3=A9kenys=C3=
+=A9geinkkel kapcsolatos
+   t=C3=A9m=C3=A1kban j=C3=A1rtas vagy, ezek ir=C3=A1nt =C3=A9rdekl=C5=91ds=
+z (p=C3=A1rkapcsolati- =C3=A9s csal=C3=A1don
+   bel=C3=BCli er=C5=91szak, szexu=C3=A1lis er=C5=91szak, reprodukci=C3=B3s=
+ jogok)
+   - Van tapasztalatod v=C3=A1llalati adom=C3=A1nygy=C5=B1jt=C3=A9sben, vag=
+y be=C3=A1gyazotts=C3=A1god a
+   v=C3=A1llalati szf=C3=A9r=C3=A1ban
+   - Magabiztosan kezelsz online fel=C3=BCleteket =C3=A9s eszk=C3=B6z=C3=B6=
+ket
+   - Van kommunik=C3=A1ci=C3=B3s tapasztalatod
+   - T=C3=B6k=C3=A9letes helyes=C3=ADr=C3=A1sod, j=C3=B3 =C3=ADr=C3=A1sk=C3=
+=A9szs=C3=A9ged van
+   - Boldogulsz a Canv=C3=A1ban vagy m=C3=A1s grafikai tervez=C5=91 program=
+ban
+   - Tudsz =C3=B6n=C3=A1ll=C3=B3an dolgozni, de az egy=C3=BCttm=C5=B1k=C3=
+=B6d=C3=A9sre, csapatmunk=C3=A1ra is
+   k=C3=A9szen =C3=A1llsz
+
+=F0=9F=AA=84 *El=C5=91ny, ha=E2=80=A6*
+
+   - Dolgozt=C3=A1l vagy =C3=B6nk=C3=A9nteskedt=C3=A9l m=C3=A1r civil szerv=
+ezetn=C3=A9l, n=C5=91jogi
+   szervezetn=C3=A9l
+   - Jogi, t=C3=A1rsadalomtudom=C3=A1nyos vagy b=C3=B6lcs=C3=A9sz v=C3=A9gz=
+etts=C3=A9ged van
+   - Van gyakorlatod valamilyen h=C3=ADrlev=C3=A9l-k=C3=BCld=C5=91 fel=C3=
+=BClet kezel=C3=A9s=C3=A9ben vagy
+   honlapszerkeszt=C3=A9sben
+
+*=F0=9F=92=8C Jelentkez=C3=A9s:* A jelentkez=C3=A9sedet k=C3=A9rj=C3=BCk, a=
+z *info@patent.org.hu*
+<info@patent.org.hu?subject=3DJelentkez%C3%A9s%20irodavezet%C5%91i%20munkak=
+%C3%B6rbe>
+c=C3=ADmre k=C3=BCldd =C3=B6n=C3=A9letrajzzal =C3=A9s motiv=C3=A1ci=C3=B3s =
+lev=C3=A9llel!
+*=F0=9F=95=92 Jelentkez=C3=A9si hat=C3=A1rid=C5=91:* december 10.
+A kiv=C3=A1laszt=C3=A1s ezt k=C3=B6vet=C5=91en 2 k=C3=B6r=C3=B6s lesz: *a d=
+ecember 19-ei h=C3=A9ten
+pr=C3=B3bafeladatot k=C3=BCld=C3=BCnk*, majd janu=C3=A1r els=C5=91 het=C3=
+=A9ben online interj=C3=BAra v=C3=A1rjuk a
+kiv=C3=A1lasztott jelentkez=C5=91ket.
+*Jelentkezem az =C3=A1ll=C3=A1sra!*
+<info@patent.org.hu?subject=3DJelentkez%C3%A9s%20adom%C3%A1nyszervez%C5%91i=
+%20munkak%C3%B6rbe>
+
+*=C3=81gnes M=C3=A1ria, ha ismersz valakit, akinek =C3=A9rdekes lehet az =
+=C3=A1ll=C3=A1s, tov=C3=A1bb=C3=ADtsd
+neki ezt az emailt!*
+
+K=C3=B6sz=C3=B6nj=C3=BCk, hogy vel=C3=BCnk vagy!
+
+K=C3=B6sz=C3=B6nj=C3=BCk, hogy a n=C5=91kkel vagy!
+
+*Fanny =C3=A9s a PATENT csapata*
+
+Tov=C3=A1bb=C3=ADtva kaptad ezt az emailt? Ha szeretn=C3=A9l feliratkozni
+h=C3=ADrlevel=C3=BCnkre, kattints
+ide
+<https://click.actionnetwork.org/ss/c/u001.qUXRBnqZ7T8nxbpAcIVwoUsWLkUMWlo_=
+0JmZttSlm38QKENO8bejLUXemYAsbFmL7q1atc-8S7nfGiFehMWyW4KOE39bDr6xve0_nz8uftB=
+46EX9apRyXjbFG-dovjtGAVKgJP6Q68awG5YYXLcqEpRp4xav7N2mrZlY4ckmcjNCuebG5WPqa9=
+ktfSUjAMf2LVe_FhEcCmGW5kOKjtObPnkcphmeFVN69-mb6nZREi-38KXU4VgQ3VaXaUtvQBnIP=
+iCXdWdrT37qLJhlyVo-C0NLuNUCGbz5bVUjOuSJF1LCQQ5DcSENam8gxOkT5VIE36O-16wrO1RK=
+mYIfodlQIQ/4m3/BnnuITliQVSp0pgUZIS_hQ/h0/h001.-S8L5XFIfmUDTFEU9a8Qm1bNG7QJK=
+D3W_GwWug1-KFg>
+!
+
+<https://click.actionnetwork.org/ss/c/u001.XaF8mXqsA6b2dSPmhsleMctRoxlFO9O8=
+2fTB5zU1O8G5_XztQE-sEOEQ-Q9ufD1ytREa2fk8JojULWQg5RoyFrSg2k2qiM_MyBK4KObGINH=
+G40M-hNjZVgbAkPCT-rYPmLpyIfrpwTAsK72jInH0jlCy3OJEPsWEyfJz-mPHYSkdLUtRR2oksi=
+_jXMQR-PTHwL7bh6NdypmK7PjWtzSZHaHnYNdrI4m_a1FORirGKD-XKoHFCSsGEqnacfERxes52=
+UQ2_QJpGkBpxBR1xEZjNe9EF4k4rfXPyUQDF3Ac-yGLeHg3GwkBtPJw7XY078jVMvRVNYKYYY6y=
+UHH22IRpsg/4m3/BnnuITliQVSp0pgUZIS_hQ/h1/h001.F5ljadyncjqV0j3MXeEvK_9bK7GhA=
+OY-rmJHBxxwgII>
+<https://click.actionnetwork.org/ss/c/u001.XaF8mXqsA6b2dSPmhsleMWn3R7U15hZO=
+prFI75oZg47u-3CATOMvFIV-rlieYp2DoDqUopCU9b27WlScl632SXgPg9918DJouE7wLuVUAw_=
+5_pbcbpw0C1NT-hBKNQEw-s971mz8n8w1e6zAP0Cc2OHBBcW2oVh0lFiB7zOaSv8kpnnT0DMcYS=
+H9iGU9rCvcRg9noNwoiEnAyW0EnMnfF3rjct2eFAZ3dhR732-hhmT9fcrverCijfXbpL772ACm1=
+h_8RR8K2bJ-erN-adY5vog2yRRpzByng1oEX8ZldSNa1a06hax_0amFLpNlAWS0m8ES_ks7lndI=
+VDEXnK2UyQ/4m3/BnnuITliQVSp0pgUZIS_hQ/h2/h001.XCwo3VdKEVLlRo8sCvkIhNAQuwIgT=
+u443eJeVV9Rd-k>
+<https://click.actionnetwork.org/ss/c/u001.lmpSTrE-G07FKUPTdpC9IUw1TsIS-lgc=
+EASN7XP0Eg82795jKu3mtukF4o8hLq7dUShuoszK6779SrhvnsYUzr0kRHVE6RwoAwAjcbHfotn=
+7y2wtqq4KY9576iICr2i_Q3-1r4rkFSiVlFQWdn_Rl0G4EsLNiHIUpmSnlv85OxKu7MevlA7PB_=
+f69j14BgIw5hYQNzysQfNpWIW4Sz8ekERNZDZjM1_FGPQKbrMrDTE2Sc-RUqbtzFo7clK24b21L=
+-7DSEuDtJVEZFku3hNoq_86nti06PJozJss8UOd9k3GitjwLG2TbJqkK04hU3xX/4m3/BnnuITl=
+iQVSp0pgUZIS_hQ/h3/h001.ayr5tNDnJBexdTfgxYZYtL5MH6OTQZfxybVeLdAdZ90>
+K=C3=BCldve ActionNetwork.org
+<https://click.actionnetwork.org/ss/c/u001.vJH41MPG4bgUd6h6NGKFprEVd5SZ3aeQ=
+lOtv77_nyyTp5vYKL39neom0x5aWZYoKeTPj3Av9cMJ5UDNcnGo0JsXWRzvpyieIpaqGtFqdPJm=
+kEnlGHmDHxpzRKBvHdDIaw9StZIBfj8euXGml33YBH30ViXpjpnZeHZXIKpw1_8RJ45l1KfaeiT=
+kxupKNBJMpyd3ptNWV8nKAyNvL97giqtn2N0dTTbn5aRdC7u7osGCFCaBMTzhpJuYPIrIZhIu4n=
+SAtBe6uATEIkK2UiW7Bmrja-zyRePqYzglZPxHWhkNGFmy6NypTrjIHHc7SOFEH/4m3/BnnuITl=
+iQVSp0pgUZIS_hQ/h4/h001.euEclB8TVy79j67VaSXiqNQKmKtE4Qv3Apw3cRvCFnI>.
+Ha szeretn=C3=A9d friss=C3=ADteni az e-mail c=C3=ADmed, neved, vagy lakc=C3=
+=ADmed, esetleg
+leiratkozn=C3=A1l (a) Patent Egyes=C3=BClet csapat=C3=A1nak leveleir=C5=91l=
+, akkor Kattints ide
+<https://click.actionnetwork.org/ss/c/u001.qUXRBnqZ7T8nxbpAcIVwoUsWLkUMWlo_=
+0JmZttSlm3-gP0Xd1LL-Lub7Gk22PHy92ncKIW2S6DBbjj3xusaLAvBOzzSwoVyJVRy7nPuF6kr=
+91f77y11NndOE54klTyUnqQR4XfMqanMy-AkHLp31Uk3QcaLm_ifHJUDDr9kbHAJvcWs14K85_S=
+LGeIyauWKiiFreSZPqtCp_syX-lVZkZxyR7YWKiVnuTAwH1fYoRWDmAxeelwKNtYfUQ3cTvdTzd=
+lm8XgV3k4GNpGqXbmpEIQxUAQ5FZxLG2Nfv87ebbE2fKt9_hyjKBpvs-k2dEBj2zCiIh-qilhiW=
+HsfBBKPad0dEU4tfNbh38qMrKH0qPpUvdMqMtKMdfgH1X1soUKsglf8eTDG8gih2n7bqSV3HfqO=
+AtecP1PCPxNqjcEmvm9K5Zx0Nt_zgogiEwrRCjgw60CWCdFfEcCy4VXfgKFF4B6qG8KBgne_VnS=
+uJ6vIav6g/4m3/BnnuITliQVSp0pgUZIS_hQ/h5/h001.EWlIRsvQR3rtizVikdB_5z_DufvVmY=
+b1eskmdCuGtUg>.
+
+--0000000000009c83cc0644fa7b42
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"auto"></div><br><div class=3D"gmail_quote gmail_quote_container=
+"><div dir=3D"ltr" class=3D"gmail_attr">---------- Forwarded message ------=
+---<br>Felad=C3=B3: <strong class=3D"gmail_sendername" dir=3D"auto">Fanny |=
+ PATENT Egyes=C3=BClet</strong> <span dir=3D"auto">&lt;<a href=3D"mailto:hi=
+rlevel@patent.org.hu">hirlevel@patent.org.hu</a>&gt;</span><br>Date: 2025. =
+dec. 2., K 17:05<br>Subject: =F0=9F=A4=9D Adom=C3=A1nyszervez=C5=91 munkat=
+=C3=A1rsat keres a PATENT!<br>To:  &lt;<a href=3D"mailto:banyus53@gmail.com=
+">banyus53@gmail.com</a>&gt;<br></div><br><br><u></u>
+
+
+
+ =20
+ =20
+ =20
+ =20
+ =20
+ =20
+   =20
+ =20
+ =20
+
+
+
+
+
+<div style=3D"margin:0;padding:0;background-color:#ffffff;color:#000000"><s=
+pan style=3D"font-size:1px;display:none">Dolgozz vel=C3=BCnk!</span>
+ =20
+ =20
+  <table role=3D"presentation" id=3D"m_-4675215168516466068u_body" style=3D=
+"border-collapse:collapse;table-layout:fixed;border-spacing:0;vertical-alig=
+n:top;min-width:320px;Margin:0 auto;background-color:#ffffff;width:100%" ce=
+llpadding=3D"0" cellspacing=3D"0">
+  <tbody>
+  <tr style=3D"vertical-align:top">
+    <td style=3D"word-break:break-word;border-collapse:collapse!important;v=
+ertical-align:top">
+   =20
+   =20
+ =20
+ =20
+<div class=3D"m_-4675215168516466068u-row-container" style=3D"padding:0px;b=
+ackground-color:transparent">
+  <div class=3D"m_-4675215168516466068u-row" style=3D"margin:0 auto;min-wid=
+th:320px;max-width:600px;word-wrap:break-word;word-break:break-word;backgro=
+und-color:transparent">
+    <div style=3D"border-collapse:collapse;display:table;width:100%;height:=
+100%;background-color:transparent">
+     =20
+     =20
+
+<div class=3D"m_-4675215168516466068u-col m_-4675215168516466068u-col-100" =
+style=3D"max-width:320px;min-width:600px;display:table-cell;vertical-align:=
+top">
+  <div style=3D"height:100%;width:100%!important;border-radius:0px">
+  <div style=3D"box-sizing:border-box;height:100%;padding:0px;border-top:0p=
+x solid transparent;border-left:0px solid transparent;border-right:0px soli=
+d transparent;border-bottom:0px solid transparent;border-radius:0px">
+ =20
+<table style=3D"font-family:arial,helvetica,sans-serif" role=3D"presentatio=
+n" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0">
+  <tbody>
+    <tr>
+      <td style=3D"word-break:break-word;padding:10px;font-family:arial,hel=
+vetica,sans-serif" align=3D"left">
+       =20
+<table role=3D"presentation" width=3D"100%" cellpadding=3D"0" cellspacing=
+=3D"0" border=3D"0">
+  <tr>
+    <td style=3D"padding-right:0px;padding-left:0px" align=3D"center">
+     =20
+      <img align=3D"center" border=3D"0" src=3D"https://actionnetwork.org/u=
+nlayer_files/1741174962344-patent_logo_1J%C3%93SZ%C3%8DN.png" alt=3D"" titl=
+e=3D"" style=3D"outline:none;text-decoration:none;clear:both;display:inline=
+-block!important;border:none;height:auto;float:none;width:10%;max-width:58p=
+x" width=3D"58">
+     =20
+    </td>
+
+  </tr>
+</table>
+
+      </td>
+
+    </tr>
+  </tbody>
+</table>
+
+  </div>
+
+  </div>
+
+</div>
+
+
+     =20
+    </div>
+
+  </div>
+
+  </div>
+
+ =20
+
+
+ =20
+ =20
+<div class=3D"m_-4675215168516466068u-row-container" style=3D"padding:0px;b=
+ackground-color:transparent">
+  <div class=3D"m_-4675215168516466068u-row" style=3D"margin:0 auto;min-wid=
+th:320px;max-width:600px;word-wrap:break-word;word-break:break-word;backgro=
+und-color:transparent">
+    <div style=3D"border-collapse:collapse;display:table;width:100%;height:=
+100%;background-color:transparent">
+     =20
+     =20
+
+<div class=3D"m_-4675215168516466068u-col m_-4675215168516466068u-col-100" =
+style=3D"max-width:320px;min-width:600px;display:table-cell;vertical-align:=
+top">
+  <div style=3D"height:100%;width:100%!important">
+  <div style=3D"box-sizing:border-box;height:100%;padding:0px;border-top:0p=
+x solid transparent;border-left:0px solid transparent;border-right:0px soli=
+d transparent;border-bottom:0px solid transparent">
+ =20
+<table style=3D"font-family:arial,helvetica,sans-serif" role=3D"presentatio=
+n" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0">
+  <tbody>
+    <tr>
+      <td style=3D"word-break:break-word;padding:15px 10px 5px;font-family:=
+arial,helvetica,sans-serif" align=3D"left">
+       =20
+  <div style=3D"font-family:&#39;Montserrat&#39;,sans-serif;font-size:16px;=
+color:#505050;line-height:140%;text-align:center;word-wrap:break-word">
+    <p style=3D"line-height:140%"><strong><span style=3D"color:#000000;line=
+-height:22.4px">Adom=C3=A1nyszervez=C5=91 munkat=C3=A1rsat keres a PATENT E=
+gyes=C3=BClet!</span></strong></p>
+
+  </div>
+
+
+      </td>
+
+    </tr>
+  </tbody>
+</table>
+
+<table style=3D"font-family:arial,helvetica,sans-serif" role=3D"presentatio=
+n" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0">
+  <tbody>
+    <tr>
+      <td style=3D"word-break:break-word;padding:10px 10px 15px;font-family=
+:arial,helvetica,sans-serif" align=3D"left">
+       =20
+  <div style=3D"font-family:&#39;Montserrat&#39;,sans-serif;font-size:15px;=
+color:#000000;line-height:160%;text-align:left;word-wrap:break-word">
+    <p style=3D"line-height:160%">A PATENT Egyes=C3=BClet 2026 janu=C3=A1rj=
+=C3=A1t=C3=B3l heti <strong>20 =C3=B3r=C3=A1s</strong> =E2=9C=A8adom=C3=A1n=
+yszervez=C5=91t=E2=9C=A8 keres kommunik=C3=A1ci=C3=B3s csapat=C3=A1ba, hat=
+=C3=A1rozatlan id=C5=91re.</p>
+
+  </div>
+
+
+      </td>
+
+    </tr>
+  </tbody>
+</table>
+
+  </div>
+
+  </div>
+
+</div>
+
+
+     =20
+    </div>
+
+  </div>
+
+  </div>
+
+ =20
+
+
+ =20
+ =20
+<div class=3D"m_-4675215168516466068u-row-container" style=3D"padding:0px;b=
+ackground-color:transparent">
+  <div class=3D"m_-4675215168516466068u-row" style=3D"margin:0 auto;min-wid=
+th:320px;max-width:600px;word-wrap:break-word;word-break:break-word;backgro=
+und-color:#ffffff">
+    <div style=3D"border-collapse:collapse;display:table;width:100%;height:=
+100%;background-color:transparent">
+     =20
+     =20
+
+<div class=3D"m_-4675215168516466068u-col m_-4675215168516466068u-col-100" =
+style=3D"max-width:320px;min-width:600px;display:table-cell;vertical-align:=
+top">
+  <div style=3D"height:100%;width:100%!important;border-radius:0px">
+  <div style=3D"box-sizing:border-box;height:100%;padding:0px;border-top:3p=
+x dashed #0000ee;border-left:3px dashed #0000ee;border-right:3px dashed #00=
+00ee;border-bottom:3px dashed #0000ee;border-radius:0px">
+ =20
+<table style=3D"font-family:arial,helvetica,sans-serif" role=3D"presentatio=
+n" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0">
+  <tbody>
+    <tr>
+      <td style=3D"word-break:break-word;padding:20px 20px 5px;font-family:=
+arial,helvetica,sans-serif" align=3D"left">
+       =20
+  <div style=3D"font-family:&#39;Montserrat&#39;,sans-serif;font-size:15px;=
+color:#000000;line-height:160%;text-align:left;word-wrap:break-word">
+    <p style=3D"line-height:160%"><span style=3D"color:#ff004c;line-height:=
+24px"><strong>=F0=9F=A4=9D Az adom=C3=A1nyszervez=C5=91 feladatai:</strong>=
+</span></p>
+
+  </div>
+
+
+      </td>
+
+    </tr>
+  </tbody>
+</table>
+
+<table style=3D"font-family:arial,helvetica,sans-serif" role=3D"presentatio=
+n" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0">
+  <tbody>
+    <tr>
+      <td style=3D"word-break:break-word;padding:10px 30px;font-family:aria=
+l,helvetica,sans-serif" align=3D"left">
+       =20
+  <div style=3D"font-family:&#39;Montserrat&#39;,sans-serif;font-size:15px;=
+color:#000000;line-height:170%;text-align:left;word-wrap:break-word">
+    <p style=3D"line-height:170%"><strong>=F0=9F=93=A2 Kommunik=C3=A1ci=C3=
+=B3 =C3=A9s mag=C3=A1nadom=C3=A1nygy=C5=B1jt=C3=A9s - 60%</strong></p>
+
+<ul>
+<li style=3D"line-height:25.5px">h=C3=ADrlev=C3=A9l-lista=C3=A9p=C3=ADt=C5=
+=91 kamp=C3=A1nyok tervez=C3=A9se =C3=A9s megval=C3=B3s=C3=ADt=C3=A1sa, h=
+=C3=ADrlev=C3=A9l-feliratkoz=C3=B3i adatb=C3=A1zisunk karbantart=C3=A1sa</l=
+i>
+
+<li style=3D"line-height:25.5px">online adom=C3=A1nygy=C5=B1jt=C5=91 kamp=
+=C3=A1nyaink tervez=C3=A9se =C3=A9s megval=C3=B3s=C3=ADt=C3=A1sa</li>
+
+<li style=3D"line-height:25.5px">rendszeres adom=C3=A1nyoz=C3=B3k toborz=C3=
+=A1sa, kapcsolattart=C3=A1s a t=C3=A1mogat=C3=B3inkkal</li>
+
+<li style=3D"line-height:25.5px">h=C3=ADrleveles kommunik=C3=A1ci=C3=B3nk t=
+ervez=C3=A9se, h=C3=ADrlevelek szerkeszt=C3=A9se, =C3=ADr=C3=A1sa</li>
+
+<li style=3D"line-height:25.5px">r=C3=A9szv=C3=A9tel egy=C3=A9b kommunik=C3=
+=A1ci=C3=B3s kamp=C3=A1nyaink, tev=C3=A9kenys=C3=A9geink megval=C3=B3s=C3=
+=ADt=C3=A1s=C3=A1ban</li>
+
+<li style=3D"line-height:25.5px">a munk=C3=A1hoz k=C3=B6t=C5=91d=C5=91 admi=
+nisztr=C3=A1ci=C3=B3s feladatok, besz=C3=A1mol=C3=B3k elk=C3=A9sz=C3=ADt=C3=
+=A9se</li>
+
+</ul>
+<p style=3D"line-height:170%"><strong>=F0=9F=8C=87 V=C3=A1llalati adom=C3=
+=A1nyszervez=C3=A9s - 40%</strong></p>
+
+<ul>
+<li style=3D"line-height:25.5px">v=C3=A1llalati adom=C3=A1nygy=C5=B1jt=C5=
+=91 strat=C3=A9gia kidolgoz=C3=A1sa a PATENT csapat=C3=A1val k=C3=B6z=C3=B6=
+sen</li>
+
+<li style=3D"line-height:25.5px">megl=C3=A9v=C5=91 =C3=A9s potenci=C3=A1lis=
+ v=C3=A1llalati partnerek nyilv=C3=A1ntart=C3=A1sa</li>
+
+<li style=3D"line-height:25.5px">v=C3=A1llalatokat c=C3=A9lz=C3=B3 kommunik=
+=C3=A1ci=C3=B3 kidolgoz=C3=A1sa</li>
+
+<li style=3D"line-height:25.5px">kapcsolat=C3=A9p=C3=ADt=C3=A9s =C3=A9s kap=
+csolattart=C3=A1s v=C3=A1llalati partnerekkel</li>
+
+</ul>
+  </div>
+
+
+      </td>
+
+    </tr>
+  </tbody>
+</table>
+
+  </div>
+
+  </div>
+
+</div>
+
+
+     =20
+    </div>
+
+  </div>
+
+  </div>
+
+ =20
+
+
+ =20
+ =20
+<div class=3D"m_-4675215168516466068u-row-container" style=3D"padding:0px;b=
+ackground-color:transparent">
+  <div class=3D"m_-4675215168516466068u-row" style=3D"margin:0 auto;min-wid=
+th:320px;max-width:600px;word-wrap:break-word;word-break:break-word;backgro=
+und-color:transparent">
+    <div style=3D"border-collapse:collapse;display:table;width:100%;height:=
+100%;background-color:transparent">
+     =20
+     =20
+
+<div class=3D"m_-4675215168516466068u-col m_-4675215168516466068u-col-100" =
+style=3D"max-width:320px;min-width:600px;display:table-cell;vertical-align:=
+top">
+  <div style=3D"height:100%;width:100%!important;border-radius:0px">
+  <div style=3D"box-sizing:border-box;height:100%;padding:0px;border-top:0p=
+x solid transparent;border-left:0px solid transparent;border-right:0px soli=
+d transparent;border-bottom:0px solid transparent;border-radius:0px">
+ =20
+<table style=3D"font-family:arial,helvetica,sans-serif" role=3D"presentatio=
+n" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0">
+  <tbody>
+    <tr>
+      <td style=3D"word-break:break-word;padding:15px 10px;font-family:aria=
+l,helvetica,sans-serif" align=3D"left">
+       =20
+  <div style=3D"font-family:&#39;Montserrat&#39;,sans-serif;font-size:15px;=
+color:#000000;line-height:190%;text-align:left;word-wrap:break-word">
+    <div>
+<div dir=3D"auto"><span style=3D"color:#000000;line-height:28.5px"><strong>=
+Munkaid=C5=91:</strong> heti 20 =C3=B3ra <span dir=3D"auto" style=3D"line-h=
+eight:28.5px">(rugalmasan, kiv=C3=A9ve a heti st=C3=A1b-=C3=BCl=C3=A9sek)</=
+span></span></div>
+
+<div dir=3D"auto"><span style=3D"color:#000000;line-height:28.5px"><strong>=
+Munkav=C3=A9gz=C3=A9s helye:</strong> <span dir=3D"auto" style=3D"line-heig=
+ht:28.5px">otthoni munkav=C3=A9gz=C3=A9s, heti online megbesz=C3=A9l=C3=A9s=
+ekkel =C3=A9s havi egy szem=C3=A9lyes st=C3=A1btal=C3=A1lkoz=C3=B3val Budap=
+esten.</span></span></div>
+
+<div dir=3D"auto"><span style=3D"color:#000000;line-height:28.5px"><strong>=
+Fizet=C3=A9s:</strong> havi brutt=C3=B3 301.000 Ft (munkaviszonyban vagy eg=
+y=C3=A9ni v=C3=A1llalkoz=C3=B3k=C3=A9nt)</span></div>
+
+<div dir=3D"auto"><span style=3D"color:#000000;line-height:28.5px"><strong>=
+Kezd=C3=A9s:</strong> 2026. janu=C3=A1r k=C3=B6zepe</span></div>
+
+<div dir=3D"auto"><span style=3D"color:#000000;line-height:28.5px"><strong>=
+Pr=C3=B3baid=C5=91:</strong> 3 h=C3=B3nap</span></div>
+
+</div>
+
+  </div>
+
+
+      </td>
+
+    </tr>
+  </tbody>
+</table>
+
+  </div>
+
+  </div>
+
+</div>
+
+
+     =20
+    </div>
+
+  </div>
+
+  </div>
+
+ =20
+
+
+ =20
+ =20
+<div class=3D"m_-4675215168516466068u-row-container" style=3D"padding:0px;b=
+ackground-color:transparent">
+  <div class=3D"m_-4675215168516466068u-row" style=3D"margin:0 auto;min-wid=
+th:320px;max-width:600px;word-wrap:break-word;word-break:break-word;backgro=
+und-color:#ffffff">
+    <div style=3D"border-collapse:collapse;display:table;width:100%;height:=
+100%;background-color:transparent">
+     =20
+     =20
+
+<div class=3D"m_-4675215168516466068u-col m_-4675215168516466068u-col-100" =
+style=3D"max-width:320px;min-width:600px;display:table-cell;vertical-align:=
+top">
+  <div style=3D"height:100%;width:100%!important;border-radius:0px">
+  <div style=3D"box-sizing:border-box;height:100%;padding:0px;border-top:3p=
+x dashed #0000ee;border-left:3px dashed #0000ee;border-right:3px dashed #00=
+00ee;border-bottom:3px dashed #0000ee;border-radius:0px">
+ =20
+<table style=3D"font-family:arial,helvetica,sans-serif" role=3D"presentatio=
+n" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0">
+  <tbody>
+    <tr>
+      <td style=3D"word-break:break-word;padding:20px 20px 5px;font-family:=
+arial,helvetica,sans-serif" align=3D"left">
+       =20
+  <div style=3D"font-family:&#39;Montserrat&#39;,sans-serif;font-size:15px;=
+color:#000000;line-height:160%;text-align:left;word-wrap:break-word">
+    <p style=3D"line-height:160%">=F0=9F=92=98 <span style=3D"color:#ff004c=
+;line-height:24px"><strong>T=C3=A9ged keres=C3=BCnk, ha=E2=80=A6</strong></=
+span></p>
+
+  </div>
+
+
+      </td>
+
+    </tr>
+  </tbody>
+</table>
+
+<table style=3D"font-family:arial,helvetica,sans-serif" role=3D"presentatio=
+n" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0">
+  <tbody>
+    <tr>
+      <td style=3D"word-break:break-word;padding:0px 20px 10px 10px;font-fa=
+mily:arial,helvetica,sans-serif" align=3D"left">
+       =20
+  <div style=3D"font-family:&#39;Montserrat&#39;,sans-serif;font-size:15px;=
+color:#000000;line-height:170%;text-align:left;word-wrap:break-word">
+    <ul>
+<li style=3D"line-height:25.5px">
+<div dir=3D"auto">Az egyes=C3=BClet =C3=A9rt=C3=A9keivel azonosulsz, tev=C3=
+=A9kenys=C3=A9geinkkel kapcsolatos t=C3=A9m=C3=A1kban j=C3=A1rtas vagy, eze=
+k ir=C3=A1nt =C3=A9rdekl=C5=91dsz (p=C3=A1rkapcsolati- =C3=A9s csal=C3=A1do=
+n bel=C3=BCli er=C5=91szak, szexu=C3=A1lis er=C5=91szak, reprodukci=C3=B3s =
+jogok)</div>
+
+</li>
+
+<li style=3D"line-height:25.5px">
+<div dir=3D"auto">Van tapasztalatod v=C3=A1llalati adom=C3=A1nygy=C5=B1jt=
+=C3=A9sben, vagy be=C3=A1gyazotts=C3=A1god a v=C3=A1llalati szf=C3=A9r=C3=
+=A1ban</div>
+
+</li>
+
+<li style=3D"line-height:25.5px">
+<div dir=3D"auto">Magabiztosan kezelsz online fel=C3=BCleteket =C3=A9s eszk=
+=C3=B6z=C3=B6ket</div>
+
+</li>
+
+<li style=3D"line-height:25.5px">
+<div dir=3D"auto">Van kommunik=C3=A1ci=C3=B3s tapasztalatod</div>
+
+</li>
+
+<li style=3D"line-height:25.5px">T=C3=B6k=C3=A9letes helyes=C3=ADr=C3=A1sod=
+, j=C3=B3 =C3=ADr=C3=A1sk=C3=A9szs=C3=A9ged van</li>
+
+<li style=3D"line-height:25.5px">Boldogulsz a Canv=C3=A1ban vagy m=C3=A1s g=
+rafikai tervez=C5=91 programban</li>
+
+<li style=3D"line-height:25.5px">Tudsz =C3=B6n=C3=A1ll=C3=B3an dolgozni, de=
+ az egy=C3=BCttm=C5=B1k=C3=B6d=C3=A9sre, csapatmunk=C3=A1ra is k=C3=A9szen =
+=C3=A1llsz</li>
+
+</ul>
+  </div>
+
+
+      </td>
+
+    </tr>
+  </tbody>
+</table>
+
+<table style=3D"font-family:arial,helvetica,sans-serif" role=3D"presentatio=
+n" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0">
+  <tbody>
+    <tr>
+      <td style=3D"word-break:break-word;padding:20px 20px 5px;font-family:=
+arial,helvetica,sans-serif" align=3D"left">
+       =20
+  <div style=3D"font-family:&#39;Montserrat&#39;,sans-serif;font-size:15px;=
+color:#000000;line-height:160%;text-align:left;word-wrap:break-word">
+    <p style=3D"line-height:160%">=F0=9F=AA=84 <span style=3D"color:#ff004c=
+;line-height:24px"><strong>El=C5=91ny, ha=E2=80=A6</strong></span></p>
+
+  </div>
+
+
+      </td>
+
+    </tr>
+  </tbody>
+</table>
+
+<table style=3D"font-family:arial,helvetica,sans-serif" role=3D"presentatio=
+n" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0">
+  <tbody>
+    <tr>
+      <td style=3D"word-break:break-word;padding:0px 20px 10px 10px;font-fa=
+mily:arial,helvetica,sans-serif" align=3D"left">
+       =20
+  <div style=3D"font-family:&#39;Montserrat&#39;,sans-serif;font-size:15px;=
+color:#000000;line-height:170%;text-align:left;word-wrap:break-word">
+    <ul>
+<li style=3D"line-height:25.5px">
+<div dir=3D"auto">Dolgozt=C3=A1l vagy =C3=B6nk=C3=A9nteskedt=C3=A9l m=C3=A1=
+r civil szervezetn=C3=A9l, n=C5=91jogi szervezetn=C3=A9l</div>
+
+</li>
+
+<li style=3D"line-height:25.5px">
+<div dir=3D"auto">Jogi, t=C3=A1rsadalomtudom=C3=A1nyos vagy b=C3=B6lcs=C3=
+=A9sz v=C3=A9gzetts=C3=A9ged van</div>
+
+</li>
+
+<li style=3D"line-height:25.5px">
+<div dir=3D"auto">Van gyakorlatod valamilyen h=C3=ADrlev=C3=A9l-k=C3=BCld=
+=C5=91 fel=C3=BClet kezel=C3=A9s=C3=A9ben vagy honlapszerkeszt=C3=A9sben</d=
+iv>
+
+</li>
+
+</ul>
+  </div>
+
+
+      </td>
+
+    </tr>
+  </tbody>
+</table>
+
+  </div>
+
+  </div>
+
+</div>
+
+
+     =20
+    </div>
+
+  </div>
+
+  </div>
+
+ =20
+
+
+ =20
+ =20
+<div class=3D"m_-4675215168516466068u-row-container" style=3D"padding:0px;b=
+ackground-color:transparent">
+  <div class=3D"m_-4675215168516466068u-row" style=3D"margin:0 auto;min-wid=
+th:320px;max-width:600px;word-wrap:break-word;word-break:break-word;backgro=
+und-color:transparent">
+    <div style=3D"border-collapse:collapse;display:table;width:100%;height:=
+100%;background-color:transparent">
+     =20
+     =20
+
+<div class=3D"m_-4675215168516466068u-col m_-4675215168516466068u-col-100" =
+style=3D"max-width:320px;min-width:600px;display:table-cell;vertical-align:=
+top">
+  <div style=3D"height:100%;width:100%!important;border-radius:0px">
+  <div style=3D"box-sizing:border-box;height:100%;padding:0px;border-top:0p=
+x solid transparent;border-left:0px solid transparent;border-right:0px soli=
+d transparent;border-bottom:0px solid transparent;border-radius:0px">
+ =20
+<table style=3D"font-family:arial,helvetica,sans-serif" role=3D"presentatio=
+n" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0">
+  <tbody>
+    <tr>
+      <td style=3D"word-break:break-word;padding:15px 10px 0px;font-family:=
+arial,helvetica,sans-serif" align=3D"left">
+       =20
+  <div style=3D"font-family:&#39;Montserrat&#39;,sans-serif;font-size:15px;=
+color:#000000;line-height:190%;text-align:left;word-wrap:break-word">
+    <div>
+<div dir=3D"auto"><span style=3D"color:#000000;line-height:28.5px"><span st=
+yle=3D"color:#000000;line-height:28.5px"><strong><span dir=3D"auto" style=
+=3D"line-height:28.5px"><span style=3D"line-height:28.5px">=F0=9F=92=8C</sp=
+an></span>=C2=A0Jelentkez=C3=A9s:</strong>=C2=A0<span dir=3D"auto" style=3D=
+"line-height:28.5px"></span></span></span>A jelentkez=C3=A9sedet k=C3=A9rj=
+=C3=BCk, az <a rel=3D"noopener noreferrer" href=3D"mailto:info@patent.org.h=
+u?subject=3DJelentkez%C3%A9s%20irodavezet%C5%91i%20munkak%C3%B6rbe" target=
+=3D"_blank"><strong>info@patent.org.hu</strong></a> c=C3=ADmre k=C3=BCldd =
+=C3=B6n=C3=A9letrajzzal =C3=A9s motiv=C3=A1ci=C3=B3s lev=C3=A9llel!<span st=
+yle=3D"color:#000000;line-height:28.5px"><span dir=3D"auto" style=3D"line-h=
+eight:28.5px"></span>=C2=A0</span></div>
+
+<div dir=3D"auto"><span style=3D"color:#000000;line-height:28.5px"><strong>=
+=F0=9F=95=92 Jelentkez=C3=A9si hat=C3=A1rid=C5=91:</strong> <span dir=3D"au=
+to" style=3D"line-height:28.5px">december 10.</span></span></div>
+
+</div>
+
+  </div>
+
+
+      </td>
+
+    </tr>
+  </tbody>
+</table>
+
+<table style=3D"font-family:arial,helvetica,sans-serif" role=3D"presentatio=
+n" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0">
+  <tbody>
+    <tr>
+      <td style=3D"word-break:break-word;padding:10px;font-family:arial,hel=
+vetica,sans-serif" align=3D"left">
+       =20
+  <div style=3D"font-family:&#39;Montserrat&#39;,sans-serif;font-size:15px;=
+color:#000000;line-height:150%;text-align:left;word-wrap:break-word">
+    <div>A kiv=C3=A1laszt=C3=A1s ezt k=C3=B6vet=C5=91en 2 k=C3=B6r=C3=B6s l=
+esz: <strong>a december 19-ei h=C3=A9ten pr=C3=B3bafeladatot k=C3=BCld=C3=
+=BCnk</strong>, majd janu=C3=A1r els=C5=91 het=C3=A9ben online interj=C3=BA=
+ra v=C3=A1rjuk a kiv=C3=A1lasztott jelentkez=C5=91ket.</div>
+
+  </div>
+
+
+      </td>
+
+    </tr>
+  </tbody>
+</table>
+
+  </div>
+
+  </div>
+
+</div>
+
+
+     =20
+    </div>
+
+  </div>
+
+  </div>
+
+ =20
+
+
+ =20
+ =20
+<div class=3D"m_-4675215168516466068u-row-container" style=3D"padding:0px;b=
+ackground-color:transparent">
+  <div class=3D"m_-4675215168516466068u-row" style=3D"margin:0 auto;min-wid=
+th:320px;max-width:600px;word-wrap:break-word;word-break:break-word;backgro=
+und-color:transparent">
+    <div style=3D"border-collapse:collapse;display:table;width:100%;height:=
+100%;background-color:transparent">
+     =20
+     =20
+
+<div class=3D"m_-4675215168516466068u-col m_-4675215168516466068u-col-100" =
+style=3D"max-width:320px;min-width:600px;display:table-cell;vertical-align:=
+top">
+  <div style=3D"height:100%;width:100%!important;border-radius:0px">
+  <div style=3D"box-sizing:border-box;height:100%;padding:0px;border-top:0p=
+x solid transparent;border-left:0px solid transparent;border-right:0px soli=
+d transparent;border-bottom:0px solid transparent;border-radius:0px">
+ =20
+<table style=3D"font-family:arial,helvetica,sans-serif" role=3D"presentatio=
+n" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0">
+  <tbody>
+    <tr>
+      <td style=3D"word-break:break-word;padding:15px 10px;font-family:aria=
+l,helvetica,sans-serif" align=3D"left">
+       =20
+ =20
+<div align=3D"center">
+ =20
+    <a href=3D"mailto:info@patent.org.hu?subject=3DJelentkez%C3%A9s%20adom%=
+C3%A1nyszervez%C5%91i%20munkak%C3%B6rbe" style=3D"box-sizing:border-box;dis=
+play:inline-block;text-decoration:none;text-align:center;color:#ffffff;back=
+ground-color:#ff004c;border-radius:4px;width:auto;max-width:100%;word-break=
+:break-word;word-wrap:break-word;font-family:&#39;Montserrat&#39;,sans-seri=
+f;font-size:15px" target=3D"_blank" rel=3D"noreferrer">
+      <span style=3D"display:block;padding:10px 20px;line-height:120%"><str=
+ong><span style=3D"line-height:18px">Jelentkezem az =C3=A1ll=C3=A1sra!</spa=
+n></strong></span>
+    </a>
+   =20
+</div>
+
+
+      </td>
+
+    </tr>
+  </tbody>
+</table>
+
+<table style=3D"font-family:arial,helvetica,sans-serif" role=3D"presentatio=
+n" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0">
+  <tbody>
+    <tr>
+      <td style=3D"word-break:break-word;padding:10px 10px 15px;font-family=
+:arial,helvetica,sans-serif" align=3D"left">
+       =20
+  <div style=3D"font-family:&#39;Montserrat&#39;,sans-serif;font-size:15px;=
+color:#000000;line-height:160%;text-align:left;word-wrap:break-word">
+    <p style=3D"line-height:160%"><span style=3D"color:rgb(0,0,0);line-heig=
+ht:24px"><strong>=C3=81gnes M=C3=A1ria, ha ismersz valakit, akinek =C3=A9rd=
+ekes lehet az =C3=A1ll=C3=A1s, tov=C3=A1bb=C3=ADtsd neki ezt az emailt!</st=
+rong></span></p>
+
+  </div>
+
+
+      </td>
+
+    </tr>
+  </tbody>
+</table>
+
+  </div>
+
+  </div>
+
+</div>
+
+
+     =20
+    </div>
+
+  </div>
+
+  </div>
+
+ =20
+
+
+ =20
+ =20
+<div class=3D"m_-4675215168516466068u-row-container" style=3D"padding:0px;b=
+ackground-color:transparent">
+  <div class=3D"m_-4675215168516466068u-row" style=3D"margin:0 auto;min-wid=
+th:320px;max-width:600px;word-wrap:break-word;word-break:break-word;backgro=
+und-color:transparent">
+    <div style=3D"border-collapse:collapse;display:table;width:100%;height:=
+100%;background-color:transparent">
+     =20
+     =20
+
+<div class=3D"m_-4675215168516466068u-col m_-4675215168516466068u-col-50" s=
+tyle=3D"max-width:320px;min-width:300px;display:table-cell;vertical-align:t=
+op">
+  <div style=3D"height:100%;width:100%!important;border-radius:0px">
+  <div style=3D"box-sizing:border-box;height:100%;padding:0px;border-top:0p=
+x solid transparent;border-left:0px solid transparent;border-right:0px soli=
+d transparent;border-bottom:0px solid transparent;border-radius:0px">
+ =20
+<table style=3D"font-family:arial,helvetica,sans-serif" role=3D"presentatio=
+n" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0">
+  <tbody>
+    <tr>
+      <td style=3D"word-break:break-word;padding:20px 10px 10px;font-family=
+:arial,helvetica,sans-serif" align=3D"left">
+       =20
+<table role=3D"presentation" width=3D"100%" cellpadding=3D"0" cellspacing=
+=3D"0" border=3D"0">
+  <tr>
+    <td style=3D"padding-right:0px;padding-left:0px" align=3D"center">
+     =20
+      <img align=3D"center" border=3D"0" src=3D"https://actionnetwork.org/u=
+nlayer_files/1741189171864-patent_logo_2J%C3%93SZ%C3%8DN.png" alt=3D"" titl=
+e=3D"" style=3D"outline:none;text-decoration:none;clear:both;display:inline=
+-block!important;border:none;height:auto;float:none;width:41%;max-width:114=
+.8px" width=3D"114.8">
+     =20
+    </td>
+
+  </tr>
+</table>
+
+      </td>
+
+    </tr>
+  </tbody>
+</table>
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+<div class=3D"m_-4675215168516466068u-col m_-4675215168516466068u-col-50" s=
+tyle=3D"max-width:320px;min-width:300px;display:table-cell;vertical-align:t=
+op">
+  <div style=3D"height:100%;width:100%!important;border-radius:0px">
+  <div style=3D"box-sizing:border-box;height:100%;padding:0px;border-top:0p=
+x solid transparent;border-left:0px solid transparent;border-right:0px soli=
+d transparent;border-bottom:0px solid transparent;border-radius:0px">
+ =20
+<table style=3D"font-family:arial,helvetica,sans-serif" role=3D"presentatio=
+n" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0">
+  <tbody>
+    <tr>
+      <td style=3D"word-break:break-word;padding:10px;font-family:arial,hel=
+vetica,sans-serif" align=3D"left">
+       =20
+  <div style=3D"font-family:&#39;Montserrat&#39;,sans-serif;font-size:15px;=
+color:#000000;line-height:160%;text-align:right;word-wrap:break-word">
+    <p style=3D"line-height:160%"><span style=3D"color:#000000;line-height:=
+24px">K=C3=B6sz=C3=B6nj=C3=BCk, hogy vel=C3=BCnk vagy!</span></p>
+
+<p style=3D"line-height:160%"><span style=3D"color:#000000;line-height:24px=
+">K=C3=B6sz=C3=B6nj=C3=BCk, hogy a n=C5=91kkel vagy!</span></p>
+
+  </div>
+
+
+      </td>
+
+    </tr>
+  </tbody>
+</table>
+
+<table style=3D"font-family:arial,helvetica,sans-serif" role=3D"presentatio=
+n" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0">
+  <tbody>
+    <tr>
+      <td style=3D"word-break:break-word;padding:5px 10px 10px;font-family:=
+arial,helvetica,sans-serif" align=3D"left">
+       =20
+  <div style=3D"font-family:&#39;Montserrat&#39;,sans-serif;font-size:15px;=
+color:#000000;line-height:160%;text-align:right;word-wrap:break-word">
+    <p style=3D"line-height:160%"><span style=3D"color:#ff004c;line-height:=
+24px"><strong><span style=3D"line-height:24px">Fanny =C3=A9s a PATENT csapa=
+ta</span></strong></span></p>
+
+  </div>
+
+
+      </td>
+
+    </tr>
+  </tbody>
+</table>
+
+  </div>
+
+  </div>
+
+</div>
+
+
+     =20
+    </div>
+
+  </div>
+
+  </div>
+
+ =20
+
+
+ =20
+ =20
+<div class=3D"m_-4675215168516466068u-row-container" style=3D"padding:0px;b=
+ackground-color:transparent">
+  <div class=3D"m_-4675215168516466068u-row" style=3D"margin:0 auto;min-wid=
+th:320px;max-width:600px;word-wrap:break-word;word-break:break-word;backgro=
+und-color:transparent">
+    <div style=3D"border-collapse:collapse;display:table;width:100%;height:=
+100%;background-color:transparent">
+     =20
+     =20
+
+<div class=3D"m_-4675215168516466068u-col m_-4675215168516466068u-col-100" =
+style=3D"max-width:320px;min-width:600px;display:table-cell;vertical-align:=
+top">
+  <div style=3D"height:100%;width:100%!important;border-radius:0px">
+  <div style=3D"box-sizing:border-box;height:100%;padding:0px;border-top:0p=
+x solid transparent;border-left:0px solid transparent;border-right:0px soli=
+d transparent;border-bottom:0px solid transparent;border-radius:0px">
+ =20
+<table style=3D"font-family:arial,helvetica,sans-serif" role=3D"presentatio=
+n" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0">
+  <tbody>
+    <tr>
+      <td style=3D"word-break:break-word;padding:15px 10px 5px;font-family:=
+arial,helvetica,sans-serif" align=3D"left">
+       =20
+  <div style=3D"font-family:&#39;Montserrat&#39;,sans-serif;font-size:13px;=
+color:#000000;line-height:160%;text-align:left;word-wrap:break-word">
+    <p style=3D"line-height:160%"><span style=3D"color:#000000;line-height:=
+20.8px">Tov=C3=A1bb=C3=ADtva kaptad ezt az emailt? Ha szeretn=C3=A9l felira=
+tkozni h=C3=ADrlevel=C3=BCnkre, <a rel=3D"noopener noreferrer" href=3D"http=
+s://click.actionnetwork.org/ss/c/u001.qUXRBnqZ7T8nxbpAcIVwoUsWLkUMWlo_0JmZt=
+tSlm38QKENO8bejLUXemYAsbFmL7q1atc-8S7nfGiFehMWyW4KOE39bDr6xve0_nz8uftB46EX9=
+apRyXjbFG-dovjtGAVKgJP6Q68awG5YYXLcqEpRp4xav7N2mrZlY4ckmcjNCuebG5WPqa9ktfSU=
+jAMf2LVe_FhEcCmGW5kOKjtObPnkcphmeFVN69-mb6nZREi-38KXU4VgQ3VaXaUtvQBnIPiCXdW=
+drT37qLJhlyVo-C0NLuNUCGbz5bVUjOuSJF1LCQQ5DcSENam8gxOkT5VIE36O-16wrO1RKmYIfo=
+dlQIQ/4m3/BnnuITliQVSp0pgUZIS_hQ/h0/h001.-S8L5XFIfmUDTFEU9a8Qm1bNG7QJKD3W_G=
+wWug1-KFg" target=3D"_blank">kattints ide</a>!</span></p>
+
+  </div>
+
+
+      </td>
+
+    </tr>
+  </tbody>
+</table>
+
+<table style=3D"font-family:arial,helvetica,sans-serif" role=3D"presentatio=
+n" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0">
+  <tbody>
+    <tr>
+      <td style=3D"word-break:break-word;padding:10px;font-family:arial,hel=
+vetica,sans-serif" align=3D"left">
+       =20
+  <table role=3D"presentation" aria-label=3D"divider" height=3D"0px" align=
+=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%"=
+ style=3D"border-collapse:collapse;table-layout:fixed;border-spacing:0;vert=
+ical-align:top;border-top:1px solid #bbbbbb">
+    <tbody>
+      <tr style=3D"vertical-align:top">
+        <td style=3D"word-break:break-word;border-collapse:collapse!importa=
+nt;vertical-align:top;font-size:0px;line-height:0px">
+          <span>=C2=A0</span>
+        </td>
+
+      </tr>
+    </tbody>
+  </table>
+
+      </td>
+
+    </tr>
+  </tbody>
+</table>
+
+  </div>
+
+  </div>
+
+</div>
+
+
+     =20
+    </div>
+
+  </div>
+
+  </div>
+
+ =20
+
+
+ =20
+ =20
+<div class=3D"m_-4675215168516466068u-row-container" style=3D"padding:0px;b=
+ackground-color:transparent">
+  <div class=3D"m_-4675215168516466068u-row" style=3D"margin:0 auto;min-wid=
+th:320px;max-width:600px;word-wrap:break-word;word-break:break-word;backgro=
+und-color:transparent">
+    <div style=3D"border-collapse:collapse;display:table;width:100%;height:=
+100%;background-color:transparent">
+     =20
+     =20
+
+<div class=3D"m_-4675215168516466068u-col m_-4675215168516466068u-col-33p33=
+" style=3D"max-width:320px;min-width:200px;display:table-cell;vertical-alig=
+n:top">
+  <div style=3D"height:100%;width:100%!important;border-radius:0px">
+  <div style=3D"box-sizing:border-box;height:100%;padding:0px;border-top:0p=
+x solid transparent;border-left:0px solid transparent;border-right:0px soli=
+d transparent;border-bottom:0px solid transparent;border-radius:0px">
+ =20
+<table style=3D"font-family:arial,helvetica,sans-serif" role=3D"presentatio=
+n" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0">
+  <tbody>
+    <tr>
+      <td style=3D"word-break:break-word;padding:10px;font-family:arial,hel=
+vetica,sans-serif" align=3D"left">
+       =20
+<table role=3D"presentation" width=3D"100%" cellpadding=3D"0" cellspacing=
+=3D"0" border=3D"0">
+  <tr>
+    <td style=3D"padding-right:0px;padding-left:0px" align=3D"center">
+      <a href=3D"https://click.actionnetwork.org/ss/c/u001.XaF8mXqsA6b2dSPm=
+hsleMctRoxlFO9O82fTB5zU1O8G5_XztQE-sEOEQ-Q9ufD1ytREa2fk8JojULWQg5RoyFrSg2k2=
+qiM_MyBK4KObGINHG40M-hNjZVgbAkPCT-rYPmLpyIfrpwTAsK72jInH0jlCy3OJEPsWEyfJz-m=
+PHYSkdLUtRR2oksi_jXMQR-PTHwL7bh6NdypmK7PjWtzSZHaHnYNdrI4m_a1FORirGKD-XKoHFC=
+SsGEqnacfERxes52UQ2_QJpGkBpxBR1xEZjNe9EF4k4rfXPyUQDF3Ac-yGLeHg3GwkBtPJw7XY0=
+78jVMvRVNYKYYY6yUHH22IRpsg/4m3/BnnuITliQVSp0pgUZIS_hQ/h1/h001.F5ljadyncjqV0=
+j3MXeEvK_9bK7GhAOY-rmJHBxxwgII" target=3D"_blank" rel=3D"noreferrer">
+      <img align=3D"center" border=3D"0" src=3D"https://actionnetwork.org/u=
+nlayer_files/1689939248277-fb+icon.png" alt=3D"" title=3D"" style=3D"outlin=
+e:none;text-decoration:none;clear:both;display:inline-block!important;borde=
+r:none;height:auto;float:none;width:15%;max-width:27px" width=3D"27">
+      </a>
+    </td>
+
+  </tr>
+</table>
+
+      </td>
+
+    </tr>
+  </tbody>
+</table>
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+<div class=3D"m_-4675215168516466068u-col m_-4675215168516466068u-col-33p33=
+" style=3D"max-width:320px;min-width:200px;display:table-cell;vertical-alig=
+n:top">
+  <div style=3D"height:100%;width:100%!important;border-radius:0px">
+  <div style=3D"box-sizing:border-box;height:100%;padding:0px;border-top:0p=
+x solid transparent;border-left:0px solid transparent;border-right:0px soli=
+d transparent;border-bottom:0px solid transparent;border-radius:0px">
+ =20
+<table style=3D"font-family:arial,helvetica,sans-serif" role=3D"presentatio=
+n" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0">
+  <tbody>
+    <tr>
+      <td style=3D"word-break:break-word;padding:10px;font-family:arial,hel=
+vetica,sans-serif" align=3D"left">
+       =20
+<table role=3D"presentation" width=3D"100%" cellpadding=3D"0" cellspacing=
+=3D"0" border=3D"0">
+  <tr>
+    <td style=3D"padding-right:0px;padding-left:0px" align=3D"center">
+      <a href=3D"https://click.actionnetwork.org/ss/c/u001.XaF8mXqsA6b2dSPm=
+hsleMWn3R7U15hZOprFI75oZg47u-3CATOMvFIV-rlieYp2DoDqUopCU9b27WlScl632SXgPg99=
+18DJouE7wLuVUAw_5_pbcbpw0C1NT-hBKNQEw-s971mz8n8w1e6zAP0Cc2OHBBcW2oVh0lFiB7z=
+OaSv8kpnnT0DMcYSH9iGU9rCvcRg9noNwoiEnAyW0EnMnfF3rjct2eFAZ3dhR732-hhmT9fcrve=
+rCijfXbpL772ACm1h_8RR8K2bJ-erN-adY5vog2yRRpzByng1oEX8ZldSNa1a06hax_0amFLpNl=
+AWS0m8ES_ks7lndIVDEXnK2UyQ/4m3/BnnuITliQVSp0pgUZIS_hQ/h2/h001.XCwo3VdKEVLlR=
+o8sCvkIhNAQuwIgTu443eJeVV9Rd-k" target=3D"_blank" rel=3D"noreferrer">
+      <img align=3D"center" border=3D"0" src=3D"https://actionnetwork.org/u=
+nlayer_files/1740133686915-Instagram_icon.png" alt=3D"" title=3D"" style=3D=
+"outline:none;text-decoration:none;clear:both;display:inline-block!importan=
+t;border:none;height:auto;float:none;width:15%;max-width:27px" width=3D"27"=
+>
+      </a>
+    </td>
+
+  </tr>
+</table>
+
+      </td>
+
+    </tr>
+  </tbody>
+</table>
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+<div class=3D"m_-4675215168516466068u-col m_-4675215168516466068u-col-33p33=
+" style=3D"max-width:320px;min-width:200px;display:table-cell;vertical-alig=
+n:top">
+  <div style=3D"height:100%;width:100%!important;border-radius:0px">
+  <div style=3D"box-sizing:border-box;height:100%;padding:0px;border-top:0p=
+x solid transparent;border-left:0px solid transparent;border-right:0px soli=
+d transparent;border-bottom:0px solid transparent;border-radius:0px">
+ =20
+<table style=3D"font-family:arial,helvetica,sans-serif" role=3D"presentatio=
+n" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0">
+  <tbody>
+    <tr>
+      <td style=3D"word-break:break-word;padding:10px;font-family:arial,hel=
+vetica,sans-serif" align=3D"left">
+       =20
+<table role=3D"presentation" width=3D"100%" cellpadding=3D"0" cellspacing=
+=3D"0" border=3D"0">
+  <tr>
+    <td style=3D"padding-right:0px;padding-left:0px" align=3D"center">
+      <a href=3D"https://click.actionnetwork.org/ss/c/u001.lmpSTrE-G07FKUPT=
+dpC9IUw1TsIS-lgcEASN7XP0Eg82795jKu3mtukF4o8hLq7dUShuoszK6779SrhvnsYUzr0kRHV=
+E6RwoAwAjcbHfotn7y2wtqq4KY9576iICr2i_Q3-1r4rkFSiVlFQWdn_Rl0G4EsLNiHIUpmSnlv=
+85OxKu7MevlA7PB_f69j14BgIw5hYQNzysQfNpWIW4Sz8ekERNZDZjM1_FGPQKbrMrDTE2Sc-RU=
+qbtzFo7clK24b21L-7DSEuDtJVEZFku3hNoq_86nti06PJozJss8UOd9k3GitjwLG2TbJqkK04h=
+U3xX/4m3/BnnuITliQVSp0pgUZIS_hQ/h3/h001.ayr5tNDnJBexdTfgxYZYtL5MH6OTQZfxybV=
+eLdAdZ90" target=3D"_blank" rel=3D"noreferrer">
+      <img align=3D"center" border=3D"0" src=3D"https://actionnetwork.org/u=
+nlayer_files/1689939319886-webiste+icon.png" alt=3D"" title=3D"" style=3D"o=
+utline:none;text-decoration:none;clear:both;display:inline-block!important;=
+border:none;height:auto;float:none;width:15%;max-width:27px" width=3D"27">
+      </a>
+    </td>
+
+  </tr>
+</table>
+
+      </td>
+
+    </tr>
+  </tbody>
+</table>
+
+  </div>
+
+  </div>
+
+</div>
+
+
+     =20
+    </div>
+
+  </div>
+
+  </div>
+
+ =20
+
+
+   =20
+    </td>
+
+  </tr>
+  </tbody>
+  </table>
+ =20
+ =20
+<center>
+  <table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" align=3D"center" =
+id=3D"m_-4675215168516466068backgroundTable" style=3D"margin:0;padding:0;he=
+ight:100%!important;width:100%!important;line-height:100%!important;border-=
+collapse:collapse" role=3D"presentation">
+    <tr>
+      <td align=3D"center" valign=3D"top" style=3D"border-collapse:collapse=
+">
+		<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-t=
+op:2px solid #909090;border-collapse:collapse" role=3D"presentation">
+		  <tr>
+		    <td valign=3D"top" style=3D"border-collapse:collapse">
+		      <table border=3D"0" cellpadding=3D"10" cellspacing=3D"0" style=3D"b=
+order-collapse:collapse" role=3D"presentation">
+		        <tr>
+		          <td colspan=3D"2" valign=3D"middle" style=3D"border-collapse:co=
+llapse;border-top:0">
+		            <div style=3D"color:#333333;font-family:Arial;font-size:11px;=
+line-height:125%;text-align:left" dir=3D"auto">
+		                K=C3=BCldve <a href=3D"https://click.actionnetwork.org/ss=
+/c/u001.vJH41MPG4bgUd6h6NGKFprEVd5SZ3aeQlOtv77_nyyTp5vYKL39neom0x5aWZYoKeTP=
+j3Av9cMJ5UDNcnGo0JsXWRzvpyieIpaqGtFqdPJmkEnlGHmDHxpzRKBvHdDIaw9StZIBfj8euXG=
+ml33YBH30ViXpjpnZeHZXIKpw1_8RJ45l1KfaeiTkxupKNBJMpyd3ptNWV8nKAyNvL97giqtn2N=
+0dTTbn5aRdC7u7osGCFCaBMTzhpJuYPIrIZhIu4nSAtBe6uATEIkK2UiW7Bmrja-zyRePqYzglZ=
+PxHWhkNGFmy6NypTrjIHHc7SOFEH/4m3/BnnuITliQVSp0pgUZIS_hQ/h4/h001.euEclB8TVy7=
+9j67VaSXiqNQKmKtE4Qv3Apw3cRvCFnI" style=3D"color:#004a6d" target=3D"_blank"=
+ rel=3D"noreferrer">ActionNetwork.org</a>.
+		              Ha szeretn=C3=A9d friss=C3=ADteni az e-mail c=C3=ADmed, nev=
+ed, vagy lakc=C3=ADmed, esetleg leiratkozn=C3=A1l (a) Patent Egyes=C3=BClet=
+ csapat=C3=A1nak leveleir=C5=91l, akkor <a href=3D"https://click.actionnetw=
+ork.org/ss/c/u001.qUXRBnqZ7T8nxbpAcIVwoUsWLkUMWlo_0JmZttSlm3-gP0Xd1LL-Lub7G=
+k22PHy92ncKIW2S6DBbjj3xusaLAvBOzzSwoVyJVRy7nPuF6kr91f77y11NndOE54klTyUnqQR4=
+XfMqanMy-AkHLp31Uk3QcaLm_ifHJUDDr9kbHAJvcWs14K85_SLGeIyauWKiiFreSZPqtCp_syX=
+-lVZkZxyR7YWKiVnuTAwH1fYoRWDmAxeelwKNtYfUQ3cTvdTzdlm8XgV3k4GNpGqXbmpEIQxUAQ=
+5FZxLG2Nfv87ebbE2fKt9_hyjKBpvs-k2dEBj2zCiIh-qilhiWHsfBBKPad0dEU4tfNbh38qMrK=
+H0qPpUvdMqMtKMdfgH1X1soUKsglf8eTDG8gih2n7bqSV3HfqOAtecP1PCPxNqjcEmvm9K5Zx0N=
+t_zgogiEwrRCjgw60CWCdFfEcCy4VXfgKFF4B6qG8KBgne_VnSuJ6vIav6g/4m3/BnnuITliQVS=
+p0pgUZIS_hQ/h5/h001.EWlIRsvQR3rtizVikdB_5z_DufvVmYb1eskmdCuGtUg" style=3D"c=
+olor:#004a6d;font-weight:normal;text-decoration:underline" target=3D"_blank=
+" rel=3D"noreferrer">Kattints ide</a>.
+		            </div>
+
+		          </td>
+
+		        </tr>
+		      </table>
+		    </td>
+
+		  </tr>
+		</table>
+      </td>
+
+    </tr>
+  </table>
+</center>
+<img src=3D"https://click.actionnetwork.org/ss/o/u001.ZbNyqOfLYPaP-d23SgKjn=
+Q/4m3/BnnuITliQVSp0pgUZIS_hQ/ho.gif" alt=3D"" width=3D"1" height=3D"1" bord=
+er=3D"0" style=3D"height:1px!important;width:1px!important;border-width:0!i=
+mportant;margin-top:0!important;margin-bottom:0!important;margin-right:0!im=
+portant;margin-left:0!important;padding-top:0!important;padding-bottom:0!im=
+portant;padding-right:0!important;padding-left:0!important"></div>
+
+
+</div>
+
+--0000000000009c83cc0644fa7b42--

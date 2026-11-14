@@ -1,0 +1,553 @@
+Delivered-To: estampel@gmail.com
+Received: by 2002:a05:6358:8515:b0:1d2:9cb:7268 with SMTP id n21csp196403rwk;
+        Thu, 23 Jan 2025 03:33:18 -0800 (PST)
+X-Received: by 2002:a17:907:72c6:b0:ab3:3eea:1ccc with SMTP id a640c23a62f3a-ab38b165f9cmr2787839366b.27.1737631998280;
+        Thu, 23 Jan 2025 03:33:18 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1737631998; cv=none;
+        d=google.com; s=arc-20240605;
+        b=TwCIlGv65UA8zZvnUK8GxIt946ZAsv/oU2bsDU+bO1QXFNH6MLg5U0asHihq9986A8
+         L2WBpUAPidks8CeXAyS5r7R37Qq1jnNj0I8aez/OUSCnZPHtBWPI3IJpPmfXQxZlQl/q
+         MecIo/hI9d8ouB32Et1u/Gc0PvMSgvlseDAUqkm+IQOhx7A+QQU8/DOGw2ij2crnuKCz
+         0tznEr6LbnVm87pxxhzvvO7sD7zqlCeLb1bCc5/LeK8gq1Q7C3GkOUDf8Iq9Ae00cJqG
+         9mbPjn6yoGMo9hyaZz2jcftaonOf2v7Ij4Z5slKFzfXT+i4h+/kO3DKlfKRYqHZ1eZQq
+         PQHQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=IbV4/xnntxwzI+wKkiZXEF1kt6ea8Mcglf7OivZq0To=;
+        fh=wF/Yrd2E0xeKwPH74kML7cQSth+Fl4bwhVNrybJ4uh4=;
+        b=WtuY3J0jsLdoNhwg2vjrOcbPNjDZmTEmIbEO7EZwSiq2NZS2X5/NxxjPC6PN7u+v6Y
+         vn++Zkp5N8w9RV1zn2gn2ujama81nps+x3hkkJIFvnh0Nn8icDakJ0EyTWVed15xdFmP
+         Ugt96aefnpNKZ8eaypPpY7nkZZlB1uyyB2afIohiWpd010CxgZ0vck4XL2BrUfPzm0/g
+         YcqJ0JITQ4oUQBMJUbYYTk7HQxWrxiZxJmhekGKMcV3J2UXgp7kj5X/BTDnb2dtVZKGq
+         FaVDbd1d64aO7ya4U/rs5h64I4Rt6HdEZNL7n4eFJ8SdASgOLFBaKMmC0OnWYCiH8mDu
+         0U/A==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=frM+vxVr;
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <banyus53@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id a640c23a62f3a-ab384f4a2d3sor669894566b.12.2025.01.23.03.33.18
+        for <estampel@gmail.com>
+        (Google Transport Security);
+        Thu, 23 Jan 2025 03:33:18 -0800 (PST)
+Received-SPF: pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=frM+vxVr;
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1737631996; x=1738236796; dara=google.com;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=IbV4/xnntxwzI+wKkiZXEF1kt6ea8Mcglf7OivZq0To=;
+        b=frM+vxVr6MAH1/KViYMPWNucv8Sn8c0hg8+wRTco4i8J4pYmd1JT5Sx0xXH8SnuiAf
+         rHUBT32md3fJ8lD3TXhpasCHcXpTZ2BVx/fqUxf/9LInEhSEprGjn8VKnn/QDtV1MWG0
+         sU6ibomzp6fGxo56e2sAqhHefR6eSifVPdyU7qT8Qeg8OSaVbhS44ATcUMnF6stNrs8Z
+         KfsVIxx4PTBJ0XXLg1D7xTD/cl5flZi7GnZuuXCHEVvq2NybmFLs6/2gFx+0D3pjxJwY
+         1xqaMJi8YvAt9+QeXMJVRK2tYj/CIFEttdPLir81TNWivg+VUw+VO+RxwWY+jEAmRLXm
+         Ps0Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1737631996; x=1738236796;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=IbV4/xnntxwzI+wKkiZXEF1kt6ea8Mcglf7OivZq0To=;
+        b=X4puEacztTrixSzTIRLLBJopblqMT3sXqqT9N+WPxMs+p0cGzpBTWM0fgujG02aBnE
+         8epjw6aRiZdKvDxgwOABLxctfYBV0uo/9/E8x9u/m49Ov6vtWcXP3XbLuyNJNABpSgeb
+         h/B+O99/fiNM4ipr2zltBxyjbL4pBoOv1ikVm4sWOl4SjI/wH074YOgeaJDG6pile9mf
+         QWFE/+Gw8WJgEwsxE2chdCnwV3B9he6Kcj9czXL2CIr4MdqPh797KWly7VrbgZvddClk
+         tLby0OtOgQNkSANl5Qm18bPRYDfzBUNSuCEqvvmwSv5Fd/Nnqta6IIqbD9A6AuQgcqQO
+         di6Q==
+X-Gm-Message-State: AOJu0Yx0KO2JqT+8TqwoEpZTH9tycRsbSO0P7oNU7yY2+O+zvI1+MmMS
+	IMO2Bm0fzrmRDXWex2pfr1ASDnM/YN7g7zsb9D01bhWn9UDPcQkGAp653GmzvQHNncDVN1T3/G/
+	BD4UrqaIwENCAuSjbzIZzGYhok94now==
+X-Gm-Gg: ASbGnctXeaqW1I4zg9NwRU3XBoHkMeedetIkPvjc3XBLH4RBXVsNeMZppl7xYEgvHyO
+	fPv/TDt2qfE9Acrej7sg3qpRUpLhyrqGp4j0BsDP9zLr+lEN7eYo8ZgmpaJjYSG4NjI7/2aIYw2
+	FEcEjw7CR9Co6gZ2XNYmfF
+X-Google-Smtp-Source: AGHT+IEUtTyuCNP32UphUYG3ExI9B4QIPok/4EHf9y74GpIHfOol1F1anhVhp3P37gnjhabGC43uk3npW39TEQOSpkU=
+X-Received: by 2002:a17:907:3602:b0:aaf:74b3:80db with SMTP id
+ a640c23a62f3a-ab38b0b90f1mr2470249566b.3.1737631996325; Thu, 23 Jan 2025
+ 03:33:16 -0800 (PST)
+MIME-Version: 1.0
+References: <67922595ae193_18f72c3d23775baa18614760@ip-10-0-0-121.mail>
+In-Reply-To: <67922595ae193_18f72c3d23775baa18614760@ip-10-0-0-121.mail>
+From: =?UTF-8?B?w4FnbmVzIEJ1Z8Ohcg==?= <banyus53@gmail.com>
+Date: Thu, 23 Jan 2025 12:32:49 +0100
+X-Gm-Features: AbW1kvbk-PzgwmqSHnnN1MQAlBpObmKJ8-Nx57UDRjBCJ6ZZKGk1UsnY-QMLK28
+Message-ID: <CA+39czWJ-cqc821vnJ67mfraq3nEV=vjuRFOdxDJn+pJKwv-Vw@mail.gmail.com>
+Subject: =?UTF-8?B?RndkOiBNYWd5YXLDoXphdG90IGvDtnZldGVsw7xuayBtb3N0IQ==?=
+To: Emese Stampel <estampel@gmail.com>
+Content-Type: multipart/alternative; boundary="000000000000e4381c062c5df932"
+
+--000000000000e4381c062c5df932
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+---------- Forwarded message ---------
+Felad=C3=B3: Tan=C3=ADtan=C3=A9k Mozgalom <akcio@tanitanek.info>
+Date: 2025. jan. 23., Cs, 12:18
+Subject: Magyar=C3=A1zatot k=C3=B6vetel=C3=BCnk most!
+To: <banyus53@gmail.com>
+
+
+Biztons=C3=A1gos oktat=C3=A1s a gyermekeinknek!
+
+*Kedves =C3=81gnes M=C3=A1ria!*
+
+Janu=C3=A1r 23-=C3=A1n t=C3=B6bb mint *240 iskol=C3=A1ban volt bombariad=C3=
+=B3*, ez=C3=A9rt v=C3=A1laszokat
+k=C3=B6vetel=C3=BCnk:
+
+
+
+Pint=C3=A9r S=C3=A1ndor bel=C3=BCgyminiszter =C3=A9s Rog=C3=A1n Antal polg=
+=C3=A1ri titkosszolg=C3=A1latok=C3=A9rt
+felel=C5=91s miniszter azonnal adjon magyar=C3=A1zatot arra, hogy *hogyan
+t=C3=B6rt=C3=A9nhetett meg ez a kiterjedt fenyeget=C3=A9s an=C3=A9lk=C3=BCl=
+, hogy a felel=C5=91s
+szolg=C3=A1latok tudtak volna r=C3=B3la? Ha pedig tudtak, mi=C3=A9rt nem cs=
+elekedtek
+id=C5=91ben?*
+
+
+
+K=C3=B6vetelj=C3=BCk tov=C3=A1bb=C3=A1, hogy azonnal *adj=C3=A1k vissza a t=
+elefonokat a
+gyermekeinknek!* A korm=C3=A1ny vonja vissza azt a rendeletet, mely el=C5=
+=91=C3=ADrja a
+telefonok elv=C3=A9tel=C3=A9t az iskol=C3=A1kban! Garant=C3=A1lni kell, hog=
+y v=C3=A9szhelyzetben a
+gyerekek el tudj=C3=A1k =C3=A9rni a sz=C3=BCleiket.
+CSATLAKOZOM!
+<https://click.actionnetwork.org/ss/c/u001.qUXRBnqZ7T8nxbpAcIVwocRDf73oRV2J=
+3z7VcuYVaVh8r845k64Un8YG4hrHNGh8KF9cu4OkD8AJ4DVpGg-cZtr5UrodQu4VHCqk9vZCJIl=
+cof3M2vsggp1BnQGTyk0xBzKMy3yDhXnvi1s4dc3yAgENLhLPg74GHUC6I3pSkF694qlA7pN6H2=
+v8mdlYj9814IE-yy_No8WLoHSfoBovTliGXrkBHETTdt15B_NAC3RDdk30fG4Avq4R3LXioAxM8=
+pX29bMvGqPs0HlS0_VCI4oF9gqPCIxxULIf6gqK7b8/4de/X0v8qcGDSqeJCAxV9GgbbA/h0/h0=
+01.qx2fo9C3McCbsGiAFalmSJwGOqkbhzOPa73Hb-oUQ8A>
+
+Csatlakozz a k=C3=B6vetel=C3=A9seinkhez, mert magyar=C3=A1zatot =C3=A9rdeme=
+l minden sz=C3=BCl=C5=91,
+gyermek =C3=A9s felel=C5=91s =C3=A1llampolg=C3=A1r!
+AL=C3=81=C3=8DROM A PET=C3=8DCI=C3=93T!
+<https://click.actionnetwork.org/ss/c/u001.qUXRBnqZ7T8nxbpAcIVwocRDf73oRV2J=
+3z7VcuYVaVh8r845k64Un8YG4hrHNGh8KF9cu4OkD8AJ4DVpGg-cZo9SUAyGpf6KVkYEuBEdW4s=
+q-emaaaA1yrDkf0fNkl59vNNBolWfHpIe4J6a3kiLEagqQpP2Pgo673HHUeKDnh3_oaMPJUuyZ5=
+48LVcMrJHWeqcBpChJAu8QFDp0HegKo0ii9vUe5tifKQ0cWs6RT-y6rHKT2SvzC5OpnfzGDscmQ=
+eQAXvnver9CCpZkYD6wqpVjOx8HJkqoPtzWZN9DNjQ/4de/X0v8qcGDSqeJCAxV9GgbbA/h1/h0=
+01.PfhOKkEG2H58A9FSg6TGI7VZ6DLw8e3GwjFLW95gUyY>
+
+K=C3=B6sz=C3=B6nj=C3=BCk, hogy vel=C3=BCnk tartasz!
+
+a Tan=C3=ADtan=C3=A9k csapata
+Adom=C3=A1nyt k=C3=BCld=C3=B6k a Tan=C3=ADtan=C3=A9knak!
+<https://click.actionnetwork.org/ss/c/u001.EtNV8HBC60Tl7UuGmXS3sWmDozg2Z96c=
+lS7KlwIvCrNdffM0xyn5ein-AJ0mGY7Bxow3pHn_Pt_T8aDYmxqU84PIKM8jkx2uHRxciOsvcyY=
+ydrvZxEzAgxC8_4sBdx0dLYujVG2280zaLdS7EBP_ENK5I7RX3LjIxUuEsWSI779mkDdzqjibkY=
+sfJQ71ZwrgY7GeeEQ6LG17QMn7DppXDZqD_wngyadCTKrfyinfNYgNaF_mAmVJtHQka8IDunLWH=
+aGw7fCTY141AfrlQDdG7EstqX9kXpu2rJlE9-dNhmw/4de/X0v8qcGDSqeJCAxV9GgbbA/h2/h0=
+01.tZX07uDo9DLjQph2KH6f6ItkQCNKxsuCVVTPhHpOB8M>
+K=C3=BCldve ActionNetwork.org
+<https://click.actionnetwork.org/ss/c/u001.vJH41MPG4bgUd6h6NGKFprEVd5SZ3aeQ=
+lOtv77_nyyQhv0TxclFxqGN6YpaKwRokU2ovJXl3DAeRkYHfZGIkNsiVFmCF6MWPxeyKGOZGRGM=
+TVAtUddkxOin2un2NiNMTd30HGSNPc1OcoBJbpN_73W3FkBn3foUQ0Zogz7etyMCXfAyI9IRp71=
+OgpuTFPmsjmqGfep-9VgeZq8cyaejPEJv7-17liBDB9ylu6pWP-cemDNl8DRvsXEiTG0TkMQ0c4=
+7denvdzuMtCESRsiIQFdg/4de/X0v8qcGDSqeJCAxV9GgbbA/h3/h001.ip1X3J0vF8qwYIcSSt=
+A_iQwmT4_sDGOpLoOvEmT2jXU>.
+Ha szeretn=C3=A9d friss=C3=ADteni az e-mail c=C3=ADmed, neved, vagy lakc=C3=
+=ADmed, esetleg
+leiratkozn=C3=A1l (a) Tanitanek csapat=C3=A1nak leveleir=C5=91l, akkor Katt=
+ints ide
+<https://click.actionnetwork.org/ss/c/u001.qUXRBnqZ7T8nxbpAcIVwoUsWLkUMWlo_=
+0JmZttSlm3-gP0Xd1LL-Lub7Gk22PHy9bDMo8dwVMcEdl-Sd8uRkAnJ4dBRgtjai4Bx-53ksRnJ=
+6keVH8LNW2CI1wnEXAhJHzA4V6XefJhgLvVPcFBCgRbYwo0daMQUdtpdIj0SZv4mkH9-FC7mwCQ=
+UTAq1qj4zHOWci28lneWWzBZVGYNdChX9cs0fzROicJm0kYZPpTEUKFzl-W8WED45aH_e5UX8QS=
+RbsU6GcOHQv9nJFDIvUlfRJ0_jlG6VEFxBeKfVOau8BH0ndZpNyPVJyVahCNwgjJdllRA4Pld0n=
+B6A0C4xmaPWAipgMQmRXofx5tN6LsfVHmOxwCS6W1aRU8oZkQey8z9OfdAMuZLCmcKyMYSxYZBw=
+zeWHA0CAwmJqb2hN8jSMr0ZrNkVTFXGjXRsSEaktP/4de/X0v8qcGDSqeJCAxV9GgbbA/h4/h00=
+1.gxm2SURwlN78gdtiacBdoW_W3BtJRcC-eeTmfJcP-Wg>.
+
+--000000000000e4381c062c5df932
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><br><br><div class=3D"gmail_quote gmail_quote_container"><=
+div dir=3D"ltr" class=3D"gmail_attr">---------- Forwarded message ---------=
+<br>Felad=C3=B3: <strong class=3D"gmail_sendername" dir=3D"auto">Tan=C3=ADt=
+an=C3=A9k Mozgalom</strong> <span dir=3D"auto">&lt;<a href=3D"mailto:akcio@=
+tanitanek.info">akcio@tanitanek.info</a>&gt;</span><br>Date: 2025. jan. 23.=
+, Cs, 12:18<br>Subject: Magyar=C3=A1zatot k=C3=B6vetel=C3=BCnk most!<br>To:=
+  &lt;<a href=3D"mailto:banyus53@gmail.com">banyus53@gmail.com</a>&gt;<br><=
+/div><br><br><div class=3D"msg-5207520895031682979"><u></u>
+
+
+
+ =20
+ =20
+ =20
+ =20
+ =20
+ =20
+   =20
+ =20
+ =20
+
+
+
+<div style=3D"margin:0;padding:0;background-color:#ffffff;color:#000000"><s=
+pan style=3D"font-size:1px;display:none">Biztons=C3=A1gos oktat=C3=A1s a gy=
+ermekeinknek!</span>
+ =20
+ =20
+  <table id=3D"m_-5207520895031682979u_body" style=3D"border-collapse:colla=
+pse;table-layout:fixed;border-spacing:0;vertical-align:top;min-width:320px;=
+Margin:0 auto;background-color:#ffffff;width:100%" cellpadding=3D"0" cellsp=
+acing=3D"0">
+  <tbody>
+  <tr style=3D"vertical-align:top">
+    <td style=3D"word-break:break-word;border-collapse:collapse!important;v=
+ertical-align:top">
+   =20
+   =20
+ =20
+ =20
+<div class=3D"m_-5207520895031682979u-row-container" style=3D"padding:0px;b=
+ackground-color:transparent">
+  <div class=3D"m_-5207520895031682979u-row" style=3D"margin:0 auto;min-wid=
+th:320px;max-width:600px;word-wrap:break-word;word-break:break-word;backgro=
+und-color:transparent">
+    <div style=3D"border-collapse:collapse;display:table;width:100%;height:=
+100%;background-color:transparent">
+     =20
+     =20
+
+<div class=3D"m_-5207520895031682979u-col m_-5207520895031682979u-col-100" =
+style=3D"max-width:320px;min-width:600px;display:table-cell;vertical-align:=
+top">
+  <div style=3D"height:100%;width:100%!important">
+  <div style=3D"box-sizing:border-box;height:100%;padding:0px;border-top:0p=
+x solid transparent;border-left:0px solid transparent;border-right:0px soli=
+d transparent;border-bottom:0px solid transparent">
+ =20
+<table style=3D"font-family:arial,helvetica,sans-serif" role=3D"presentatio=
+n" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0">
+  <tbody>
+    <tr>
+      <td style=3D"word-break:break-word;padding:10px;font-family:arial,hel=
+vetica,sans-serif" align=3D"left">
+       =20
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0">
+  <tbody><tr>
+    <td style=3D"padding-right:0px;padding-left:0px" align=3D"center">
+     =20
+      <img align=3D"center" border=3D"0" src=3D"https://actionnetwork.org/u=
+nlayer_files/1647340047834-fb_cover.jpg" alt=3D"" title=3D"" style=3D"outli=
+ne:none;text-decoration:none;clear:both;display:inline-block!important;bord=
+er:none;height:auto;float:none;width:100%;max-width:580px" width=3D"580">
+     =20
+    </td>
+
+  </tr>
+</tbody></table>
+
+      </td>
+
+    </tr>
+  </tbody>
+</table>
+
+<table style=3D"font-family:arial,helvetica,sans-serif" role=3D"presentatio=
+n" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0">
+  <tbody>
+    <tr>
+      <td style=3D"word-break:break-word;padding:10px;font-family:arial,hel=
+vetica,sans-serif" align=3D"left">
+       =20
+  <div style=3D"font-size:14px;color:#505050;line-height:140%;text-align:le=
+ft;word-wrap:break-word">
+    <p style=3D"margin-top:1em;margin-bottom:1em;font-family:Arial;font-siz=
+e:14px;line-height:140%"><span style=3D"font-size:18px;line-height:25.2px">=
+<strong><span style=3D"line-height:19.6px">Kedves =C3=81gnes M=C3=A1ria!</s=
+pan></strong></span></p>
+
+<p style=3D"line-height:140%"><span style=3D"font-size:18px;line-height:25.=
+2px">Janu=C3=A1r 23-=C3=A1n t=C3=B6bb mint <strong>240 iskol=C3=A1ban volt =
+bombariad=C3=B3</strong>, ez=C3=A9rt v=C3=A1laszokat k=C3=B6vetel=C3=BCnk:<=
+/span><span style=3D"font-size:18px;line-height:25.2px"></span></p>
+
+<p style=3D"line-height:140%">=C2=A0</p>
+
+<p style=3D"line-height:140%"><span style=3D"font-size:18px;line-height:25.=
+2px">Pint=C3=A9r S=C3=A1ndor bel=C3=BCgyminiszter =C3=A9s Rog=C3=A1n Antal =
+polg=C3=A1ri titkosszolg=C3=A1latok=C3=A9rt felel=C5=91s miniszter azonnal =
+adjon magyar=C3=A1zatot arra, hogy </span><span style=3D"font-size:18px;lin=
+e-height:25.2px"><strong>hogyan t=C3=B6rt=C3=A9nhetett meg ez a kiterjedt f=
+enyeget=C3=A9s an=C3=A9lk=C3=BCl, hogy a felel=C5=91s szolg=C3=A1latok tudt=
+ak volna r=C3=B3la? Ha pedig tudtak, mi=C3=A9rt nem cselekedtek id=C5=91ben=
+?</strong></span></p>
+
+<p style=3D"line-height:140%">=C2=A0</p>
+
+<p style=3D"line-height:140%"><span style=3D"font-size:18px;line-height:25.=
+2px">K=C3=B6vetelj=C3=BCk tov=C3=A1bb=C3=A1, hogy azonnal <strong><span sty=
+le=3D"text-decoration:underline;line-height:19.6px">adj=C3=A1k vissza a tel=
+efonokat a gyermekeinknek!</span></strong> A korm=C3=A1ny vonja vissza azt =
+a rendeletet, mely el=C5=91=C3=ADrja a telefonok elv=C3=A9tel=C3=A9t az isk=
+ol=C3=A1kban! Garant=C3=A1lni kell, hogy v=C3=A9szhelyzetben a gyerekek el =
+tudj=C3=A1k =C3=A9rni a sz=C3=BCleiket.</span></p>
+
+  </div>
+
+
+      </td>
+
+    </tr>
+  </tbody>
+</table>
+
+<table style=3D"font-family:arial,helvetica,sans-serif" role=3D"presentatio=
+n" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0">
+  <tbody>
+    <tr>
+      <td style=3D"word-break:break-word;padding:10px;font-family:arial,hel=
+vetica,sans-serif" align=3D"left">
+       =20
+ =20
+<div align=3D"center">
+ =20
+    <a href=3D"https://click.actionnetwork.org/ss/c/u001.qUXRBnqZ7T8nxbpAcI=
+VwocRDf73oRV2J3z7VcuYVaVh8r845k64Un8YG4hrHNGh8KF9cu4OkD8AJ4DVpGg-cZtr5UrodQ=
+u4VHCqk9vZCJIlcof3M2vsggp1BnQGTyk0xBzKMy3yDhXnvi1s4dc3yAgENLhLPg74GHUC6I3pS=
+kF694qlA7pN6H2v8mdlYj9814IE-yy_No8WLoHSfoBovTliGXrkBHETTdt15B_NAC3RDdk30fG4=
+Avq4R3LXioAxM8pX29bMvGqPs0HlS0_VCI4oF9gqPCIxxULIf6gqK7b8/4de/X0v8qcGDSqeJCA=
+xV9GgbbA/h0/h001.qx2fo9C3McCbsGiAFalmSJwGOqkbhzOPa73Hb-oUQ8A" style=3D"box-=
+sizing:border-box;display:inline-block;text-decoration:none;text-align:cent=
+er;color:#ffffff;background-color:#3f6634;border-radius:4px;width:auto;max-=
+width:100%;word-break:break-word;word-wrap:break-word;font-family:arial,hel=
+vetica,sans-serif;font-size:20px;font-weight:700" target=3D"_blank">
+      <span style=3D"display:block;padding:10px 20px;line-height:120%"><spa=
+n style=3D"line-height:24px">CSATLAKOZOM!</span></span>
+    </a>
+   =20
+</div>
+
+
+      </td>
+
+    </tr>
+  </tbody>
+</table>
+
+<table style=3D"font-family:arial,helvetica,sans-serif" role=3D"presentatio=
+n" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0">
+  <tbody>
+    <tr>
+      <td style=3D"word-break:break-word;padding:10px;font-family:arial,hel=
+vetica,sans-serif" align=3D"left">
+       =20
+  <div style=3D"font-size:14px;color:#505050;line-height:140%;text-align:le=
+ft;word-wrap:break-word">
+    <p style=3D"line-height:140%"><span style=3D"font-size:18px;line-height=
+:25.2px">Csatlakozz a k=C3=B6vetel=C3=A9seinkhez, mert magyar=C3=A1zatot =
+=C3=A9rdemel minden sz=C3=BCl=C5=91, gyermek =C3=A9s felel=C5=91s =C3=A1lla=
+mpolg=C3=A1r!</span><span style=3D"font-size:18px;line-height:25.2px"></spa=
+n><span style=3D"font-size:18px;line-height:25.2px"></span><span style=3D"f=
+ont-size:18px;line-height:25.2px"></span></p>
+
+  </div>
+
+
+      </td>
+
+    </tr>
+  </tbody>
+</table>
+
+<table style=3D"font-family:arial,helvetica,sans-serif" role=3D"presentatio=
+n" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0">
+  <tbody>
+    <tr>
+      <td style=3D"word-break:break-word;padding:10px;font-family:arial,hel=
+vetica,sans-serif" align=3D"left">
+       =20
+ =20
+<div align=3D"center">
+ =20
+    <a href=3D"https://click.actionnetwork.org/ss/c/u001.qUXRBnqZ7T8nxbpAcI=
+VwocRDf73oRV2J3z7VcuYVaVh8r845k64Un8YG4hrHNGh8KF9cu4OkD8AJ4DVpGg-cZo9SUAyGp=
+f6KVkYEuBEdW4sq-emaaaA1yrDkf0fNkl59vNNBolWfHpIe4J6a3kiLEagqQpP2Pgo673HHUeKD=
+nh3_oaMPJUuyZ548LVcMrJHWeqcBpChJAu8QFDp0HegKo0ii9vUe5tifKQ0cWs6RT-y6rHKT2Sv=
+zC5OpnfzGDscmQeQAXvnver9CCpZkYD6wqpVjOx8HJkqoPtzWZN9DNjQ/4de/X0v8qcGDSqeJCA=
+xV9GgbbA/h1/h001.PfhOKkEG2H58A9FSg6TGI7VZ6DLw8e3GwjFLW95gUyY" style=3D"box-=
+sizing:border-box;display:inline-block;text-decoration:none;text-align:cent=
+er;color:#ffffff;background-color:#3f6634;border-radius:4px;width:auto;max-=
+width:100%;word-break:break-word;word-wrap:break-word;font-family:arial,hel=
+vetica,sans-serif;font-size:20px;font-weight:700" target=3D"_blank">
+      <span style=3D"display:block;padding:10px 20px;line-height:120%"><spa=
+n style=3D"line-height:24px">AL=C3=81=C3=8DROM A PET=C3=8DCI=C3=93T!</span>=
+</span>
+    </a>
+   =20
+</div>
+
+
+      </td>
+
+    </tr>
+  </tbody>
+</table>
+
+<table style=3D"font-family:arial,helvetica,sans-serif" role=3D"presentatio=
+n" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0">
+  <tbody>
+    <tr>
+      <td style=3D"word-break:break-word;padding:10px;font-family:arial,hel=
+vetica,sans-serif" align=3D"left">
+       =20
+  <div style=3D"font-size:14px;color:#505050;line-height:140%;text-align:le=
+ft;word-wrap:break-word">
+    <p style=3D"line-height:140%"><span style=3D"color:#000000;font-family:=
+Arial,sans-serif;line-height:19.6px"><span style=3D"font-size:18px;line-hei=
+ght:25.2px">K=C3=B6sz=C3=B6nj=C3=BCk, hogy vel=C3=BCnk tartasz!</span></spa=
+n></p>
+
+<p style=3D"line-height:140%"><span style=3D"color:#000000;font-family:Aria=
+l,sans-serif;line-height:19.6px"><span style=3D"font-size:18px;line-height:=
+25.2px">a Tan=C3=ADtan=C3=A9k csapata</span></span></p>
+
+  </div>
+
+
+      </td>
+
+    </tr>
+  </tbody>
+</table>
+
+<table style=3D"font-family:arial,helvetica,sans-serif" role=3D"presentatio=
+n" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0">
+  <tbody>
+    <tr>
+      <td style=3D"word-break:break-word;padding:10px;font-family:arial,hel=
+vetica,sans-serif" align=3D"left">
+       =20
+ =20
+<div align=3D"center">
+ =20
+    <a href=3D"https://click.actionnetwork.org/ss/c/u001.EtNV8HBC60Tl7UuGmX=
+S3sWmDozg2Z96clS7KlwIvCrNdffM0xyn5ein-AJ0mGY7Bxow3pHn_Pt_T8aDYmxqU84PIKM8jk=
+x2uHRxciOsvcyYydrvZxEzAgxC8_4sBdx0dLYujVG2280zaLdS7EBP_ENK5I7RX3LjIxUuEsWSI=
+779mkDdzqjibkYsfJQ71ZwrgY7GeeEQ6LG17QMn7DppXDZqD_wngyadCTKrfyinfNYgNaF_mAmV=
+JtHQka8IDunLWHaGw7fCTY141AfrlQDdG7EstqX9kXpu2rJlE9-dNhmw/4de/X0v8qcGDSqeJCA=
+xV9GgbbA/h2/h001.tZX07uDo9DLjQph2KH6f6ItkQCNKxsuCVVTPhHpOB8M" style=3D"box-=
+sizing:border-box;display:inline-block;text-decoration:none;text-align:cent=
+er;color:#ffffff;background-color:#3f6634;border-radius:4px;width:auto;max-=
+width:100%;word-break:break-word;word-wrap:break-word;font-family:arial,hel=
+vetica,sans-serif;font-size:14px;font-weight:700" target=3D"_blank">
+      <span style=3D"display:block;padding:10px 20px;line-height:120%"><spa=
+n style=3D"line-height:16.8px">Adom=C3=A1nyt k=C3=BCld=C3=B6k a Tan=C3=ADta=
+n=C3=A9knak!</span></span>
+    </a>
+   =20
+</div>
+
+
+      </td>
+
+    </tr>
+  </tbody>
+</table>
+
+  </div>
+
+  </div>
+
+</div>
+
+
+     =20
+    </div>
+
+  </div>
+
+  </div>
+
+ =20
+
+
+   =20
+    </td>
+
+  </tr>
+  </tbody>
+  </table>
+ =20
+ =20
+<center>
+  <table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" align=3D"center" =
+id=3D"m_-5207520895031682979backgroundTable" style=3D"margin:0;padding:0;he=
+ight:100%!important;width:100%!important;line-height:100%!important;border-=
+collapse:collapse" role=3D"presentation">
+    <tbody><tr>
+      <td align=3D"center" valign=3D"top" style=3D"border-collapse:collapse=
+">
+		<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-t=
+op:2px solid #909090;border-collapse:collapse" role=3D"presentation">
+		  <tbody><tr>
+		    <td valign=3D"top" style=3D"border-collapse:collapse">
+		      <table border=3D"0" cellpadding=3D"10" cellspacing=3D"0" style=3D"b=
+order-collapse:collapse" role=3D"presentation">
+		        <tbody><tr>
+		          <td colspan=3D"2" valign=3D"middle" style=3D"border-collapse:co=
+llapse;border-top:0">
+		            <div style=3D"color:#333333;font-family:Arial;font-size:11px;=
+line-height:125%;text-align:left">
+		                K=C3=BCldve <a href=3D"https://click.actionnetwork.org/ss=
+/c/u001.vJH41MPG4bgUd6h6NGKFprEVd5SZ3aeQlOtv77_nyyQhv0TxclFxqGN6YpaKwRokU2o=
+vJXl3DAeRkYHfZGIkNsiVFmCF6MWPxeyKGOZGRGMTVAtUddkxOin2un2NiNMTd30HGSNPc1OcoB=
+JbpN_73W3FkBn3foUQ0Zogz7etyMCXfAyI9IRp71OgpuTFPmsjmqGfep-9VgeZq8cyaejPEJv7-=
+17liBDB9ylu6pWP-cemDNl8DRvsXEiTG0TkMQ0c47denvdzuMtCESRsiIQFdg/4de/X0v8qcGDS=
+qeJCAxV9GgbbA/h3/h001.ip1X3J0vF8qwYIcSStA_iQwmT4_sDGOpLoOvEmT2jXU" style=3D=
+"color:#004a6d" target=3D"_blank">ActionNetwork.org</a>.
+		              Ha szeretn=C3=A9d friss=C3=ADteni az e-mail c=C3=ADmed, nev=
+ed, vagy lakc=C3=ADmed, esetleg leiratkozn=C3=A1l (a) Tanitanek csapat=C3=
+=A1nak leveleir=C5=91l, akkor <a href=3D"https://click.actionnetwork.org/ss=
+/c/u001.qUXRBnqZ7T8nxbpAcIVwoUsWLkUMWlo_0JmZttSlm3-gP0Xd1LL-Lub7Gk22PHy9bDM=
+o8dwVMcEdl-Sd8uRkAnJ4dBRgtjai4Bx-53ksRnJ6keVH8LNW2CI1wnEXAhJHzA4V6XefJhgLvV=
+PcFBCgRbYwo0daMQUdtpdIj0SZv4mkH9-FC7mwCQUTAq1qj4zHOWci28lneWWzBZVGYNdChX9cs=
+0fzROicJm0kYZPpTEUKFzl-W8WED45aH_e5UX8QSRbsU6GcOHQv9nJFDIvUlfRJ0_jlG6VEFxBe=
+KfVOau8BH0ndZpNyPVJyVahCNwgjJdllRA4Pld0nB6A0C4xmaPWAipgMQmRXofx5tN6LsfVHmOx=
+wCS6W1aRU8oZkQey8z9OfdAMuZLCmcKyMYSxYZBwzeWHA0CAwmJqb2hN8jSMr0ZrNkVTFXGjXRs=
+SEaktP/4de/X0v8qcGDSqeJCAxV9GgbbA/h4/h001.gxm2SURwlN78gdtiacBdoW_W3BtJRcC-e=
+eTmfJcP-Wg" style=3D"color:#004a6d;font-weight:normal;text-decoration:under=
+line" target=3D"_blank">Kattints ide</a>.
+		            </div>
+
+		          </td>
+
+		        </tr>
+		      </tbody></table>
+		    </td>
+
+		  </tr>
+		</tbody></table>
+      </td>
+
+    </tr>
+  </tbody></table>
+</center>
+<img src=3D"https://click.actionnetwork.org/ss/o/u001.ZbNyqOfLYPaP-d23SgKjn=
+Q/4de/X0v8qcGDSqeJCAxV9GgbbA/ho.gif" alt=3D"" width=3D"1" height=3D"1" bord=
+er=3D"0" style=3D"height:1px!important;width:1px!important;border-width:0!i=
+mportant;margin-top:0!important;margin-bottom:0!important;margin-right:0!im=
+portant;margin-left:0!important;padding-top:0!important;padding-bottom:0!im=
+portant;padding-right:0!important;padding-left:0!important"></div>
+
+
+</div></div></div>
+
+--000000000000e4381c062c5df932--

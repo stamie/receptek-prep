@@ -1,0 +1,658 @@
+Delivered-To: estampel@gmail.com
+Received: by 2002:a05:6359:5b09:b0:1de:961a:3316 with SMTP id oe9csp3862961rwb;
+        Sun, 16 Mar 2025 11:24:39 -0700 (PDT)
+X-Received: by 2002:a17:907:1c95:b0:ac2:7a6d:c918 with SMTP id a640c23a62f3a-ac33047671cmr976439666b.57.1742149479189;
+        Sun, 16 Mar 2025 11:24:39 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1742149479; cv=none;
+        d=google.com; s=arc-20240605;
+        b=Liw6OA3Ar1CFBM2XKJp7pgW3xy0W6cWI4RaioZh5GE4z6+G2ZKUN3eTd8/6oLqklEU
+         DxvmdH+p7J3u+998sPKWS0Gc2BTDuUTra4dAGBNwIuCYf5JlqaH3J0jJMUnvUyhJi0Qn
+         tmDp10tKqXylDoUPAhntpzTtw9082c17jJF8TPHuMiHdOl2wG5i7dBArA6adGfDazthD
+         uAQSP4m3giGrlLDsDBzBZzmHJ6J+RzjRgowL5CZf5uw7bZn09JxAXeCLmlBYuy9gnQ8l
+         LQ//1ZiiGvmwSPjGCH/IaT+7dD06z+rCK9AJesGbdhtO9ms3+4H324yIq4xmrAHpDLPa
+         K1tw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=rRpHPGLja8dHDzKXC4gsgt50s5uet30wBkHDHT9Cst8=;
+        fh=wF/Yrd2E0xeKwPH74kML7cQSth+Fl4bwhVNrybJ4uh4=;
+        b=kXqg3AZYSkt61siCX60Vl6UcKe3VCDVBI2dMbnoxvxaRp7vYgviFeLmPHPVFUb9Jc/
+         VMQdNMMeOxfkZV5IsCQwSFLg3uFR28S+du0faQhRwS7CQR1jpziqwJSdYFl7tY9HdY35
+         wyf20az6fTPH1ctFLKxjR1y/e+neQlSRO2lE8qNTsfDXicX4dK4O4QlNElwH0JVMvjnY
+         WDWWKq5PcZ3MVajKT2QzJvyaZ7s5QMbAXA3jM4jtquiXFw3JwlXfDhyzIy1fS3leSx93
+         Ty4Unp7bREP/lpu33yJJuQCjEv0UZa4jXuZNEnH3nL2VokLRWd0Yx9mv7M59I3tu6kXj
+         J1Tw==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=HnPADGx4;
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <banyus53@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id a640c23a62f3a-ac31485d053sor428907566b.10.2025.03.16.11.24.38
+        for <estampel@gmail.com>
+        (Google Transport Security);
+        Sun, 16 Mar 2025 11:24:39 -0700 (PDT)
+Received-SPF: pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=HnPADGx4;
+       spf=pass (google.com: domain of banyus53@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=banyus53@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1742149478; x=1742754278; dara=google.com;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=rRpHPGLja8dHDzKXC4gsgt50s5uet30wBkHDHT9Cst8=;
+        b=HnPADGx4i5Sef+T50PuTHA1HrxeVqPp1adyL6CQzlxD+YxlKjs4RaK3BZ+WS7gG/zp
+         QpBQIRrevLlL9Tv4pE9MwDIa18sUfMqI9h1XADIeW+bovUu2QnrSrA58xbOv11pfEaFh
+         BhZGqr5FbIWj4YgPwU+epIKoWkziVW6p/XAQtuQdZIZ6Pvw04a6DjQ0nyOsV08TjIPA5
+         jGFg+/Rz6xxGCZ4gn8qDtFo2wcmYTZdCa9bK2BvVQmGtXIgPJdlfN1lVKhdW9YOCKvQR
+         97Iv03U0b+i1/biMeCWkDSSEa5bGEnreNHFyEMG4JKJRmrrZOSHNodRTWxnUx+ehSdB6
+         ypQA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742149478; x=1742754278;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=rRpHPGLja8dHDzKXC4gsgt50s5uet30wBkHDHT9Cst8=;
+        b=t+hqWW1gcKJ5NJ1sXKnR4Im0rdBAvV2Pz09WVQvwtilAu+susPHsTytTpd9hmVQ6JJ
+         RUcpMrBG6+sOh6wAFuwwKKfh4z9I0y4+5X9Zo5RSPujai4NfDf2u862beb81lb+UNx/W
+         ZBx2CCL0ykK/tBDYLd2P0KQ2TpIEYkaxOVRtYNlMjZSGl6cJeRG2K8FzT9t4iRKk9e44
+         Y9rlD+55JVIZ8DqbSiGXXk+KWgF5SoKwkIXia3KvlCg8XKQuVJLP8QJVG3IuOGHv6+gj
+         CWXT/J4VaJT7qNmVl8Y2qAAyZbZkrjcRm5aGJjbO6V0JYpSWG91r/o0eulF3WV+6GaIJ
+         z7fw==
+X-Gm-Message-State: AOJu0Yyv309gVBSm2COuC+BnduQE9P9979D7T6X6Cd8KPyD9ZH0yT36C
+	7BHHYWgZwOL7mKlx9418p91qup7UqmCYNQKIifaOAXw9DqlDbmHPTx4bnurEKMZCapchn9Vg1rw
+	BC1WWt8gT25oq7gb4nBmkH3ggIozxgg==
+X-Gm-Gg: ASbGncs+UR3nkTC0UvgwKW80WTbwZe29011RET37ZHHOo7masvfBH/cO6u7DqGItvCr
+	qvU9rPvvTQID2BtoT/TyEBA/YP3GDS7DWNXEvcU0nV+BrpHYK8arKck+zyUdUwqf+J3Z8ADAi9f
+	XNu4ZwFFsT7f5k+BknUxt8q7BaXo97zFVRJhkEzhBSaK3BQ5eKKfMJrB+2nzRQ
+X-Google-Smtp-Source: AGHT+IHHWDBp2j1Y8H3E7bbQ9ZD7zns1m76zzHrXSvd24XFNHvyOkUz7nH7VFEoqmq3KxkVJYr231dDs8ZHns2JKZzU=
+X-Received: by 2002:a17:906:c10d:b0:ac2:1d34:44f2 with SMTP id
+ a640c23a62f3a-ac330276120mr1105846466b.30.1742149478111; Sun, 16 Mar 2025
+ 11:24:38 -0700 (PDT)
+MIME-Version: 1.0
+References: <0.0.0.20C.1DB955ED82EB6EE.0@s4.csa1.acemsc3.com>
+In-Reply-To: <0.0.0.20C.1DB955ED82EB6EE.0@s4.csa1.acemsc3.com>
+From: =?UTF-8?B?w4FnbmVzIEJ1Z8Ohcg==?= <banyus53@gmail.com>
+Date: Sun, 16 Mar 2025 19:24:25 +0100
+X-Gm-Features: AQ5f1Jq8OmbmZpCdKEvnqlfxvjdZhy1QT_tVQVF6OQgYWqQN7sCro7rVOgxn0ec
+Message-ID: <CA+39czWD0bSKDDNA5cDzaz+vvs8MkVWtWDypcKNZs7+eo1bJ7Q@mail.gmail.com>
+Subject: =?UTF-8?Q?Fwd=3A_30_Napos_Kih=C3=ADv=C3=A1s_29=2E_Nap_=2D_HAS?=
+To: Emese Stampel <estampel@gmail.com>
+Content-Type: multipart/alternative; boundary="000000000000c9e2b8063079c876"
+
+--000000000000c9e2b8063079c876
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+---------- Forwarded message ---------
+Felad=C3=B3: Sz=C3=A1szhegyessy Zita - Mindennapi Lend=C3=BClet <zita@minde=
+nnapilendulet.hu
+>
+Date: 2025. m=C3=A1rc. 15., Szo 5:01
+Subject: 30 Napos Kih=C3=ADv=C3=A1s 29. Nap - HAS
+To: <banyus53@gmail.com>
+
+
+=C3=89=C3=A9=C3=A9s itt is vagyunk az utols=C3=B3 el=C5=91tti napon! :)
+
+Ma hasazni fogunk =C3=A9s csak egyetlen s=C3=BAlyz=C3=B3ra vagy =C3=A1sv=C3=
+=A1nyvizes =C3=BCvegre lesz
+sz=C3=BCks=C3=A9ged.
+
+Na eddz=C3=BCk sz=C3=A9t a hasfalunkat, menjen az edz=C3=A9s! :)
+KATTINTS IDE A MAI EDZ=C3=89S=C3=89RT!
+<https://szszhegyessyzita.acemlna.com/lt.php?x=3D3TZy~GE2UISiD8.vydPJgumc~n=
+6gkAAkvPg4Y5o6V3ieE8Gs_Uy.zuRu1I2kjNc~j_Y2X5LJJuTMHaWtO_DIUedt2HQp>
+FIGYELEM: a mai edz=C3=A9st csak ma =C3=89JF=C3=89LIG tudod megcsin=C3=A1ln=
+i, sz=C3=B3val ne
+halogasd, kattints a gombra =C3=A9s csin=C3=A1ld meg az edz=C3=A9st MOST!
+
+A vide=C3=B3 megtekint=C3=A9s=C3=A9hez be kell jelentkezned az email c=C3=
+=ADmeddel =C3=A9s a
+jelszavaddal!
+
+(=C3=89n azt javaslom, hogy bejelentkez=C3=A9skor pip=C3=A1ld be a "bejelen=
+tkezve maradok"
+n=C3=A9gyzetet =C3=A9s akkor nem kell minden nap bejelentkezned, hanem a b=
+=C3=B6ng=C3=A9sz=C5=91d
+megjegyzi a weboldalt.)
+Wow! K=C3=A9sz is a 29 nap! :)
+
+=C3=89s hab=C3=A1r az el=C5=91z=C5=91 oktat=C3=B3vide=C3=B3 v=C3=A9g=C3=A9n=
+ azt mondtam, hogy az volt az utols=C3=B3, de
+ut=C3=A1na m=C3=A9gis fel kellett venni m=C3=A9g egyet, mert kifelejtettem =
+egy fontos
+dolgot.
+
+...az alakform=C3=A1l=C3=A1s 4 legfontosabb alappill=C3=A9re k=C3=B6z=C3=BC=
+l az egyiket.
+
+Sz=C3=B3val itt ennek a kih=C3=ADv=C3=A1snak az utols=C3=B3 oktat=C3=B3vide=
+=C3=B3ja:
+
+A K=C3=96Z=C3=96SS=C3=89GI T=C3=81MOGAT=C3=81S FONTOSS=C3=81GA (Kattints id=
+e =C3=A9s n=C3=A9zd meg a vide=C3=B3t!)
+<https://szszhegyessyzita.acemlna.com/lt.php?x=3D3TZy~GE2UISiD8.vydPJgumc~n=
+6gkAAkvPg4Y5o6V3ieE8Gs_Uy.zuRu1I2kjNc~j_Y2X5LJJ-TMHaWtO_DIUedt2HQp>
+<https://szszhegyessyzita.acemlna.com/lt.php?x=3D3TZy~GE2UISiD8.vydPJgumc~n=
+6gkAAkvPg4Y5o6V3ieE8Gs_Uy.zuRu1I2kjNc~j_Y2X5LJJ-TMHaWtO_DIUedt2HQp>
+
+Na =C3=A9s ez m=C3=A1r t=C3=A9nyleg a legutols=C3=B3 ilyen vide=C3=B3 :)
+
+Nincs is id=C5=91 igaz=C3=A1b=C3=B3l m=C3=A1r t=C3=B6bbre.
+
+=C3=96sszesen 10 oktat=C3=B3vide=C3=B3 volt ebben a kih=C3=ADv=C3=A1sban, r=
+em=C3=A9lem tetszettek! :)
+
+Lesznek m=C3=A9g pszichol=C3=B3gi=C3=A1r=C3=B3l sz=C3=B3l=C3=B3 kih=C3=ADv=
+=C3=A1sok - s=C5=91t, ha most v=C3=A9gz=C3=BCnk ezzel a
+kih=C3=ADv=C3=A1ssal, akkor egyb=C5=91l bele is tudsz kezdeni egy ilyenbe: =
+a "Szok=C3=A1s=C3=A9p=C3=ADt=C3=A9s
+=C3=A9s az akarater=C5=91 pszichol=C3=B3gi=C3=A1ja" c=C3=ADm=C5=B1 kih=C3=
+=ADv=C3=A1sba.
+
+Term=C3=A9szetesen az oktat=C3=B3vide=C3=B3k mellett ugyan=C3=BAgy edz=C3=
+=BCnk minden nap - ezt
+az=C3=A9rt =C3=ADrom csak, mert valaki a Facebook-csoportban pont ma k=C3=
+=A9rdezte :)
+
+Teh=C3=A1t ugyanabban a strukt=C3=BAr=C3=A1ban fognak haladni a dolgok mind=
+ig a
+kih=C3=ADv=C3=A1sokban: minden nap edz=C3=BCnk =C3=A9s n=C3=A9h=C3=A1ny nap=
+onta kapsz egy-egy
+oktat=C3=B3vide=C3=B3t, amikben az adott kih=C3=ADv=C3=A1s t=C3=A9m=C3=A1j=
+=C3=A1t j=C3=A1rjuk alaposan k=C3=B6r=C3=BCl.
+
+=C3=89n nagyon izgatott vagyok m=C3=A1r... de az=C3=A9rt m=C3=A9g ne szalad=
+junk ennyire el=C5=91re!
+M=C3=A9g h=C3=A1tra van egy nap, sz=C3=B3val holnap tal=C3=A1lkozunk.
+
+Addig is legyen sz=C3=A9p napod!
+
+- Zita
+
+
+Sz=C3=A1szhegyessy Zita
+zita@mindennapilendulet.hu
+<https://szszhegyessyzita.acemlna.com/lt.php?x=3D3TZy~GE2UISiD8.vydPJgumc~n=
+6gkAAkvPg4Y5o6V3ieE8Gs_Uy.zuRu1I2kjNc~j_Y2X5LJKeTMHaWtO_DIUedt2HQp>
+
+<https://szszhegyessyzita.acemlna.com/lt.php?x=3D3TZy~GE2UISiD8.vydPJgumc~n=
+6gkAAkvPg4Y5o6V3ieE8Gs_Uy.zuRu1I2kjNc~j_Y2X5LJKuTMHaWtO_DIUedt2HQp>
+
+<https://szszhegyessyzita.acemlna.com/lt.php?x=3D3TZy~GE2UISiD8.vydPJgumc~n=
+6gkAAkvPg4Y5o6V3ieE8Gs_Uy.zuRu1I2kjNc~j_Y2X5LKIeTMHaWtO_DIUedt2HQp>
+K=C3=BCldve neki: banyus53@gmail.com
+
+Leiratkoz=C3=A1s az emailekr=C5=91l
+<https://szszhegyessyzita.acemlna.com/proc.php?nl=3D2&c=3D430&m=3D458&s=3Da=
+cd9acf294c9ab208afcc949ef85eece&act=3Dunsub&runid=3D63272489&ALL>
+
+Mindennapi Lend=C3=BClet Kft., Copyright, Budapest, 2024, Hungary
+
+--000000000000c9e2b8063079c876
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"auto"></div><br><div class=3D"gmail_quote gmail_quote_container=
+"><div dir=3D"ltr" class=3D"gmail_attr">---------- Forwarded message ------=
+---<br>Felad=C3=B3: <strong class=3D"gmail_sendername" dir=3D"auto">Sz=C3=
+=A1szhegyessy Zita - Mindennapi Lend=C3=BClet</strong> <span dir=3D"auto">&=
+lt;<a href=3D"mailto:zita@mindennapilendulet.hu">zita@mindennapilendulet.hu=
+</a>&gt;</span><br>Date: 2025. m=C3=A1rc. 15., Szo 5:01<br>Subject: 30 Napo=
+s Kih=C3=ADv=C3=A1s 29. Nap - HAS<br>To:  &lt;<a href=3D"mailto:banyus53@gm=
+ail.com">banyus53@gmail.com</a>&gt;<br></div><br><br><u></u>
+<div id=3D"m_-3879887510649371806ac-designer" class=3D"m_-38798875106493718=
+06body" style=3D"font-family:Arial;line-height:1.1;margin:0px;background-co=
+lor:rgb(255,255,255);width:100%;text-align:center"><div style=3D"margin:0px=
+;outline:none;padding:0px;color:rgb(0,0,0);font-family:arial;line-height:1.=
+1;width:100%;background:rgb(255,255,255);text-align:center"><table border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" align=3D"left" st=
+yle=3D"font-size:13px;min-width:auto;background:rgb(255,255,255)"><tbody><t=
+r><td align=3D"center" valign=3D"top" width=3D"100%"><table border=3D"0" ce=
+llpadding=3D"0" cellspacing=3D"0" width=3D"600" bgcolor=3D"#ffffff" style=
+=3D"font-size:13px;min-width:auto;max-width:600px"><tbody><tr><td id=3D"m_-=
+3879887510649371806layout_table_93bd69454cf9aa5b74b98bf3c7d229d91c8ac2f8" v=
+align=3D"top" align=3D"center" width=3D"600" style=3D"background-color:rgb(=
+255,255,255)"><table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=
+=3D"600" style=3D"font-size:13px;min-width:100%;background-color:rgb(255,25=
+5,255)"><tbody><tr style=3D"background-color:rgb(255,255,255)"><td id=3D"m_=
+-3879887510649371806layout-row-margin4938" valign=3D"top" style=3D"padding:=
+5px;background-color:rgb(255,255,255)"><table width=3D"100%" border=3D"0" c=
+ellpadding=3D"0" cellspacing=3D"0" style=3D"font-size:13px;min-width:100%;b=
+order-collapse:initial"><tbody><tr id=3D"m_-3879887510649371806layout-row49=
+38" style=3D"margin:0px;padding:0px"><td id=3D"m_-3879887510649371806layout=
+-row-padding4938" valign=3D"top" style=3D"padding:5px"><table width=3D"100%=
+" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"font-size:13px;=
+min-width:100%"><tbody><tr><td id=3D"m_-3879887510649371806text_div4765" va=
+lign=3D"top" align=3D"left" style=3D"color:inherit;font-size:12px;font-weig=
+ht:inherit;line-height:1.3;text-decoration:inherit;font-family:Arial"> <div=
+ style=3D"margin:0px;outline:none;padding:0px;line-height:1.3;font-size:14p=
+x;font-family:arial,helvetica,sans"><span style=3D"color:inherit;font-size:=
+14px;font-weight:inherit;line-height:inherit;text-decoration:inherit;font-f=
+amily:arial,helvetica,sans">=C3=89=C3=A9=C3=A9s itt is vagyunk az utols=C3=
+=B3 el=C5=91tti napon! :)<br><br>Ma hasazni fogunk =C3=A9s csak egyetlen s=
+=C3=BAlyz=C3=B3ra vagy =C3=A1sv=C3=A1nyvizes =C3=BCvegre lesz sz=C3=BCks=C3=
+=A9ged.<br><br>Na eddz=C3=BCk sz=C3=A9t a hasfalunkat, menjen az edz=C3=A9s=
+! :)</span></div>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr style=3D"background-color:rgb(255,255,255)"><td id=3D"m_-38798875106493=
+71806layout-row-margin4944" valign=3D"top" style=3D"padding:5px;background-=
+color:rgb(255,255,255)"><table width=3D"100%" border=3D"0" cellpadding=3D"0=
+" cellspacing=3D"0" style=3D"font-size:13px;min-width:100%;border-collapse:=
+initial"><tbody><tr id=3D"m_-3879887510649371806layout-row4944"><td id=3D"m=
+_-3879887510649371806layout-row-padding4944" valign=3D"top" style=3D"paddin=
+g:5px"><table width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"=
+0" style=3D"font-size:13px;min-width:100%"><tbody><tr><td valign=3D"top" al=
+ign=3D"left" width=3D"580"> <div style=3D"margin:0px;outline:none;padding:0=
+px;text-align:center">
+ <a href=3D"https://szszhegyessyzita.acemlna.com/lt.php?x=3D3TZy~GE2UISiD8.=
+vydPJgumc~n6gkAAkvPg4Y5o6V3ieE8Gs_Uy.zuRu1I2kjNc~j_Y2X5LJJuTMHaWtO_DIUedt2H=
+Qp" style=3D"margin:0px;outline:none;padding:18px;color:rgb(255,255,255);ba=
+ckground-color:rgb(50,203,0);border:1px solid rgb(217,217,217);border-radiu=
+s:3px;font-family:Arial;font-size:18px;display:inline-block;line-height:1.1=
+;text-align:center;text-decoration:none" target=3D"_blank" rel=3D"noreferre=
+r"> <span style=3D"color:rgb(255,255,255);font-family:Arial;font-size:18px;=
+font-weight:bold;font-style:italic"> KATTINTS IDE A MAI EDZ=C3=89S=C3=89RT!=
+ </span> </a> </div>
+
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr style=3D"background-color:rgb(255,255,255)"><td id=3D"m_-38798875106493=
+71806layout-row-margin4945" valign=3D"top" style=3D"padding:5px;background-=
+color:rgb(255,255,255)"><table width=3D"100%" border=3D"0" cellpadding=3D"0=
+" cellspacing=3D"0" style=3D"font-size:13px;min-width:100%;border-collapse:=
+initial"><tbody><tr id=3D"m_-3879887510649371806layout-row4945" style=3D"ma=
+rgin:0px;padding:0px"><td id=3D"m_-3879887510649371806layout-row-padding494=
+5" valign=3D"top" style=3D"padding:5px 40px"><table width=3D"100%" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"font-size:13px;min-widt=
+h:100%"><tbody><tr><td id=3D"m_-3879887510649371806text_div4772" valign=3D"=
+top" align=3D"left" style=3D"color:inherit;font-size:12px;font-weight:inher=
+it;line-height:1.3;text-decoration:inherit;font-family:Arial"> <div style=
+=3D"margin:0px;outline:none;padding:0px;line-height:1.3"><div style=3D"marg=
+in:0px;outline:none;padding:0px;color:inherit;font-family:arial;font-size:1=
+4px;text-align:center"><span style=3D"color:inherit;font-size:13px;font-wei=
+ght:700;line-height:inherit;text-decoration:inherit;text-align:inherit">FIG=
+YELEM: a mai edz=C3=A9st csak ma =C3=89JF=C3=89LIG tudod megcsin=C3=A1lni, =
+sz=C3=B3val n</span><span style=3D"color:inherit;font-size:13px;font-weight=
+:bold;line-height:inherit;text-decoration:inherit;font-family:arial;text-al=
+ign:inherit">e halogasd, kattints a gombra =C3=A9s csin=C3=A1ld meg az edz=
+=C3=A9st MOST!</span></div>
+<div style=3D"margin:0px;outline:none;padding:0px;text-align:center"><br st=
+yle=3D"font-size:13px;font-weight:700"></div>
+<div style=3D"margin:0px;outline:none;padding:0px;color:inherit;font-family=
+:arial;font-size:12px;font-style:italic;text-align:center"><span style=3D"c=
+olor:inherit;font-size:inherit;font-weight:inherit;line-height:inherit;text=
+-decoration:inherit;font-family:arial;text-align:inherit">A vide=C3=B3 megt=
+ekint=C3=A9s=C3=A9hez be kell jelentkezned az email c=C3=ADmeddel =C3=A9s a=
+ jelszavaddal!<br><br></span></div>
+<div style=3D"margin:0px;outline:none;padding:0px;color:inherit;font-family=
+:arial;font-size:10px;text-align:center"><span style=3D"color:inherit;font-=
+size:inherit;font-weight:inherit;line-height:inherit;text-decoration:inheri=
+t;font-family:arial;text-align:inherit">(=C3=89n </span><span style=3D"colo=
+r:inherit;font-size:inherit;font-weight:inherit;line-height:inherit;text-de=
+coration:inherit;font-family:arial;text-align:inherit">azt javaslom, hogy b=
+ejelentkez=C3=A9skor pip=C3=A1ld be a &quot;bejelentkezve maradok&quot; n=
+=C3=A9gyzetet =C3=A9s akkor nem kell minden nap bejelentkezned, hanem a b=
+=C3=B6ng=C3=A9sz=C5=91d megjegyzi a weboldalt.)</span></div>
+</div>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr style=3D"background-color:rgb(255,255,255)"><td id=3D"m_-38798875106493=
+71806layout-row-margin4941" valign=3D"top" style=3D"background-color:rgb(25=
+5,255,255)"><table width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" style=3D"font-size:13px;min-width:100%"><tbody><tr id=3D"m_-3879887=
+510649371806layout-row4941"><td id=3D"m_-3879887510649371806layout-row-padd=
+ing4941" valign=3D"top" style=3D"line-height:0"><table width=3D"100%" borde=
+r=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"font-size:13px;min-wid=
+th:100%;border-collapse:collapse;line-height:0"><tbody><tr><td height=3D"10=
+" style=3D"font-size:10px;height:10px;line-height:0"></td>
+</tr>
+<tr><td align=3D"center" height=3D"1" width=3D"600" style=3D"line-height:0"=
+> <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" =
+height=3D"1" width=3D"600" style=3D"font-size:13px;border-collapse:collapse=
+;line-height:0;width:100%;max-width:100%;min-width:auto"><tbody><tr><td cla=
+ss=3D"m_-3879887510649371806break-line" bgcolor=3D"#e8e8e8" height=3D"1" wi=
+dth=3D"600" style=3D"line-height:1px;height:1px;width:600px;background-colo=
+r:rgb(232,232,232)"> </td>
+ </tr>
+</tbody></table>
+</td>
+ </tr>
+<tr><td height=3D"10" style=3D"font-size:10px;height:10px;line-height:0"></=
+td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr style=3D"background-color:rgb(255,255,255)"><td id=3D"m_-38798875106493=
+71806layout-row-margin4946" valign=3D"top" style=3D"padding:5px;background-=
+color:rgb(255,255,255)"><table width=3D"100%" border=3D"0" cellpadding=3D"0=
+" cellspacing=3D"0" style=3D"font-size:13px;min-width:100%;border-collapse:=
+initial"><tbody><tr id=3D"m_-3879887510649371806layout-row4946" style=3D"ma=
+rgin:0px;padding:0px"><td id=3D"m_-3879887510649371806layout-row-padding494=
+6" valign=3D"top" style=3D"padding:5px"><table width=3D"100%" border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" style=3D"font-size:13px;min-width:100%"=
+><tbody><tr><td id=3D"m_-3879887510649371806text_div4773" valign=3D"top" al=
+ign=3D"left" style=3D"color:inherit;font-size:12px;font-weight:inherit;line=
+-height:1.3;text-decoration:inherit;font-family:Arial"> <div style=3D"margi=
+n:0px;outline:none;padding:0px;font-size:14px;line-height:1.3"> <div style=
+=3D"margin:0px;outline:none;padding:0px">Wow! K=C3=A9sz is a 29 nap! :)<br>=
+<br>=C3=89s hab=C3=A1r az el=C5=91z=C5=91 oktat=C3=B3vide=C3=B3 v=C3=A9g=C3=
+=A9n azt mondtam, hogy az volt az utols=C3=B3, de ut=C3=A1na m=C3=A9gis fel=
+ kellett venni m=C3=A9g egyet, mert kifelejtettem egy fontos dolgot.<br><br=
+>...az alakform=C3=A1l=C3=A1s 4 legfontosabb alappill=C3=A9re k=C3=B6z=C3=
+=BCl az egyiket.<br><br>Sz=C3=B3val itt ennek a kih=C3=ADv=C3=A1snak az uto=
+ls=C3=B3 oktat=C3=B3vide=C3=B3ja:<br><br><a href=3D"https://szszhegyessyzit=
+a.acemlna.com/lt.php?x=3D3TZy~GE2UISiD8.vydPJgumc~n6gkAAkvPg4Y5o6V3ieE8Gs_U=
+y.zuRu1I2kjNc~j_Y2X5LJJ-TMHaWtO_DIUedt2HQp" style=3D"margin:0px;outline:non=
+e;padding:0px;color:rgb(255,149,76);text-decoration:underline;font-weight:b=
+old" target=3D"_blank" rel=3D"noreferrer"><span style=3D"color:rgb(255,149,=
+76);font-size:inherit;font-weight:inherit;line-height:inherit;text-decorati=
+on:inherit">A K=C3=96Z=C3=96SS=C3=89GI T=C3=81MOGAT=C3=81S FONTOSS=C3=81GA =
+(Kattints ide =C3=A9s n=C3=A9zd meg a vide=C3=B3t!)</span></a><br></div>
+ </div>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr style=3D"background-color:rgb(255,255,255)"><td id=3D"m_-38798875106493=
+71806layout-row-margin4947" valign=3D"top" style=3D"background-color:rgb(25=
+5,255,255)"><table width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" style=3D"font-size:13px;min-width:100%"><tbody><tr id=3D"m_-3879887=
+510649371806layout-row4947" align=3D"left"><td id=3D"m_-3879887510649371806=
+layout-row-padding4947" valign=3D"top"><table width=3D"100%" border=3D"0" c=
+ellpadding=3D"0" cellspacing=3D"0" style=3D"font-size:13px;min-width:100%">=
+<tbody><tr><td align=3D"left" valign=3D"top" width=3D"600"><a href=3D"https=
+://szszhegyessyzita.acemlna.com/lt.php?x=3D3TZy~GE2UISiD8.vydPJgumc~n6gkAAk=
+vPg4Y5o6V3ieE8Gs_Uy.zuRu1I2kjNc~j_Y2X5LJJ-TMHaWtO_DIUedt2HQp" style=3D"marg=
+in:0px;outline:none;padding:0px;color:rgb(23,143,255);display:block;min-wid=
+th:100%" target=3D"_blank" rel=3D"noreferrer"><img alt=3D"" width=3D"600" s=
+tyle=3D"border: none; display: block; outline: none; width: 600px; opacity:=
+ 1; max-width: 100%;"></a></td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr style=3D"background-color:rgb(255,255,255)"><td id=3D"m_-38798875106493=
+71806layout-row-margin4948" valign=3D"top" style=3D"padding:5px;background-=
+color:rgb(255,255,255)"><table width=3D"100%" border=3D"0" cellpadding=3D"0=
+" cellspacing=3D"0" style=3D"font-size:13px;min-width:100%;border-collapse:=
+initial"><tbody><tr id=3D"m_-3879887510649371806layout-row4948" style=3D"ma=
+rgin:0px;padding:0px"><td id=3D"m_-3879887510649371806layout-row-padding494=
+8" valign=3D"top" style=3D"padding:5px"><table width=3D"100%" border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" style=3D"font-size:13px;min-width:100%"=
+><tbody><tr><td id=3D"m_-3879887510649371806text_div4775" valign=3D"top" al=
+ign=3D"left" style=3D"color:inherit;font-size:12px;font-weight:inherit;line=
+-height:1.3;text-decoration:inherit;font-family:Arial"> <div style=3D"margi=
+n:0px;outline:none;padding:0px;font-size:14px;line-height:1.3">Na =C3=A9s e=
+z m=C3=A1r <span style=3D"color:inherit;font-size:inherit;font-weight:inher=
+it;line-height:inherit;text-decoration:inherit;font-style:italic">t=C3=A9ny=
+leg </span>a legutols=C3=B3 ilyen vide=C3=B3 :)<br><br>Nincs is id=C5=91 ig=
+az=C3=A1b=C3=B3l m=C3=A1r t=C3=B6bbre.<br><br>=C3=96sszesen 10 oktat=C3=B3v=
+ide=C3=B3 volt ebben a kih=C3=ADv=C3=A1sban, rem=C3=A9lem tetszettek! :)<br=
+><br>Lesznek m=C3=A9g pszichol=C3=B3gi=C3=A1r=C3=B3l sz=C3=B3l=C3=B3 kih=C3=
+=ADv=C3=A1sok - s=C5=91t, ha most v=C3=A9gz=C3=BCnk ezzel a kih=C3=ADv=C3=
+=A1ssal, akkor egyb=C5=91l bele is tudsz kezdeni egy ilyenbe: a <span style=
+=3D"color:inherit;font-size:inherit;font-weight:inherit;line-height:inherit=
+;text-decoration:inherit;font-style:italic">&quot;Szok=C3=A1s=C3=A9p=C3=ADt=
+=C3=A9s =C3=A9s az akarater=C5=91 pszichol=C3=B3gi=C3=A1ja&quot;</span> c=
+=C3=ADm=C5=B1 kih=C3=ADv=C3=A1sba.<br><br>Term=C3=A9szetesen az oktat=C3=B3=
+vide=C3=B3k mellett ugyan=C3=BAgy edz=C3=BCnk minden nap -
+ezt az=C3=A9rt =C3=ADrom csak, mert valaki a Facebook-csoportban pont ma k=
+=C3=A9rdezte :)<br><br>Teh=C3=A1t ugyanabban a strukt=C3=BAr=C3=A1ban fogna=
+k haladni a dolgok mindig a kih=C3=ADv=C3=A1sokban: minden nap edz=C3=BCnk =
+=C3=A9s n=C3=A9h=C3=A1ny naponta kapsz egy-egy oktat=C3=B3vide=C3=B3t, amik=
+ben az adott kih=C3=ADv=C3=A1s t=C3=A9m=C3=A1j=C3=A1t j=C3=A1rjuk alaposan =
+k=C3=B6r=C3=BCl.<br><br>=C3=89n nagyon izgatott vagyok m=C3=A1r... de az=C3=
+=A9rt m=C3=A9g ne szaladjunk ennyire el=C5=91re! M=C3=A9g h=C3=A1tra van eg=
+y nap, sz=C3=B3val holnap tal=C3=A1lkozunk.<br><br>Addig is legyen sz=C3=A9=
+p napod!<br><span style=3D"color:inherit;font-size:inherit;font-weight:inhe=
+rit;line-height:inherit;text-decoration:inherit;font-style:italic"><br>- Zi=
+ta</span></div>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr style=3D"background-color:rgb(255,255,255)"><td id=3D"m_-38798875106493=
+71806layout-row-margin4943" valign=3D"top" style=3D"background-color:rgb(25=
+5,255,255)"><table width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" style=3D"font-size:13px;min-width:100%"><tbody><tr id=3D"m_-3879887=
+510649371806layout-row4943"><td id=3D"m_-3879887510649371806layout-row-padd=
+ing4943" valign=3D"top"><table width=3D"100%" border=3D"0" cellpadding=3D"0=
+" cellspacing=3D"0" style=3D"font-size:13px;min-width:100%"><tbody><tr><td =
+valign=3D"top" height=3D"30"><div style=3D"margin:0px;outline:none;padding:=
+0px;height:30px"><table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" wi=
+dth=3D"100%" style=3D"font-size:13px;min-width:100%"><tbody><tr><td valign=
+=3D"top" height=3D"30" width=3D"600">=C2=A0</td>
+</tr>
+</tbody></table>
+</div>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr style=3D"background-color:rgb(255,255,255)"><td id=3D"m_-38798875106493=
+71806layout-row-margin4940" valign=3D"top" style=3D"background-color:rgb(25=
+5,255,255)"><table width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" style=3D"font-size:13px;min-width:100%"><tbody><tr id=3D"m_-3879887=
+510649371806layout-row4940" align=3D"center"><td id=3D"m_-38798875106493718=
+06layout-row-padding4940" valign=3D"top"><table width=3D"100%" border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0" style=3D"font-size:13px;min-width:100%=
+"><tbody><tr><td align=3D"center" valign=3D"top" width=3D"600"><img alt=3D"=
+" width=3D"200" style=3D"display: block; border: none; outline: none; width=
+: 200px; opacity: 1; max-width: 100%;"></td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr style=3D"background-color:rgb(255,255,255)"><td id=3D"m_-38798875106493=
+71806layout-row-margin4942" valign=3D"top" style=3D"background-color:rgb(25=
+5,255,255)"><table width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" style=3D"font-size:13px;min-width:100%"><tbody><tr id=3D"m_-3879887=
+510649371806layout-row4942"><td id=3D"m_-3879887510649371806layout-row-padd=
+ing4942" valign=3D"top"><table width=3D"100%" border=3D"0" cellpadding=3D"0=
+" cellspacing=3D"0" style=3D"font-size:13px;min-width:100%"><tbody><tr><td =
+valign=3D"top" height=3D"10" style=3D"font-size:10px;height:10px;line-heigh=
+t:10px"><div style=3D"margin:0px;outline:none;padding:0px;height:10px"><tab=
+le cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%" style=3D=
+"font-size:13px;min-width:100%"><tbody><tr><td valign=3D"top" height=3D"10"=
+ width=3D"600" style=3D"font-size:10px;height:10px;line-height:10px">=C2=A0=
+</td>
+</tr>
+</tbody></table>
+</div>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr style=3D"background-color:rgb(255,255,255)"><td id=3D"m_-38798875106493=
+71806layout-row-margin4937" valign=3D"top" style=3D"padding:0px 0px 10px;ba=
+ckground-color:rgb(255,255,255)"><table width=3D"100%" border=3D"0" cellpad=
+ding=3D"0" cellspacing=3D"0" style=3D"font-size:13px;min-width:100%;border-=
+collapse:initial"><tbody><tr id=3D"m_-3879887510649371806layout-row4937" st=
+yle=3D"margin:0px;padding:0px"><td id=3D"m_-3879887510649371806layout-row-p=
+adding4937" valign=3D"top" style=3D"padding:0px"><table width=3D"100%" bord=
+er=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"font-size:13px;min-wi=
+dth:100%"><tbody><tr><td id=3D"m_-3879887510649371806text_div4764" valign=
+=3D"top" align=3D"left" style=3D"color:inherit;font-size:12px;font-weight:i=
+nherit;line-height:1.3;text-decoration:inherit;font-family:Arial"> <div sty=
+le=3D"margin:0px;outline:none;padding:0px;line-height:1.3"> <div style=3D"m=
+argin:0px;outline:none;padding:0px;text-align:center"><span style=3D"color:=
+inherit;font-size:12px;font-weight:inherit;line-height:inherit;text-decorat=
+ion:inherit"> <span style=3D"color:inherit;font-size:14px;font-weight:bold;=
+line-height:inherit;text-decoration:inherit;font-family:arial,helvetica,san=
+s">Sz=C3=A1szhegyessy Zita</span></span><br></div>
+<div style=3D"margin:0px;outline:none;padding:0px;text-align:center"><span =
+style=3D"color:inherit;font-size:12px;font-weight:inherit;line-height:inher=
+it;text-decoration:inherit;font-style:italic"><a href=3D"mailto:zita@minden=
+napilendulet.hu" target=3D"_blank" rel=3D"noreferrer">zita@mindennapilendul=
+et.hu</a></span></div>
+</div>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr style=3D"background-color:rgb(255,255,255)"><td id=3D"m_-38798875106493=
+71806layout-row-margin4939" valign=3D"top" style=3D"background-color:rgb(25=
+5,255,255)"><table width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" style=3D"font-size:13px;min-width:100%"><tbody><tr id=3D"m_-3879887=
+510649371806layout-row4939"><td id=3D"m_-3879887510649371806layout-row-padd=
+ing4939" valign=3D"top"><table width=3D"100%" border=3D"0" cellpadding=3D"0=
+" cellspacing=3D"0" style=3D"font-size:13px;min-width:100%"><tbody><tr><td>=
+<table width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" style=3D"font-siz=
+e:13px;min-width:100%"><tbody><tr><td width=3D"600" align=3D"left"> <center=
+ style=3D"margin:0px;outline:none;padding:0px;font-size:0px"> <table class=
+=3D"m_-3879887510649371806_ac_social_table" cellspacing=3D"0" cellpadding=
+=3D"0" align=3D"center" style=3D"font-size:0px;min-width:auto;margin:auto;d=
+isplay:inline-block;text-align:center"><tbody><tr><td align=3D"center" vali=
+gn=3D"middle" width=3D"34" style=3D"font-size:0px;display:inline-block;widt=
+h:34px"><div style=3D"margin:0px;outline:none;padding:0px"><a href=3D"https=
+://szszhegyessyzita.acemlna.com/lt.php?x=3D3TZy~GE2UISiD8.vydPJgumc~n6gkAAk=
+vPg4Y5o6V3ieE8Gs_Uy.zuRu1I2kjNc~j_Y2X5LJKeTMHaWtO_DIUedt2HQp" id=3D"m_-3879=
+887510649371806youtube" style=3D"margin:0px;outline:none;padding:0px;color:=
+rgb(23,143,255)" target=3D"_blank" rel=3D"noreferrer"><img border=3D"0" wid=
+th=3D"34" style=3D"border: none;"></a></div>
+</td>
+<td width=3D"10" style=3D"font-size:0px;display:inline-block;width:10px">=
+=C2=A0</td>
+<td align=3D"center" valign=3D"middle" width=3D"34" style=3D"font-size:0px;=
+display:inline-block;width:34px"><div style=3D"margin:0px;outline:none;padd=
+ing:0px"><a href=3D"https://szszhegyessyzita.acemlna.com/lt.php?x=3D3TZy~GE=
+2UISiD8.vydPJgumc~n6gkAAkvPg4Y5o6V3ieE8Gs_Uy.zuRu1I2kjNc~j_Y2X5LJKuTMHaWtO_=
+DIUedt2HQp" id=3D"m_-3879887510649371806facebook" style=3D"margin:0px;outli=
+ne:none;padding:0px;color:rgb(23,143,255)" target=3D"_blank" rel=3D"norefer=
+rer"><img border=3D"0" width=3D"34" style=3D"border: none;"></a></div>
+</td>
+<td width=3D"10" style=3D"font-size:0px;display:inline-block;width:10px">=
+=C2=A0</td>
+<td align=3D"center" valign=3D"middle" width=3D"34" style=3D"font-size:0px;=
+display:inline-block;width:34px"><div style=3D"margin:0px;outline:none;padd=
+ing:0px"><a href=3D"https://szszhegyessyzita.acemlna.com/lt.php?x=3D3TZy~GE=
+2UISiD8.vydPJgumc~n6gkAAkvPg4Y5o6V3ieE8Gs_Uy.zuRu1I2kjNc~j_Y2X5LKIeTMHaWtO_=
+DIUedt2HQp" id=3D"m_-3879887510649371806instagram" style=3D"margin:0px;outl=
+ine:none;padding:0px;color:rgb(23,143,255)" target=3D"_blank" rel=3D"norefe=
+rrer"><img border=3D"0" width=3D"34" style=3D"border: none;"></a></div>
+</td>
+</tr>
+</tbody></table>
+</center> </td>
+ </tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr style=3D"background-color:rgb(255,255,255)"><td id=3D"m_-38798875106493=
+71806layout-row-margin5720" valign=3D"top" style=3D"padding:0px;background-=
+color:rgb(255,255,255)"><table width=3D"100%" border=3D"0" cellpadding=3D"0=
+" cellspacing=3D"0" style=3D"font-size:13px;min-width:100%;border-collapse:=
+initial"><tbody><tr id=3D"m_-3879887510649371806layout-row5720" style=3D"ma=
+rgin:0px;padding:0px"><td id=3D"m_-3879887510649371806layout-row-padding572=
+0" valign=3D"top" style=3D"padding:20px"><table width=3D"100%" border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0" style=3D"font-size:13px;min-width:100%=
+"><tbody><tr><td id=3D"m_-3879887510649371806text_div5540" valign=3D"top" a=
+lign=3D"left" style=3D"color:inherit;font-size:12px;font-weight:inherit;lin=
+e-height:1.4;text-decoration:inherit;font-family:Arial"> <div style=3D"marg=
+in:0px;outline:none;padding:0px;font-size:11px;line-height:1.4"> <div style=
+=3D"margin:0px;outline:none;padding:0px;text-align:center"> <span style=3D"=
+color:rgb(0,0,0);font-size:inherit;font-weight:400;line-height:inherit;text=
+-decoration:inherit;font-family:arial;font-style:normal">K=C3=BCldve neki: =
+<a href=3D"mailto:banyus53@gmail.com" target=3D"_blank" rel=3D"noreferrer">=
+banyus53@gmail.com</a></span> <br><br></div>
+<div style=3D"margin:0px;outline:none;padding:0px;text-align:center"><span =
+style=3D"color:inherit;font-size:inherit;font-weight:bold;line-height:inher=
+it;text-decoration:inherit"><a href=3D"https://szszhegyessyzita.acemlna.com=
+/proc.php?nl=3D2&amp;c=3D430&amp;m=3D458&amp;s=3Dacd9acf294c9ab208afcc949ef=
+85eece&amp;act=3Dunsub&amp;runid=3D63272489&amp;ALL" style=3D"margin:0px;ou=
+tline:none;padding:0px;color:rgb(17,85,204);text-decoration:underline" targ=
+et=3D"_blank" rel=3D"noreferrer"><span style=3D"color:rgb(17,85,204);font-s=
+ize:inherit;font-weight:inherit;line-height:inherit;text-decoration:inherit=
+">Leiratkoz=C3=A1s az emailekr=C5=91l</span></a><br></span></div>
+<div style=3D"margin:0px;outline:none;padding:0px;text-align:center"><br><s=
+pan style=3D"color:rgb(0,0,0);font-size:inherit;font-weight:400;line-height=
+:inherit;text-decoration:inherit;font-family:arial;font-style:normal">Minde=
+nnapi Lend=C3=BClet Kft., Copyright, Budapest, 2024, Hungary</span><span st=
+yle=3D"color:rgb(0,0,0);font-size:inherit;font-weight:400;line-height:inher=
+it;text-decoration:inherit;font-family:arial;font-style:normal"> </span><sp=
+an style=3D"color:rgb(0,0,0);font-size:inherit;font-weight:400;line-height:=
+inherit;text-decoration:inherit;font-family:arial;font-style:normal"> </spa=
+n> <br></div>
+ </div>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+</div>
+<img border=3D"0" width=3D"1" height=3D"1" alt=3D"" style=3D"display: block=
+; border: 0px; overflow: hidden; width: 1px; min-width: 1px; max-width: 1px=
+; height: 1px;"><br><br clear=3D"all"></div>
+</div>
+
+--000000000000c9e2b8063079c876--

@@ -1,0 +1,230 @@
+Delivered-To: estampel@gmail.com
+Received: by 2002:a05:622a:4511:b0:4ae:94e6:ffde with SMTP id lr17csp627761qtb;
+        Sat, 26 Jul 2025 03:20:40 -0700 (PDT)
+X-Forwarded-Encrypted: i=2; AJvYcCUjam5eKGOLTUCSxTV1D/cr1GHccsc2XlmIHr9qm3vlRG9wXa4Y5i7bB21WOZ/8mwI6btMJzP9ONg==@gmail.com
+X-Received: by 2002:a17:902:fc45:b0:234:ed31:fcaa with SMTP id d9443c01a7336-23fb313a94bmr83835275ad.50.1753525240585;
+        Sat, 26 Jul 2025 03:20:40 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1753525240; cv=none;
+        d=google.com; s=arc-20240605;
+        b=lq3lCnudn+hsIMLq2pjZoQJoCWDxVuRijWlym8aGNjbMHJzztnzYnypHQEI3ulLep1
+         pIZNngSVC8u0LT0vq7oGSHfFuYC/9DmsveHRDNuEzXB5a7zteIWK0gxC8z64ehDoqjcV
+         AJxvwxsnxVoamtkbVenA9v/VvcgKq6XHKzONGM8OuBCXhZvEeM7tmpBR8X7jlbly7/as
+         cDBaqVazqZ9N/dAsYk5qZJiim//kvu6MzLWDGkui1qLbXdgsUukWPsbRjC2ZsXfAf1TH
+         ySzcP51PmQyKvxDMHgjsM0QQexE+DCIZQNkCe+ZAsBOrjc4f9BMRQxEIn1COMzeJT58K
+         jrBg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=xzkl4CausolqXdIE84Ta9hYYWiTg43BGMMgXqHMV2jI=;
+        fh=h5TS5ZzbTjynHbBvoHU+GN09e9M8BSVkMerdwlcX0AA=;
+        b=Bj5rXGblRBLd02lZm0+EcGGkXX3npKHVtGVZOd1Kw8YqiyobYTkrrUmlNqx/Rv/WHM
+         Z9CnPruhWJlQL+QgufqqrKiDl3BDpRLJubchizcdhRIkFOeyQx8frdSkBgnSYpfZ3tjI
+         5T/0Q18NLOEtD/jXWdZKnttKU5Xlb8oqqve12GDXmdRY77mixv/92Dywr4XLiEmfTrNz
+         +2J3ZWrehkp6trDMU/B60IZnx54sjDg9yAXjqLJXtv16H7Zf8CdqCh33OUA09KE9aDb8
+         4DOrkfCA4oipfp19vG91cYTiZ1CtCKK2VFQZExcgN6A94L9XdDMx26Tne61IpcAuZVdd
+         IZVA==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@slp-hu.20230601.gappssmtp.com header.s=20230601 header.b=U0hJyFb4;
+       spf=softfail (google.com: domain of transitioning steiner@slp.hu does not designate 209.85.220.41 as permitted sender) smtp.mailfrom=steiner@slp.hu;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=slp.hu;
+       dara=pass header.i=@gmail.com
+Return-Path: <steiner@slp.hu>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id d9443c01a7336-23fbe4fc616sor14473615ad.11.2025.07.26.03.20.40
+        for <EStampel@gmail.com>
+        (Google Transport Security);
+        Sat, 26 Jul 2025 03:20:40 -0700 (PDT)
+Received-SPF: softfail (google.com: domain of transitioning steiner@slp.hu does not designate 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@slp-hu.20230601.gappssmtp.com header.s=20230601 header.b=U0hJyFb4;
+       spf=softfail (google.com: domain of transitioning steiner@slp.hu does not designate 209.85.220.41 as permitted sender) smtp.mailfrom=steiner@slp.hu;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=slp.hu;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=slp-hu.20230601.gappssmtp.com; s=20230601; t=1753525240; x=1754130040; dara=google.com;
+        h=to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=xzkl4CausolqXdIE84Ta9hYYWiTg43BGMMgXqHMV2jI=;
+        b=U0hJyFb42jYuV2vuazAAp7SvZp0NU3L8Q8v7tVsQTjO7feOzWdESv5zvFF72tihVvQ
+         Pr6A6LeJJXctP8LXr0mA8ydrPAAk6idXx0N0Sqk+4yBGWbFd7873XEmNWQbDEqCTVxqf
+         iu//F5vI9BYJACqW6ieDpqtNroifuf7xH1YLuwogVH4CM/RoiJ4o0t3UBNkcjvEP8fgt
+         2Oy88TVeiRAty/k6KYVuJna6eIp4FsdpItooH3+5NvYSM7eG/mFu/TYZpqLsaSk6tI8o
+         DHwVMiVCC+KpCCdbsxYs80wTL8MlEqkNQgttpi2XD8RsYr7OzSJ+8ztw+hMZ825JmkUK
+         L1Nw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1753525240; x=1754130040;
+        h=to:subject:message-id:date:from:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=xzkl4CausolqXdIE84Ta9hYYWiTg43BGMMgXqHMV2jI=;
+        b=NAlSFHXtI5RAGYNl12oKbiWFyN5cerchOcW4qbnJie7EgLmqcBYRDC5J613pADW9VS
+         e8i9vtBnJk9lIY/9MRNLALXmCDpxyi77fEPV1KdUwm1/us42FwY2uNIO6j2C2cO44nDB
+         4HHN2f8l7kLsKm+Ki4Ns8BzBT1zDnMEf55rtZ6SL/SM7XHUPGvdWSkO/ZdYuI8wXGt6D
+         Dqhmqr/cMFPnSRaZc5zhZa1dqyc7wDQv5u2qFkwjg8AoaCgo2CCMfLcZoZq7LMr13abi
+         Un28LmASIspqpjlcLLgLMqW6/ZQBWJRE1L2rSpkYj4B3zhp3YYL55/2TuTMlI2/jPNUs
+         nwUA==
+X-Forwarded-Encrypted: i=1; AJvYcCUfFOZUCxBvKyNU6zcZmi4MfFBcXjZ+Nkeb6qI2mASPTZsd9fgQdwV8TVQV2dSjnfRB10JKMLH8SQ==@gmail.com
+X-Gm-Message-State: AOJu0YxSxhAfRKUbLFJIo985FeFO7W7PCD+ZaGiEs0M1Q75D01WhIAac
+	Z5MvR1K70eyFFQcWEIHqqroXUjaJKeYbVWuIBksSnskaS6MdP+lAZHB4Up1zYuLTbvmSxxIXPFE
+	+pLNj6TC3uI5RNnQ69IYIwODX7+7zKYx874UW/dlb8g==
+X-Gm-Gg: ASbGnct4gwMK7QJ4xEOLGFAkktMaQBXku/RPSXwwDTTiTdVFTRJzOLgvaLL80MwRlJ4
+	gdm84kSxMDe9HK1adHcMHgGrIltcaKo/ZIv5Q+SsEns/xPdpYEja2vs9XSZ5praK036SUT/e27c
+	2sHFnkIUvojRCFWpAdC9fJVL3C68TqKW7TkL4FbOBJYAHQ01ff68CAhoGR0yAtoVVfQSxYBMvxK
+	aqU
+X-Google-Smtp-Source: AGHT+IHOYChvN7OViI1WQntMrwQlw5RuY2OvNX0kgqLBSY/e8p0ZeTBa04dmyXxh6GbJf6lxOiowadNR8NP9cujnwSw=
+X-Received: by 2002:a17:902:f114:b0:23f:df69:af50 with SMTP id
+ d9443c01a7336-23fdf69b14bmr6738085ad.34.1753525239449; Sat, 26 Jul 2025
+ 03:20:39 -0700 (PDT)
+MIME-Version: 1.0
+From: =?UTF-8?B?TMOhc3psw7MgU3RlaW5lcg==?= <steiner@slp.hu>
+Date: Sat, 26 Jul 2025 12:20:27 +0200
+X-Gm-Features: Ac12FXzT51EqhxDu2V8-jBK59mxyVmDAx6B1awSjzUT45YnKp5RO2tSdV8qMNNM
+Message-ID: <CAHvQ8VLDjHpEoo_Ye+Z6B18+3bYXBxiEQS1HnHwQGp1mW_aaag@mail.gmail.com>
+Subject: =?UTF-8?B?UGxhdMOhbiBUaXN6YSBTemlnZXQgw6lzIFNvbW9neSAzIHbDoWxhc3p0w7NrZXLDvGxldA==?=
+To: Emma Nyers <emma.nyers@gmail.com>, Szeri Gabi <szerigabi@kalasz.hu>, anna.gati@hotmail.com, 
+	=?UTF-8?B?S2Fsw6FzeiBKw7N6c2Vm?= <jozsef@kalasz.hu>, 
+	Orsi Wigand <orsitiszabb@gmail.com>, =?UTF-8?B?TMOhc3psw7MgTW9sbsOhcg==?= <laszlo.junior@gmail.com>, 
+	=?UTF-8?Q?Aur=C3=A9l_Polnik?= <polnik.aurel66@gmail.com>, 
+	Soltine Marta <soltine.marta@gmail.com>, =?UTF-8?B?w4FnbmVzIEJ1Z8Ohcg==?= <banyus53@gmail.com>, 
+	EStampel@gmail.com, h.toth.brigitta@gmail.com, istvansolti53@gmail.com, 
+	Melinda Fenyvesi <melinda.fenyvesi@gmail.com>, pegazus650@gmail.com, bordaszsanett1@gmail.com, 
+	maria.faddine@gmail.com, pannijusits@gmail.com, eizlerzoli1@gmail.com, 
+	szalai1958@gmail.com
+Content-Type: multipart/alternative; boundary="000000000000009da1063ad269d0"
+
+--000000000000009da1063ad269d0
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Szervusztok kedves Sziget-t=C3=A1rsak,
+az elm=C3=BAlt cs=C3=BCt=C3=B6rt=C3=B6k=C3=B6n r=C3=A9szt vettem a Somogy 3=
+ ter=C3=BClet=C3=A9n m=C5=B1k=C3=B6d=C5=91 Tisza
+Szigetek k=C3=A9pvisel=C5=91inek tal=C3=A1lkoz=C3=B3j=C3=A1n, ami rendkiv=
+=C3=BCl =C3=A9rdekes  =C3=A9s eredm=C3=A9nyes
+volt.
+A saj=C3=A1t v=C3=A9lem=C3=A9nyem le=C3=ADr=C3=A1sa el=C3=B6tt id=C3=A9zn=
+=C3=A9k n=C3=A9h=C3=A1ny r=C3=A9sztvev=C5=91t=C5=91l:
+*Somogyi R=C3=A9v=C3=A9sz*: =E2=80=93 amikor a v=C3=A1ltoz=C3=A1s csendben =
+indul el
+"Tegnap Somogyorsz=C3=A1gban az emberek =C3=A9lt=C3=A9k a szok=C3=A1sos min=
+dennapjaikat.
+Dolgoztak, hazamentek.
+Mik=C3=B6zben egy kis csapat le=C3=BClt, hogy =C5=91szint=C3=A9n besz=C3=A9=
+ljen arr=C3=B3l, mi fontos.
+Nem hangosan. Nem a c=C3=ADmlapokon. Csak egym=C3=A1sra figyelve. K=C3=A9rd=
+ezve.
+Jelenl=C3=A9ttel.
+=C3=89s mindez ett=C5=91l v=C3=A1lt k=C3=BCl=C3=B6nlegess=C3=A9!
+Nem =C3=ADg=C3=A9retek sz=C3=BClettek, hanem =C3=A9rt=C3=A9kek. Nem program=
+ok, hanem p=C3=A1rbesz=C3=A9d.
+H=C3=A1l=C3=A1s vagyok mindenkinek, aki r=C3=A9szese volt a tegnapi R=C3=89=
+V=C3=89SZ szemin=C3=A1riumnak.
+Ritk=C3=A1n lehet ennyire s=C5=B1r=C5=B1, tiszta =C3=A9s cselekv=C3=A9sre h=
+=C3=ADv=C3=B3 l=C3=A9gk=C3=B6rben gondolkodni.
+Lehet, hogy ez m=C3=A9g nem a v=C3=A1ltoz=C3=A1s maga. De biztos, hogy a v=
+=C3=A1ltoz=C3=A1s innen
+indul. Bel=C3=BClr=C5=91l. K=C3=B6z=C3=B6sen.
+=C3=89s te?
+Hozz=C3=A1d milyen k=C3=A9rd=C3=A9s =C3=A9rkezett meg tegnap =C3=B3ta?"
+*Sud=C3=A1r P=C3=A9ter* : (a mez=C5=91csokonyai vend=C3=A9gl=C3=A1t=C3=B3 S=
+ziget hangad=C3=B3ja, motorja),
+"Az es=C3=A9ly val=C3=B3ban val=C3=B3ra v=C3=A1lhat?
+A tegnapi esem=C3=A9ny ut=C3=A1n, amilyen lend=C3=BClettel, egym=C3=A1s ir=
+=C3=A1nti tisztelettel,
+egyenl=C5=91 felt=C3=A9telekkel =C3=A9s hatalmas egyet=C3=A9rt=C3=A9sben, =
+=C3=B6sszefog=C3=A1sban elindultunk,
+a v=C3=A1laszom egy=C3=A9rtelm=C5=B1en: IGEN!
+Viszont megsz=C3=BCletett bennem a k=C3=B6vetkez=C5=91 k=C3=A9rd=C3=A9s:
+Ti is ezt =C3=A9rzitek?"
+
+*Ezek az id=C3=A9zetek egybecsengenek az =C3=A9n benyom=C3=A1saimmal: megin=
+dult a somogyi
+vid=C3=A9k. =C3=A9s =C3=A1llva hagytak minket.*
+Ez=C3=A9rt a k=C3=B6vetkez=C5=91ket javaslom tenni:
+1. K=C3=A9sz=C3=BClj=C3=BCnk fel a k=C3=B6vetkez=C5=91 Somogy 3 tal=C3=A1lk=
+oz=C3=B3ra, augusztus 7-=C3=A9n 18
+=C3=B3r=C3=A1t=C3=B3l. Az els=C5=91dleges helyszin Marcali, ha ez nem tud m=
+egval=C3=B3sulni, akkor
+Balatonbogl=C3=A1r, Coop =C3=9Cd=C3=BCl=C5=91. Min=C3=A9l  t=C3=B6bben gyer=
+tek el, =C3=A9rdemes!
+2. Demonstrativ m=C3=B3don Plat=C3=A1n Tisza Sziget pol=C3=B3ban kellene me=
+gjelenn=C3=BCnk.
+Sajnos a meg=C3=ADg=C3=A9rt design nem k=C3=A9sz=C3=BClt el, =C3=A9s a megv=
+al=C3=B3s=C3=ADt=C3=A1s t=C3=B6bbi =C3=B6tlete is
+=C3=B6tlet maradt. Ez=C3=A9rt =C3=A9n megrendeltem egy egyszer=C5=B1, szoli=
+d design-t egy feh=C3=A9r
+p=C3=B3l=C3=B3ra. H=C3=A9tf=C5=91n fogom l=C3=A1tni az =C3=A1rat. Addig is =
+k=C3=A9rem, hogy ha k=C3=A9rtek Plat=C3=A1n
+Tisza Sziget p=C3=B3l=C3=B3t a m=C3=A9reteteket adj=C3=A1tok meg Aur=C3=A9l=
+nak.
+Egyben jelezz=C3=A9tek azt is, hogy elj=C3=B6tt=C3=B6k- e a 7-i esem=C3=A9n=
+yre.
+3. Ha valamilyen okb=C3=B3l nem tudtok akt=C3=ADvan r=C3=A9szt venni a Plat=
+=C3=A1n Tisza Sziget
+tev=C3=A9kenys=C3=A9g=C3=A9ben, azt szint=C3=A9n jelezz=C3=A9tek Aur=C3=A9l=
+nak.
+4. Ha aktiv Szigetagok akartok maradni =C3=A9s =C3=A9rdekel a SO3 kamp=C3=
+=A1ny strat=C3=A9gia
+alak=C3=ADt=C3=A1sa, akkor jelentkezzetek =C3=A9s jelentkezzetek be a
+https://www.facebook.com/profile.php?id=3D61578898970659 oldalra.
+
+=C3=9Cdv=C3=B6zlettel,
+Laci
+
+--000000000000009da1063ad269d0
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr">Szervusztok kedves Sziget-t=C3=A1rsak,<div>az elm=C3=BAlt =
+cs=C3=BCt=C3=B6rt=C3=B6k=C3=B6n r=C3=A9szt vettem a Somogy 3 ter=C3=BClet=
+=C3=A9n m=C5=B1k=C3=B6d=C5=91 Tisza Szigetek k=C3=A9pvisel=C5=91inek tal=C3=
+=A1lkoz=C3=B3j=C3=A1n, ami rendkiv=C3=BCl =C3=A9rdekes=C2=A0 =C3=A9s eredm=
+=C3=A9nyes volt.</div><div>A saj=C3=A1t v=C3=A9lem=C3=A9nyem le=C3=ADr=C3=
+=A1sa el=C3=B6tt id=C3=A9zn=C3=A9k n=C3=A9h=C3=A1ny r=C3=A9sztvev=C5=91t=C5=
+=91l:</div><div><b><u>Somogyi R=C3=A9v=C3=A9sz</u></b>: =E2=80=93 amikor a =
+v=C3=A1ltoz=C3=A1s csendben indul el</div>&quot;Tegnap Somogyorsz=C3=A1gban=
+ az emberek =C3=A9lt=C3=A9k a szok=C3=A1sos mindennapjaikat. Dolgoztak, haz=
+amentek.<br>Mik=C3=B6zben egy kis csapat le=C3=BClt, hogy =C5=91szint=C3=A9=
+n besz=C3=A9ljen arr=C3=B3l, mi fontos. Nem hangosan. Nem a c=C3=ADmlapokon=
+. Csak egym=C3=A1sra figyelve. K=C3=A9rdezve. Jelenl=C3=A9ttel.<br>=C3=89s =
+mindez ett=C5=91l v=C3=A1lt k=C3=BCl=C3=B6nlegess=C3=A9!<br>Nem =C3=ADg=C3=
+=A9retek sz=C3=BClettek, hanem =C3=A9rt=C3=A9kek. Nem programok, hanem p=C3=
+=A1rbesz=C3=A9d.<br>H=C3=A1l=C3=A1s vagyok mindenkinek, aki r=C3=A9szese vo=
+lt a tegnapi R=C3=89V=C3=89SZ szemin=C3=A1riumnak. Ritk=C3=A1n lehet ennyir=
+e s=C5=B1r=C5=B1, tiszta =C3=A9s cselekv=C3=A9sre h=C3=ADv=C3=B3 l=C3=A9gk=
+=C3=B6rben gondolkodni.<br>Lehet, hogy ez m=C3=A9g nem a v=C3=A1ltoz=C3=A1s=
+ maga. De biztos, hogy a v=C3=A1ltoz=C3=A1s innen indul. Bel=C3=BClr=C5=91l=
+. K=C3=B6z=C3=B6sen.<br>=C3=89s te?<br>Hozz=C3=A1d milyen k=C3=A9rd=C3=A9s =
+=C3=A9rkezett meg tegnap =C3=B3ta?&quot;<div><b><u>Sud=C3=A1r P=C3=A9ter</u=
+></b>=C2=A0: (a mez=C5=91csokonyai=C2=A0vend=C3=A9gl=C3=A1t=C3=B3 Sziget ha=
+ngad=C3=B3ja, motorja),</div><div>&quot;Az es=C3=A9ly val=C3=B3ban val=C3=
+=B3ra v=C3=A1lhat?<br>A tegnapi esem=C3=A9ny ut=C3=A1n, amilyen lend=C3=BCl=
+ettel, egym=C3=A1s ir=C3=A1nti tisztelettel, egyenl=C5=91 felt=C3=A9telekke=
+l =C3=A9s hatalmas egyet=C3=A9rt=C3=A9sben, =C3=B6sszefog=C3=A1sban elindul=
+tunk, a v=C3=A1laszom egy=C3=A9rtelm=C5=B1en: IGEN!<br>Viszont megsz=C3=BCl=
+etett bennem a k=C3=B6vetkez=C5=91 k=C3=A9rd=C3=A9s:<br>Ti is ezt =C3=A9rzi=
+tek?&quot;</div><div><br></div><div><div><b>Ezek az id=C3=A9zetek=C2=A0egyb=
+ecsengenek az =C3=A9n benyom=C3=A1saimmal: megindult a somogyi vid=C3=A9k. =
+=C3=A9s =C3=A1llva hagytak minket.</b>=C2=A0</div><div>Ez=C3=A9rt a k=C3=B6=
+vetkez=C5=91ket javaslom tenni:</div></div><div>1. K=C3=A9sz=C3=BClj=C3=BCn=
+k fel a k=C3=B6vetkez=C5=91 Somogy 3 tal=C3=A1lkoz=C3=B3ra, augusztus 7-=C3=
+=A9n 18 =C3=B3r=C3=A1t=C3=B3l. Az els=C5=91dleges helyszin Marcali, ha ez n=
+em tud megval=C3=B3sulni, akkor Balatonbogl=C3=A1r, Coop =C3=9Cd=C3=BCl=C5=
+=91. Min=C3=A9l=C2=A0 t=C3=B6bben gyertek el, =C3=A9rdemes!</div><div>2. De=
+monstrativ m=C3=B3don Plat=C3=A1n Tisza Sziget pol=C3=B3ban=C2=A0kellene me=
+gjelenn=C3=BCnk. Sajnos a meg=C3=ADg=C3=A9rt=C2=A0design nem k=C3=A9sz=C3=
+=BClt el, =C3=A9s a megval=C3=B3s=C3=ADt=C3=A1s t=C3=B6bbi =C3=B6tlete is =
+=C3=B6tlet maradt. Ez=C3=A9rt =C3=A9n megrendeltem egy egyszer=C5=B1, szoli=
+d design-t egy feh=C3=A9r p=C3=B3l=C3=B3ra. H=C3=A9tf=C5=91n fogom l=C3=A1t=
+ni az =C3=A1rat. Addig is k=C3=A9rem, hogy ha k=C3=A9rtek Plat=C3=A1n Tisza=
+ Sziget p=C3=B3l=C3=B3t a m=C3=A9reteteket adj=C3=A1tok meg Aur=C3=A9lnak.<=
+/div><div>Egyben jelezz=C3=A9tek azt is, hogy elj=C3=B6tt=C3=B6k- e a 7-i e=
+sem=C3=A9nyre.</div><div>3. Ha valamilyen okb=C3=B3l nem tudtok akt=C3=ADva=
+n=C2=A0r=C3=A9szt venni a Plat=C3=A1n Tisza Sziget tev=C3=A9kenys=C3=A9g=C3=
+=A9ben, azt szint=C3=A9n jelezz=C3=A9tek Aur=C3=A9lnak.</div><div>4. Ha akt=
+iv Szigetagok akartok maradni =C3=A9s =C3=A9rdekel a SO3 kamp=C3=A1ny strat=
+=C3=A9gia alak=C3=ADt=C3=A1sa, akkor jelentkezzetek =C3=A9s jelentkezzetek =
+be a=C2=A0<a href=3D"https://www.facebook.com/profile.php?id=3D615788989706=
+59">https://www.facebook.com/profile.php?id=3D61578898970659</a> oldalra.</=
+div><div><br></div><div>=C3=9Cdv=C3=B6zlettel,</div><div>Laci</div></div>
+
+--000000000000009da1063ad269d0--
