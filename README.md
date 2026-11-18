@@ -2,6 +2,8 @@
 
 ## YOUTUBE
 
+ytInitialData = 
+
 ### URL KEZDETE
  https://youtu.be
 
@@ -9,3 +11,6 @@
  "videoTitle"
 ### LEÍRÁS
  "attributedDescription" : "content"
+
+
+
