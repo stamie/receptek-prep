@@ -1,4 +1,4 @@
-import ownclasses as ownclasses
+import classes.ownclasses as ownclasses
 import json
 import re
 
@@ -13,14 +13,19 @@ class youtube:
 
     @staticmethod
     def get_url( string_ ):
-        url = ownclasses.urls.get_url( string_, youtube.YOUTUBE_URL, '"' )
+        url = ownclasses.urls.get_url( string_ + '"', youtube.YOUTUBE_URL, '"' )
+        pos = url.find('?')
+        if pos > 0:
+            url = url[0: pos]
+        url = re.sub('</a>' , '', url)
+        url = re.sub('</div>' , '', url)
+            
         return url
 
     @staticmethod
     def getHtml( url ):
         url_ = youtube.YOUTUBE_URL + youtube.get_url( url )
         fileName = ownclasses.urls.setHtmlFileName( url, youtube.CONST )
-        print(fileName + ' hello1')
         ownclasses.urls.wget( url_, fileName )
         return fileName
 
@@ -55,28 +60,30 @@ class youtube:
 
     @staticmethod
     def getTitle( fileName ):
-        if ( re.search( 'json', fileName ) != None and re.search( 'youtube', fileName ) != None) :
-            with open(fileName, "r", encoding="utf-8") as f:
-                datas = json.load(f)
-                getDatas = datas['contents']['twoColumnWatchNextResults']['results']['results']['contents']
-                if (getDatas != None):
-                    print ('bejött')
-                    for data_ in getDatas :
-                        getData = data_['videoPrimaryInfoRenderer']['title']['runs']
-                        if (getData != None):
-                            for data in getData:
-                                if (data['text'] != None):
-                                    f.close()
-                                    return data['text']
-        return 'hibás'
+        try :
+            if ( re.search( 'json', fileName ) != None and re.search( 'youtube', fileName ) != None) :
+                with open(fileName, "r", encoding="utf-8") as f:
+                    datas = json.load(f)
+                    getDatas = datas['contents']['twoColumnWatchNextResults']['results']['results']['contents']
+                    if (getDatas != None):
+                        print ('bejött')
+                        for data_ in getDatas :
+                            getData = data_['videoPrimaryInfoRenderer']['title']['runs']
+                            if (getData != None):
+                                for data in getData:
+                                    if (data['text'] != None):
+                                        f.close()
+                                        return data['text']
+        except:
+            return 'hibás'
 
     
-Url = 'https://youtu.be/rA-wrhhiyAA'
-UrlEredmeny = youtube.get_url( Url )
-print(UrlEredmeny + ' helloka url')
-fName = youtube.getHtml( UrlEredmeny )
-fJson = youtube.loadAndSaveJson( fName )
-title = youtube.getTitle(fJson)
-print(title)
+# Url = 'hello https://youtu.be/_KA3Jk1al6U?is=o9F_40ZLBN6YSfLT'
+# UrlEredmeny = youtube.get_url( Url )
+# print(UrlEredmeny + ' helloka url')
+# fName = youtube.getHtml( UrlEredmeny )
+# fJson = youtube.loadAndSaveJson( fName )
+# title = youtube.getTitle(fJson)
+# print(title)
 
 #print(eredmeny)  # Kimenet: https://youtu.be/abcd
