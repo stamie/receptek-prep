@@ -1,6 +1,7 @@
-import classes.ownclasses as ownclasses
+import ownclasses as ownclasses
 import json
 import re
+from pathlib import Path
 
 class youtube:
 
@@ -31,11 +32,22 @@ class youtube:
 
     @staticmethod
     def getContent( fileName ):
-        str = ownclasses.loadedPage.getContentText( fileName )
-        key_ = list(youtube.YOUTUBE_REGEXPS['content'].keys())[0]
-        ls = re.findall(key_, str)
-        print(ls)
-        return 'valami'
+        try :
+            if ( re.search( 'json', fileName ) != None and re.search( 'youtube', fileName ) != None) :
+                with open(fileName, "r", encoding="utf-8") as f:
+                    datas = json.load(f)
+                    getDatas = datas['contents']['twoColumnWatchNextResults']['results']['results']['contents']
+                    if (getDatas != None):
+                        for data_ in getDatas :
+                            secondary_info = data_.get("videoSecondaryInfoRenderer")
+                            if secondary_info is not None:
+                                secondary_info = secondary_info.get("attributedDescription")
+                                if secondary_info is not None:
+                                    getData = secondary_info.get('content')
+                                    return getData
+            return 'valami'
+        except :
+            return 'valami'
 
     @staticmethod
     def loadAndSaveJson( fileName ):
@@ -66,7 +78,6 @@ class youtube:
                     datas = json.load(f)
                     getDatas = datas['contents']['twoColumnWatchNextResults']['results']['results']['contents']
                     if (getDatas != None):
-                        print ('bejött')
                         for data_ in getDatas :
                             getData = data_['videoPrimaryInfoRenderer']['title']['runs']
                             if (getData != None):
@@ -87,3 +98,24 @@ class youtube:
 # print(title)
 
 #print(eredmeny)  # Kimenet: https://youtu.be/abcd
+inputFile = Path('../input.json')
+output = []
+errorOutput = []
+with open(str(inputFile), "r", encoding="utf-8") as f:
+    data = json.load(f)
+    for d in data:
+        yFile = Path(re.sub('https://youtu.be/', '../jsons/youtube_', d['url']) + '.json')
+        content = youtube.getContent (str(yFile))
+        if content == 'valami' :
+            errorOutput.append({'title': d['title'], 'url': d['url']})
+        else :
+            output.append({'title': d['title'], 'url': d['url'], 'content' : content})
+outputFile = Path('../ok.json')
+with outputFile.open("w", encoding="utf-8") as f:
+    json.dump(output, f, ensure_ascii=False, indent=2)
+
+errorOutputFile = Path('../no_ok.json')
+with errorOutputFile.open("w", encoding="utf-8") as f:
+    json.dump(errorOutput, f, ensure_ascii=False, indent=2)
+
+
