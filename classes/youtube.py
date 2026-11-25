@@ -98,24 +98,54 @@ class youtube:
 # print(title)
 
 #print(eredmeny)  # Kimenet: https://youtu.be/abcd
-inputFile = Path('../input.json')
+inputFile = Path('../ok.json')
 output = []
 errorOutput = []
+OsszetevokStr = ['összetevők', 'hozzávalók']
+kategoriak = ['#']
+alapanyagJsonba =[]
+egysegek = ['g ', 'kg ', 'gramm ', 'evőkanál ', 'tk ', 'l ', 'ml ', 'csésze ', 'uncia ', 'db ', 'mk ', 'ek ', 'bögre ', 'dl ', 'teáskanál ']
+isNotAlapanyag = ['ratkozz fel a csatornára', 'attints a csengőre', '#']
 with open(str(inputFile), "r", encoding="utf-8") as f:
     data = json.load(f)
     for d in data:
-        yFile = Path(re.sub('https://youtu.be/', '../jsons/youtube_', d['url']) + '.json')
-        content = youtube.getContent (str(yFile))
-        if content == 'valami' :
-            errorOutput.append({'title': d['title'], 'url': d['url']})
-        else :
-            output.append({'title': d['title'], 'url': d['url'], 'content' : content})
-outputFile = Path('../ok.json')
+        content = str(d['content'])
+        bool = False
+        for osszStr in OsszetevokStr :
+            if re.search(osszStr, content.lower()) is not None:
+                start = re.search(osszStr, content.lower())
+                content = content[start.end():]
+                alapanyagok = content.split('\n')
+                alapanyagokTomb = []
+                for alapanyag in alapanyagok:
+                    pattern = re.compile(r"\d")
+                    alapanyag = re.sub(pattern, '', alapanyag).strip().strip(".").strip(":").lower()
+                    alapanyag = re.sub('/', '', alapanyag).strip().strip(".").strip(":")
+                    alapanyag = re.sub('-', '', alapanyag).strip().strip(".").strip(":")
+
+                    for egyseg in egysegek :
+                        if re.match(egyseg, alapanyag) is not None :
+                           end = re.match(egyseg, alapanyag)
+                           alapanyag = alapanyag[end.end():].strip()
+                    if alapanyag != '':
+                        alapanyagokTomb.append(alapanyag)
+                        if alapanyag not in alapanyagJsonba:
+                            alapanyagJsonba.append(alapanyag)
+                output.append({'title': d['title'], 'url': d['url'], 'alapanyagok': alapanyagokTomb, 'content' : d['content']})
+                bool =True
+                break
+        if bool is False :
+            errorOutput.append({'title': d['title'], 'url': d['url'], 'content' : d['content']})
+    
+
+
+outputFile = Path('../ok_1.json')
 with outputFile.open("w", encoding="utf-8") as f:
     json.dump(output, f, ensure_ascii=False, indent=2)
 
-errorOutputFile = Path('../no_ok.json')
+errorOutputFile = Path('../no_ok_1.json')
 with errorOutputFile.open("w", encoding="utf-8") as f:
     json.dump(errorOutput, f, ensure_ascii=False, indent=2)
-
-
+alapanyagokFile = Path('../alapanyag.json')
+with alapanyagokFile.open('w', encoding="utf-8") as f:
+    json.dump(alapanyagJsonba, f, ensure_ascii=False, indent=2)
